@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palworld Explorer</title>
+    <!-- Simple reset and theme -->
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0b132b;
+            color: #edf2f4;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a { color: inherit; text-decoration: none; }
+        header {
+            background: linear-gradient(to right, rgba(20, 33, 61, 0.9), rgba(4, 58, 75, 0.9)), url('palworld-full-map-2.webp');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            color: #fff;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        header .content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        header p { font-size: 1rem; opacity: 0.85; }
+        nav {
+            background: #1c2541;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        nav .logo { font-weight: 700; font-size: 1.4rem; color: #00a896; }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav ul li { cursor: pointer; padding: 5px 10px; border-radius: 4px; transition: background 0.2s; }
+        nav ul li.active,
+        nav ul li:hover { background: #274156; }
+        /* Sections */
+        main { flex: 1; padding: 20px; }
+        section { display: none; padding: 20px 0; }
+        section.active { display: block; }
+        .section-title { font-size: 1.8rem; margin-bottom: 20px; text-align: center; color: #e0fbfc; }
+        /* Pal list */
+        #pal-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+        }
+        .pal-card {
+            background: #1c2541;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.2s;
+            position: relative;
+        }
+        .pal-card:hover { transform: translateY(-4px); }
+        .pal-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            background: #274156;
+        }
+        .pal-card .info {
+            padding: 10px;
+        }
+        .pal-card h4 { font-size: 1rem; margin-bottom: 4px; }
+        .pal-card .types { display: flex; flex-wrap: wrap; gap: 4px; }
+        .badge {
+            padding: 2px 6px;
+            font-size: 0.7rem;
+            border-radius: 4px;
+            color: #fff;
+            text-transform: capitalize;
+        }
+        .captured {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #00a896;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+        /* Item list */
+        #item-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .item-card {
+            background: #1c2541;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        .item-card h4 { font-size: 1rem; margin-bottom: 6px; }
+        .item-card .category { font-size: 0.8rem; opacity: 0.8; }
+        .item-card ul { margin-top: 6px; margin-left: 16px; list-style: disc; }
+        /* Tech tree */
+        .tech-level {
+            margin-bottom: 20px;
+            background: #1c2541;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        .tech-level h4 { font-size: 1.1rem; margin-bottom: 8px; color: #00a896; }
+        .tech-level ul { margin-left: 16px; list-style: disc; }
+        /* Modal */
+        #modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        #modal {
+            background: #1c2541;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+        }
+        #modal .close-btn {
+            position: absolute;
+            top: 10px; right: 10px;
+            background: none;
+            border: none;
+            color: #edf2f4;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        #progress-bars {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .progress-bar {
+            background: #274156;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .progress-bar span {
+            display: block;
+            height: 16px;
+            background: #00a896;
+        }
+        .progress-bar label {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            display: block;
+        }
+        /* Simple inputs */
+        .filter-group { margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .filter-group input, .filter-group select {
+            padding: 8px 10px;
+            border: none;
+            border-radius: 4px;
+            background: #274156;
+            color: #edf2f4;
+            font-size: 0.9rem;
+        }
+    </style>
+    <!-- Chart.js for radar charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+    <header>
+        <div class="content">
+            <h1>Palworld Explorer</h1>
+            <p>A friendly guide for adventurers! Discover Pals, collect items, and unlock technology.</p>
+        </div>
+    </header>
+    <nav>
+        <div class="logo">Explorer</div>
+        <ul id="nav-menu">
+            <li data-section="pals" class="active">Pals</li>
+            <li data-section="items">Items</li>
+            <li data-section="tech">Tech Tree</li>
+            <li data-section="progress">Progress</li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Pals section -->
+        <section id="section-pals" class="active">
+            <h2 class="section-title">Pal Deck</h2>
+            <div class="filter-group">
+                <input type="text" id="pal-search" placeholder="Search pals..." />
+                <select id="type-filter">
+                    <option value="">All Types</option>
+                </select>
+                <select id="rarity-filter">
+                    <option value="">All Rarities</option>
+                    <option value="Common">Common</option>
+                    <option value="Uncommon">Uncommon</option>
+                    <option value="Rare">Rare</option>
+                    <option value="Epic">Epic</option>
+                    <option value="Legendary">Legendary</option>
+                </select>
+            </div>
+            <div id="pal-list"></div>
+        </section>
+        <!-- Items section -->
+        <section id="section-items">
+            <h2 class="section-title">Items</h2>
+            <div class="filter-group">
+                <input type="text" id="item-search" placeholder="Search items..." />
+                <select id="item-category-filter">
+                    <option value="">All Categories</option>
+                    <option value="Food">Food</option>
+                    <option value="Material">Material</option>
+                    <option value="Equipment">Equipment</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Misc">Misc</option>
+                </select>
+            </div>
+            <div id="item-list"></div>
+        </section>
+        <!-- Technology Tree -->
+        <section id="section-tech">
+            <h2 class="section-title">Technology Tree</h2>
+            <div id="tech-tree"></div>
+        </section>
+        <!-- Progress section -->
+        <section id="section-progress">
+            <h2 class="section-title">Your Progress</h2>
+            <p>Track the pals you’ve caught, the items you’ve collected, and your tech unlocks. Progress is saved in your browser.</p>
+            <div id="progress-bars"></div>
+        </section>
+    </main>
+    <!-- Modal for pal details -->
+    <div id="modal-overlay">
+        <div id="modal">
+            <button class="close-btn" id="modal-close"><i class="fa fa-times"></i></button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+    <script>
+    // Data containers
+    let pals = {};
+    let items = {};
+    let tech = [];
+    let palList = [];
+    // Local storage keys
+    const STORAGE_KEYS = {
+        caught: 'palworld_caught_pals',
+        collected: 'palworld_collected_items',
+        tech: 'palworld_unlocked_tech'
+    };
+    let caughtPals = JSON.parse(localStorage.getItem(STORAGE_KEYS.caught) || '[]');
+    let collectedItems = JSON.parse(localStorage.getItem(STORAGE_KEYS.collected) || '[]');
+    let unlockedTech = JSON.parse(localStorage.getItem(STORAGE_KEYS.tech) || '[]');
+
+    // Environment mapping for each type
+    const typeEnvironment = {
+        Fire: 'Volcano',
+        Ice: 'Snow Fields',
+        Water: 'Coast',
+        Electric: 'Power Plant',
+        Grass: 'Forest',
+        Earth: 'Desert',
+        Ground: 'Desert',
+        Neutral: 'Plains',
+        Dark: 'Ruins',
+        Dragon: 'Mountains',
+        Air: 'Sky Islands'
+    };
+
+    // Fetch dataset from local JSON file
+    async function loadData() {
+        try {
+            const res = await fetch('palworld_complete_data.json');
+            if (!res.ok) throw new Error('Missing data file');
+            const data = await res.json();
+            pals = data.pals;
+            items = data.items;
+            tech = data.tech;
+            palList = Object.values(pals);
+            // Render UI
+            populateTypeOptions();
+            renderPalList();
+            renderItemList();
+            renderTechTree();
+            updateProgress();
+        } catch (e) {
+            console.error('Error loading data', e);
+            document.body.innerHTML = '<p style="padding:20px">Failed to load data. Make sure the JSON file is in the same folder.</p>';
+        }
+    }
+
+    // Populate type filter with unique types
+    function populateTypeOptions() {
+        const select = document.getElementById('type-filter');
+        const types = new Set();
+        palList.forEach(p => p.types.forEach(t => types.add(t)));
+        Array.from(types).sort().forEach(t => {
+            const opt = document.createElement('option');
+            opt.value = t;
+            opt.textContent = t;
+            select.appendChild(opt);
+        });
+    }
+
+    // Render pal cards
+    function renderPalList() {
+        const list = document.getElementById('pal-list');
+        list.innerHTML = '';
+        // Filter by search and type and rarity
+        const search = document.getElementById('pal-search').value.toLowerCase();
+        const tFilter = document.getElementById('type-filter').value;
+        const rFilter = document.getElementById('rarity-filter').value;
+        palList.forEach(pal => {
+            if (search && !pal.name.toLowerCase().includes(search)) return;
+            if (tFilter && !pal.types.includes(tFilter)) return;
+            if (rFilter && pal.rarity !== rFilter) return;
+            const card = document.createElement('div');
+            card.className = 'pal-card';
+            // Check captured status
+            const captured = caughtPals.includes(pal.id);
+            card.innerHTML = `
+                ${captured ? '<div class="captured">Caught</div>' : ''}
+                <img src="${pal.image}" alt="${pal.name}">
+                <div class="info">
+                    <h4>${pal.name}</h4>
+                    <div class="types">
+                        ${pal.types.map(type => `<span class="badge" style="background:${typeColor(type)}">${type}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+            card.addEventListener('click', () => showPalDetail(pal.id));
+            list.appendChild(card);
+        });
+    }
+
+    // Determine color for type
+    function typeColor(t) {
+        const colors = {
+            Fire: '#f35e51', Ice: '#70c1ff', Water: '#50c4e7', Electric: '#ffda79', Grass: '#64d58c', Earth: '#a68b5b', Ground: '#a68b5b', Neutral: '#8faaff', Dark: '#9b59b6', Dragon: '#e67e22', Air: '#85c1e9'
+        };
+        return colors[t] || '#546a7b';
+    }
+
+    // Show detailed info for a pal
+    function showPalDetail(id) {
+        const pal = pals[id];
+        if (!pal) return;
+        const modal = document.getElementById('modal-content');
+        modal.innerHTML = '';
+        const header = document.createElement('div');
+        header.style.display = 'flex';
+        header.style.flexWrap = 'wrap';
+        header.style.alignItems = 'center';
+        header.style.gap = '20px';
+        const img = document.createElement('img');
+        img.src = pal.image;
+        img.alt = pal.name;
+        img.style.width = '150px';
+        img.style.height = '150px';
+        img.style.objectFit = 'contain';
+        const title = document.createElement('div');
+        title.innerHTML = `<h3>${pal.name}</h3><p>Rarity: ${pal.rarity || 'Unknown'} | Genus: ${pal.genus || 'Unknown'}</p>`;
+        header.appendChild(img);
+        header.appendChild(title);
+        modal.appendChild(header);
+        // Capture button
+        const captureBtn = document.createElement('button');
+        captureBtn.textContent = caughtPals.includes(pal.id) ? 'Mark as Uncaught' : 'Mark as Caught';
+        captureBtn.style.margin = '10px 0';
+        captureBtn.style.padding = '8px 12px';
+        captureBtn.style.background = '#00a896';
+        captureBtn.style.border = 'none';
+        captureBtn.style.color = '#fff';
+        captureBtn.style.borderRadius = '4px';
+        captureBtn.style.cursor = 'pointer';
+        captureBtn.addEventListener('click', () => {
+            toggleCaught(pal.id);
+            captureBtn.textContent = caughtPals.includes(pal.id) ? 'Mark as Uncaught' : 'Mark as Caught';
+            renderPalList();
+            updateProgress();
+        });
+        modal.appendChild(captureBtn);
+        // Stats chart
+        const canvas = document.createElement('canvas');
+        modal.appendChild(canvas);
+        const statData = pal.stats || {hp:0,attack:0,defense:0,speed:0,stamina:0,support:0,food:0};
+        new Chart(canvas.getContext('2d'), {
+            type: 'radar',
+            data: {
+                labels: ['HP','Attack','Defense','Speed','Stamina','Support','Food'],
+                datasets: [{
+                    label: pal.name + ' Stats',
+                    data: [statData.hp, statData.attack, statData.defense, statData.speed, statData.stamina, statData.support, statData.food],
+                    backgroundColor: 'rgba(0, 168, 150, 0.2)',
+                    borderColor: '#00a896',
+                    pointBackgroundColor: '#00a896'
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        pointLabels: { color: '#edf2f4' },
+                        grid: { color: 'rgba(255,255,255,0.2)' },
+                        angleLines: { color: 'rgba(255,255,255,0.2)' },
+                        ticks: { display: false, color: '#edf2f4' }
+                    }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+        // Work tasks
+        const workDiv = document.createElement('div');
+        workDiv.innerHTML = '<h4>Work Skills</h4>';
+        const workList = document.createElement('ul');
+        Object.entries(pal.work).forEach(([k,v]) => {
+            const li = document.createElement('li');
+            li.textContent = `${k} (Level ${v})`;
+            workList.appendChild(li);
+        });
+        workDiv.appendChild(workList);
+        modal.appendChild(workDiv);
+        // Skills list
+        const skillsDiv = document.createElement('div');
+        skillsDiv.innerHTML = '<h4>Active Skills</h4>';
+        const skillList = document.createElement('ul');
+        pal.skills.forEach(sk => {
+            const li = document.createElement('li');
+            li.textContent = `${sk.name} ${sk.level ? '(Lvl '+sk.level+')' : ''}`;
+            skillList.appendChild(li);
+        });
+        skillsDiv.appendChild(skillList);
+        modal.appendChild(skillsDiv);
+        // Drops
+        const dropsDiv = document.createElement('div');
+        dropsDiv.innerHTML = '<h4>Items Dropped</h4>';
+        const dropList = document.createElement('ul');
+        pal.drops.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            li.style.cursor = 'pointer';
+            li.style.textDecoration = 'underline';
+            li.addEventListener('click', () => {
+                navigateTo('items');
+                document.getElementById('item-search').value = item;
+                renderItemList();
+                closeModal();
+            });
+            dropList.appendChild(li);
+        });
+        dropsDiv.appendChild(dropList);
+        modal.appendChild(dropsDiv);
+        // Breeding
+        const breedDiv = document.createElement('div');
+        breedDiv.innerHTML = '<h4>Breeding Info</h4>';
+        const br = pal.breeding;
+        if (br) {
+            breedDiv.innerHTML += `<p>Breeding Power: ${br.power || 'N/A'} | Types: ${[br.type1, br.type2].filter(Boolean).join(', ') || 'Unknown'}</p>`;
+        } else {
+            breedDiv.innerHTML += '<p>No breeding data.</p>';
+        }
+        modal.appendChild(breedDiv);
+        // Environment
+        const envDiv = document.createElement('div');
+        envDiv.innerHTML = `<h4>Typical Habitat</h4><p>${typeEnvironment[pal.types[0]] || 'Unknown'}</p>`;
+        modal.appendChild(envDiv);
+        // Show modal
+        document.getElementById('modal-overlay').style.display = 'flex';
+    }
+
+    // Toggle captured status
+    function toggleCaught(id) {
+        const idx = caughtPals.indexOf(id);
+        if (idx >= 0) caughtPals.splice(idx,1);
+        else caughtPals.push(id);
+        localStorage.setItem(STORAGE_KEYS.caught, JSON.stringify(caughtPals));
+    }
+    // Toggle item collected
+    function toggleCollected(itemName) {
+        const idx = collectedItems.indexOf(itemName);
+        if (idx >= 0) collectedItems.splice(idx,1);
+        else collectedItems.push(itemName);
+        localStorage.setItem(STORAGE_KEYS.collected, JSON.stringify(collectedItems));
+    }
+    // Toggle tech unlock
+    function toggleTech(level, name) {
+        const id = level + '|' + name;
+        const idx = unlockedTech.indexOf(id);
+        if (idx >= 0) unlockedTech.splice(idx,1);
+        else unlockedTech.push(id);
+        localStorage.setItem(STORAGE_KEYS.tech, JSON.stringify(unlockedTech));
+    }
+    // Render item list
+    function renderItemList() {
+        const list = document.getElementById('item-list');
+        list.innerHTML = '';
+        const search = document.getElementById('item-search').value.toLowerCase();
+        const cFilter = document.getElementById('item-category-filter').value;
+        // Build reverse index of drop sources
+        const sources = {};
+        palList.forEach(pal => {
+            pal.drops.forEach(item => {
+                if (!sources[item]) sources[item] = [];
+                sources[item].push(pal.name);
+            });
+        });
+        Object.entries(items).forEach(([name, obj]) => {
+            if (search && !name.toLowerCase().includes(search)) return;
+            if (cFilter && obj.category !== cFilter) return;
+            const card = document.createElement('div');
+            card.className = 'item-card';
+            const collected = collectedItems.includes(name);
+            card.innerHTML = `
+                <h4>${name}</h4>
+                <p class="category">Category: ${obj.category}</p>
+                ${sources[name] ? '<p>Dropped by: ' + sources[name].join(', ') + '</p>' : ''}
+                <label><input type="checkbox" ${collected ? 'checked' : ''}> Collected</label>
+            `;
+            // Checkbox handling
+            const checkbox = card.querySelector('input');
+            checkbox.addEventListener('change', () => {
+                toggleCollected(name);
+                updateProgress();
+            });
+            list.appendChild(card);
+        });
+    }
+    // Render tech tree
+    function renderTechTree() {
+        const tree = document.getElementById('tech-tree');
+        tree.innerHTML = '';
+        tech.forEach(levelObj => {
+            const container = document.createElement('div');
+            container.className = 'tech-level';
+            const h4 = document.createElement('h4');
+            h4.textContent = 'Tech Level ' + levelObj.level;
+            container.appendChild(h4);
+            const ul = document.createElement('ul');
+            levelObj.items.forEach(item => {
+                const li = document.createElement('li');
+                const id = levelObj.level + '|' + item.name;
+                const unlocked = unlockedTech.includes(id);
+                li.innerHTML = `<label><input type="checkbox" ${unlocked ? 'checked' : ''}> ${item.name} (requires ${Object.entries(item.materials).map(([m,q]) => q + ' ' + m).join(', ')})</label>`;
+                li.querySelector('input').addEventListener('change', () => {
+                    toggleTech(levelObj.level, item.name);
+                    updateProgress();
+                });
+                ul.appendChild(li);
+            });
+            container.appendChild(ul);
+            tree.appendChild(container);
+        });
+    }
+    // Update progress bars
+    function updateProgress() {
+        const barContainer = document.getElementById('progress-bars');
+        barContainer.innerHTML = '';
+        const totalPals = palList.length;
+        const totalItems = Object.keys(items).length;
+        const totalTech = tech.reduce((sum, lvl) => sum + lvl.items.length, 0);
+        const metrics = [
+            { label: 'Pals Caught', value: caughtPals.length, total: totalPals },
+            { label: 'Items Collected', value: collectedItems.length, total: totalItems },
+            { label: 'Tech Unlocked', value: unlockedTech.length, total: totalTech }
+        ];
+        metrics.forEach(m => {
+            const wrapper = document.createElement('div');
+            const label = document.createElement('label');
+            label.textContent = `${m.label}: ${m.value}/${m.total}`;
+            wrapper.appendChild(label);
+            const bar = document.createElement('div');
+            bar.className = 'progress-bar';
+            const span = document.createElement('span');
+            span.style.width = ((m.value/m.total)*100).toFixed(1) + '%';
+            bar.appendChild(span);
+            wrapper.appendChild(bar);
+            barContainer.appendChild(wrapper);
+        });
+    }
+    // Navigation
+    function navigateTo(section) {
+        document.querySelectorAll('nav ul li').forEach(li => li.classList.remove('active'));
+        document.querySelector(`nav ul li[data-section="${section}"]`).classList.add('active');
+        document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById('section-' + section).classList.add('active');
+    }
+    document.getElementById('nav-menu').addEventListener('click', e => {
+        if (e.target.matches('li[data-section]')) {
+            navigateTo(e.target.getAttribute('data-section'));
+        }
+    });
+    // Close modal
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-overlay').addEventListener('click', e => { if (e.target.id === 'modal-overlay') closeModal(); });
+    function closeModal() {
+        document.getElementById('modal-overlay').style.display = 'none';
+    }
+    // Filters update
+    document.getElementById('pal-search').addEventListener('input', renderPalList);
+    document.getElementById('type-filter').addEventListener('change', renderPalList);
+    document.getElementById('rarity-filter').addEventListener('change', renderPalList);
+    document.getElementById('item-search').addEventListener('input', renderItemList);
+    document.getElementById('item-category-filter').addEventListener('change', renderItemList);
+    // Initial load
+    loadData();
+    </script>
+</body>
+</html>
