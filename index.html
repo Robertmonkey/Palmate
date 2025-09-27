@@ -102,13 +102,17 @@
       margin-bottom: 4px;
     }
     .pal-card .badge {
-      display: inline-block;
-      padding: 2px 6px;
-      border-radius: 4px;
-      background: var(--secondary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2px;
+      margin-bottom: 4px;
       color: var(--text);
       font-size: 0.7rem;
-      margin-bottom: 4px;
+    }
+    .pal-card .badge img {
+      width: 20px;
+      height: 20px;
     }
     .pal-card .rarity {
       font-size: 0.8rem;
@@ -214,7 +218,8 @@
       transition: opacity 0.3s;
     }
     #mapOverlay .zone.active {
-      opacity: 0.5;
+      /* Lower opacity for a gentler highlight that doesn’t overpower the map */
+      opacity: 0.3;
     }
     /* Items */
     .item-card .name {
@@ -390,7 +395,9 @@
     let collected = JSON.parse(localStorage.getItem('collected') || '{}');
     let unlocked = JSON.parse(localStorage.getItem('unlocked') || '{}');
     // Maximum stats for scaling radar chart
-    const maxStats = { hp: 150, attack: 150, defense: 145, speed: 1700, stamina: 350, support: 150, food: 9 };
+    // Maximum stats for scaling radar chart.  Speed is capped lower to avoid
+    // overpowering the chart – the fastest pals reach around 1000.
+    const maxStats = { hp: 150, attack: 150, defense: 145, speed: 1000, stamina: 350, support: 150, food: 9 };
     // Type to environment mapping
     const environmentMap = {
       'Fire': 'Volcano',
@@ -427,22 +434,40 @@
     const badTraits = ['Coward', 'Lazy', 'Gullible'];
     // Type icon mapping (relative file paths)
     const iconMap = {
-      'Neutral': 'icons/neutral.png',
-      'Fire': 'icons/fire.png',
-      'Ice': 'icons/ice.png',
-      'Electric': 'icons/electric.png',
-      'Water': 'icons/water.png',
-      'Grass': 'icons/grass.png',
-      'Ground': 'icons/ground.png',
-      'Dark': 'icons/dark.png',
-      'Dragon': 'icons/dragon.png',
-      'Air': 'icons/air.png'
+      'Neutral': 'assets/icons/neutral.png',
+      'Fire': 'assets/icons/fire.png',
+      'Ice': 'assets/icons/ice.png',
+      'Electric': 'assets/icons/electric.png',
+      'Water': 'assets/icons/water.png',
+      'Grass': 'assets/icons/grass.png',
+      'Ground': 'assets/icons/ground.png',
+      'Dark': 'assets/icons/dark.png',
+      'Dragon': 'assets/icons/dragon.png',
+      'Air': 'assets/icons/air.png'
     };
+
+    // Audio cues for a more immersive UI.  Users can add their own sound files
+    // (e.g. click.mp3, modal_open.mp3, modal_close.mp3) inside assets/sounds.
+    const clickSound = new Audio('assets/sounds/click.mp3');
+    const openSound = new Audio('assets/sounds/modal_open.mp3');
+    const closeSound = new Audio('assets/sounds/modal_close.mp3');
+    function playSound(sound) {
+      // Gracefully handle missing audio files
+      if (!sound || typeof sound.play !== 'function') return;
+      try {
+        sound.currentTime = 0;
+        sound.play();
+      } catch (err) {
+        // Audio play can fail if files are missing or browser policy blocks it
+        console.debug('Sound error', err);
+      }
+    }
     // Navigation handling
     document.querySelectorAll('nav button').forEach(btn => {
       btn.addEventListener('click', () => {
         const target = btn.getAttribute('data-page');
         switchPage(target);
+        playSound(clickSound);
       });
     });
     function switchPage(page) {
@@ -458,16 +483,19 @@
     document.getElementById('modalClose').addEventListener('click', closeModal);
     function openModal() {
       modal.classList.add('active');
+      playSound(openSound);
     }
     function closeModal() {
       modal.classList.remove('active');
       modalBody.innerHTML = '';
+      playSound(closeSound);
     }
     // Fetch data on load
-    fetch('palworld_complete_data.json').then(r => r.json()).then(data => {
-      PALS = data.pals;
-      ITEMS = data.items;
-      TECH = data.tech;
+    fetch('data/palworld_complete_data.json').then(r => r.json()).then(data => {
+      // Data is namespaced under pals, items and tech
+      PALS = data.pals || {};
+      ITEMS = data.items || {};
+      TECH = data.tech || [];
       buildPalPage();
       buildItemPage();
       buildTechPage();
@@ -488,11 +516,17 @@
           if (!pal.name.toLowerCase().includes(term) && !pal.types.join(',').toLowerCase().includes(term)) return;
           const card = document.createElement('div');
           card.className = 'pal-card';
-          const iconPath = iconMap[pal.types[0]] || iconMap['Neutral'];
+          // Build type icon HTML
+          const typeIcons = pal.types.map(t => `<img src="${iconMap[t] || iconMap['Neutral']}" alt="${t} icon" style="width:20px;height:20px;margin-right:2px;">`).join('');
+          // Render the pal card. Use the local image if available. If the image fails to load
+          // (for example, if the pal image file is missing), fall back to the first element
+          // icon so the card always has a visual cue. The onerror handler sets the source
+          // to the appropriate icon based on the pal’s primary type.
           card.innerHTML = `
-            <img src="${iconPath}" alt="${pal.types[0]} icon">
+            <img src="${pal.localImage || iconMap[pal.types[0]] || iconMap['Neutral']}" alt="${pal.name} image"
+                 onerror="this.onerror=null; this.src='${'assets/icons/'}${pal.types[0].toLowerCase()}.png';">
             <div class="name">${pal.name}</div>
-            <div class="badge">${pal.types.join(', ')}</div>
+            <div class="badge">${typeIcons}</div>
             <div class="rarity">${'⭐'.repeat(pal.rarity)}</div>
             <button class="catch-btn ${caught[pal.id] ? 'caught' : ''}">${caught[pal.id] ? 'Caught' : 'Catch'}</button>
           `;
@@ -508,6 +542,7 @@
             btn.classList.toggle('caught', caught[pal.id]);
             btn.textContent = caught[pal.id] ? 'Caught' : 'Catch';
             updateProgressUI();
+            playSound(clickSound);
           });
           list.appendChild(card);
         });
@@ -526,12 +561,21 @@
       header.style.display = 'flex';
       header.style.alignItems = 'center';
       header.style.gap = '12px';
+      // Use the local Pal image for the detail header
       const img = document.createElement('img');
-      img.src = iconMap[pal.types[0]] || iconMap['Neutral'];
-      img.style.width = '80px';
-      img.style.height = '80px';
+      img.src = pal.localImage || iconMap[pal.types[0]] || iconMap['Neutral'];
+      img.style.width = '120px';
+      img.style.height = '120px';
+      img.style.borderRadius = '8px';
+      // Fallback in case the Pal image fails to load. Replace it with the primary type icon.
+      img.onerror = () => {
+        img.onerror = null;
+        img.src = iconMap[pal.types[0]] || iconMap['Neutral'];
+      };
       const titleWrap = document.createElement('div');
-      titleWrap.innerHTML = `<h3>${pal.name}</h3><div style="font-size:0.8rem;color:var(--light)">${pal.types.join(', ')} | Rarity: ${'⭐'.repeat(pal.rarity)}</div>`;
+      // Build type icons row for the header
+      const typesHtml = pal.types.map(t => `<img src="${iconMap[t] || iconMap['Neutral']}" alt="${t}" style="width:20px;height:20px;margin-right:4px;">`).join('');
+      titleWrap.innerHTML = `<h3>${pal.name}</h3><div style="font-size:0.8rem;color:var(--light);display:flex;align-items:center;gap:4px;">${typesHtml}<span>Rarity: ${'⭐'.repeat(pal.rarity)}</span></div>`;
       header.appendChild(img);
       header.appendChild(titleWrap);
       container.appendChild(header);
@@ -643,7 +687,7 @@
       const mapWrap = document.createElement('div');
       mapWrap.id = 'mapContainer';
       const mapImg = document.createElement('img');
-      mapImg.src = 'palworld-full-map-2.webp';
+      mapImg.src = 'assets/images/palworld-full-map-2.webp';
       mapImg.alt = 'Palworld map';
       mapWrap.appendChild(mapImg);
       const overlay = document.createElement('div');
