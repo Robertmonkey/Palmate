@@ -1180,6 +1180,70 @@
       color: var(--light);
       box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.2);
     }
+    .progress-choice-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 16, 29, 0.72);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 2000;
+    }
+    .progress-choice-dialog {
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+      padding: 24px;
+      width: min(420px, 100%);
+      display: grid;
+      gap: 16px;
+    }
+    body.kid-mode .progress-choice-dialog {
+      border-radius: 22px;
+    }
+    .progress-choice-dialog h3 {
+      margin: 0;
+    }
+    .progress-choice-dialog p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .progress-choice-options {
+      display: grid;
+      gap: 8px;
+    }
+    .progress-choice-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 8px 12px;
+    }
+    .progress-choice-option span {
+      font-size: 0.95rem;
+    }
+    .progress-choice-helpers {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .progress-choice-helpers .btn {
+      flex: 1 1 auto;
+    }
+    .progress-choice-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .progress-choice-actions .btn {
+      flex: 1 1 auto;
+    }
     /* Custom scrollbars */
     ::-webkit-scrollbar {
       width: 8px;
@@ -2097,11 +2161,13 @@
             <div class="rarity"><span class="stars">${starIcons}</span> <span class="label">${rarityLabel}</span></div>
             <button class="catch-btn ${caught[pal.id] ? 'caught' : ''}">${caught[pal.id] ? 'Caught' : 'Catch'}</button>
           `;
+          card.dataset.palId = pal.id;
           card.addEventListener('click', (e) => {
             if (e.target.tagName.toLowerCase() === 'button') return;
             showPalDetail(pal.id);
           });
           const btn = card.querySelector('button');
+          btn.dataset.palId = pal.id;
           btn.addEventListener('click', (e) => {
             e.stopPropagation();
             caught[pal.id] = !caught[pal.id];
@@ -2116,6 +2182,23 @@
       }
       search.addEventListener('input', () => render(search.value));
       render();
+    }
+    function syncPalButtons(palId) {
+      if (palId === undefined || palId === null) return;
+      document.querySelectorAll(`.catch-btn[data-pal-id="${palId}"]`).forEach(btn => {
+        const state = !!caught[palId];
+        btn.classList.toggle('caught', state);
+        btn.textContent = state ? 'Caught' : 'Catch';
+      });
+    }
+    function syncTechButtons(techKey, techName) {
+      if (!techKey) return;
+      document.querySelectorAll(`.unlock-btn[data-tech-key="${techKey}"]`).forEach(btn => {
+        const lookupName = btn.dataset.techName || techName;
+        const state = lookupName ? !!unlocked[lookupName] : false;
+        btn.classList.toggle('unlocked', state);
+        btn.textContent = state ? 'Unlocked' : 'Unlock';
+      });
     }
     function updateItemCollectionButtons(itemKey) {
       document.querySelectorAll(`.item-card button.collect-btn[data-item-key="${itemKey}"]`).forEach(btn => {
@@ -2257,16 +2340,19 @@
           div.className = 'tech-item';
           const techId = item.id || slugifyForPalworld(item.name);
           if(techId) div.id = `tech-${techId}`;
-        const matList = item.materials ? Object.entries(item.materials).map(([k,v]) => `${k}: ${v}`).join(', ') : '';
-        const matStr = matList ? `<span class="materials">Materials: ${matList}</span><br>` : '';
-        const techPoints = item.techPoints ? `<span class="materials">Tech Points: ${item.techPoints}</span><br>` : '';
-        div.innerHTML = `
+          const matList = item.materials ? Object.entries(item.materials).map(([k,v]) => `${k}: ${v}`).join(', ') : '';
+          const matStr = matList ? `<span class="materials">Materials: ${matList}</span><br>` : '';
+          const techPoints = item.techPoints ? `<span class="materials">Tech Points: ${item.techPoints}</span><br>` : '';
+          div.innerHTML = `
             <strong>${item.name}</strong> (${item.category})<br>
             ${matStr}${techPoints}
             <span class="description">${item.description || ''}</span><br>
             <button class="unlock-btn ${unlocked[item.name] ? 'unlocked' : ''}">${unlocked[item.name] ? 'Unlocked' : 'Unlock'}</button>
           `;
           const btn = div.querySelector('button');
+          const techKey = techId || slugifyForPalworld(item.name);
+          if (techKey) btn.dataset.techKey = techKey;
+          btn.dataset.techName = item.name;
           btn.addEventListener('click', (e) => {
             e.stopPropagation();
             unlocked[item.name] = !unlocked[item.name];
@@ -2827,16 +2913,36 @@
       `;
     }
 
-    function handleRouteCheckboxChange(event){
+    async function handleRouteCheckboxChange(event){
       const target = event.target;
       if(!target.matches('input[type="checkbox"][data-step]')) return;
       const stepId = target.dataset.step;
-      routeState[stepId] = target.checked;
-      saveRouteState(routeState);
+      const isChecked = target.checked;
       const chapterNode = target.closest('section.card');
-      if(!chapterNode) return;
-      const chapterId = chapterNode.id.replace('chapter-','');
-      const chapter = (routeGuideData?.chapters || []).find(ch => ch.id === chapterId);
+      let chapter = null;
+      let step = null;
+      if(chapterNode){
+        const chapterId = chapterNode.id.replace('chapter-','');
+        chapter = (routeGuideData?.chapters || []).find(ch => ch.id === chapterId) || null;
+        if(chapter){
+          step = (chapter.steps || []).find(s => s.id === stepId) || null;
+        }
+      }
+      if(isChecked && step){
+        const options = buildStepProgressOptions(step);
+        if(options.length > 1){
+          const selection = await showStepChoiceDialog(step, options);
+          if(selection === null){
+            target.checked = false;
+            return;
+          }
+          applyStepProgressSelection(options, selection);
+        } else if(options.length === 1){
+          applyStepProgressSelection(options, [options[0].key]);
+        }
+      }
+      routeState[stepId] = isChecked;
+      saveRouteState(routeState);
       if(chapter){
         rerenderChapter(chapter);
       }
@@ -2859,6 +2965,10 @@
       if(btn.dataset.action === 'markRequired'){
         chapter.steps.filter(step => !step.optional).forEach(step => {
           routeState[step.id] = true;
+          const options = buildStepProgressOptions(step);
+          if(options.length === 1){
+            applyStepProgressSelection(options, [options[0].key]);
+          }
         });
         saveRouteState(routeState);
         rerenderChapter(chapter);
@@ -2898,6 +3008,232 @@
           </div>
         `)
         .join('');
+    }
+
+    function buildStepProgressOptions(step){
+      if(!step || !Array.isArray(step.links)) return [];
+      const options = [];
+      const seen = new Set();
+      step.links.forEach(link => {
+        if(!link || !link.type) return;
+        if(link.type === 'pal'){
+          const palId = resolvePalIdFromLink(link);
+          if(palId !== undefined && palId !== null){
+            const key = `pal:${palId}`;
+            if(!seen.has(key)){
+              seen.add(key);
+              const pal = PALS[palId];
+              const labelSource = link.name || link.slug || link.id;
+              options.push({
+                key,
+                type: 'pal',
+                palId,
+                label: pal ? pal.name : (labelSource ? niceName(labelSource) : 'Pal'),
+                selected: !!caught[palId]
+              });
+            }
+          }
+        } else if(link.type === 'tech'){
+          const techInfo = resolveTechFromLink(link);
+          if(techInfo && techInfo.item){
+            const key = `tech:${techInfo.slug}`;
+            if(!seen.has(key)){
+              seen.add(key);
+              const rawName = techInfo.item.name || link.name || link.id;
+              const techName = rawName ? String(rawName) : '';
+              const label = rawName ? String(rawName) : 'Tech';
+              options.push({
+                key,
+                type: 'tech',
+                slug: techInfo.slug,
+                techName,
+                label,
+                selected: techName ? !!unlocked[techName] : false
+              });
+            }
+          }
+        }
+      });
+      return options;
+    }
+
+    function resolvePalIdFromLink(link){
+      if(!link) return null;
+      if(link.id && PALS[link.id]) return link.id;
+      const candidates = [link.slug, link.id, link.name];
+      for(const cand of candidates){
+        if(!cand) continue;
+        const slug = slugifyForPalworld(String(cand));
+        if(slug && PAL_SLUG_TO_ID[slug]) return PAL_SLUG_TO_ID[slug];
+        const byName = PAL_NAME_TO_ID[capitalize(String(cand))];
+        if(byName) return byName;
+      }
+      return null;
+    }
+
+    function resolveTechFromLink(link){
+      if(!link) return null;
+      const identifiers = [link.id, link.slug, link.name];
+      for(const ident of identifiers){
+        if(!ident) continue;
+        const slug = slugifyForPalworld(String(ident));
+        if(slug && TECH_LOOKUP[slug]){
+          return { ...TECH_LOOKUP[slug], slug };
+        }
+      }
+      return null;
+    }
+
+    function applyStepProgressSelection(options, selectedKeys){
+      if(!Array.isArray(options) || !options.length) return false;
+      const selected = new Set(selectedKeys || []);
+      let caughtChanged = false;
+      let techChanged = false;
+      options.forEach(option => {
+        const isSelected = selected.has(option.key);
+        if(option.type === 'pal' && option.palId !== undefined && option.palId !== null){
+          if(caught[option.palId] !== isSelected){
+            caught[option.palId] = isSelected;
+            caughtChanged = true;
+            syncPalButtons(option.palId);
+          }
+        } else if(option.type === 'tech'){
+          const techName = option.techName;
+          if(techName && unlocked[techName] !== isSelected){
+            unlocked[techName] = isSelected;
+            techChanged = true;
+            if(option.slug) syncTechButtons(option.slug, techName);
+          } else if(option.slug){
+            syncTechButtons(option.slug, techName);
+          }
+        }
+      });
+      if(caughtChanged){
+        localStorage.setItem('caught', JSON.stringify(caught));
+      }
+      if(techChanged){
+        localStorage.setItem('unlocked', JSON.stringify(unlocked));
+      }
+      return caughtChanged || techChanged;
+    }
+
+    function showStepChoiceDialog(step, options){
+      return new Promise(resolve => {
+        if(!Array.isArray(options) || !options.length){
+          resolve([]);
+          return;
+        }
+        const overlay = document.createElement('div');
+        overlay.className = 'progress-choice-backdrop';
+        const dialog = document.createElement('div');
+        dialog.className = 'progress-choice-dialog';
+        const heading = document.createElement('h3');
+        heading.textContent = kidMode ? 'Pick what you finished' : 'Track this step';
+        dialog.appendChild(heading);
+        if(step && step.text){
+          const stepLine = document.createElement('p');
+          stepLine.textContent = step.text;
+          stepLine.style.fontStyle = 'italic';
+          stepLine.style.color = 'var(--light)';
+          dialog.appendChild(stepLine);
+        }
+        const desc = document.createElement('p');
+        desc.textContent = kidMode
+          ? 'Choose the pals or inventions you just completed. Uncheck anything you skipped.'
+          : 'Select which pals or tech you completed. Uncheck anything you skipped.';
+        dialog.appendChild(desc);
+        const list = document.createElement('div');
+        list.className = 'progress-choice-options';
+        const checkboxes = [];
+        options.forEach(option => {
+          const row = document.createElement('label');
+          row.className = 'progress-choice-option';
+          const input = document.createElement('input');
+          input.type = 'checkbox';
+          input.value = option.key;
+          input.checked = !!option.selected;
+          row.appendChild(input);
+          const text = document.createElement('span');
+          text.textContent = option.label;
+          row.appendChild(text);
+          list.appendChild(row);
+          checkboxes.push(input);
+        });
+        dialog.appendChild(list);
+        if(options.length > 1){
+          const helpers = document.createElement('div');
+          helpers.className = 'progress-choice-helpers';
+          const selectAllBtn = document.createElement('button');
+          selectAllBtn.type = 'button';
+          selectAllBtn.className = 'btn';
+          selectAllBtn.textContent = kidMode ? 'Select everything' : 'Select all';
+          selectAllBtn.addEventListener('click', () => {
+            checkboxes.forEach(cb => {
+              cb.checked = true;
+            });
+          });
+          const clearBtn = document.createElement('button');
+          clearBtn.type = 'button';
+          clearBtn.className = 'btn';
+          clearBtn.textContent = kidMode ? 'Clear choices' : 'Clear';
+          clearBtn.addEventListener('click', () => {
+            checkboxes.forEach(cb => {
+              cb.checked = false;
+            });
+          });
+          helpers.appendChild(selectAllBtn);
+          helpers.appendChild(clearBtn);
+          dialog.appendChild(helpers);
+        }
+        const actions = document.createElement('div');
+        actions.className = 'progress-choice-actions';
+        const cancelBtn = document.createElement('button');
+        cancelBtn.type = 'button';
+        cancelBtn.className = 'btn';
+        cancelBtn.textContent = kidMode ? 'Go back' : 'Cancel';
+        const saveBtn = document.createElement('button');
+        saveBtn.type = 'button';
+        saveBtn.className = 'btn';
+        saveBtn.textContent = kidMode ? 'All done!' : 'Save choices';
+        actions.appendChild(cancelBtn);
+        actions.appendChild(saveBtn);
+        dialog.appendChild(actions);
+        overlay.appendChild(dialog);
+        overlay.addEventListener('click', (ev) => {
+          if(ev.target === overlay){
+            cleanup(null);
+          }
+        });
+        const cleanup = (result) => {
+          overlay.remove();
+          document.removeEventListener('keydown', onKeydown);
+          resolve(result);
+        };
+        cancelBtn.addEventListener('click', () => cleanup(null));
+        saveBtn.addEventListener('click', () => {
+          const selectedValues = checkboxes.filter(cb => cb.checked).map(cb => cb.value);
+          cleanup(selectedValues);
+        });
+        const onKeydown = (ev) => {
+          if(ev.key === 'Escape'){
+            ev.preventDefault();
+            cleanup(null);
+          }
+          if(ev.key === 'Enter' && ev.target && ev.target.tagName !== 'TEXTAREA'){
+            ev.preventDefault();
+            saveBtn.click();
+          }
+        };
+        document.addEventListener('keydown', onKeydown);
+        document.body.appendChild(overlay);
+        setTimeout(() => {
+          if(checkboxes.length){
+            checkboxes[0].focus();
+          } else {
+            saveBtn.focus();
+          }
+        }, 0);
+      });
     }
 
     function chapterProgress(chapter){
