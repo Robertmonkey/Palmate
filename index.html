@@ -2033,7 +2033,11 @@
       return [];
     }
     function openRouteMapModal(mapInfo = {}, fallbackUrl) {
-      const coords = Array.isArray(mapInfo.coords) ? mapInfo.coords : null;
+      const entrance = mapInfo.entrance || null;
+      const entranceCoords = Array.isArray(mapInfo.entranceCoords)
+        ? mapInfo.entranceCoords
+        : (entrance && Array.isArray(entrance.coords) ? entrance.coords : null);
+      const coords = entranceCoords || (Array.isArray(mapInfo.coords) ? mapInfo.coords : null);
       if (!coords) {
         window.open(mapInfo.url || fallbackUrl || `${PALWORLD_BASE_URL}/map`, '_blank', 'noopener');
         return;
@@ -2049,10 +2053,17 @@
       meta.className = 'map-modal-note';
       const metaBits = [];
       if (mapInfo.region) metaBits.push(mapInfo.region);
-      metaBits.push(`Coordinates: (${coords[0]}, ${coords[1]})`);
+      const primaryLabel = entrance && entrance.label ? entrance.label : (mapInfo.coordsLabel || 'Entrance');
+      metaBits.push(`${primaryLabel}: (${coords[0]}, ${coords[1]})`);
+      if (!entranceCoords && Array.isArray(mapInfo.coords) && mapInfo.coords.length >= 2) {
+        metaBits.push(`Location: (${mapInfo.coords[0]}, ${mapInfo.coords[1]})`);
+      }
       meta.textContent = metaBits.join(' • ');
       wrap.appendChild(meta);
-      const details = mapDescriptionLines(mapInfo);
+      const details = [
+        ...mapDescriptionLines(mapInfo),
+        ...mapDescriptionLines(entrance)
+      ];
       if (details.length) {
         const detailsWrap = document.createElement('div');
         detailsWrap.className = 'map-modal-details';
@@ -2067,13 +2078,16 @@
       canvas.className = 'map-modal-canvas';
       const mapImage = document.createElement('img');
       mapImage.src = 'assets/images/palworld-full-map-2.webp';
-      mapImage.alt = mapInfo.title ? `${mapInfo.title} location on the Palworld map` : 'Palworld map showing the selected route location';
+      const mapAltTitle = entrance && entrance.label
+        ? `${entrance.label} for ${mapInfo.title || 'the selected encounter'}`
+        : (mapInfo.title ? `${mapInfo.title} location on the Palworld map` : 'Palworld map showing the selected route location');
+      mapImage.alt = mapAltTitle;
       canvas.appendChild(mapImage);
       const marker = document.createElement('div');
       marker.className = 'map-marker';
       marker.style.left = `${left}%`;
       marker.style.top = `${top}%`;
-      const markerLabel = mapInfo.label || mapInfo.title;
+      const markerLabel = (entrance && entrance.label) || mapInfo.label || mapInfo.title;
       if (markerLabel) {
         const label = document.createElement('span');
         label.className = 'map-marker-label';
@@ -3665,6 +3679,7 @@
 
     function linkLabel(link){
       if(link.type === 'pal') return capitalize(link.slug);
+      if(link.type === 'item') return niceName(link.id);
       if(link.type === 'passive') return capitalize(link.id);
       if(link.type === 'move') return niceName(link.id);
       if(link.type === 'tech') return niceName(link.id);
@@ -3680,6 +3695,13 @@
           window.viewPal(link.slug || link.id);
         } else {
           focusSearch(link.slug || link.id);
+        }
+      } else if(link.type === 'item'){
+        const itemKey = link.id || link.slug;
+        if(itemKey && ITEMS[itemKey]){
+          openItemDetail(itemKey);
+        } else {
+          focusSearch(itemKey);
         }
       } else if(link.type === 'tech'){
         showTechDetail(link.id);
@@ -3700,7 +3722,7 @@
       const entry = TECH_LOOKUP[slug];
       const displayName = entry?.item?.name || niceName(techId);
       const safeName = escapeHTML(displayName);
-      const searchUrl = `${PALWORLD_BASE_URL}/items?search=${encodeURIComponent(displayName)}`;
+      const techUrl = entry?.item?.url || `${PALWORLD_BASE_URL}/technology-tree?search=${encodeURIComponent(displayName)}`;
       const summaryParts = [];
       if(kidMode){
         summaryParts.push(`<p>Let's get <strong>${safeName}</strong> ready!</p>`);
@@ -3734,15 +3756,15 @@
       } else {
         summaryParts.push(`<p>${kidMode
           ? 'Palmate will peek at Palworld.gg so you can see what it looks like without leaving this checklist.'
-          : 'Palmate opens a Palworld.gg search so you can confirm crafting details without changing pages.'}</p>`);
+          : 'Palmate opens the Palworld.gg technology tree so you can confirm crafting details without changing pages.'}</p>`);
       }
       const note = entry
         ? 'Palmate keeps this tech guide handy so you can stay on the route checklist.'
-        : 'Palmate opens a Palworld.gg search while keeping your route progress on screen.';
+        : 'Palmate opens the Palworld.gg technology tree while keeping your route progress on screen.';
       openPalworldEmbed({
         heading: `${displayName} – Palworld.gg`,
-        url: searchUrl,
-        fallbackUrl: searchUrl,
+        url: techUrl,
+        fallbackUrl: techUrl,
         note,
         summaryHtml: summaryParts.join('')
       });

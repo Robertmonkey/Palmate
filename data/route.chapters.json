@@ -319,6 +319,14 @@
                                     112,
                                     -434
                                 ],
+                                "entrance": {
+                                    "label": "Tower Entrance",
+                                    "coords": [
+                                        112,
+                                        -434
+                                    ],
+                                    "note": "Entrance sits beside the Cliffside fast travel statue overlooking the bay."
+                                },
                                 "kid": [
                                     "Glide south from the starting island to the tall storm tower.",
                                     "Bring Ground pals so lightning can't hurt you much."
@@ -450,7 +458,7 @@
                     "textKid": "Bake five cakes and build the Breeding Farm at level 19 to start baby pals.",
                     "links": [
                         {
-                            "type": "tech",
+                            "type": "item",
                             "id": "cake"
                         },
                         {
@@ -571,6 +579,14 @@
                                     185,
                                     28
                                 ],
+                                "entrance": {
+                                    "label": "Tower Entrance",
+                                    "coords": [
+                                        185,
+                                        28
+                                    ],
+                                    "note": "Gate stands inside the Free Pal Alliance outpost reached from the southern bridge."
+                                },
                                 "kid": [
                                     "Ride into the snowy Free Pal base and find the tall crystal tower.",
                                     "Fire moves melt Lily fast."
@@ -716,7 +732,11 @@
                     "links": [
                         {
                             "type": "tech",
-                            "id": "heat-resistant-armor"
+                            "id": "heat-resistant-pelt-armor"
+                        },
+                        {
+                            "type": "tech",
+                            "id": "heat-resistant-metal-armor"
                         }
                     ]
                 },
@@ -768,6 +788,14 @@
                                     -560,
                                     -518
                                 ],
+                                "entrance": {
+                                    "label": "Tower Entrance",
+                                    "coords": [
+                                        -560,
+                                        -518
+                                    ],
+                                    "note": "Climb to the lava plateau on Mount Obsidian to reach the tower doorway."
+                                },
                                 "kid": [
                                     "Sail to the big volcano island and find the glowing lava tower.",
                                     "Ground and Ice pals smash Orserk."
@@ -851,6 +879,14 @@
                                     350,
                                     -200
                                 ],
+                                "entrance": {
+                                    "label": "Tower Entrance",
+                                    "coords": [
+                                        350,
+                                        -200
+                                    ],
+                                    "note": "Enter through the PIDF desert headquarters courtyard at these coordinates."
+                                },
                                 "kid": [
                                     "Zip through the desert base full of robots and find the tall red tower.",
                                     "Water blasts stop Faleris fast."
@@ -910,8 +946,8 @@
                             "id": "electric-furnace"
                         },
                         {
-                            "type": "tech",
-                            "id": "pal-metal-ingot"
+                            "type": "item",
+                            "id": "pal_metal_ingot"
                         }
                     ]
                 },
@@ -973,6 +1009,14 @@
                                     558,
                                     340
                                 ],
+                                "entrance": {
+                                    "label": "Facility Entrance",
+                                    "coords": [
+                                        558,
+                                        340
+                                    ],
+                                    "note": "The research unit doors face the snowy cliffside overlooking the valley."
+                                },
                                 "kid": [
                                     "Fly to the glowing science lab in the snowy cliffs.",
                                     "Your dragons beat Shadowbeak."
@@ -1041,6 +1085,14 @@
                                     640,
                                     120
                                 ],
+                                "entrance": {
+                                    "label": "Tower Entrance",
+                                    "coords": [
+                                        640,
+                                        120
+                                    ],
+                                    "note": "Land on the blossom-covered platform to find the Moonflower Tower doorway."
+                                },
                                 "kid": [
                                     "Glide to the pink island and follow the glowing petals to the tall tower.",
                                     "Watch out for cold blasts from Selyne."
@@ -1130,6 +1182,14 @@
                                     512,
                                     -662
                                 ],
+                                "entrance": {
+                                    "label": "Tower Entrance",
+                                    "coords": [
+                                        512,
+                                        -662
+                                    ],
+                                    "note": "The Feybreak Tower doorway crowns the icy island peak at these coordinates."
+                                },
                                 "kid": [
                                     "Fly to the snowy Feybreak island tower after beating the night pals.",
                                     "Fire pals melt Bastigor fast."
