@@ -14592,6 +14592,180 @@
         "Swamp",
         "Wild"
       ]
+    },
+    "138": {
+      "id": 138,
+      "key": "138",
+      "name": "Selyne",
+      "wiki": "https://palworld.fandom.com/wiki/Selyne",
+      "image": "https://static.wikia.nocookie.net/palworld/images/1/17/Selyne.png/revision/latest?cb=20240628092011",
+      "genus": "unknown",
+      "rarity": 9,
+      "price": 0,
+      "size": "unknown",
+      "stats": {
+        "hp": 130.0,
+        "attack": 115.0,
+        "defense": 110.0,
+        "speed": 0.0,
+        "stamina": 0.0,
+        "support": 0.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 4,
+        "medicine": 3,
+        "transporting": 3
+      },
+      "skills": [
+        {
+          "name": "dark_cannon",
+          "level": 1,
+          "power": 0.0,
+          "cooldown": 0.0
+        },
+        {
+          "name": "dark_arrow",
+          "level": 7,
+          "power": 65.0,
+          "cooldown": 10.0
+        },
+        {
+          "name": "air_blade",
+          "level": 15,
+          "power": 85.0,
+          "cooldown": 20.0
+        },
+        {
+          "name": "holy_burst",
+          "level": 22,
+          "power": 0.0,
+          "cooldown": 0.0
+        },
+        {
+          "name": "seigetsu_blade",
+          "level": 30,
+          "power": 0.0,
+          "cooldown": 0.0
+        },
+        {
+          "name": "star_mine",
+          "level": 40,
+          "power": 0.0,
+          "cooldown": 0.0
+        },
+        {
+          "name": "moonlight_beam",
+          "level": 50,
+          "power": 170.0,
+          "cooldown": 40.0
+        }
+      ],
+      "drops": [
+        "Cloth",
+        "Sapphire",
+        "Precious Claw"
+      ],
+      "breeding": {
+        "power": 0,
+        "type1": "Dark",
+        "type2": "Neutral"
+      },
+      "types": [
+        "Dark",
+        "Neutral"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": [
+        "Sakurajima Meteorite Event"
+      ]
+    },
+    "139": {
+      "id": 139,
+      "key": "139",
+      "name": "Croajiro",
+      "wiki": "https://palworld.fandom.com/wiki/Croajiro",
+      "image": "https://static.wikia.nocookie.net/palworld/images/1/17/Croajiro.png/revision/latest?cb=20241207184404",
+      "genus": "unknown",
+      "rarity": 4,
+      "price": 0,
+      "size": "unknown",
+      "stats": {
+        "hp": 0.0,
+        "attack": 0.0,
+        "defense": 0.0,
+        "speed": 0.0,
+        "stamina": 0.0,
+        "support": 0.0,
+        "food": 2.0
+      },
+      "work": {
+        "watering": 1,
+        "handiwork": 1,
+        "gathering": 1,
+        "transporting": 1
+      },
+      "skills": [],
+      "drops": [
+        "Pal Fluids",
+        "Cloth"
+      ],
+      "breeding": {
+        "power": 0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "140": {
+      "id": 140,
+      "key": "140",
+      "name": "Dogen",
+      "wiki": "https://palworld.fandom.com/wiki/Dogen",
+      "image": "https://static.wikia.nocookie.net/palworld/images/1/13/Dogen.png/revision/latest?cb=20240703075012",
+      "genus": "unknown",
+      "rarity": 6,
+      "price": 0,
+      "size": "unknown",
+      "stats": {
+        "hp": 90.0,
+        "attack": 100.0,
+        "defense": 100.0,
+        "speed": 0.0,
+        "stamina": 0.0,
+        "support": 0.0,
+        "food": 4.0
+      },
+      "work": {
+        "handiwork": 3,
+        "lumbering": 2,
+        "medicine": 1,
+        "transporting": 2,
+        "gathering": 2
+      },
+      "skills": [],
+      "drops": [
+        "Bone"
+      ],
+      "breeding": {
+        "power": 0,
+        "type1": "Neutral",
+        "type2": "Neutral"
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": [
+        "Sakurajima Cherry Blossom Grove"
+      ]
     }
   },
   "items": {
@@ -15357,6 +15531,28 @@
       "ct": 30,
       "power": 110,
       "description": "Summons a swirling tornado of sand that tears through enemies."
+    },
+    "Dark Cannon": {
+      "element": "Dark",
+      "description": "Fires off a focused orb of dark energy straight ahead."
+    },
+    "Holy Burst": {
+      "element": "Neutral",
+      "description": "Detonates a radiant shockwave that harms foes in a short radius."
+    },
+    "Seigetsu Blade": {
+      "element": "Dark",
+      "description": "Calls down crescent blades from the new moon to slash enemies."
+    },
+    "Star Mine": {
+      "element": "Dark",
+      "description": "Launches clustered dark orbs that detonate after a short delay."
+    },
+    "Moonlight Beam": {
+      "element": "Neutral",
+      "ct": 40,
+      "power": 170,
+      "description": "Selyne stores lunar energy then fires a crescent beam forward."
     }
   },
   "passiveDetails": {
