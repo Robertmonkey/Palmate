@@ -175,8 +175,8 @@
                 {
                     "id": "ch0-tip-catch-bonus",
                     "category": "Prep",
-                    "text": "Remind your kid that catching up to 10 of a pal grants bonus EXP\u2014make it a playful hunt.",
-                    "textKid": "Tell your kid that catching ten of one pal gives big EXP.",
+                    "text": "Remind your kid that catching up to 10 of a pal grants bonus EXP and keep repeating the challenge whenever you enter a new biome.",
+                    "textKid": "Tell your kid to catch ten of a pal in every new area for big EXP.",
                     "optional": true
                 }
             ]
@@ -265,6 +265,23 @@
                     ]
                 },
                 {
+                    "id": "evergreen-statue",
+                    "category": "Tech",
+                    "text": "Feed Lifmunk Effigies to the Statue of Power and invest Pal Souls into favorite stats whenever you stockpile them.",
+                    "textKid": "Feed Lifmunk Effigies to the statue and spend Pal Souls on pals you love.",
+                    "links": [
+                        {
+                            "type": "tech",
+                            "id": "statue-of-power"
+                        },
+                        {
+                            "type": "glossary",
+                            "id": "lifmunk-effigy"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
                     "id": "ch1-catch-ground-team",
                     "category": "Catch",
                     "text": "Catch Ground pals like Rushoar, Fuddler, and Dumud so Zoe & Grizzbolt crumble fast.",
@@ -297,6 +314,27 @@
                         {
                             "type": "tech",
                             "id": "daedreams-necklace"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
+                    "id": "sheet-zoe",
+                    "category": "Prep",
+                    "text": "Tower reminder: Zoe & Grizzbolt are Electric and weak to Ground pals like Rushoar, Fuddler, or Dumud.",
+                    "textKid": "Remember Zoe & Grizzbolt fear Ground pals like Rushoar, Fuddler, or Dumud.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "rushoar"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "fuddler"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "dumud"
                         }
                     ],
                     "optional": true
@@ -452,6 +490,129 @@
                     ]
                 },
                 {
+                    "id": "roster-mining",
+                    "category": "Base",
+                    "text": "Keep two or three Mining pals such as Digtoise, Rushoar, or late-game Anubis assigned at every base.",
+                    "textKid": "Have 2 or 3 mining pals like Digtoise, Rushoar, or Anubis at each base.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "digtoise"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "rushoar"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "anubis"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
+                    "id": "roster-lumber",
+                    "category": "Base",
+                    "text": "Assign two Lumbering pals like Tanzee or Eikthyrdeer so wood inputs stay steady.",
+                    "textKid": "Use 2 lumber pals like Tanzee or Eikthyrdeer so wood keeps coming.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "tanzee"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "eikthyrdeer"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
+                    "id": "roster-transport",
+                    "category": "Base",
+                    "text": "Maintain two Transporting pals\u2014fliers like Vixy or Pengullet keep crafting lines unclogged.",
+                    "textKid": "Keep 2 hauling pals like Vixy or Pengullet so goods move fast.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "vixy"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "pengullet"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
+                    "id": "roster-kindling",
+                    "category": "Base",
+                    "text": "Keep two Kindling pals\u2014Foxparks early and Ragnahawk later cover ovens and furnaces.",
+                    "textKid": "Use 2 fire pals like Foxparks or Ragnahawk to heat ovens and furnaces.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "foxparks"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "ragnahawk"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
+                    "id": "roster-watering",
+                    "category": "Base",
+                    "text": "Keep two Watering or Cooling pals such as Pengullet or Jormuntide to cover farms and fridges.",
+                    "textKid": "Have 2 water pals like Pengullet or Jormuntide for farms and coolers.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "pengullet"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "jormuntide"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
+                    "id": "roster-handiwork",
+                    "category": "Base",
+                    "text": "Run three Handiwork pals and stack Artisan passives so crafting stations stay fast.",
+                    "textKid": "Use 3 handi pals with Artisan so crafting stays fast.",
+                    "links": [
+                        {
+                            "type": "passive",
+                            "id": "artisan"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
+                    "id": "roster-ranch",
+                    "category": "Base",
+                    "text": "Reserve one or two Ranch producers like Chikipi, Mozzarina, or Beegarde for steady cooking inputs.",
+                    "textKid": "Keep 1 or 2 ranch pals like Chikipi, Mozzarina, or Beegarde for cooking stuff.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "chikipi"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "mozzarina"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "beegarde"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
                     "id": "ch2-tech-breeding-farm",
                     "category": "Tech",
                     "text": "Craft Cake x5 and build the Breeding Farm at level 19 so passive hunts can start.",
@@ -466,6 +627,31 @@
                             "id": "breeding-farm"
                         }
                     ]
+                },
+                {
+                    "id": "evergreen-passives",
+                    "category": "Catch",
+                    "text": "Breed passives such as Artisan, Legend, Runner, or Swift once the Breeding Farm is running.",
+                    "textKid": "Breed pals for passives like Artisan, Legend, Runner, or Swift.",
+                    "links": [
+                        {
+                            "type": "passive",
+                            "id": "artisan"
+                        },
+                        {
+                            "type": "passive",
+                            "id": "legend"
+                        },
+                        {
+                            "type": "passive",
+                            "id": "runner"
+                        },
+                        {
+                            "type": "passive",
+                            "id": "swift"
+                        }
+                    ],
+                    "optional": true
                 },
                 {
                     "id": "ch2-coop-crafting",
@@ -560,6 +746,27 @@
                             "id": "pal-essence-condenser"
                         }
                     ]
+                },
+                {
+                    "id": "sheet-lily",
+                    "category": "Prep",
+                    "text": "Tower reminder: Lily & Lyleen are Grass and melt to Fire pals such as Rooby, Wixen, or Ragnahawk.",
+                    "textKid": "Remember Lily & Lyleen are weak to fire pals like Rooby, Wixen, or Ragnahawk.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "rooby"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "wixen"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "ragnahawk"
+                        }
+                    ],
+                    "optional": true
                 },
                 {
                     "id": "ch3-boss-lily",
@@ -667,6 +874,23 @@
                     ]
                 },
                 {
+                    "id": "ancient-feed-bags",
+                    "category": "Tech",
+                    "text": "Upgrade Feed Bags from Small to Large so snacks stay stocked during longer expeditions.",
+                    "textKid": "Upgrade Feed Bags from small to big so snacks stay full.",
+                    "links": [
+                        {
+                            "type": "tech",
+                            "id": "small-feed-bag"
+                        },
+                        {
+                            "type": "tech",
+                            "id": "large-feed-bag"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
                     "id": "ch4-gear-upgrades",
                     "category": "Gear",
                     "text": "Upgrade grapples, shields, and armor tiers so movement and defense stay ahead of threats.",
@@ -771,6 +995,31 @@
                     "textKid": "Bring lots of Ultra Spheres to catch strong pals on the volcano trip."
                 },
                 {
+                    "id": "sheet-axel",
+                    "category": "Prep",
+                    "text": "Tower reminder: Axel & Orserk mix Electric and Dragon, so Ground pals like Anubis or Digtoise and Ice pals like Cryolinx or Sibelyx shine.",
+                    "textKid": "Remember Axel & Orserk are weak to Ground and Ice pals like Anubis, Digtoise, Cryolinx, or Sibelyx.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "anubis"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "digtoise"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "cryolinx"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "sibelyx"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
                     "id": "ch5-boss-axel",
                     "category": "Boss",
                     "text": "Clear Eternal Pyre Tower \u2014 Axel & Orserk (weak to Ground and Ice) for +5 Ancient Tech Points.",
@@ -860,6 +1109,27 @@
                     "category": "Gear",
                     "text": "Pack heat gear for the day and cold gear for the desert night swing.",
                     "textKid": "Wear heat gear in the day and cold gear at night so the desert stays comfy."
+                },
+                {
+                    "id": "sheet-marcus",
+                    "category": "Prep",
+                    "text": "Tower reminder: Marcus & Faleris are Fire and fold to Water pals like Relaxaurus, Azurobe, or Jormuntide.",
+                    "textKid": "Remember Marcus & Faleris are weak to water pals like Relaxaurus, Azurobe, or Jormuntide.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "relaxaurus"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "azurobe"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "jormuntide"
+                        }
+                    ],
+                    "optional": true
                 },
                 {
                     "id": "ch6-boss-marcus",
@@ -992,6 +1262,31 @@
                     ]
                 },
                 {
+                    "id": "sheet-victor",
+                    "category": "Prep",
+                    "text": "Tower reminder: Victor & Shadowbeak are Dark and crumble to Dragon pals like Quivern, Jormuntide Ignis, Faleris, or Jetragon.",
+                    "textKid": "Remember Victor & Shadowbeak are weak to dragon pals like Quivern, Jormuntide Ignis, Faleris, or Jetragon.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "quivern"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "jormuntide-ignis"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "faleris"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "jetragon"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
                     "id": "ch7-boss-victor",
                     "category": "Boss",
                     "text": "Clear PAL Genetic Research Unit \u2014 Victor & Shadowbeak (weak to Dragon) for +5 Ancient Tech Points.",
@@ -1063,8 +1358,25 @@
                 {
                     "id": "ch8-explore-schem",
                     "category": "Explore",
-                    "text": "Optional: Explore Sakurajima for new pals and oil rig legendary schematics when you feel ready.",
-                    "textKid": "Optional: Explore the new island for new pals and shiny chest plans when ready.",
+                    "text": "Optional: Explore Sakurajima for new pals, Alpha pal hunts, and oil rig legendary schematics when you feel ready.",
+                    "textKid": "Optional: Explore the new island for new pals, big Alpha fights, and shiny chest plans when ready.",
+                    "optional": true
+                },
+                {
+                    "id": "sheet-saya",
+                    "category": "Prep",
+                    "text": "Tower reminder: Saya & Selyne are Dark with tricky Ice moves, so Dragons like Quivern or Jetragon need Ice resistance ready.",
+                    "textKid": "Remember Saya & Selyne are weak to dragons like Quivern or Jetragon, but bring ice protection.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "quivern"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "jetragon"
+                        }
+                    ],
                     "optional": true
                 },
                 {
@@ -1165,6 +1477,31 @@
                     ]
                 },
                 {
+                    "id": "sheet-bjorn",
+                    "category": "Prep",
+                    "text": "Tower reminder: Bjorn & Bastigor are Ice, so Fire pals like Blazamut, Faleris, Ragnahawk, or Suzaku melt them.",
+                    "textKid": "Remember Bjorn & Bastigor are weak to fire pals like Blazamut, Faleris, Ragnahawk, or Suzaku.",
+                    "links": [
+                        {
+                            "type": "pal",
+                            "slug": "blazamut"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "faleris"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "ragnahawk"
+                        },
+                        {
+                            "type": "pal",
+                            "slug": "suzaku"
+                        }
+                    ],
+                    "optional": true
+                },
+                {
                     "id": "ch9-boss-bjorn",
                     "category": "Boss",
                     "text": "Clear Feybreak Tower \u2014 Bjorn & Bastigor (weak to Fire) and celebrate the victory.",
@@ -1207,536 +1544,6 @@
                     "category": "Explore",
                     "text": "Optional: Take a victory lap\u2014decorate bases, pick a favorite mount, or start shiny hunts together.",
                     "textKid": "Optional: Celebrate by decorating, picking a favorite mount, or hunting shinies together.",
-                    "optional": true
-                }
-            ]
-        },
-        {
-            "id": "evergreen",
-            "title": "Evergreen Tasks \u2014 Sprinkle Anywhere",
-            "titleKid": "Bonus Tasks \u2014 Do Anytime",
-            "why": "Use these ongoing goals to keep progress flowing between story beats.",
-            "whyKid": "Do these fun extras whenever you want.",
-            "steps": [
-                {
-                    "id": "evergreen-catch-ten",
-                    "category": "Catch",
-                    "text": "Whenever you enter a new biome, pick pals to catch up to 10 times for EXP bonuses.",
-                    "textKid": "In each new area, pick a pal and catch ten for big EXP.",
-                    "optional": true
-                },
-                {
-                    "id": "evergreen-statue",
-                    "category": "Tech",
-                    "text": "Feed Lifmunk Effigies to the Statue of Power and invest Pal Souls into favorite stats.",
-                    "textKid": "Feed Lifmunk Effigies to the statue and spend Pal Souls on pals you love.",
-                    "links": [
-                        {
-                            "type": "tech",
-                            "id": "statue-of-power"
-                        },
-                        {
-                            "type": "glossary",
-                            "id": "lifmunk-effigy"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "evergreen-passives",
-                    "category": "Catch",
-                    "text": "Breed passives such as Artisan, Legend, Runner, or Swift depending on your focus.",
-                    "textKid": "Breed pals for passives like Artisan, Legend, Runner, or Swift.",
-                    "links": [
-                        {
-                            "type": "passive",
-                            "id": "artisan"
-                        },
-                        {
-                            "type": "passive",
-                            "id": "legend"
-                        },
-                        {
-                            "type": "passive",
-                            "id": "runner"
-                        },
-                        {
-                            "type": "passive",
-                            "id": "swift"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "evergreen-condenser",
-                    "category": "Tech",
-                    "text": "Condense your go-to workers and mounts with the Pal Essence Condenser to keep bases snappy.",
-                    "textKid": "Use the Pal Essence Condenser to make your best pals stronger.",
-                    "links": [
-                        {
-                            "type": "tech",
-                            "id": "pal-essence-condenser"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "evergreen-legendaries",
-                    "category": "Explore",
-                    "text": "Optional: Farm legendary schematics from Alpha pals or the Oil Rig when you crave harder content.",
-                    "textKid": "Optional: Hunt legendary plans from big Alpha pals or the Oil Rig when you feel brave.",
-                    "optional": true
-                }
-            ]
-        },
-        {
-            "id": "base-roster",
-            "title": "Suggested Base Rosters",
-            "titleKid": "Base Team Ideas",
-            "why": "Keep machines moving by spreading key work types across each base.",
-            "whyKid": "Pick pals so every base keeps working without help.",
-            "steps": [
-                {
-                    "id": "roster-mining",
-                    "category": "Base",
-                    "text": "Keep 2\u20133 Mining pals such as Digtoise, Rushoar, or late-game Anubis at every base.",
-                    "textKid": "Have 2 or 3 mining pals like Digtoise, Rushoar, or Anubis at each base.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "digtoise"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "rushoar"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "anubis"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "roster-lumber",
-                    "category": "Base",
-                    "text": "Assign 2 Lumbering pals like Tanzee or Eikthyrdeer to keep wood inputs steady.",
-                    "textKid": "Use 2 lumber pals like Tanzee or Eikthyrdeer so wood keeps coming.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "tanzee"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "eikthyrdeer"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "roster-transport",
-                    "category": "Base",
-                    "text": "Maintain 2 Transporting pals\u2014fliers like Vixy or Pengullet keep lines unclogged.",
-                    "textKid": "Keep 2 hauling pals like Vixy or Pengullet so goods move fast.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "vixy"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "pengullet"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "roster-kindling",
-                    "category": "Base",
-                    "text": "Keep 2 Kindling pals\u2014Foxparks early and Ragnahawk later cover ovens and furnaces.",
-                    "textKid": "Use 2 fire pals like Foxparks or Ragnahawk to heat ovens and furnaces.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "foxparks"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "ragnahawk"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "roster-watering",
-                    "category": "Base",
-                    "text": "Keep 2 Watering/Cooling pals such as Pengullet or Jormuntide to cover farms and fridges.",
-                    "textKid": "Have 2 water pals like Pengullet or Jormuntide for farms and coolers.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "pengullet"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "jormuntide"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "roster-handiwork",
-                    "category": "Base",
-                    "text": "Run 3 Handiwork pals\u2014stack Artisan passives so crafting lines stay fast.",
-                    "textKid": "Use 3 handi pals with Artisan so crafting stays fast.",
-                    "links": [
-                        {
-                            "type": "passive",
-                            "id": "artisan"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "roster-ranch",
-                    "category": "Base",
-                    "text": "Reserve 1\u20132 Ranch producers like Chikipi, Mozzarina, or Beegarde for steady cooking inputs.",
-                    "textKid": "Keep 1 or 2 ranch pals like Chikipi, Mozzarina, or Beegarde for cooking stuff.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "chikipi"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "mozzarina"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "beegarde"
-                        }
-                    ],
-                    "optional": true
-                }
-            ]
-        },
-        {
-            "id": "ancient-tech",
-            "title": "Ancient Tech Priorities",
-            "titleKid": "Ancient Tech Picks",
-            "why": "Spend Ancient points on mobility, safety, and automation that match this route.",
-            "whyKid": "Use purple points on these handy toys first.",
-            "steps": [
-                {
-                    "id": "ancient-egg-incubator",
-                    "category": "Tech",
-                    "text": "Unlock the Egg Incubator early for painless hatching.",
-                    "textKid": "Unlock the Egg Incubator so eggs hatch easy.",
-                    "links": [
-                        {
-                            "type": "tech",
-                            "id": "egg-incubator"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "ancient-feed-bags",
-                    "category": "Tech",
-                    "text": "Upgrade Feed Bags from Small to Large so snacks stay stocked.",
-                    "textKid": "Upgrade Feed Bags from small to big so snacks stay full.",
-                    "links": [
-                        {
-                            "type": "tech",
-                            "id": "small-feed-bag"
-                        },
-                        {
-                            "type": "tech",
-                            "id": "large-feed-bag"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "ancient-grapple",
-                    "category": "Tech",
-                    "text": "Invest in Grappling Gun upgrades for faster movement while encumbered.",
-                    "textKid": "Buy Grappling Gun upgrades so you zoom even when heavy.",
-                    "links": [
-                        {
-                            "type": "tech",
-                            "id": "grappling-gun"
-                        },
-                        {
-                            "type": "tech",
-                            "id": "mega-grappling-gun"
-                        },
-                        {
-                            "type": "tech",
-                            "id": "giga-grappling-gun"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "ancient-condenser",
-                    "category": "Tech",
-                    "text": "Use the Pal Essence Condenser to boost favorite workers and mounts.",
-                    "textKid": "Use the Pal Essence Condenser to power up favorite pals.",
-                    "links": [
-                        {
-                            "type": "tech",
-                            "id": "pal-essence-condenser"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "ancient-homeward",
-                    "category": "Tech",
-                    "text": "Grab Homeward Thundercloud as a kid-safe escape button.",
-                    "textKid": "Unlock Homeward Thundercloud for a safe warp home.",
-                    "links": [
-                        {
-                            "type": "tech",
-                            "id": "homeward-thundercloud"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "ancient-ore-site",
-                    "category": "Tech",
-                    "text": "Unlock the Ore Mining Site once automation ramps up after Lily.",
-                    "textKid": "Unlock the Ore Mining Site to make ore on its own.",
-                    "links": [
-                        {
-                            "type": "tech",
-                            "id": "ore-mining-site"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "ancient-big-incubators",
-                    "category": "Tech",
-                    "text": "Upgrade to Electric or Large Egg Incubators if you enjoy breeding hunts.",
-                    "textKid": "Upgrade to bigger Egg Incubators if you love breeding.",
-                    "links": [
-                        {
-                            "type": "tech",
-                            "id": "electric-egg-incubator"
-                        }
-                    ],
-                    "optional": true
-                }
-            ]
-        },
-        {
-            "id": "tower-cheatsheet",
-            "title": "Tower Team Cheatsheet",
-            "titleKid": "Tower Team Quick List",
-            "why": "Use this snapshot to recall weaknesses before each boss.",
-            "whyKid": "Use this quick list to remember what beats each boss.",
-            "steps": [
-                {
-                    "id": "sheet-zoe",
-                    "category": "Prep",
-                    "text": "Zoe & Grizzbolt \u2014 Electric weak to Ground: Rushoar, Fuddler, Dumud.",
-                    "textKid": "Zoe & Grizzbolt: Ground pals like Rushoar, Fuddler, Dumud.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "rushoar"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "fuddler"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "dumud"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "sheet-lily",
-                    "category": "Prep",
-                    "text": "Lily & Lyleen \u2014 Grass weak to Fire: Rooby, Wixen, Ragnahawk.",
-                    "textKid": "Lily & Lyleen: Fire pals like Rooby, Wixen, Ragnahawk.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "rooby"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "wixen"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "ragnahawk"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "sheet-axel",
-                    "category": "Prep",
-                    "text": "Axel & Orserk \u2014 Electric/Dragon weak to Ground and Ice: Anubis, Digtoise, Cryolinx, Sibelyx.",
-                    "textKid": "Axel & Orserk: Ground and Ice pals like Anubis, Digtoise, Cryolinx, Sibelyx.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "anubis"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "digtoise"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "cryolinx"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "sibelyx"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "sheet-marcus",
-                    "category": "Prep",
-                    "text": "Marcus & Faleris \u2014 Fire weak to Water: Relaxaurus, Azurobe, Jormuntide.",
-                    "textKid": "Marcus & Faleris: Water pals like Relaxaurus, Azurobe, Jormuntide.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "relaxaurus"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "azurobe"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "jormuntide"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "sheet-victor",
-                    "category": "Prep",
-                    "text": "Victor & Shadowbeak \u2014 Dark weak to Dragon: Quivern, Jormuntide Ignis, Faleris, Jetragon.",
-                    "textKid": "Victor & Shadowbeak: Dragon pals like Quivern, Jormuntide Ignis, Faleris, Jetragon.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "quivern"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "jormuntide-ignis"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "faleris"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "jetragon"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "sheet-saya",
-                    "category": "Prep",
-                    "text": "Saya & Selyne \u2014 Dark with Ice tricks, still weak to Dragon: Quivern, Jetragon, keep Ice resist.",
-                    "textKid": "Saya & Selyne: Dragons like Quivern or Jetragon with ice protection.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "quivern"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "jetragon"
-                        }
-                    ],
-                    "optional": true
-                },
-                {
-                    "id": "sheet-bjorn",
-                    "category": "Prep",
-                    "text": "Bjorn & Bastigor \u2014 Ice weak to Fire: Blazamut, Faleris, Ragnahawk, Suzaku.",
-                    "textKid": "Bjorn & Bastigor: Fire pals like Blazamut, Faleris, Ragnahawk, Suzaku.",
-                    "links": [
-                        {
-                            "type": "pal",
-                            "slug": "blazamut"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "faleris"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "ragnahawk"
-                        },
-                        {
-                            "type": "pal",
-                            "slug": "suzaku"
-                        }
-                    ],
-                    "optional": true
-                }
-            ]
-        },
-        {
-            "id": "stockpile-milestones",
-            "title": "Stockpile Milestones",
-            "titleKid": "Stockpile Reminders",
-            "why": "Check these resource targets before each major push.",
-            "whyKid": "Make sure you have these items before the next boss.",
-            "steps": [
-                {
-                    "id": "stockpile-zoe",
-                    "category": "Prep",
-                    "text": "After Zoe: 40 Ingots, 15 Nails, 20 Leather, 20 Cloth.",
-                    "textKid": "After Zoe: 40 ingots, 15 nails, 20 leather, 20 cloth.",
-                    "optional": true
-                },
-                {
-                    "id": "stockpile-lily",
-                    "category": "Prep",
-                    "text": "Before Lily: 400 Ore, 120 Coal, 5 Cakes.",
-                    "textKid": "Before Lily: 400 ore, 120 coal, 5 cakes.",
-                    "optional": true
-                },
-                {
-                    "id": "stockpile-axel",
-                    "category": "Prep",
-                    "text": "Before Axel: 150 Refined Ingots, 60 Polymer, 120 Carbon Fiber, 200 Sulfur.",
-                    "textKid": "Before Axel: 150 refined ingots, 60 polymer, 120 carbon fiber, 200 sulfur.",
-                    "optional": true
-                },
-                {
-                    "id": "stockpile-marcus",
-                    "category": "Prep",
-                    "text": "Before Marcus: 200 Refined Ingots, 80 Polymer, 20 Circuit Boards, 160 Carbon Fiber.",
-                    "textKid": "Before Marcus: 200 refined ingots, 80 polymer, 20 circuit boards, 160 carbon fiber.",
-                    "optional": true
-                },
-                {
-                    "id": "stockpile-victor",
-                    "category": "Prep",
-                    "text": "Before Victor: 75 Pal Metal Ingots, 200 Carbon Fiber, 100 Polymer.",
-                    "textKid": "Before Victor: 75 Pal Metal Ingots, 200 carbon fiber, 100 polymer.",
                     "optional": true
                 }
             ]

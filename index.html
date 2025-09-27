@@ -4016,30 +4016,25 @@
     }
 
     function renderSteps(chapter){
-      const groups = { Base: [], Gear: [], Tech: [], Catch: [], Prep: [], Explore: [], Boss: [] };
+      const fragments = [];
       (chapter.steps || []).forEach(step => {
         if(routeHideOptional && step.optional) return;
         const checked = !!routeState[step.id];
-        if(!groups[step.category]){
-          groups[step.category] = [];
-        }
-        groups[step.category].push(`
+        const category = step.category || 'Task';
+        const categorySlug = category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'task';
+        fragments.push(`
           <label class="step ${step.optional ? 'optional' : ''}">
             <input type="checkbox" data-step="${step.id}" ${checked ? 'checked' : ''} />
-            <span class="step-text">${escapeHTML(routeStepText(step))} ${step.optional ? '<em>(Optional)</em>' : ''}</span>
+            <span class="step-meta">
+              <span class="step-category step-category--${categorySlug}">${escapeHTML(category)}</span>
+              <span class="step-text">${escapeHTML(routeStepText(step))} ${step.optional ? '<em>(Optional)</em>' : ''}</span>
+            </span>
             ${renderLinks(step.links || [])}
           </label>
         `);
       });
-      return Object.entries(groups)
-        .filter(([, items]) => items.length)
-        .map(([category, items]) => `
-          <div class="step-group">
-            <h4>${category}</h4>
-            ${items.join('')}
-          </div>
-        `)
-        .join('');
+      if(!fragments.length) return '';
+      return `<div class="step-list">${fragments.join('')}</div>`;
     }
 
     function buildStepProgressOptions(step){

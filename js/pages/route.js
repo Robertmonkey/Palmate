@@ -118,27 +118,25 @@ function rerenderChapter(ch, state, node, hideOptional){
 }
 
 function renderSteps(ch, state, hideOptional){
-  const cats = ['Base','Gear','Tech','Catch','Prep','Explore','Boss'];
-  const groups = {};
-  cats.forEach(c=>groups[c]=[]);
+  const fragments = [];
   ch.steps.forEach(step=>{
     if(hideOptional && step.optional) return;
     const checked = !!state[step.id];
-    groups[step.category] ??= [];
-    groups[step.category].push(`
+    const category = step.category || 'Task';
+    const categorySlug = category.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'') || 'task';
+    fragments.push(`
       <label class="step ${step.optional?'optional':''}">
         <input type="checkbox" data-step="${step.id}" ${checked?'checked':''} />
-        <span class="step-text">${escapeHTML(stepText(step))} ${step.optional?'<em>(Optional)</em>':''}</span>
+        <span class="step-meta">
+          <span class="step-category step-category--${categorySlug}">${escapeHTML(category)}</span>
+          <span class="step-text">${escapeHTML(stepText(step))} ${step.optional?'<em>(Optional)</em>':''}</span>
+        </span>
         ${renderLinks(step.links||[])}
       </label>
     `);
   });
-  return Object.entries(groups).filter(([,items])=>items.length).map(([cat, items])=>`
-    <div class="step-group">
-      <h4>${cat}</h4>
-      ${items.join('')}
-    </div>
-  `).join('');
+  if(!fragments.length) return '';
+  return `<div class="step-list">${fragments.join('')}</div>`;
 }
 
 function renderProgress({requiredDone, requiredCount, requiredChecked}){
