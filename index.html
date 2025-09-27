@@ -700,6 +700,71 @@
       /* Lower opacity for a gentler highlight that doesn’t overpower the map */
       opacity: 0.2;
     }
+    .map-modal {
+      display: grid;
+      gap: 12px;
+    }
+    .map-modal h3 {
+      margin: 0;
+    }
+    .map-modal-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .map-modal-details {
+      display: grid;
+      gap: 6px;
+      font-size: 0.95rem;
+    }
+    .map-modal-canvas {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--primary);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+    .map-modal-canvas img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .map-marker {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: var(--danger);
+      border: 2px solid var(--light);
+      border-radius: 50%;
+      transform: translate(-50%, -100%);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .map-marker::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 2px;
+      height: 16px;
+      background: var(--danger);
+      transform: translateX(-50%);
+    }
+    .map-marker-label {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 50%;
+      transform: translate(-50%, 0);
+      background: rgba(13,27,42,0.85);
+      color: var(--text);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    body.kid-mode .map-modal-details p {
+      font-size: 1rem;
+    }
     /* Items */
     .item-card .name {
       font-weight: bold;
@@ -1382,6 +1447,116 @@
         note: 'Palmate keeps this move info handy so you can stay on track.'
       }
     };
+    const MAP_WORLD_BOUNDS = { minX: -720, maxX: 720, minY: -720, maxY: 720 };
+    function clampToRange(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+    function worldCoordsToPercent(coords) {
+      if (!Array.isArray(coords) || coords.length < 2) {
+        return { left: 50, top: 50 };
+      }
+      const [rawX, rawY] = coords.map(Number);
+      const width = MAP_WORLD_BOUNDS.maxX - MAP_WORLD_BOUNDS.minX;
+      const height = MAP_WORLD_BOUNDS.maxY - MAP_WORLD_BOUNDS.minY;
+      if (!width || !height) {
+        return { left: 50, top: 50 };
+      }
+      const x = clampToRange(rawX, MAP_WORLD_BOUNDS.minX, MAP_WORLD_BOUNDS.maxX);
+      const y = clampToRange(rawY, MAP_WORLD_BOUNDS.minY, MAP_WORLD_BOUNDS.maxY);
+      return {
+        left: ((x - MAP_WORLD_BOUNDS.minX) / width) * 100,
+        top: ((MAP_WORLD_BOUNDS.maxY - y) / height) * 100
+      };
+    }
+    function mapDescriptionLines(info) {
+      if (!info) return [];
+      if (kidMode && Array.isArray(info.kid) && info.kid.length) {
+        return info.kid;
+      }
+      if (!kidMode && Array.isArray(info.grown) && info.grown.length) {
+        return info.grown;
+      }
+      if (info.note) {
+        return [info.note];
+      }
+      return [];
+    }
+    function openRouteMapModal(mapInfo = {}, fallbackUrl) {
+      const coords = Array.isArray(mapInfo.coords) ? mapInfo.coords : null;
+      if (!coords) {
+        window.open(mapInfo.url || fallbackUrl || `${PALWORLD_BASE_URL}/map`, '_blank', 'noopener');
+        return;
+      }
+      const { left, top } = worldCoordsToPercent(coords);
+      modalBody.innerHTML = '';
+      const wrap = document.createElement('div');
+      wrap.className = 'map-modal';
+      const heading = document.createElement('h3');
+      heading.textContent = mapInfo.title || 'Route location';
+      wrap.appendChild(heading);
+      const meta = document.createElement('p');
+      meta.className = 'map-modal-note';
+      const metaBits = [];
+      if (mapInfo.region) metaBits.push(mapInfo.region);
+      metaBits.push(`Coordinates: (${coords[0]}, ${coords[1]})`);
+      meta.textContent = metaBits.join(' • ');
+      wrap.appendChild(meta);
+      const details = mapDescriptionLines(mapInfo);
+      if (details.length) {
+        const detailsWrap = document.createElement('div');
+        detailsWrap.className = 'map-modal-details';
+        details.forEach(line => {
+          const p = document.createElement('p');
+          p.textContent = line;
+          detailsWrap.appendChild(p);
+        });
+        wrap.appendChild(detailsWrap);
+      }
+      const canvas = document.createElement('div');
+      canvas.className = 'map-modal-canvas';
+      const mapImage = document.createElement('img');
+      mapImage.src = 'assets/images/palworld-full-map-2.webp';
+      mapImage.alt = mapInfo.title ? `${mapInfo.title} location on the Palworld map` : 'Palworld map showing the selected route location';
+      canvas.appendChild(mapImage);
+      const marker = document.createElement('div');
+      marker.className = 'map-marker';
+      marker.style.left = `${left}%`;
+      marker.style.top = `${top}%`;
+      const markerLabel = mapInfo.label || mapInfo.title;
+      if (markerLabel) {
+        const label = document.createElement('span');
+        label.className = 'map-marker-label';
+        label.textContent = markerLabel;
+        marker.appendChild(label);
+      }
+      canvas.appendChild(marker);
+      wrap.appendChild(canvas);
+      const actions = document.createElement('div');
+      actions.className = 'badges';
+      actions.style.marginTop = '4px';
+      const openBtn = document.createElement('button');
+      openBtn.type = 'button';
+      openBtn.className = 'modal-action-btn';
+      openBtn.textContent = 'Open interactive map';
+      openBtn.addEventListener('click', () => {
+        window.open(mapInfo.url || fallbackUrl || `${PALWORLD_BASE_URL}/map`, '_blank', 'noopener');
+      });
+      actions.appendChild(openBtn);
+      wrap.appendChild(actions);
+      modalBody.appendChild(wrap);
+      openModal();
+    }
+    function openTowerMap(link) {
+      if (!link) return;
+      const info = link.map ? { ...link.map } : {};
+      if (!info.url && link.url) {
+        info.url = link.url;
+      }
+      if (!info.title) {
+        info.title = niceName(link.id || 'Tower');
+      }
+      openRouteMapModal(info, link.url);
+    }
     function slugifyForPalworld(text) {
       if (!text) return '';
       return text
@@ -2151,7 +2326,7 @@
       } else if(link.type === 'glossary'){
         showGlossaryDetail(link.id);
       } else if(link.type === 'tower'){
-        window.open(link.url || 'https://palworld.gg/map', '_blank', 'noopener');
+        openTowerMap(link);
       }
     }
 
