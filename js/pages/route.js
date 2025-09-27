@@ -3,12 +3,13 @@ import guide from '../../data/route.chapters.json' assert { type: 'json' };
 const STORAGE_KEY = 'palmarathon:route:v1';
 
 export function renderRoute(node){
+  const kidMode = isKidMode();
   node.innerHTML = `
     <section class="card">
       <h2>Boss Route & Progress</h2>
       <p>Work through each chapter. Check off steps as you do them. <em>Optional</em> steps don’t block completion.</p>
       <div class="badges" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-        <button class="btn" id="toggleOptional">Hide Optional</button>
+        <button class="btn" id="toggleOptional">${optionalToggleLabel(false, kidMode)}</button>
       </div>
     </section>
     <div id="chapters"></div>
@@ -26,8 +27,8 @@ export function renderRoute(node){
     chapterEl.innerHTML = `
       <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap">
         <div>
-          <h3 style="margin:0">${escapeHTML(ch.title)}</h3>
-          <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(ch.why)}</p>
+          <h3 style="margin:0">${escapeHTML(chapterTitle(ch))}</h3>
+          <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(chapterWhy(ch))}</p>
         </div>
         <div style="min-width:220px">
           ${renderProgress(progress)}
@@ -84,8 +85,9 @@ export function renderRoute(node){
   });
 
   node.querySelector('#toggleOptional').onclick = ()=>{
+    const kid = isKidMode();
     hideOptional = !hideOptional;
-    node.querySelector('#toggleOptional').textContent = hideOptional ? 'Show Optional' : 'Hide Optional';
+    node.querySelector('#toggleOptional').textContent = optionalToggleLabel(hideOptional, kid);
     // Rerender all chapters with the new optional filter
     guide.chapters.forEach(ch => rerenderChapter(ch, state, node, hideOptional));
   };
@@ -98,8 +100,8 @@ function rerenderChapter(ch, state, node, hideOptional){
   sec.innerHTML = `
     <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap">
       <div>
-        <h3 style="margin:0">${escapeHTML(ch.title)}</h3>
-        <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(ch.why)}</p>
+        <h3 style="margin:0">${escapeHTML(chapterTitle(ch))}</h3>
+        <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(chapterWhy(ch))}</p>
       </div>
       <div style="min-width:220px">${renderProgress(progress)}</div>
     </div>
@@ -126,7 +128,7 @@ function renderSteps(ch, state, hideOptional){
     groups[step.category].push(`
       <label class="step ${step.optional?'optional':''}">
         <input type="checkbox" data-step="${step.id}" ${checked?'checked':''} />
-        <span class="step-text">${escapeHTML(step.text)} ${step.optional?'<em>(Optional)</em>':''}</span>
+        <span class="step-text">${escapeHTML(stepText(step))} ${step.optional?'<em>(Optional)</em>':''}</span>
         ${renderLinks(step.links||[])}
       </label>
     `);
@@ -141,12 +143,15 @@ function renderSteps(ch, state, hideOptional){
 
 function renderProgress({requiredDone, requiredCount, requiredChecked}){
   const pct = requiredCount ? Math.round((requiredChecked/requiredCount)*100) : 0;
+  const label = isKidMode()
+    ? `${requiredChecked}/${requiredCount} steps done (${pct}%)`
+    : `${requiredChecked}/${requiredCount} required done (${pct}%)`;
   return `
     <div class="progress" aria-label="Chapter progress" style="display:grid;gap:6px">
       <div style="height:10px;border-radius:999px;background:#22314A;overflow:hidden">
         <div style="height:10px;width:${pct}%;background:var(--accent)"></div>
       </div>
-      <div style="font-size:.9rem;color:var(--muted)">${requiredChecked}/${requiredCount} required done (${pct}%)</div>
+      <div style="font-size:.9rem;color:var(--muted)">${label}</div>
     </div>
   `;
 }
@@ -164,6 +169,36 @@ function renderLinks(links){
     const payload = JSON.stringify(l).replace(/"/g,'&quot;');
     return `<a href="#" class="chip link" data-link="${payload}" role="button">${escapeHTML(label)}</a>`;
   }).join('')}</span>`;
+}
+
+function optionalToggleLabel(hidden, kid){
+  if(kid) return hidden ? 'Show bonus steps' : 'Hide bonus steps';
+  return hidden ? 'Show Optional' : 'Hide Optional';
+}
+
+function chapterTitle(ch){
+  const kid = isKidMode();
+  if(kid) return ch.titleKid || ch.title || '';
+  if(ch.title) return ch.title;
+  return ch.titleKid || '';
+}
+
+function chapterWhy(ch){
+  const kid = isKidMode();
+  if(kid) return ch.whyKid || ch.why || '';
+  if(ch.why) return ch.why;
+  return ch.whyKid || '';
+}
+
+function stepText(step){
+  const kid = isKidMode();
+  if(!kid && step.textAdult) return step.textAdult;
+  if(kid) return step.textKid || step.text || '';
+  return step.text || step.textKid || '';
+}
+
+function isKidMode(){
+  return document.body.classList.contains('kid-mode');
 }
 
 function linkLabel(l){
