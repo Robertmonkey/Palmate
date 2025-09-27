@@ -1341,6 +1341,11 @@
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modalBody');
     document.getElementById('modalClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', event => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
     function openModal() {
       modal.classList.add('active');
       playSound(openSound);
