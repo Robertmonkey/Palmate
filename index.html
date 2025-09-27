@@ -8,6 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <!-- Font Awesome for interface icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
   <!-- Core styles: cosmic blue theme with smooth scrollbars -->
   <style>
     /*
@@ -36,6 +37,7 @@
       --card-bg: #1e3246;
       --card-hover: #2e4a62;
       --text: #f0f4f8;
+      --muted: rgba(224,225,221,0.7);
       --danger: #e76f51;
       --success: #2a9d8f;
     }
@@ -954,13 +956,7 @@
         </div>
       </section>
       <!-- Route page -->
-      <section id="routePage" class="page">
-        <header class="page-header">
-          <h2>Route</h2>
-        </header>
-        <p>Follow this suggested order to conquer the tower bosses. Each card offers tips and links to recommended pals and gear.</p>
-        <div id="routeList" class="card-grid"></div>
-      </section>
+      <section id="routePage" class="page"></section>
       <!-- Tech page -->
       <section id="techPage" class="page">
         <header class="page-header">
@@ -1019,7 +1015,6 @@
     let PALS = {};
     let ITEMS = {};
     let TECH = [];
-    let ROUTE = [];
     let SKILL_DETAILS = {};
     let PASSIVE_DETAILS = {};
     let ITEM_DETAILS = {};
@@ -1028,6 +1023,7 @@
     // Map pal names to IDs for quick lookup when clicking breeding
     // combos.  Populated after data load.
     let PAL_NAME_TO_ID = {};
+    let PAL_SLUG_TO_ID = {};
     // Progress tracking
     let caught = JSON.parse(localStorage.getItem('caught') || '{}');
     let collected = JSON.parse(localStorage.getItem('collected') || '{}');
@@ -1174,161 +1170,6 @@
       'River': { x: 5, y: 70, w: 25, h: 20 }
     };
 
-    // Route definitions.  Each entry describes a tower boss encounter
-    // along the Pal Marathon journey, including the recommended
-    // element(s) to bring and a short description.  Use these
-    // entries to build the Route page.  Level ordering taken from
-    // community consensus and our own research.
-    const DEFAULT_ROUTE = [
-      {
-        step: 1,
-        name: 'Rayne Syndicate Tower',
-        boss: 'Zoe & Grizzbolt',
-        element: 'Electric',
-        weakness: ['Ground'],
-        hp: 30000,
-        description: 'The tutorial tower. Bring Ground-type pals to exploit Grizzbolt\'s weakness. Recommended pals include Rushoar and Fuddler. Dash in, dodge Grizzbolt\'s electric attacks, and keep your distance.',
-        location: 'Windswept Hills (112, -434)',
-        tips: 'Stock up on Pal Spheres, some basic healing items, and wear basic armor.',
-        steps: [
-          'Confirm your pals are at least level 15 and slot Ground-type attackers to exploit Grizzbolt.',
-          'Repair melee and ranged weapons, and craft extra Pal Spheres plus crossbow bolts.',
-          'Cook stamina meals and pack bandages or medical supplies for emergency heals.',
-          'Travel to Windswept Hills (112, -434), unlocking the Cliffside fast travel statue en route.',
-          'Establish a forward camp with a bed or campfire just outside the tower entrance.',
-          'Clear Syndicate patrols, gathering ore from the cliffs for last-minute gear repairs.',
-          'Enter the arena, circle around Grizzbolt\'s telegraphed lightning and punish after each slam.',
-          'Loot the tower chest, collect boss drops, then return home to upgrade workbenches.'
-        ]
-      },
-      {
-        step: 2,
-        name: 'Free Pal Alliance Tower',
-        boss: 'Lily & Lyleen',
-        element: 'Grass',
-        weakness: ['Fire'],
-        hp: 69000,
-        description: 'Located in the icy north. Bring Fire pals such as Foxparks or Blazehowl to burn through Lyleen\'s grass defenses. Wear cold resistance gear to survive the journey.',
-        location: 'Free Pal Alliance territory (185, 28)',
-        tips: 'Craft some Mega Spheres before heading out and keep a fire source ready to warm up.',
-        steps: [
-          'Raise your core team to at least level 25 and equip Fire pals with high burst skills.',
-          'Craft cold-resistance armor and brew heat drinks to counter the blizzard approach.',
-          'Cook hearty meals that boost defense and carry thawing medicine for emergencies.',
-          'Fast travel toward (185, 28) and clear ice blocking the final ascent to the tower.',
-          'Place a heater or bonfire near the entrance so you can warm up between attempts.',
-          'Defeat Free Pal scouts on the plateau and loot supply crates for ammo and fiber.',
-          'During the fight, focus fire on Lyleen while dodging Lily\'s wide arcing shots.',
-          'After victory, relight your heater, restock ammo, and upgrade Fire weapons at base.'
-        ]
-      },
-      {
-        step: 3,
-        name: 'Brothers of the Eternal Pyre Tower',
-        boss: 'Axel & Orserk',
-        element: 'Electric/Dragon',
-        weakness: ['Ground', 'Ice'],
-        hp: 130000,
-        description: 'Set on a lava island. Orserk is part dragon and electric, making it vulnerable to both Ground and Ice. Consider bringing Chillet or Cryolinx, and pack heat resistance armour.',
-        location: 'Lava island (approx)',
-        tips: 'Use Surfent or another water mount to cross safely. Maintain distance and avoid standing on lava pools.',
-        steps: [
-          'Ensure your squad is level 30+ and slot Ice or Ground pals with lightning resistance.',
-          'Forge heat-resistant armor and pack cooling consumables for the volcanic climb.',
-          'Cook spicy meals that boost stamina and bring antidotes for toxic vents.',
-          'Glide or sail to the volcano, unlocking the Mount Obsidian fast travel statue.',
-          'Build a safe respawn camp on a basalt ledge before approaching the tower.',
-          'Clear roaming fire mobs and harvest sulfur deposits for emergency ammo crafting.',
-          'Inside the arena, stagger Orserk with Ice bursts, then punish Axel from range.',
-          'Secure the loot chest, refill cooling supplies, and send pals to rest at your base.'
-        ]
-      },
-      {
-        step: 4,
-        name: 'PIDF Tower',
-        boss: 'Marcus & Faleris',
-        element: 'Fire',
-        weakness: ['Water'],
-        hp: 146000,
-        description: 'Situated in the northern desert where temperatures fluctuate drastically. Use Water pals like Fuack or Azurobe to drench Faleris. Bring both heat and cold resist gear.',
-        location: 'PIDF desert (approx)',
-        tips: 'Craft plenty of Hyper Spheres and bring water because the journey is long.',
-        steps: [
-          'Train your Water-focused team to level 35+ and slot pals with ranged Hydro attacks.',
-          'Upgrade weapons to steel tier and brew flame-resistant tonics for the desert heat.',
-          'Prepare chilled meals and carry extra water to avoid overheating on the march.',
-          'Ride a fast mount toward (350, -200), capturing the desert fast travel anchor.',
-          'Set up shade structures or a tent outside the tower to manage temperature.',
-          'Eliminate PIDF patrols and dismantle turrets guarding the elevator entrance.',
-          'During the fight, ground Faleris with Water artillery, then pressure Marcus.',
-          'After the win, loot the cache, refill water skins, and craft new ammo back home.'
-        ]
-      },
-      {
-        step: 5,
-        name: 'PAL Genetic Research Unit Tower',
-        boss: 'Victor & Shadowbeak',
-        element: 'Dark',
-        weakness: ['Dragon'],
-        hp: 200000,
-        description: 'Atop a snowy mountain. Shadowbeak\'s dark type is weak against Dragon pals such as Orserk and Quivern. Pack cold resistance gear and powerful healing items.',
-        location: 'Snowy mountain (approx)',
-        tips: 'Prepare Ultra Spheres and craft gear like the Quivern Saddle to reach the tower quickly.',
-        steps: [
-          'Bring your squad to level 40+ with Dragon pals capable of burst damage and shields.',
-          'Reinforce armor with Dark-resistant plates and craft plenty of Legendary Spheres.',
-          'Cook focus-restoring meals and pack energy potions for prolonged aerial phases.',
-          'Glide across the tundra to (558, 340), activating the nearby fast travel tower.',
-          'Construct a small generator base with lights to cut through the laboratory gloom.',
-          'Disable roaming security drones and hack supply crates for extra batteries.',
-          'In combat, bait Shadowbeak\'s beam, counter with Dragon slams, then corner Victor.',
-          'Claim the experimental loot, recharge equipment, and schedule base upgrades.'
-        ]
-      },
-      {
-        step: 6,
-        name: 'Moonflower Tower',
-        boss: 'Saya & Selyne',
-        element: 'Dark/Neutral',
-        weakness: ['Dark', 'Dragon'],
-        hp: 261000,
-        description: 'The sole tower on Sakurajima island. Bring dark and dragon pals like Shadowbeak or Jormuntide Ignis. The area is foggy with poisonous plants, so carry antidotes and bright torches.',
-        location: 'Sakurajima island (approx)',
-        tips: 'Use mounts like Nitewing or Quivern to cross quickly and avoid ambushes.',
-        steps: [
-          'Raise Dark or Dragon pals to level 45+ and slot passives that cleanse debuffs.',
-          'Craft fog-cutting lanterns and antidotes to counter poisonous Sakurajima plants.',
-          'Cook stamina soups and pack plenty of glider repair kits for the island crossing.',
-          'Fly or sail to Sakurajima, unlocking the Moonflower waypoint along the cliffs.',
-          'Build a lantern-lined safe zone outside the tower to purge poison stacks.',
-          'Clear ambushing Moonflower cultists and harvest glowshrooms for extra cures.',
-          'In the arena, dispel Selyne\'s orbs with Dark attacks while dodging Saya\'s beams.',
-          'Gather the relic rewards, detox your team, and rotate fresh pals in at base.'
-        ]
-      },
-      {
-        step: 7,
-        name: 'Feybreak Tower',
-        boss: 'Bjorn & Bastigor',
-        element: 'Ice',
-        weakness: ['Fire'],
-        hp: 509000,
-        description: 'This final tower on Feybreak island demands strong fire pals such as Faleris or Blazamut. You must first defeat three field bosses (Dazzi Noct, Caprity Noct and Omascul) and obtain their bounty tokens before entering the tower.',
-        location: 'Feybreak island (approx)',
-        tips: 'Craft Legendary Spheres and upgrade your base before the fight. Bring plenty of food and stamina potions for a long battle.',
-        steps: [
-          'Push your Fire squad to level 50+ with high durability mounts like Blazamut.',
-          'Forge top-tier fire gear and brew hot drinks to counter Feybreak\'s deep freeze.',
-          'Stockpile spicy meals and stamina tonics for the long trek through snow fields.',
-          'Hunt the three bounty bosses (Dazzi Noct, Caprity Noct, Omascul) for entry tokens.',
-          'Unlock the Feybreak fast travel statues and place a camp heater near the tower gate.',
-          'Clear remaining ice golems and salvage metal from wreckage for mid-run repairs.',
-          'Inside the arena, melt Bastigor\'s armor while interrupting Bjorn\'s cannon volleys.',
-          'Celebrate by looting the vault, restocking supplies, and planning postgame raids.'
-        ]
-      }
-    ];
-    ROUTE = DEFAULT_ROUTE.map(step => ({ ...step }));
     const DATA_SOURCES = [
       'data/palworld_complete_data_final.json',
       'data/palworld_complete_data_enhanced.json',
@@ -1480,8 +1321,8 @@
       buildPalPage();
       buildItemPage();
       buildTechPage();
-      buildRoutePage();
       buildGlossaryPage();
+      renderRouteGuide();
       // Home page re-render to update suggestions styling
       buildHomePage();
     });
@@ -1639,18 +1480,16 @@
         PALS = payload.pals || {};
         ITEMS = payload.items || {};
         TECH = payload.tech || [];
-        const hasRouteTable = Array.isArray(payload.route) && payload.route.length;
-        if (!hasRouteTable) {
-          console.warn('Loaded dataset does not contain a route table. Falling back to bundled defaults.');
-        }
-        ROUTE = hasRouteTable ? payload.route : DEFAULT_ROUTE.map(step => ({ ...step }));
         SKILL_DETAILS = payload.skillsDetails || {};
         PASSIVE_DETAILS = payload.passiveDetails || {};
         ITEM_DETAILS = await loadItemDetails();
         // Build name‑to‑ID lookup map
         PAL_NAME_TO_ID = {};
+        PAL_SLUG_TO_ID = {};
         Object.values(PALS).forEach(p => {
           PAL_NAME_TO_ID[p.name] = p.id;
+          const slug = slugifyForPalworld(p.name);
+          if(slug) PAL_SLUG_TO_ID[slug] = p.id;
         });
         // Build a global map of item drops for quick lookup
         DROPS_MAP = {};
@@ -1666,7 +1505,7 @@
         buildTechPage();
         buildBreedingPage();
         buildHomePage();
-        buildRoutePage();
+        renderRouteGuide();
         // Synchronise skills and traits dictionaries with the loaded data.
         // Override the static dictionaries with entries from the JSON file.
         skillsDictionary = { ...defaultSkillsDictionary };
@@ -1816,6 +1655,25 @@
         });
       }
     }
+    window.viewPal = function(identifier){
+      if(identifier === undefined || identifier === null) return;
+      if(typeof identifier === 'number'){
+        showPalDetail(identifier);
+        return;
+      }
+      const normalized = String(identifier).toLowerCase();
+      const slugId = PAL_SLUG_TO_ID[normalized];
+      if(slugId){
+        showPalDetail(slugId);
+        return;
+      }
+      const byName = PAL_NAME_TO_ID[capitalize(normalized)];
+      if(byName){
+        showPalDetail(byName);
+        return;
+      }
+      focusSearch(identifier);
+    };
     // Build items page
     function buildItemPage() {
       const list = document.getElementById('itemsList');
@@ -1877,6 +1735,8 @@
         level.items.forEach(item => {
           const div = document.createElement('div');
           div.className = 'tech-item';
+          const techId = item.id || slugifyForPalworld(item.name);
+          if(techId) div.id = `tech-${techId}`;
         const matList = item.materials ? Object.entries(item.materials).map(([k,v]) => `${k}: ${v}`).join(', ') : '';
         const matStr = matList ? `<span class="materials">Materials: ${matList}</span><br>` : '';
         const techPoints = item.techPoints ? `<span class="materials">Tech Points: ${item.techPoints}</span><br>` : '';
@@ -1993,164 +1853,331 @@
       home.appendChild(sugCard);
     }
 
-    // Route page builder.  Creates cards for each tower battle in the
-    // ROUTE array.  Each card lists the order, boss names, recommended
-    // element and a short description.  Each route now exposes
-    // granular step checkboxes stored in localStorage so players can
-    // tick off progress within a chapter.  Individual steps highlight
-    // as they are completed, and the entire card glows when every
-    // sub-step is finished.  Boss names still link to their pal
-    // details when known.
-    function buildRoutePage() {
-      const list = document.getElementById('routeList');
-      if (!list) return;
-      list.innerHTML = '';
-      const routeProgress = JSON.parse(localStorage.getItem('routeProgress') || '{}');
-      let progressMutated = false;
-      ROUTE.forEach(step => {
-        const steps = Array.isArray(step.steps) ? step.steps : [];
-        let entry = routeProgress[step.step];
-        let shouldPersistEntry = false;
-        if (typeof entry === 'boolean') {
-          entry = { complete: entry, substeps: {} };
-          shouldPersistEntry = true;
-        }
-        if (!entry || typeof entry !== 'object') {
-          entry = { complete: false, substeps: {} };
-        }
-        if (!entry.substeps) {
-          entry.substeps = {};
-          shouldPersistEntry = true;
-        }
-        if (entry.complete && steps.length) {
-          steps.forEach((_, idx) => {
-            if (!entry.substeps[idx]) {
-              entry.substeps[idx] = true;
-              shouldPersistEntry = true;
-            }
-          });
-        }
-        const checkedCount = steps.reduce((acc, _, idx) => acc + (entry.substeps[idx] ? 1 : 0), 0);
-        const allSubstepsComplete = steps.length > 0 && checkedCount === steps.length;
-        if (allSubstepsComplete !== entry.complete) {
-          entry.complete = allSubstepsComplete;
-          shouldPersistEntry = true;
-        }
-        const done = !!entry.complete;
-        if (shouldPersistEntry) {
-          routeProgress[step.step] = entry;
-          progressMutated = true;
-        }
+    const ROUTE_STORAGE_KEY = 'palmarathon:route:v1';
+    let routeGuideData = null;
+    let routeState = loadRouteState();
+    let routeHideOptional = false;
 
-        const card = document.createElement('div');
-        card.className = `pal-card route-card${done ? ' completed' : ''}`;
-        // Attempt to link the boss pal to its detail page
-        const bossNames = (step.boss || '').split('&').map(s => s.trim()).filter(Boolean);
-        const bossLink = bossNames.length ? bossNames.map(name => {
-          const id = PAL_NAME_TO_ID[name];
-          return id ? `<a href="#" class="pal-link" data-pal-name="${name}">${name}</a>` : name;
-        }).join(' & ') : (step.boss || 'Unknown');
-        const weaknesses = Array.isArray(step.weakness) ? step.weakness.join(', ') : step.weakness;
-        const progressText = steps.length
-          ? `${checkedCount}/${steps.length} steps complete`
-          : (done ? 'Complete' : 'No steps defined yet');
-        card.innerHTML = `
-          <div class="name">${step.step}. ${step.name}</div>
-          <div style="font-size:0.9rem;color:var(--light);">Boss: ${bossLink}</div>
-          <div style="font-size:0.8rem;color:var(--light);">Element: ${step.element}</div>
-          <div style="font-size:0.8rem;color:var(--light);">Weakness: ${weaknesses}</div>
-          <div style="font-size:0.8rem;color:var(--light);">HP: ${step.hp.toLocaleString()}</div>
-          <div style="font-size:0.75rem;color:var(--text);margin:6px 0;">${step.description}</div>
-          <div style="font-size:0.7rem;color:var(--light);">Location: ${step.location || 'Unknown'}</div>
-          <div style="font-size:0.7rem;color:var(--light);">Tips: ${step.tips || ''}</div>
-          <div class="route-steps"></div>
-          <div class="route-progress-summary">${progressText}</div>
-          <button class="collect-btn${done ? ' collected' : ''}" style="margin-top:8px;">${done ? 'Reset progress' : 'Mark all complete'}</button>
+    function ensureRouteGuide(){
+      if(routeGuideData){
+        return Promise.resolve(routeGuideData);
+      }
+      return fetch('data/route.chapters.json')
+        .then(res => {
+          if(!res.ok){ throw new Error(`HTTP ${res.status}`); }
+          return res.json();
+        })
+        .then(json => {
+          routeGuideData = json;
+          return routeGuideData;
+        })
+        .catch(err => {
+          console.error('Failed to load route guide', err);
+          routeGuideData = { chapters: [] };
+          return routeGuideData;
+        });
+    }
+
+    function renderRouteGuide(){
+      ensureRouteGuide().then(guide => {
+        const node = document.getElementById('routePage');
+        if(!node) return;
+        const chapters = Array.isArray(guide.chapters) ? guide.chapters : [];
+        if(!chapters.length){
+          node.innerHTML = '<section class="card"><h2>Boss Route & Progress</h2><p>Route data unavailable.</p></section>';
+          return;
+        }
+        routeState = loadRouteState();
+        node.innerHTML = `
+          <section class="card">
+            <h2>Boss Route & Progress</h2>
+            <p>Work through each chapter. Check off steps as you do them. <em>Optional</em> steps don’t block completion.</p>
+            <div class="badges" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+              <button class="btn" id="toggleOptional">${routeHideOptional ? 'Show Optional' : 'Hide Optional'}</button>
+              <button class="btn" id="resetAll">Reset All</button>
+            </div>
+          </section>
+          <div id="routeChapters"></div>
         `;
+        const wrap = node.querySelector('#routeChapters');
+        chapters.forEach((ch, idx) => {
+          wrap.appendChild(renderChapterCard(ch, idx === 0));
+        });
 
-        const stepsContainer = card.querySelector('.route-steps');
-        const ol = document.createElement('ol');
-        ol.className = 'route-step-list';
-        steps.forEach((text, idx) => {
-          const li = document.createElement('li');
-          li.className = `route-step${entry.substeps[idx] ? ' completed' : ''}`;
-          const label = document.createElement('label');
-          label.className = 'route-step-label';
-          const checkbox = document.createElement('input');
-          checkbox.type = 'checkbox';
-          checkbox.checked = !!entry.substeps[idx];
-          checkbox.addEventListener('change', (ev) => {
-            ev.stopPropagation();
-            const progress = JSON.parse(localStorage.getItem('routeProgress') || '{}');
-            let stepEntry = progress[step.step];
-            if (typeof stepEntry === 'boolean') {
-              stepEntry = { complete: stepEntry, substeps: {} };
+        wrap.addEventListener('change', handleRouteCheckboxChange);
+        wrap.addEventListener('click', handleRouteClick);
+
+        const toggleBtn = node.querySelector('#toggleOptional');
+        if(toggleBtn){
+          toggleBtn.onclick = () => {
+            routeHideOptional = !routeHideOptional;
+            toggleBtn.textContent = routeHideOptional ? 'Show Optional' : 'Hide Optional';
+            chapters.forEach(ch => rerenderChapter(ch));
+          };
+        }
+        const resetAll = node.querySelector('#resetAll');
+        if(resetAll){
+          resetAll.onclick = () => {
+            if(confirm('Reset ALL progress?')){
+              localStorage.removeItem(ROUTE_STORAGE_KEY);
+              routeState = {};
+              renderRouteGuide();
             }
-            if (!stepEntry || typeof stepEntry !== 'object') {
-              stepEntry = { complete: false, substeps: {} };
-            }
-            if (!stepEntry.substeps) stepEntry.substeps = {};
-            stepEntry.substeps[idx] = ev.target.checked;
-            const totalComplete = steps.length > 0 && steps.every((_, i) => !!stepEntry.substeps[i]);
-            stepEntry.complete = totalComplete;
-            progress[step.step] = stepEntry;
-            localStorage.setItem('routeProgress', JSON.stringify(progress));
-            buildRoutePage();
-            playSound(clickSound);
-          });
-          const textSpan = document.createElement('span');
-          textSpan.className = 'route-step-text';
-          textSpan.textContent = text;
-          label.appendChild(checkbox);
-          label.appendChild(textSpan);
-          li.appendChild(label);
-          ol.appendChild(li);
-        });
-        stepsContainer.appendChild(ol);
-
-        const btn = card.querySelector('button');
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const progress = JSON.parse(localStorage.getItem('routeProgress') || '{}');
-          let stepEntry = progress[step.step];
-          if (typeof stepEntry === 'boolean') {
-            stepEntry = { complete: stepEntry, substeps: {} };
-          }
-          if (!stepEntry || typeof stepEntry !== 'object') {
-            stepEntry = { complete: false, substeps: {} };
-          }
-          if (!stepEntry.substeps) stepEntry.substeps = {};
-          if (done) {
-            stepEntry.complete = false;
-            stepEntry.substeps = {};
-          } else {
-            steps.forEach((_, idx) => {
-              stepEntry.substeps[idx] = true;
-            });
-            stepEntry.complete = steps.length > 0;
-          }
-          progress[step.step] = stepEntry;
-          localStorage.setItem('routeProgress', JSON.stringify(progress));
-          buildRoutePage();
-          playSound(clickSound);
-        });
-
-        card.addEventListener('click', (e) => {
-          if (e.target.classList.contains('pal-link')) {
-            e.preventDefault();
-            const pname = e.target.dataset.palName;
-            const pid = PAL_NAME_TO_ID[pname];
-            if (pid) showPalDetail(pid);
-          }
-        });
-        list.appendChild(card);
+          };
+        }
       });
-      if (progressMutated) {
-        localStorage.setItem('routeProgress', JSON.stringify(routeProgress));
+    }
+
+    function renderChapterCard(chapter, openByDefault){
+      const section = document.createElement('section');
+      section.className = 'card';
+      section.id = `chapter-${chapter.id}`;
+      const progress = chapterProgress(chapter);
+      section.innerHTML = `
+        <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap">
+          <div>
+            <h3 style="margin:0">${escapeHTML(chapter.title)}</h3>
+            <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(chapter.why)}</p>
+          </div>
+          <div style="min-width:220px">${renderProgress(progress)}</div>
+        </div>
+        <details ${openByDefault ? 'open' : ''}>
+          <summary class="btn" style="margin-top:8px">Open steps</summary>
+          ${renderSteps(chapter)}
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <button class="btn" data-action="markRequired" data-ch="${chapter.id}">Mark Required Complete</button>
+            <button class="btn" data-action="resetChapter" data-ch="${chapter.id}">Reset Chapter</button>
+            ${progress.requiredDone ? '<span style="margin-left:auto">✅ Chapter Complete</span>' : ''}
+          </div>
+        </details>
+      `;
+      return section;
+    }
+
+    function rerenderChapter(chapter){
+      const node = document.querySelector(`#chapter-${chapter.id}`);
+      if(!node) return;
+      const wasOpen = node.querySelector('details')?.open;
+      const progress = chapterProgress(chapter);
+      node.innerHTML = `
+        <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap">
+          <div>
+            <h3 style="margin:0">${escapeHTML(chapter.title)}</h3>
+            <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(chapter.why)}</p>
+          </div>
+          <div style="min-width:220px">${renderProgress(progress)}</div>
+        </div>
+        <details ${wasOpen ? 'open' : ''}>
+          <summary class="btn" style="margin-top:8px">Open steps</summary>
+          ${renderSteps(chapter)}
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <button class="btn" data-action="markRequired" data-ch="${chapter.id}">Mark Required Complete</button>
+            <button class="btn" data-action="resetChapter" data-ch="${chapter.id}">Reset Chapter</button>
+            ${progress.requiredDone ? '<span style="margin-left:auto">✅ Chapter Complete</span>' : ''}
+          </div>
+        </details>
+      `;
+    }
+
+    function handleRouteCheckboxChange(event){
+      const target = event.target;
+      if(!target.matches('input[type="checkbox"][data-step]')) return;
+      const stepId = target.dataset.step;
+      routeState[stepId] = target.checked;
+      saveRouteState(routeState);
+      const chapterNode = target.closest('section.card');
+      if(!chapterNode) return;
+      const chapterId = chapterNode.id.replace('chapter-','');
+      const chapter = (routeGuideData?.chapters || []).find(ch => ch.id === chapterId);
+      if(chapter){
+        rerenderChapter(chapter);
       }
     }
 
-    // Glossary page builder.  Presents a list of passives and moves
+    function handleRouteClick(event){
+      const link = event.target.closest('[data-link]');
+      if(link){
+        const payload = JSON.parse(link.dataset.link);
+        navigateLink(payload);
+        event.preventDefault();
+        return;
+      }
+      const btn = event.target.closest('button[data-action]');
+      if(!btn) return;
+      const chapterId = btn.dataset.ch;
+      const chapter = (routeGuideData?.chapters || []).find(ch => ch.id === chapterId);
+      if(!chapter) return;
+      if(btn.dataset.action === 'markRequired'){
+        chapter.steps.filter(step => !step.optional).forEach(step => {
+          routeState[step.id] = true;
+        });
+        saveRouteState(routeState);
+        rerenderChapter(chapter);
+      } else if(btn.dataset.action === 'resetChapter'){
+        chapter.steps.forEach(step => {
+          delete routeState[step.id];
+        });
+        saveRouteState(routeState);
+        rerenderChapter(chapter);
+      }
+    }
+
+    function renderSteps(chapter){
+      const groups = { Base: [], Gear: [], Tech: [], Catch: [], Prep: [], Explore: [], Boss: [] };
+      (chapter.steps || []).forEach(step => {
+        if(routeHideOptional && step.optional) return;
+        const checked = !!routeState[step.id];
+        if(!groups[step.category]){
+          groups[step.category] = [];
+        }
+        groups[step.category].push(`
+          <label class="step ${step.optional ? 'optional' : ''}">
+            <input type="checkbox" data-step="${step.id}" ${checked ? 'checked' : ''} />
+            <span class="step-text">${escapeHTML(step.text)} ${step.optional ? '<em>(Optional)</em>' : ''}</span>
+            ${renderLinks(step.links || [])}
+          </label>
+        `);
+      });
+      return Object.entries(groups)
+        .filter(([, items]) => items.length)
+        .map(([category, items]) => `
+          <div class="step-group">
+            <h4>${category}</h4>
+            ${items.join('')}
+          </div>
+        `)
+        .join('');
+    }
+
+    function chapterProgress(chapter){
+      const required = (chapter.steps || []).filter(step => !step.optional);
+      const requiredChecked = required.filter(step => routeState[step.id]).length;
+      return {
+        requiredCount: required.length,
+        requiredChecked,
+        requiredDone: required.length > 0 && requiredChecked === required.length
+      };
+    }
+
+    function renderProgress(progress){
+      const pct = progress.requiredCount ? Math.round((progress.requiredChecked / progress.requiredCount) * 100) : 0;
+      return `
+        <div class="progress" aria-label="Chapter progress" style="display:grid;gap:6px">
+          <div style="height:10px;border-radius:999px;background:#22314A;overflow:hidden">
+            <div style="height:10px;width:${pct}%;background:var(--accent)"></div>
+          </div>
+          <div style="font-size:.9rem;color:var(--muted)">${progress.requiredChecked}/${progress.requiredCount} required done (${pct}%)</div>
+        </div>
+      `;
+    }
+
+    function renderLinks(links){
+      if(!links || !links.length) return '';
+      return `<span class="badges">${links.map(link => {
+        const payload = JSON.stringify(link).replace(/"/g, '&quot;');
+        return `<a href="#" class="chip link" data-link="${payload}" role="button">${escapeHTML(linkLabel(link))}</a>`;
+      }).join('')}</span>`;
+    }
+
+    function linkLabel(link){
+      if(link.type === 'pal') return capitalize(link.slug);
+      if(link.type === 'passive') return capitalize(link.id);
+      if(link.type === 'move') return niceName(link.id);
+      if(link.type === 'tech') return niceName(link.id);
+      if(link.type === 'glossary') return niceName(link.id);
+      if(link.type === 'tower') return niceName(link.id);
+      return 'Open';
+    }
+
+    function navigateLink(link){
+      if(link.type === 'pal'){
+        const palsBtn = document.querySelector('[data-page="pals"]');
+        if(palsBtn) palsBtn.click();
+        if(window.viewPal){
+          window.viewPal(link.slug);
+        } else {
+          focusSearch(link.slug);
+        }
+      } else if(link.type === 'tech'){
+        const techBtn = document.querySelector('[data-page="tech"]');
+        if(techBtn) techBtn.click();
+        setTimeout(() => {
+          const el = document.getElementById(`tech-${link.id}`);
+          if(el){
+            pulse(el);
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            focusSearch(niceName(link.id));
+          }
+        }, 60);
+      } else if(link.type === 'passive'){
+        const glossaryBtn = document.querySelector('[data-page="glossary"]');
+        if(glossaryBtn) glossaryBtn.click();
+        setTimeout(() => {
+          const el = document.getElementById(`passive-${link.id}`);
+          if(el){
+            pulse(el);
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            focusSearch(link.id);
+          }
+        }, 60);
+      } else if(link.type === 'move' || link.type === 'glossary'){
+        const glossaryBtn = document.querySelector('[data-page="glossary"]');
+        if(glossaryBtn) glossaryBtn.click();
+        if(link.type === 'move'){
+          setTimeout(() => {
+            const el = document.getElementById(`move-${link.id}`);
+            if(el){
+              pulse(el);
+              el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+              focusSearch(niceName(link.id));
+            }
+          }, 60);
+        }
+      } else if(link.type === 'tower'){
+        window.open(link.url || 'https://palworld.gg/map', '_blank', 'noopener');
+      }
+    }
+
+    function pulse(el){
+      el.classList.add('pulse');
+      setTimeout(() => el.classList.remove('pulse'), 1500);
+    }
+
+    function focusSearch(term){
+      const input = document.getElementById('palSearch') || document.getElementById('itemSearch');
+      if(input){
+        input.value = term;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    }
+
+    function loadRouteState(){
+      try {
+        return JSON.parse(localStorage.getItem(ROUTE_STORAGE_KEY)) || {};
+      } catch(err){
+        console.warn('Failed to load route progress', err);
+        return {};
+      }
+    }
+
+    function saveRouteState(state){
+      localStorage.setItem(ROUTE_STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function escapeHTML(str){
+      return (str || '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch] || ch));
+    }
+
+    function capitalize(value){
+      return (value || '').replace(/(^|[-_])\w/g, m => m.toUpperCase()).replace(/[-_]/g, ' ');
+    }
+
+    function niceName(id){
+      return capitalize(String(id).replace(/_/g, ' '));
+    }
     // with their descriptions.  Elements and work suitabilities are
     // summarised in simple tables.  Clicking a passive or move
     // shows more detail in a modal using the existing functions.
@@ -2160,32 +2187,44 @@
       container.innerHTML = '';
       // Build passives list
       const passivesSection = document.createElement('div');
+      passivesSection.className = 'card';
       passivesSection.innerHTML = '<h3>Passive Skills</h3>';
-      const passiveList = document.createElement('ul');
+      const passiveWrap = document.createElement('div');
+      passiveWrap.className = 'badges';
       Object.keys(traitsDictionary).sort().forEach(trait => {
-        const li = document.createElement('li');
-        li.innerHTML = `<a href="#" class="trait-link" data-trait="${trait}">${trait}</a>: ${traitsDictionary[trait]}`;
-        passiveList.appendChild(li);
+        const id = slugifyForPalworld(trait);
+        const btn = document.createElement('button');
+        btn.className = 'chip passive';
+        btn.dataset.trait = trait;
+        btn.id = id ? `passive-${id}` : '';
+        btn.title = traitsDictionary[trait];
+        btn.textContent = trait;
+        passiveWrap.appendChild(btn);
       });
-      passivesSection.appendChild(passiveList);
+      passivesSection.appendChild(passiveWrap);
       container.appendChild(passivesSection);
       // Build moves list (only first 30 for brevity)
       const movesSection = document.createElement('div');
+      movesSection.className = 'card';
       movesSection.innerHTML = '<h3>Active Skills</h3>';
-      const movesList = document.createElement('ul');
+      const movesWrap = document.createElement('div');
+      movesWrap.className = 'badges';
       const moveKeys = Object.keys(skillsDictionary);
       moveKeys.sort().slice(0, 30).forEach(key => {
         const info = skillsDictionary[key];
-        const li = document.createElement('li');
-        li.innerHTML = `<a href="#" class="skill-link" data-skill="${key}">${info.name}</a>: ${info.description}`;
-        movesList.appendChild(li);
+        const btn = document.createElement('button');
+        btn.className = 'chip move';
+        btn.dataset.skill = key;
+        btn.id = `move-${slugifyForPalworld(key)}`;
+        btn.textContent = info.name || key;
+        movesWrap.appendChild(btn);
       });
+      movesSection.appendChild(movesWrap);
       if (moveKeys.length > 30) {
         const more = document.createElement('p');
         more.innerHTML = `...and ${moveKeys.length - 30} more skills. Use search or view pals for full list.`;
         movesSection.appendChild(more);
       }
-      movesSection.appendChild(movesList);
       container.appendChild(movesSection);
       // Elements table
       const elemSection = document.createElement('div');
@@ -2240,13 +2279,17 @@
       container.appendChild(workSection);
       // Click handlers for glossary links
       container.addEventListener('click', (e) => {
-        if (e.target.classList.contains('trait-link')) {
+        const passiveBtn = e.target.closest('.chip.passive');
+        if (passiveBtn) {
           e.preventDefault();
-          const trait = e.target.dataset.trait;
+          const trait = passiveBtn.dataset.trait;
           showTraitDetail(trait);
-        } else if (e.target.classList.contains('skill-link')) {
+          return;
+        }
+        const moveBtn = e.target.closest('.chip.move');
+        if (moveBtn) {
           e.preventDefault();
-          const key = e.target.dataset.skill;
+          const key = moveBtn.dataset.skill;
           showSkillDetail(key);
         }
       });

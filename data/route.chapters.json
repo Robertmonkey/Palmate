@@ -1,0 +1,156 @@
+{
+  "version": "1.0",
+  "chapters": [
+    {
+      "id": "ch1",
+      "title": "Chapter 1 — First Camp, First Helpers (Lv 1–6)",
+      "why": "Start near Plateau of Beginnings. Build a safe mini-base and catch versatile early Pals so a second grader can explore without overwhelm.",
+      "steps": [
+        { "id":"ch1-base-palbox", "category":"Base", "text":"Place Palbox, Feed Box, and Straw Pal Beds.", "links":[] },
+        { "id":"ch1-base-berry", "category":"Base", "text":"Place a Berry Plantation for food security.", "links":[{"type":"tech","id":"berry-plantation"}], "optional": false },
+        { "id":"ch1-base-logging-stone", "category":"Base", "text":"When Tech 7 unlocks, add a Logging Site and Stone Pit.", "links":[{"type":"tech","id":"logging-site"},{"type":"tech","id":"stone-pit"}], "optional": true },
+        { "id":"ch1-gear-bow", "category":"Gear", "text":"Craft Stone tools and a Bow. Plan to upgrade to Crossbow later.", "links":[{"type":"tech","id":"bow"},{"type":"tech","id":"crossbow"}], "optional": false },
+        { "id":"ch1-gear-pal-gear-bench", "category":"Gear", "text":"Unlock and build the Pal Gear Workbench (Tech Lv 6) for saddles/partner gear.", "links":[{"type":"tech","id":"pal-gear-workbench"}] },
+        { "id":"ch1-gear-statue", "category":"Gear", "text":"Build a Statue of Power (Tech Lv 6) and feed it Lifmunk Effigies to raise Capture Power.", "links":[{"type":"tech","id":"statue-of-power"},{"type":"glossary","id":"lifmunk-effigy"}] },
+        { "id":"ch1-catch-lamball", "category":"Catch", "text":"Catch Lamball or Cattiva (Handiwork/Transport 1) as early crafters/haulers.", "links":[{"type":"pal","slug":"lamball"},{"type":"pal","slug":"cattiva"}] },
+        { "id":"ch1-catch-foxparks", "category":"Catch", "text":"Catch Foxparks (Kindling 1). Its harness (via Pal Gear Workbench) powers cooking/furnaces.", "links":[{"type":"pal","slug":"foxparks"},{"type":"tech","id":"pal-gear-workbench"}] },
+        { "id":"ch1-catch-pengullet", "category":"Catch", "text":"Catch Pengullet (Watering 1, Cooling 1). Great for crops and later the Mill.", "links":[{"type":"pal","slug":"pengullet"}] },
+        { "id":"ch1-catch-daedream", "category":"Catch", "text":"Catch Daedream (strong early fighter; Lv 8 necklace partner skill is fun).", "links":[{"type":"pal","slug":"daedream"}], "optional": true },
+        { "id":"ch1-catch-vixy-tanzee", "category":"Catch", "text":"Optionally catch Vixy (coins from digging) and Tanzee (Lumber+Transport).", "links":[{"type":"pal","slug":"vixy"},{"type":"pal","slug":"tanzee"}], "optional": true },
+        { "id":"ch1-explore-effigies", "category":"Explore", "text":"Grab Lifmunk Effigies when you see them and feed the Statue of Power for better catch odds.", "links":[{"type":"glossary","id":"lifmunk-effigy"},{"type":"tech","id":"statue-of-power"}], "optional": false }
+      ]
+    },
+    {
+      "id": "ch2",
+      "title": "Chapter 2 — Move Faster, Smelt Ore, First Mount (Lv 6–13)",
+      "why": "Mobility + Ingots unlock real crafting. Get your first ride, first Ingots, and Crossbow before Tower 1.",
+      "steps": [
+        { "id":"ch2-base-furnace", "category":"Base", "text":"Build a Primitive Furnace (Lv 10) and start Ingots (assign Foxparks for Kindling).", "links":[{"type":"tech","id":"primitive-furnace"},{"type":"pal","slug":"foxparks"}] },
+        { "id":"ch2-gear-grapple", "category":"Gear", "text":"Craft a Grappling Gun (Lv 12) to help with terrain (kid-friendly).", "links":[{"type":"tech","id":"grappling-gun"}], "optional": true },
+        { "id":"ch2-gear-crossbow", "category":"Gear", "text":"Craft a Crossbow (Lv 13). Big upgrade over the Bow.", "links":[{"type":"tech","id":"crossbow"}] },
+        { "id":"ch2-catch-rushoar", "category":"Catch", "text":"Catch Rushoar (Ground; first saddle at Lv 6). Good vs Electric and can mine while mounted.", "links":[{"type":"pal","slug":"rushoar"},{"type":"tech","id":"pal-gear-workbench"}] },
+        { "id":"ch2-catch-direhowl", "category":"Catch", "text":"Catch Direhowl (fast ground mount; Lv 9 saddle). Great kid‑fun speed boost.", "links":[{"type":"pal","slug":"direhowl"}], "optional": true },
+        { "id":"ch2-explore-dungeons", "category":"Explore", "text":"Dip into 1–2 nearby dungeons for chests and the chance at Skill Fruits (save for later).", "links":[{"type":"glossary","id":"skill-fruit"}], "optional": true }
+      ]
+    },
+    {
+      "id": "ch3",
+      "title": "Chapter 3 — Tower 1: Zoe & Grizzbolt (Lv ~10, Electric → weak to Ground)",
+      "why": "You have Crossbow and a Ground pal. This gives Ancient Tech Points and confidence for the loop.",
+      "steps": [
+        { "id":"ch3-prep-ground", "category":"Prep", "text":"Bring Rushoar (Ground) and healing items.", "links":[{"type":"pal","slug":"rushoar"}] },
+        { "id":"ch3-prep-capture-power", "category":"Prep", "text":"Spend a few Lifmunk Effigies at the Statue of Power to raise Capture Power.", "links":[{"type":"tech","id":"statue-of-power"},{"type":"glossary","id":"lifmunk-effigy"}], "optional": true },
+        { "id":"ch3-boss-zoe", "category":"Boss", "text":"Clear Rayne Tower — Zoe & Grizzbolt.", "links":[{"type":"tower","id":"zoe-grizzbolt","url":"https://palworld.gg/map"}] },
+        { "id":"ch3-spend-ancient-qol", "category":"Tech", "text":"Spend your Ancient Tech Points on quality-of-life you like (optional).", "links":[{"type":"tech","id":"ancient-tech"}], "optional": true }
+      ]
+    },
+    {
+      "id": "ch4",
+      "title": "Chapter 4 — Farm → Cake → Breeding (Lv 14–20)",
+      "why": "Breeding enables passive inheritance and specialized workers/mounts. Stand up a Cake factory and start Pal improvements.",
+      "steps": [
+        { "id":"ch4-gear-sphere-bench", "category":"Gear", "text":"Build Sphere Workbench (Lv 14) to craft Mega Spheres for higher catch rates.", "links":[{"type":"tech","id":"sphere-workbench"}] },
+        { "id":"ch4-base-wheat-mill", "category":"Base", "text":"Build Wheat Plantation + Mill (Lv 15). Assign Planting/Watering pals (Pengullet runs the Mill).", "links":[{"type":"tech","id":"wheat-plantation"},{"type":"tech","id":"mill"},{"type":"pal","slug":"pengullet"}] },
+        { "id":"ch4-base-ranch", "category":"Base", "text":"Place a Ranch (Lv 5) and add Chikipi (Eggs), Mozzarina (Milk), Beegarde (Honey). You can also buy Milk from merchants if needed.", "links":[{"type":"tech","id":"ranch"},{"type":"pal","slug":"chikipi"},{"type":"pal","slug":"mozzarina"},{"type":"pal","slug":"beegarde"}], "optional": true },
+        { "id":"ch4-gear-cooking-cake", "category":"Gear", "text":"Build Cooking Pot (Lv 17) and craft Cake (Flour, Red Berries, Milk, Eggs, Honey).", "links":[{"type":"tech","id":"cooking-pot"}] },
+        { "id":"ch4-gear-breeding-farm", "category":"Gear", "text":"Build Breeding Farm (Lv 19) and place Cake in its chest to start breeding.", "links":[{"type":"tech","id":"breeding-farm"}] },
+        { "id":"ch4-catch-penking", "category":"Catch", "text":"Catch Penking (great multi‑job worker: Watering, Mining, Cooling, Handiwork, Transport 2).", "links":[{"type":"pal","slug":"penking"}], "optional": true },
+        { "id":"ch4-breed-passives", "category":"Catch", "text":"Begin breeding for passives: Swift/Runner for mounts, Artisan/Serious for workers, Legend for strong combat. (Optional deepening.)", "links":[{"type":"passive","id":"swift"},{"type":"passive","id":"runner"},{"type":"passive","id":"artisan"},{"type":"passive","id":"serious"},{"type":"passive","id":"legend"}], "optional": true }
+      ]
+    },
+    {
+      "id": "ch5",
+      "title": "Chapter 5 — Mobility & Climate Prep → Tower 2: Lily & Lyleen (Lv ~18–25)",
+      "why": "A first flyer + cold/heat gear make travel fun and safe for a child; Fire counters this tower.",
+      "steps": [
+        { "id":"ch5-gear-heat-cold-armor", "category":"Gear", "text":"Craft Heat‑Resistant Pelt Armor (Lv 16) and Cold‑Resistant Pelt Armor (Lv 18) as needed.", "links":[{"type":"tech","id":"heat-resistant-pelt-armor"},{"type":"tech","id":"cold-resistant-pelt-armor"}] },
+        { "id":"ch5-catch-nitewing", "category":"Catch", "text":"Catch Nitewing (first flying mount) and craft its Saddle (Lv 15).", "links":[{"type":"pal","slug":"nitewing"},{"type":"tech","id":"pal-gear-workbench"}] },
+        { "id":"ch5-catch-fire", "category":"Catch", "text":"Ensure you have a solid Fire attacker for this tower (Foxparks can carry early).", "links":[{"type":"pal","slug":"foxparks"}], "optional": true },
+        { "id":"ch5-boss-lily", "category":"Boss", "text":"Clear Free Pal Alliance Tower — Lily & Lyleen (weak to Fire).", "links":[{"type":"tower","id":"lily-lyleen","url":"https://palworld.gg/map"}] }
+      ]
+    },
+    {
+      "id": "ch6",
+      "title": "Chapter 6 — Industrial Takeoff (Lv 20–26)",
+      "why": "Guns, research, and ore automation accelerate everything before the volcano/desert legs.",
+      "steps": [
+        { "id":"ch6-gear-weapon-bench-musket", "category":"Gear", "text":"Build Weapon Workbench (Lv 20), unlock Musket (Lv 21) and craft Gunpowder.", "links":[{"type":"tech","id":"weapon-workbench"},{"type":"tech","id":"musket"}] },
+        { "id":"ch6-gear-research-lab", "category":"Gear", "text":"Build Pal Labor Research Laboratory (Lv 20). Assign Pals with matching work skills to speed research.", "links":[{"type":"tech","id":"pal-labor-research-lab"}] },
+        { "id":"ch6-base-ore-site", "category":"Base", "text":"Unlock Ore Mining Site (Lv 25) and place it near your base for passive ore.", "links":[{"type":"tech","id":"ore-mining-site"}] },
+        { "id":"ch6-catch-digtoise", "category":"Catch", "text":"Catch Digtoise (Mining Lv 3) to drive your ore economy.", "links":[{"type":"pal","slug":"digtoise"}] },
+        { "id":"ch6-catch-lumber", "category":"Catch", "text":"Add a strong Lumbering Pal (e.g., Tanzee or Mammorest line) and a flyer as a hauler.", "links":[{"type":"pal","slug":"tanzee"}], "optional": true }
+      ]
+    },
+    {
+      "id": "ch7",
+      "title": "Chapter 7 — Tower 3: Axel & Orserk (Volcano; weak to Ice or Ground) (Lv ~30–40)",
+      "why": "With ore, research, and a musket, the volcano is manageable. Bring Ice or Ground.",
+      "steps": [
+        { "id":"ch7-prep-heat-gear", "category":"Prep", "text":"Equip heat protection for the approach.", "links":[{"type":"tech","id":"heat-resistant-pelt-armor"}], "optional": true },
+        { "id":"ch7-prep-ice-ground", "category":"Prep", "text":"Field Ground (Rushoar/Digtoise) or an Ice attacker.", "links":[{"type":"pal","slug":"rushoar"},{"type":"pal","slug":"digtoise"}] },
+        { "id":"ch7-boss-axel", "category":"Boss", "text":"Clear Eternal Pyre Tower — Axel & Orserk.", "links":[{"type":"tower","id":"axel-orserk","url":"https://palworld.gg/map"}] }
+      ]
+    },
+    {
+      "id": "ch8",
+      "title": "Chapter 8 — Assembly Lines & Better Spheres (Lv 28–36)",
+      "why": "Catching late‑game Pals gets much easier with better spheres and production lines.",
+      "steps": [
+        { "id":"ch8-tech-sphere-line", "category":"Tech", "text":"Build Sphere Assembly Line → craft Hyper Spheres.", "links":[{"type":"tech","id":"sphere-assembly-line"}] },
+        { "id":"ch8-tech-ultra", "category":"Tech", "text":"At Lv 35, unlock Ultra Spheres and Sphere Assembly Line II.", "links":[{"type":"tech","id":"ultra-sphere"},{"type":"tech","id":"sphere-assembly-line-2"}] },
+        { "id":"ch8-tech-weapon-line", "category":"Tech", "text":"Build Weapon Assembly Line (Lv 32). Upgrade bows/ranged while climbing toward rifles.", "links":[{"type":"tech","id":"weapon-assembly-line"}], "optional": true },
+        { "id":"ch8-tech-improved-furnace", "category":"Tech", "text":"Upgrade to Improved Furnace (Lv 34) for faster ore processing.", "links":[{"type":"tech","id":"improved-furnace"}], "optional": true },
+        { "id":"ch8-catch-water", "category":"Catch", "text":"Catch a Water DPS (Azurobe or Jormuntide line) to prep for the next Fire tower.", "links":[{"type":"pal","slug":"azurobe"},{"type":"pal","slug":"jormuntide"}], "optional": true },
+        { "id":"ch8-catch-transport", "category":"Catch", "text":"Breed/assemble a Transport team (fliers make great haulers) to avoid factory clogs.", "links":[{"type":"passive","id":"swift"},{"type":"passive","id":"runner"}], "optional": true }
+      ]
+    },
+    {
+      "id": "ch9",
+      "title": "Chapter 9 — Tower 4: Marcus & Faleris (Desert; weak to Water) (Lv ~40–45)",
+      "why": "Your Water team is ready; bring Water to counter Fire.",
+      "steps": [
+        { "id":"ch9-prep-heat", "category":"Prep", "text":"Equip heat protection for travel.", "links":[{"type":"tech","id":"heat-resistant-pelt-armor"}], "optional": true },
+        { "id":"ch9-prep-water", "category":"Prep", "text":"Field Water attackers with decent spheres.", "links":[{"type":"pal","slug":"azurobe"},{"type":"pal","slug":"jormuntide"}], "optional": true },
+        { "id":"ch9-boss-marcus", "category":"Boss", "text":"Clear PIDF Tower — Marcus & Faleris.", "links":[{"type":"tower","id":"marcus-faleris","url":"https://palworld.gg/map"}] }
+      ]
+    },
+    {
+      "id": "ch10",
+      "title": "Chapter 10 — Refined Metals & Rifle Era (Lv 41–46)",
+      "why": "High‑tier armor/weaponry smooth the last towers.",
+      "steps": [
+        { "id":"ch10-tech-electric-kitchen", "category":"Tech", "text":"Unlock Electric Kitchen (Lv 41) to speed up Cake and cooking.", "links":[{"type":"tech","id":"electric-kitchen"}], "optional": true },
+        { "id":"ch10-tech-electric-furnace-legendary", "category":"Tech", "text":"Build Electric Furnace and craft Legendary Spheres (Lv 44).", "links":[{"type":"tech","id":"electric-furnace"},{"type":"tech","id":"legendary-sphere"}] },
+        { "id":"ch10-gear-assault-rifle", "category":"Gear", "text":"Craft an Assault Rifle (Lv 45) and ammo at the assembly line.", "links":[{"type":"tech","id":"assault-rifle"}] },
+        { "id":"ch10-catch-anubis", "category":"Catch", "text":"Catch or breed for Anubis (alpha spawn; Handiwork 4) to foreman your crafting lines.", "links":[{"type":"pal","slug":"anubis"}], "optional": true }
+      ]
+    },
+    {
+      "id": "ch11",
+      "title": "Chapter 11 — Tower 5: Victor & Shadowbeak (Dark; weak to Dragon) (Lv ~50)",
+      "why": "By now you’re armored and armed. Dragon counters Dark cleanly.",
+      "steps": [
+        { "id":"ch11-prep-dragon", "category":"Prep", "text":"Field a Dragon DPS (Astegon/Jetragon or any solid Dragon).", "links":[{"type":"pal","slug":"astegon"},{"type":"pal","slug":"jetragon"}], "optional": true },
+        { "id":"ch11-boss-victor", "category":"Boss", "text":"Clear PAL Genetic Research Unit — Victor & Shadowbeak.", "links":[{"type":"tower","id":"victor-shadowbeak","url":"https://palworld.gg/map"}] }
+      ]
+    },
+    {
+      "id": "ch12",
+      "title": "Chapter 12 — Tower 6: Saya & Selyne (weak to Dragon) (Lv ~55)",
+      "why": "Selyne is also weak to Dragon—reuse your Dragon plan.",
+      "steps": [
+        { "id":"ch12-prep-dragon", "category":"Prep", "text":"Bring your Dragon DPS and climate gear as needed.", "links":[{"type":"pal","slug":"astegon"},{"type":"pal","slug":"jetragon"}], "optional": true },
+        { "id":"ch12-boss-saya", "category":"Boss", "text":"Clear Sakurajima Tower — Saya & Selyne.", "links":[{"type":"tower","id":"saya-selyne","url":"https://palworld.gg/map"}] }
+      ]
+    },
+    {
+      "id": "ch13",
+      "title": "Chapter 13 — Tower 7: Bjorn & Bastigor (weak to Fire) (Lv ~60)",
+      "why": "Final tower—swap back to Fire and finish the run.",
+      "steps": [
+        { "id":"ch13-prep-fire", "category":"Prep", "text":"Bring strong Fire attackers and top‑tier gear/spheres.", "links":[{"type":"pal","slug":"faleris"},{"type":"pal","slug":"foxparks"}], "optional": true },
+        { "id":"ch13-boss-bjorn", "category":"Boss", "text":"Clear Feybreak Tower — Bjorn & Bastigor. 🎉", "links":[{"type":"tower","id":"bjorn-bastigor","url":"https://palworld.gg/map"}] }
+      ]
+    }
+  ]
+}
