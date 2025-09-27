@@ -261,6 +261,333 @@
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 20px;
     }
+
+    #homeCards {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .home-hero {
+      background: linear-gradient(135deg, rgba(65, 90, 119, 0.6), rgba(119, 141, 169, 0.25));
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      border-radius: 16px;
+      padding: 24px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .home-hero__intro h3 {
+      margin: 0 0 6px;
+      font-size: 1.6rem;
+    }
+
+    .home-hero__intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .mode-callouts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .mode-card {
+      background: rgba(14, 29, 48, 0.85);
+      border: 1px solid rgba(119, 141, 169, 0.25);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    .mode-card.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(119, 141, 169, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .mode-card__status {
+      align-self: flex-start;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(119, 141, 169, 0.18);
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .mode-card.active .mode-card__status {
+      background: rgba(42, 157, 143, 0.2);
+      color: var(--success);
+    }
+
+    .mode-card h3 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .mode-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .mode-card__features {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      color: var(--light);
+      font-size: 0.9rem;
+    }
+
+    .mode-card__button {
+      margin-top: auto;
+      width: 100%;
+    }
+
+    .home-section-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .home-section-header p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .home-progress {
+      background: var(--primary);
+      border-radius: 16px;
+      padding: 24px;
+      display: grid;
+      gap: 20px;
+      border: 1px solid rgba(119, 141, 169, 0.2);
+    }
+
+    .home-progress-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .home-progress-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-progress-card__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .home-progress-card__icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(119, 141, 169, 0.18);
+      color: var(--accent);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .home-progress-card__header h3 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .home-progress-card__header p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .home-progress-meter {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(119, 141, 169, 0.25);
+      overflow: hidden;
+    }
+
+    .home-progress-meter .fill {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), rgba(42, 157, 143, 0.8));
+      transition: width 0.4s ease;
+    }
+
+    .home-progress-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .home-progress-next {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    .home-progress-link {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 0.9rem;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+      text-decoration: underline;
+      align-self: flex-start;
+    }
+
+    .home-progress-link:disabled {
+      color: var(--muted);
+      cursor: default;
+      text-decoration: none;
+    }
+
+    .home-progress-actions {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .home-progress-actions .btn {
+      flex: 1 1 auto;
+      min-width: 160px;
+    }
+
+    .home-spotlight {
+      background: rgba(14, 29, 48, 0.85);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid rgba(119, 141, 169, 0.25);
+      display: grid;
+      gap: 18px;
+    }
+
+    .home-spotlight-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px;
+      border: none;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .home-spotlight-card:hover:not(:disabled) {
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+
+    .home-spotlight-card:disabled {
+      cursor: default;
+      opacity: 0.85;
+    }
+
+    .home-spotlight-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .home-spotlight-card img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: rgba(13, 27, 42, 0.8);
+    }
+
+    .home-spotlight-card__text {
+      display: grid;
+      gap: 6px;
+    }
+
+    .home-spotlight-card__title {
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .home-spotlight-card__meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .home-spotlight-card__types {
+      font-size: 0.85rem;
+      color: var(--light);
+    }
+
+    body.kid-mode .home-hero__intro h3 {
+      font-size: 1.8rem;
+    }
+
+    body.kid-mode .mode-card__features {
+      font-size: 1rem;
+    }
+
+    body.kid-mode .home-progress-text {
+      font-size: 1.05rem;
+    }
+
+    body.kid-mode .home-progress-link {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .home-progress-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .mode-card {
+        min-height: 100%;
+      }
+    }
+
+    @media (max-width: 540px) {
+      #homeCards {
+        gap: 20px;
+      }
+      .home-hero {
+        padding: 20px;
+      }
+      .home-progress {
+        padding: 20px;
+      }
+      .home-spotlight {
+        padding: 20px;
+      }
+      .home-spotlight-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .home-spotlight-card img {
+        width: 90px;
+        height: 90px;
+      }
+    }
     /* Pal and item cards */
     .pal-card, .item-card {
       background: var(--card-bg);
@@ -1456,8 +1783,8 @@
         <header class="page-header">
           <h2>Tonight’s Plan</h2>
         </header>
-        <p>Welcome to Pal Marathon, your companion guide for completing Palworld with your family. Use the quick cards below to get started on tonight’s adventure.</p>
-        <div id="homeCards" class="card-grid"></div>
+        <p>Welcome to Pal Marathon, your companion guide for completing Palworld with your family. Pick the presentation style that fits your crew and use the snapshots below to jump back into the adventure.</p>
+        <div id="homeCards"></div>
       </section>
       <!-- Pals page -->
       <section id="palsPage" class="page">
@@ -1904,36 +2231,80 @@
       });
     });
 
-    // Mode toggle button: switch between kid and grown-up modes.  The
-    // icon and tooltip change based on the current mode.  We also
-    // apply a class on the body for CSS adjustments and rebuild
-    // pages to honour the new mode (e.g. hiding advanced stats).
-    document.getElementById('modeToggle').addEventListener('click', () => {
-      kidMode = !kidMode;
+    function refreshModeUI() {
       document.body.classList.toggle('kid-mode', kidMode);
-      const modeIcon = document.querySelector('#modeToggle i');
       const toggleTitle = document.getElementById('modeToggle');
-      if (kidMode) {
-        modeIcon.classList.remove('fa-user-astronaut');
-        modeIcon.classList.add('fa-child');
-        toggleTitle.title = 'Switch to grown-up mode';
-      } else {
-        modeIcon.classList.remove('fa-child');
-        modeIcon.classList.add('fa-user-astronaut');
-        toggleTitle.title = 'Switch to kid mode';
+      const modeIcon = toggleTitle ? toggleTitle.querySelector('i') : null;
+      if (toggleTitle && modeIcon) {
+        if (kidMode) {
+          modeIcon.classList.remove('fa-user-astronaut');
+          modeIcon.classList.add('fa-child');
+          toggleTitle.title = 'Switch to grown-up mode';
+        } else {
+          modeIcon.classList.remove('fa-child');
+          modeIcon.classList.add('fa-user-astronaut');
+          toggleTitle.title = 'Switch to kid mode';
+        }
       }
-      // Rebuild dynamic pages to reflect the mode change
+      document.querySelectorAll('[data-mode-card]').forEach(card => {
+        const mode = card.getAttribute('data-mode-card');
+        const active = (mode === 'kid' && kidMode) || (mode === 'grown' && !kidMode);
+        card.classList.toggle('active', !!active);
+        const status = card.querySelector('.mode-card__status');
+        if (status) {
+          status.textContent = active
+            ? (mode === 'kid' ? 'Kid Mode active' : 'Grown-up Mode active')
+            : (mode === 'kid' ? 'Switch to Kid Mode' : 'Switch to Grown-up Mode');
+        }
+      });
+      document.querySelectorAll('[data-mode-choice]').forEach(btn => {
+        const mode = btn.getAttribute('data-mode-choice');
+        const isActive = (mode === 'kid' && kidMode) || (mode === 'grown' && !kidMode);
+        btn.disabled = isActive;
+        if (isActive) {
+          btn.setAttribute('aria-pressed', 'true');
+        } else {
+          btn.removeAttribute('aria-pressed');
+        }
+      });
+    }
+
+    function rebuildModeAwarePages() {
       buildPalPage();
       buildItemPage();
       buildTechPage();
       buildBreedingPage();
       buildGlossaryPage();
       renderRouteGuide();
-      // Home page re-render to update suggestions styling
       buildHomePage();
       buildProgressPage();
       updateProgressUI();
+    }
+
+    function setKidMode(value, { rebuild = true } = {}) {
+      const desired = !!value;
+      if (kidMode === desired) {
+        refreshModeUI();
+        if (rebuild) {
+          rebuildModeAwarePages();
+        }
+        return;
+      }
+      kidMode = desired;
+      refreshModeUI();
+      if (rebuild) {
+        rebuildModeAwarePages();
+      }
+    }
+
+    // Mode toggle button: switch between kid and grown-up modes.  The
+    // icon and tooltip change based on the current mode.  We also
+    // rebuild pages so their copy matches the selected experience.
+    document.getElementById('modeToggle').addEventListener('click', () => {
+      setKidMode(!kidMode);
+      playSound(clickSound);
     });
+    refreshModeUI();
     function switchPage(page) {
       // Hide all pages and show the selected page.  Our pages are
       // <section> elements with IDs like palsPage, itemsPage, etc.
@@ -2718,7 +3089,7 @@
             const grid = document.createElement('div');
             grid.className = 'tech-card-grid';
             columnInfo.items.forEach(item => {
-            const card = createTechCard(item);
+              const card = createTechCard(item);
               if (card) grid.appendChild(card);
             });
             column.appendChild(grid);
@@ -2728,6 +3099,27 @@
 
         section.appendChild(columns);
         list.appendChild(section);
+      });
+      applyQueuedTechFocus();
+    }
+
+    function queueTechFocus(key){
+      if(!key){
+        pendingTechFocus = null;
+        return;
+      }
+      pendingTechFocus = key;
+      setTimeout(applyQueuedTechFocus, 0);
+    }
+
+    function applyQueuedTechFocus(){
+      if(!pendingTechFocus) return;
+      const techCard = document.getElementById(`tech-${pendingTechFocus}`);
+      if(!techCard) return;
+      pendingTechFocus = null;
+      requestAnimationFrame(() => {
+        techCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        pulse(techCard);
       });
     }
     // Build breeding page
@@ -3097,55 +3489,276 @@
       updateBreedingSelection();
     }
 
-    // Home page builder.  Displays large action cards and a rotating
-    // suggested pal for tonight.  The cards encourage players to
-    // catch a pal, fight a boss or build something new.  In grown‑up
-    // mode the suggestions include more context like recommended
-    // work types or where to find the boss.
+    // Home page builder.  Highlights the two presentation modes,
+    // shows quick progress snapshots, and surfaces the next pal to
+    // recruit so returning players know where to jump in.
     function buildHomePage() {
       const home = document.getElementById('homeCards');
       if (!home) return;
       home.innerHTML = '';
-      // Define the three core actions.  Each entry can include an
-      // icon (Font Awesome class), title and description.  Later we
-      // could wire these cards to jump to the relevant page.
-      const actions = [
-        { icon: 'fa-paw', title: 'Catch a Pal', desc: 'Find a new pal to join your team', onClick: () => switchPage('pals') },
-        { icon: 'fa-helmet-battle', title: 'Fight a Boss', desc: 'Prepare for your next tower battle', onClick: () => switchPage('route') },
-        { icon: 'fa-hammer', title: 'Build Something', desc: 'Craft gear or structures to improve your base', onClick: () => switchPage('tech') }
-      ];
-      actions.forEach(act => {
-        const card = document.createElement('div');
-        card.className = 'pal-card';
-        card.innerHTML = `<i class="fa-solid ${act.icon}" style="font-size:48px;margin-bottom:8px;color:var(--accent)"></i><div class="name">${act.title}</div><div style="font-size:0.9rem;color:var(--light);">${act.desc}</div>`;
-        card.addEventListener('click', () => {
-          act.onClick();
-          playSound(clickSound);
+
+      function createModeCard(mode) {
+        const card = document.createElement('article');
+        card.className = 'mode-card';
+        card.dataset.modeCard = mode;
+
+        const status = document.createElement('span');
+        status.className = 'mode-card__status';
+        status.textContent = mode === 'kid' ? 'Kid Mode' : 'Grown-up Mode';
+        card.appendChild(status);
+
+        const title = document.createElement('h3');
+        title.textContent = mode === 'kid' ? 'Kid Mode' : 'Grown-up Mode';
+        card.appendChild(title);
+
+        const desc = document.createElement('p');
+        desc.textContent = mode === 'kid'
+          ? 'Friendly wording and bigger buttons keep younger Trainers confident.'
+          : 'Detailed strategy notes and numbers help planners and older players.';
+        card.appendChild(desc);
+
+        const features = document.createElement('ul');
+        features.className = 'mode-card__features';
+        const featureLines = mode === 'kid'
+          ? [
+              'Simple step-by-step guide language.',
+              'Larger tap targets and softer colours.',
+              'Encouraging reminders instead of jargon.'
+            ]
+          : [
+              'Expanded boss tips and resource callouts.',
+              'Full material lists for every unlock.',
+              'Extra context for breeding and combat choices.'
+            ];
+        featureLines.forEach(line => {
+          const li = document.createElement('li');
+          li.textContent = line;
+          features.appendChild(li);
         });
-        home.appendChild(card);
-      });
-      // Add a rotating suggested pal card.  Choose a pal at random
-      // whose rarity is low (≤3) to ensure early accessibility.  If
-      // none exist, just pick a random pal.  The suggestion hints at
-      // the pal’s best work or battle roles.
-      const palsArray = Object.values(PALS);
-      let candidates = palsArray.filter(p => p.rarity <= 3);
-      if (!candidates.length) candidates = palsArray;
-      const suggestion = candidates[Math.floor(Math.random() * candidates.length)];
-      const sugCard = document.createElement('div');
-      sugCard.className = 'pal-card';
-      sugCard.innerHTML = `<img src="${suggestion.localImage || iconMap[suggestion.types[0]]}" alt="${suggestion.name}" style="width:100px;height:100px;"><div class="name">Try ${suggestion.name}!</div><div style="font-size:0.85rem;color:var(--light);">${kidMode ? 'Great pal for early game' : 'Rarity: ' + rarityNames[Math.max(1,Math.min(suggestion.rarity||0,6))]}</div>`;
-      sugCard.addEventListener('click', () => {
-        showPalDetail(suggestion.id);
+        card.appendChild(features);
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'btn mode-card__button';
+        button.dataset.modeChoice = mode;
+        button.textContent = mode === 'kid' ? 'Use Kid Mode' : 'Use Grown-up Mode';
+        button.addEventListener('click', () => {
+          const desired = mode === 'kid';
+          const requiresRebuild = kidMode !== desired;
+          setKidMode(desired, { rebuild: requiresRebuild });
+          playSound(clickSound);
+          switchPage('home');
+        });
+        card.appendChild(button);
+
+        return card;
+      }
+
+      function createProgressCard(type) {
+        const card = document.createElement('article');
+        card.className = 'home-progress-card';
+
+        const header = document.createElement('div');
+        header.className = 'home-progress-card__header';
+        const iconWrap = document.createElement('div');
+        iconWrap.className = 'home-progress-card__icon';
+        const icon = document.createElement('i');
+        icon.className = 'fa-solid fa-compass';
+        iconWrap.appendChild(icon);
+        header.appendChild(iconWrap);
+
+        const headerText = document.createElement('div');
+        const title = document.createElement('h3');
+        const subtitle = document.createElement('p');
+
+        const meter = document.createElement('div');
+        meter.className = 'home-progress-meter';
+        meter.setAttribute('role', 'progressbar');
+        meter.setAttribute('aria-valuemin', '0');
+        meter.setAttribute('aria-valuemax', '100');
+        meter.setAttribute('aria-valuenow', '0');
+        const fill = document.createElement('div');
+        fill.className = 'fill';
+        const progressText = document.createElement('div');
+        progressText.className = 'home-progress-text';
+        progressText.setAttribute('aria-live', 'polite');
+        const nextButton = document.createElement('button');
+        nextButton.type = 'button';
+        nextButton.className = 'home-progress-link home-progress-next';
+        nextButton.disabled = true;
+        const actions = document.createElement('div');
+        actions.className = 'home-progress-actions';
+        const actionBtn = document.createElement('button');
+        actionBtn.type = 'button';
+        actionBtn.className = 'btn';
+
+        if (type === 'route') {
+          icon.className = 'fa-solid fa-map-location-dot';
+          title.textContent = kidMode ? 'Family Route Guide' : 'Story Route Guide';
+          subtitle.textContent = kidMode
+            ? 'Track tower goals and chapter steps together.'
+            : 'See required steps before tackling the next boss.';
+          meter.id = 'homeRouteProgressMeter';
+          meter.setAttribute('aria-label', 'Route guide progress');
+          fill.id = 'homeRouteProgressBar';
+          progressText.id = 'homeRouteProgressText';
+          nextButton.id = 'homeRouteNextStep';
+          nextButton.textContent = kidMode ? 'Loading next guide step…' : 'Loading next guide step…';
+          nextButton.addEventListener('click', () => {
+            const stepId = nextButton.dataset.stepId;
+            switchPage('route');
+            if (stepId) {
+              queueRouteFocus(stepId);
+            }
+            playSound(clickSound);
+          });
+          actionBtn.textContent = kidMode ? 'Open the guide' : 'Open route guide';
+          actionBtn.addEventListener('click', () => {
+            const stepId = nextButton.dataset.stepId;
+            switchPage('route');
+            if (stepId) {
+              queueRouteFocus(stepId);
+            }
+            playSound(clickSound);
+          });
+        } else if (type === 'pals') {
+          icon.className = 'fa-solid fa-paw';
+          title.textContent = kidMode ? 'Pal Squad Tracker' : 'Pal collection';
+          subtitle.textContent = kidMode
+            ? 'Mark pals as caught and celebrate new friends.'
+            : 'See how many pals you have registered so far.';
+          meter.id = 'homePalsProgressMeter';
+          meter.setAttribute('aria-label', 'Pal collection progress');
+          fill.id = 'homePalsProgressBar';
+          progressText.id = 'homePalsProgressText';
+          nextButton.id = 'homePalsNext';
+          nextButton.textContent = kidMode ? 'Loading pal reminder…' : 'Loading pal reminder…';
+          nextButton.addEventListener('click', () => {
+            const palId = nextButton.dataset.palId;
+            if (palId && PALS[palId]) {
+              showPalDetail(palId);
+            } else {
+              switchPage('pals');
+            }
+            playSound(clickSound);
+          });
+          actionBtn.textContent = kidMode ? 'Open pal list' : 'Go to pal tracker';
+          actionBtn.addEventListener('click', () => {
+            switchPage('pals');
+            playSound(clickSound);
+          });
+        } else {
+          icon.className = 'fa-solid fa-screwdriver-wrench';
+          title.textContent = kidMode ? 'Workshop Technology' : 'Technology progress';
+          subtitle.textContent = kidMode
+            ? 'Peek at what inventions are still locked.'
+            : 'Review how many blueprints remain.';
+          meter.id = 'homeTechProgressMeter';
+          meter.setAttribute('aria-label', 'Technology progress');
+          fill.id = 'homeTechProgressBar';
+          progressText.id = 'homeTechProgressText';
+          nextButton.id = 'homeTechNext';
+          nextButton.textContent = kidMode ? 'Loading tech reminder…' : 'Loading tech reminder…';
+          nextButton.addEventListener('click', () => {
+            const techKey = nextButton.dataset.techKey;
+            switchPage('tech');
+            if (techKey) {
+              queueTechFocus(techKey);
+            }
+            playSound(clickSound);
+          });
+          actionBtn.textContent = kidMode ? 'Open tech tree' : 'View tech tree';
+          actionBtn.addEventListener('click', () => {
+            const techKey = nextButton.dataset.techKey;
+            switchPage('tech');
+            if (techKey) {
+              queueTechFocus(techKey);
+            }
+            playSound(clickSound);
+          });
+        }
+
+        headerText.appendChild(title);
+        headerText.appendChild(subtitle);
+        header.appendChild(headerText);
+        card.appendChild(header);
+
+        meter.appendChild(fill);
+        card.appendChild(meter);
+        progressText.textContent = kidMode ? 'Loading progress…' : 'Loading progress…';
+        card.appendChild(progressText);
+        nextButton.disabled = true;
+        card.appendChild(nextButton);
+        actions.appendChild(actionBtn);
+        card.appendChild(actions);
+        return card;
+      }
+
+      const hero = document.createElement('section');
+      hero.className = 'home-hero';
+      const intro = document.createElement('div');
+      intro.className = 'home-hero__intro';
+      intro.innerHTML = kidMode
+        ? '<h3>Choose how you play tonight</h3><p>Kid Mode keeps directions bright and simple, while grown-up mode adds the deeper strategy notes adults crave.</p>'
+        : '<h3>Two presentation styles for your crew</h3><p>Flip between Kid Mode for gentle guidance or Grown-up Mode for detailed callouts. Change it anytime and the whole guide updates instantly.</p>';
+      hero.appendChild(intro);
+      const modeGrid = document.createElement('div');
+      modeGrid.className = 'mode-callouts';
+      modeGrid.appendChild(createModeCard('kid'));
+      modeGrid.appendChild(createModeCard('grown'));
+      hero.appendChild(modeGrid);
+      home.appendChild(hero);
+
+      const progressSection = document.createElement('section');
+      progressSection.className = 'home-progress';
+      const progressHeader = document.createElement('div');
+      progressHeader.className = 'home-section-header';
+      progressHeader.innerHTML = kidMode
+        ? '<h3>Where you left off</h3><p>Check the guide, your pal roster, and the workshop meter before diving back in.</p>'
+        : '<h3>Continue your journey</h3><p>Quick status bars show route progress, pal collection, and technology unlocks at a glance.</p>';
+      progressSection.appendChild(progressHeader);
+      const progressGrid = document.createElement('div');
+      progressGrid.className = 'home-progress-grid';
+      progressGrid.appendChild(createProgressCard('route'));
+      progressGrid.appendChild(createProgressCard('pals'));
+      progressGrid.appendChild(createProgressCard('tech'));
+      progressSection.appendChild(progressGrid);
+      home.appendChild(progressSection);
+
+      const spotlight = document.createElement('section');
+      spotlight.className = 'home-spotlight';
+      const spotlightHeader = document.createElement('div');
+      spotlightHeader.className = 'home-section-header';
+      spotlightHeader.innerHTML = kidMode
+        ? '<h3>Pal spotlight</h3><p>Here’s a pal to chase down next based on your progress.</p>'
+        : '<h3>Pal spotlight</h3><p>Use this reminder to see who you should recruit or train next.</p>';
+      spotlight.appendChild(spotlightHeader);
+      const spotlightBtn = document.createElement('button');
+      spotlightBtn.type = 'button';
+      spotlightBtn.className = 'home-spotlight-card';
+      spotlightBtn.id = 'homePalSpotlight';
+      spotlightBtn.innerHTML = '<div class="home-spotlight-card__text"><span class="home-spotlight-card__title">Loading pal…</span><span class="home-spotlight-card__meta">We’ll suggest a buddy soon.</span></div>';
+      spotlightBtn.addEventListener('click', () => {
+        const palId = spotlightBtn.dataset.palId;
+        if (palId && PALS[palId]) {
+          showPalDetail(palId);
+        } else {
+          switchPage('pals');
+        }
         playSound(clickSound);
       });
-      home.appendChild(sugCard);
+      spotlight.appendChild(spotlightBtn);
+      home.appendChild(spotlight);
+
+      refreshModeUI();
     }
 
     const ROUTE_STORAGE_KEY = 'palmarathon:route:v1';
     let routeGuideData = null;
     let routeState = loadRouteState();
     let routeHideOptional = false;
+    let pendingRouteFocus = null;
+    let pendingTechFocus = null;
 
     function rebuildTechLookup(){
       TECH_LOOKUP = {};
@@ -3245,7 +3858,39 @@
             chapters.forEach(ch => rerenderChapter(ch));
           };
         }
+        applyQueuedRouteFocus();
         updateProgressUI();
+      });
+    }
+
+    function queueRouteFocus(stepId){
+      if(!stepId){
+        pendingRouteFocus = null;
+        return;
+      }
+      pendingRouteFocus = stepId;
+      setTimeout(applyQueuedRouteFocus, 0);
+    }
+
+    function applyQueuedRouteFocus(){
+      if(!pendingRouteFocus) return;
+      const routePage = document.getElementById('routePage');
+      if(!routePage) return;
+      const target = routePage.querySelector(`input[data-step="${pendingRouteFocus}"]`);
+      if(!target) return;
+      const stepId = pendingRouteFocus;
+      pendingRouteFocus = null;
+      requestAnimationFrame(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const label = target.closest('.step');
+        if(label) pulse(label);
+        if(typeof target.focus === 'function'){
+          try {
+            target.focus({ preventScroll: true });
+          } catch (err) {
+            target.focus();
+          }
+        }
       });
     }
 
@@ -3669,6 +4314,54 @@
       return { requiredTotal, requiredComplete, towersTotal, towersComplete, percent };
     }
 
+    function findNextRouteStep(options = {}){
+      const includeOptional = !!options.includeOptional;
+      const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
+      for(const chapter of chapters){
+        const steps = Array.isArray(chapter.steps) ? chapter.steps : [];
+        for(const step of steps){
+          if(step.optional && !includeOptional) continue;
+          if(!routeState[step.id]){
+            return { chapter, step };
+          }
+        }
+      }
+      return null;
+    }
+
+    function findNextPalTarget(){
+      const palsArray = Object.values(PALS || {});
+      if(!palsArray.length) return null;
+      const sorted = palsArray.slice().sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+      const next = sorted.find(pal => !caught[pal.id]);
+      return next || null;
+    }
+
+    function findRandomPalCandidate(){
+      const palsArray = Object.values(PALS || {});
+      if(!palsArray.length) return null;
+      const accessible = palsArray.filter(p => (p.rarity || 0) <= 3);
+      const pool = accessible.length ? accessible : palsArray;
+      return pool[Math.floor(Math.random() * pool.length)] || null;
+    }
+
+    function findNextTechUnlock(){
+      const levels = Array.isArray(TECH)
+        ? TECH.slice().sort((a, b) => (a?.level || 0) - (b?.level || 0))
+        : [];
+      for(const level of levels){
+        const items = Array.isArray(level?.items) ? level.items : [];
+        for(const item of items){
+          if(!item || !item.name) continue;
+          if(!unlocked[item.name]){
+            const techKey = item.id || slugifyForPalworld(item.name);
+            return { level, item, techKey };
+          }
+        }
+      }
+      return null;
+    }
+
     function renderLinks(links){
       if(!links || !links.length) return '';
       return `<span class="badges">${links.map(link => {
@@ -4038,6 +4731,40 @@
           ? `${caughtCount} / ${totalPals} pals recruited`
           : palsFallback;
       }
+      const homePalsBar = document.getElementById('homePalsProgressBar');
+      if (homePalsBar) homePalsBar.style.width = palsPct + '%';
+      const homePalsMeter = document.getElementById('homePalsProgressMeter');
+      if (homePalsMeter) homePalsMeter.setAttribute('aria-valuenow', palsPct);
+      const homePalsText = document.getElementById('homePalsProgressText');
+      if (homePalsText) {
+        if (totalPals) {
+          homePalsText.textContent = kidMode
+            ? `${caughtCount} pals recruited so far`
+            : `${caughtCount} / ${totalPals} pals recruited`;
+        } else {
+          homePalsText.textContent = palsFallback;
+        }
+      }
+
+      const homePalsNext = document.getElementById('homePalsNext');
+      if (homePalsNext) {
+        const nextPal = findNextPalTarget();
+        if (nextPal) {
+          const typeLabel = Array.isArray(nextPal.types) && nextPal.types.length
+            ? nextPal.types.join(kidMode ? ' & ' : ' / ')
+            : (kidMode ? 'Mystery type' : 'Type unknown');
+          homePalsNext.textContent = kidMode
+            ? `Next recruit: ${nextPal.name}`
+            : `Next recruit: ${nextPal.name} — ${typeLabel}`;
+          homePalsNext.dataset.palId = nextPal.id || '';
+        } else {
+          homePalsNext.textContent = caughtCount && totalPals
+            ? (kidMode ? 'Squad complete! Tap to browse pals.' : 'Squad complete! Open the pal list to revisit favourites.')
+            : (kidMode ? 'Pal list loading…' : 'Pal data loading…');
+          homePalsNext.dataset.palId = '';
+        }
+        homePalsNext.disabled = false;
+      }
 
       let totalRecipes = 0;
       (Array.isArray(TECH) ? TECH : []).forEach(lvl => {
@@ -4057,6 +4784,40 @@
           ? `${unlockedCount} / ${totalRecipes} inventions unlocked`
           : techFallback;
       }
+      const homeTechBar = document.getElementById('homeTechProgressBar');
+      if (homeTechBar) homeTechBar.style.width = techPct + '%';
+      const homeTechMeter = document.getElementById('homeTechProgressMeter');
+      if (homeTechMeter) homeTechMeter.setAttribute('aria-valuenow', techPct);
+      const homeTechText = document.getElementById('homeTechProgressText');
+      if (homeTechText) {
+        if (totalRecipes) {
+          homeTechText.textContent = kidMode
+            ? `${unlockedCount} inventions unlocked`
+            : `${unlockedCount} / ${totalRecipes} inventions unlocked`;
+        } else {
+          homeTechText.textContent = techFallback;
+        }
+      }
+
+      const nextTech = findNextTechUnlock();
+      const homeTechNext = document.getElementById('homeTechNext');
+      if (homeTechNext) {
+        if (nextTech && nextTech.item) {
+          const levelLabel = nextTech.level && nextTech.level.level != null
+            ? `Lv ${nextTech.level.level}`
+            : (kidMode ? '' : 'Lv ?');
+          homeTechNext.textContent = kidMode
+            ? `Next unlock: ${nextTech.item.name}${levelLabel ? ` (${levelLabel})` : ''}`
+            : `Next unlock: ${levelLabel || 'Level ?'} — ${nextTech.item.name}`;
+          homeTechNext.dataset.techKey = nextTech.techKey || '';
+        } else {
+          homeTechNext.textContent = kidMode
+            ? 'Workshop complete! Explore favourites.'
+            : 'Workshop complete! Review unlocked blueprints anytime.';
+          homeTechNext.dataset.techKey = '';
+        }
+        homeTechNext.disabled = false;
+      }
 
       const guideSummary = calculateGuideProgressSummary();
       const guideBar = document.getElementById('guideProgress');
@@ -4069,11 +4830,82 @@
           ? `${guideSummary.requiredComplete} / ${guideSummary.requiredTotal} guide steps complete`
           : guideFallback;
       }
+      const homeRouteBar = document.getElementById('homeRouteProgressBar');
+      if (homeRouteBar) homeRouteBar.style.width = guideSummary.percent + '%';
+      const homeRouteMeter = document.getElementById('homeRouteProgressMeter');
+      if (homeRouteMeter) homeRouteMeter.setAttribute('aria-valuenow', guideSummary.percent);
+      const homeRouteText = document.getElementById('homeRouteProgressText');
+      if (homeRouteText) {
+        if (guideSummary.requiredTotal) {
+          homeRouteText.textContent = kidMode
+            ? `${guideSummary.requiredComplete} of ${guideSummary.requiredTotal} big steps done`
+            : `${guideSummary.requiredComplete} / ${guideSummary.requiredTotal} required steps complete`;
+        } else {
+          homeRouteText.textContent = guideFallback;
+        }
+      }
+      const homeRouteNext = document.getElementById('homeRouteNextStep');
+      if (homeRouteNext) {
+        const nextRequired = findNextRouteStep();
+        const nextAny = nextRequired || findNextRouteStep({ includeOptional: true });
+        if (nextAny && nextAny.step) {
+          const chapterTitle = routeChapterTitle(nextAny.chapter);
+          const stepCopy = kidMode
+            ? (nextAny.step.textKid || nextAny.step.text || '')
+            : (nextAny.step.text || nextAny.step.textKid || '');
+          const prefix = nextAny.step.optional && !nextRequired
+            ? (kidMode ? 'Bonus step' : 'Optional step')
+            : (kidMode ? 'Next step' : 'Next required step');
+          const chapterHtml = chapterTitle ? ` — <strong>${escapeHTML(chapterTitle)}</strong>` : '';
+          homeRouteNext.innerHTML = `${escapeHTML(prefix)}${chapterHtml}<br>${escapeHTML(stepCopy)}`;
+          homeRouteNext.dataset.stepId = nextAny.step.id || '';
+        } else {
+          homeRouteNext.textContent = kidMode
+            ? 'Guide complete! Revisit bonus adventures anytime.'
+            : 'Guide complete! Revisit optional chores or rerun towers.';
+          homeRouteNext.dataset.stepId = '';
+        }
+        homeRouteNext.disabled = false;
+      }
       const towersBadge = document.getElementById('towersClearedBadge');
       if (towersBadge) {
         towersBadge.textContent = guideSummary.towersTotal
           ? `Towers cleared: ${guideSummary.towersComplete}/${guideSummary.towersTotal}`
           : 'Towers cleared: 0/0';
+      }
+
+      const spotlightBtn = document.getElementById('homePalSpotlight');
+      if (spotlightBtn) {
+        const primaryPal = findNextPalTarget();
+        const spotlightPal = primaryPal || findRandomPalCandidate();
+        if (spotlightPal) {
+          const artSrc = spotlightPal.localImage || iconMap[spotlightPal.types && spotlightPal.types[0]] || iconMap['Neutral'];
+          const typeLabel = Array.isArray(spotlightPal.types) && spotlightPal.types.length
+            ? spotlightPal.types.join(' • ')
+            : '';
+          const metaText = primaryPal
+            ? (kidMode ? 'Next pal to recruit' : 'Next pal to recruit')
+            : (caughtCount === totalPals && totalPals
+              ? (kidMode ? 'Squad complete! Tap to browse pals.' : 'Squad complete — browse pals anytime.')
+              : (kidMode ? 'Suggested pal to train next' : 'Suggested pal to train next'));
+          const typesHtml = typeLabel
+            ? `<span class="home-spotlight-card__types">${escapeHTML(typeLabel)}</span>`
+            : '';
+          spotlightBtn.innerHTML = `
+            <img src="${escapeHTML(artSrc || '')}" alt="${escapeHTML((spotlightPal.name || 'Pal') + ' portrait')}">
+            <div class="home-spotlight-card__text">
+              <span class="home-spotlight-card__title">${escapeHTML(spotlightPal.name || 'Pal')}</span>
+              <span class="home-spotlight-card__meta">${escapeHTML(metaText)}</span>
+              ${typesHtml}
+            </div>
+          `;
+          spotlightBtn.dataset.palId = spotlightPal.id || '';
+          spotlightBtn.disabled = false;
+        } else {
+          spotlightBtn.innerHTML = '<div class="home-spotlight-card__text"><span class="home-spotlight-card__title">Pal data loading…</span><span class="home-spotlight-card__meta">Keep playing while we fetch pals.</span></div>';
+          spotlightBtn.dataset.palId = '';
+          spotlightBtn.disabled = true;
+        }
       }
     }
 
