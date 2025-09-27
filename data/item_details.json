@@ -24,7 +24,8 @@
       }
     ],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Ammo_Arrow.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "beautiful_flower": {
     "name": "Beautiful Flower",
@@ -42,91 +43,114 @@
     },
     "recipe": [],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Poppy.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "berry_seeds": {
     "name": "Berry Seeds",
-    "type": "Food",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Berry Seeds are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "They are used for planting in the Berry Plantation ."
     ],
-    "stats": {},
+    "stats": {
+      "Materials": "2 Red Berries",
+      "Buy": "50"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/c/c3/Berry_Seeds_icon.png/revision/latest?cb=20240121070549",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "bone": {
     "name": "Bone",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Bone are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Bone is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "100"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/8/80/Bone_icon.png/revision/latest?cb=20240405194033",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "broncherry_meat": {
     "name": "Broncherry Meat",
-    "type": "Food",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Broncherry Meat are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Broncherry Meat is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "1800"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/4/4b/Broncherry_Meat_icon.png/revision/latest?cb=20240124035548",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "cake": {
     "name": "Cake",
-    "type": "Food",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Cake are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "It is made in a Cooking Pot or any higher-level stove. It is also dropped from Lovanders with a 1% chance.",
+      "It is used when breeding Pals in a Breeding Farm . The Cake does not spoil in the Breeding Farm's chest. It can also be eaten to satisfy hunger, or SAN."
     ],
-    "stats": {},
+    "stats": {
+      "Workload cost": "2,000",
+      "Buy": "10000"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/a/a9/Cake_icon.png/revision/latest?cb=20240124060146",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "caprity_meat": {
     "name": "Caprity Meat",
-    "type": "Food",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Caprity Meat are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "It's dropped by Caprity ."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "570"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/1/1f/Caprity_Meat_icon.png/revision/latest?cb=20240121073915",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "carbon_fiber": {
     "name": "Carbon Fiber",
     "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Carbon Fiber are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Carbon Fiber is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Technology branch": "Technology",
+      "Sell": "12"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/e/ed/Carbon_Fiber_icon.png/revision/latest?cb=20240124120247",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "chikipi_poultry": {
     "name": "Chikipi Poultry",
-    "type": "Food",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Chikipi Poultry are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Chikipi Poultry is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "100"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/5/5e/Chikipi_Poultry_icon.png/revision/latest?cb=20240121070500",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "cloth": {
     "name": "Cloth",
@@ -148,7 +172,8 @@
       }
     ],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Cloth.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "coal": {
     "name": "Coal",
@@ -164,91 +189,109 @@
     },
     "recipe": [],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Coal.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "copper_key": {
     "name": "Copper Key",
-    "type": "Misc",
+    "type": "Consumables",
     "description": [
-      "Detailed Palworld.gg stats for Copper Key are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Can be obtained from Treasure Chest .\nIt can also be dropped by:",
+      "It's needed to unlock certain Treasure Chest ."
     ],
     "stats": {},
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/a/a3/Copper_Key_icon.png/revision/latest?cb=20240121074106",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "cotton_candy": {
     "name": "Cotton Candy",
-    "type": "Misc",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Cotton Candy are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Collected from slaying Woolipop and can also be received from Woolipop when assigned to the Ranch .\nUnlike most other ingredients, cotton candy does not expire."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "250"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/5/50/Cotton_Candy_icon.png/revision/latest?cb=20240123202202",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "diamond": {
     "name": "Diamond",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Diamond are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Diamond is a material in Palworld .",
+      "It currently has no use other than to be sold to a merchant for 6,000 Gold ."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "6,000"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/5/5c/Diamond_icon.png/revision/latest?cb=20240124033743",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "egg": {
     "name": "Egg",
-    "type": "Food",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Egg are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Egg is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "50"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/e/ef/Egg_icon.png/revision/latest?cb=20240121070416",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "eikthyrdeer_venison": {
     "name": "Eikthyrdeer Venison",
-    "type": "Misc",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Eikthyrdeer Venison are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Eikthyrdeer Venison is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "500"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/9/9d/Eikthyrdeer_Venison_icon.png/revision/latest?cb=20240121073819",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "electric_organ": {
     "name": "Electric Organ",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Electric Organ are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "It can be bought from the Wandering Merchant in the Small Settlement , or received as a random pal drop from electric pals ."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "200"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/5/5a/Electric_Organ_icon.png/revision/latest?cb=20240121070920",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "elizabee's_staff": {
     "name": "Elizabee's Staff",
-    "type": "Misc",
+    "type": "Weapon",
     "description": [
-      "Detailed Palworld.gg stats for Elizabee's Staff are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "It is a loot drop from an Elizabee . Cannot be built."
     ],
-    "stats": {},
+    "stats": {
+      "Damage": "150",
+      "Sell": "2000"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/7/73/Elizabee%27s_Staff_icon.png/revision/latest?cb=20240123230653",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "fiber": {
     "name": "Fiber",
@@ -270,31 +313,37 @@
       }
     ],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Fiber.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "flame_organ": {
     "name": "Flame Organ",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Flame Organ are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "It can be farmed or received as a random drop from fire pals ."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "100"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/3/31/Flame_Organ_icon.png/revision/latest?cb=20240121070828",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "galeclaw_poultry": {
     "name": "Galeclaw Poultry",
-    "type": "Food",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Galeclaw Poultry are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Galeclaw Poultry is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "150"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/8/80/Galeclaw_Poultry_icon.png/revision/latest?cb=20240123202449",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "gold_coin": {
     "name": "Gold Coin",
@@ -316,19 +365,23 @@
       }
     ],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Money.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "gumoss_leaf": {
     "name": "Gumoss Leaf",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Gumoss Leaf are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Gumoss Leaf is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "30"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/5/5a/Gumoss_Leaf_icon.png/revision/latest?cb=20240121131147",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "gunpowder": {
     "name": "Gunpowder",
@@ -344,19 +397,23 @@
     },
     "recipe": [],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Gunpowder.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "high_grade_technical_manual": {
     "name": "High Grade Technical Manual",
-    "type": "Misc",
+    "type": "Consumables",
     "description": [
-      "Detailed Palworld.gg stats for High Grade Technical Manual are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "These can be found primarily via dungeon chests, particularly higher-level ones. There's also a better chance of finding it on Pal Islands and Wildlife Sanctuaries .",
+      "When consumed, it'll give one Technology Point."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "N/A"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/c/c9/High_Grade_Technical_Manual_icon.png/revision/latest?cb=20240409114146",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "high_quality_cloth": {
     "name": "High Quality Cloth",
@@ -378,55 +435,66 @@
       }
     ],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Cloth.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "high_quality_pal_oil": {
     "name": "High Quality Pal Oil",
     "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for High Quality Pal Oil are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "As of v0.2.0.6 it is dropped by Dumud while grazing at the Ranch ."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "300"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/5/52/High_Quality_Pal_Oil_icon.png/revision/latest?cb=20240123145948",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "honey": {
     "name": "Honey",
-    "type": "Food",
+    "type": "Ingredients",
     "description": [
-      "Detailed Palworld.gg stats for Honey are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Can be dropped from Warsect , Cinnamoth , Beegarde , and Elizabee upon death.",
+      "Will be dropped by Beegarde when put into the Ranch ."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "250"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/0/02/Honey_icon.png/revision/latest?cb=20240121074134",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "horn": {
     "name": "Horn",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Horn are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Can be obtained when defeating or capturing a Pal with horns."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "300"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/6/6c/Horn_icon.png/revision/latest?cb=20240409120137",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "ice_organ": {
     "name": "Ice Organ",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Ice Organ are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Ice Organ is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "100"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/a/a7/Ice_Organ_icon.png/revision/latest?cb=20240121131109",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "ingot": {
     "name": "Ingot",
@@ -448,55 +516,64 @@
       }
     ],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_CopperIngot.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "innovative_technical_manual": {
     "name": "Innovative Technical Manual",
-    "type": "Misc",
+    "type": "Consumables",
     "description": [
-      "Detailed Palworld.gg stats for Innovative Technical Manual are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "It can be found sometimes within random, high level dungeon chests.",
+      "When consumed, it'll give 2 Technology Points."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "N/A"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/4/45/Innovative_Technical_Manual_icon.png/revision/latest?cb=20240409114117",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "katress_hair": {
     "name": "Katress Hair",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Katress Hair are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "The Katress hair is used to make Katress Cap using the Katress Cap Schematic 1 purchased from the Wandering Merchant in Duneshelter."
     ],
     "stats": {},
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/0/0c/Katress_Hair_icon.png/revision/latest?cb=20240124114643",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "lamball_mutton": {
     "name": "Lamball Mutton",
-    "type": "Food",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Lamball Mutton are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Lamball Mutton is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "100"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/1/18/Lamball_Mutton_icon.png/revision/latest?cb=20240121050420",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "large_pal_soul": {
     "name": "Large Pal Soul",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Large Pal Soul are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Pal Souls can be offered to a Statue of Power to upgrade your pals' statistics."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "10"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/e/ee/Large_Pal_Soul_icon.png/revision/latest/scale-to-width-down/268?cb=20240123174214",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "leather": {
     "name": "Leather",
@@ -512,19 +589,23 @@
     },
     "recipe": [],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Leather.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "lettuce_seeds": {
     "name": "Lettuce Seeds",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Lettuce Seeds are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Lettuce Seeds is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "200"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/8/8a/Lettuce_Seeds_icon.png/revision/latest?cb=20240121130649",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "low_grade_medical_supplies": {
     "name": "Low Grade Medical Supplies",
@@ -552,67 +633,81 @@
       }
     ],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Herbs.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "mammorest_meat": {
     "name": "Mammorest Meat",
-    "type": "Food",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Mammorest Meat are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Mammorest Meat is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "1800"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/b/b0/Mammorest_Meat_icon.png/revision/latest?cb=20240124060146",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "medium_pal_soul": {
     "name": "Medium Pal Soul",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Medium Pal Soul are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Pal Souls can be offered to a Statue of Power to upgrade your pals' statistics."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "10"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/9/97/Medium_Pal_Soul_icon.png/revision/latest?cb=20240123174123",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "milk": {
     "name": "Milk",
-    "type": "Food",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Milk are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "It can be gathered from Mozzarina in a Ranch or in the wild by capturing or killing them."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "50"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/5/53/Milk_icon.png/revision/latest?cb=20240405193734",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "mozzarina_meat": {
     "name": "Mozzarina Meat",
-    "type": "Food",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Mozzarina Meat are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Mozzarina Meat is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "570"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/c/c5/Mozzarina_Meat_icon.png/revision/latest?cb=20240123162126",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "mushroom": {
     "name": "Mushroom",
-    "type": "Material",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Mushroom are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Mushroom is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "50"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/a/a8/Mushroom_icon.png/revision/latest?cb=20240122175721",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "ore": {
     "name": "Ore",
@@ -628,115 +723,141 @@
     },
     "recipe": [],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_CopperOre.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "pal_fluids": {
     "name": "Pal Fluids",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Pal Fluids are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Pal Fluids is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "300"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/e/e8/Pal_Fluids_icon.png/revision/latest?cb=20240121071006",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "pal_metal_ingot": {
     "name": "Pal Metal Ingot",
     "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Pal Metal Ingot are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Pal Metal Ingot is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Workload cost": "500",
+      "Sell": "80"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/3/34/Pal_Metal_Ingot_icon.png/revision/latest?cb=20240124120017",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "paldium_fragment": {
     "name": "Paldium Fragment",
     "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Paldium Fragment are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "It's primarily needed to craft Pal Spheres ."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "1"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/5/5d/Paldium_Fragment_icon.png/revision/latest?cb=20240124063300",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "penking_plume": {
     "name": "Penking Plume",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Penking Plume are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "It's used to craft Penking Cap ."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "30"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/8/87/Penking_Plume_icon.png/revision/latest?cb=20240123161705",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "polymer": {
     "name": "Polymer",
     "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Polymer are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Polymer is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Technology branch": "Technology",
+      "Sell": "108"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/d/d4/Polymer_icon.png/revision/latest?cb=20240124033746",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "precious_dragon_stone": {
     "name": "Precious Dragon Stone",
     "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Precious Dragon Stone are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Can be sold to Wandering Merchants for 1,000 gold."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "1,000"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/f/f0/Precious_Dragon_Stone_icon.png/revision/latest?cb=20240125040206",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "pure_quartz": {
     "name": "Pure Quartz",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Pure Quartz are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "It's required to craft Circuit Board ."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "10"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/8/80/Pure_Quartz_icon.png/revision/latest?cb=20250110125656",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "raw_dumud": {
     "name": "Raw Dumud",
-    "type": "Misc",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Raw Dumud are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Raw Dumud is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "500"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/d/dc/Raw_Dumud_icon.png/revision/latest?cb=20240123202322",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "raw_kelpsea": {
     "name": "Raw Kelpsea",
-    "type": "Misc",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Raw Kelpsea are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Raw Kelpsea is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "100"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/c/cb/Raw_Kelpsea_icon.png/revision/latest?cb=20240124060146",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "red_berries": {
     "name": "Red Berries",
@@ -753,79 +874,95 @@
     },
     "recipe": [],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Berries.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "reindrix_venison": {
     "name": "Reindrix Venison",
-    "type": "Misc",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Reindrix Venison are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Reindrix Venison is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "640"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/8/8c/Reindrix_Venison_icon.png/revision/latest?cb=20240124060146",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "ruby": {
     "name": "Ruby",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Ruby are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Rubies can be found in chests after defeating a dungeon boss, as well as drops from Direhowl , Relaxaurus , and Vanwyrm .",
+      "Can be sold to Wandering Merchants for 500 gold."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "500"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/a/a2/Ruby_icon.png/revision/latest?cb=20240125203254",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "rushoar_pork": {
     "name": "Rushoar Pork",
-    "type": "Misc",
+    "type": "Ingredient",
     "description": [
-      "Detailed Palworld.gg stats for Rushoar Pork are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Rushoar Pork is listed as a Ingredient on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "430"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/f/f8/Rushoar_Pork_icon.png/revision/latest?cb=20240123161843",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "sapphire": {
     "name": "Sapphire",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Sapphire are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Sapphires can be found in chests, usually in Wildlife Sanctuary or after defeating a dungeon boss, as well as drops from Mau Cryst , Relaxaurus Lux , Vanwyrm Cryst and Selyne .",
+      "Can be sold to Wandering Merchants for 750 gold."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "750"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/e/e3/Sapphire_icon.png/revision/latest?cb=20240123161920",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "silver_key": {
     "name": "Silver Key",
-    "type": "Misc",
+    "type": "Consumable",
     "description": [
-      "Detailed Palworld.gg stats for Silver Key are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Can be obtained from Treasure Chest .\nIt can also be dropped by:",
+      "It's needed to unlock red Treasure Chest ."
     ],
     "stats": {},
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/a/aa/Silver_Key_icon.png/revision/latest?cb=20240121074000",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "small_pal_soul": {
     "name": "Small Pal Soul",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Small Pal Soul are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Pal Souls can be offered to a Statue of Power to upgrade your pals' statistics."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "10"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/6/6f/Small_Pal_Soul_icon.png/revision/latest?cb=20240121071112",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "strange_juice": {
     "name": "Strange Juice",
@@ -864,7 +1001,8 @@
       }
     ],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Narcotic.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "suspicious_juice": {
     "name": "Suspicious Juice",
@@ -903,66 +1041,81 @@
       }
     ],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Opium.png",
-    "fromPalworld": true
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "tocotoco_feather": {
     "name": "Tocotoco Feather",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Tocotoco Feather are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Tocotoco Feather is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Sell": "30"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/8/88/Tocotoco_Feather_icon.png/revision/latest?cb=20240123162042",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "tomato_seeds": {
     "name": "Tomato Seeds",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Tomato Seeds are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Tomato Seeds is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "200"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/e/e7/Tomato_Seeds_icon.png/revision/latest?cb=20240121130810",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "venom_gland": {
     "name": "Venom Gland",
     "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Venom Gland are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Venom Gland is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "100"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/0/00/Venom_Gland_icon.png/revision/latest?cb=20240121071045",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "wheat_seeds": {
     "name": "Wheat Seeds",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Wheat Seeds are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "Wheat Seeds is listed as a Material on the Palworld Fandom wiki.",
+      "Full Palworld.gg data for this item has not been published yet."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "100"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/e/ed/Wheat_Seeds_icon.png/revision/latest?cb=20240121074212",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "wool": {
     "name": "Wool",
-    "type": "Misc",
+    "type": "Material",
     "description": [
-      "Detailed Palworld.gg stats for Wool are not yet available.",
-      "These values are based on Palmate's internal category data."
+      "It is used as a crafting component in many recipes. Most commonly to make Cloth for various armor."
     ],
-    "stats": {},
+    "stats": {
+      "Buy": "100"
+    },
     "recipe": [],
-    "image": null,
-    "fromPalworld": false
+    "image": "https://static.wikia.nocookie.net/palworld/images/b/b5/Wool_icon.png/revision/latest?cb=20240121050351",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   }
 }
