@@ -14852,6 +14852,3063 @@
       "spawnAreas": [
         "Sakurajima Cherry Blossom Grove"
       ]
+    },
+    "141": {
+      "id": 141,
+      "key": "138",
+      "name": "Prunelia",
+      "wiki": "https://palworld.wiki.gg/wiki/Prunelia",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Prunelia.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6020.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 95.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 1,
+        "planting": 3,
+        "gathering": 2,
+        "medicine_production": 3,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "poison_fog",
+          "level": 1,
+          "power": 0,
+          "cooldown": 30.0
+        },
+        {
+          "name": "wind_cutter",
+          "level": 7,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "poison_blast",
+          "level": 15,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "seed_mine",
+          "level": 22,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "poison_shower",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "spine_vine",
+          "level": 40,
+          "power": 95,
+          "cooldown": 25.0
+        },
+        {
+          "name": "solar_blast",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "low_grade_medical_supplies",
+        "beautiful_flower",
+        "carrot_seeds"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Grass",
+        "type2": "Dark"
+      },
+      "types": [
+        "Grass",
+        "Dark"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "142": {
+      "id": 142,
+      "key": "139",
+      "name": "Nyafia",
+      "wiki": "https://palworld.wiki.gg/wiki/Nyafia",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Nyafia.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 5180.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 100.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 3,
+        "lumbering": 2,
+        "gathering": 2,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "poison_fog",
+          "level": 1,
+          "power": 0,
+          "cooldown": 30.0
+        },
+        {
+          "name": "poison_blast",
+          "level": 7,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "shadow_burst",
+          "level": 22,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "poison_shower",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 40,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "dark_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "leather"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "143": {
+      "id": 143,
+      "key": "140",
+      "name": "Gildane",
+      "wiki": "https://palworld.wiki.gg/wiki/Gildane",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Gildane.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8750.0,
+      "size": null,
+      "stats": {
+        "hp": 120.0,
+        "attack": 110.0,
+        "defense": 110.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 840.0,
+        "food": 7.0
+      },
+      "work": {
+        "gathering": 2
+      },
+      "skills": [
+        {
+          "name": "power_shot",
+          "level": 1,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bog_blast",
+          "level": 7,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "power_bomb",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "rockburst",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "crash_dash",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "stone_beat",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "leather"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Ground",
+        "type2": null
+      },
+      "types": [
+        "Ground"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "144": {
+      "id": 144,
+      "key": "141",
+      "name": "Herbil",
+      "wiki": "https://palworld.wiki.gg/wiki/Herbil",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Herbil.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1110.0,
+      "size": null,
+      "stats": {
+        "hp": 80.0,
+        "attack": 75.0,
+        "defense": 75.0,
+        "stamina": null,
+        "support": 100.0,
+        "speed": 350.0,
+        "food": 2.0
+      },
+      "work": {
+        "planting": 2,
+        "gathering": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "wind_cutter",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "seed_machine_gun",
+          "level": 7,
+          "power": 50,
+          "cooldown": 9.0
+        },
+        {
+          "name": "grass_tornado",
+          "level": 15,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "air_blade",
+          "level": 22,
+          "power": 85,
+          "cooldown": 20.0
+        },
+        {
+          "name": "konoha_flip",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "reflect_leaf",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "crosswind",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "leather",
+        "red_berries"
+      ],
+      "breeding": {
+        "power": 1445.0,
+        "type1": "Grass",
+        "type2": "Neutral"
+      },
+      "types": [
+        "Grass",
+        "Neutral"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "145": {
+      "id": 145,
+      "key": "142",
+      "name": "Icelyn",
+      "wiki": "https://palworld.wiki.gg/wiki/Icelyn",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Icelyn.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 2310.0,
+      "size": null,
+      "stats": {
+        "hp": 95.0,
+        "attack": 115.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 2,
+        "medicine_production": 2,
+        "transporting": 1,
+        "cooling": 3
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "crystal_breath",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "freze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "blizzard_spike",
+          "level": 40,
+          "power": 130,
+          "cooldown": 45.0
+        },
+        {
+          "name": "diamond_rain",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "ice_organ",
+        "precious_plume"
+      ],
+      "breeding": {
+        "power": 605.0,
+        "type1": "Ice",
+        "type2": null
+      },
+      "types": [
+        "Ice"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "146": {
+      "id": 146,
+      "key": "143",
+      "name": "Frostplume",
+      "wiki": "https://palworld.wiki.gg/wiki/Frostplume",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Frostplume.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1460.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 100.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 500.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 1,
+        "cooling": 2
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "crystal_breath",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "freze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "icicle_bullet",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "diamond_rain",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "ice_organ"
+      ],
+      "breeding": {
+        "power": 655.0,
+        "type1": "Ice",
+        "type2": null
+      },
+      "types": [
+        "Ice"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "147": {
+      "id": 147,
+      "key": "144",
+      "name": "Palumba",
+      "wiki": "https://palworld.wiki.gg/wiki/Palumba",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Palumba.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 5850.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 110.0,
+        "defense": 115.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 5.0
+      },
+      "work": {
+        "planting": 2,
+        "gathering": 2,
+        "mining": 3
+      },
+      "skills": [
+        {
+          "name": "seed_machine_gun",
+          "level": 1,
+          "power": 50,
+          "cooldown": 9.0
+        },
+        {
+          "name": "seed_mine",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "grass_tornado",
+          "level": 15,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "wind_edge",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dash_kick",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "reflect_leaf",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "crosswind",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "bone"
+      ],
+      "breeding": {
+        "power": 455.0,
+        "type1": "Grass",
+        "type2": null
+      },
+      "types": [
+        "Grass"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "148": {
+      "id": 148,
+      "key": "145",
+      "name": "Braloha",
+      "wiki": "https://palworld.wiki.gg/wiki/Braloha",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Braloha.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6500.0,
+      "size": null,
+      "stats": {
+        "hp": 130.0,
+        "attack": 95.0,
+        "defense": 120.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 7.0
+      },
+      "work": {
+        "planting": 4,
+        "gathering": 4,
+        "mining": 2
+      },
+      "skills": [
+        {
+          "name": "bog_blast",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "seed_mine",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "grass_tornado",
+          "level": 15,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "spine_vine",
+          "level": 22,
+          "power": 95,
+          "cooldown": 25.0
+        },
+        {
+          "name": "deep_breath",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "solar_blast",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "stone_beat",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "leather",
+        "red_berries",
+        "lettuce_seeds",
+        "tomato_seeds"
+      ],
+      "breeding": {
+        "power": 335.0,
+        "type1": "Grass",
+        "type2": "Ground"
+      },
+      "types": [
+        "Grass",
+        "Ground"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "149": {
+      "id": 149,
+      "key": "146",
+      "name": "Munchill",
+      "wiki": "https://palworld.wiki.gg/wiki/Munchill",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Munchill.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1580.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 80.0,
+        "defense": 85.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 1,
+        "transporting": 1,
+        "cooling": 2
+      },
+      "skills": [
+        {
+          "name": "aqua_gun",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "crystal_breath",
+          "level": 15,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "chaotic_spray",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "freeze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "torrential_blast",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "diamond_rain",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "munchill_meat"
+      ],
+      "breeding": {
+        "power": 1335.0,
+        "type1": "Ice",
+        "type2": "Water"
+      },
+      "types": [
+        "Ice",
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "150": {
+      "id": 150,
+      "key": "147",
+      "name": "Polapup",
+      "wiki": "https://palworld.wiki.gg/wiki/Polapup",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Polapup.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 2130.0,
+      "size": null,
+      "stats": {
+        "hp": 95.0,
+        "attack": 105.0,
+        "defense": 105.0,
+        "stamina": 120.0,
+        "support": 100.0,
+        "speed": 250.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 2,
+        "cooling": 3
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "aqua_gun",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "splash",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "freeze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "icicle_line",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_surge",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "ice_organ"
+      ],
+      "breeding": {
+        "power": 745.0,
+        "type1": "Ice",
+        "type2": "Water"
+      },
+      "types": [
+        "Ice",
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "151": {
+      "id": 151,
+      "key": "148",
+      "name": "Turtacle",
+      "wiki": "https://palworld.wiki.gg/wiki/Turtacle",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Turtacle.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1350.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 75.0,
+        "defense": 115.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 320.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 2,
+        "mining": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "hydro_jet",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "hydro_spin",
+          "level": 15,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_burst",
+          "level": 22,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "bone"
+      ],
+      "breeding": {
+        "power": 1105.0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "152": {
+      "id": 152,
+      "key": "148B",
+      "name": "Turtacle Terra",
+      "wiki": "https://palworld.wiki.gg/wiki/Turtacle_Terra",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Turtacle%20Terra.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 19550.0,
+      "size": null,
+      "stats": {
+        "hp": 85.0,
+        "attack": 85.0,
+        "defense": 125.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 320.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 2,
+        "mining": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "bog_blast",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "bubble_blast",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "hydro_spin",
+          "level": 15,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_burt",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "rockburst",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "rock_lance",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "stone_beat",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "bone"
+      ],
+      "breeding": {
+        "power": 1065.0,
+        "type1": "Water",
+        "type2": "Ground"
+      },
+      "types": [
+        "Water",
+        "Ground"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "153": {
+      "id": 153,
+      "key": "149",
+      "name": "Jellroy",
+      "wiki": "https://palworld.wiki.gg/wiki/Jellroy",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Jellroy.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1630.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 75.0,
+        "defense": 75.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "watering": 2,
+        "medicine_production": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "poison_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "umbral_surge",
+          "level": 7,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 22,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "poison_shower",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dark_whisp",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "jellroy_bell_flesh"
+      ],
+      "breeding": {
+        "power": 1395.0,
+        "type1": "Water",
+        "type2": "Dark"
+      },
+      "types": [
+        "Water",
+        "Dark"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "154": {
+      "id": 154,
+      "key": "150",
+      "name": "Jelliette",
+      "wiki": "https://palworld.wiki.gg/wiki/Jelliette",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Jelliette.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1780.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 90.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 240.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "watering": 2,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "hydro_jet",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "aqua_gun",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "aqua_burst",
+          "level": 22,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "curtain_splash",
+          "level": 30,
+          "power": 120,
+          "cooldown": 40.0
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_surge",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "jelliette_bell_flesh"
+      ],
+      "breeding": {
+        "power": 1385.0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "155": {
+      "id": 155,
+      "key": "151",
+      "name": "Gloopie",
+      "wiki": "https://palworld.wiki.gg/wiki/Gloopie",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Gloopie.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1930.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 85.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 2,
+        "watering": 2,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "hydro_jet",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "shadow_burst",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "smoke_jet",
+          "level": 15,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "splash",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "gloopie_tentacle"
+      ],
+      "breeding": {
+        "power": 1195.0,
+        "type1": "Water",
+        "type2": "Dark"
+      },
+      "types": [
+        "Water",
+        "Dark"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "156": {
+      "id": 156,
+      "key": "152",
+      "name": "Finsider",
+      "wiki": "https://palworld.wiki.gg/wiki/Finsider",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Finsider.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1100.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 85.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 250.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 2,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "aqua_gun",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "power_bomb",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "trigger_happy",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "curtain_splash",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40.0
+        },
+        {
+          "name": "hydro_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "leather",
+        "small_pal_soul",
+        "pal_fluids"
+      ],
+      "breeding": {
+        "power": 1295.0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "157": {
+      "id": 157,
+      "key": "152B",
+      "name": "Finsider Ignis",
+      "wiki": "https://palworld.wiki.gg/wiki/Finsider_Ignis",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Finsider%20Ignis.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1290.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 90.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 250.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 2,
+        "kindling": 2,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "ignis_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "spirit_fire",
+          "level": 7,
+          "power": 45,
+          "cooldown": 7.0
+        },
+        {
+          "name": "ignis_blast",
+          "level": 15,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "splash",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "trigger_happy",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "flame_funnel",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "fire_ball",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "leather",
+        "small_pal_soul",
+        "flame_organ"
+      ],
+      "breeding": {
+        "power": 1295.0,
+        "type1": "Water",
+        "type2": "Fire"
+      },
+      "types": [
+        "Water",
+        "Fire"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "158": {
+      "id": 158,
+      "key": "153",
+      "name": "Ghangler",
+      "wiki": "https://palworld.wiki.gg/wiki/Ghangler",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Ghangler.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6850.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 125.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 4.0
+      },
+      "work": {
+        "watering": 4,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "aqua_gun",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "dark_ball",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "dark_arrow",
+          "level": 15,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 22,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "lantern_sweep",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dark_laser",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "aqua_surge",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "bones",
+        "venom_glad"
+      ],
+      "breeding": {
+        "power": 525.0,
+        "type1": "Dark",
+        "type2": "Water"
+      },
+      "types": [
+        "Dark",
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "159": {
+      "id": 159,
+      "key": "153B",
+      "name": "Ghangler Ignis",
+      "wiki": "https://palworld.wiki.gg/wiki/Ghangler_Ignis",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Ghangler%20Ignis.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 7240.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 130.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 4.0
+      },
+      "work": {
+        "watering": 4,
+        "kindling": 3,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "ignis_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "flare_arrow",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "flame_wall",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "scorching_lantern_sweep",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "fire_ball",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "aqua_surge",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "bones",
+        "flame_organ"
+      ],
+      "breeding": {
+        "power": 505.0,
+        "type1": "Fire",
+        "type2": "Water"
+      },
+      "types": [
+        "Fire",
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "160": {
+      "id": 160,
+      "key": "154",
+      "name": "Whalaska",
+      "wiki": "https://palworld.wiki.gg/wiki/Whalaska",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Whalaska.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8510.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 115.0,
+        "defense": 110.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 6.0
+      },
+      "work": {
+        "watering": 3,
+        "cooling": 4
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "splash",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "freeze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "high_breach",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "geyser_gush",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "coralum_ore",
+        "ice_organ",
+        "large_pal_soul"
+      ],
+      "breeding": {
+        "power": 445.0,
+        "type1": "Ice",
+        "type2": "Water"
+      },
+      "types": [
+        "Ice",
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "161": {
+      "id": 161,
+      "key": "154B",
+      "name": "Whalaska Ignis",
+      "wiki": "https://palworld.wiki.gg/wiki/Whalaska_Ignis",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Whalaska%20Ignis.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8630.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 120.0,
+        "defense": 110.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 6.0
+      },
+      "work": {
+        "kindling": 3,
+        "cooling": 4
+      },
+      "skills": [
+        {
+          "name": "ignis_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "flare_arrow",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "flame_wall",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "freeze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "volcanic_rain",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "high_breach",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "coralum_ore",
+        "flame_organ",
+        "large_pal_soul"
+      ],
+      "breeding": {
+        "power": 430.0,
+        "type1": "Ice",
+        "type2": "Fire"
+      },
+      "types": [
+        "Ice",
+        "Fire"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "162": {
+      "id": 162,
+      "key": "155",
+      "name": "Neptilius",
+      "wiki": "https://palworld.wiki.gg/wiki/Neptilius",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Neptilius.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8690.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 145.0,
+        "defense": 125.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 750.0,
+        "food": 7.0
+      },
+      "work": {
+        "watering": 4
+      },
+      "skills": [
+        {
+          "name": "aqua_gun",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "splash",
+          "level": 15,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "curtain_splash",
+          "level": 30,
+          "power": 120,
+          "cooldown": 40.0
+        },
+        {
+          "name": "aqua_surge",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "geyser_gush",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "thalassonic_laser",
+          "level": 60,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pure_quartz",
+        "polymer",
+        "carbon_fiber",
+        "diamond",
+        "large_pal_soul"
+      ],
+      "breeding": {
+        "power": 430.0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "163": {
+      "id": 163,
+      "key": "006B",
+      "name": "Fuack Ignis",
+      "wiki": "https://palworld.wiki.gg/wiki/Fuack_Ignis",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Fuack%20Ignis.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1340.0,
+      "size": null,
+      "stats": {
+        "hp": 60.0,
+        "attack": 85.0,
+        "defense": 60.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "watering": 1,
+        "kindling": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "ignis_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "spirit_fire",
+          "level": 7,
+          "power": 45,
+          "cooldown": 7.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "ignis_breath",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "flame_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "volcanic_rain",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "leather",
+        "pal_fluids",
+        "flame_organ"
+      ],
+      "breeding": {
+        "power": 1290.0,
+        "type1": "Water",
+        "type2": "Fire"
+      },
+      "types": [
+        "Water",
+        "Fire"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "164": {
+      "id": 164,
+      "key": "010B",
+      "name": "Pengullet Lux",
+      "wiki": "https://palworld.wiki.gg/wiki/Pengullet_Lux",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Pengullet%20Lux.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1290.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 80.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 500.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "watering": 1,
+        "transporting": 1,
+        "generating_electricity": 2
+      },
+      "skills": [
+        {
+          "name": "thunder_spear",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "electric_ball",
+          "level": 7,
+          "power": 50,
+          "cooldown": 9.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "splash",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "aqua_burst",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "trispark",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "lightning_strike",
+          "level": 50,
+          "power": 120,
+          "cooldown": 40.0
+        }
+      ],
+      "drops": [
+        "electric_organ",
+        "pal_fluids"
+      ],
+      "breeding": {
+        "power": 1310.0,
+        "type1": "Water",
+        "type2": "Electric"
+      },
+      "types": [
+        "Water",
+        "Electric"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "165": {
+      "id": 165,
+      "key": "011B",
+      "name": "Penking Lux",
+      "wiki": "https://palworld.wiki.gg/wiki/Penking_Lux",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Penking%20Lux.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6490.0,
+      "size": null,
+      "stats": {
+        "hp": 100.0,
+        "attack": 100.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 450.0,
+        "food": 8.0
+      },
+      "work": {
+        "handiwork": 2,
+        "watering": 2,
+        "mining": 2,
+        "transporting": 2,
+        "generating_electricity": 2
+      },
+      "skills": [
+        {
+          "name": "thunder_spear",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "plasma_funnel",
+          "level": 7,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "trispark",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "thunderslide",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_surge",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "thunderstorm",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "electric_organ",
+        "penking_plume"
+      ],
+      "breeding": {
+        "power": 490.0,
+        "type1": "Water",
+        "type2": "Electric"
+      },
+      "types": [
+        "Water",
+        "Electric"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "166": {
+      "id": 166,
+      "key": "023B",
+      "name": "Killamari Primo",
+      "wiki": "https://palworld.wiki.gg/wiki/Killamari_Primo",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Killamari%20Primo.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1440.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 60.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 1,
+        "gathering": 1,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "air_cannon",
+          "level": 1,
+          "power": 25,
+          "cooldown": 2.0
+        },
+        {
+          "name": "power_shot",
+          "level": 7,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "power_bomb",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "acid_rain",
+          "level": 30,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "killamari_tentacle"
+      ],
+      "breeding": {
+        "power": 1250.0,
+        "type1": "Neutral",
+        "type2": "Water"
+      },
+      "types": [
+        "Neutral",
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "167": {
+      "id": 167,
+      "key": "025B",
+      "name": "Celaray Lux",
+      "wiki": "https://palworld.wiki.gg/wiki/Celaray_Lux",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Celaray%20Lux.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 3430.0,
+      "size": null,
+      "stats": {
+        "hp": 80.0,
+        "attack": 75.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 1,
+        "transporting": 1,
+        "generating_electricity": 1
+      },
+      "skills": [
+        {
+          "name": "thunder_spear",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "shockwave",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "lightning_streak",
+          "level": 22,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "splash",
+          "level": 30,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "lightning_bolt",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "pal_fluids"
+      ],
+      "breeding": {
+        "power": 830.0,
+        "type1": "Water",
+        "type2": "Electric"
+      },
+      "types": [
+        "Water",
+        "Electric"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "168": {
+      "id": 168,
+      "key": "043B",
+      "name": "Dumud Gild",
+      "wiki": "https://palworld.wiki.gg/wiki/Dumud_Gild",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Dumud%20Gild.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 24900.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 75.0,
+        "defense": 100.0,
+        "stamina": null,
+        "support": 100.0,
+        "speed": 450.0,
+        "food": 4.0
+      },
+      "work": {
+        "watering": 1,
+        "mining": 2,
+        "transporting": 1,
+        "farming": 1
+      },
+      "skills": [
+        {
+          "name": "bog_blast",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_gun",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "sand_tornado",
+          "level": 22,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "rockburst",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "sand_twister",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "raw_dumud",
+        "high_quality_pal_oil",
+        "gold_coin"
+      ],
+      "breeding": {
+        "power": 855.0,
+        "type1": "Ground",
+        "type2": "Water"
+      },
+      "types": [
+        "Ground",
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "169": {
+      "id": 169,
+      "key": "082B",
+      "name": "Azurobe Cryst",
+      "wiki": "https://palworld.wiki.gg/wiki/Azurobe_Cryst",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Azurobe%20Cryst.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6750.0,
+      "size": null,
+      "stats": {
+        "hp": 115.0,
+        "attack": 105.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 6.0
+      },
+      "work": {
+        "cooling": 3
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "dragon_burst",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "draconic_breath",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "crystal_breath",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "charge_cannon",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "diamond_rain",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "cloth",
+        "pal_fluids",
+        "ice_organ"
+      ],
+      "breeding": {
+        "power": 480.0,
+        "type1": "Ice",
+        "type2": "Dragon"
+      },
+      "types": [
+        "Ice",
+        "Dragon"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "170": {
+      "id": 170,
+      "key": "114B",
+      "name": "Croajiro Noct",
+      "wiki": "https://palworld.wiki.gg/wiki/Croajiro_Noct",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Croajiro%20Noct.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 2130.0,
+      "size": null,
+      "stats": {
+        "hp": 85.0,
+        "attack": 110.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "watering": 1,
+        "gathering": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "poison_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "dark_shot",
+          "level": 7,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dark_arrow",
+          "level": 15,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "acid_rain",
+          "level": 22,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dark_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "cloth",
+        "venom_gland"
+      ],
+      "breeding": {
+        "power": 765.0,
+        "type1": "Water",
+        "type2": "Dark"
+      },
+      "types": [
+        "Water",
+        "Dark"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "171": {
+      "id": 171,
+      "key": "YM10",
+      "name": "Eye of Cthulhu",
+      "wiki": "https://palworld.wiki.gg/wiki/Eye_of_Cthulhu",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Eye%20of%20Cthulhu.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 240.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 900.0,
+        "food": 3.0
+      },
+      "work": {
+        "transporting": 4
+      },
+      "skills": [
+        {
+          "name": "lock_on_lunge",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "servant_call",
+          "level": 7,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1380.0,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "172": {
+      "id": 172,
+      "key": "YM07",
+      "name": "Enchanted Sword",
+      "wiki": "https://palworld.wiki.gg/wiki/Enchanted_Sword",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Enchanted%20Sword.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 95.0,
+        "attack": 105.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 2.0
+      },
+      "work": {
+        "lumbering": 1
+      },
+      "skills": [
+        {
+          "name": "sword_charge",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "173": {
+      "id": 173,
+      "key": "YM05",
+      "name": "Illuminant Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Illuminant_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Illuminant%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 80.0,
+        "attack": 75.0,
+        "defense": 85.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_neutral",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "174": {
+      "id": 174,
+      "key": "YM09",
+      "name": "Illuminant Bat",
+      "wiki": "https://palworld.wiki.gg/wiki/Illuminant_Bat",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Illuminant%20Bat.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 80.0,
+        "attack": 80.0,
+        "defense": 95.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "gathering": 1
+      },
+      "skills": [
+        {
+          "name": "winged_assault",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1250.0,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "175": {
+      "id": 175,
+      "key": "YM06",
+      "name": "Rainbow Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Rainbow_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Rainbow%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 95.0,
+        "defense": 105.0,
+        "stamina": null,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_rainbow",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "176": {
+      "id": 176,
+      "key": "YM08",
+      "name": "Cave Bat",
+      "wiki": "https://palworld.wiki.gg/wiki/Cave_Bat",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Cave%20Bat.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 65.0,
+        "attack": 75.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "gathering": 1
+      },
+      "skills": [
+        {
+          "name": "winged_assault",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1340.0,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "177": {
+      "id": 177,
+      "key": "YM03",
+      "name": "Red Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Red_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Red%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 75.0,
+        "defense": 85.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_fire",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1405.0,
+        "type1": "Fire",
+        "type2": null
+      },
+      "types": [
+        "Fire"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "178": {
+      "id": 178,
+      "key": "YM04",
+      "name": "Purple Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Purple_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Purple%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 70.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_dark",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1390.0,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "179": {
+      "id": 179,
+      "key": "YM11",
+      "name": "Demon Eye",
+      "wiki": "https://palworld.wiki.gg/wiki/Demon_Eye",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Demon%20Eye.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 110.0,
+        "defense": 95.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "ocular_rush",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1390.0,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "180": {
+      "id": 180,
+      "key": "YM01",
+      "name": "Green Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Green_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Green%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 65.0,
+        "attack": 70.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_grass",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1430.0,
+        "type1": "Grass",
+        "type2": null
+      },
+      "types": [
+        "Grass"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "181": {
+      "id": 181,
+      "key": "YM02",
+      "name": "Blue Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Blue_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Blue%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 70.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_water",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1405.0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
     }
   },
   "items": {
