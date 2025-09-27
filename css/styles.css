@@ -1,0 +1,16 @@
+.card{background:var(--card-bg,rgba(14,32,52,0.92));border-radius:18px;padding:16px 20px;margin:16px 0;box-shadow:0 8px 24px rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.04)}
+.card h3{margin-top:0}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.btn{background:var(--secondary,#415a77);border:none;border-radius:999px;color:var(--text,#f0f4f8);cursor:pointer;font-size:0.95rem;font-weight:600;padding:10px 18px;transition:transform 0.2s ease,background 0.2s ease;min-height:44px}
+.btn:hover{background:var(--accent,#778da9);transform:translateY(-1px)}
+.btn:active{transform:scale(0.98)}
+.chip{display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;border-radius:999px;background:rgba(119,141,169,0.18);color:var(--text,#f0f4f8);font-size:0.9rem;font-weight:600;text-decoration:none;border:1px solid rgba(119,141,169,0.4);min-height:40px}
+.chip.link{cursor:pointer;background:rgba(119,141,169,0.24)}
+.chip.link:hover{background:rgba(119,141,169,0.4)}
+.step-group{margin:12px 0}
+.step{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #22314A;border-radius:12px;margin:8px 0;background:#101828}
+.step input[type=checkbox]{width:24px;height:24px}
+.step.optional{opacity:.95}
+.step .step-text{flex:1}
+.pulse{animation:pulse 1.2s ease-out 1}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(105,228,166,.8)}100%{box-shadow:0 0 0 14px rgba(105,228,166,0)}}
