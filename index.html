@@ -422,6 +422,229 @@
       border-radius: 10px;
       background: #fff;
     }
+    .item-detail-card {
+      display: grid;
+      gap: 18px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .item-detail-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .item-detail-heading {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .item-detail-image {
+      width: 96px;
+      height: 96px;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .item-detail-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .item-detail-placeholder {
+      font-size: 2rem;
+      color: var(--accent);
+    }
+    .item-detail-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .item-detail-meta h3 {
+      margin: 0;
+      font-size: 1.6rem;
+      line-height: 1.2;
+    }
+    .item-detail-meta .type-tag {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .detail-collect-btn {
+      background: var(--secondary);
+      border: none;
+      color: var(--text);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .detail-collect-btn:hover,
+    .detail-collect-btn:focus {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+    .detail-collect-btn.collected {
+      background: var(--success);
+      color: #fff;
+    }
+    .item-detail-description p {
+      margin: 0 0 8px;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    .item-detail-description p:last-child {
+      margin-bottom: 0;
+    }
+    .item-detail-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .item-detail-stats .stat-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .item-detail-stats .stat-pill .label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .item-detail-stats .stat-pill .value {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .item-detail-section {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 16px;
+      display: grid;
+      gap: 8px;
+    }
+    .item-detail-section h4 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .item-detail-section p {
+      margin: 0;
+      line-height: 1.5;
+    }
+    .item-detail-summary ul {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.5;
+    }
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip-list .chip {
+      background: rgba(119, 141, 169, 0.35);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+    }
+    .chip-list .chip.highlight {
+      background: rgba(42, 157, 143, 0.35);
+    }
+    .ingredient-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .ingredient-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+    .ingredient-card img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.25);
+    }
+    .ingredient-card .ingredient-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ingredient-card .name {
+      font-weight: 600;
+    }
+    .item-detail-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+    .item-detail-footer a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .item-detail-footer a:hover,
+    .item-detail-footer a:focus {
+      text-decoration: underline;
+    }
+    .item-detail-note {
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+    body.kid-mode .item-detail-card {
+      gap: 14px;
+      padding: 20px;
+    }
+    body.kid-mode .item-detail-meta h3 {
+      font-size: 1.4rem;
+    }
+    body.kid-mode .item-detail-description p {
+      font-size: 1.05rem;
+    }
+    body.kid-mode .item-detail-stats {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    body.kid-mode .item-detail-stats .stat-pill {
+      padding: 10px;
+    }
+    body.kid-mode .item-detail-stats .stat-pill .value {
+      font-size: 1rem;
+    }
+    body.kid-mode .detail-collect-btn {
+      font-size: 1rem;
+      padding: 12px 20px;
+    }
+    body.kid-mode .chip-list .chip {
+      font-size: 0.95rem;
+      padding: 8px 16px;
+    }
+    body.kid-mode .item-detail-section h4 {
+      font-size: 1rem;
+    }
     .modal-action-btn {
       background: var(--accent);
       border: none;
@@ -799,6 +1022,7 @@
     let ROUTE = [];
     let SKILL_DETAILS = {};
     let PASSIVE_DETAILS = {};
+    let ITEM_DETAILS = {};
     // Map of items to pals that drop them.  Populated after data load.
     let DROPS_MAP = {};
     // Map pal names to IDs for quick lookup when clicking breeding
@@ -1111,7 +1335,11 @@
       'data/palworld_complete_data.json'
     ];
     const EMBEDDED_DATA_SCRIPT = 'data/palworld_complete_data_fallback.js';
+    const ITEM_DETAILS_SOURCES = ['data/item_details.json'];
+    const ITEM_DETAILS_FALLBACK_SCRIPT = 'data/item_details_fallback.js';
+    const ITEM_DETAILS_GLOBAL = '__PALMATE_ITEM_DETAILS__';
     let embeddedDataPromise = null;
+    let itemDetailsEmbeddedPromise = null;
 
     async function loadEmbeddedDataset() {
       if (window.__PALMATE_EMBEDDED_DATA__) {
@@ -1136,6 +1364,58 @@
         console.warn('Embedded dataset loader failed.', err);
         return null;
       }
+    }
+    async function loadItemDetailsFallback() {
+      if (window[ITEM_DETAILS_GLOBAL]) {
+        return window[ITEM_DETAILS_GLOBAL];
+      }
+      if (!itemDetailsEmbeddedPromise) {
+        itemDetailsEmbeddedPromise = new Promise(resolve => {
+          const script = document.createElement('script');
+          script.src = ITEM_DETAILS_FALLBACK_SCRIPT;
+          script.async = true;
+          script.onload = () => resolve(window[ITEM_DETAILS_GLOBAL] || null);
+          script.onerror = event => {
+            console.warn('Unable to load item detail fallback script.', event);
+            resolve(null);
+          };
+          document.head.appendChild(script);
+        });
+      }
+      try {
+        return await itemDetailsEmbeddedPromise;
+      } catch (err) {
+        console.warn('Item detail fallback loader failed.', err);
+        return null;
+      }
+    }
+    async function loadItemDetailsDataset() {
+      const loadErrors = [];
+      for (const source of ITEM_DETAILS_SOURCES) {
+        try {
+          const response = await fetch(source);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const payload = await response.json();
+          if (!payload || typeof payload !== 'object') {
+            throw new Error('Invalid JSON payload');
+          }
+          return payload;
+        } catch (error) {
+          loadErrors.push({ source, error });
+          console.warn(`Failed to load item details from ${source}`, error);
+        }
+      }
+      return null;
+    }
+    async function loadItemDetails() {
+      const dataset = await loadItemDetailsDataset();
+      if (dataset) return dataset;
+      const fallback = await loadItemDetailsFallback();
+      if (fallback) return fallback;
+      console.warn('Item detail dataset unavailable. Item cards will use minimal info.');
+      return {};
     }
     // Type icon mapping (relative file paths)
     const iconMap = {
@@ -1245,6 +1525,14 @@
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/-+/g, '-')
         .replace(/^-|-$/g, '');
+    }
+    function humaniseItemKey(key) {
+      if (!key) return '';
+      return key
+        .split('_')
+        .filter(Boolean)
+        .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(' ');
     }
     function openPalworldEmbed({ heading, url, fallbackUrl, note, summaryHtml }) {
       modalBody.innerHTML = '';
@@ -1358,6 +1646,7 @@
         ROUTE = hasRouteTable ? payload.route : DEFAULT_ROUTE.map(step => ({ ...step }));
         SKILL_DETAILS = payload.skillsDetails || {};
         PASSIVE_DETAILS = payload.passiveDetails || {};
+        ITEM_DETAILS = await loadItemDetails();
         // Build name‑to‑ID lookup map
         PAL_NAME_TO_ID = {};
         Object.values(PALS).forEach(p => {
@@ -1469,6 +1758,13 @@
       search.addEventListener('input', () => render(search.value));
       render();
     }
+    function updateItemCollectionButtons(itemKey) {
+      document.querySelectorAll(`.item-card button.collect-btn[data-item-key="${itemKey}"]`).forEach(btn => {
+        const state = !!collected[itemKey];
+        btn.classList.toggle('collected', state);
+        btn.textContent = state ? 'Collected' : 'Collect';
+      });
+    }
     // Show pal details in a modal by embedding the Palworld.gg page
     // alongside quick progress hints and a shortcut back to the map.
     function showPalDetail(id) {
@@ -1540,6 +1836,7 @@
           if (!human.toLowerCase().includes(term)) return;
           const card = document.createElement('div');
           card.className = 'item-card';
+          card.dataset.itemKey = item;
           const category = ITEMS[item].category || 'Misc';
           card.innerHTML = `
             <div class="name">${human}</div>
@@ -1548,6 +1845,7 @@
             <button class="collect-btn ${collected[item] ? 'collected' : ''}">${collected[item] ? 'Collected' : 'Collect'}</button>
           `;
           const btn = card.querySelector('button');
+          btn.dataset.itemKey = item;
           btn.addEventListener('click', (e) => {
             e.stopPropagation();
             collected[item] = !collected[item];
@@ -2024,18 +2322,16 @@
       if (techText) techText.textContent = `${unlockedCount} / ${totalRecipes} tech recipes unlocked`;
     }
 
-    // Display detailed information about an item by embedding the
-    // Palworld.gg entry alongside a quick progress summary.  We still
-    // surface high-level drop and tech usage info so players can track
-    // their goals while reading the external database.
+    // Display detailed information about an item using a Palworld-inspired card.
     function openItemDetail(itemKey) {
       const item = ITEMS[itemKey];
       if (!item) return;
-      const human = itemKey.replace(/_/g, ' ');
+      const detail = ITEM_DETAILS[itemKey] || {};
+      const human = detail.name || humaniseItemKey(itemKey);
       const slug = PALWORLD_ITEM_SLUG_OVERRIDES[itemKey] || slugifyForPalworld(human);
       const itemUrl = slug ? `${PALWORLD_BASE_URL}/item/${slug}` : `${PALWORLD_BASE_URL}/items`;
       const fallbackUrl = `${PALWORLD_BASE_URL}/items?search=${encodeURIComponent(human)}`;
-      const drops = DROPS_MAP[itemKey] || [];
+      const drops = (DROPS_MAP[itemKey] || []).slice();
       const collectedStatus = !!collected[itemKey];
       const recipes = [];
       TECH.forEach(level => {
@@ -2045,38 +2341,241 @@
           }
         });
       });
-      const summaryParts = [];
-      if (kidMode) {
-        summaryParts.push(`<p><strong>Status:</strong> ${collectedStatus ? 'We have this item!' : 'Let’s go find this!'}</p>`);
-        summaryParts.push(`<p><strong>Item type:</strong> ${item.category || 'Useful stuff'}</p>`);
-        const dropPreview = drops.length ? drops.slice(0, 4).join(', ') + (drops.length > 4 ? '…' : '') : 'Not sure yet';
-        summaryParts.push(`<p><strong>Find it from:</strong> ${dropPreview}</p>`);
-        if (recipes.length) {
-          summaryParts.push(`<p><strong>Used for:</strong> ${recipes.length} tech unlock${recipes.length === 1 ? '' : 's'}.</p>`);
-        }
+      modalBody.innerHTML = '';
+      const card = document.createElement('article');
+      card.className = 'item-detail-card';
+
+      const header = document.createElement('div');
+      header.className = 'item-detail-header';
+      const headingWrap = document.createElement('div');
+      headingWrap.className = 'item-detail-heading';
+      const art = document.createElement('div');
+      art.className = 'item-detail-image';
+      if (detail.image) {
+        const img = document.createElement('img');
+        img.src = detail.image;
+        img.alt = human;
+        img.loading = 'lazy';
+        art.appendChild(img);
       } else {
-        summaryParts.push(`<p><strong>Tracking:</strong> ${collectedStatus ? 'Collected' : 'Not collected yet'}</p>`);
-        summaryParts.push(`<p><strong>Category:</strong> ${item.category || 'Unknown'}</p>`);
-        summaryParts.push(`<p><strong>Dropped by:</strong> ${drops.length ? drops.join(', ') : 'None'}</p>`);
-        if (recipes.length) {
-          let recList = '<ul>';
-          recipes.forEach(r => {
-            recList += `<li>Level ${r.level}: ${r.name} (x${r.qty})</li>`;
-          });
-          recList += '</ul>';
-          summaryParts.push(`<p><strong>Used in Tech:</strong></p>${recList}`);
-        }
+        const placeholder = document.createElement('div');
+        placeholder.className = 'item-detail-placeholder';
+        placeholder.innerHTML = '<i class="fa-solid fa-box"></i>';
+        art.appendChild(placeholder);
       }
-      const note = kidMode
-        ? 'We show the Palworld.gg page so you can read more about the item right inside Palmate.'
-        : 'Palworld.gg keeps item data up to date; embedding it here lets you read everything without leaving your tracker.';
-      openPalworldEmbed({
-        heading: `${human} – Palworld.gg`,
-        url: itemUrl,
-        fallbackUrl,
-        note,
-        summaryHtml: summaryParts.join('')
+      const meta = document.createElement('div');
+      meta.className = 'item-detail-meta';
+      const titleEl = document.createElement('h3');
+      titleEl.textContent = human;
+      const typeEl = document.createElement('span');
+      const typeLabel = detail.type || item.category || 'Item';
+      typeEl.className = 'type-tag';
+      typeEl.textContent = typeLabel;
+      meta.appendChild(titleEl);
+      meta.appendChild(typeEl);
+      headingWrap.appendChild(art);
+      headingWrap.appendChild(meta);
+      header.appendChild(headingWrap);
+      const collectBtn = document.createElement('button');
+      collectBtn.className = `detail-collect-btn${collectedStatus ? ' collected' : ''}`;
+      collectBtn.textContent = collectedStatus ? 'Collected' : 'Mark as collected';
+      collectBtn.addEventListener('click', () => {
+        collected[itemKey] = !collected[itemKey];
+        localStorage.setItem('collected', JSON.stringify(collected));
+        const state = !!collected[itemKey];
+        collectBtn.classList.toggle('collected', state);
+        collectBtn.textContent = state ? 'Collected' : 'Mark as collected';
+        updateItemCollectionButtons(itemKey);
+        updateProgressUI();
+        playSound(clickSound);
       });
+      header.appendChild(collectBtn);
+      card.appendChild(header);
+
+      const descriptionLines = Array.isArray(detail.description) && detail.description.length
+        ? detail.description
+        : [`${human} belongs to the ${item.category || typeLabel} family.`];
+      const descWrapper = document.createElement('div');
+      descWrapper.className = 'item-detail-description';
+      const maxParagraphs = kidMode ? Math.min(2, descriptionLines.length) : descriptionLines.length;
+      for (let idx = 0; idx < maxParagraphs; idx += 1) {
+        const p = document.createElement('p');
+        p.textContent = descriptionLines[idx];
+        descWrapper.appendChild(p);
+      }
+      card.appendChild(descWrapper);
+
+      const statsEntries = Object.entries(detail.stats || {});
+      if (item.category && !statsEntries.some(entry => entry[0].toLowerCase() === 'category')) {
+        statsEntries.push(['Category', item.category]);
+      }
+      if (statsEntries.length) {
+        const statGrid = document.createElement('div');
+        statGrid.className = 'item-detail-stats';
+        statsEntries.forEach(([label, value]) => {
+          const pill = document.createElement('div');
+          pill.className = 'stat-pill';
+          const labelSpan = document.createElement('span');
+          labelSpan.className = 'label';
+          labelSpan.textContent = label;
+          const valueSpan = document.createElement('span');
+          valueSpan.className = 'value';
+          valueSpan.textContent = value;
+          pill.appendChild(labelSpan);
+          pill.appendChild(valueSpan);
+          statGrid.appendChild(pill);
+        });
+        card.appendChild(statGrid);
+      }
+
+      const summarySection = document.createElement('section');
+      summarySection.className = 'item-detail-section item-detail-summary';
+      const summaryHeading = document.createElement('h4');
+      summaryHeading.textContent = kidMode ? 'Quick Take' : 'Tracker Notes';
+      summarySection.appendChild(summaryHeading);
+      if (kidMode) {
+        const dropPreview = drops.length ? drops.slice(0, 4).join(', ') + (drops.length > 4 ? '…' : '') : 'Not sure yet';
+        const summaryLines = [
+          `Status: ${collectedStatus ? 'We have this item!' : 'Let’s go find this!'}`,
+          `Item type: ${typeLabel}`,
+          `Find it from: ${dropPreview}`
+        ];
+        if (recipes.length) {
+          summaryLines.push(`Used for: ${recipes.length} tech unlock${recipes.length === 1 ? '' : 's'}.`);
+        }
+        summaryLines.forEach(line => {
+          const p = document.createElement('p');
+          p.textContent = line;
+          summarySection.appendChild(p);
+        });
+      } else {
+        const summaryList = document.createElement('ul');
+        const lines = [
+          `Tracking status: ${collectedStatus ? 'Collected' : 'Not collected yet'}`,
+          `Category: ${item.category || typeLabel}`,
+          drops.length ? `Drops recorded: ${drops.length}` : 'Drops recorded: none yet',
+          recipes.length ? `Tech unlocks: ${recipes.length} recipe${recipes.length === 1 ? '' : 's'} listed below.` : 'Tech unlocks: none recorded yet.'
+        ];
+        if (detail.fromPalworld === false) {
+          lines.push('Data source: Palmate placeholder entry until Palworld.gg publishes more info.');
+        } else {
+          lines.push('Data source: Palworld.gg item compendium.');
+        }
+        lines.forEach(text => {
+          const li = document.createElement('li');
+          li.textContent = text;
+          summaryList.appendChild(li);
+        });
+        summarySection.appendChild(summaryList);
+      }
+      card.appendChild(summarySection);
+
+      const dropSection = document.createElement('section');
+      dropSection.className = 'item-detail-section';
+      const dropHeading = document.createElement('h4');
+      dropHeading.textContent = 'Dropped by';
+      dropSection.appendChild(dropHeading);
+      if (drops.length) {
+        const dropList = document.createElement('div');
+        dropList.className = 'chip-list';
+        const limit = kidMode ? Math.min(6, drops.length) : drops.length;
+        drops.slice(0, limit).forEach((name, index) => {
+          const chip = document.createElement('span');
+          chip.className = 'chip';
+          if (index === 0) chip.classList.add('highlight');
+          chip.textContent = name;
+          dropList.appendChild(chip);
+        });
+        if (drops.length > limit) {
+          const more = document.createElement('span');
+          more.className = 'chip';
+          more.textContent = `+${drops.length - limit} more`;
+          dropList.appendChild(more);
+        }
+        dropSection.appendChild(dropList);
+      } else {
+        const none = document.createElement('p');
+        none.textContent = 'No pals are confirmed to drop this item yet.';
+        dropSection.appendChild(none);
+      }
+      card.appendChild(dropSection);
+
+      if (Array.isArray(detail.recipe) && detail.recipe.length) {
+        const recipeSection = document.createElement('section');
+        recipeSection.className = 'item-detail-section';
+        const recipeHeading = document.createElement('h4');
+        recipeHeading.textContent = 'Crafting recipe';
+        recipeSection.appendChild(recipeHeading);
+        const ingredientGrid = document.createElement('div');
+        ingredientGrid.className = 'ingredient-grid';
+        detail.recipe.forEach(entry => {
+          const ingredientCard = document.createElement('div');
+          ingredientCard.className = 'ingredient-card';
+          if (entry.icon) {
+            const img = document.createElement('img');
+            img.src = entry.icon;
+            img.alt = entry.name;
+            img.loading = 'lazy';
+            ingredientCard.appendChild(img);
+          }
+          const textWrap = document.createElement('div');
+          textWrap.className = 'ingredient-text';
+          const nameEl = document.createElement('div');
+          nameEl.className = 'name';
+          nameEl.textContent = entry.name;
+          textWrap.appendChild(nameEl);
+          if (entry.quantity) {
+            const qty = document.createElement('div');
+            qty.textContent = `x${entry.quantity}`;
+            textWrap.appendChild(qty);
+          }
+          ingredientCard.appendChild(textWrap);
+          ingredientGrid.appendChild(ingredientCard);
+        });
+        recipeSection.appendChild(ingredientGrid);
+        card.appendChild(recipeSection);
+      }
+
+      if (recipes.length) {
+        const techSection = document.createElement('section');
+        techSection.className = 'item-detail-section';
+        const techHeading = document.createElement('h4');
+        techHeading.textContent = 'Used in tech';
+        techSection.appendChild(techHeading);
+        const techList = document.createElement('ul');
+        const maxEntries = kidMode ? Math.min(5, recipes.length) : recipes.length;
+        recipes.slice(0, maxEntries).forEach(recipe => {
+          const li = document.createElement('li');
+          li.textContent = `Level ${recipe.level}: ${recipe.name} (x${recipe.qty})`;
+          techList.appendChild(li);
+        });
+        if (recipes.length > maxEntries) {
+          const li = document.createElement('li');
+          li.textContent = `+${recipes.length - maxEntries} more unlock${recipes.length - maxEntries === 1 ? '' : 's'} in higher tiers.`;
+          techList.appendChild(li);
+        }
+        techSection.appendChild(techList);
+        card.appendChild(techSection);
+      }
+
+      const footer = document.createElement('div');
+      footer.className = 'item-detail-footer';
+      const link = document.createElement('a');
+      link.href = slug ? itemUrl : fallbackUrl;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = detail.fromPalworld === false ? 'Search on Palworld.gg' : 'View on Palworld.gg';
+      footer.appendChild(link);
+      const note = document.createElement('p');
+      note.className = 'item-detail-note';
+      note.textContent = detail.fromPalworld === false
+        ? 'Palworld.gg has not published a full entry for this item yet. Details shown use Palmate data.'
+        : 'Stats, art, and rarities mirror the Palworld.gg item database.';
+      footer.appendChild(note);
+      card.appendChild(footer);
+
+      modalBody.appendChild(card);
+      openModal();
     }
 
     // Show details about an active skill.  Looks up the skill in the

@@ -1,0 +1,968 @@
+{
+  "arrow": {
+    "name": "Arrow",
+    "type": "Ammo",
+    "description": [
+      "An Arrow for use with a bow."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "5",
+      "Weight": "0.025"
+    },
+    "recipe": [
+      {
+        "name": "Wood",
+        "quantity": 1,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_Wood.png"
+      },
+      {
+        "name": "Stone",
+        "quantity": 1,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_Stone.png"
+      }
+    ],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Ammo_Arrow.png",
+    "fromPalworld": true
+  },
+  "beautiful_flower": {
+    "name": "Beautiful Flower",
+    "type": "Material",
+    "description": [
+      "A plant that blooms colorful flowers.\r\nCan be used to make Opium and Narcotic."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "240",
+      "Weight": "0.2",
+      "Restore Sanity": "5",
+      "Restore Satiety": "1"
+    },
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Poppy.png",
+    "fromPalworld": true
+  },
+  "berry_seeds": {
+    "name": "Berry Seeds",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Berry Seeds are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "bone": {
+    "name": "Bone",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Bone are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "broncherry_meat": {
+    "name": "Broncherry Meat",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Broncherry Meat are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "cake": {
+    "name": "Cake",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Cake are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "caprity_meat": {
+    "name": "Caprity Meat",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Caprity Meat are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "carbon_fiber": {
+    "name": "Carbon Fiber",
+    "type": "Material",
+    "description": [
+      "Detailed Palworld.gg stats for Carbon Fiber are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "chikipi_poultry": {
+    "name": "Chikipi Poultry",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Chikipi Poultry are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "cloth": {
+    "name": "Cloth",
+    "type": "Material",
+    "description": [
+      "Cloth woven from Wool. \r\nRequired to create armor."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "80",
+      "Weight": "1"
+    },
+    "recipe": [
+      {
+        "name": "Wool",
+        "quantity": 2,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_Wool.png"
+      }
+    ],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Cloth.png",
+    "fromPalworld": true
+  },
+  "coal": {
+    "name": "Coal",
+    "type": "Material",
+    "description": [
+      "Coal often found in caves and other places.\r\nRequired to create high quality metal."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "30",
+      "Weight": "5"
+    },
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Coal.png",
+    "fromPalworld": true
+  },
+  "copper_key": {
+    "name": "Copper Key",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Copper Key are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "cotton_candy": {
+    "name": "Cotton Candy",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Cotton Candy are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "diamond": {
+    "name": "Diamond",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Diamond are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "egg": {
+    "name": "Egg",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Egg are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "eikthyrdeer_venison": {
+    "name": "Eikthyrdeer Venison",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Eikthyrdeer Venison are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "electric_organ": {
+    "name": "Electric Organ",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Electric Organ are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "elizabee's_staff": {
+    "name": "Elizabee's Staff",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Elizabee's Staff are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "fiber": {
+    "name": "Fiber",
+    "type": "Material",
+    "description": [
+      "Fiber collected from trees.\r\nA material used when creating bows, etc."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "10",
+      "Weight": "0.5"
+    },
+    "recipe": [
+      {
+        "name": "Wood",
+        "quantity": 1,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_Wood.png"
+      }
+    ],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Fiber.png",
+    "fromPalworld": true
+  },
+  "flame_organ": {
+    "name": "Flame Organ",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Flame Organ are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "galeclaw_poultry": {
+    "name": "Galeclaw Poultry",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Galeclaw Poultry are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "gold_coin": {
+    "name": "Gold Coin",
+    "type": "Material",
+    "description": [
+      "Currency traded on Palpagos Island.\r\nCan be exchanged for items or Pals with merchants."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "1",
+      "Weight": "0"
+    },
+    "recipe": [
+      {
+        "name": "Ingot",
+        "quantity": 1,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_CopperIngot.png"
+      }
+    ],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Money.png",
+    "fromPalworld": true
+  },
+  "gumoss_leaf": {
+    "name": "Gumoss Leaf",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Gumoss Leaf are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "gunpowder": {
+    "name": "Gunpowder",
+    "type": "Material",
+    "description": [
+      "Gunpowder"
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "10",
+      "Weight": "0.2"
+    },
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Gunpowder.png",
+    "fromPalworld": true
+  },
+  "high_grade_technical_manual": {
+    "name": "High Grade Technical Manual",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for High Grade Technical Manual are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "high_quality_cloth": {
+    "name": "High Quality Cloth",
+    "type": "Material",
+    "description": [
+      "Cloth2 woven from a large amount of Wool. \r\nRequired to create high quality armor."
+    ],
+    "stats": {
+      "Rarity": "1",
+      "Rank": "2",
+      "Price": "400",
+      "Weight": "1"
+    },
+    "recipe": [
+      {
+        "name": "Wool",
+        "quantity": 10,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_Wool.png"
+      }
+    ],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Cloth.png",
+    "fromPalworld": true
+  },
+  "high_quality_pal_oil": {
+    "name": "High Quality Pal Oil",
+    "type": "Material",
+    "description": [
+      "Detailed Palworld.gg stats for High Quality Pal Oil are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "honey": {
+    "name": "Honey",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Honey are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "horn": {
+    "name": "Horn",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Horn are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "ice_organ": {
+    "name": "Ice Organ",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Ice Organ are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "ingot": {
+    "name": "Ingot",
+    "type": "Material",
+    "description": [
+      "A material required to create metal weapons and armor.\r\nRefined from CopperOre using a furnace."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "200",
+      "Weight": "5"
+    },
+    "recipe": [
+      {
+        "name": "Ore",
+        "quantity": 2,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_CopperOre.png"
+      }
+    ],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_CopperIngot.png",
+    "fromPalworld": true
+  },
+  "innovative_technical_manual": {
+    "name": "Innovative Technical Manual",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Innovative Technical Manual are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "katress_hair": {
+    "name": "Katress Hair",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Katress Hair are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "lamball_mutton": {
+    "name": "Lamball Mutton",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Lamball Mutton are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "large_pal_soul": {
+    "name": "Large Pal Soul",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Large Pal Soul are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "leather": {
+    "name": "Leather",
+    "type": "Material",
+    "description": [
+      "Leather taken from a Pal, it serves as a defensive material.\r\nIt can be obtained from certain Pals."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "150",
+      "Weight": "2"
+    },
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Leather.png",
+    "fromPalworld": true
+  },
+  "lettuce_seeds": {
+    "name": "Lettuce Seeds",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Lettuce Seeds are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "low_grade_medical_supplies": {
+    "name": "Low Grade Medical Supplies",
+    "type": "Consumable",
+    "description": [
+      "Herbs good for Sick, Sprain, and Overfull.\r\nThey don't heal Health when eaten, however."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "240",
+      "Weight": "0.2",
+      "Restore Satiety": "1"
+    },
+    "recipe": [
+      {
+        "name": "Red Berries",
+        "quantity": 5,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Food_Berries.png"
+      },
+      {
+        "name": "Horn",
+        "quantity": 2,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_Horn.png"
+      }
+    ],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Herbs.png",
+    "fromPalworld": true
+  },
+  "mammorest_meat": {
+    "name": "Mammorest Meat",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Mammorest Meat are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "medium_pal_soul": {
+    "name": "Medium Pal Soul",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Medium Pal Soul are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "milk": {
+    "name": "Milk",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Milk are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "mozzarina_meat": {
+    "name": "Mozzarina Meat",
+    "type": "Food",
+    "description": [
+      "Detailed Palworld.gg stats for Mozzarina Meat are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "mushroom": {
+    "name": "Mushroom",
+    "type": "Material",
+    "description": [
+      "Detailed Palworld.gg stats for Mushroom are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "ore": {
+    "name": "Ore",
+    "type": "Material",
+    "description": [
+      "Becomes an ingot when refined using a furnace.\r\nCan be found in caves and other places.\r\nThere are rumors of Pals capable of detecting ore."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "50",
+      "Weight": "8"
+    },
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_CopperOre.png",
+    "fromPalworld": true
+  },
+  "pal_fluids": {
+    "name": "Pal Fluids",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Pal Fluids are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "pal_metal_ingot": {
+    "name": "Pal Metal Ingot",
+    "type": "Material",
+    "description": [
+      "Detailed Palworld.gg stats for Pal Metal Ingot are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "paldium_fragment": {
+    "name": "Paldium Fragment",
+    "type": "Material",
+    "description": [
+      "Detailed Palworld.gg stats for Paldium Fragment are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "penking_plume": {
+    "name": "Penking Plume",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Penking Plume are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "polymer": {
+    "name": "Polymer",
+    "type": "Material",
+    "description": [
+      "Detailed Palworld.gg stats for Polymer are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "precious_dragon_stone": {
+    "name": "Precious Dragon Stone",
+    "type": "Material",
+    "description": [
+      "Detailed Palworld.gg stats for Precious Dragon Stone are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "pure_quartz": {
+    "name": "Pure Quartz",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Pure Quartz are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "raw_dumud": {
+    "name": "Raw Dumud",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Raw Dumud are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "raw_kelpsea": {
+    "name": "Raw Kelpsea",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Raw Kelpsea are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "red_berries": {
+    "name": "Red Berries",
+    "type": "Food",
+    "description": [
+      "A versatile ingredient that is delicious raw or cooked.\r\nThey can be found anywhere on the island."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "1",
+      "Price": "50",
+      "Weight": "0.2",
+      "Restore Satiety": "15"
+    },
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Berries.png",
+    "fromPalworld": true
+  },
+  "reindrix_venison": {
+    "name": "Reindrix Venison",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Reindrix Venison are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "ruby": {
+    "name": "Ruby",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Ruby are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "rushoar_pork": {
+    "name": "Rushoar Pork",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Rushoar Pork are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "sapphire": {
+    "name": "Sapphire",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Sapphire are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "silver_key": {
+    "name": "Silver Key",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Silver Key are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "small_pal_soul": {
+    "name": "Small Pal Soul",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Small Pal Soul are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "strange_juice": {
+    "name": "Strange Juice",
+    "type": "Consumable",
+    "description": [
+      "Juice that greatly improves mood when consumed.\r\nDrinking it significantly increases work speed for a period of time,\r\nbut significantly lowers SAN."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "3",
+      "Price": "40000",
+      "Weight": "0.2",
+      "Restore Sanity": "60",
+      "Restore Satiety": "1"
+    },
+    "recipe": [
+      {
+        "name": "Beautiful Flower",
+        "quantity": 5,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Food_Poppy.png"
+      },
+      {
+        "name": "Horn",
+        "quantity": 5,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_Horn.png"
+      },
+      {
+        "name": "Bone",
+        "quantity": 2,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_Bone.png"
+      },
+      {
+        "name": "Pal Fluids",
+        "quantity": 2,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_PalFluid.png"
+      }
+    ],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Narcotic.png",
+    "fromPalworld": true
+  },
+  "suspicious_juice": {
+    "name": "Suspicious Juice",
+    "type": "Consumable",
+    "description": [
+      "Juice that improves mood when consumed.\r\nDrinking it increases work speed for a period of time,\r\nbut lowers SAN."
+    ],
+    "stats": {
+      "Rarity": "0",
+      "Rank": "2",
+      "Price": "10000",
+      "Weight": "0.2",
+      "Restore Sanity": "30",
+      "Restore Satiety": "1"
+    },
+    "recipe": [
+      {
+        "name": "Beautiful Flower",
+        "quantity": 3,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Food_Poppy.png"
+      },
+      {
+        "name": "Horn",
+        "quantity": 3,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_Horn.png"
+      },
+      {
+        "name": "Bone",
+        "quantity": 1,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_Bone.png"
+      },
+      {
+        "name": "Pal Fluids",
+        "quantity": 1,
+        "icon": "https://palworld.gg/images/items/T_itemicon_Material_PalFluid.png"
+      }
+    ],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Opium.png",
+    "fromPalworld": true
+  },
+  "tocotoco_feather": {
+    "name": "Tocotoco Feather",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Tocotoco Feather are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "tomato_seeds": {
+    "name": "Tomato Seeds",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Tomato Seeds are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "venom_gland": {
+    "name": "Venom Gland",
+    "type": "Material",
+    "description": [
+      "Detailed Palworld.gg stats for Venom Gland are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "wheat_seeds": {
+    "name": "Wheat Seeds",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Wheat Seeds are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  },
+  "wool": {
+    "name": "Wool",
+    "type": "Misc",
+    "description": [
+      "Detailed Palworld.gg stats for Wool are not yet available.",
+      "These values are based on Palmate's internal category data."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": null,
+    "fromPalworld": false
+  }
+}
