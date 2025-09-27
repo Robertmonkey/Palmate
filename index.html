@@ -900,24 +900,178 @@
       background: var(--secondary);
     }
     /* Breeding page */
-    #breedingPage select {
-      padding: 6px;
-      margin-right: 8px;
-      border-radius: 4px;
+    .breeding-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .breeding-tab {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--card-hover);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+    }
+    .breeding-tab.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .breeding-mode {
+      display: none;
+      margin-top: 16px;
+    }
+    .breeding-mode.active {
+      display: block;
+    }
+    .breeding-panels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .breeding-panel {
+      flex: 1 1 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .breeding-panel h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+    .breeding-panel .pal-search input {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 6px;
       border: none;
       background: var(--card-bg);
       color: var(--text);
+      font-size: 0.9rem;
     }
-    #breedingPage button {
-      padding: 6px 10px;
-      background: var(--accent);
-      border: none;
-      border-radius: 4px;
-      color: #fff;
+    .pal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+      max-height: 420px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    body.kid-mode .pal-grid {
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    }
+    .pal-card.compact {
+      padding: 10px;
+    }
+    .pal-card.compact img {
+      width: 80px;
+      height: 80px;
+    }
+    .pal-card.compact .name {
+      font-size: 0.95rem;
+    }
+    .pal-card.compact .badge {
+      font-size: 0.75rem;
+    }
+    .pal-card.compact .rarity {
+      font-size: 0.7rem;
+    }
+    .pal-card.static {
+      cursor: default;
+    }
+    .pal-card.static:hover {
+      transform: none;
+      background: var(--card-bg);
+      box-shadow: none;
+    }
+    .pal-card.selectable {
       cursor: pointer;
     }
-    #breedingResult {
-      margin-top: 10px;
+    .pal-card.selected {
+      outline: 3px solid var(--accent);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+    }
+    .breeding-result {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .breeding-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .combo-arrow {
+      font-size: 1.4rem;
+      color: var(--light);
+    }
+    .breeding-tip {
+      font-size: 0.9rem;
+      color: var(--light);
+    }
+    .breeding-combo-link {
+      align-self: flex-start;
+      padding: 8px 12px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    .breeding-combo-link:hover {
+      opacity: 0.9;
+    }
+    .breeding-combos {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .breeding-combo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .breeding-combo:hover {
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+    .breeding-combo .pal-card {
+      flex: 1 1 160px;
+      margin: 0;
+    }
+    .breeding-baby-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .breeding-baby-header h3 {
+      margin: 0;
+    }
+    .empty-state {
+      font-size: 0.9rem;
+      color: var(--light);
+      padding: 12px 0;
+    }
+    @media (max-width: 768px) {
+      .breeding-panels {
+        flex-direction: column;
+      }
+      .pal-grid {
+        max-height: 300px;
+      }
     }
     /* Progress bars */
     .progress-bar {
@@ -1024,15 +1178,42 @@
       <!-- Breeding page -->
       <section id="breedingPage" class="page">
         <header class="page-header">
-          <h2>Breeding Calculator</h2>
+          <h2>Breeding Planner</h2>
         </header>
-        <p>Select two pals to see the predicted baby pal and get tips for breeding. Be sure to place a cake in the box to start breeding!</p>
-        <div class="breeding-selectors">
-          <select id="parent1"></select>
-          <select id="parent2"></select>
-          <button id="breedBtn">Predict Baby</button>
+        <p class="breeding-intro">Tap pals to choose your breeding partners or switch tabs to work backwards from the baby you want.</p>
+        <div class="breeding-tabs">
+          <button type="button" class="breeding-tab active" data-target="breedingPredict">Pick parents</button>
+          <button type="button" class="breeding-tab" data-target="breedingDiscover">Find parents</button>
         </div>
-        <div id="breedingResult"></div>
+        <div id="breedingPredict" class="breeding-mode active">
+          <div class="breeding-panels">
+            <div class="breeding-panel">
+              <h3>Parent A</h3>
+              <div class="pal-search">
+                <input type="search" id="parent1Search" placeholder="Search pals" aria-label="Search parent A pals">
+              </div>
+              <div class="pal-grid" id="parent1Grid"></div>
+            </div>
+            <div class="breeding-panel">
+              <h3>Parent B</h3>
+              <div class="pal-search">
+                <input type="search" id="parent2Search" placeholder="Search pals" aria-label="Search parent B pals">
+              </div>
+              <div class="pal-grid" id="parent2Grid"></div>
+            </div>
+          </div>
+          <div class="breeding-result" id="breedingResult"></div>
+        </div>
+        <div id="breedingDiscover" class="breeding-mode">
+          <div class="breeding-panel">
+            <h3>Desired pal</h3>
+            <div class="pal-search">
+              <input type="search" id="babySearch" placeholder="Search pals" aria-label="Search desired pals">
+            </div>
+            <div class="pal-grid" id="babyGrid"></div>
+          </div>
+          <div class="breeding-combos" id="breedingCombos"></div>
+        </div>
       </section>
       <!-- Progress page -->
       <section id="progressPage" class="page">
@@ -1081,6 +1262,8 @@
     // combos.  Populated after data load.
     let PAL_NAME_TO_ID = {};
     let PAL_SLUG_TO_ID = {};
+    // Persist breeding page selections between rebuilds (e.g. when switching modes)
+    const BREEDING_SELECTION = { parent1Id: null, parent2Id: null, babyId: null, mode: 'breedingPredict' };
     // Progress tracking
     let caught = JSON.parse(localStorage.getItem('caught') || '{}');
     let collected = JSON.parse(localStorage.getItem('collected') || '{}');
@@ -1378,6 +1561,7 @@
       buildPalPage();
       buildItemPage();
       buildTechPage();
+      buildBreedingPage();
       buildGlossaryPage();
       renderRouteGuide();
       // Home page re-render to update suggestions styling
@@ -1963,50 +2147,369 @@
     }
     // Build breeding page
     function buildBreedingPage() {
-      const sel1 = document.getElementById('parent1');
-      const sel2 = document.getElementById('parent2');
-      sel1.innerHTML = '';
-      sel2.innerHTML = '';
-      Object.values(PALS).sort((a,b) => a.name.localeCompare(b.name)).forEach(pal => {
-        const opt1 = document.createElement('option');
-        opt1.value = pal.id;
-        opt1.textContent = pal.name;
-        const opt2 = opt1.cloneNode(true);
-        sel1.appendChild(opt1);
-        sel2.appendChild(opt2);
-      });
-      document.getElementById('breedBtn').addEventListener('click', () => {
-        const id1 = Number(sel1.value);
-        const id2 = Number(sel2.value);
-        const pal1 = PALS[id1];
-        const pal2 = PALS[id2];
-        const avgPower = Math.floor((pal1.breeding.power + pal2.breeding.power) / 2);
-        let closest = pal1;
-        let diff = Math.abs(pal1.breeding.power - avgPower);
+      const parent1Grid = document.getElementById('parent1Grid');
+      const parent2Grid = document.getElementById('parent2Grid');
+      const babyGrid = document.getElementById('babyGrid');
+      const result = document.getElementById('breedingResult');
+      const combosContainer = document.getElementById('breedingCombos');
+      const parent1Search = document.getElementById('parent1Search');
+      const parent2Search = document.getElementById('parent2Search');
+      const babySearch = document.getElementById('babySearch');
+      const modeButtons = Array.from(document.querySelectorAll('.breeding-tab'));
+      const modes = Array.from(document.querySelectorAll('.breeding-mode'));
+      if (!parent1Grid || !parent2Grid || !babyGrid || !result || !combosContainer || !parent1Search || !parent2Search || !babySearch) {
+        return;
+      }
+      const palsSorted = Object.values(PALS || {}).sort((a, b) => a.name.localeCompare(b.name));
+      let parentState = {
+        parent1: BREEDING_SELECTION.parent1Id ? PALS[BREEDING_SELECTION.parent1Id] : null,
+        parent2: BREEDING_SELECTION.parent2Id ? PALS[BREEDING_SELECTION.parent2Id] : null
+      };
+      let selectedBaby = BREEDING_SELECTION.babyId ? PALS[BREEDING_SELECTION.babyId] : null;
+      if (!parentState.parent1) parentState.parent1 = null;
+      if (!parentState.parent2) parentState.parent2 = null;
+      if (!selectedBaby) selectedBaby = null;
+
+      function updateBreedingSelection() {
+        BREEDING_SELECTION.parent1Id = parentState.parent1 ? parentState.parent1.id : null;
+        BREEDING_SELECTION.parent2Id = parentState.parent2 ? parentState.parent2.id : null;
+        BREEDING_SELECTION.babyId = selectedBaby ? selectedBaby.id : null;
+      }
+
+      function makeEmptyMessage(text) {
+        const msg = document.createElement('p');
+        msg.className = 'empty-state';
+        msg.textContent = text;
+        return msg;
+      }
+
+      function createPalCard(pal, options = {}) {
+        const { compact = true, selectable = true, selected = false } = options;
+        const card = document.createElement('div');
+        card.classList.add('pal-card');
+        if (compact) card.classList.add('compact');
+        if (selectable) card.classList.add('selectable');
+        else card.classList.add('static');
+        if (selected) card.classList.add('selected');
+        const primaryType = (pal.types && pal.types[0]) || 'Neutral';
+        const img = document.createElement('img');
+        img.src = pal.localImage || iconMap[primaryType] || iconMap['Neutral'];
+        img.alt = `${pal.name} image`;
+        img.onerror = () => {
+          img.onerror = null;
+          img.src = iconMap[primaryType] || iconMap['Neutral'];
+        };
+        card.appendChild(img);
+        const name = document.createElement('div');
+        name.className = 'name';
+        name.textContent = pal.name;
+        card.appendChild(name);
+        const badge = document.createElement('div');
+        badge.className = 'badge';
+        if (Array.isArray(pal.types) && pal.types.length) {
+          pal.types.forEach(type => {
+            const icon = document.createElement('img');
+            icon.src = iconMap[type] || iconMap['Neutral'];
+            icon.alt = `${type} icon`;
+            badge.appendChild(icon);
+          });
+        } else {
+          const span = document.createElement('span');
+          span.textContent = 'Unknown';
+          badge.appendChild(span);
+        }
+        card.appendChild(badge);
+        const rarityEl = document.createElement('div');
+        rarityEl.className = 'rarity';
+        const starSpan = document.createElement('span');
+        starSpan.className = 'stars';
+        const labelSpan = document.createElement('span');
+        labelSpan.className = 'label';
+        const rarity = Math.max(1, Math.min(pal.rarity || 0, 6));
+        if (!kidMode) {
+          starSpan.innerHTML = Array(rarity).fill('<i class="fa-solid fa-star"></i>').join('');
+          labelSpan.textContent = rarityNames[rarity] || '';
+        }
+        rarityEl.appendChild(starSpan);
+        rarityEl.appendChild(labelSpan);
+        card.appendChild(rarityEl);
+        return card;
+      }
+
+      function createComboCard(pal, fallbackName) {
+        if (pal) {
+          return createPalCard(pal, { compact: true, selectable: false });
+        }
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('pal-card', 'compact', 'static');
+        const name = document.createElement('div');
+        name.className = 'name';
+        name.textContent = fallbackName;
+        wrapper.appendChild(name);
+        const badge = document.createElement('div');
+        badge.className = 'badge';
+        badge.textContent = kidMode ? 'Not in list yet' : 'Not in dataset yet';
+        wrapper.appendChild(badge);
+        const rarity = document.createElement('div');
+        rarity.className = 'rarity';
+        wrapper.appendChild(rarity);
+        return wrapper;
+      }
+
+      function filterPals(term) {
+        const normalized = (term || '').trim().toLowerCase();
+        if (!normalized) return palsSorted.slice();
+        return palsSorted.filter(pal => {
+          const nameMatch = pal.name.toLowerCase().includes(normalized);
+          const typeMatch = Array.isArray(pal.types) && pal.types.some(type => type && type.toLowerCase().includes(normalized));
+          return nameMatch || typeMatch;
+        });
+      }
+
+      function renderParentGrid(slot) {
+        const grid = slot === 'parent1' ? parent1Grid : parent2Grid;
+        const searchTerm = slot === 'parent1' ? parent1Search.value : parent2Search.value;
+        grid.innerHTML = '';
+        if (!palsSorted.length) {
+          grid.appendChild(makeEmptyMessage(kidMode ? 'Loading pals…' : 'Breeding data is still loading.'));
+          return;
+        }
+        const selected = slot === 'parent1' ? parentState.parent1 : parentState.parent2;
+        let matches = filterPals(searchTerm);
+        if (selected && !matches.some(p => p.id === selected.id)) {
+          matches = [selected, ...matches];
+        }
+        if (!matches.length) {
+          grid.appendChild(makeEmptyMessage(kidMode ? 'No pals match that search.' : 'No pals match your search yet.'));
+          return;
+        }
+        matches.forEach(pal => {
+          const isSelected = selected && selected.id === pal.id;
+          const card = createPalCard(pal, {
+            compact: true,
+            selectable: true,
+            selected: isSelected
+          });
+          card.addEventListener('click', () => {
+            const alreadySelected = slot === 'parent1'
+              ? parentState.parent1 && parentState.parent1.id === pal.id
+              : parentState.parent2 && parentState.parent2.id === pal.id;
+            if (slot === 'parent1') {
+              parentState.parent1 = alreadySelected ? null : pal;
+            } else {
+              parentState.parent2 = alreadySelected ? null : pal;
+            }
+            updateBreedingSelection();
+            updateParentGrids();
+            updateResult();
+          });
+          grid.appendChild(card);
+        });
+      }
+
+      function updateParentGrids() {
+        renderParentGrid('parent1');
+        renderParentGrid('parent2');
+      }
+
+      function renderBabyGrid() {
+        babyGrid.innerHTML = '';
+        if (!palsSorted.length) {
+          babyGrid.appendChild(makeEmptyMessage(kidMode ? 'Loading pals…' : 'Breeding data is still loading.'));
+          return;
+        }
+        let matches = filterPals(babySearch.value);
+        if (selectedBaby && !matches.some(p => p.id === selectedBaby.id)) {
+          matches = [selectedBaby, ...matches];
+        }
+        if (!matches.length) {
+          babyGrid.appendChild(makeEmptyMessage(kidMode ? 'No pals match that search.' : 'Try a different pal search.'));
+          return;
+        }
+        matches.forEach(pal => {
+          const card = createPalCard(pal, {
+            compact: true,
+            selectable: true,
+            selected: selectedBaby && selectedBaby.id === pal.id
+          });
+          card.addEventListener('click', () => {
+            if (selectedBaby && selectedBaby.id === pal.id) {
+              selectedBaby = null;
+            } else {
+              selectedBaby = pal;
+            }
+            updateBreedingSelection();
+            renderBabyGrid();
+            showCombos();
+          });
+          babyGrid.appendChild(card);
+        });
+      }
+
+      function showCombos() {
+        combosContainer.innerHTML = '';
+        if (!selectedBaby) {
+          combosContainer.appendChild(makeEmptyMessage(kidMode ? 'Pick a pal above to see recipes.' : 'Select a pal to see which parents can produce it.'));
+          return;
+        }
+        const header = document.createElement('div');
+        header.className = 'breeding-baby-header';
+        const heading = document.createElement('h3');
+        heading.textContent = kidMode ? `Make ${selectedBaby.name}` : `Parent combos for ${selectedBaby.name}`;
+        header.appendChild(heading);
+        header.appendChild(createPalCard(selectedBaby, { compact: true, selectable: false }));
+        combosContainer.appendChild(header);
+        const combos = Array.isArray(selectedBaby.breedingCombos) ? selectedBaby.breedingCombos : [];
+        if (!combos.length) {
+          combosContainer.appendChild(makeEmptyMessage(kidMode ? 'No combos known yet.' : 'We do not have recorded breeding pairs for this pal yet.'));
+          return;
+        }
+        combos.forEach(pair => {
+          if (!Array.isArray(pair) || pair.length < 2) return;
+          const [leftName, rightName] = pair;
+          const leftPalId = PAL_NAME_TO_ID[leftName];
+          const rightPalId = PAL_NAME_TO_ID[rightName];
+          const leftPal = leftPalId ? PALS[leftPalId] : null;
+          const rightPal = rightPalId ? PALS[rightPalId] : null;
+          const row = document.createElement('div');
+          row.className = 'breeding-combo';
+          row.appendChild(createComboCard(leftPal, leftName));
+          const plus = document.createElement('div');
+          plus.className = 'combo-arrow';
+          plus.textContent = '+';
+          row.appendChild(plus);
+          row.appendChild(createComboCard(rightPal, rightName));
+          const arrow = document.createElement('div');
+          arrow.className = 'combo-arrow';
+          arrow.textContent = '→';
+          row.appendChild(arrow);
+          row.appendChild(createPalCard(selectedBaby, { compact: true, selectable: false }));
+          row.addEventListener('click', () => {
+            if (leftPal) parentState.parent1 = leftPal;
+            if (rightPal) parentState.parent2 = rightPal;
+            updateBreedingSelection();
+            updateParentGrids();
+            updateResult();
+            switchBreedingMode('breedingPredict');
+            playSound(clickSound);
+          });
+          combosContainer.appendChild(row);
+        });
+      }
+
+      function findPredictedBaby() {
+        if (!parentState.parent1 || !parentState.parent2) return null;
+        const power1 = parentState.parent1.breeding && typeof parentState.parent1.breeding.power === 'number'
+          ? parentState.parent1.breeding.power
+          : 0;
+        const power2 = parentState.parent2.breeding && typeof parentState.parent2.breeding.power === 'number'
+          ? parentState.parent2.breeding.power
+          : 0;
+        const avgPower = Math.floor((power1 + power2) / 2);
+        let closest = null;
+        let diff = Infinity;
         Object.values(PALS).forEach(p => {
-          const d = Math.abs(p.breeding.power - avgPower);
-          if (d < diff) {
-            diff = d;
+          const power = p.breeding && typeof p.breeding.power === 'number' ? p.breeding.power : 0;
+          const delta = Math.abs(power - avgPower);
+          if (delta < diff) {
+            diff = delta;
             closest = p;
           }
         });
-        const res = document.getElementById('breedingResult');
-        res.innerHTML = '';
-        const card = document.createElement('div');
-        card.className = 'pal-card';
-        card.style.cursor = 'default';
-        card.innerHTML = `
-          <img src="${iconMap[closest.types[0]] || iconMap['Neutral']}" alt="icon">
-          <div class="name">${closest.name}</div>
-          <div class="badge">${closest.types.join(', ')}</div>
-          <div class="rarity">${'⭐'.repeat(closest.rarity)}</div>
-        `;
-        res.appendChild(card);
+        return { baby: closest, avgPower };
+      }
+
+      function updateResult() {
+        result.innerHTML = '';
+        if (!parentState.parent1 || !parentState.parent2) {
+          result.appendChild(makeEmptyMessage(kidMode ? 'Pick two pals to guess the baby.' : 'Select two parents to see the likely offspring.'));
+          return;
+        }
+        const prediction = findPredictedBaby();
+        const baby = prediction ? prediction.baby : null;
+        const avgPower = prediction ? prediction.avgPower : 0;
+        const flow = document.createElement('div');
+        flow.className = 'breeding-flow';
+        flow.appendChild(createPalCard(parentState.parent1, { compact: true, selectable: false }));
+        const plus = document.createElement('div');
+        plus.className = 'combo-arrow';
+        plus.textContent = '+';
+        flow.appendChild(plus);
+        flow.appendChild(createPalCard(parentState.parent2, { compact: true, selectable: false }));
+        const arrow = document.createElement('div');
+        arrow.className = 'combo-arrow';
+        arrow.textContent = '→';
+        flow.appendChild(arrow);
+        if (baby) {
+          flow.appendChild(createPalCard(baby, { compact: true, selectable: false }));
+        } else {
+          const placeholder = document.createElement('div');
+          placeholder.classList.add('empty-state');
+          placeholder.textContent = kidMode ? 'Unknown baby' : 'No matching baby yet';
+          flow.appendChild(placeholder);
+        }
+        result.appendChild(flow);
         const tip = document.createElement('p');
-        tip.style.marginTop = '8px';
-        tip.innerHTML = `The baby pal is likely <strong>${closest.name}</strong> (Breeding Power: ${closest.breeding.power}). Feed a <strong>Cake</strong> to start breeding.`;
-        res.appendChild(tip);
+        tip.className = 'breeding-tip';
+        if (baby) {
+          const babyPower = baby && baby.breeding && typeof baby.breeding.power === 'number' ? baby.breeding.power : 'Unknown';
+          tip.innerHTML = kidMode
+            ? `This pair is most likely to make <strong>${baby.name}</strong>. Pop a Cake into the box before you leave.`
+            : `The parents average to breeding power ${avgPower}. That lines up closest with <strong>${baby.name}</strong> (Power ${babyPower}). Drop a Cake in the box to start incubation.`;
+          result.appendChild(tip);
+          const combosBtn = document.createElement('button');
+          combosBtn.type = 'button';
+          combosBtn.className = 'breeding-combo-link';
+          combosBtn.textContent = kidMode ? 'Show how to make this pal' : 'See breeding combinations';
+          combosBtn.addEventListener('click', () => {
+            if (!baby) return;
+            selectedBaby = baby;
+            updateBreedingSelection();
+            babySearch.value = '';
+            renderBabyGrid();
+            showCombos();
+            switchBreedingMode('breedingDiscover');
+            playSound(clickSound);
+          });
+          result.appendChild(combosBtn);
+        } else {
+          tip.textContent = kidMode ? 'We do not know the baby for this pair yet.' : 'We could not find a pal that matches this breeding power. Try another combination!';
+          result.appendChild(tip);
+        }
+      }
+
+      function switchBreedingMode(targetId) {
+        modes.forEach(mode => {
+          mode.classList.toggle('active', mode.id === targetId);
+        });
+        modeButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.target === targetId);
+        });
+        BREEDING_SELECTION.mode = targetId;
+      }
+
+      const savedMode = BREEDING_SELECTION.mode || 'breedingPredict';
+      const availableModes = modes.map(mode => mode.id);
+      const initialMode = availableModes.includes(savedMode) ? savedMode : 'breedingPredict';
+
+      modeButtons.forEach(btn => {
+        btn.onclick = () => {
+          const target = btn.dataset.target;
+          switchBreedingMode(target);
+          playSound(clickSound);
+        };
       });
+
+      parent1Search.oninput = () => renderParentGrid('parent1');
+      parent2Search.oninput = () => renderParentGrid('parent2');
+      babySearch.oninput = () => renderBabyGrid();
+
+      updateParentGrids();
+      renderBabyGrid();
+      showCombos();
+      updateResult();
+      switchBreedingMode(initialMode);
+      updateBreedingSelection();
     }
 
     // Home page builder.  Displays large action cards and a rotating
