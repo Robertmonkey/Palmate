@@ -646,6 +646,7 @@
     // explanations.  Start in kid mode by default; toggled via the
     // mode button in the nav bar.
     let kidMode = true;
+    document.body.classList.toggle('kid-mode', kidMode);
 
     // Descriptions for active skills.  Each entry maps the skill key
     // (as it appears in the data) to a human-friendly object with
@@ -654,7 +655,7 @@
     // unknown, we provide a generic description encouraging players to
     // experiment.  Feel free to extend this dictionary with more
     // abilities as you discover them.
-    const skillsDictionary = {
+    const defaultSkillsDictionary = {
       'rolly_poly': { name:'Roly Poly', damage:'Low', type:'Charge', description:'Curls into a ball and rolls after foes; be careful as you may become dizzy afterwards' },
       'air_cannon': { name:'Air Cannon', damage:'Moderate', type:'Projectile', description:'Fires compressed air that pushes enemies back in a line' },
       'power_shot': { name:'Power Shot', damage:'Moderate', type:'Projectile', description:'Charges up and fires a strong projectile at a single target' },
@@ -693,13 +694,14 @@
       'flare_arrow': { name:'Flare Arrow', damage:'Moderate', type:'Homing', description:'Fires three flaming arrows in succession that home in on an enemy' },
       'flare_storm': { name:'Flare Storm', damage:'Moderate', type:'Area', description:'Generates two flaming tornadoes on either side before launching them at an enemy' }
     };
+    let skillsDictionary = { ...defaultSkillsDictionary };
 
     // Descriptions for passive traits.  Each entry summarises the
     // benefits or drawbacks of the trait.  We extracted a few from
     // community guides and added our own commentary for others.  Add
     // additional traits here as needed.  Traits not present here
     // will display a generic encouragement to experiment.
-    const traitsDictionary = {
+    const defaultTraitsDictionary = {
       'Swift': 'Increases movement speed by 30%, letting your pal dash around quickly',
       'Legend': 'Raises Attack and Defense by 20% and Movement Speed by 15%',
       'Lord of the Sea': 'Increases Water attack damage by 20%',
@@ -711,6 +713,7 @@
       'Lazy': 'Decreases work speed by 20%, making tasks take longer',
       'Gullible': 'More susceptible to negative status effects; be wary when battling'
     };
+    let traitsDictionary = { ...defaultTraitsDictionary };
 
     // Mapping of environment names to highlight coordinates.  Each
     // environment corresponds to a circular highlight on the map.  The
@@ -1064,20 +1067,24 @@
         buildRoutePage();
         // Synchronise skills and traits dictionaries with the loaded data.
         // Override the static dictionaries with entries from the JSON file.
-        skillsDictionary = {};
-        Object.keys(SKILL_DETAILS).forEach(key => {
-          const info = SKILL_DETAILS[key] || {};
-          skillsDictionary[key] = {
-            name: (info.name || key).replace(/_/g, ' '),
-            damage: info.damage || 'Unknown',
-            type: info.type || 'Unknown',
-            description: info.description || 'No description available.'
-          };
-        });
-        traitsDictionary = {};
-        Object.keys(PASSIVE_DETAILS).forEach(key => {
-          traitsDictionary[key] = PASSIVE_DETAILS[key];
-        });
+        skillsDictionary = { ...defaultSkillsDictionary };
+        if (SKILL_DETAILS && Object.keys(SKILL_DETAILS).length) {
+          const normalizedSkills = {};
+          Object.entries(SKILL_DETAILS).forEach(([key, info = {}]) => {
+            const normalizedKey = key.toLowerCase().replace(/[\s-]+/g, '_');
+            normalizedSkills[normalizedKey] = {
+              name: (info.name || key).replace(/_/g, ' '),
+              damage: info.power ? `Power ${info.power}` : (info.damage || 'Unknown'),
+              type: info.element || info.type || 'Unknown',
+              description: info.description || 'No description available.'
+            };
+          });
+          skillsDictionary = { ...defaultSkillsDictionary, ...normalizedSkills };
+        }
+        traitsDictionary = { ...defaultTraitsDictionary };
+        if (PASSIVE_DETAILS && Object.keys(PASSIVE_DETAILS).length) {
+          traitsDictionary = { ...defaultTraitsDictionary, ...PASSIVE_DETAILS };
+        }
         buildGlossaryPage();
         buildMapPage();
         buildProgressPage();
@@ -1204,7 +1211,7 @@
       mapBtn.style.marginLeft = '8px';
       mapBtn.addEventListener('click', () => {
         // Switch to map page and scroll into view
-        switchPage('mapPage');
+        switchPage('map');
       });
       envInfo.appendChild(mapBtn);
       container.appendChild(envInfo);
@@ -1815,22 +1822,45 @@
         layers.appendChild(btn);
       });
     }
+    function buildProgressPage() {
+      const section = document.querySelector('#progressPage .progress-section');
+      if (!section) return;
+      let summary = document.getElementById('progressSummary');
+      if (!summary) {
+        summary = document.createElement('div');
+        summary.id = 'progressSummary';
+        summary.style.marginTop = '12px';
+        summary.style.fontSize = '0.85rem';
+        summary.innerHTML = `
+          <div id="palsProgressText" class="progress-text"></div>
+          <div id="itemsProgressText" class="progress-text"></div>
+          <div id="techProgressText" class="progress-text"></div>
+        `;
+        section.appendChild(summary);
+      }
+    }
     // Update progress bars
     function updateProgressUI() {
       const totalPals = Object.keys(PALS).length;
       const caughtCount = Object.keys(caught).filter(k => caught[k]).length;
       const palsBar = document.getElementById('palsProgress');
-      palsBar.style.width = ((caughtCount / totalPals) * 100) + '%';
+      if (palsBar) palsBar.style.width = (totalPals ? (caughtCount / totalPals) * 100 : 0) + '%';
+      const palsText = document.getElementById('palsProgressText');
+      if (palsText) palsText.textContent = `${caughtCount} / ${totalPals} pals caught`;
       const totalItems = Object.keys(ITEMS).length;
       const collectedCount = Object.keys(collected).filter(k => collected[k]).length;
       const itemsBar = document.getElementById('itemsProgress');
-      itemsBar.style.width = ((collectedCount / totalItems) * 100) + '%';
+      if (itemsBar) itemsBar.style.width = (totalItems ? (collectedCount / totalItems) * 100 : 0) + '%';
+      const itemsText = document.getElementById('itemsProgressText');
+      if (itemsText) itemsText.textContent = `${collectedCount} / ${totalItems} items logged`;
       // Count tech recipes
       let totalRecipes = 0;
       TECH.forEach(lvl => { totalRecipes += lvl.items.length; });
       const unlockedCount = Object.keys(unlocked).filter(k => unlocked[k]).length;
       const techBar = document.getElementById('techProgress');
-      techBar.style.width = ((unlockedCount / totalRecipes) * 100) + '%';
+      if (techBar) techBar.style.width = (totalRecipes ? (unlockedCount / totalRecipes) * 100 : 0) + '%';
+      const techText = document.getElementById('techProgressText');
+      if (techText) techText.textContent = `${unlockedCount} / ${totalRecipes} tech recipes unlocked`;
     }
 
     // Display detailed information about an item.  This function builds
@@ -1872,8 +1902,8 @@
     // Show details about an active skill.  Looks up the skill in the
     // dictionary; if it’s missing we display a generic placeholder.
     function showSkillDetail(key) {
-      const lower = key.toLowerCase();
-      const info = skillsDictionary[lower] || { name: key.replace(/_/g,' '), damage: 'Unknown', type: 'Unknown', description: 'This skill\'s effects are a mystery! Try it out in battle.' };
+      const normalisedKey = key.toLowerCase().replace(/[\s-]+/g, '_');
+      const info = skillsDictionary[normalisedKey] || skillsDictionary[key] || { name: key.replace(/_/g,' '), damage: 'Unknown', type: 'Unknown', description: 'This skill\'s effects are a mystery! Try it out in battle.' };
       modalBody.innerHTML = '';
       const div = document.createElement('div');
       div.innerHTML = `<h3>${info.name}</h3><p><strong>Damage:</strong> ${info.damage}</p><p><strong>Type:</strong> ${info.type}</p><p>${info.description}</p>`;
