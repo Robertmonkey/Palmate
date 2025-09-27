@@ -9,7 +9,6 @@ export function renderRoute(node){
       <p>Work through each chapter. Check off steps as you do them. <em>Optional</em> steps don’t block completion.</p>
       <div class="badges" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
         <button class="btn" id="toggleOptional">Hide Optional</button>
-        <button class="btn" id="resetAll">Reset All</button>
       </div>
     </section>
     <div id="chapters"></div>
@@ -89,12 +88,6 @@ export function renderRoute(node){
     node.querySelector('#toggleOptional').textContent = hideOptional ? 'Show Optional' : 'Hide Optional';
     // Rerender all chapters with the new optional filter
     guide.chapters.forEach(ch => rerenderChapter(ch, state, node, hideOptional));
-  };
-  node.querySelector('#resetAll').onclick = ()=>{
-    if(confirm('Reset ALL progress?')){
-      localStorage.removeItem(STORAGE_KEY);
-      renderRoute(node);
-    }
   };
 }
 
@@ -232,3 +225,10 @@ function escapeHTML(s){ return (s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':
 function capitalize(s){ return (s||'').replace(/(^|-|_)\w/g, m=>m.toUpperCase()).replace(/[-_]/g,' '); }
 function niceName(id){ return capitalize(String(id).replace(/_/g,' ')); }
 function techName(id){ return niceName(id); }
+export function resetRouteProgress(node){
+  if(!node) return;
+  if(confirm('Reset all guide progress?')){
+    localStorage.removeItem(STORAGE_KEY);
+    renderRoute(node);
+  }
+}
