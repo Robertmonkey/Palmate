@@ -866,38 +866,206 @@
       font-weight: 600;
     }
     /* Tech tree */
-    .tech-level {
-      margin-bottom: 20px;
-      background: var(--card-bg);
-      padding: 10px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    #techList {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
-    .tech-level h3 {
-      margin-bottom: 10px;
+    .tech-level-card {
+      background: linear-gradient(135deg, rgba(23,40,59,0.92), rgba(18,32,48,0.92));
+      border-radius: 18px;
+      border: 1px solid rgba(119,141,169,0.25);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.35);
+      padding: 18px;
+      backdrop-filter: blur(6px);
     }
-    .tech-item {
-      margin-left: 10px;
-      padding: 6px;
-      border-left: 3px solid var(--secondary);
-      margin-bottom: 6px;
+    .tech-level-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
     }
-    .tech-item .materials {
-      font-size: 0.8rem;
+    .tech-level-number {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-shadow: 0 0 12px rgba(119,141,169,0.4);
+    }
+    .tech-level-number span {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       color: var(--light);
     }
-    .tech-item .unlock-btn {
-      margin-top: 4px;
-      background: var(--success);
-      border: none;
-      color: #fff;
-      padding: 3px 5px;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      cursor: pointer;
+    .tech-level-summary {
+      font-size: 0.85rem;
+      color: var(--muted);
     }
-    .tech-item .unlock-btn.unlocked {
-      background: var(--secondary);
+    .tech-columns {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .tech-column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: rgba(13,27,42,0.55);
+      border: 1px solid rgba(119,141,169,0.18);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .tech-column h4 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+    .tech-card-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .tech-card {
+      position: relative;
+      display: flex;
+      gap: 14px;
+      align-items: stretch;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(119,141,169,0.25);
+      background: rgba(15,28,45,0.85);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .tech-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.45);
+    }
+    .tech-card--unlocked {
+      border-color: rgba(42,157,143,0.6);
+      box-shadow: 0 0 0 2px rgba(42,157,143,0.35), 0 16px 28px rgba(0,0,0,0.45);
+    }
+    .tech-card--unlocked .tech-card__cost {
+      background: rgba(42,157,143,0.25);
+      color: var(--success);
+    }
+    .tech-card__art {
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      background: rgba(119,141,169,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .tech-card__art img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.35));
+    }
+    .tech-card__art--fallback {
+      color: var(--light);
+      font-size: 1.6rem;
+    }
+    .tech-card__info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 0;
+    }
+    .tech-card__title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .tech-card__name {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .tech-card__cost {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(119,141,169,0.22);
+      color: var(--light);
+      letter-spacing: 0.08em;
+    }
+    .tech-card__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tech-chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(119,141,169,0.35);
+      background: rgba(119,141,169,0.15);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+    .tech-card__description {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .tech-card__materials {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .tech-card__materials li {
+      margin: 2px 0;
+    }
+    .tech-card__actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: auto;
+    }
+    .tech-card .unlock-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(119,141,169,0.4);
+      background: transparent;
+      color: var(--text);
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+    }
+    .tech-card .unlock-btn:hover {
+      background: rgba(119,141,169,0.35);
+    }
+    .tech-card .unlock-btn.unlocked {
+      background: var(--success);
+      border-color: var(--success);
+      color: #0d1b2a;
+    }
+    .tech-empty {
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-style: italic;
     }
     /* Breeding page */
     .breeding-tabs {
@@ -1326,7 +1494,7 @@
         <header class="page-header">
           <h2>Technology Tree</h2>
         </header>
-        <p>This section shows the Pal Sphere blueprints and materials you need. Check off recipes as you unlock them in your game.</p>
+        <p>Browse every Technology and Ancient Technology tier just like the in-game tree. Review costs, materials, and mark blueprints as you unlock them.</p>
         <div id="techList"></div>
       </section>
       <!-- Breeding page -->
@@ -2198,6 +2366,10 @@
         const state = lookupName ? !!unlocked[lookupName] : false;
         btn.classList.toggle('unlocked', state);
         btn.textContent = state ? 'Unlocked' : 'Unlock';
+        const card = btn.closest('.tech-card');
+        if (card) {
+          card.classList.toggle('tech-card--unlocked', state);
+        }
       });
     }
     function updateItemCollectionButtons(itemKey) {
@@ -2330,40 +2502,218 @@
     // Build technology tree page
     function buildTechPage() {
       const list = document.getElementById('techList');
+      if (!list) return;
       list.innerHTML = '';
-      TECH.forEach(level => {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'tech-level';
-        wrapper.innerHTML = `<h3>Tech Level ${level.level}</h3>`;
-        level.items.forEach(item => {
-          const div = document.createElement('div');
-          div.className = 'tech-item';
-          const techId = item.id || slugifyForPalworld(item.name);
-          if(techId) div.id = `tech-${techId}`;
-          const matList = item.materials ? Object.entries(item.materials).map(([k,v]) => `${k}: ${v}`).join(', ') : '';
-          const matStr = matList ? `<span class="materials">Materials: ${matList}</span><br>` : '';
-          const techPoints = item.techPoints ? `<span class="materials">Tech Points: ${item.techPoints}</span><br>` : '';
-          div.innerHTML = `
-            <strong>${item.name}</strong> (${item.category})<br>
-            ${matStr}${techPoints}
-            <span class="description">${item.description || ''}</span><br>
-            <button class="unlock-btn ${unlocked[item.name] ? 'unlocked' : ''}">${unlocked[item.name] ? 'Unlocked' : 'Unlock'}</button>
-          `;
-          const btn = div.querySelector('button');
-          const techKey = techId || slugifyForPalworld(item.name);
-          if (techKey) btn.dataset.techKey = techKey;
-          btn.dataset.techName = item.name;
-          btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            unlocked[item.name] = !unlocked[item.name];
-            localStorage.setItem('unlocked', JSON.stringify(unlocked));
-            btn.classList.toggle('unlocked', unlocked[item.name]);
-            btn.textContent = unlocked[item.name] ? 'Unlocked' : 'Unlock';
-            updateProgressUI();
-          });
-          wrapper.appendChild(div);
+      const levels = Array.isArray(TECH)
+        ? TECH.slice().sort((a, b) => (a?.level || 0) - (b?.level || 0))
+        : [];
+      if (!levels.length) {
+        const empty = document.createElement('p');
+        empty.className = 'tech-empty';
+        empty.textContent = kidMode
+          ? 'Technology data is still loading. Check back soon!'
+          : 'Technology data is still loading.';
+        list.appendChild(empty);
+        return;
+      }
+
+      const iconFallback = '<i class="fa-solid fa-gears"></i>';
+
+      function createTechCard(item) {
+        if (!item || !item.name) {
+          return null;
+        }
+        const card = document.createElement('article');
+        card.className = 'tech-card';
+        const techKey = item.id || slugifyForPalworld(item.name);
+        if (techKey) {
+          card.id = `tech-${techKey}`;
+        }
+        card.dataset.branch = item.branch || 'Technology';
+        const isUnlocked = !!unlocked[item.name];
+        if (isUnlocked) {
+          card.classList.add('tech-card--unlocked');
+        }
+
+        const art = document.createElement('div');
+        art.className = 'tech-card__art';
+        if (item.image) {
+          const img = document.createElement('img');
+          img.loading = 'lazy';
+          img.alt = `${item.name} image`;
+          img.src = item.image;
+          img.onerror = () => {
+            img.remove();
+            art.classList.add('tech-card__art--fallback');
+            art.innerHTML = iconFallback;
+          };
+          art.appendChild(img);
+        } else {
+          art.classList.add('tech-card__art--fallback');
+          art.innerHTML = iconFallback;
+        }
+
+        const info = document.createElement('div');
+        info.className = 'tech-card__info';
+
+        const title = document.createElement('div');
+        title.className = 'tech-card__title';
+        const nameEl = document.createElement('h5');
+        nameEl.className = 'tech-card__name';
+        nameEl.textContent = item.name;
+        title.appendChild(nameEl);
+        const cost = document.createElement('span');
+        cost.className = 'tech-card__cost';
+        const pointLabel = item.isAncient
+          ? (kidMode ? 'Ancient Points' : 'AP')
+          : (kidMode ? 'Tech Points' : 'TP');
+        const points = typeof item.techPoints === 'number' ? item.techPoints : null;
+        cost.textContent = points !== null ? `${points} ${pointLabel}` : pointLabel;
+        title.appendChild(cost);
+        info.appendChild(title);
+
+        const chips = document.createElement('div');
+        chips.className = 'tech-card__chips';
+        const labels = new Set();
+        if (item.category) labels.add(item.category);
+        if (item.group) labels.add(item.group);
+        labels.forEach(label => {
+          const chip = document.createElement('span');
+          chip.className = 'tech-chip';
+          chip.textContent = label;
+          chips.appendChild(chip);
         });
-        list.appendChild(wrapper);
+        if (chips.children.length) {
+          info.appendChild(chips);
+        }
+
+        const description = document.createElement('p');
+        description.className = 'tech-card__description';
+        description.textContent = item.description
+          || (kidMode
+            ? `Unlocks ${item.name}.`
+            : `Unlocks the ${item.name} blueprint.`);
+        info.appendChild(description);
+
+        if (item.materials && Object.keys(item.materials).length) {
+          const materials = document.createElement('ul');
+          materials.className = 'tech-card__materials';
+          Object.entries(item.materials).forEach(([mat, qty]) => {
+            const li = document.createElement('li');
+            li.textContent = `${qty} × ${mat}`;
+            materials.appendChild(li);
+          });
+          info.appendChild(materials);
+        }
+
+        const actions = document.createElement('div');
+        actions.className = 'tech-card__actions';
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'unlock-btn';
+        if (isUnlocked) {
+          button.classList.add('unlocked');
+        }
+        if (techKey) {
+          button.dataset.techKey = techKey;
+        }
+        button.dataset.techName = item.name;
+        button.textContent = isUnlocked ? 'Unlocked' : 'Unlock';
+        button.addEventListener('click', (event) => {
+          event.stopPropagation();
+          unlocked[item.name] = !unlocked[item.name];
+          localStorage.setItem('unlocked', JSON.stringify(unlocked));
+          button.classList.toggle('unlocked', unlocked[item.name]);
+          button.textContent = unlocked[item.name] ? 'Unlocked' : 'Unlock';
+          card.classList.toggle('tech-card--unlocked', unlocked[item.name]);
+          updateProgressUI();
+        });
+        actions.appendChild(button);
+        info.appendChild(actions);
+
+        card.appendChild(art);
+        card.appendChild(info);
+
+        if (techKey) {
+          card.addEventListener('click', () => {
+            showTechDetail(techKey);
+          });
+        }
+        return card;
+      }
+
+      levels.forEach(level => {
+        if (!level) return;
+        const section = document.createElement('article');
+        section.className = 'tech-level-card';
+
+        const header = document.createElement('div');
+        header.className = 'tech-level-header';
+        const number = document.createElement('div');
+        number.className = 'tech-level-number';
+        const label = document.createElement('span');
+        label.textContent = 'Level';
+        number.appendChild(label);
+        const value = document.createElement('strong');
+        value.textContent = level.level != null ? String(level.level) : '?';
+        number.appendChild(value);
+        header.appendChild(number);
+
+        const techItems = Array.isArray(level.items) ? level.items.filter(item => item && !item.isAncient) : [];
+        const ancientItems = Array.isArray(level.items) ? level.items.filter(item => item && item.isAncient) : [];
+        const summary = document.createElement('div');
+        summary.className = 'tech-level-summary';
+        const summaryParts = [];
+        if (techItems.length) summaryParts.push(`${techItems.length} Tech`);
+        if (ancientItems.length) summaryParts.push(`${ancientItems.length} Ancient`);
+        summary.textContent = summaryParts.length
+          ? summaryParts.join(' • ')
+          : (kidMode ? 'No blueprints at this level yet.' : 'No unlocks available at this level.');
+        header.appendChild(summary);
+        section.appendChild(header);
+
+        const columns = document.createElement('div');
+        columns.className = 'tech-columns';
+        const columnData = [
+          {
+            key: 'tech',
+            heading: 'Technology',
+            items: techItems,
+            emptyText: kidMode ? 'Nothing new here yet.' : 'No new technology unlocks.',
+          },
+          {
+            key: 'ancient',
+            heading: 'Ancient Technology',
+            items: ancientItems,
+            emptyText: kidMode ? 'No ancient relics unlocked now.' : 'No ancient tech at this level.',
+          }
+        ];
+
+        columnData.forEach(columnInfo => {
+          const column = document.createElement('div');
+          column.className = `tech-column tech-column--${columnInfo.key}`;
+          const heading = document.createElement('h4');
+          heading.textContent = columnInfo.heading;
+          column.appendChild(heading);
+          if (!columnInfo.items.length) {
+            const empty = document.createElement('p');
+            empty.className = 'tech-empty';
+            empty.textContent = columnInfo.emptyText;
+            column.appendChild(empty);
+          } else {
+            const grid = document.createElement('div');
+            grid.className = 'tech-card-grid';
+            columnInfo.items.forEach(item => {
+            const card = createTechCard(item);
+              if (card) grid.appendChild(card);
+            });
+            column.appendChild(grid);
+          }
+          columns.appendChild(column);
+        });
+
+        section.appendChild(columns);
+        list.appendChild(section);
       });
     }
     // Build breeding page
@@ -3360,8 +3710,12 @@
       if(entry?.level?.level){
         summaryParts.push(`<p><strong>Tech Level:</strong> ${escapeHTML(String(entry.level.level))}</p>`);
       }
-      if(entry?.item?.techPoints){
-        summaryParts.push(`<p><strong>Tech Points Cost:</strong> ${escapeHTML(String(entry.item.techPoints))}</p>`);
+      if(entry?.item?.branch){
+        summaryParts.push(`<p><strong>Branch:</strong> ${escapeHTML(String(entry.item.branch))}</p>`);
+      }
+      if(typeof entry?.item?.techPoints === 'number'){
+        const label = entry.item.isAncient ? 'Ancient Tech Points' : 'Tech Points';
+        summaryParts.push(`<p><strong>${label}:</strong> ${escapeHTML(String(entry.item.techPoints))}</p>`);
       }
       if(entry?.item?.materials && Object.keys(entry.item.materials).length){
         const materials = Object.entries(entry.item.materials)
