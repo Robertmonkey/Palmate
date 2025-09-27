@@ -503,6 +503,78 @@
     .item-card .collect-btn.collected {
       background: var(--secondary);
     }
+    /* Route tracking */
+    .route-card {
+      text-align: left;
+      cursor: default;
+      border: 1px solid transparent;
+    }
+    .route-card.completed {
+      border-color: var(--success);
+      box-shadow: 0 4px 14px rgba(46, 204, 113, 0.25);
+      background: rgba(46, 204, 113, 0.08);
+    }
+    .route-card .name {
+      margin-bottom: 6px;
+    }
+    .route-steps {
+      margin-top: 8px;
+    }
+    .route-step-list {
+      list-style-position: inside;
+      padding-left: 0;
+      margin: 4px 0 0;
+      counter-reset: route-step;
+    }
+    .route-step {
+      counter-increment: route-step;
+      margin-bottom: 6px;
+      padding: 6px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: background 0.2s, color 0.2s;
+    }
+    .route-step::marker {
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    .route-step.completed {
+      background: rgba(46, 204, 113, 0.12);
+    }
+    .route-step.completed::marker {
+      color: var(--success);
+    }
+    .route-step-label {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 0.75rem;
+      color: var(--light);
+    }
+    .route-step input[type="checkbox"] {
+      margin-top: 2px;
+      transform: scale(1.05);
+    }
+    .route-step-text {
+      flex: 1;
+      line-height: 1.35;
+    }
+    .route-step.completed .route-step-label {
+      color: var(--text);
+      font-weight: 600;
+    }
+    .route-step.completed .route-step-text {
+      text-decoration: line-through;
+    }
+    .route-progress-summary {
+      font-size: 0.7rem;
+      color: var(--light);
+      margin-top: 6px;
+    }
+    .route-card.completed .route-progress-summary {
+      color: var(--success);
+      font-weight: 600;
+    }
     /* Tech tree */
     .tech-level {
       margin-bottom: 20px;
@@ -891,14 +963,18 @@
         element: 'Electric',
         weakness: ['Ground'],
         hp: 30000,
-        description: 'The first tower encounter. Ground-type pals stun Grizzbolt and keep Zoe on the back foot.',
+        description: 'The tutorial tower. Bring Ground-type pals to exploit Grizzbolt\'s weakness. Recommended pals include Rushoar and Fuddler. Dash in, dodge Grizzbolt\'s electric attacks, and keep your distance.',
         location: 'Windswept Hills (112, -434)',
-        tips: 'Stock up on basic healing items and bring a Ground mount to dodge lightning strikes.',
+        tips: 'Stock up on Pal Spheres, some basic healing items, and wear basic armor.',
         steps: [
-          'Gather Ground-type pals or moves before entering the arena.',
-          'Repair your gear and craft Pal Spheres for quick captures.',
-          'Use fast travel to reach Windswept Hills and clear the approach.',
-          'Stay mobile and punish Grizzbolt after each telegraphed blast.'
+          'Confirm your pals are at least level 15 and slot Ground-type attackers to exploit Grizzbolt.',
+          'Repair melee and ranged weapons, and craft extra Pal Spheres plus crossbow bolts.',
+          'Cook stamina meals and pack bandages or medical supplies for emergency heals.',
+          'Travel to Windswept Hills (112, -434), unlocking the Cliffside fast travel statue en route.',
+          'Establish a forward camp with a bed or campfire just outside the tower entrance.',
+          'Clear Syndicate patrols, gathering ore from the cliffs for last-minute gear repairs.',
+          'Enter the arena, circle around Grizzbolt\'s telegraphed lightning and punish after each slam.',
+          'Loot the tower chest, collect boss drops, then return home to upgrade workbenches.'
         ]
       },
       {
@@ -908,14 +984,18 @@
         element: 'Grass',
         weakness: ['Fire'],
         hp: 69000,
-        description: 'An arctic siege led by Lily. Fire-element pals melt Lyleen’s defenses.',
+        description: 'Located in the icy north. Bring Fire pals such as Foxparks or Blazehowl to burn through Lyleen\'s grass defenses. Wear cold resistance gear to survive the journey.',
         location: 'Free Pal Alliance territory (185, 28)',
-        tips: 'Wear cold-resistance armor and bring heat sources for the climb.',
+        tips: 'Craft some Mega Spheres before heading out and keep a fire source ready to warm up.',
         steps: [
-          'Assemble a Fire-heavy team with ranged attacks for the arena.',
-          'Carry thawing medicine, food, and a portable heat source.',
-          'Navigate the frozen approach carefully to avoid adds.',
-          'Burn down Lyleen quickly to prevent healing bursts.'
+          'Raise your core team to at least level 25 and equip Fire pals with high burst skills.',
+          'Craft cold-resistance armor and brew heat drinks to counter the blizzard approach.',
+          'Cook hearty meals that boost defense and carry thawing medicine for emergencies.',
+          'Fast travel toward (185, 28) and clear ice blocking the final ascent to the tower.',
+          'Place a heater or bonfire near the entrance so you can warm up between attempts.',
+          'Defeat Free Pal scouts on the plateau and loot supply crates for ammo and fiber.',
+          'During the fight, focus fire on Lyleen while dodging Lily\'s wide arcing shots.',
+          'After victory, relight your heater, restock ammo, and upgrade Fire weapons at base.'
         ]
       },
       {
@@ -925,14 +1005,18 @@
         element: 'Electric/Dragon',
         weakness: ['Ground', 'Ice'],
         hp: 130000,
-        description: 'A volcanic gauntlet with heavy lightning output. Ice or Ground pals blunt Orserk’s power.',
-        location: 'Volcanic island (approx.)',
-        tips: 'Equip heat-resistant armor and plan a safe water crossing.',
+        description: 'Set on a lava island. Orserk is part dragon and electric, making it vulnerable to both Ground and Ice. Consider bringing Chillet or Cryolinx, and pack heat resistance armour.',
+        location: 'Lava island (approx)',
+        tips: 'Use Surfent or another water mount to cross safely. Maintain distance and avoid standing on lava pools.',
         steps: [
-          'Sail or glide to the volcanic island with cooling gear ready.',
-          'Keep ice weapons or Ground projectiles handy for staggers.',
-          'Clear local mobs quickly to secure the arena.',
-          'Focus Orserk first, then clean up Axel at range.'
+          'Ensure your squad is level 30+ and slot Ice or Ground pals with lightning resistance.',
+          'Forge heat-resistant armor and pack cooling consumables for the volcanic climb.',
+          'Cook spicy meals that boost stamina and bring antidotes for toxic vents.',
+          'Glide or sail to the volcano, unlocking the Mount Obsidian fast travel statue.',
+          'Build a safe respawn camp on a basalt ledge before approaching the tower.',
+          'Clear roaming fire mobs and harvest sulfur deposits for emergency ammo crafting.',
+          'Inside the arena, stagger Orserk with Ice bursts, then punish Axel from range.',
+          'Secure the loot chest, refill cooling supplies, and send pals to rest at your base.'
         ]
       },
       {
@@ -941,15 +1025,19 @@
         boss: 'Marcus & Faleris',
         element: 'Fire',
         weakness: ['Water'],
-        hp: 168000,
-        description: 'Aerial inferno. Water and Ice pals extinguish Faleris and ground Marcus.',
-        location: 'PIDF territory (350, -200)',
-        tips: 'Bring ranged Water attacks and fireproof cloaks for the arena.',
+        hp: 146000,
+        description: 'Situated in the northern desert where temperatures fluctuate drastically. Use Water pals like Fuack or Azurobe to drench Faleris. Bring both heat and cold resist gear.',
+        location: 'PIDF desert (approx)',
+        tips: 'Craft plenty of Hyper Spheres and bring water because the journey is long.',
         steps: [
-          'Craft Water ammunition and restock high-tier healing supplies.',
-          'Approach via high ground to avoid patrols.',
-          'Spread out to dodge Faleris’ firestorms.',
-          'Douse Marcus once Faleris drops to end the fight.'
+          'Train your Water-focused team to level 35+ and slot pals with ranged Hydro attacks.',
+          'Upgrade weapons to steel tier and brew flame-resistant tonics for the desert heat.',
+          'Prepare chilled meals and carry extra water to avoid overheating on the march.',
+          'Ride a fast mount toward (350, -200), capturing the desert fast travel anchor.',
+          'Set up shade structures or a tent outside the tower to manage temperature.',
+          'Eliminate PIDF patrols and dismantle turrets guarding the elevator entrance.',
+          'During the fight, ground Faleris with Water artillery, then pressure Marcus.',
+          'After the win, loot the cache, refill water skins, and craft new ammo back home.'
         ]
       },
       {
@@ -958,49 +1046,61 @@
         boss: 'Victor & Shadowbeak',
         element: 'Dark',
         weakness: ['Dragon'],
-        hp: 205000,
-        description: 'Shadowbeak’s dark beams demand high burst damage. Dragon pals shine here.',
-        location: 'PAL Genetic Research Unit (558, 340)',
-        tips: 'Carry light sources and stamina food to keep pressure high.',
+        hp: 200000,
+        description: 'Atop a snowy mountain. Shadowbeak\'s dark type is weak against Dragon pals such as Orserk and Quivern. Pack cold resistance gear and powerful healing items.',
+        location: 'Snowy mountain (approx)',
+        tips: 'Prepare Ultra Spheres and craft gear like the Quivern Saddle to reach the tower quickly.',
         steps: [
-          'Deploy Dragon pals resistant to Dark projectiles.',
-          'Keep moving to avoid beam barrages.',
-          'Use stagger windows to burst Shadowbeak down.',
-          'Finish Victor before he calls reinforcements.'
+          'Bring your squad to level 40+ with Dragon pals capable of burst damage and shields.',
+          'Reinforce armor with Dark-resistant plates and craft plenty of Legendary Spheres.',
+          'Cook focus-restoring meals and pack energy potions for prolonged aerial phases.',
+          'Glide across the tundra to (558, 340), activating the nearby fast travel tower.',
+          'Construct a small generator base with lights to cut through the laboratory gloom.',
+          'Disable roaming security drones and hack supply crates for extra batteries.',
+          'In combat, bait Shadowbeak\'s beam, counter with Dragon slams, then corner Victor.',
+          'Claim the experimental loot, recharge equipment, and schedule base upgrades.'
         ]
       },
       {
         step: 6,
         name: 'Moonflower Tower',
         boss: 'Saya & Selyne',
-        element: 'Ice/Dragon',
-        weakness: ['Dragon'],
-        hp: 240000,
-        description: 'Celestial strikes mix Ice and Dragon damage. Bring resilient Dragons with sustain.',
-        location: 'Moonflower tower (640, -410)',
-        tips: 'Use frost resistance consumables and anti-Dragon armor plates.',
+        element: 'Dark/Neutral',
+        weakness: ['Dark', 'Dragon'],
+        hp: 261000,
+        description: 'The sole tower on Sakurajima island. Bring dark and dragon pals like Shadowbeak or Jormuntide Ignis. The area is foggy with poisonous plants, so carry antidotes and bright torches.',
+        location: 'Sakurajima island (approx)',
+        tips: 'Use mounts like Nitewing or Quivern to cross quickly and avoid ambushes.',
         steps: [
-          'Prepare Dragon pals with healing passives or potions.',
-          'Avoid lingering in the center to dodge lunar blasts.',
-          'Burst Selyne between beam volleys.',
-          'Interrupt Saya’s support skills with staggers.'
+          'Raise Dark or Dragon pals to level 45+ and slot passives that cleanse debuffs.',
+          'Craft fog-cutting lanterns and antidotes to counter poisonous Sakurajima plants.',
+          'Cook stamina soups and pack plenty of glider repair kits for the island crossing.',
+          'Fly or sail to Sakurajima, unlocking the Moonflower waypoint along the cliffs.',
+          'Build a lantern-lined safe zone outside the tower to purge poison stacks.',
+          'Clear ambushing Moonflower cultists and harvest glowshrooms for extra cures.',
+          'In the arena, dispel Selyne\'s orbs with Dark attacks while dodging Saya\'s beams.',
+          'Gather the relic rewards, detox your team, and rotate fresh pals in at base.'
         ]
       },
       {
         step: 7,
-        name: 'Tower of the Brothers of the Iron Hammer',
+        name: 'Feybreak Tower',
         boss: 'Bjorn & Bastigor',
         element: 'Ice',
         weakness: ['Fire'],
-        hp: 310000,
-        description: 'The final snowbound duel. Fire pals cut through Bastigor’s armor and warm the arena.',
-        location: 'Bastion of the Iron Hammer (730, -50)',
-        tips: 'Pack hot drinks and ignite brazier traps to thaw the arena.',
+        hp: 509000,
+        description: 'This final tower on Feybreak island demands strong fire pals such as Faleris or Blazamut. You must first defeat three field bosses (Dazzi Noct, Caprity Noct and Omascul) and obtain their bounty tokens before entering the tower.',
+        location: 'Feybreak island (approx)',
+        tips: 'Craft Legendary Spheres and upgrade your base before the fight. Bring plenty of food and stamina potions for a long battle.',
         steps: [
-          'Assemble Fire pals with high stagger potential.',
-          'Destroy ice pillars to open movement lanes.',
-          'Focus Bastigor while Bjorn reloads his cannons.',
-          'Celebrate and loot the tower chest after victory.'
+          'Push your Fire squad to level 50+ with high durability mounts like Blazamut.',
+          'Forge top-tier fire gear and brew hot drinks to counter Feybreak\'s deep freeze.',
+          'Stockpile spicy meals and stamina tonics for the long trek through snow fields.',
+          'Hunt the three bounty bosses (Dazzi Noct, Caprity Noct, Omascul) for entry tokens.',
+          'Unlock the Feybreak fast travel statues and place a camp heater near the tower gate.',
+          'Clear remaining ice golems and salvage metal from wreckage for mid-run repairs.',
+          'Inside the arena, melt Bastigor\'s armor while interrupting Bjorn\'s cannon volleys.',
+          'Celebrate by looting the vault, restocking supplies, and planning postgame raids.'
         ]
       }
     ];
@@ -1597,32 +1697,65 @@
 
     // Route page builder.  Creates cards for each tower battle in the
     // ROUTE array.  Each card lists the order, boss names, recommended
-    // element and a short description.  We include a checkbox for
-    // marking the encounter complete, stored in localStorage.  Boss
-    // names link to their pal details if known.
+    // element and a short description.  Each route now exposes
+    // granular step checkboxes stored in localStorage so players can
+    // tick off progress within a chapter.  Individual steps highlight
+    // as they are completed, and the entire card glows when every
+    // sub-step is finished.  Boss names still link to their pal
+    // details when known.
     function buildRoutePage() {
       const list = document.getElementById('routeList');
       if (!list) return;
       list.innerHTML = '';
+      const routeProgress = JSON.parse(localStorage.getItem('routeProgress') || '{}');
+      let progressMutated = false;
       ROUTE.forEach(step => {
-        const card = document.createElement('div');
-        card.className = 'pal-card';
-        // Determine if this step is complete via localStorage
-        const routeProgress = JSON.parse(localStorage.getItem('routeProgress') || '{}');
-        const done = !!routeProgress[step.step];
-        // Attempt to link the boss pal to its detail page
-        const bossNames = step.boss.split('&').map(s => s.trim());
-        // We'll link the first pal in the pair; additional names link separately
-        const bossPalName = bossNames[1] ? bossNames[1] : bossNames[0];
-        const bossId = PAL_NAME_TO_ID[bossPalName];
-        let bossLink = step.boss;
-        if (bossId) {
-          bossLink = bossNames.map(name => {
-            const id = PAL_NAME_TO_ID[name.trim()];
-            return id ? `<a href="#" class="pal-link" data-pal-name="${name.trim()}">${name.trim()}</a>` : name.trim();
-          }).join(' & ');
+        const steps = Array.isArray(step.steps) ? step.steps : [];
+        let entry = routeProgress[step.step];
+        let shouldPersistEntry = false;
+        if (typeof entry === 'boolean') {
+          entry = { complete: entry, substeps: {} };
+          shouldPersistEntry = true;
         }
+        if (!entry || typeof entry !== 'object') {
+          entry = { complete: false, substeps: {} };
+        }
+        if (!entry.substeps) {
+          entry.substeps = {};
+          shouldPersistEntry = true;
+        }
+        if (entry.complete && steps.length) {
+          steps.forEach((_, idx) => {
+            if (!entry.substeps[idx]) {
+              entry.substeps[idx] = true;
+              shouldPersistEntry = true;
+            }
+          });
+        }
+        const checkedCount = steps.reduce((acc, _, idx) => acc + (entry.substeps[idx] ? 1 : 0), 0);
+        const allSubstepsComplete = steps.length > 0 && checkedCount === steps.length;
+        if (allSubstepsComplete !== entry.complete) {
+          entry.complete = allSubstepsComplete;
+          shouldPersistEntry = true;
+        }
+        const done = !!entry.complete;
+        if (shouldPersistEntry) {
+          routeProgress[step.step] = entry;
+          progressMutated = true;
+        }
+
+        const card = document.createElement('div');
+        card.className = `pal-card route-card${done ? ' completed' : ''}`;
+        // Attempt to link the boss pal to its detail page
+        const bossNames = (step.boss || '').split('&').map(s => s.trim()).filter(Boolean);
+        const bossLink = bossNames.length ? bossNames.map(name => {
+          const id = PAL_NAME_TO_ID[name];
+          return id ? `<a href="#" class="pal-link" data-pal-name="${name}">${name}</a>` : name;
+        }).join(' & ') : (step.boss || 'Unknown');
         const weaknesses = Array.isArray(step.weakness) ? step.weakness.join(', ') : step.weakness;
+        const progressText = steps.length
+          ? `${checkedCount}/${steps.length} steps complete`
+          : (done ? 'Complete' : 'No steps defined yet');
         card.innerHTML = `
           <div class="name">${step.step}. ${step.name}</div>
           <div style="font-size:0.9rem;color:var(--light);">Boss: ${bossLink}</div>
@@ -1632,19 +1765,78 @@
           <div style="font-size:0.75rem;color:var(--text);margin:6px 0;">${step.description}</div>
           <div style="font-size:0.7rem;color:var(--light);">Location: ${step.location || 'Unknown'}</div>
           <div style="font-size:0.7rem;color:var(--light);">Tips: ${step.tips || ''}</div>
-          ${step.steps ? '<div style="font-size:0.7rem;color:var(--light); margin-top:4px;"><ol style="padding-left:18px; margin:4px 0;">' + step.steps.map(s => `<li>${s}</li>`).join('') + '</ol></div>' : ''}
-          <button class="collect-btn${done ? ' collected' : ''}" style="margin-top:8px;">${done ? 'Completed' : 'Mark done'}</button>
+          <div class="route-steps"></div>
+          <div class="route-progress-summary">${progressText}</div>
+          <button class="collect-btn${done ? ' collected' : ''}" style="margin-top:8px;">${done ? 'Reset progress' : 'Mark all complete'}</button>
         `;
+
+        const stepsContainer = card.querySelector('.route-steps');
+        const ol = document.createElement('ol');
+        ol.className = 'route-step-list';
+        steps.forEach((text, idx) => {
+          const li = document.createElement('li');
+          li.className = `route-step${entry.substeps[idx] ? ' completed' : ''}`;
+          const label = document.createElement('label');
+          label.className = 'route-step-label';
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.checked = !!entry.substeps[idx];
+          checkbox.addEventListener('change', (ev) => {
+            ev.stopPropagation();
+            const progress = JSON.parse(localStorage.getItem('routeProgress') || '{}');
+            let stepEntry = progress[step.step];
+            if (typeof stepEntry === 'boolean') {
+              stepEntry = { complete: stepEntry, substeps: {} };
+            }
+            if (!stepEntry || typeof stepEntry !== 'object') {
+              stepEntry = { complete: false, substeps: {} };
+            }
+            if (!stepEntry.substeps) stepEntry.substeps = {};
+            stepEntry.substeps[idx] = ev.target.checked;
+            const totalComplete = steps.length > 0 && steps.every((_, i) => !!stepEntry.substeps[i]);
+            stepEntry.complete = totalComplete;
+            progress[step.step] = stepEntry;
+            localStorage.setItem('routeProgress', JSON.stringify(progress));
+            buildRoutePage();
+            playSound(clickSound);
+          });
+          const textSpan = document.createElement('span');
+          textSpan.className = 'route-step-text';
+          textSpan.textContent = text;
+          label.appendChild(checkbox);
+          label.appendChild(textSpan);
+          li.appendChild(label);
+          ol.appendChild(li);
+        });
+        stepsContainer.appendChild(ol);
+
         const btn = card.querySelector('button');
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
-          const prog = JSON.parse(localStorage.getItem('routeProgress') || '{}');
-          prog[step.step] = !done;
-          localStorage.setItem('routeProgress', JSON.stringify(prog));
+          const progress = JSON.parse(localStorage.getItem('routeProgress') || '{}');
+          let stepEntry = progress[step.step];
+          if (typeof stepEntry === 'boolean') {
+            stepEntry = { complete: stepEntry, substeps: {} };
+          }
+          if (!stepEntry || typeof stepEntry !== 'object') {
+            stepEntry = { complete: false, substeps: {} };
+          }
+          if (!stepEntry.substeps) stepEntry.substeps = {};
+          if (done) {
+            stepEntry.complete = false;
+            stepEntry.substeps = {};
+          } else {
+            steps.forEach((_, idx) => {
+              stepEntry.substeps[idx] = true;
+            });
+            stepEntry.complete = steps.length > 0;
+          }
+          progress[step.step] = stepEntry;
+          localStorage.setItem('routeProgress', JSON.stringify(progress));
           buildRoutePage();
           playSound(clickSound);
         });
-        // Link click handler inside card
+
         card.addEventListener('click', (e) => {
           if (e.target.classList.contains('pal-link')) {
             e.preventDefault();
@@ -1655,6 +1847,9 @@
         });
         list.appendChild(card);
       });
+      if (progressMutated) {
+        localStorage.setItem('routeProgress', JSON.stringify(routeProgress));
+      }
     }
 
     // Glossary page builder.  Presents a list of passives and moves
