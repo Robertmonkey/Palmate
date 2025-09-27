@@ -40,7 +40,7 @@
       "steps": [
         { "id":"ch3-prep-ground", "category":"Prep", "text":"Bring Rushoar (Ground) and healing items.", "links":[{"type":"pal","slug":"rushoar"}] },
         { "id":"ch3-prep-capture-power", "category":"Prep", "text":"Spend a few Lifmunk Effigies at the Statue of Power to raise Capture Power.", "links":[{"type":"tech","id":"statue-of-power"},{"type":"glossary","id":"lifmunk-effigy"}], "optional": true },
-        { "id":"ch3-boss-zoe", "category":"Boss", "text":"Clear Rayne Tower — Zoe & Grizzbolt.", "links":[{"type":"tower","id":"zoe-grizzbolt","url":"https://palworld.gg/map"}] },
+        { "id":"ch3-boss-zoe", "category":"Boss", "text":"Clear Rayne Tower — Zoe & Grizzbolt.", "links":[{"type":"tower","id":"zoe-grizzbolt","url":"https://palworld.gg/map","map":{"title":"Rayne Syndicate Tower","label":"Rayne Tower","region":"Windswept Hills","coords":[112,-434],"kid":["Ride south of the Plateau of Beginnings until you see the big tower with lightning sparks."],"grown":["The Rayne Syndicate Tower overlooks the Windswept Hills around (112, -434). Bring Ground pals for Zoe & Grizzbolt."]}}] },
         { "id":"ch3-spend-ancient-qol", "category":"Tech", "text":"Spend your Ancient Tech Points on quality-of-life you like (optional).", "links":[{"type":"tech","id":"ancient-tech"}], "optional": true }
       ]
     },
@@ -66,7 +66,7 @@
         { "id":"ch5-gear-heat-cold-armor", "category":"Gear", "text":"Craft Heat‑Resistant Pelt Armor (Lv 16) and Cold‑Resistant Pelt Armor (Lv 18) as needed.", "links":[{"type":"tech","id":"heat-resistant-pelt-armor"},{"type":"tech","id":"cold-resistant-pelt-armor"}] },
         { "id":"ch5-catch-nitewing", "category":"Catch", "text":"Catch Nitewing (first flying mount) and craft its Saddle (Lv 15).", "links":[{"type":"pal","slug":"nitewing"},{"type":"tech","id":"pal-gear-workbench"}] },
         { "id":"ch5-catch-fire", "category":"Catch", "text":"Ensure you have a solid Fire attacker for this tower (Foxparks can carry early).", "links":[{"type":"pal","slug":"foxparks"}], "optional": true },
-        { "id":"ch5-boss-lily", "category":"Boss", "text":"Clear Free Pal Alliance Tower — Lily & Lyleen (weak to Fire).", "links":[{"type":"tower","id":"lily-lyleen","url":"https://palworld.gg/map"}] }
+        { "id":"ch5-boss-lily", "category":"Boss", "text":"Clear Free Pal Alliance Tower — Lily & Lyleen (weak to Fire).", "links":[{"type":"tower","id":"lily-lyleen","url":"https://palworld.gg/map","map":{"title":"Free Pal Alliance Tower","label":"Lily & Lyleen","region":"Free Pal Alliance","coords":[185,28],"kid":["Head into the snowy Free Pal Alliance base near the big crystal trees."],"grown":["The Free Pal Alliance Tower stands at roughly (185, 28) amid the frozen north. Pack heat gear and Fire pals."]}}] }
       ]
     },
     {
@@ -88,7 +88,7 @@
       "steps": [
         { "id":"ch7-prep-heat-gear", "category":"Prep", "text":"Equip heat protection for the approach.", "links":[{"type":"tech","id":"heat-resistant-pelt-armor"}], "optional": true },
         { "id":"ch7-prep-ice-ground", "category":"Prep", "text":"Field Ground (Rushoar/Digtoise) or an Ice attacker.", "links":[{"type":"pal","slug":"rushoar"},{"type":"pal","slug":"digtoise"}] },
-        { "id":"ch7-boss-axel", "category":"Boss", "text":"Clear Eternal Pyre Tower — Axel & Orserk.", "links":[{"type":"tower","id":"axel-orserk","url":"https://palworld.gg/map"}] }
+        { "id":"ch7-boss-axel", "category":"Boss", "text":"Clear Eternal Pyre Tower — Axel & Orserk.", "links":[{"type":"tower","id":"axel-orserk","url":"https://palworld.gg/map","map":{"title":"Brothers of the Eternal Pyre Tower","label":"Eternal Pyre","region":"Mount Obsidian","coords":[-560,-518],"kid":["Sail to the big volcano island and look for the glowing tower in the lava fields."],"grown":["Axel & Orserk wait on Mount Obsidian near (-560, -518). Bring cooling gear or water mounts for the lava run."]}}] }
       ]
     },
     {
@@ -111,7 +111,7 @@
       "steps": [
         { "id":"ch9-prep-heat", "category":"Prep", "text":"Equip heat protection for travel.", "links":[{"type":"tech","id":"heat-resistant-pelt-armor"}], "optional": true },
         { "id":"ch9-prep-water", "category":"Prep", "text":"Field Water attackers with decent spheres.", "links":[{"type":"pal","slug":"azurobe"},{"type":"pal","slug":"jormuntide"}], "optional": true },
-        { "id":"ch9-boss-marcus", "category":"Boss", "text":"Clear PIDF Tower — Marcus & Faleris.", "links":[{"type":"tower","id":"marcus-faleris","url":"https://palworld.gg/map"}] }
+        { "id":"ch9-boss-marcus", "category":"Boss", "text":"Clear PIDF Tower — Marcus & Faleris.", "links":[{"type":"tower","id":"marcus-faleris","url":"https://palworld.gg/map","map":{"title":"PIDF Tower","label":"PIDF HQ","region":"Sandy Barrens","coords":[350,-200],"kid":["Zip through the desert base full of robots—look for the tall tower with red lights."],"grown":["The PIDF desert headquarters is around (350, -200). Carry heat and cold protection for Marcus & Faleris."]}}] }
       ]
     },
     {
@@ -131,7 +131,7 @@
       "why": "By now you’re armored and armed. Dragon counters Dark cleanly.",
       "steps": [
         { "id":"ch11-prep-dragon", "category":"Prep", "text":"Field a Dragon DPS (Astegon/Jetragon or any solid Dragon).", "links":[{"type":"pal","slug":"astegon"},{"type":"pal","slug":"jetragon"}], "optional": true },
-        { "id":"ch11-boss-victor", "category":"Boss", "text":"Clear PAL Genetic Research Unit — Victor & Shadowbeak.", "links":[{"type":"tower","id":"victor-shadowbeak","url":"https://palworld.gg/map"}] }
+        { "id":"ch11-boss-victor", "category":"Boss", "text":"Clear PAL Genetic Research Unit — Victor & Shadowbeak.", "links":[{"type":"tower","id":"victor-shadowbeak","url":"https://palworld.gg/map","map":{"title":"PAL Genetic Research Unit","label":"Victor & Shadowbeak","region":"Astral Mountain","coords":[558,340],"kid":["Fly into the snowy science lab glowing above the frozen cliffs."],"grown":["Victor hides in the PAL Genetic Research Unit at about (558, 340). Bring Dragon pals and heavy cold gear."]}}] }
       ]
     },
     {
@@ -140,7 +140,7 @@
       "why": "Selyne is also weak to Dragon—reuse your Dragon plan.",
       "steps": [
         { "id":"ch12-prep-dragon", "category":"Prep", "text":"Bring your Dragon DPS and climate gear as needed.", "links":[{"type":"pal","slug":"astegon"},{"type":"pal","slug":"jetragon"}], "optional": true },
-        { "id":"ch12-boss-saya", "category":"Boss", "text":"Clear Sakurajima Tower — Saya & Selyne.", "links":[{"type":"tower","id":"saya-selyne","url":"https://palworld.gg/map"}] }
+        { "id":"ch12-boss-saya", "category":"Boss", "text":"Clear Sakurajima Tower — Saya & Selyne.", "links":[{"type":"tower","id":"saya-selyne","url":"https://palworld.gg/map","map":{"title":"Moonflower Tower","label":"Sakurajima","region":"Sakurajima Island","coords":[640,120],"kid":["Glide onto the pink island and follow the glowing petals to the Moonflower cult tower."],"grown":["Saya & Selyne occupy Moonflower Tower on Sakurajima near (640, 120). Pack antidotes for the toxic mists."]}}] }
       ]
     },
     {
@@ -149,7 +149,7 @@
       "why": "Final tower—swap back to Fire and finish the run.",
       "steps": [
         { "id":"ch13-prep-fire", "category":"Prep", "text":"Bring strong Fire attackers and top‑tier gear/spheres.", "links":[{"type":"pal","slug":"faleris"},{"type":"pal","slug":"foxparks"}], "optional": true },
-        { "id":"ch13-boss-bjorn", "category":"Boss", "text":"Clear Feybreak Tower — Bjorn & Bastigor. 🎉", "links":[{"type":"tower","id":"bjorn-bastigor","url":"https://palworld.gg/map"}] }
+        { "id":"ch13-boss-bjorn", "category":"Boss", "text":"Clear Feybreak Tower — Bjorn & Bastigor. 🎉", "links":[{"type":"tower","id":"bjorn-bastigor","url":"https://palworld.gg/map","map":{"title":"Feybreak Tower","label":"Bjorn & Bastigor","region":"Feybreak Island","coords":[512,-662],"kid":["Finish the adventure on the snowy Feybreak island tower after beating the night pals."],"grown":["Bjorn & Bastigor guard Feybreak Tower around (512, -662). Bring legendary fire pals and plenty of heat support."]}}] }
       ]
     }
   ]
