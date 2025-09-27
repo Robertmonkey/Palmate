@@ -581,6 +581,9 @@
     let PALS = {};
     let ITEMS = {};
     let TECH = [];
+    let ROUTE = [];
+    let SKILL_DETAILS = {};
+    let PASSIVE_DETAILS = {};
     // Map of items to pals that drop them.  Populated after data load.
     let DROPS_MAP = {};
     // Map pal names to IDs for quick lookup when clicking breeding
@@ -734,14 +737,132 @@
     // element(s) to bring and a short description.  Use these
     // entries to build the Route page.  Level ordering taken from
     // community consensus and our own research.
-    const ROUTE = [
-      { order: 1, name: 'Zoe & Grizzbolt', rec: 'Ground', desc: 'The first tower. Bring Ground pals to shock Grizzbolt.' },
-      { order: 2, name: 'Lily & Lyleen', rec: 'Fire', desc: 'Lily’s Lyleen is weak to Fire. Prepare your Flame pals.' },
-      { order: 3, name: 'Axel & Orserk', rec: 'Ice or Ground', desc: 'This duo packs Lightning. Ice or Ground pals work best.' },
-      { order: 4, name: 'Marcus & Faleris', rec: 'Water', desc: 'Faleris is a fire bird. Water pals make quick work.' },
-      { order: 5, name: 'Victor & Shadowbeak', rec: 'Dragon', desc: 'Bring powerful Dragon pals to tackle this shadowy foe.' },
-      { order: 6, name: 'Saya & Selyne', rec: 'Dragon', desc: 'Selyne’s cosmic power is no match for Dragon allies.' },
-      { order: 7, name: 'Bjorn & Bastigor', rec: 'Fire', desc: 'Finish strong with Fire pals against this icy giant.' }
+    const DEFAULT_ROUTE = [
+      {
+        step: 1,
+        name: 'Rayne Syndicate Tower',
+        boss: 'Zoe & Grizzbolt',
+        element: 'Electric',
+        weakness: ['Ground'],
+        hp: 30000,
+        description: 'The first tower encounter. Ground-type pals stun Grizzbolt and keep Zoe on the back foot.',
+        location: 'Windswept Hills (112, -434)',
+        tips: 'Stock up on basic healing items and bring a Ground mount to dodge lightning strikes.',
+        steps: [
+          'Gather Ground-type pals or moves before entering the arena.',
+          'Repair your gear and craft Pal Spheres for quick captures.',
+          'Use fast travel to reach Windswept Hills and clear the approach.',
+          'Stay mobile and punish Grizzbolt after each telegraphed blast.'
+        ]
+      },
+      {
+        step: 2,
+        name: 'Free Pal Alliance Tower',
+        boss: 'Lily & Lyleen',
+        element: 'Grass',
+        weakness: ['Fire'],
+        hp: 69000,
+        description: 'An arctic siege led by Lily. Fire-element pals melt Lyleen’s defenses.',
+        location: 'Free Pal Alliance territory (185, 28)',
+        tips: 'Wear cold-resistance armor and bring heat sources for the climb.',
+        steps: [
+          'Assemble a Fire-heavy team with ranged attacks for the arena.',
+          'Carry thawing medicine, food, and a portable heat source.',
+          'Navigate the frozen approach carefully to avoid adds.',
+          'Burn down Lyleen quickly to prevent healing bursts.'
+        ]
+      },
+      {
+        step: 3,
+        name: 'Brothers of the Eternal Pyre Tower',
+        boss: 'Axel & Orserk',
+        element: 'Electric/Dragon',
+        weakness: ['Ground', 'Ice'],
+        hp: 130000,
+        description: 'A volcanic gauntlet with heavy lightning output. Ice or Ground pals blunt Orserk’s power.',
+        location: 'Volcanic island (approx.)',
+        tips: 'Equip heat-resistant armor and plan a safe water crossing.',
+        steps: [
+          'Sail or glide to the volcanic island with cooling gear ready.',
+          'Keep ice weapons or Ground projectiles handy for staggers.',
+          'Clear local mobs quickly to secure the arena.',
+          'Focus Orserk first, then clean up Axel at range.'
+        ]
+      },
+      {
+        step: 4,
+        name: 'PIDF Tower',
+        boss: 'Marcus & Faleris',
+        element: 'Fire',
+        weakness: ['Water'],
+        hp: 168000,
+        description: 'Aerial inferno. Water and Ice pals extinguish Faleris and ground Marcus.',
+        location: 'PIDF territory (350, -200)',
+        tips: 'Bring ranged Water attacks and fireproof cloaks for the arena.',
+        steps: [
+          'Craft Water ammunition and restock high-tier healing supplies.',
+          'Approach via high ground to avoid patrols.',
+          'Spread out to dodge Faleris’ firestorms.',
+          'Douse Marcus once Faleris drops to end the fight.'
+        ]
+      },
+      {
+        step: 5,
+        name: 'PAL Genetic Research Unit Tower',
+        boss: 'Victor & Shadowbeak',
+        element: 'Dark',
+        weakness: ['Dragon'],
+        hp: 205000,
+        description: 'Shadowbeak’s dark beams demand high burst damage. Dragon pals shine here.',
+        location: 'PAL Genetic Research Unit (558, 340)',
+        tips: 'Carry light sources and stamina food to keep pressure high.',
+        steps: [
+          'Deploy Dragon pals resistant to Dark projectiles.',
+          'Keep moving to avoid beam barrages.',
+          'Use stagger windows to burst Shadowbeak down.',
+          'Finish Victor before he calls reinforcements.'
+        ]
+      },
+      {
+        step: 6,
+        name: 'Moonflower Tower',
+        boss: 'Saya & Selyne',
+        element: 'Ice/Dragon',
+        weakness: ['Dragon'],
+        hp: 240000,
+        description: 'Celestial strikes mix Ice and Dragon damage. Bring resilient Dragons with sustain.',
+        location: 'Moonflower tower (640, -410)',
+        tips: 'Use frost resistance consumables and anti-Dragon armor plates.',
+        steps: [
+          'Prepare Dragon pals with healing passives or potions.',
+          'Avoid lingering in the center to dodge lunar blasts.',
+          'Burst Selyne between beam volleys.',
+          'Interrupt Saya’s support skills with staggers.'
+        ]
+      },
+      {
+        step: 7,
+        name: 'Tower of the Brothers of the Iron Hammer',
+        boss: 'Bjorn & Bastigor',
+        element: 'Ice',
+        weakness: ['Fire'],
+        hp: 310000,
+        description: 'The final snowbound duel. Fire pals cut through Bastigor’s armor and warm the arena.',
+        location: 'Bastion of the Iron Hammer (730, -50)',
+        tips: 'Pack hot drinks and ignite brazier traps to thaw the arena.',
+        steps: [
+          'Assemble Fire pals with high stagger potential.',
+          'Destroy ice pillars to open movement lanes.',
+          'Focus Bastigor while Bjorn reloads his cannons.',
+          'Celebrate and loot the tower chest after victory.'
+        ]
+      }
+    ];
+    ROUTE = DEFAULT_ROUTE.map(step => ({ ...step }));
+    const DATA_SOURCES = [
+      'data/palworld_complete_data_final.json',
+      'data/palworld_complete_data_enhanced.json',
+      'data/palworld_complete_data.json'
     ];
     // Type icon mapping (relative file paths)
     const iconMap = {
@@ -835,17 +956,44 @@
       modalBody.innerHTML = '';
       playSound(closeSound);
     }
-    // Fetch data on load
-    fetch('data/palworld_complete_data_final.json')
-      .then(r => r.json())
-      .then(data => {
+    async function loadDatasetSequentially() {
+      for (const source of DATA_SOURCES) {
+        try {
+          const response = await fetch(source);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const payload = await response.json();
+          if (!payload || typeof payload !== 'object') {
+            throw new Error('Invalid JSON payload');
+          }
+          if (!payload.pals || !payload.items || !payload.tech) {
+            console.warn(`Dataset ${source} missing required keys. Skipping.`);
+            continue;
+          }
+          return { payload, source };
+        } catch (err) {
+          console.warn(`Failed to load dataset ${source}`, err);
+        }
+      }
+      throw new Error('Unable to load any dataset from the data folder.');
+    }
+
+    (async function initialisePalmate() {
+      try {
+        const { payload, source } = await loadDatasetSequentially();
+        console.info(`Palmate data source: ${source}`);
         // Data is namespaced under pals, items and tech plus extra sections
-        PALS = data.pals || {};
-        ITEMS = data.items || {};
-        TECH = data.tech || [];
-        ROUTE = data.route || [];
-        SKILL_DETAILS = data.skillsDetails || {};
-        PASSIVE_DETAILS = data.passiveDetails || {};
+        PALS = payload.pals || {};
+        ITEMS = payload.items || {};
+        TECH = payload.tech || [];
+        const hasRouteTable = Array.isArray(payload.route) && payload.route.length;
+        if (!hasRouteTable) {
+          console.warn('Loaded dataset does not contain a route table. Falling back to bundled defaults.');
+        }
+        ROUTE = hasRouteTable ? payload.route : DEFAULT_ROUTE.map(step => ({ ...step }));
+        SKILL_DETAILS = payload.skillsDetails || {};
+        PASSIVE_DETAILS = payload.passiveDetails || {};
         // Build name‑to‑ID lookup map
         PAL_NAME_TO_ID = {};
         Object.values(PALS).forEach(p => {
@@ -886,11 +1034,12 @@
         buildMapPage();
         buildProgressPage();
         updateProgressUI();
-      })
-      .catch(err => {
+      } catch (err) {
         console.error(err);
-        document.body.insertAdjacentHTML('beforeend', '<p style="color:red">Failed to load data. Make sure the JSON file is in the correct folder.</p>');
-      });
+        const reason = err && err.message ? ` (${err.message})` : '';
+        document.body.insertAdjacentHTML('beforeend', `<p style="color:red">Failed to load data${reason}. Make sure the JSON file is in the correct folder.</p>`);
+      }
+    })();
     // Build pal page
     function buildPalPage() {
       const list = document.getElementById('palsList');
