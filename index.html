@@ -864,6 +864,33 @@
       'data/palworld_complete_data_enhanced.json',
       'data/palworld_complete_data.json'
     ];
+    const EMBEDDED_DATA_SCRIPT = 'data/palworld_complete_data_fallback.js';
+    let embeddedDataPromise = null;
+
+    async function loadEmbeddedDataset() {
+      if (window.__PALMATE_EMBEDDED_DATA__) {
+        return window.__PALMATE_EMBEDDED_DATA__;
+      }
+      if (!embeddedDataPromise) {
+        embeddedDataPromise = new Promise(resolve => {
+          const script = document.createElement('script');
+          script.src = EMBEDDED_DATA_SCRIPT;
+          script.async = true;
+          script.onload = () => resolve(window.__PALMATE_EMBEDDED_DATA__ || null);
+          script.onerror = event => {
+            console.warn('Unable to load embedded dataset script.', event);
+            resolve(null);
+          };
+          document.head.appendChild(script);
+        });
+      }
+      try {
+        return await embeddedDataPromise;
+      } catch (err) {
+        console.warn('Embedded dataset loader failed.', err);
+        return null;
+      }
+    }
     // Type icon mapping (relative file paths)
     const iconMap = {
       'Neutral': 'assets/icons/neutral.png',
@@ -957,6 +984,15 @@
       playSound(closeSound);
     }
     async function loadDatasetSequentially() {
+      const isFileProtocol = window.location.protocol === 'file:';
+      if (isFileProtocol) {
+        const embeddedPayload = await loadEmbeddedDataset();
+        if (embeddedPayload) {
+          return { payload: embeddedPayload, source: 'embedded fallback dataset' };
+        }
+        console.warn('File protocol detected but embedded dataset fallback was unavailable. Continuing with fetch attempts.');
+      }
+      const loadErrors = [];
       for (const source of DATA_SOURCES) {
         try {
           const response = await fetch(source);
@@ -973,10 +1009,22 @@
           }
           return { payload, source };
         } catch (err) {
+          loadErrors.push({ source, error: err });
           console.warn(`Failed to load dataset ${source}`, err);
         }
       }
-      throw new Error('Unable to load any dataset from the data folder.');
+      const embeddedFallback = await loadEmbeddedDataset();
+      if (embeddedFallback) {
+        return { payload: embeddedFallback, source: 'embedded fallback dataset' };
+      }
+      const errorSummary = loadErrors.length
+        ? loadErrors.map(entry => {
+            const reason = entry.error && entry.error.message ? entry.error.message : entry.error;
+            return `${entry.source} (${reason})`;
+          }).join('; ')
+        : '';
+      const summarySuffix = errorSummary ? ` ${errorSummary}` : '';
+      throw new Error(`Unable to load any dataset from the data folder.${summarySuffix}`);
     }
 
     (async function initialisePalmate() {
@@ -1037,7 +1085,10 @@
       } catch (err) {
         console.error(err);
         const reason = err && err.message ? ` (${err.message})` : '';
-        document.body.insertAdjacentHTML('beforeend', `<p style="color:red">Failed to load data${reason}. Make sure the JSON file is in the correct folder.</p>`);
+        const extraHelp = window.location.protocol === 'file:'
+          ? ' Launching a local web server or regenerating data/palworld_complete_data_fallback.js usually resolves file:// restrictions.'
+          : ' Please confirm that the data folder is deployed with the site.';
+        document.body.insertAdjacentHTML('beforeend', `<p style="color:red">Failed to load data${reason}.${extraHelp}</p>`);
       }
     })();
     // Build pal page
