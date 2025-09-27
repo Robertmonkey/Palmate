@@ -8,17 +8,26 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <!-- Core styles: cosmic blue theme with smooth scrollbars -->
   <style>
+    /*
+      Colour palette for our epic cosmic theme.  We move away from the
+      flat blues of the original and embrace rich purples and golds
+      inspired by the Palworld universe.  These variables define the
+      background, primary and secondary navigation colours, accent
+      highlights, light text, card backgrounds and success/danger
+      notifications.  Feel free to tweak these values for your own
+      flavour.
+    */
     :root {
-      --bg: #041d34;
-      --primary: #133c55;
-      --secondary: #386fa4;
-      --accent: #59a5d8;
-      --light: #84c0ec;
-      --card-bg: #0e2a45;
-      --card-hover: #184c76;
-      --text: #e8f0f8;
-      --danger: #e63946;
-      --success: #52b788;
+      --bg: #100a26;
+      --primary: #281e5d;
+      --secondary: #4a2a8b;
+      --accent: #c57aff;
+      --light: #dbcaf7;
+      --card-bg: #1c1140;
+      --card-hover: #322066;
+      --text: #f5ecff;
+      --danger: #e76f51;
+      --success: #2a9d8f;
     }
     * {
       box-sizing: border-box;
@@ -26,7 +35,11 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: var(--bg);
+      /* Set a cosmic background image across the entire page.  We use
+         background-attachment: fixed so the stars stay put as you
+         scroll, lending a sense of depth.  The fallback colour
+         ensures readability while the image loads. */
+      background: var(--bg) url('assets/images/background.png') center/cover fixed no-repeat;
       color: var(--text);
       font-family: "Trebuchet MS", sans-serif;
       height: 100%;
@@ -390,6 +403,8 @@
     let PALS = {};
     let ITEMS = {};
     let TECH = [];
+    // Map of items to pals that drop them.  Populated after data load.
+    let DROPS_MAP = {};
     // Progress tracking
     let caught = JSON.parse(localStorage.getItem('caught') || '{}');
     let collected = JSON.parse(localStorage.getItem('collected') || '{}');
@@ -432,6 +447,62 @@
     // Trait lists for guidance (simplified)
     const goodTraits = ['Diligent', 'Runner', 'Strong', 'Loyal'];
     const badTraits = ['Coward', 'Lazy', 'Gullible'];
+
+    // Descriptions for active skills.  Each entry maps the skill key
+    // (as it appears in the data) to a human-friendly object with
+    // damage, type (AoE, cone, single-target) and a brief description
+    // gleaned from community knowledge and official guides.  When
+    // unknown, we provide a generic description encouraging players to
+    // experiment.  Feel free to extend this dictionary with more
+    // abilities as you discover them.
+    const skillsDictionary = {
+      'rolly_poly': { name:'Roly Poly', damage:'Low', type:'Charge', description:'Curls into a ball and rolls after foes; be careful as you may become dizzy afterwards' },
+      'air_cannon': { name:'Air Cannon', damage:'Moderate', type:'Projectile', description:'Fires compressed air that pushes enemies back in a line' },
+      'power_shot': { name:'Power Shot', damage:'Moderate', type:'Projectile', description:'Charges up and fires a strong projectile at a single target' },
+      'implode': { name:'Implode', damage:'Massive', type:'Area', description:'Self-destructs in a powerful explosion harming all nearby – the user faints afterwards' },
+      'electric_ball': { name:'Electric Ball', damage:'High', type:'Projectile', description:'Launches a ball of lightning that zaps enemies on contact' },
+      'dragon_burst': { name:'Dragon Burst', damage:'High', type:'Area', description:'Unleashes draconic energy in a burst around the user' },
+      'fire_blast': { name:'Fire Blast', damage:'High', type:'Cone', description:'Breathes fire in a wide cone, burning anything in its path' },
+      'leaf_dance': { name:'Leaf Dance', damage:'Moderate', type:'Area', description:'Summons swirling leaves that slice nearby enemies' }
+    };
+
+    // Descriptions for passive traits.  Each entry summarises the
+    // benefits or drawbacks of the trait.  We extracted a few from
+    // community guides and added our own commentary for others.  Add
+    // additional traits here as needed.  Traits not present here
+    // will display a generic encouragement to experiment.
+    const traitsDictionary = {
+      'Swift': 'Increases movement speed by 30%, letting your pal dash around quickly',
+      'Legend': 'Raises Attack and Defense by 20% and Movement Speed by 15%',
+      'Lord of the Sea': 'Increases Water attack damage by 20%',
+      'Runner': 'Boosts movement speed by 20%',
+      'Diligent': 'Raises work efficiency, making jobs go 20% faster',
+      'Strong': 'Increases attack damage by 20%',
+      'Loyal': 'Improves Attack and Defense slightly (about 10%)',
+      'Coward': 'Lowers Attack and Defense by 10%; this pal gets scared easily',
+      'Lazy': 'Decreases work speed by 20%, making tasks take longer',
+      'Gullible': 'More susceptible to negative status effects; be wary when battling'
+    };
+
+    // Mapping of environment names to highlight coordinates.  Each
+    // environment corresponds to a circular highlight on the map.  The
+    // x and y values represent the percentage offsets from the top-left
+    // corner of the map image, while w and h represent the diameter
+    // percentages of the highlight.  These were chosen manually to
+    // approximate the Palworld regions and provide a more natural
+    // spotlight compared to boxy overlays.
+    const zonePositions = {
+      'Volcano': { x: 68, y: 10, w: 30, h: 30 },
+      'Snow': { x: 10, y: 10, w: 25, h: 25 },
+      'Plains': { x: 40, y: 50, w: 35, h: 35 },
+      'Forest': { x: 12, y: 55, w: 25, h: 25 },
+      'Coast': { x: 78, y: 60, w: 25, h: 25 },
+      'Desert': { x: 50, y: 65, w: 25, h: 25 },
+      'Swamp': { x: 85, y: 45, w: 20, h: 20 },
+      'Mountains': { x: 50, y: 20, w: 25, h: 25 },
+      'Highlands': { x: 40, y: 5, w: 30, h: 20 },
+      'River': { x: 5, y: 70, w: 25, h: 20 }
+    };
     // Type icon mapping (relative file paths)
     const iconMap = {
       'Neutral': 'assets/icons/neutral.png',
@@ -491,11 +562,20 @@
       playSound(closeSound);
     }
     // Fetch data on load
-    fetch('data/palworld_complete_data.json').then(r => r.json()).then(data => {
+    fetch('data/palworld_complete_data_enhanced.json').then(r => r.json()).then(data => {
       // Data is namespaced under pals, items and tech
       PALS = data.pals || {};
       ITEMS = data.items || {};
       TECH = data.tech || [];
+      // Build a global map of item drops for quick lookup.  For each pal,
+      // iterate through its drops and record which pals drop a given item.
+      DROPS_MAP = {};
+      Object.values(PALS).forEach(pal => {
+        (pal.drops || []).forEach(item => {
+          if (!DROPS_MAP[item]) DROPS_MAP[item] = [];
+          DROPS_MAP[item].push(pal.name);
+        });
+      });
       buildPalPage();
       buildItemPage();
       buildTechPage();
@@ -595,9 +675,14 @@
       const sphereInfo = document.createElement('div');
       sphereInfo.innerHTML = `<strong>Recommended Sphere:</strong> ${sphere} – ${(sRate.rate * 100).toFixed(0)}% chance. ${sRate.description}`;
       container.appendChild(sphereInfo);
-      // Traits info
+      // Traits info with clickable links.  We wrap each trait name in an
+      // anchor and attach a data-trait attribute for lookup in
+      // traitsDictionary.  Unknown traits will still be clickable and
+      // show a generic message.
       const traitInfo = document.createElement('div');
-      traitInfo.innerHTML = `<strong>Traits:</strong> Good traits include ${goodTraits.join(', ')}. Bad traits include ${badTraits.join(', ')}. Breeding can pass traits down to babies!`;
+      const goodLinks = goodTraits.map(t => `<a href="#" class="trait-link" data-trait="${t}">${t}</a>`).join(', ');
+      const badLinks = badTraits.map(t => `<a href="#" class="trait-link" data-trait="${t}">${t}</a>`).join(', ');
+      traitInfo.innerHTML = `<strong>Traits:</strong> Good traits include ${goodLinks}. Bad traits include ${badLinks}. Breeding can pass traits down to babies!`;
       container.appendChild(traitInfo);
       // Radar chart canvas
       const canvas = document.createElement('canvas');
@@ -647,14 +732,19 @@
       }
       workDiv.innerHTML = workHtml;
       container.appendChild(workDiv);
-      // Active skills
+      // Active skills with clickable links for more info.  Each skill
+      // name is an anchor with a data-skill attribute pointing to its
+      // raw name (as in the dataset).  Unknown skills still create a
+      // link and will display a generic message when clicked.
       const skillsDiv = document.createElement('div');
       skillsDiv.style.marginTop = '10px';
       let skillsHtml = '<strong>Active Skills:</strong> ';
       if (pal.skills && pal.skills.length) {
         skillsHtml += '<ul>';
         pal.skills.forEach(s => {
-          skillsHtml += `<li>${s.name.replace(/_/g,' ')} (Lv ${s.level}, Power ${s.power}, CD ${s.cooldown}s)</li>`;
+          const rawName = s.name;
+          const humanName = rawName.replace(/_/g, ' ');
+          skillsHtml += `<li><a href="#" class="skill-link" data-skill="${rawName}">${humanName}</a> (Lv ${s.level}, Power ${s.power}, CD ${s.cooldown}s)</li>`;
         });
         skillsHtml += '</ul>';
       } else {
@@ -662,7 +752,9 @@
       }
       skillsDiv.innerHTML = skillsHtml;
       container.appendChild(skillsDiv);
-      // Drops
+      // Drops with clickable links to open item details.  Each
+      // item name is an anchor with a data-item attribute; clicking
+      // will open a modal with more information about that item.
       const dropDiv = document.createElement('div');
       dropDiv.style.marginTop = '10px';
       let dropsHtml = '<strong>Drops:</strong> ';
@@ -670,7 +762,8 @@
         dropsHtml += '<ul>';
         pal.drops.forEach(item => {
           const cat = ITEMS[item] ? ITEMS[item].category : 'Unknown';
-          dropsHtml += `<li>${item.replace(/_/g,' ')} (${cat})</li>`;
+          const human = item.replace(/_/g,' ');
+          dropsHtml += `<li><a href="#" class="item-link" data-item="${item}">${human}</a> (${cat})</li>`;
         });
         dropsHtml += '</ul>';
       } else {
@@ -692,39 +785,51 @@
       mapWrap.appendChild(mapImg);
       const overlay = document.createElement('div');
       overlay.id = 'mapOverlay';
-      // Define zones
-      const zones = [
-        { name:'Volcano', x:60, y:5, w:35, h:35 },
-        { name:'Snow', x:5, y:5, w:30, h:30 },
-        { name:'Plains', x:30, y:40, w:40, h:35 },
-        { name:'Forest', x:5, y:45, w:25, h:30 },
-        { name:'Coast', x:65, y:55, w:30, h:35 },
-        { name:'Desert', x:40, y:60, w:30, h:35 },
-        { name:'Swamp', x:75, y:40, w:20, h:25 },
-        { name:'Mountains', x:40, y:10, w:30, h:25 },
-        { name:'Highlands', x:35, y:0, w:30, h:20 },
-        { name:'River', x:0, y:60, w:30, h:25 }
-      ];
-      zones.forEach(z => {
-        const d = document.createElement('div');
-        d.className = 'zone';
-        d.dataset.zone = z.name;
-        d.style.left = z.x + '%';
-        d.style.top = z.y + '%';
-        d.style.width = z.w + '%';
-        d.style.height = z.h + '%';
-        overlay.appendChild(d);
-      });
+      // We no longer create a fixed set of rectangular zones.  Instead,
+      // when a pal is selected we will insert a single circular
+      // highlight representing its preferred habitat.  Remove any
+      // previous highlights from the overlay.
+      overlay.innerHTML = '';
       mapWrap.appendChild(overlay);
       container.appendChild(mapWrap);
       modalBody.appendChild(container);
-      // Highlight environment zone
-      const zoneName = environmentMap[pal.types[0]];
-      if (zoneName) {
-        overlay.querySelectorAll('.zone').forEach(z => {
-          z.classList.toggle('active', z.dataset.zone === zoneName);
-        });
+      // Create and position the highlight based on the primary environment.
+      const envName = environmentMap[pal.types[0]];
+      if (envName && zonePositions[envName]) {
+        const zp = zonePositions[envName];
+        const hl = document.createElement('div');
+        hl.style.position = 'absolute';
+        hl.style.left = zp.x + '%';
+        hl.style.top = zp.y + '%';
+        hl.style.width = zp.w + '%';
+        hl.style.height = zp.h + '%';
+        hl.style.borderRadius = '50%';
+        hl.style.background = 'rgba(197,122,255,0.35)';
+        hl.style.border = '2px solid var(--light)';
+        hl.style.pointerEvents = 'none';
+        overlay.appendChild(hl);
       }
+      // Attach click handlers for skill, trait and item links within this modal.
+      container.addEventListener('click', (e) => {
+        if (e.target.classList.contains('skill-link')) {
+          e.preventDefault();
+          const skillKey = e.target.dataset.skill;
+          showSkillDetail(skillKey);
+          return;
+        }
+        if (e.target.classList.contains('trait-link')) {
+          e.preventDefault();
+          const traitName = e.target.dataset.trait;
+          showTraitDetail(traitName);
+          return;
+        }
+        if (e.target.classList.contains('item-link')) {
+          e.preventDefault();
+          const itemName = e.target.dataset.item;
+          openItemDetail(itemName);
+          return;
+        }
+      });
       openModal();
     }
     // Build items page
@@ -762,6 +867,12 @@
             btn.classList.toggle('collected', collected[item]);
             btn.textContent = collected[item] ? 'Collected' : 'Collect';
             updateProgressUI();
+          });
+          // Clicking the card opens the item details modal.  Exclude button clicks.
+          card.addEventListener('click', (e) => {
+            // Only trigger if the click target is not the button
+            if (e.target.tagName.toLowerCase() === 'button') return;
+            openItemDetail(item);
           });
           list.appendChild(card);
         });
@@ -864,6 +975,66 @@
       const unlockedCount = Object.keys(unlocked).filter(k => unlocked[k]).length;
       const techBar = document.getElementById('techProgress');
       techBar.style.width = ((unlockedCount / totalRecipes) * 100) + '%';
+    }
+
+    // Display detailed information about an item.  This function builds
+    // modal content including the item name, category, which pals drop it,
+    // and any tech recipes using the item.  If the item appears in the
+    // technology tree, we also list the recipes that require it.  The
+    // function expects the raw item key as stored in the ITEMS object.
+    function openItemDetail(itemKey) {
+      const item = ITEMS[itemKey];
+      modalBody.innerHTML = '';
+      const wrap = document.createElement('div');
+      const human = itemKey.replace(/_/g, ' ');
+      wrap.innerHTML = `<h3>${human}</h3><p><strong>Category:</strong> ${item.category || 'Unknown'}</p>`;
+      // Pals dropping this item
+      const drops = DROPS_MAP[itemKey] || [];
+      const dropsHtml = drops.length ? drops.join(', ') : 'None';
+      wrap.innerHTML += `<p><strong>Dropped by:</strong> ${dropsHtml}</p>`;
+      // Show tech recipes that require this item as a material
+      const recipes = [];
+      TECH.forEach(level => {
+        level.items.forEach(it => {
+          if (it.materials[itemKey]) {
+            recipes.push({ name: it.name, qty: it.materials[itemKey], level: level.level });
+          }
+        });
+      });
+      if (recipes.length) {
+        let recHtml = '<ul>';
+        recipes.forEach(r => {
+          recHtml += `<li>Level ${r.level}: ${r.name} (x${r.qty})</li>`;
+        });
+        recHtml += '</ul>';
+        wrap.innerHTML += `<p><strong>Used in Tech:</strong> ${recHtml}</p>`;
+      }
+      modalBody.appendChild(wrap);
+      openModal();
+    }
+
+    // Show details about an active skill.  Looks up the skill in the
+    // dictionary; if it’s missing we display a generic placeholder.
+    function showSkillDetail(key) {
+      const lower = key.toLowerCase();
+      const info = skillsDictionary[lower] || { name: key.replace(/_/g,' '), damage: 'Unknown', type: 'Unknown', description: 'This skill\'s effects are a mystery! Try it out in battle.' };
+      modalBody.innerHTML = '';
+      const div = document.createElement('div');
+      div.innerHTML = `<h3>${info.name}</h3><p><strong>Damage:</strong> ${info.damage}</p><p><strong>Type:</strong> ${info.type}</p><p>${info.description}</p>`;
+      modalBody.appendChild(div);
+      openModal();
+    }
+
+    // Show details about a passive trait.  Retrieves the description
+    // from the trait dictionary.  Unknown traits yield a default
+    // explanation encouraging exploration.
+    function showTraitDetail(name) {
+      const desc = traitsDictionary[name] || 'This trait has mysterious effects that aren\'t fully documented. See how it behaves in-game!';
+      modalBody.innerHTML = '';
+      const div = document.createElement('div');
+      div.innerHTML = `<h3>${name}</h3><p>${desc}</p>`;
+      modalBody.appendChild(div);
+      openModal();
     }
   </script>
 </body>
