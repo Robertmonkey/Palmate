@@ -8,7 +8,7 @@ Pal Marathon is an offline‑first, single‑page web application that serves as
 
 Repository Structure
 
-palmate.html – The primary HTML document containing inline CSS and JavaScript. This file bootstraps the app, loads the JSON data and renders all pages (Home, Pals, Map, Route, Tech, Items, Glossary, Breeding and Progress). Navigation is handled via JavaScript by toggling the visibility of <section> elements.
+index.html (historically palmate.html) – The primary HTML document containing inline CSS and JavaScript. This file bootstraps the app, loads the JSON data and renders all pages (Home, Pals, Map, Route, Tech, Items, Glossary, Breeding and Progress). Navigation is handled via JavaScript by toggling the visibility of <section> elements.
 
 data/ – Contains JSON data files. The main file, palworld_complete_data_final.json, holds structured data for pals, items, tech tree, route steps, skills and passives. Each pal record includes stats, work suitability, drops, breeding data, image paths, spawn areas and pre‑computed breeding combos.
 

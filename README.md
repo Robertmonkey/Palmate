@@ -21,9 +21,10 @@ Breeding Calculator – Select two parent pals to predict their offspring. The a
 Progress Tracking – Mark pals as caught, items as collected, tech recipes as unlocked and route steps as completed. All progress is saved in your browser (no account needed).
 
 Directory Structure
-├── palmate.html                   # Main application file (HTML, CSS, JS in one)
+├── index.html                     # Main application file (HTML, CSS, JS in one)
 ├── data/
-│   └── palworld_complete_data_final.json   # Comprehensive data file for pals, items, tech, route, skills and passives
+│   ├── palworld_complete_data_final.json       # Comprehensive data file for pals, items, tech, route, skills and passives
+│   └── palworld_complete_data_fallback.js      # Auto-generated JS fallback when fetch() is blocked
 ├── assets/
 │   ├── pals/                     # Pal menu images
 │   ├── icons/                    # Element icons
@@ -41,7 +42,13 @@ cd palmarathon    # change into the project directory
 python3 -m http.server 8000
 
 
-Then open http://localhost:8000/palmate.html in your browser. The app will load the data file and all assets correctly.
+Then open http://localhost:8000/index.html in your browser. The app will load the data file and all assets correctly.
+
+If you cannot run a local server (for example, when double-clicking the HTML file), the app falls back to `data/palworld_complete_data_fallback.js`. The fallback mirrors the JSON payload in JavaScript so it can be loaded even when browsers block `fetch()` on the `file://` protocol. Regenerate it whenever the JSON changes:
+
+```
+python scripts/generate_embedded_dataset.py
+```
 
 Contributing
 
