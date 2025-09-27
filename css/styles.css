@@ -8,9 +8,20 @@
 .chip.link{cursor:pointer;background:rgba(119,141,169,0.24)}
 .chip.link:hover{background:rgba(119,141,169,0.4)}
 .step-group{margin:12px 0}
-.step{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #22314A;border-radius:12px;margin:8px 0;background:#101828}
+.step-list{display:grid;gap:10px;margin:12px 0}
+.step{display:flex;align-items:flex-start;gap:12px;padding:10px;border:1px solid #22314A;border-radius:12px;background:#101828}
 .step input[type=checkbox]{width:24px;height:24px}
 .step.optional{opacity:.95}
-.step .step-text{flex:1}
+.step-meta{display:flex;flex-direction:column;gap:6px;flex:1}
+.step .step-text{line-height:1.4}
+.step .badges{margin-left:auto}
+.step-category{display:inline-flex;align-items:center;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 10px;border-radius:999px;background:rgba(119,141,169,0.2);color:#e0e9f5}
+.step-category--base{background:rgba(94,163,255,0.22);color:#e6f2ff}
+.step-category--gear{background:rgba(255,196,77,0.22);color:#fff4d6}
+.step-category--tech{background:rgba(206,135,255,0.22);color:#f5e9ff}
+.step-category--catch{background:rgba(125,214,134,0.22);color:#eaffed}
+.step-category--prep{background:rgba(255,160,122,0.22);color:#ffe8e0}
+.step-category--explore{background:rgba(132,206,235,0.22);color:#e7f6ff}
+.step-category--boss{background:rgba(255,116,140,0.24);color:#ffe7ec}
 .pulse{animation:pulse 1.2s ease-out 1}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(105,228,166,.8)}100%{box-shadow:0 0 0 14px rgba(105,228,166,0)}}
