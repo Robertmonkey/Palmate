@@ -1073,22 +1073,112 @@
         max-height: 300px;
       }
     }
-    /* Progress bars */
-    .progress-bar {
-      background: var(--card-bg);
-      border-radius: 6px;
+    /* Progress page */
+    .progress-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (min-width: 640px) {
+      .progress-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+    }
+    .progress-card {
+      position: relative;
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(65, 90, 119, 0.85), rgba(119, 141, 169, 0.6));
+      box-shadow: 0 12px 24px rgba(13, 27, 42, 0.35);
       overflow: hidden;
-      margin-bottom: 10px;
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .progress-bar .fill {
-      height: 16px;
+    .progress-card::after {
+      content: '';
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle at center, rgba(224, 225, 221, 0.35), transparent 70%);
+      opacity: 0.8;
+      pointer-events: none;
+      transform: rotate(15deg);
+    }
+    .progress-card--hero {
+      background: linear-gradient(135deg, rgba(42, 157, 143, 0.9), rgba(119, 141, 169, 0.65));
+    }
+    @media (min-width: 960px) {
+      .progress-card--hero {
+        grid-column: span 2;
+      }
+    }
+    .progress-card__header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .progress-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(13, 27, 42, 0.35);
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      color: var(--light);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.25);
+    }
+    .progress-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .progress-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .progress-meter {
+      width: 100%;
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(13, 27, 42, 0.4);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    .progress-meter .meter-fill {
+      height: 100%;
       width: 0;
-      background: var(--success);
-      transition: width 0.5s;
+      background: linear-gradient(90deg, var(--success), var(--accent));
+      transition: width 0.6s ease;
     }
-    .progress-label {
-      font-size: 0.8rem;
-      margin-bottom: 2px;
+    .progress-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.85rem;
+      position: relative;
+      z-index: 1;
+    }
+    .progress-text {
+      color: var(--light);
+    }
+    .progress-badge {
+      background: rgba(13, 27, 42, 0.45);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--light);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.2);
     }
     /* Custom scrollbars */
     ::-webkit-scrollbar {
@@ -1220,14 +1310,54 @@
         <header class="page-header">
           <h2>Your Progress</h2>
         </header>
-        <p>Track your adventure by marking pals you catch, items you gather and tech you unlock. Your progress is saved in this browser.</p>
-        <div class="progress-section">
-          <div class="progress-label">Pals caught</div>
-          <div class="progress-bar"><div class="fill" id="palsProgress"></div></div>
-          <div class="progress-label">Items collected</div>
-          <div class="progress-bar"><div class="fill" id="itemsProgress"></div></div>
-          <div class="progress-label">Tech unlocked</div>
-          <div class="progress-bar"><div class="fill" id="techProgress"></div></div>
+        <p>Keep tabs on your Pal Marathon adventure. Check off guide steps, recruit pals and unlock technology—the meters below grow as you play.</p>
+        <div class="progress-grid">
+          <article class="progress-card progress-card--hero">
+            <div class="progress-card__header">
+              <div class="progress-card__icon"><i class="fa-solid fa-book-open-reader"></i></div>
+              <div>
+                <h3>Adventure Guide</h3>
+                <p>Follow the family route and topple every tower boss.</p>
+              </div>
+            </div>
+            <div class="progress-meter" id="guideProgressMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="meter-fill" id="guideProgress"></div>
+            </div>
+            <div class="progress-card__footer">
+              <span id="guideProgressText" class="progress-text"></span>
+              <span id="towersClearedBadge" class="progress-badge"></span>
+            </div>
+          </article>
+          <article class="progress-card">
+            <div class="progress-card__header">
+              <div class="progress-card__icon"><i class="fa-solid fa-paw"></i></div>
+              <div>
+                <h3>Pal Squad</h3>
+                <p>Mark pals as caught when they join your crew.</p>
+              </div>
+            </div>
+            <div class="progress-meter" id="palsProgressMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="meter-fill" id="palsProgress"></div>
+            </div>
+            <div class="progress-card__footer">
+              <span id="palsProgressText" class="progress-text"></span>
+            </div>
+          </article>
+          <article class="progress-card">
+            <div class="progress-card__header">
+              <div class="progress-card__icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+              <div>
+                <h3>Workshop Tech</h3>
+                <p>Unlock inventions to boost your base and travel.</p>
+              </div>
+            </div>
+            <div class="progress-meter" id="techProgressMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="meter-fill" id="techProgress"></div>
+            </div>
+            <div class="progress-card__footer">
+              <span id="techProgressText" class="progress-text"></span>
+            </div>
+          </article>
         </div>
       </section>
       <!-- Glossary page -->
@@ -1566,6 +1696,8 @@
       renderRouteGuide();
       // Home page re-render to update suggestions styling
       buildHomePage();
+      buildProgressPage();
+      updateProgressUI();
     });
     function switchPage(page) {
       // Hide all pages and show the selected page.  Our pages are
@@ -2648,6 +2780,7 @@
             }
           };
         }
+        updateProgressUI();
       });
     }
 
@@ -2715,6 +2848,7 @@
       if(chapter){
         rerenderChapter(chapter);
       }
+      updateProgressUI();
     }
 
     function handleRouteClick(event){
@@ -2736,12 +2870,14 @@
         });
         saveRouteState(routeState);
         rerenderChapter(chapter);
+        updateProgressUI();
       } else if(btn.dataset.action === 'resetChapter'){
         chapter.steps.forEach(step => {
           delete routeState[step.id];
         });
         saveRouteState(routeState);
         rerenderChapter(chapter);
+        updateProgressUI();
       }
     }
 
@@ -2792,6 +2928,27 @@
           <div style="font-size:.9rem;color:var(--muted)">${progress.requiredChecked}/${progress.requiredCount} required done (${pct}%)</div>
         </div>
       `;
+    }
+
+    function calculateGuideProgressSummary(){
+      const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
+      let requiredTotal = 0;
+      let requiredComplete = 0;
+      let towersTotal = 0;
+      let towersComplete = 0;
+      chapters.forEach(chapter => {
+        const progress = chapterProgress(chapter);
+        requiredTotal += progress.requiredCount;
+        requiredComplete += progress.requiredChecked;
+        (chapter.steps || []).forEach(step => {
+          if(step?.category === 'Boss'){
+            towersTotal += 1;
+            if(routeState[step.id]) towersComplete += 1;
+          }
+        });
+      });
+      const percent = requiredTotal ? Math.round((requiredComplete / requiredTotal) * 100) : 0;
+      return { requiredTotal, requiredComplete, towersTotal, towersComplete, percent };
     }
 
     function renderLinks(links){
@@ -3092,44 +3249,91 @@
       });
     }
     function buildProgressPage() {
-      const section = document.querySelector('#progressPage .progress-section');
-      if (!section) return;
-      let summary = document.getElementById('progressSummary');
-      if (!summary) {
-        summary = document.createElement('div');
-        summary.id = 'progressSummary';
-        summary.style.marginTop = '12px';
-        summary.style.fontSize = '0.85rem';
-        summary.innerHTML = `
-          <div id="palsProgressText" class="progress-text"></div>
-          <div id="itemsProgressText" class="progress-text"></div>
-          <div id="techProgressText" class="progress-text"></div>
-        `;
-        section.appendChild(summary);
+      const guideText = document.getElementById('guideProgressText');
+      if (guideText) {
+        guideText.textContent = kidMode
+          ? 'Check off story steps to power up this bar!'
+          : 'Check off route steps to track your run.';
+      }
+      const towersBadge = document.getElementById('towersClearedBadge');
+      if (towersBadge) {
+        towersBadge.textContent = 'Towers cleared: 0/0';
+      }
+      const palsText = document.getElementById('palsProgressText');
+      if (palsText) {
+        palsText.textContent = kidMode
+          ? 'Catch pals to fill your squad meter.'
+          : 'Mark pals as caught to track your crew.';
+      }
+      const techText = document.getElementById('techProgressText');
+      if (techText) {
+        techText.textContent = kidMode
+          ? 'Unlock new gadgets to light up this meter.'
+          : 'Unlock tech to power up your workshop.';
       }
     }
     // Update progress bars
     function updateProgressUI() {
+      const palsFallback = kidMode
+        ? 'Catch pals to fill your squad meter.'
+        : 'Mark pals as caught to track your crew.';
+      const techFallback = kidMode
+        ? 'Unlock new gadgets to light up this meter.'
+        : 'Unlock tech to power up your workshop.';
+      const guideFallback = kidMode
+        ? 'Check off story steps to power up this bar!'
+        : 'Check off route steps to track your run.';
+
       const totalPals = Object.keys(PALS).length;
       const caughtCount = Object.keys(caught).filter(k => caught[k]).length;
+      const palsPct = totalPals ? Math.round((caughtCount / totalPals) * 100) : 0;
       const palsBar = document.getElementById('palsProgress');
-      if (palsBar) palsBar.style.width = (totalPals ? (caughtCount / totalPals) * 100 : 0) + '%';
+      if (palsBar) palsBar.style.width = palsPct + '%';
+      const palsMeter = document.getElementById('palsProgressMeter');
+      if (palsMeter) palsMeter.setAttribute('aria-valuenow', palsPct);
       const palsText = document.getElementById('palsProgressText');
-      if (palsText) palsText.textContent = `${caughtCount} / ${totalPals} pals caught`;
-      const totalItems = Object.keys(ITEMS).length;
-      const collectedCount = Object.keys(collected).filter(k => collected[k]).length;
-      const itemsBar = document.getElementById('itemsProgress');
-      if (itemsBar) itemsBar.style.width = (totalItems ? (collectedCount / totalItems) * 100 : 0) + '%';
-      const itemsText = document.getElementById('itemsProgressText');
-      if (itemsText) itemsText.textContent = `${collectedCount} / ${totalItems} items logged`;
-      // Count tech recipes
+      if (palsText) {
+        palsText.textContent = totalPals
+          ? `${caughtCount} / ${totalPals} pals recruited`
+          : palsFallback;
+      }
+
       let totalRecipes = 0;
-      TECH.forEach(lvl => { totalRecipes += lvl.items.length; });
+      (Array.isArray(TECH) ? TECH : []).forEach(lvl => {
+        if (lvl && Array.isArray(lvl.items)) {
+          totalRecipes += lvl.items.length;
+        }
+      });
       const unlockedCount = Object.keys(unlocked).filter(k => unlocked[k]).length;
+      const techPct = totalRecipes ? Math.round((unlockedCount / totalRecipes) * 100) : 0;
       const techBar = document.getElementById('techProgress');
-      if (techBar) techBar.style.width = (totalRecipes ? (unlockedCount / totalRecipes) * 100 : 0) + '%';
+      if (techBar) techBar.style.width = techPct + '%';
+      const techMeter = document.getElementById('techProgressMeter');
+      if (techMeter) techMeter.setAttribute('aria-valuenow', techPct);
       const techText = document.getElementById('techProgressText');
-      if (techText) techText.textContent = `${unlockedCount} / ${totalRecipes} tech recipes unlocked`;
+      if (techText) {
+        techText.textContent = totalRecipes
+          ? `${unlockedCount} / ${totalRecipes} inventions unlocked`
+          : techFallback;
+      }
+
+      const guideSummary = calculateGuideProgressSummary();
+      const guideBar = document.getElementById('guideProgress');
+      if (guideBar) guideBar.style.width = guideSummary.percent + '%';
+      const guideMeter = document.getElementById('guideProgressMeter');
+      if (guideMeter) guideMeter.setAttribute('aria-valuenow', guideSummary.percent);
+      const guideText = document.getElementById('guideProgressText');
+      if (guideText) {
+        guideText.textContent = guideSummary.requiredTotal
+          ? `${guideSummary.requiredComplete} / ${guideSummary.requiredTotal} guide steps complete`
+          : guideFallback;
+      }
+      const towersBadge = document.getElementById('towersClearedBadge');
+      if (towersBadge) {
+        towersBadge.textContent = guideSummary.towersTotal
+          ? `Towers cleared: ${guideSummary.towersComplete}/${guideSummary.towersTotal}`
+          : 'Towers cleared: 0/0';
+      }
     }
 
     // Display detailed information about an item using a Palworld-inspired card.
