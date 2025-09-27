@@ -6,6 +6,8 @@
   <title>Palmate – Palworld Companion</title>
   <!-- Chart.js for radar charts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- Font Awesome for interface icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- Core styles: cosmic blue theme with smooth scrollbars -->
   <style>
     /*
@@ -18,14 +20,22 @@
       flavour.
     */
     :root {
-      --bg: #100a26;
-      --primary: #281e5d;
-      --secondary: #4a2a8b;
-      --accent: #c57aff;
-      --light: #dbcaf7;
-      --card-bg: #1c1140;
-      --card-hover: #322066;
-      --text: #f5ecff;
+      /*
+        Updated colour palette to give the UI a warmer, more inviting
+        atmosphere.  The dark navy base contrasts with desaturated
+        blues and soft greens, while the accent colour pops against
+        the card backgrounds.  Light colours are slightly brighter to
+        improve readability for younger players.  Feel free to tweak
+        these values to suit your own tastes.
+      */
+      --bg: #0d1b2a;
+      --primary: #1b263b;
+      --secondary: #415a77;
+      --accent: #778da9;
+      --light: #e0e1dd;
+      --card-bg: #1e3246;
+      --card-hover: #2e4a62;
+      --text: #f0f4f8;
       --danger: #e76f51;
       --success: #2a9d8f;
     }
@@ -50,49 +60,133 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-    nav {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      background: var(--primary);
-      padding: 10px;
+    /* Remove the old #app layout (previously used for sidebar).  The
+       content area now sits below the navbar and fills the remaining
+       space. */
+    /* Top navigation bar styling */
+    #navbar {
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      z-index: 10;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      height: 60px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
-    nav button {
+    #navbar .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-right: 20px;
+    }
+    #navbar .nav-item {
+      border: none;
+      background: none;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    #navbar .nav-item i {
+      font-size: 1.1rem;
+    }
+    #navbar .nav-item:hover {
+      color: var(--accent);
+    }
+    #navbar .nav-item.active {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Mode toggle button styling */
+    .mode-btn {
+      margin-left: auto;
       background: none;
       border: none;
       color: var(--text);
-      font-size: 1rem;
-      padding: 8px 12px;
+      font-size: 1.2rem;
       cursor: pointer;
-      border-radius: 6px;
-      transition: background 0.2s, color 0.2s;
+      padding: 10px;
+      transition: color 0.3s;
     }
-    nav button:hover, nav button.active {
-      background: var(--secondary);
+    .mode-btn:hover {
+      color: var(--accent);
     }
-    main {
-      flex: 1;
+
+    /* Kid mode adjustments: larger targets and font sizes, simplified cards */
+    body.kid-mode .pal-card img {
+      width: 120px;
+      height: 120px;
+    }
+    body.kid-mode .item-card img {
+      width: 120px;
+      height: 120px;
+    }
+    body.kid-mode .pal-card .name,
+    body.kid-mode .item-card .name {
+      font-size: 1.2rem;
+    }
+    body.kid-mode .nav-item span {
+      font-size: 1rem;
+    }
+    body.kid-mode .search-bar input {
+      font-size: 1rem;
+    }
+    /* Main content area.  This section fills the page below the
+       navbar.  We add a top margin equal to the navbar height to
+       ensure the content does not scroll underneath it. */
+    #content {
       padding: 20px;
+      margin-top: 60px;
+    }
+    .page {
       display: none;
     }
-    main.active {
+    .page.active {
       display: block;
     }
-    /* Pal card grid */
-    #palsList, #itemsList {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 16px;
-      margin-top: 10px;
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
     }
+    .search-bar {
+      width: 100%;
+      max-width: 400px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: none;
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    /* Grid for cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    body.kid-mode .card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    /* Pal and item cards */
     .pal-card, .item-card {
       background: var(--card-bg);
       border-radius: 8px;
-      padding: 10px;
+      padding: 12px;
       text-align: center;
       transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
       cursor: pointer;
@@ -104,33 +198,50 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
     .pal-card img, .item-card img {
-      width: 60px;
-      height: 60px;
+      /* Increase the size of the images to make each pal and item
+         card more visually striking and easier for younger players
+         to recognise. */
+      width: 100px;
+      height: 100px;
       object-fit: contain;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
-    .pal-card .name {
-      font-size: 0.9rem;
+    .pal-card .name, .item-card .name {
+      font-size: 1rem;
       font-weight: bold;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .pal-card .badge {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 2px;
+      gap: 4px;
       margin-bottom: 4px;
       color: var(--text);
-      font-size: 0.7rem;
+      font-size: 0.8rem;
     }
     .pal-card .badge img {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
     }
     .pal-card .rarity {
       font-size: 0.8rem;
       margin-bottom: 6px;
       color: var(--light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+    }
+    .pal-card .rarity .stars i {
+      color: #E4B914;
+      font-size: 0.8rem;
+      margin-right: 2px;
+    }
+    .pal-card .rarity .label {
+      color: var(--accent);
+      font-weight: bold;
+      text-transform: capitalize;
     }
     .pal-card .catch-btn {
       background: var(--success);
@@ -144,21 +255,6 @@
     }
     .pal-card .catch-btn.caught {
       background: var(--secondary);
-    }
-    /* Search bar */
-    .search-bar {
-      width: 100%;
-      max-width: 400px;
-      margin-bottom: 10px;
-    }
-    .search-bar input {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 6px;
-      border: none;
-      background: var(--card-bg);
-      color: var(--text);
-      font-size: 0.9rem;
     }
     /* Modal */
     #modal {
@@ -227,12 +323,14 @@
       opacity: 0;
       background: var(--accent);
       border: 2px solid var(--light);
-      border-radius: 4px;
+      /* Make the highlight circular/elliptical to better approximate
+         natural habitats instead of square boxes */
+      border-radius: 50%;
       transition: opacity 0.3s;
     }
     #mapOverlay .zone.active {
       /* Lower opacity for a gentler highlight that doesn’t overpower the map */
-      opacity: 0.3;
+      opacity: 0.2;
     }
     /* Items */
     .item-card .name {
@@ -347,50 +445,118 @@
   </style>
 </head>
 <body>
-  <nav>
-    <button data-page="pals">Pals</button>
-    <button data-page="items">Items</button>
-    <button data-page="tech">Tech</button>
-    <button data-page="breeding">Breeding</button>
-    <button data-page="progress">Progress</button>
+  <!-- Top navigation bar.  We move away from the vertical sidebar and instead
+       present a horizontal bar across the top of the page.  Each button
+       contains an icon and label.  The active tab is highlighted
+       via a coloured underline defined in CSS. -->
+  <nav id="navbar">
+    <div class="logo">Pal Marathon</div>
+    <!-- Navigation items.  We add Home, Map, Route and Glossary to
+         provide quick access to all major sections of the app.  The
+         first item (Home) is active by default.  Icons chosen via
+         Font Awesome provide an intuitive visual cue for each tab. -->
+    <button class="nav-item active" data-page="home"><i class="fa-solid fa-house"></i><span>Home</span></button>
+    <button class="nav-item" data-page="pals"><i class="fa-solid fa-paw"></i><span>Pals</span></button>
+    <button class="nav-item" data-page="map"><i class="fa-solid fa-map"></i><span>Map</span></button>
+    <button class="nav-item" data-page="route"><i class="fa-solid fa-road"></i><span>Route</span></button>
+    <button class="nav-item" data-page="tech"><i class="fa-solid fa-cog"></i><span>Tech</span></button>
+    <button class="nav-item" data-page="items"><i class="fa-solid fa-box"></i><span>Items</span></button>
+    <button class="nav-item" data-page="glossary"><i class="fa-solid fa-book-open"></i><span>Glossary</span></button>
+    <button class="nav-item" data-page="breeding"><i class="fa-solid fa-egg"></i><span>Breeding</span></button>
+    <button class="nav-item" data-page="progress"><i class="fa-solid fa-chart-line"></i><span>Progress</span></button>
+    <!-- Mode toggle button sits on the far right.  Clicking it
+         switches between Kid Mode (simplified UI) and Grown‑up
+         Mode (full details).  The icon updates accordingly. -->
+    <button id="modeToggle" class="mode-btn" title="Switch to grown-up mode"><i class="fa-solid fa-child"></i></button>
   </nav>
-  <main id="palsPage" class="active">
-    <h2>Pals</h2>
-    <div class="search-bar"><input id="palSearch" type="text" placeholder="Search pals by name or type..."></div>
-    <div id="palsList"></div>
-  </main>
-  <main id="itemsPage">
-    <h2>Items</h2>
-    <div class="search-bar"><input id="itemSearch" type="text" placeholder="Search items..."></div>
-    <div id="itemsList"></div>
-  </main>
-  <main id="techPage">
-    <h2>Technology Tree</h2>
-    <p>This section shows the Pal Sphere blueprints and materials you need. Check off recipes as you unlock them in your game.</p>
-    <div id="techList"></div>
-  </main>
-  <main id="breedingPage">
-    <h2>Breeding Calculator</h2>
-    <p>Select two pals to see the predicted baby pal and get tips for breeding. Be sure to place a cake in the box to start breeding!</p>
-    <div>
-      <select id="parent1"></select>
-      <select id="parent2"></select>
-      <button id="breedBtn">Predict Baby</button>
+  <div id="content">
+      <!-- Home page -->
+      <section id="homePage" class="page active">
+        <header class="page-header">
+          <h2>Tonight’s Plan</h2>
+        </header>
+        <p>Welcome to Pal Marathon, your companion guide for completing Palworld with your family. Use the quick cards below to get started on tonight’s adventure.</p>
+        <div id="homeCards" class="card-grid"></div>
+      </section>
+      <!-- Pals page -->
+      <section id="palsPage" class="page">
+        <header class="page-header">
+          <h2>Pals</h2>
+          <div class="search-bar"><input id="palSearch" type="text" placeholder="Search pals by name or type..."></div>
+        </header>
+        <div id="palsList" class="card-grid"></div>
+      </section>
+      <!-- Items page -->
+      <section id="itemsPage" class="page">
+        <header class="page-header">
+          <h2>Items</h2>
+          <div class="search-bar"><input id="itemSearch" type="text" placeholder="Search items..."></div>
+        </header>
+        <div id="itemsList" class="card-grid"></div>
+      </section>
+      <!-- Map page -->
+      <section id="mapPage" class="page">
+        <header class="page-header">
+          <h2>Map</h2>
+        </header>
+        <p>Explore Palpagos! Toggle layers to highlight points of interest. Open the interactive map for detailed navigation.</p>
+        <div id="mapLayers" style="margin-bottom:10px;"></div>
+        <div id="mapWrapper" style="position:relative; width:100%; border-radius:8px; overflow:hidden;"><img src="assets/images/palworld-full-map-2.webp" alt="Palworld map" style="width:100%;height:auto;"><div id="mapOverlayDynamic" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"></div></div>
+      </section>
+      <!-- Route page -->
+      <section id="routePage" class="page">
+        <header class="page-header">
+          <h2>Route</h2>
+        </header>
+        <p>Follow this suggested order to conquer the tower bosses. Each card offers tips and links to recommended pals and gear.</p>
+        <div id="routeList" class="card-grid"></div>
+      </section>
+      <!-- Tech page -->
+      <section id="techPage" class="page">
+        <header class="page-header">
+          <h2>Technology Tree</h2>
+        </header>
+        <p>This section shows the Pal Sphere blueprints and materials you need. Check off recipes as you unlock them in your game.</p>
+        <div id="techList"></div>
+      </section>
+      <!-- Breeding page -->
+      <section id="breedingPage" class="page">
+        <header class="page-header">
+          <h2>Breeding Calculator</h2>
+        </header>
+        <p>Select two pals to see the predicted baby pal and get tips for breeding. Be sure to place a cake in the box to start breeding!</p>
+        <div class="breeding-selectors">
+          <select id="parent1"></select>
+          <select id="parent2"></select>
+          <button id="breedBtn">Predict Baby</button>
+        </div>
+        <div id="breedingResult"></div>
+      </section>
+      <!-- Progress page -->
+      <section id="progressPage" class="page">
+        <header class="page-header">
+          <h2>Your Progress</h2>
+        </header>
+        <p>Track your adventure by marking pals you catch, items you gather and tech you unlock. Your progress is saved in this browser.</p>
+        <div class="progress-section">
+          <div class="progress-label">Pals caught</div>
+          <div class="progress-bar"><div class="fill" id="palsProgress"></div></div>
+          <div class="progress-label">Items collected</div>
+          <div class="progress-bar"><div class="fill" id="itemsProgress"></div></div>
+          <div class="progress-label">Tech unlocked</div>
+          <div class="progress-bar"><div class="fill" id="techProgress"></div></div>
+        </div>
+      </section>
+      <!-- Glossary page -->
+      <section id="glossaryPage" class="page">
+        <header class="page-header">
+          <h2>Glossary</h2>
+        </header>
+        <p>Here you’ll find definitions for passives, moves, elements and work suitabilities. Tap any term to learn more.</p>
+        <div id="glossaryContent"></div>
+      </section>
     </div>
-    <div id="breedingResult"></div>
-  </main>
-  <main id="progressPage">
-    <h2>Your Progress</h2>
-    <p>Track your adventure by marking pals you catch, items you gather and tech you unlock. Your progress is saved in this browser.</p>
-    <div>
-      <div class="progress-label">Pals caught</div>
-      <div class="progress-bar"><div class="fill" id="palsProgress"></div></div>
-      <div class="progress-label">Items collected</div>
-      <div class="progress-bar"><div class="fill" id="itemsProgress"></div></div>
-      <div class="progress-label">Tech unlocked</div>
-      <div class="progress-bar"><div class="fill" id="techProgress"></div></div>
-    </div>
-  </main>
+  </div>
   <!-- Modal for pal details -->
   <div id="modal">
     <div id="modalContent">
@@ -405,6 +571,9 @@
     let TECH = [];
     // Map of items to pals that drop them.  Populated after data load.
     let DROPS_MAP = {};
+    // Map pal names to IDs for quick lookup when clicking breeding
+    // combos.  Populated after data load.
+    let PAL_NAME_TO_ID = {};
     // Progress tracking
     let caught = JSON.parse(localStorage.getItem('caught') || '{}');
     let collected = JSON.parse(localStorage.getItem('collected') || '{}');
@@ -435,6 +604,15 @@
       5: 'Ultra Sphere',
       6: 'Legendary Sphere'
     };
+    // Human-friendly rarity names for better readability on cards and details.
+    const rarityNames = {
+      1: 'Common',
+      2: 'Uncommon',
+      3: 'Rare',
+      4: 'Epic',
+      5: 'Legendary',
+      6: 'Mythic'
+    };
     // Sphere capture rates and descriptions (approximate for guidance)
     const sphereRates = {
       'Pal Sphere': { rate: 0.3, description: 'Good for beginners and low-level pals (Lv 1-15)' },
@@ -447,6 +625,12 @@
     // Trait lists for guidance (simplified)
     const goodTraits = ['Diligent', 'Runner', 'Strong', 'Loyal'];
     const badTraits = ['Coward', 'Lazy', 'Gullible'];
+
+    // Whether we’re in Kid Mode.  Kid Mode simplifies the UI by
+    // enlarging fonts, hiding advanced stats and using shorter
+    // explanations.  Start in kid mode by default; toggled via the
+    // mode button in the nav bar.
+    let kidMode = true;
 
     // Descriptions for active skills.  Each entry maps the skill key
     // (as it appears in the data) to a human-friendly object with
@@ -464,6 +648,35 @@
       'dragon_burst': { name:'Dragon Burst', damage:'High', type:'Area', description:'Unleashes draconic energy in a burst around the user' },
       'fire_blast': { name:'Fire Blast', damage:'High', type:'Cone', description:'Breathes fire in a wide cone, burning anything in its path' },
       'leaf_dance': { name:'Leaf Dance', damage:'Moderate', type:'Area', description:'Summons swirling leaves that slice nearby enemies' }
+    ,
+      // Additional skills with descriptions derived from the Palworld Wiki【841863502450800†L124-L156】.  These give
+      // players a better sense of each move’s effect.
+      'acid_rain': { name:'Acid Rain', damage:'Moderate', type:'Area', description:'Creates acidic clouds that pour down rain on enemies' },
+      'air_blade': { name:'Air Blade', damage:'Moderate', type:'Fan', description:'Sends out sharp blades of air in a fan shape' },
+      'apocalypse': { name:'Apocalypse', damage:'High', type:'Area', description:'Generates several dark vortexes in the surrounding area' },
+      'aqua_burst': { name:'Aqua Burst', damage:'High', type:'Projectile', description:'Creates a giant ball of water and hurls it at an enemy' },
+      'aqua_gun': { name:'Aqua Gun', damage:'Low', type:'Projectile', description:'Hurls a ball of water straight at an enemy' },
+      'beam_slicer': { name:'Beam Slicer', damage:'Very High', type:'Beam', description:'Mows down the frontal area with a dragon beam; the impacted area explodes shortly after' },
+      'blast_cannon': { name:'Blast Cannon', damage:'High', type:'Projectile', description:'Fires an energy bullet imbued with dragon power that explodes on impact' },
+      'blizzard_spike': { name:'Blizzard Spike', damage:'Very High', type:'Projectile', description:'Creates a giant lump of ice and hurls it; damages those in the surrounding area upon impact' },
+      'bog_blast': { name:'Bog Blast', damage:'Low', type:'Projectile', description:'Hurls sticky mud at an enemy' },
+      'bubble_blast': { name:'Bubble Blast', damage:'Moderate', type:'Homing', description:'Fires numerous bubbles that slowly pursue an enemy' },
+      'circle_vine': { name:'Circle Vine', damage:'High', type:'Area', description:'Sprouts sharp roots in and around the enemy’s location' },
+      'comet_strike': { name:'Comet Strike', damage:'High', type:'Area', description:'Drops a meteorite straight down, generating a shock wave around the impact area' },
+      'cryst_breath': { name:'Cryst Breath', damage:'High', type:'Cone', description:'Enshrouds an enemy in a frigid blast of air, dealing continuous damage' },
+      'dark_arrow': { name:'Dark Arrow', damage:'Moderate', type:'Homing', description:'Fires off dark energy that homes in on an enemy' },
+      'dark_ball': { name:'Dark Ball', damage:'Low', type:'Homing', description:'Unleashes a sphere of darkness that slowly tracks down the enemy' },
+      'dark_cannon': { name:'Dark Cannon', damage:'Moderate', type:'Projectile', description:'Fires off dark energy that homes in on an enemy' },
+      'dark_laser': { name:'Dark Laser', damage:'Very High', type:'Beam', description:'Charges dark energy before blasting enemies with a powerful beam' },
+      'diamond_rain': { name:'Diamond Rain', damage:'Very High', type:'Area', description:'Creates numerous lumps of ice that consecutively drop on a foe’s head' },
+      'draconic_breath': { name:'Draconic Breath', damage:'Moderate', type:'Cone', description:'Exhales breath imbued with draconic energy, dealing continuous damage to those in front' },
+      'dragon_cannon': { name:'Dragon Cannon', damage:'Low', type:'Projectile', description:'Hurls an energy ball imbued with draconic energy at an enemy' },
+      'dragon_meteor': { name:'Dragon Meteor', damage:'Very High', type:'Area', description:'Calls down numerous small meteorites and launches them at an enemy' },
+      'fire_ball': { name:'Fire Ball', damage:'Very High', type:'Projectile', description:'Creates a giant ball of flames and hurls it; it explodes over a wide area upon impact' },
+      'flame_funnel': { name:'Flame Funnel', damage:'High', type:'Area', description:'Creates multiple spheres of fiery energy, from which countless fireballs shoot towards the enemy' },
+      'flame_wall': { name:'Flame Wall', damage:'High', type:'Area', description:'Creates a wall of flames at the enemy’s location; the wall remains and deals damage over time' },
+      'flare_arrow': { name:'Flare Arrow', damage:'Moderate', type:'Homing', description:'Fires three flaming arrows in succession that home in on an enemy' },
+      'flare_storm': { name:'Flare Storm', damage:'Moderate', type:'Area', description:'Generates two flaming tornadoes on either side before launching them at an enemy' }
     };
 
     // Descriptions for passive traits.  Each entry summarises the
@@ -503,6 +716,21 @@
       'Highlands': { x: 40, y: 5, w: 30, h: 20 },
       'River': { x: 5, y: 70, w: 25, h: 20 }
     };
+
+    // Route definitions.  Each entry describes a tower boss encounter
+    // along the Pal Marathon journey, including the recommended
+    // element(s) to bring and a short description.  Use these
+    // entries to build the Route page.  Level ordering taken from
+    // community consensus and our own research.
+    const ROUTE = [
+      { order: 1, name: 'Zoe & Grizzbolt', rec: 'Ground', desc: 'The first tower. Bring Ground pals to shock Grizzbolt.' },
+      { order: 2, name: 'Lily & Lyleen', rec: 'Fire', desc: 'Lily’s Lyleen is weak to Fire. Prepare your Flame pals.' },
+      { order: 3, name: 'Axel & Orserk', rec: 'Ice or Ground', desc: 'This duo packs Lightning. Ice or Ground pals work best.' },
+      { order: 4, name: 'Marcus & Faleris', rec: 'Water', desc: 'Faleris is a fire bird. Water pals make quick work.' },
+      { order: 5, name: 'Victor & Shadowbeak', rec: 'Dragon', desc: 'Bring powerful Dragon pals to tackle this shadowy foe.' },
+      { order: 6, name: 'Saya & Selyne', rec: 'Dragon', desc: 'Selyne’s cosmic power is no match for Dragon allies.' },
+      { order: 7, name: 'Bjorn & Bastigor', rec: 'Fire', desc: 'Finish strong with Fire pals against this icy giant.' }
+    ];
     // Type icon mapping (relative file paths)
     const iconMap = {
       'Neutral': 'assets/icons/neutral.png',
@@ -533,18 +761,52 @@
         console.debug('Sound error', err);
       }
     }
-    // Navigation handling
-    document.querySelectorAll('nav button').forEach(btn => {
+    // Navigation handling: top nav bar.  Each .nav-item button
+    // switches to its associated page when clicked.  After the
+    // switch, we play a click sound.
+    document.querySelectorAll('#navbar .nav-item').forEach(btn => {
       btn.addEventListener('click', () => {
         const target = btn.getAttribute('data-page');
         switchPage(target);
         playSound(clickSound);
       });
     });
+
+    // Mode toggle button: switch between kid and grown-up modes.  The
+    // icon and tooltip change based on the current mode.  We also
+    // apply a class on the body for CSS adjustments and rebuild
+    // pages to honour the new mode (e.g. hiding advanced stats).
+    document.getElementById('modeToggle').addEventListener('click', () => {
+      kidMode = !kidMode;
+      document.body.classList.toggle('kid-mode', kidMode);
+      const modeIcon = document.querySelector('#modeToggle i');
+      const toggleTitle = document.getElementById('modeToggle');
+      if (kidMode) {
+        modeIcon.classList.remove('fa-user-astronaut');
+        modeIcon.classList.add('fa-child');
+        toggleTitle.title = 'Switch to grown-up mode';
+      } else {
+        modeIcon.classList.remove('fa-child');
+        modeIcon.classList.add('fa-user-astronaut');
+        toggleTitle.title = 'Switch to kid mode';
+      }
+      // Rebuild dynamic pages to reflect the mode change
+      buildPalPage();
+      buildItemPage();
+      buildTechPage();
+      buildRoutePage();
+      buildGlossaryPage();
+      // Home page re-render to update suggestions styling
+      buildHomePage();
+    });
     function switchPage(page) {
-      document.querySelectorAll('main').forEach(m => m.classList.remove('active'));
-      document.getElementById(page + 'Page').classList.add('active');
-      document.querySelectorAll('nav button').forEach(btn => {
+      // Hide all pages and show the selected page.  Our pages are
+      // <section> elements with IDs like palsPage, itemsPage, etc.
+      document.querySelectorAll('.page').forEach(section => section.classList.remove('active'));
+      const activePage = document.getElementById(page + 'Page');
+      if (activePage) activePage.classList.add('active');
+      // Update navigation item active state
+      document.querySelectorAll('#navbar .nav-item').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-page') === page);
       });
     }
@@ -567,6 +829,11 @@
       PALS = data.pals || {};
       ITEMS = data.items || {};
       TECH = data.tech || [];
+      // Build name-to-ID lookup map
+      PAL_NAME_TO_ID = {};
+      Object.values(PALS).forEach(p => {
+        PAL_NAME_TO_ID[p.name] = p.id;
+      });
       // Build a global map of item drops for quick lookup.  For each pal,
       // iterate through its drops and record which pals drop a given item.
       DROPS_MAP = {};
@@ -581,6 +848,12 @@
       buildTechPage();
       buildBreedingPage();
       updateProgressUI();
+
+      // Build additional pages after data load
+      buildHomePage();
+      buildRoutePage();
+      buildGlossaryPage();
+      buildMapPage();
     }).catch(err => {
       console.error(err);
       document.body.insertAdjacentHTML('beforeend', '<p style="color:red">Failed to load data. Make sure the JSON file is in the same folder.</p>');
@@ -602,12 +875,25 @@
           // (for example, if the pal image file is missing), fall back to the first element
           // icon so the card always has a visual cue. The onerror handler sets the source
           // to the appropriate icon based on the pal’s primary type.
+          // Build rarity label and star icons.  Rarity names add readability and
+          // stars provide a quick visual indicator.  We use Font Awesome stars
+          // here to ensure consistent sizing and colour.
+          const rarity = Math.max(1, Math.min(pal.rarity || 0, 6));
+          let rarityLabel = rarityNames[rarity] || '';
+          let starIcons = Array(rarity).fill('<i class="fa-solid fa-star"></i>').join('');
+          // In kid mode we suppress rarity and stars to avoid
+          // confusion and clutter.  Kids can still see the card
+          // colour and image to gauge rarity implicitly.
+          if (kidMode) {
+            rarityLabel = '';
+            starIcons = '';
+          }
           card.innerHTML = `
             <img src="${pal.localImage || iconMap[pal.types[0]] || iconMap['Neutral']}" alt="${pal.name} image"
                  onerror="this.onerror=null; this.src='${'assets/icons/'}${pal.types[0].toLowerCase()}.png';">
             <div class="name">${pal.name}</div>
             <div class="badge">${typeIcons}</div>
-            <div class="rarity">${'⭐'.repeat(pal.rarity)}</div>
+            <div class="rarity"><span class="stars">${starIcons}</span> <span class="label">${rarityLabel}</span></div>
             <button class="catch-btn ${caught[pal.id] ? 'caught' : ''}">${caught[pal.id] ? 'Caught' : 'Catch'}</button>
           `;
           card.addEventListener('click', (e) => {
@@ -655,127 +941,198 @@
       const titleWrap = document.createElement('div');
       // Build type icons row for the header
       const typesHtml = pal.types.map(t => `<img src="${iconMap[t] || iconMap['Neutral']}" alt="${t}" style="width:20px;height:20px;margin-right:4px;">`).join('');
-      titleWrap.innerHTML = `<h3>${pal.name}</h3><div style="font-size:0.8rem;color:var(--light);display:flex;align-items:center;gap:4px;">${typesHtml}<span>Rarity: ${'⭐'.repeat(pal.rarity)}</span></div>`;
+      // Build rarity label and stars for the detail header
+      const rarity = Math.max(1, Math.min(pal.rarity || 0, 6));
+      const rLabel = rarityNames[rarity] || '';
+      const rStars = Array(rarity).fill('<i class="fa-solid fa-star" style="color:#E4B914"></i>').join('');
+      titleWrap.innerHTML = `<h3>${pal.name}</h3><div style="font-size:0.8rem;color:var(--light);display:flex;align-items:center;gap:6px;">${typesHtml}<span class="rarity-label" style="color:var(--accent);font-weight:bold;">${rLabel}</span><span class="rarity-stars">${rStars}</span></div>`;
       header.appendChild(img);
       header.appendChild(titleWrap);
       container.appendChild(header);
-      // Basic info table
+      // Basic info.  In kid mode we omit price to keep it simple.
       const info = document.createElement('div');
       info.style.margin = '10px 0';
-      info.innerHTML = `<strong>Genus:</strong> ${pal.genus}<br><strong>Size:</strong> ${pal.size.toUpperCase()}<br><strong>Price:</strong> ${pal.price} G`; 
+      let infoHtml = `<strong>Genus:</strong> ${pal.genus}<br><strong>Size:</strong> ${pal.size.toUpperCase()}`;
+      if (!kidMode) infoHtml += `<br><strong>Price:</strong> ${pal.price} G`;
+      info.innerHTML = infoHtml;
       container.appendChild(info);
       // Environment info
       const env = environmentMap[pal.types[0]] || 'Unknown';
       const envInfo = document.createElement('div');
       envInfo.innerHTML = `<strong>Habitat:</strong> ${env}`;
       container.appendChild(envInfo);
-      // Capture advice
+      // Capture advice.  In kid mode we shorten the description.
       const sphere = raritySphere[pal.rarity] || 'Pal Sphere';
       const sRate = sphereRates[sphere];
       const sphereInfo = document.createElement('div');
-      sphereInfo.innerHTML = `<strong>Recommended Sphere:</strong> ${sphere} – ${(sRate.rate * 100).toFixed(0)}% chance. ${sRate.description}`;
+      if (kidMode) {
+        sphereInfo.innerHTML = `<strong>Catch Tip:</strong> Use a ${sphere}.`;
+      } else {
+        sphereInfo.innerHTML = `<strong>Recommended Sphere:</strong> ${sphere} – ${(sRate.rate * 100).toFixed(0)}% chance. ${sRate.description}`;
+      }
       container.appendChild(sphereInfo);
-      // Traits info with clickable links.  We wrap each trait name in an
-      // anchor and attach a data-trait attribute for lookup in
-      // traitsDictionary.  Unknown traits will still be clickable and
-      // show a generic message.
+      // Traits info.  In kid mode we provide a simple explanation rather
+      // than lists.  In grown-up mode we link to trait definitions.
       const traitInfo = document.createElement('div');
-      const goodLinks = goodTraits.map(t => `<a href="#" class="trait-link" data-trait="${t}">${t}</a>`).join(', ');
-      const badLinks = badTraits.map(t => `<a href="#" class="trait-link" data-trait="${t}">${t}</a>`).join(', ');
-      traitInfo.innerHTML = `<strong>Traits:</strong> Good traits include ${goodLinks}. Bad traits include ${badLinks}. Breeding can pass traits down to babies!`;
+      if (kidMode) {
+        traitInfo.innerHTML = `<strong>Traits:</strong> Some pals have special traits that make them fast, strong or clever. Collect many pals to discover them!`;
+      } else {
+        const goodLinks = goodTraits.map(t => `<a href="#" class="trait-link" data-trait="${t}">${t}</a>`).join(', ');
+        const badLinks = badTraits.map(t => `<a href="#" class="trait-link" data-trait="${t}">${t}</a>`).join(', ');
+        traitInfo.innerHTML = `<strong>Traits:</strong> Good traits include ${goodLinks}. Bad traits include ${badLinks}. Breeding can pass traits down to babies!`;
+      }
       container.appendChild(traitInfo);
-      // Radar chart canvas
-      const canvas = document.createElement('canvas');
-      canvas.width = 300;
-      canvas.height = 300;
-      container.appendChild(canvas);
-      // Stats chart data
-      const statValues = ['hp','attack','defense','speed','stamina','support','food'];
-      const chartData = statValues.map(k => Math.round(pal.stats[k] / maxStats[k] * 100));
-      new Chart(canvas.getContext('2d'), {
-        type: 'radar',
-        data: {
-          labels: ['HP','ATK','DEF','SPD','STA','SUP','FOOD'],
-          datasets: [{
-            label: pal.name,
-            data: chartData,
-            fill: true,
-            backgroundColor: 'rgba(89,165,216,0.3)',
-            borderColor: 'rgba(89,165,216,0.8)',
-            pointBackgroundColor: 'rgba(89,165,216,1)'
-          }]
-        },
-        options: {
-          scales: {
-            r: {
-              beginAtZero: true,
-              max: 100,
-              grid: { color: 'rgba(255,255,255,0.1)' },
-              pointLabels: { color: getComputedStyle(document.documentElement).getPropertyValue('--text') }
-            }
+      // Radar chart.  Only render in grown-up mode to avoid
+      // overwhelming kids with numbers.  In kid mode we leave it
+      // out entirely.
+      if (!kidMode) {
+        const canvas = document.createElement('canvas');
+        canvas.width = 300;
+        canvas.height = 300;
+        container.appendChild(canvas);
+        // Stats chart data
+        const statValues = ['hp','attack','defense','speed','stamina','support','food'];
+        const chartData = statValues.map(k => Math.round(pal.stats[k] / maxStats[k] * 100));
+        new Chart(canvas.getContext('2d'), {
+          type: 'radar',
+          data: {
+            labels: ['HP','ATK','DEF','SPD','STA','SUP','FOOD'],
+            datasets: [{
+              label: pal.name,
+              data: chartData,
+              fill: true,
+              backgroundColor: 'rgba(119,141,169,0.3)',
+              borderColor: 'rgba(119,141,169,0.8)',
+              pointBackgroundColor: 'rgba(119,141,169,1)'
+            }]
           },
-          plugins: { legend: { display: false } }
-        }
-      });
+          options: {
+            scales: {
+              r: {
+                beginAtZero: true,
+                max: 100,
+                grid: { color: 'rgba(255,255,255,0.1)' },
+                pointLabels: { color: getComputedStyle(document.documentElement).getPropertyValue('--text') }
+              }
+            },
+            plugins: { legend: { display: false } }
+          }
+        });
+      }
       // Work skills
-      const workDiv = document.createElement('div');
-      workDiv.style.marginTop = '10px';
-      let workHtml = '<strong>Work Skills:</strong> ';
-      if (pal.work && Object.keys(pal.work).length) {
-        workHtml += '<ul>';
-        for (const skill in pal.work) {
-          workHtml += `<li>${skill} (Lv ${pal.work[skill]})</li>`;
+      if (kidMode) {
+        // Summarise work roles in a single sentence
+        const summary = document.createElement('div');
+        summary.style.marginTop = '10px';
+        if (pal.work && Object.keys(pal.work).length) {
+          const roles = Object.keys(pal.work).join(', ');
+          summary.innerHTML = `<strong>Base Jobs:</strong> ${roles}`;
+        } else {
+          summary.innerHTML = `<strong>Base Jobs:</strong> None`;
         }
-        workHtml += '</ul>';
+        container.appendChild(summary);
       } else {
-        workHtml += 'None';
+        const workDiv = document.createElement('div');
+        workDiv.style.marginTop = '10px';
+        let workHtml = '<strong>Work Skills:</strong> ';
+        if (pal.work && Object.keys(pal.work).length) {
+          workHtml += '<ul>';
+          for (const skill in pal.work) {
+            workHtml += `<li>${skill} (Lv ${pal.work[skill]})</li>`;
+          }
+          workHtml += '</ul>';
+        } else {
+          workHtml += 'None';
+        }
+        workDiv.innerHTML = workHtml;
+        container.appendChild(workDiv);
       }
-      workDiv.innerHTML = workHtml;
-      container.appendChild(workDiv);
-      // Active skills with clickable links for more info.  Each skill
-      // name is an anchor with a data-skill attribute pointing to its
-      // raw name (as in the dataset).  Unknown skills still create a
-      // link and will display a generic message when clicked.
-      const skillsDiv = document.createElement('div');
-      skillsDiv.style.marginTop = '10px';
-      let skillsHtml = '<strong>Active Skills:</strong> ';
-      if (pal.skills && pal.skills.length) {
-        skillsHtml += '<ul>';
-        pal.skills.forEach(s => {
-          const rawName = s.name;
-          const humanName = rawName.replace(/_/g, ' ');
-          skillsHtml += `<li><a href="#" class="skill-link" data-skill="${rawName}">${humanName}</a> (Lv ${s.level}, Power ${s.power}, CD ${s.cooldown}s)</li>`;
-        });
-        skillsHtml += '</ul>';
+      // Active skills
+      if (kidMode) {
+        const skillsDiv = document.createElement('div');
+        skillsDiv.style.marginTop = '10px';
+        let skillsHtml = '<strong>Skills:</strong> ';
+        if (pal.skills && pal.skills.length) {
+          const names = pal.skills.map(s => s.name.replace(/_/g,' '));
+          skillsHtml += names.join(', ');
+        } else {
+          skillsHtml += 'None';
+        }
+        skillsDiv.innerHTML = skillsHtml;
+        container.appendChild(skillsDiv);
       } else {
-        skillsHtml += 'None';
+        const skillsDiv = document.createElement('div');
+        skillsDiv.style.marginTop = '10px';
+        let skillsHtml = '<strong>Active Skills:</strong> ';
+        if (pal.skills && pal.skills.length) {
+          skillsHtml += '<ul>';
+          pal.skills.forEach(s => {
+            const rawName = s.name;
+            const humanName = rawName.replace(/_/g, ' ');
+            skillsHtml += `<li><a href="#" class="skill-link" data-skill="${rawName}">${humanName}</a> (Lv ${s.level}, Power ${s.power}, CD ${s.cooldown}s)</li>`;
+          });
+          skillsHtml += '</ul>';
+        } else {
+          skillsHtml += 'None';
+        }
+        skillsDiv.innerHTML = skillsHtml;
+        container.appendChild(skillsDiv);
       }
-      skillsDiv.innerHTML = skillsHtml;
-      container.appendChild(skillsDiv);
-      // Drops with clickable links to open item details.  Each
-      // item name is an anchor with a data-item attribute; clicking
-      // will open a modal with more information about that item.
-      const dropDiv = document.createElement('div');
-      dropDiv.style.marginTop = '10px';
-      let dropsHtml = '<strong>Drops:</strong> ';
-      if (pal.drops && pal.drops.length) {
-        dropsHtml += '<ul>';
-        pal.drops.forEach(item => {
-          const cat = ITEMS[item] ? ITEMS[item].category : 'Unknown';
-          const human = item.replace(/_/g,' ');
-          dropsHtml += `<li><a href="#" class="item-link" data-item="${item}">${human}</a> (${cat})</li>`;
-        });
-        dropsHtml += '</ul>';
+      // Drops
+      if (kidMode) {
+        const dropDiv = document.createElement('div');
+        dropDiv.style.marginTop = '10px';
+        let dropsHtml = '<strong>Drops:</strong> ';
+        if (pal.drops && pal.drops.length) {
+          dropsHtml += pal.drops.map(item => item.replace(/_/g,' ')).join(', ');
+        } else {
+          dropsHtml += 'None';
+        }
+        dropDiv.innerHTML = dropsHtml;
+        container.appendChild(dropDiv);
       } else {
-        dropsHtml += 'None';
+        const dropDiv = document.createElement('div');
+        dropDiv.style.marginTop = '10px';
+        let dropsHtml = '<strong>Drops:</strong> ';
+        if (pal.drops && pal.drops.length) {
+          dropsHtml += '<ul>';
+          pal.drops.forEach(item => {
+            const cat = ITEMS[item] ? ITEMS[item].category : 'Unknown';
+            const human = item.replace(/_/g,' ');
+            dropsHtml += `<li><a href="#" class="item-link" data-item="${item}">${human}</a> (${cat})</li>`;
+          });
+          dropsHtml += '</ul>';
+        } else {
+          dropsHtml += 'None';
+        }
+        dropDiv.innerHTML = dropsHtml;
+        container.appendChild(dropDiv);
       }
-      dropDiv.innerHTML = dropsHtml;
-      container.appendChild(dropDiv);
       // Breeding info
-      const breedDiv = document.createElement('div');
-      breedDiv.style.marginTop = '10px';
-      breedDiv.innerHTML = `<strong>Breeding Power:</strong> ${pal.breeding.power}<br><strong>Types:</strong> ${pal.breeding.type1}${pal.breeding.type2 ? ' / ' + pal.breeding.type2 : ''}<br>Babies inherit traits and stats from both parents. Average the parents’ breeding power to predict the baby!`;
-      container.appendChild(breedDiv);
+      if (!kidMode) {
+        const breedDiv = document.createElement('div');
+        breedDiv.style.marginTop = '10px';
+        breedDiv.innerHTML = `<strong>Breeding Power:</strong> ${pal.breeding.power}<br><strong>Types:</strong> ${pal.breeding.type1}${pal.breeding.type2 ? ' / ' + pal.breeding.type2 : ''}<br>Babies inherit traits and stats from both parents. Average the parents’ breeding power to predict the baby!`;
+        container.appendChild(breedDiv);
+      }
+      // Breeding combos section.  Show a list of parent pairs that can
+      // produce this pal.  Each parent name is clickable to view its
+      // details.  We clamp to a reasonable number of combos to
+      // avoid overwhelming the UI.  If no combos exist, skip this
+      // section.
+      if (!kidMode && pal.breedingCombos && pal.breedingCombos.length) {
+        const combosDiv = document.createElement('div');
+        combosDiv.style.marginTop = '10px';
+        let combosHtml = '<strong>Breeding Combos:</strong><ul>';
+        pal.breedingCombos.slice(0, 5).forEach(pair => {
+          const p1 = pair[0];
+          const p2 = pair[1];
+          combosHtml += `<li><a href="#" class="pal-link" data-pal-name="${p1}">${p1}</a> + <a href="#" class="pal-link" data-pal-name="${p2}">${p2}</a></li>`;
+        });
+        combosHtml += '</ul>';
+        combosDiv.innerHTML = combosHtml;
+        container.appendChild(combosDiv);
+      }
       // Map container with highlight
       const mapWrap = document.createElement('div');
       mapWrap.id = 'mapContainer';
@@ -811,22 +1168,33 @@
       }
       // Attach click handlers for skill, trait and item links within this modal.
       container.addEventListener('click', (e) => {
+        // Skill link: show skill details
         if (e.target.classList.contains('skill-link')) {
           e.preventDefault();
           const skillKey = e.target.dataset.skill;
           showSkillDetail(skillKey);
           return;
         }
+        // Trait link: show trait details
         if (e.target.classList.contains('trait-link')) {
           e.preventDefault();
           const traitName = e.target.dataset.trait;
           showTraitDetail(traitName);
           return;
         }
+        // Item link: show item details
         if (e.target.classList.contains('item-link')) {
           e.preventDefault();
           const itemName = e.target.dataset.item;
           openItemDetail(itemName);
+          return;
+        }
+        // Pal link in breeding combos: open that pal by name
+        if (e.target.classList.contains('pal-link')) {
+          e.preventDefault();
+          const name = e.target.dataset.palName;
+          const pid = PAL_NAME_TO_ID[name];
+          if (pid) showPalDetail(pid);
           return;
         }
       });
@@ -957,6 +1325,238 @@
         tip.style.marginTop = '8px';
         tip.innerHTML = `The baby pal is likely <strong>${closest.name}</strong> (Breeding Power: ${closest.breeding.power}). Feed a <strong>Cake</strong> to start breeding.`;
         res.appendChild(tip);
+      });
+    }
+
+    // Home page builder.  Displays large action cards and a rotating
+    // suggested pal for tonight.  The cards encourage players to
+    // catch a pal, fight a boss or build something new.  In grown‑up
+    // mode the suggestions include more context like recommended
+    // work types or where to find the boss.
+    function buildHomePage() {
+      const home = document.getElementById('homeCards');
+      if (!home) return;
+      home.innerHTML = '';
+      // Define the three core actions.  Each entry can include an
+      // icon (Font Awesome class), title and description.  Later we
+      // could wire these cards to jump to the relevant page.
+      const actions = [
+        { icon: 'fa-paw', title: 'Catch a Pal', desc: 'Find a new pal to join your team', onClick: () => switchPage('pals') },
+        { icon: 'fa-helmet-battle', title: 'Fight a Boss', desc: 'Prepare for your next tower battle', onClick: () => switchPage('route') },
+        { icon: 'fa-hammer', title: 'Build Something', desc: 'Craft gear or structures to improve your base', onClick: () => switchPage('tech') }
+      ];
+      actions.forEach(act => {
+        const card = document.createElement('div');
+        card.className = 'pal-card';
+        card.innerHTML = `<i class="fa-solid ${act.icon}" style="font-size:48px;margin-bottom:8px;color:var(--accent)"></i><div class="name">${act.title}</div><div style="font-size:0.9rem;color:var(--light);">${act.desc}</div>`;
+        card.addEventListener('click', () => {
+          act.onClick();
+          playSound(clickSound);
+        });
+        home.appendChild(card);
+      });
+      // Add a rotating suggested pal card.  Choose a pal at random
+      // whose rarity is low (≤3) to ensure early accessibility.  If
+      // none exist, just pick a random pal.  The suggestion hints at
+      // the pal’s best work or battle roles.
+      const palsArray = Object.values(PALS);
+      let candidates = palsArray.filter(p => p.rarity <= 3);
+      if (!candidates.length) candidates = palsArray;
+      const suggestion = candidates[Math.floor(Math.random() * candidates.length)];
+      const sugCard = document.createElement('div');
+      sugCard.className = 'pal-card';
+      sugCard.innerHTML = `<img src="${suggestion.localImage || iconMap[suggestion.types[0]]}" alt="${suggestion.name}" style="width:100px;height:100px;"><div class="name">Try ${suggestion.name}!</div><div style="font-size:0.85rem;color:var(--light);">${kidMode ? 'Great pal for early game' : 'Rarity: ' + rarityNames[Math.max(1,Math.min(suggestion.rarity||0,6))]}</div>`;
+      sugCard.addEventListener('click', () => {
+        showPalDetail(suggestion.id);
+        playSound(clickSound);
+      });
+      home.appendChild(sugCard);
+    }
+
+    // Route page builder.  Creates cards for each tower battle in the
+    // ROUTE array.  Each card lists the order, boss names, recommended
+    // element and a short description.  We include a checkbox for
+    // marking the encounter complete, stored in localStorage.  Boss
+    // names link to their pal details if known.
+    function buildRoutePage() {
+      const list = document.getElementById('routeList');
+      if (!list) return;
+      list.innerHTML = '';
+      ROUTE.forEach(step => {
+        const card = document.createElement('div');
+        card.className = 'pal-card';
+        // Determine if this step is complete via localStorage
+        const routeProgress = JSON.parse(localStorage.getItem('routeProgress') || '{}');
+        const done = !!routeProgress[step.order];
+        // Attempt to find the boss pal ID by its name (the second name in the pair)
+        const bossNames = step.name.split('&').map(s => s.trim());
+        const bossPalName = bossNames[1] ? bossNames[1].trim() : bossNames[0];
+        const bossId = PAL_NAME_TO_ID[bossPalName];
+        const bossImg = bossId ? PALS[bossId].localImage : '';
+        // Build link HTML for boss; if found, wrap in anchor
+        let bossLink = bossPalName;
+        if (bossId) {
+          bossLink = `<a href="#" class="pal-link" data-pal-name="${bossPalName}">${bossPalName}</a>`;
+        }
+        card.innerHTML = `
+          <div class="name">${step.order}. ${step.name}</div>
+          <div style="font-size:0.9rem;color:var(--light);">Recommended: ${step.rec}</div>
+          <div style="font-size:0.8rem;color:var(--text);margin:6px 0;">${step.desc}</div>
+          <div style="font-size:0.8rem;">Boss: ${bossLink}</div>
+          <button class="collect-btn${done ? ' collected' : ''}" style="margin-top:8px;">${done ? 'Completed' : 'Mark done'}</button>
+        `;
+        // Event: mark done
+        const btn = card.querySelector('button');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const prog = JSON.parse(localStorage.getItem('routeProgress') || '{}');
+          prog[step.order] = !done;
+          localStorage.setItem('routeProgress', JSON.stringify(prog));
+          buildRoutePage();
+          playSound(clickSound);
+        });
+        // Boss link click handler
+        card.addEventListener('click', (e) => {
+          if (e.target.classList.contains('pal-link')) {
+            e.preventDefault();
+            const pname = e.target.dataset.palName;
+            const pid = PAL_NAME_TO_ID[pname];
+            if (pid) showPalDetail(pid);
+          }
+        });
+        list.appendChild(card);
+      });
+    }
+
+    // Glossary page builder.  Presents a list of passives and moves
+    // with their descriptions.  Elements and work suitabilities are
+    // summarised in simple tables.  Clicking a passive or move
+    // shows more detail in a modal using the existing functions.
+    function buildGlossaryPage() {
+      const container = document.getElementById('glossaryContent');
+      if (!container) return;
+      container.innerHTML = '';
+      // Build passives list
+      const passivesSection = document.createElement('div');
+      passivesSection.innerHTML = '<h3>Passive Skills</h3>';
+      const passiveList = document.createElement('ul');
+      Object.keys(traitsDictionary).sort().forEach(trait => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="#" class="trait-link" data-trait="${trait}">${trait}</a>: ${traitsDictionary[trait]}`;
+        passiveList.appendChild(li);
+      });
+      passivesSection.appendChild(passiveList);
+      container.appendChild(passivesSection);
+      // Build moves list (only first 30 for brevity)
+      const movesSection = document.createElement('div');
+      movesSection.innerHTML = '<h3>Active Skills</h3>';
+      const movesList = document.createElement('ul');
+      const moveKeys = Object.keys(skillsDictionary);
+      moveKeys.sort().slice(0, 30).forEach(key => {
+        const info = skillsDictionary[key];
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="#" class="skill-link" data-skill="${key}">${info.name}</a>: ${info.description}`;
+        movesList.appendChild(li);
+      });
+      if (moveKeys.length > 30) {
+        const more = document.createElement('p');
+        more.innerHTML = `...and ${moveKeys.length - 30} more skills. Use search or view pals for full list.`;
+        movesSection.appendChild(more);
+      }
+      movesSection.appendChild(movesList);
+      container.appendChild(movesSection);
+      // Elements table
+      const elemSection = document.createElement('div');
+      elemSection.innerHTML = '<h3>Elements & Type Chart</h3>';
+      const elemTable = document.createElement('table');
+      elemTable.style.width = '100%';
+      elemTable.style.borderCollapse = 'collapse';
+      const types = ['Neutral','Fire','Water','Grass','Electric','Ice','Ground','Dragon','Dark','Air'];
+      elemTable.innerHTML = `<tr><th>Element</th><th>Strong Against</th><th>Weak Against</th></tr>`;
+      const strengths = {
+        Fire: 'Grass, Ice',
+        Water: 'Fire, Ground',
+        Grass: 'Water, Ground',
+        Electric: 'Water, Air',
+        Ice: 'Dragon, Grass',
+        Ground: 'Electric, Fire',
+        Dragon: 'Dark, Dragon',
+        Dark: 'Neutral',
+        Air: 'Grass, Ground',
+        Neutral: 'None'
+      };
+      const weaknesses = {
+        Fire: 'Water, Ground',
+        Water: 'Electric, Grass',
+        Grass: 'Fire, Ice, Air',
+        Electric: 'Ground',
+        Ice: 'Fire, Electric',
+        Ground: 'Water, Grass',
+        Dragon: 'Dragon, Ice',
+        Dark: 'Dragon',
+        Air: 'Electric, Ice',
+        Neutral: 'None'
+      };
+      types.forEach(t => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${t}</td><td>${strengths[t] || 'Unknown'}</td><td>${weaknesses[t] || 'Unknown'}</td>`;
+        elemTable.appendChild(row);
+      });
+      elemSection.appendChild(elemTable);
+      container.appendChild(elemSection);
+      // Work suitabilities legend
+      const workSection = document.createElement('div');
+      workSection.innerHTML = '<h3>Work Suitabilities</h3>';
+      const suits = ['Kindling','Watering','Planting','Electricity','Handiwork','Gathering','Lumbering','Mining','Medicine','Cooling','Transporting','Farming'];
+      const ul = document.createElement('ul');
+      suits.forEach(s => {
+        const li = document.createElement('li');
+        li.textContent = `${s} – useful for base tasks like ${s.toLowerCase()}.`;
+        ul.appendChild(li);
+      });
+      workSection.appendChild(ul);
+      container.appendChild(workSection);
+      // Click handlers for glossary links
+      container.addEventListener('click', (e) => {
+        if (e.target.classList.contains('trait-link')) {
+          e.preventDefault();
+          const trait = e.target.dataset.trait;
+          showTraitDetail(trait);
+        } else if (e.target.classList.contains('skill-link')) {
+          e.preventDefault();
+          const key = e.target.dataset.skill;
+          showSkillDetail(key);
+        }
+      });
+    }
+
+    // Map page builder.  Creates toggles for different layers and
+    // instructions to open the external interactive map.  We do not
+    // re‑host community map tiles; instead we encourage opening
+    // palworld.gg with the appropriate filters.  A simple overlay is
+    // available via environment highlights but hidden by default.
+    function buildMapPage() {
+      const layers = document.getElementById('mapLayers');
+      if (!layers) return;
+      layers.innerHTML = '';
+      const categories = [
+        { name: 'Pals', desc: 'See spawn locations on the external map', url: 'https://palworld.gg/map' },
+        { name: 'Alpha Pals', desc: 'Locate strong alpha variants', url: 'https://palworld.gg/map' },
+        { name: 'Towers', desc: 'Find tower bosses and fast travel points', url: 'https://palworld.gg/map' },
+        { name: 'Dungeons', desc: 'Open map to see dungeon entrances', url: 'https://palworld.gg/map' },
+        { name: 'Effigies', desc: 'Locate Lifmunk Effigies for free levels', url: 'https://palworld.gg/map' },
+        { name: 'Skill Fruit Trees', desc: 'Find Skill Fruit trees to learn moves', url: 'https://palworld.gg/map' },
+        { name: 'Fast Travel', desc: 'Discover fast travel statues', url: 'https://palworld.gg/map' }
+      ];
+      categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'collect-btn';
+        btn.style.margin = '4px';
+        btn.textContent = cat.name;
+        btn.addEventListener('click', () => {
+          window.open(cat.url, '_blank');
+        });
+        layers.appendChild(btn);
       });
     }
     // Update progress bars
