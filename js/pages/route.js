@@ -185,34 +185,22 @@ function linkLabel(l){
 
 // --- Navigation glue to existing pages/modals ---
 function navigateLink(l){
+  if(!l) return;
   if(l.type==='pal'){
-    // Go to Pals page and try to open modal if available
-    document.querySelector('[data-page="pals"]').click();
-    if(window.viewPal) window.viewPal(l.slug);
-    else focusSearch(l.slug);
+    if(window.viewPal) window.viewPal(l.slug || l.id);
+    else focusSearch(l.slug || l.id);
   } else if(l.type==='tech'){
-    document.querySelector('[data-page="tech"]').click();
-    // try to scroll to a card with id `tech-${id}`
-    setTimeout(()=>{
-      const el = document.getElementById(`tech-${l.id}`);
-      if(el){ pulse(el); el.scrollIntoView({behavior:'smooth', block:'center'}); }
-    }, 60);
+    if(window.showTechDetail) window.showTechDetail(l.id);
+    else window.open(`https://palworld.gg/items?search=${encodeURIComponent(niceName(l.id))}`,'_blank','noopener');
   } else if(l.type==='passive'){
-    document.querySelector('[data-page="glossary"]').click();
-    setTimeout(()=>{
-      const el = document.getElementById(`passive-${l.id}`);
-      if(el){ pulse(el); el.scrollIntoView({behavior:'smooth', block:'center'}); }
-      else focusSearch(l.id);
-    }, 60);
+    if(window.showTraitDetail) window.showTraitDetail(capitalize(l.id));
+    else focusSearch(l.id);
   } else if(l.type==='move'){
-    document.querySelector('[data-page="glossary"]').click();
-    setTimeout(()=>{
-      const el = document.getElementById(`move-${l.id}`);
-      if(el){ pulse(el); el.scrollIntoView({behavior:'smooth', block:'center'}); }
-      else focusSearch(niceName(l.id));
-    }, 60);
+    if(window.showSkillDetail) window.showSkillDetail(l.id);
+    else focusSearch(niceName(l.id));
   } else if(l.type==='glossary'){
-    document.querySelector('[data-page="glossary"]').click();
+    if(window.showGlossaryDetail) window.showGlossaryDetail(l.id);
+    else window.open(`https://palworld.gg/items?search=${encodeURIComponent(niceName(l.id))}`,'_blank','noopener');
   } else if(l.type==='tower'){
     // External map (safe deep-link placeholder)
     window.open(l.url || 'https://palworld.gg/map', '_blank', 'noopener');
