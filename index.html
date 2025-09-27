@@ -1015,6 +1015,7 @@
     let PALS = {};
     let ITEMS = {};
     let TECH = [];
+    let TECH_LOOKUP = {};
     let SKILL_DETAILS = {};
     let PASSIVE_DETAILS = {};
     let ITEM_DETAILS = {};
@@ -1362,6 +1363,34 @@
     const PALWORLD_ITEM_SLUG_OVERRIDES = {
       // Reserved for items whose Palworld.gg slug does not match their key.
     };
+    const ROUTE_GLOSSARY_SUMMARIES = {
+      'lifmunk-effigy': {
+        title: 'Lifmunk Effigy',
+        kid: [
+          'Tiny glowing statues hidden all over Palworld.',
+          'Feed them to the Statue of Power to make catching pals easier.'
+        ],
+        grown: [
+          'Collectible statues that grant Capture Power when offered at a Statue of Power.',
+          'Always grab them on sight; the bonus stacks and makes catching high-level pals easier.'
+        ],
+        url: `${PALWORLD_BASE_URL}/items?search=${encodeURIComponent('Lifmunk Effigy')}`,
+        note: 'Peek at Palworld.gg without losing your place in the route.'
+      },
+      'skill-fruit': {
+        title: 'Skill Fruit',
+        kid: [
+          'Special fruit that lets a pal learn a new move.',
+          'Find them in dungeons or treasure chests and save the ones you like.'
+        ],
+        grown: [
+          'Consumable items that instantly teach the move printed on the fruit.',
+          'Best sourced from dungeons; stash rare elements until you know which pal will use them.'
+        ],
+        url: `${PALWORLD_BASE_URL}/items?search=${encodeURIComponent('Skill Fruit')}`,
+        note: 'Palmate keeps this move info handy so you can stay on track.'
+      }
+    };
     function slugifyForPalworld(text) {
       if (!text) return '';
       return text
@@ -1485,6 +1514,7 @@
         PALS = payload.pals || {};
         ITEMS = payload.items || {};
         TECH = payload.tech || [];
+        rebuildTechLookup();
         SKILL_DETAILS = payload.skillsDetails || {};
         PASSIVE_DETAILS = payload.passiveDetails || {};
         ITEM_DETAILS = await loadItemDetails();
@@ -1863,6 +1893,25 @@
     let routeState = loadRouteState();
     let routeHideOptional = false;
 
+    function rebuildTechLookup(){
+      TECH_LOOKUP = {};
+      (Array.isArray(TECH) ? TECH : []).forEach(level => {
+        if(!level || !Array.isArray(level.items)) return;
+        level.items.forEach(item => {
+          if(!item) return;
+          const identifiers = [];
+          if(item.id) identifiers.push(item.id);
+          if(item.name) identifiers.push(item.name);
+          identifiers.forEach(identifier => {
+            const slug = slugifyForPalworld(String(identifier));
+            if(slug){
+              TECH_LOOKUP[slug] = { item, level };
+            }
+          });
+        });
+      });
+    }
+
     function ensureRouteGuide(){
       if(routeGuideData){
         return Promise.resolve(routeGuideData);
@@ -2095,56 +2144,100 @@
     }
 
     function navigateLink(link){
+      if(!link) return;
       if(link.type === 'pal'){
-        const palsBtn = document.querySelector('[data-page="pals"]');
-        if(palsBtn) palsBtn.click();
         if(window.viewPal){
-          window.viewPal(link.slug);
+          window.viewPal(link.slug || link.id);
         } else {
-          focusSearch(link.slug);
+          focusSearch(link.slug || link.id);
         }
       } else if(link.type === 'tech'){
-        const techBtn = document.querySelector('[data-page="tech"]');
-        if(techBtn) techBtn.click();
-        setTimeout(() => {
-          const el = document.getElementById(`tech-${link.id}`);
-          if(el){
-            pulse(el);
-            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-            focusSearch(niceName(link.id));
-          }
-        }, 60);
+        showTechDetail(link.id);
       } else if(link.type === 'passive'){
-        const glossaryBtn = document.querySelector('[data-page="glossary"]');
-        if(glossaryBtn) glossaryBtn.click();
-        setTimeout(() => {
-          const el = document.getElementById(`passive-${link.id}`);
-          if(el){
-            pulse(el);
-            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-            focusSearch(link.id);
-          }
-        }, 60);
-      } else if(link.type === 'move' || link.type === 'glossary'){
-        const glossaryBtn = document.querySelector('[data-page="glossary"]');
-        if(glossaryBtn) glossaryBtn.click();
-        if(link.type === 'move'){
-          setTimeout(() => {
-            const el = document.getElementById(`move-${link.id}`);
-            if(el){
-              pulse(el);
-              el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-              focusSearch(niceName(link.id));
-            }
-          }, 60);
-        }
+        showTraitDetail(capitalize(link.id));
+      } else if(link.type === 'move'){
+        showSkillDetail(link.id);
+      } else if(link.type === 'glossary'){
+        showGlossaryDetail(link.id);
       } else if(link.type === 'tower'){
         window.open(link.url || 'https://palworld.gg/map', '_blank', 'noopener');
       }
     }
+
+    function showTechDetail(techId){
+      if(!techId) return;
+      const slug = slugifyForPalworld(String(techId));
+      const entry = TECH_LOOKUP[slug];
+      const displayName = entry?.item?.name || niceName(techId);
+      const safeName = escapeHTML(displayName);
+      const searchUrl = `${PALWORLD_BASE_URL}/items?search=${encodeURIComponent(displayName)}`;
+      const summaryParts = [];
+      if(kidMode){
+        summaryParts.push(`<p>Let's get <strong>${safeName}</strong> ready!</p>`);
+      } else {
+        summaryParts.push(`<p><strong>${safeName}</strong> quick reference.</p>`);
+      }
+      if(entry?.level?.level){
+        summaryParts.push(`<p><strong>Tech Level:</strong> ${escapeHTML(String(entry.level.level))}</p>`);
+      }
+      if(entry?.item?.techPoints){
+        summaryParts.push(`<p><strong>Tech Points Cost:</strong> ${escapeHTML(String(entry.item.techPoints))}</p>`);
+      }
+      if(entry?.item?.materials && Object.keys(entry.item.materials).length){
+        const materials = Object.entries(entry.item.materials)
+          .map(([material, qty]) => `<li>${escapeHTML(`${qty} × ${material}`)}</li>`)
+          .join('');
+        if(materials){
+          summaryParts.push(`<p>${kidMode ? 'You will need:' : 'Materials required:'}</p><ul>${materials}</ul>`);
+        }
+      }
+      if(entry?.item?.description){
+        summaryParts.push(`<p>${escapeHTML(entry.item.description)}</p>`);
+      } else if(entry){
+        summaryParts.push(`<p>${kidMode
+          ? 'Check the Palworld.gg window for a picture and placement tips once you unlock it.'
+          : 'Use the Palworld.gg panel for placement notes and unlock requirements.'}</p>`);
+      } else {
+        summaryParts.push(`<p>${kidMode
+          ? 'Palmate will peek at Palworld.gg so you can see what it looks like without leaving this checklist.'
+          : 'Palmate opens a Palworld.gg search so you can confirm crafting details without changing pages.'}</p>`);
+      }
+      const note = entry
+        ? 'Palmate keeps this tech guide handy so you can stay on the route checklist.'
+        : 'Palmate opens a Palworld.gg search while keeping your route progress on screen.';
+      openPalworldEmbed({
+        heading: `${displayName} – Palworld.gg`,
+        url: searchUrl,
+        fallbackUrl: searchUrl,
+        note,
+        summaryHtml: summaryParts.join('')
+      });
+    }
+
+    function showGlossaryDetail(identifier){
+      if(!identifier) return;
+      const key = String(identifier).toLowerCase();
+      const entry = ROUTE_GLOSSARY_SUMMARIES[key];
+      const displayName = entry?.title || niceName(identifier);
+      const url = entry?.url || `${PALWORLD_BASE_URL}/items?search=${encodeURIComponent(displayName)}`;
+      const note = entry?.note || 'Palmate keeps this glossary entry in a modal so you never lose your place.';
+      const lines = entry
+        ? (kidMode ? entry.kid : entry.grown)
+        : [kidMode
+          ? `Let's learn about ${displayName}. Palworld.gg will open beside your checklist so you can keep exploring.`
+          : `Palmate is opening a Palworld.gg search for ${displayName} so you can review it without leaving the route.`];
+      const summaryHtml = lines.map(text => `<p>${escapeHTML(text)}</p>`).join('');
+      openPalworldEmbed({
+        heading: `${displayName} – Palworld.gg`,
+        url,
+        fallbackUrl: url,
+        note,
+        summaryHtml
+      });
+    }
+
+    window.showTechDetail = showTechDetail;
+    window.showGlossaryDetail = showGlossaryDetail;
 
     function pulse(el){
       el.classList.add('pulse');
