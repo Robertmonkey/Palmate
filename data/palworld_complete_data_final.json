@@ -14809,7 +14809,7 @@
             "Wood": 3,
             "Stone": 3
           },
-          "description": "Unlocks the basic capturing sphere used to catch low\u2011level Pals. Crafted at the Pal Gear Workbench."
+          "description": "Unlocks the basic capturing sphere used to catch low‑level Pals. Crafted at the Pal Gear Workbench."
         }
       ]
     },
@@ -14836,7 +14836,7 @@
         {
           "name": "Celaray Gloves",
           "category": "Pal Gear",
-          "description": "Gloves for gently holding Celaray\u2019s fins. Using them allows Celaray to act as a glider when in your team.",
+          "description": "Gloves for gently holding Celaray’s fins. Using them allows Celaray to act as a glider when in your team.",
           "techPoints": 1
         },
         {
@@ -14898,7 +14898,7 @@
         {
           "name": "Tanzee Assault Rifle",
           "category": "Pal Gear",
-          "description": "Assault rifle made especially for Tanzee. Activates Tanzee\u2019s gunner mode to shoot at nearby enemies.",
+          "description": "Assault rifle made especially for Tanzee. Activates Tanzee’s gunner mode to shoot at nearby enemies.",
           "techPoints": 1
         },
         {
@@ -14982,7 +14982,7 @@
         {
           "name": "Hangyu Gloves",
           "category": "Pal Gear",
-          "description": "Gloves for holding Hangyu\u2019s arms. They allow you to glide long distances.",
+          "description": "Gloves for holding Hangyu’s arms. They allow you to glide long distances.",
           "techPoints": 1
         },
         {
@@ -15033,7 +15033,7 @@
             "Carbon Fiber": 2,
             "Cement": 3
           },
-          "description": "Top-tier capture sphere for end\u2011game Pals."
+          "description": "Top-tier capture sphere for end‑game Pals."
         },
         {
           "name": "Blazehowl Saddle",
@@ -15076,16 +15076,18 @@
         "Ground"
       ],
       "hp": 30000,
-      "description": "The tutorial tower. Bring Ground\u2011type pals to exploit Grizzbolt\u2019s weakness. Recommended pals include Rushoar and Fuddler. Dash in, dodge Grizzbolt\u2019s electric attacks, and keep your distance.",
+      "description": "The tutorial tower. Bring Ground‑type pals to exploit Grizzbolt’s weakness. Recommended pals include Rushoar and Fuddler. Dash in, dodge Grizzbolt’s electric attacks, and keep your distance.",
       "location": "Windswept Hills (112, -434)",
       "tips": "Stock up on Pal Spheres, some basic healing items, and wear basic armor.",
       "steps": [
-        "Prepare your team: gather ['Ground']-type pals and craft gear effective against Electric elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Windswept Hills (112, -434). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Confirm your pals are at least level 15 and slot Ground-type attackers to exploit Grizzbolt.",
+        "Repair melee and ranged weapons, and craft extra Pal Spheres plus crossbow bolts.",
+        "Cook stamina meals and pack bandages or medical supplies for emergency heals.",
+        "Travel to Windswept Hills (112, -434), unlocking the Cliffside fast travel statue en route.",
+        "Establish a forward camp with a bed or campfire just outside the tower entrance.",
+        "Clear Syndicate patrols, gathering ore from the cliffs for last-minute gear repairs.",
+        "Enter the arena, circle around Grizzbolt's telegraphed lightning and punish after each slam.",
+        "Loot the tower chest, collect boss drops, then return home to upgrade workbenches."
       ]
     },
     {
@@ -15097,17 +15099,19 @@
         "Fire"
       ],
       "hp": 69000,
-      "description": "Located in the icy north. Bring Fire pals such as Foxparks or Blazehowl to burn through Lyleen\u2019s grass defenses. Wear cold resistance gear to survive the journey.",
+      "description": "Located in the icy north. Bring Fire pals such as Foxparks or Blazehowl to burn through Lyleen’s grass defenses. Wear cold resistance gear to survive the journey.",
       "location": "Free Pal Alliance territory (185, 28)",
       "tips": "Craft some Mega Spheres before heading out and keep a fire source ready to warm up.",
       "climate": "Cold",
       "steps": [
-        "Prepare your team: gather ['Fire']-type pals and craft gear effective against Grass elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Free Pal Alliance territory (185, 28). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Raise your core team to at least level 25 and equip Fire pals with high burst skills.",
+        "Craft cold-resistance armor and brew heat drinks to counter the blizzard approach.",
+        "Cook hearty meals that boost defense and carry thawing medicine for emergencies.",
+        "Fast travel toward (185, 28) and clear ice blocking the final ascent to the tower.",
+        "Place a heater or bonfire near the entrance so you can warm up between attempts.",
+        "Defeat Free Pal scouts on the plateau and loot supply crates for ammo and fiber.",
+        "During the fight, focus fire on Lyleen while dodging Lily's wide arcing shots.",
+        "After victory, relight your heater, restock ammo, and upgrade Fire weapons at base."
       ]
     },
     {
@@ -15125,12 +15129,14 @@
       "tips": "Use Surfent or another water mount to cross safely. Maintain distance and avoid standing on lava pools.",
       "climate": "Hot",
       "steps": [
-        "Prepare your team: gather ['Ground', 'Ice']-type pals and craft gear effective against Electric/Dragon elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Lava island (approx). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Ensure your squad is level 30+ and slot Ice or Ground pals with lightning resistance.",
+        "Forge heat-resistant armor and pack cooling consumables for the volcanic climb.",
+        "Cook spicy meals that boost stamina and bring antidotes for toxic vents.",
+        "Glide or sail to the volcano, unlocking the Mount Obsidian fast travel statue.",
+        "Build a safe respawn camp on a basalt ledge before approaching the tower.",
+        "Clear roaming fire mobs and harvest sulfur deposits for emergency ammo crafting.",
+        "Inside the arena, stagger Orserk with Ice bursts, then punish Axel from range.",
+        "Secure the loot chest, refill cooling supplies, and send pals to rest at your base."
       ]
     },
     {
@@ -15147,12 +15153,14 @@
       "tips": "Craft plenty of Hyper Spheres and bring water because the journey is long.",
       "climate": "Hot/Cold",
       "steps": [
-        "Prepare your team: gather ['Water']-type pals and craft gear effective against Fire elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to PIDF desert (approx). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Train your Water-focused team to level 35+ and slot pals with ranged Hydro attacks.",
+        "Upgrade weapons to steel tier and brew flame-resistant tonics for the desert heat.",
+        "Prepare chilled meals and carry extra water to avoid overheating on the march.",
+        "Ride a fast mount toward (350, -200), capturing the desert fast travel anchor.",
+        "Set up shade structures or a tent outside the tower to manage temperature.",
+        "Eliminate PIDF patrols and dismantle turrets guarding the elevator entrance.",
+        "During the fight, ground Faleris with Water artillery, then pressure Marcus.",
+        "After the win, loot the cache, refill water skins, and craft new ammo back home."
       ]
     },
     {
@@ -15164,17 +15172,19 @@
         "Dragon"
       ],
       "hp": 200000,
-      "description": "Atop a snowy mountain. Shadowbeak\u2019s dark type is weak against Dragon pals such as Orserk and Quivern. Pack cold resistance gear and powerful healing items.",
+      "description": "Atop a snowy mountain. Shadowbeak’s dark type is weak against Dragon pals such as Orserk and Quivern. Pack cold resistance gear and powerful healing items.",
       "location": "Snowy mountain (approx)",
       "tips": "Prepare Ultra Spheres and craft gear like the Quivern Saddle to reach the tower quickly.",
       "climate": "Cold",
       "steps": [
-        "Prepare your team: gather ['Dragon']-type pals and craft gear effective against Dark elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Snowy mountain (approx). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Bring your squad to level 40+ with Dragon pals capable of burst damage and shields.",
+        "Reinforce armor with Dark-resistant plates and craft plenty of Legendary Spheres.",
+        "Cook focus-restoring meals and pack energy potions for prolonged aerial phases.",
+        "Glide across the tundra to (558, 340), activating the nearby fast travel tower.",
+        "Construct a small generator base with lights to cut through the laboratory gloom.",
+        "Disable roaming security drones and hack supply crates for extra batteries.",
+        "In combat, bait Shadowbeak's beam, counter with Dragon slams, then corner Victor.",
+        "Claim the experimental loot, recharge equipment, and schedule base upgrades."
       ]
     },
     {
@@ -15192,12 +15202,14 @@
       "tips": "Use mounts like Nitewing or Quivern to cross quickly and avoid ambushes.",
       "climate": "Foggy",
       "steps": [
-        "Prepare your team: gather ['Dark', 'Dragon']-type pals and craft gear effective against Dark/Neutral elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Sakurajima island (approx). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Raise Dark or Dragon pals to level 45+ and slot passives that cleanse debuffs.",
+        "Craft fog-cutting lanterns and antidotes to counter poisonous Sakurajima plants.",
+        "Cook stamina soups and pack plenty of glider repair kits for the island crossing.",
+        "Fly or sail to Sakurajima, unlocking the Moonflower waypoint along the cliffs.",
+        "Build a lantern-lined safe zone outside the tower to purge poison stacks.",
+        "Clear ambushing Moonflower cultists and harvest glowshrooms for extra cures.",
+        "In the arena, dispel Selyne's orbs with Dark attacks while dodging Saya's beams.",
+        "Gather the relic rewards, detox your team, and rotate fresh pals in at base."
       ]
     },
     {
@@ -15214,12 +15226,14 @@
       "tips": "Craft Legendary Spheres and upgrade your base before the fight. Bring plenty of food and stamina potions for a long battle.",
       "climate": "Cold",
       "steps": [
-        "Prepare your team: gather ['Fire']-type pals and craft gear effective against Ice elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Feybreak island (approx). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Push your Fire squad to level 50+ with high durability mounts like Blazamut.",
+        "Forge top-tier fire gear and brew hot drinks to counter Feybreak's deep freeze.",
+        "Stockpile spicy meals and stamina tonics for the long trek through snow fields.",
+        "Hunt the three bounty bosses (Dazzi Noct, Caprity Noct, Omascul) for entry tokens.",
+        "Unlock the Feybreak fast travel statues and place a camp heater near the tower gate.",
+        "Clear remaining ice golems and salvage metal from wreckage for mid-run repairs.",
+        "Inside the arena, melt Bastigor's armor while interrupting Bjorn's cannon volleys.",
+        "Celebrate by looting the vault, restocking supplies, and planning postgame raids."
       ]
     }
   ],
@@ -15270,7 +15284,7 @@
       "element": "Dragon",
       "ct": 30,
       "power": 100,
-      "description": "Fires an energy bullet imbued with dragon power. The bullet shatters on impact, causing a long\u2011range explosion."
+      "description": "Fires an energy bullet imbued with dragon power. The bullet shatters on impact, causing a long‑range explosion."
     },
     "Blizzard Spike": {
       "element": "Ice",
@@ -15294,7 +15308,7 @@
       "element": "Grass",
       "ct": 40,
       "power": 120,
-      "description": "Sprouts sharp roots around the enemy\u2019s location, ensnaring and damaging any foes caught within."
+      "description": "Sprouts sharp roots around the enemy’s location, ensnaring and damaging any foes caught within."
     },
     "Comet Strike": {
       "element": "Dragon",
@@ -15312,7 +15326,7 @@
       "element": "Water",
       "ct": 40,
       "power": 120,
-      "description": "Continuously creates walls of water columns at the enemy\u2019s location, trapping and damaging foes."
+      "description": "Continuously creates walls of water columns at the enemy’s location, trapping and damaging foes."
     },
     "Dark Arrow": {
       "element": "Dark",
