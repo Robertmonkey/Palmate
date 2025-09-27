@@ -2822,6 +2822,29 @@
         });
     }
 
+    function routeChapterTitle(chapter){
+      if(!chapter) return '';
+      return kidMode ? (chapter.titleKid || chapter.title || '') : (chapter.title || chapter.titleKid || '');
+    }
+
+    function routeChapterWhy(chapter){
+      if(!chapter) return '';
+      return kidMode ? (chapter.whyKid || chapter.why || '') : (chapter.why || chapter.whyKid || '');
+    }
+
+    function routeStepText(step){
+      if(!step) return '';
+      if(!kidMode && step.textAdult) return step.textAdult;
+      return kidMode ? (step.textKid || step.text || '') : (step.text || step.textKid || '');
+    }
+
+    function routeOptionalToggleLabel(hidden){
+      if(kidMode){
+        return hidden ? 'Show bonus steps' : 'Hide bonus steps';
+      }
+      return hidden ? 'Show Optional' : 'Hide Optional';
+    }
+
     function renderRouteGuide(){
       ensureRouteGuide().then(guide => {
         const node = document.getElementById('routePage');
@@ -2837,7 +2860,7 @@
             <h2>Boss Route & Progress</h2>
             <p>Work through each chapter. Check off steps as you do them. <em>Optional</em> steps don’t block completion.</p>
             <div class="badges" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-              <button class="btn" id="toggleOptional">${routeHideOptional ? 'Show Optional' : 'Hide Optional'}</button>
+              <button class="btn" id="toggleOptional">${routeOptionalToggleLabel(routeHideOptional)}</button>
             </div>
           </section>
           <div id="routeChapters"></div>
@@ -2854,7 +2877,7 @@
         if(toggleBtn){
           toggleBtn.onclick = () => {
             routeHideOptional = !routeHideOptional;
-            toggleBtn.textContent = routeHideOptional ? 'Show Optional' : 'Hide Optional';
+            toggleBtn.textContent = routeOptionalToggleLabel(routeHideOptional);
             chapters.forEach(ch => rerenderChapter(ch));
           };
         }
@@ -2870,8 +2893,8 @@
       section.innerHTML = `
         <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap">
           <div>
-            <h3 style="margin:0">${escapeHTML(chapter.title)}</h3>
-            <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(chapter.why)}</p>
+            <h3 style="margin:0">${escapeHTML(routeChapterTitle(chapter))}</h3>
+            <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(routeChapterWhy(chapter))}</p>
           </div>
           <div style="min-width:220px">${renderProgress(progress)}</div>
         </div>
@@ -2896,8 +2919,8 @@
       node.innerHTML = `
         <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap">
           <div>
-            <h3 style="margin:0">${escapeHTML(chapter.title)}</h3>
-            <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(chapter.why)}</p>
+            <h3 style="margin:0">${escapeHTML(routeChapterTitle(chapter))}</h3>
+            <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(routeChapterWhy(chapter))}</p>
           </div>
           <div style="min-width:220px">${renderProgress(progress)}</div>
         </div>
@@ -2994,7 +3017,7 @@
         groups[step.category].push(`
           <label class="step ${step.optional ? 'optional' : ''}">
             <input type="checkbox" data-step="${step.id}" ${checked ? 'checked' : ''} />
-            <span class="step-text">${escapeHTML(step.text)} ${step.optional ? '<em>(Optional)</em>' : ''}</span>
+            <span class="step-text">${escapeHTML(routeStepText(step))} ${step.optional ? '<em>(Optional)</em>' : ''}</span>
             ${renderLinks(step.links || [])}
           </label>
         `);
@@ -3248,12 +3271,15 @@
 
     function renderProgress(progress){
       const pct = progress.requiredCount ? Math.round((progress.requiredChecked / progress.requiredCount) * 100) : 0;
+      const label = kidMode
+        ? `${progress.requiredChecked}/${progress.requiredCount} steps done (${pct}%)`
+        : `${progress.requiredChecked}/${progress.requiredCount} required done (${pct}%)`;
       return `
         <div class="progress" aria-label="Chapter progress" style="display:grid;gap:6px">
           <div style="height:10px;border-radius:999px;background:#22314A;overflow:hidden">
             <div style="height:10px;width:${pct}%;background:var(--accent)"></div>
           </div>
-          <div style="font-size:.9rem;color:var(--muted)">${progress.requiredChecked}/${progress.requiredCount} required done (${pct}%)</div>
+          <div style="font-size:.9rem;color:var(--muted)">${label}</div>
         </div>
       `;
     }
