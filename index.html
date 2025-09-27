@@ -1323,9 +1323,12 @@
             <div class="progress-meter" id="guideProgressMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
               <div class="meter-fill" id="guideProgress"></div>
             </div>
-            <div class="progress-card__footer">
-              <span id="guideProgressText" class="progress-text"></span>
-              <span id="towersClearedBadge" class="progress-badge"></span>
+            <div class="progress-card__footer" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+              <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+                <span id="guideProgressText" class="progress-text"></span>
+                <span id="towersClearedBadge" class="progress-badge"></span>
+              </div>
+              <button class="btn" id="resetRouteProgress" type="button">Reset Guide Progress</button>
             </div>
           </article>
           <article class="progress-card">
@@ -2749,7 +2752,6 @@
             <p>Work through each chapter. Check off steps as you do them. <em>Optional</em> steps don’t block completion.</p>
             <div class="badges" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
               <button class="btn" id="toggleOptional">${routeHideOptional ? 'Show Optional' : 'Hide Optional'}</button>
-              <button class="btn" id="resetAll">Reset All</button>
             </div>
           </section>
           <div id="routeChapters"></div>
@@ -2768,16 +2770,6 @@
             routeHideOptional = !routeHideOptional;
             toggleBtn.textContent = routeHideOptional ? 'Show Optional' : 'Hide Optional';
             chapters.forEach(ch => rerenderChapter(ch));
-          };
-        }
-        const resetAll = node.querySelector('#resetAll');
-        if(resetAll){
-          resetAll.onclick = () => {
-            if(confirm('Reset ALL progress?')){
-              localStorage.removeItem(ROUTE_STORAGE_KEY);
-              routeState = {};
-              renderRouteGuide();
-            }
           };
         }
         updateProgressUI();
@@ -3270,6 +3262,17 @@
         techText.textContent = kidMode
           ? 'Unlock new gadgets to light up this meter.'
           : 'Unlock tech to power up your workshop.';
+      }
+      const resetGuideBtn = document.getElementById('resetRouteProgress');
+      if (resetGuideBtn) {
+        resetGuideBtn.onclick = () => {
+          if (confirm('Reset all guide progress?')) {
+            localStorage.removeItem(ROUTE_STORAGE_KEY);
+            routeState = {};
+            renderRouteGuide();
+            updateProgressUI();
+          }
+        };
       }
     }
     // Update progress bars
