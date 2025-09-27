@@ -14853,6 +14853,3063 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "spawnAreas": [
         "Sakurajima Cherry Blossom Grove"
       ]
+    },
+    "141": {
+      "id": 141,
+      "key": "138",
+      "name": "Prunelia",
+      "wiki": "https://palworld.wiki.gg/wiki/Prunelia",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Prunelia.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6020.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 95.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 1,
+        "planting": 3,
+        "gathering": 2,
+        "medicine_production": 3,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "poison_fog",
+          "level": 1,
+          "power": 0,
+          "cooldown": 30.0
+        },
+        {
+          "name": "wind_cutter",
+          "level": 7,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "poison_blast",
+          "level": 15,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "seed_mine",
+          "level": 22,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "poison_shower",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "spine_vine",
+          "level": 40,
+          "power": 95,
+          "cooldown": 25.0
+        },
+        {
+          "name": "solar_blast",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "low_grade_medical_supplies",
+        "beautiful_flower",
+        "carrot_seeds"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Grass",
+        "type2": "Dark"
+      },
+      "types": [
+        "Grass",
+        "Dark"
+      ],
+      "localImage": "assets/pals/138_prunelia.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "142": {
+      "id": 142,
+      "key": "139",
+      "name": "Nyafia",
+      "wiki": "https://palworld.wiki.gg/wiki/Nyafia",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Nyafia.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 5180.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 100.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 3,
+        "lumbering": 2,
+        "gathering": 2,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "poison_fog",
+          "level": 1,
+          "power": 0,
+          "cooldown": 30.0
+        },
+        {
+          "name": "poison_blast",
+          "level": 7,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "shadow_burst",
+          "level": 22,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "poison_shower",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 40,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "dark_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "leather"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": "assets/pals/139_nyafia.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "143": {
+      "id": 143,
+      "key": "140",
+      "name": "Gildane",
+      "wiki": "https://palworld.wiki.gg/wiki/Gildane",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Gildane.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8750.0,
+      "size": null,
+      "stats": {
+        "hp": 120.0,
+        "attack": 110.0,
+        "defense": 110.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 840.0,
+        "food": 7.0
+      },
+      "work": {
+        "gathering": 2
+      },
+      "skills": [
+        {
+          "name": "power_shot",
+          "level": 1,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bog_blast",
+          "level": 7,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "power_bomb",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "rockburst",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "crash_dash",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "stone_beat",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "leather"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Ground",
+        "type2": null
+      },
+      "types": [
+        "Ground"
+      ],
+      "localImage": "assets/pals/140_gildane.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "144": {
+      "id": 144,
+      "key": "141",
+      "name": "Herbil",
+      "wiki": "https://palworld.wiki.gg/wiki/Herbil",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Herbil.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1110.0,
+      "size": null,
+      "stats": {
+        "hp": 80.0,
+        "attack": 75.0,
+        "defense": 75.0,
+        "stamina": null,
+        "support": 100.0,
+        "speed": 350.0,
+        "food": 2.0
+      },
+      "work": {
+        "planting": 2,
+        "gathering": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "wind_cutter",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "seed_machine_gun",
+          "level": 7,
+          "power": 50,
+          "cooldown": 9.0
+        },
+        {
+          "name": "grass_tornado",
+          "level": 15,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "air_blade",
+          "level": 22,
+          "power": 85,
+          "cooldown": 20.0
+        },
+        {
+          "name": "konoha_flip",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "reflect_leaf",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "crosswind",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "leather",
+        "red_berries"
+      ],
+      "breeding": {
+        "power": 1445.0,
+        "type1": "Grass",
+        "type2": "Neutral"
+      },
+      "types": [
+        "Grass",
+        "Neutral"
+      ],
+      "localImage": "assets/pals/141_herbil.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "145": {
+      "id": 145,
+      "key": "142",
+      "name": "Icelyn",
+      "wiki": "https://palworld.wiki.gg/wiki/Icelyn",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Icelyn.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 2310.0,
+      "size": null,
+      "stats": {
+        "hp": 95.0,
+        "attack": 115.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 2,
+        "medicine_production": 2,
+        "transporting": 1,
+        "cooling": 3
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "crystal_breath",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "freze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "blizzard_spike",
+          "level": 40,
+          "power": 130,
+          "cooldown": 45.0
+        },
+        {
+          "name": "diamond_rain",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "ice_organ",
+        "precious_plume"
+      ],
+      "breeding": {
+        "power": 605.0,
+        "type1": "Ice",
+        "type2": null
+      },
+      "types": [
+        "Ice"
+      ],
+      "localImage": "assets/pals/142_icelyn.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "146": {
+      "id": 146,
+      "key": "143",
+      "name": "Frostplume",
+      "wiki": "https://palworld.wiki.gg/wiki/Frostplume",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Frostplume.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1460.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 100.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 500.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 1,
+        "cooling": 2
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "crystal_breath",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "freze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "icicle_bullet",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "diamond_rain",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "ice_organ"
+      ],
+      "breeding": {
+        "power": 655.0,
+        "type1": "Ice",
+        "type2": null
+      },
+      "types": [
+        "Ice"
+      ],
+      "localImage": "assets/pals/143_frostplume.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "147": {
+      "id": 147,
+      "key": "144",
+      "name": "Palumba",
+      "wiki": "https://palworld.wiki.gg/wiki/Palumba",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Palumba.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 5850.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 110.0,
+        "defense": 115.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 5.0
+      },
+      "work": {
+        "planting": 2,
+        "gathering": 2,
+        "mining": 3
+      },
+      "skills": [
+        {
+          "name": "seed_machine_gun",
+          "level": 1,
+          "power": 50,
+          "cooldown": 9.0
+        },
+        {
+          "name": "seed_mine",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "grass_tornado",
+          "level": 15,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "wind_edge",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dash_kick",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "reflect_leaf",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "crosswind",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "bone"
+      ],
+      "breeding": {
+        "power": 455.0,
+        "type1": "Grass",
+        "type2": null
+      },
+      "types": [
+        "Grass"
+      ],
+      "localImage": "assets/pals/144_palumba.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "148": {
+      "id": 148,
+      "key": "145",
+      "name": "Braloha",
+      "wiki": "https://palworld.wiki.gg/wiki/Braloha",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Braloha.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6500.0,
+      "size": null,
+      "stats": {
+        "hp": 130.0,
+        "attack": 95.0,
+        "defense": 120.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 7.0
+      },
+      "work": {
+        "planting": 4,
+        "gathering": 4,
+        "mining": 2
+      },
+      "skills": [
+        {
+          "name": "bog_blast",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "seed_mine",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "grass_tornado",
+          "level": 15,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "spine_vine",
+          "level": 22,
+          "power": 95,
+          "cooldown": 25.0
+        },
+        {
+          "name": "deep_breath",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "solar_blast",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "stone_beat",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "leather",
+        "red_berries",
+        "lettuce_seeds",
+        "tomato_seeds"
+      ],
+      "breeding": {
+        "power": 335.0,
+        "type1": "Grass",
+        "type2": "Ground"
+      },
+      "types": [
+        "Grass",
+        "Ground"
+      ],
+      "localImage": "assets/pals/145_braloha.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "149": {
+      "id": 149,
+      "key": "146",
+      "name": "Munchill",
+      "wiki": "https://palworld.wiki.gg/wiki/Munchill",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Munchill.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1580.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 80.0,
+        "defense": 85.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 1,
+        "transporting": 1,
+        "cooling": 2
+      },
+      "skills": [
+        {
+          "name": "aqua_gun",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "crystal_breath",
+          "level": 15,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "chaotic_spray",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "freeze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "torrential_blast",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "diamond_rain",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "munchill_meat"
+      ],
+      "breeding": {
+        "power": 1335.0,
+        "type1": "Ice",
+        "type2": "Water"
+      },
+      "types": [
+        "Ice",
+        "Water"
+      ],
+      "localImage": "assets/pals/146_munchill.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "150": {
+      "id": 150,
+      "key": "147",
+      "name": "Polapup",
+      "wiki": "https://palworld.wiki.gg/wiki/Polapup",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Polapup.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 2130.0,
+      "size": null,
+      "stats": {
+        "hp": 95.0,
+        "attack": 105.0,
+        "defense": 105.0,
+        "stamina": 120.0,
+        "support": 100.0,
+        "speed": 250.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 2,
+        "cooling": 3
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "aqua_gun",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "splash",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "freeze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "icicle_line",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_surge",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "ice_organ"
+      ],
+      "breeding": {
+        "power": 745.0,
+        "type1": "Ice",
+        "type2": "Water"
+      },
+      "types": [
+        "Ice",
+        "Water"
+      ],
+      "localImage": "assets/pals/147_polapup.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "151": {
+      "id": 151,
+      "key": "148",
+      "name": "Turtacle",
+      "wiki": "https://palworld.wiki.gg/wiki/Turtacle",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Turtacle.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1350.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 75.0,
+        "defense": 115.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 320.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 2,
+        "mining": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "hydro_jet",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "hydro_spin",
+          "level": 15,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_burst",
+          "level": 22,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "bone"
+      ],
+      "breeding": {
+        "power": 1105.0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": "assets/pals/148_turtacle.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "152": {
+      "id": 152,
+      "key": "148B",
+      "name": "Turtacle Terra",
+      "wiki": "https://palworld.wiki.gg/wiki/Turtacle_Terra",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Turtacle%20Terra.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 19550.0,
+      "size": null,
+      "stats": {
+        "hp": 85.0,
+        "attack": 85.0,
+        "defense": 125.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 320.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 2,
+        "mining": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "bog_blast",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "bubble_blast",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "hydro_spin",
+          "level": 15,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_burt",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "rockburst",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "rock_lance",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "stone_beat",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "bone"
+      ],
+      "breeding": {
+        "power": 1065.0,
+        "type1": "Water",
+        "type2": "Ground"
+      },
+      "types": [
+        "Water",
+        "Ground"
+      ],
+      "localImage": "assets/pals/148b_turtacle_terra.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "153": {
+      "id": 153,
+      "key": "149",
+      "name": "Jellroy",
+      "wiki": "https://palworld.wiki.gg/wiki/Jellroy",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Jellroy.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1630.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 75.0,
+        "defense": 75.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "watering": 2,
+        "medicine_production": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "poison_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "umbral_surge",
+          "level": 7,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 22,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "poison_shower",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dark_whisp",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "jellroy_bell_flesh"
+      ],
+      "breeding": {
+        "power": 1395.0,
+        "type1": "Water",
+        "type2": "Dark"
+      },
+      "types": [
+        "Water",
+        "Dark"
+      ],
+      "localImage": "assets/pals/149_jellroy.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "154": {
+      "id": 154,
+      "key": "150",
+      "name": "Jelliette",
+      "wiki": "https://palworld.wiki.gg/wiki/Jelliette",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Jelliette.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1780.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 90.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 240.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "watering": 2,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "hydro_jet",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "aqua_gun",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "aqua_burst",
+          "level": 22,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "curtain_splash",
+          "level": 30,
+          "power": 120,
+          "cooldown": 40.0
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_surge",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "jelliette_bell_flesh"
+      ],
+      "breeding": {
+        "power": 1385.0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": "assets/pals/150_jelliette.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "155": {
+      "id": 155,
+      "key": "151",
+      "name": "Gloopie",
+      "wiki": "https://palworld.wiki.gg/wiki/Gloopie",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Gloopie.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1930.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 85.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 2,
+        "watering": 2,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "hydro_jet",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "shadow_burst",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "smoke_jet",
+          "level": 15,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "splash",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "gloopie_tentacle"
+      ],
+      "breeding": {
+        "power": 1195.0,
+        "type1": "Water",
+        "type2": "Dark"
+      },
+      "types": [
+        "Water",
+        "Dark"
+      ],
+      "localImage": "assets/pals/151_gloopie.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "156": {
+      "id": 156,
+      "key": "152",
+      "name": "Finsider",
+      "wiki": "https://palworld.wiki.gg/wiki/Finsider",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Finsider.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1100.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 85.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 250.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 2,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "aqua_gun",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "power_bomb",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "trigger_happy",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "curtain_splash",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40.0
+        },
+        {
+          "name": "hydro_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "leather",
+        "small_pal_soul",
+        "pal_fluids"
+      ],
+      "breeding": {
+        "power": 1295.0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": "assets/pals/152_finsider.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "157": {
+      "id": 157,
+      "key": "152B",
+      "name": "Finsider Ignis",
+      "wiki": "https://palworld.wiki.gg/wiki/Finsider_Ignis",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Finsider%20Ignis.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1290.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 90.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 250.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 2,
+        "kindling": 2,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "ignis_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "spirit_fire",
+          "level": 7,
+          "power": 45,
+          "cooldown": 7.0
+        },
+        {
+          "name": "ignis_blast",
+          "level": 15,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "splash",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "trigger_happy",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "flame_funnel",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "fire_ball",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "leather",
+        "small_pal_soul",
+        "flame_organ"
+      ],
+      "breeding": {
+        "power": 1295.0,
+        "type1": "Water",
+        "type2": "Fire"
+      },
+      "types": [
+        "Water",
+        "Fire"
+      ],
+      "localImage": "assets/pals/152b_finsider_ignis.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "158": {
+      "id": 158,
+      "key": "153",
+      "name": "Ghangler",
+      "wiki": "https://palworld.wiki.gg/wiki/Ghangler",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Ghangler.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6850.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 125.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 4.0
+      },
+      "work": {
+        "watering": 4,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "aqua_gun",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "dark_ball",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "dark_arrow",
+          "level": 15,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 22,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "lantern_sweep",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dark_laser",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "aqua_surge",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "bones",
+        "venom_glad"
+      ],
+      "breeding": {
+        "power": 525.0,
+        "type1": "Dark",
+        "type2": "Water"
+      },
+      "types": [
+        "Dark",
+        "Water"
+      ],
+      "localImage": "assets/pals/153_ghangler.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "159": {
+      "id": 159,
+      "key": "153B",
+      "name": "Ghangler Ignis",
+      "wiki": "https://palworld.wiki.gg/wiki/Ghangler_Ignis",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Ghangler%20Ignis.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 7240.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 130.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 4.0
+      },
+      "work": {
+        "watering": 4,
+        "kindling": 3,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "ignis_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "flare_arrow",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "flame_wall",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "scorching_lantern_sweep",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "fire_ball",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "aqua_surge",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "bones",
+        "flame_organ"
+      ],
+      "breeding": {
+        "power": 505.0,
+        "type1": "Fire",
+        "type2": "Water"
+      },
+      "types": [
+        "Fire",
+        "Water"
+      ],
+      "localImage": "assets/pals/153b_ghangler_ignis.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "160": {
+      "id": 160,
+      "key": "154",
+      "name": "Whalaska",
+      "wiki": "https://palworld.wiki.gg/wiki/Whalaska",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Whalaska.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8510.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 115.0,
+        "defense": 110.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 6.0
+      },
+      "work": {
+        "watering": 3,
+        "cooling": 4
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "splash",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "freeze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "high_breach",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "geyser_gush",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "coralum_ore",
+        "ice_organ",
+        "large_pal_soul"
+      ],
+      "breeding": {
+        "power": 445.0,
+        "type1": "Ice",
+        "type2": "Water"
+      },
+      "types": [
+        "Ice",
+        "Water"
+      ],
+      "localImage": "assets/pals/154_whalaska.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "161": {
+      "id": 161,
+      "key": "154B",
+      "name": "Whalaska Ignis",
+      "wiki": "https://palworld.wiki.gg/wiki/Whalaska_Ignis",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Whalaska%20Ignis.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8630.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 120.0,
+        "defense": 110.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 6.0
+      },
+      "work": {
+        "kindling": 3,
+        "cooling": 4
+      },
+      "skills": [
+        {
+          "name": "ignis_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "flare_arrow",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "flame_wall",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "freeze_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "volcanic_rain",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "high_breach",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "coralum_ore",
+        "flame_organ",
+        "large_pal_soul"
+      ],
+      "breeding": {
+        "power": 430.0,
+        "type1": "Ice",
+        "type2": "Fire"
+      },
+      "types": [
+        "Ice",
+        "Fire"
+      ],
+      "localImage": "assets/pals/154b_whalaska_ignis.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "162": {
+      "id": 162,
+      "key": "155",
+      "name": "Neptilius",
+      "wiki": "https://palworld.wiki.gg/wiki/Neptilius",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Neptilius.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8690.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 145.0,
+        "defense": 125.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 750.0,
+        "food": 7.0
+      },
+      "work": {
+        "watering": 4
+      },
+      "skills": [
+        {
+          "name": "aqua_gun",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "splash",
+          "level": 15,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "curtain_splash",
+          "level": 30,
+          "power": 120,
+          "cooldown": 40.0
+        },
+        {
+          "name": "aqua_surge",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "geyser_gush",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "thalassonic_laser",
+          "level": 60,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "pure_quartz",
+        "polymer",
+        "carbon_fiber",
+        "diamond",
+        "large_pal_soul"
+      ],
+      "breeding": {
+        "power": 430.0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": "assets/pals/155_neptilius.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "163": {
+      "id": 163,
+      "key": "006B",
+      "name": "Fuack Ignis",
+      "wiki": "https://palworld.wiki.gg/wiki/Fuack_Ignis",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Fuack%20Ignis.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1340.0,
+      "size": null,
+      "stats": {
+        "hp": 60.0,
+        "attack": 85.0,
+        "defense": 60.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "watering": 1,
+        "kindling": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "ignis_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "spirit_fire",
+          "level": 7,
+          "power": 45,
+          "cooldown": 7.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "ignis_breath",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "flame_wall",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "volcanic_rain",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "leather",
+        "pal_fluids",
+        "flame_organ"
+      ],
+      "breeding": {
+        "power": 1290.0,
+        "type1": "Water",
+        "type2": "Fire"
+      },
+      "types": [
+        "Water",
+        "Fire"
+      ],
+      "localImage": "assets/pals/6b_fuack_ignis.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "164": {
+      "id": 164,
+      "key": "010B",
+      "name": "Pengullet Lux",
+      "wiki": "https://palworld.wiki.gg/wiki/Pengullet_Lux",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Pengullet%20Lux.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1290.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 80.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 500.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "watering": 1,
+        "transporting": 1,
+        "generating_electricity": 2
+      },
+      "skills": [
+        {
+          "name": "thunder_spear",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "electric_ball",
+          "level": 7,
+          "power": 50,
+          "cooldown": 9.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "splash",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "aqua_burst",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "trispark",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "lightning_strike",
+          "level": 50,
+          "power": 120,
+          "cooldown": 40.0
+        }
+      ],
+      "drops": [
+        "electric_organ",
+        "pal_fluids"
+      ],
+      "breeding": {
+        "power": 1310.0,
+        "type1": "Water",
+        "type2": "Electric"
+      },
+      "types": [
+        "Water",
+        "Electric"
+      ],
+      "localImage": "assets/pals/10b_pengullet_lux.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "165": {
+      "id": 165,
+      "key": "011B",
+      "name": "Penking Lux",
+      "wiki": "https://palworld.wiki.gg/wiki/Penking_Lux",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Penking%20Lux.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6490.0,
+      "size": null,
+      "stats": {
+        "hp": 100.0,
+        "attack": 100.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 450.0,
+        "food": 8.0
+      },
+      "work": {
+        "handiwork": 2,
+        "watering": 2,
+        "mining": 2,
+        "transporting": 2,
+        "generating_electricity": 2
+      },
+      "skills": [
+        {
+          "name": "thunder_spear",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "plasma_funnel",
+          "level": 7,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "trispark",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "thunderslide",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_surge",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "thunderstorm",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "electric_organ",
+        "penking_plume"
+      ],
+      "breeding": {
+        "power": 490.0,
+        "type1": "Water",
+        "type2": "Electric"
+      },
+      "types": [
+        "Water",
+        "Electric"
+      ],
+      "localImage": "assets/pals/11b_penking_lux.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "166": {
+      "id": 166,
+      "key": "023B",
+      "name": "Killamari Primo",
+      "wiki": "https://palworld.wiki.gg/wiki/Killamari_Primo",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Killamari%20Primo.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1440.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 60.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 1,
+        "gathering": 1,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "air_cannon",
+          "level": 1,
+          "power": 25,
+          "cooldown": 2.0
+        },
+        {
+          "name": "power_shot",
+          "level": 7,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "power_bomb",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "acid_rain",
+          "level": 30,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "killamari_tentacle"
+      ],
+      "breeding": {
+        "power": 1250.0,
+        "type1": "Neutral",
+        "type2": "Water"
+      },
+      "types": [
+        "Neutral",
+        "Water"
+      ],
+      "localImage": "assets/pals/23b_killamari_primo.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "167": {
+      "id": 167,
+      "key": "025B",
+      "name": "Celaray Lux",
+      "wiki": "https://palworld.wiki.gg/wiki/Celaray_Lux",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Celaray%20Lux.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 3430.0,
+      "size": null,
+      "stats": {
+        "hp": 80.0,
+        "attack": 75.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 3.0
+      },
+      "work": {
+        "watering": 1,
+        "transporting": 1,
+        "generating_electricity": 1
+      },
+      "skills": [
+        {
+          "name": "thunder_spear",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "shockwave",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 15,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "lightning_streak",
+          "level": 22,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "splash",
+          "level": 30,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "lightning_bolt",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "pal_fluids"
+      ],
+      "breeding": {
+        "power": 830.0,
+        "type1": "Water",
+        "type2": "Electric"
+      },
+      "types": [
+        "Water",
+        "Electric"
+      ],
+      "localImage": "assets/pals/25b_celaray_lux.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "168": {
+      "id": 168,
+      "key": "043B",
+      "name": "Dumud Gild",
+      "wiki": "https://palworld.wiki.gg/wiki/Dumud_Gild",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Dumud%20Gild.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 24900.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 75.0,
+        "defense": 100.0,
+        "stamina": null,
+        "support": 100.0,
+        "speed": 450.0,
+        "food": 4.0
+      },
+      "work": {
+        "watering": 1,
+        "mining": 2,
+        "transporting": 1,
+        "farming": 1
+      },
+      "skills": [
+        {
+          "name": "bog_blast",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aqua_gun",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "sand_tornado",
+          "level": 22,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "torrential_blast",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "rockburst",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "sand_twister",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "raw_dumud",
+        "high_quality_pal_oil",
+        "gold_coin"
+      ],
+      "breeding": {
+        "power": 855.0,
+        "type1": "Ground",
+        "type2": "Water"
+      },
+      "types": [
+        "Ground",
+        "Water"
+      ],
+      "localImage": "assets/pals/43b_dumud_gild.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "169": {
+      "id": 169,
+      "key": "082B",
+      "name": "Azurobe Cryst",
+      "wiki": "https://palworld.wiki.gg/wiki/Azurobe_Cryst",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Azurobe%20Cryst.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6750.0,
+      "size": null,
+      "stats": {
+        "hp": 115.0,
+        "attack": 105.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 6.0
+      },
+      "work": {
+        "cooling": 3
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "dragon_burst",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "draconic_breath",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "crystal_breath",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "charge_cannon",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "diamond_rain",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "cloth",
+        "pal_fluids",
+        "ice_organ"
+      ],
+      "breeding": {
+        "power": 480.0,
+        "type1": "Ice",
+        "type2": "Dragon"
+      },
+      "types": [
+        "Ice",
+        "Dragon"
+      ],
+      "localImage": "assets/pals/82b_azurobe_cryst.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "170": {
+      "id": 170,
+      "key": "114B",
+      "name": "Croajiro Noct",
+      "wiki": "https://palworld.wiki.gg/wiki/Croajiro_Noct",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Croajiro%20Noct.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 2130.0,
+      "size": null,
+      "stats": {
+        "hp": 85.0,
+        "attack": 110.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "watering": 1,
+        "gathering": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "poison_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "dark_shot",
+          "level": 7,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dark_arrow",
+          "level": 15,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "acid_rain",
+          "level": 22,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "hydro_slicer",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dark_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "pal_fluids",
+        "cloth",
+        "venom_gland"
+      ],
+      "breeding": {
+        "power": 765.0,
+        "type1": "Water",
+        "type2": "Dark"
+      },
+      "types": [
+        "Water",
+        "Dark"
+      ],
+      "localImage": "assets/pals/114b_croajiro_noct.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "171": {
+      "id": 171,
+      "key": "YM10",
+      "name": "Eye of Cthulhu",
+      "wiki": "https://palworld.wiki.gg/wiki/Eye_of_Cthulhu",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Eye%20of%20Cthulhu.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 240.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 900.0,
+        "food": 3.0
+      },
+      "work": {
+        "transporting": 4
+      },
+      "skills": [
+        {
+          "name": "lock_on_lunge",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "servant_call",
+          "level": 7,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1380.0,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": "assets/pals/-1_eye_of_cthulhu.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "172": {
+      "id": 172,
+      "key": "YM07",
+      "name": "Enchanted Sword",
+      "wiki": "https://palworld.wiki.gg/wiki/Enchanted_Sword",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Enchanted%20Sword.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 95.0,
+        "attack": 105.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 2.0
+      },
+      "work": {
+        "lumbering": 1
+      },
+      "skills": [
+        {
+          "name": "sword_charge",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": "assets/pals/-1_enchanted_sword.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "173": {
+      "id": 173,
+      "key": "YM05",
+      "name": "Illuminant Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Illuminant_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Illuminant%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 80.0,
+        "attack": 75.0,
+        "defense": 85.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_neutral",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": "assets/pals/-1_illuminant_slim.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "174": {
+      "id": 174,
+      "key": "YM09",
+      "name": "Illuminant Bat",
+      "wiki": "https://palworld.wiki.gg/wiki/Illuminant_Bat",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Illuminant%20Bat.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 80.0,
+        "attack": 80.0,
+        "defense": 95.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "gathering": 1
+      },
+      "skills": [
+        {
+          "name": "winged_assault",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1250.0,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": "assets/pals/-1_illuminant_bat.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "175": {
+      "id": 175,
+      "key": "YM06",
+      "name": "Rainbow Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Rainbow_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Rainbow%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 95.0,
+        "defense": 105.0,
+        "stamina": null,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_rainbow",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": "assets/pals/-1_rainbow_slime.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "176": {
+      "id": 176,
+      "key": "YM08",
+      "name": "Cave Bat",
+      "wiki": "https://palworld.wiki.gg/wiki/Cave_Bat",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Cave%20Bat.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 65.0,
+        "attack": 75.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "gathering": 1
+      },
+      "skills": [
+        {
+          "name": "winged_assault",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1340.0,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": "assets/pals/-1_cave_bat.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "177": {
+      "id": 177,
+      "key": "YM03",
+      "name": "Red Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Red_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Red%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 75.0,
+        "defense": 85.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_fire",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1405.0,
+        "type1": "Fire",
+        "type2": null
+      },
+      "types": [
+        "Fire"
+      ],
+      "localImage": "assets/pals/-1_red_slim.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "178": {
+      "id": 178,
+      "key": "YM04",
+      "name": "Purple Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Purple_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Purple%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 70.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 3.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_dark",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1390.0,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": "assets/pals/-1_purple_slim.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "179": {
+      "id": 179,
+      "key": "YM11",
+      "name": "Demon Eye",
+      "wiki": "https://palworld.wiki.gg/wiki/Demon_Eye",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Demon%20Eye.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 110.0,
+        "defense": 95.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "ocular_rush",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1390.0,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": "assets/pals/-1_demon_eye.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "180": {
+      "id": 180,
+      "key": "YM01",
+      "name": "Green Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Green_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Green%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 65.0,
+        "attack": 70.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_grass",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1430.0,
+        "type1": "Grass",
+        "type2": null
+      },
+      "types": [
+        "Grass"
+      ],
+      "localImage": "assets/pals/-1_green_slim.png",
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "181": {
+      "id": 181,
+      "key": "YM02",
+      "name": "Blue Slime",
+      "wiki": "https://palworld.wiki.gg/wiki/Blue_Slime",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Blue%20Slime.png",
+      "genus": "terraria",
+      "rarity": null,
+      "price": 3000.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 70.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 2.0
+      },
+      "work": {
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "slime_press_water",
+          "level": 1,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "hallowed_bar"
+      ],
+      "breeding": {
+        "power": 1405.0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": "assets/pals/-1_blue_slim.png",
+      "breedingCombos": [],
+      "spawnAreas": []
     }
   },
   "items": {
@@ -15060,17 +18117,384 @@ window.__PALMATE_EMBEDDED_DATA__ = {
   },
   "tech": [
     {
+      "level": 1,
+      "items": [
+        {
+          "id": "primitive-workbench",
+          "name": "Primitive Workbench",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 0,
+          "description": "Basic crafting bench for starter tools.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Primitive_Workbench.png"
+        },
+        {
+          "id": "stone-axe",
+          "name": "Stone Axe",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Tool",
+          "techPoints": 0,
+          "description": "Basic axe for chopping trees.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Axe.png"
+        },
+        {
+          "id": "stone-pickaxe",
+          "name": "Stone Pickaxe",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Tool",
+          "techPoints": 0,
+          "description": "Basic pickaxe for gathering ore.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Pickaxe.png"
+        },
+        {
+          "id": "hand-held-torch",
+          "name": "Hand-held Torch",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 0,
+          "description": "Unlocks the recipe for Hand-held Torch.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hand-held_Torch.png"
+        },
+        {
+          "id": "wooden-club",
+          "name": "Wooden Club",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 0,
+          "description": "Unlocks the recipe for Wooden Club.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Club.png"
+        },
+        {
+          "id": "pal-dressing-facility",
+          "name": "Pal Dressing Facility",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 0,
+          "description": "Unlocks the recipe for Pal Dressing Facility.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Dressing_Facility.png"
+        },
+        {
+          "id": "global-palbox",
+          "name": "Global Palbox",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 0,
+          "description": "Unlocks the recipe for Global Palbox.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Global_Palbox.png"
+        }
+      ]
+    },
+    {
       "level": 2,
       "items": [
         {
+          "id": "palbox",
+          "name": "Palbox",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 1,
+          "description": "Core structure that anchors your base and stores pals.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
+        },
+        {
+          "id": "pal-sphere",
           "name": "Pal Sphere",
+          "branch": "Technology",
+          "group": "Item",
           "category": "Equipment",
+          "techPoints": 1,
+          "description": "Craft Pal Sphere with materials and capture high-level pals.",
+          "isAncient": false,
           "materials": {
             "Paladium Fragment": 1,
             "Wood": 3,
             "Stone": 3
           },
-          "description": "Unlocks the basic capturing sphere used to catch low‑level Pals. Crafted at the Pal Gear Workbench."
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png"
+        },
+        {
+          "id": "campfire",
+          "name": "Campfire",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Campfire structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Campfire.png"
+        },
+        {
+          "id": "wooden-chest",
+          "name": "Wooden Chest",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Wooden Chest structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Chest.png"
+        },
+        {
+          "id": "repair-bench",
+          "name": "Repair Bench",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Repair Bench structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Repair_Bench.png"
+        },
+        {
+          "id": "wooden-structure-set",
+          "name": "Wooden Structure Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Wooden Structure Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Structure_Set.png"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "items": [
+        {
+          "id": "old-bow",
+          "name": "Old Bow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Weapon",
+          "techPoints": 1,
+          "description": "Starter bow crafted from stone and wood.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Old_Bow.png"
+        },
+        {
+          "id": "arrow",
+          "name": "Arrow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Ammo",
+          "techPoints": 1,
+          "description": "Basic arrows crafted for the Old Bow.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Arrow_icon.png"
+        },
+        {
+          "id": "shoddy-bed",
+          "name": "Shoddy Bed",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Shoddy Bed structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Shoddy_Bed.png"
+        },
+        {
+          "id": "straw-pal-bed",
+          "name": "Straw Pal Bed",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Straw Pal Bed structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Straw_Pal_Bed.png"
+        },
+        {
+          "id": "repair-kit",
+          "name": "Repair Kit",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Repair Kit.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Repair_Kit.png"
+        },
+        {
+          "id": "cloth",
+          "name": "Cloth",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Cloth.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "items": [
+        {
+          "id": "common-shield",
+          "name": "Common Shield",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Armor",
+          "techPoints": 2,
+          "description": "Early defensive shield for blocking attacks.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Common_Shield_icon.png"
+        },
+        {
+          "id": "stone-spear",
+          "name": "Stone Spear",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Stone Spear.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Spear.png"
+        },
+        {
+          "id": "cloth-outfit",
+          "name": "Cloth Outfit",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Cloth Outfit.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_Outfit_icon.png"
+        },
+        {
+          "id": "feed-box",
+          "name": "Feed Box",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 2,
+          "description": "Automatically feeds pals assigned to your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Feed_Box.png"
+        },
+        {
+          "id": "alarm-bell",
+          "name": "Alarm Bell",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 1,
+          "description": "Sounds an alarm when invaders approach your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Alarm_Bell.png"
+        },
+        {
+          "id": "hanging-trap",
+          "name": "Hanging Trap",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Hanging Trap structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hanging_Trap.png"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "items": [
+        {
+          "id": "berry-plantation",
+          "name": "Berry Plantation",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Berry Plantation structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Crop_Plantation.png"
+        },
+        {
+          "id": "ranch",
+          "name": "Ranch",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 2,
+          "description": "Lets pals produce resources like Eggs and Milk while assigned.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ranch_icon.png"
+        },
+        {
+          "id": "normal-parachute",
+          "name": "Normal Parachute",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Gear",
+          "techPoints": 2,
+          "description": "Basic parachute that softens falls and helps kids explore.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Normal_Parachute_icon.png"
+        },
+        {
+          "id": "fire-bow",
+          "name": "Fire Bow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Fire Bow.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Bow.png"
+        },
+        {
+          "id": "fire-arrow",
+          "name": "Fire Arrow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Ammo",
+          "techPoints": 1,
+          "description": "Ignited arrows that deal fire damage on impact.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Arrow_icon.png"
+        },
+        {
+          "id": "wooden-living-room-furniture-set",
+          "name": "Wooden Living Room Furniture Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Wooden Living Room Furniture Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Living_Room_Furniture_Set.png"
+        },
+        {
+          "id": "wooden-tavern-furniture-set",
+          "name": "Wooden Tavern Furniture Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Wooden Tavern Furniture Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Tavern_Furniture_Set.png"
         }
       ]
     },
@@ -15078,16 +18502,81 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 6,
       "items": [
         {
-          "name": "Foxparks Harness",
-          "category": "Pal Gear",
-          "description": "Harness for holding Foxparks. Activates its Partner Skill to unleash a handheld flamethrower while carrying Foxparks.",
-          "techPoints": 1
+          "id": "pal-gear-workbench",
+          "name": "Pal Gear Workbench",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Pal Gear Workbench structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Gear_Workbench.png"
         },
         {
+          "id": "statue-of-power",
+          "name": "Statue of Power",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 2,
+          "description": "Shrine that converts Lifmunk Effigies into capture bonuses.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Statue_of_Power.png"
+        },
+        {
+          "id": "mounted-torch",
+          "name": "Mounted Torch",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Mounted Torch structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mounted_Torch.png"
+        },
+        {
+          "id": "rushoar-saddle",
           "name": "Rushoar Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for safely riding Rushoar. Lets you dash and break rocks early in the game.",
-          "techPoints": 1
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Rushoar Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rushoar_menu.png"
+        },
+        {
+          "id": "foxparks-s-harness",
+          "name": "Foxparks's Harness",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Foxparks's Harness.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Foxparks_menu.png"
+        },
+        {
+          "id": "wooden-tavern-cabinet-furniture-set",
+          "name": "Wooden Tavern Cabinet Furniture Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Wooden Tavern Cabinet Furniture Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Tavern_Cabinet_Furniture_Set.png"
+        },
+        {
+          "id": "houseplant-set",
+          "name": "Houseplant Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Houseplant Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Houseplant_Set.png"
         }
       ]
     },
@@ -15095,16 +18584,92 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 7,
       "items": [
         {
-          "name": "Celaray Gloves",
-          "category": "Pal Gear",
-          "description": "Gloves for gently holding Celaray’s fins. Using them allows Celaray to act as a glider when in your team.",
-          "techPoints": 1
+          "id": "logging-site",
+          "name": "Logging Site",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 2,
+          "description": "Automated lumber station for your workers.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Logging_Site.png"
         },
         {
+          "id": "stone-pit",
+          "name": "Stone Pit",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 2,
+          "description": "Assign pals here to gather stone automatically.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Pit.png"
+        },
+        {
+          "id": "sign",
+          "name": "Sign",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Sign structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Signboard.png"
+        },
+        {
+          "id": "bat",
+          "name": "Bat",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Bat.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Bat.png"
+        },
+        {
+          "id": "melpaca-saddle",
           "name": "Melpaca Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for safely riding Melpaca. Provides an early mount with moderate speed.",
-          "techPoints": 1
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Melpaca Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Melpaca_menu.png"
+        },
+        {
+          "id": "celaray-s-gloves",
+          "name": "Celaray's Gloves",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Celaray's Gloves.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Celaray_menu.png"
+        },
+        {
+          "id": "wall-mounted-houseplant-set",
+          "name": "Wall-Mounted Houseplant Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Wall-Mounted Houseplant Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wall-Mounted_Houseplant_Set.png"
+        },
+        {
+          "id": "egg-incubator",
+          "name": "Egg Incubator",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 1,
+          "description": "Ancient device that hatches pal eggs at your base.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Egg_Incubator.png"
         }
       ]
     },
@@ -15112,16 +18677,163 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 8,
       "items": [
         {
-          "name": "Daedream Necklace",
-          "category": "Pal Gear",
-          "description": "Collar for Daedream. When equipped, Daedream will float by your side and fire at enemies in tandem.",
-          "techPoints": 2
+          "id": "crusher",
+          "name": "Crusher",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Production",
+          "techPoints": 2,
+          "description": "Crushes ore and stone into refined materials.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Crusher.png"
         },
         {
-          "name": "Jolthog Gloves",
+          "id": "poison-bow",
+          "name": "Poison Bow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Poison Bow.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Poison_Bow.png"
+        },
+        {
+          "id": "poison-arrow",
+          "name": "Poison Arrow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Poison Arrow.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Poison_Arrow_icon.png"
+        },
+        {
+          "id": "jolthog-s-gloves",
+          "name": "Jolthog's Gloves",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Jolthog's Gloves.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Jolthog_menu.png"
+        },
+        {
+          "id": "daedreams-necklace",
+          "name": "Daedream's Necklace",
+          "branch": "Technology",
+          "group": "Item",
           "category": "Pal Gear",
-          "description": "Rubber gloves for handling Jolthog. Activates its Partner Skill, allowing it to toss electric grenades.",
-          "techPoints": 1
+          "techPoints": 2,
+          "description": "Allows Daedream to float beside you and auto-attack.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Daedream_menu.png"
+        },
+        {
+          "id": "antique-storage-set",
+          "name": "Antique Storage Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Antique Storage Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Storage_Set.png"
+        },
+        {
+          "id": "fireplace-set",
+          "name": "Fireplace Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Fireplace Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fireplace_Set.png"
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "items": [
+        {
+          "id": "tropical-outfit",
+          "name": "Tropical Outfit",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Tropical Outfit.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Tropical_Outfit.png"
+        },
+        {
+          "id": "tundra-outfit",
+          "name": "Tundra Outfit",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Armor",
+          "techPoints": 3,
+          "description": "Cold-resistant gear for snowy regions.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Tundra_Outfit.png"
+        },
+        {
+          "id": "hot-spring",
+          "name": "Hot Spring",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 2,
+          "description": "Comfort spot that restores pal sanity and stamina.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hot_Spring.png"
+        },
+        {
+          "id": "sand-bag",
+          "name": "Sand Bag",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Sand Bag structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sand_Bag.png"
+        },
+        {
+          "id": "direhowl-s-saddled-harness",
+          "name": "Direhowl's Saddled Harness",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Direhowl's Saddled Harness.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Direhowl_menu.png"
+        },
+        {
+          "id": "killamari-s-gloves",
+          "name": "Killamari's Gloves",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Killamari's Gloves.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Killamari_menu.png"
+        },
+        {
+          "id": "carpet-set",
+          "name": "Carpet Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Carpet Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Carpet_Set.png"
         }
       ]
     },
@@ -15129,10 +18841,92 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 10,
       "items": [
         {
+          "id": "three-shot-bow",
+          "name": "Three Shot Bow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Weapon",
+          "techPoints": 2,
+          "description": "Bow that fires three arrows in rapid succession.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Three_Shot_Bow.png"
+        },
+        {
+          "id": "primitive-furnace",
+          "name": "Primitive Furnace",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Production",
+          "techPoints": 3,
+          "description": "Early furnace for smelting ore into ingots.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Primitive_Furnace.png"
+        },
+        {
+          "id": "feathered-hair-band",
+          "name": "Feathered Hair Band",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Feathered Hair Band.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Feathered_Hair_Band.png"
+        },
+        {
+          "id": "ladder",
+          "name": "Ladder",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Ladder structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ladder.png"
+        },
+        {
+          "id": "bear-trap-small",
+          "name": "Bear Trap (Small)",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Bear Trap (Small) structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Bear_Trap%28Small%29.png"
+        },
+        {
+          "id": "nail",
+          "name": "Nail",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Nail.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Nail_icon.png"
+        },
+        {
+          "id": "surfent-saddle",
           "name": "Surfent Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for safely riding Surfent across water surfaces.",
-          "techPoints": 1
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Surfent Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Surfent_menu.png"
+        },
+        {
+          "id": "small-feed-bag",
+          "name": "Small Feed Bag",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 1,
+          "description": "Ancient bag that auto-feeds you and your mount.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Small_Feed_Bag_icon.png"
         }
       ]
     },
@@ -15140,16 +18934,81 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 11,
       "items": [
         {
-          "name": "Lifmunk Submachine Gun",
-          "category": "Pal Gear",
-          "description": "A specially made submachine gun for Lifmunk. When activated, Lifmunk climbs onto your head and fires at enemies.",
-          "techPoints": 1
+          "id": "metal-axe",
+          "name": "Metal Axe",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Metal Axe.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Axe.png"
         },
         {
-          "name": "Jolthog Cryst Gloves",
-          "category": "Pal Gear",
-          "description": "Rubber gloves for handling Jolthog Cryst. Activates its Partner Skill to throw icy grenades.",
-          "techPoints": 1
+          "id": "metal-pickaxe",
+          "name": "Metal Pickaxe",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Metal Pickaxe.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/stone_Pickaxe.png"
+        },
+        {
+          "id": "high-quality-workbench",
+          "name": "High Quality Workbench",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the High Quality Workbench structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/High_Quality_Workbench.png"
+        },
+        {
+          "id": "heavy-weight-module",
+          "name": "Heavy Weight Module",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Heavy Weight Module.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heavy_Weight_Module_icon.png"
+        },
+        {
+          "id": "wooden-gate",
+          "name": "Wooden Gate",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Wooden Gate structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Gate.png"
+        },
+        {
+          "id": "lifmunk-s-submachine-gun",
+          "name": "Lifmunk's Submachine Gun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Lifmunk's Submachine Gun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lifmunk_menu.png"
+        },
+        {
+          "id": "jolthog-cryst-s-gloves",
+          "name": "Jolthog Cryst's Gloves",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Jolthog Cryst's Gloves.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Jolthog_Cryst_menu.png"
         }
       ]
     },
@@ -15157,16 +19016,92 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 12,
       "items": [
         {
-          "name": "Tanzee Assault Rifle",
-          "category": "Pal Gear",
-          "description": "Assault rifle made especially for Tanzee. Activates Tanzee’s gunner mode to shoot at nearby enemies.",
-          "techPoints": 1
+          "id": "pelt-armor",
+          "name": "Pelt Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Pelt Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pelt_Armor.png"
         },
         {
-          "name": "Eikthydeer Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for safely riding Eikthydeer. Allows for faster travel across rough terrain.",
-          "techPoints": 2
+          "id": "meat-cleaver",
+          "name": "Meat Cleaver",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Meat Cleaver.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Meat_Cleaver.png"
+        },
+        {
+          "id": "medieval-medicine-workbench",
+          "name": "Medieval Medicine Workbench",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Medieval Medicine Workbench structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Medieval_Medicine_Workbench.png"
+        },
+        {
+          "id": "tanzee-s-assault-rifle",
+          "name": "Tanzee's Assault Rifle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Tanzee's Assault Rifle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Tanzee_menu.png"
+        },
+        {
+          "id": "eikthyrdeer-saddle",
+          "name": "Eikthyrdeer Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Eikthyrdeer Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Eikthyrdeer_menu.png"
+        },
+        {
+          "id": "grintale-saddle",
+          "name": "Grintale Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Grintale Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grintale_menu.png"
+        },
+        {
+          "id": "antique-chair-set",
+          "name": "Antique Chair Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Antique Chair Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Chair_Set.png"
+        },
+        {
+          "id": "grappling-gun",
+          "name": "Grappling Gun",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 1,
+          "description": "Ancient mobility tool that lets you zip across terrain.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grappling_Gun_icon.png"
         }
       ]
     },
@@ -15174,16 +19109,81 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 13,
       "items": [
         {
-          "name": "Grintale Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for safely riding Grintale. Provides a heavy mount with high health.",
-          "techPoints": 1
+          "id": "crossbow",
+          "name": "Crossbow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Weapon",
+          "techPoints": 2,
+          "description": "High-power ranged weapon for early towers.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Crossbow.png"
         },
         {
+          "id": "metal-spear",
+          "name": "Metal Spear",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Metal Spear.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Spear.png"
+        },
+        {
+          "id": "human-powered-generator",
+          "name": "Human-Powered Generator",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Human-Powered Generator structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Human-Powered_Generator.png"
+        },
+        {
+          "id": "training-dummy",
+          "name": "Training Dummy",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Training Dummy structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Training_Dummy.png"
+        },
+        {
+          "id": "cooler-box",
+          "name": "Cooler Box",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 2,
+          "description": "Keeps food fresh by providing passive cooling.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cooler_Box.png"
+        },
+        {
+          "id": "chillet-saddle",
           "name": "Chillet Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for safely riding Chillet. Grants a swift ice mount.",
-          "techPoints": 2
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Chillet Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Chillet_menu.png"
+        },
+        {
+          "id": "antique-storage-cabinet-set",
+          "name": "Antique Storage Cabinet Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Antique Storage Cabinet Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Storage_Cabinet_Set.png"
         }
       ]
     },
@@ -15191,27 +19191,98 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 14,
       "items": [
         {
+          "id": "mega-sphere",
           "name": "Mega Sphere",
+          "branch": "Technology",
+          "group": "Item",
           "category": "Equipment",
+          "techPoints": 2,
+          "description": "Craft Mega Sphere with materials and capture high-level pals.",
+          "isAncient": false,
           "materials": {
             "Paladium Fragment": 1,
             "Ingot": 1,
             "Wood": 5,
             "Stone": 5
           },
-          "description": "Improved capture sphere with higher success rate than the basic Pal Sphere."
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mega_Sphere_icon.png"
         },
         {
+          "id": "sphere-workbench",
+          "name": "Sphere Workbench",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Production",
+          "techPoints": 3,
+          "description": "Workbench that crafts Mega, Giga, and Hyper Spheres.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sphere_Workbench.png"
+        },
+        {
+          "id": "monitoring-stand",
+          "name": "Monitoring Stand",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 2,
+          "description": "Lets you watch and direct pals assigned to your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Monitoring_Stand.png"
+        },
+        {
+          "id": "wall-torch",
+          "name": "Wall Torch",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Wall Torch structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wall_Torch.png"
+        },
+        {
+          "id": "sweepa-saddle",
           "name": "Sweepa Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for safely riding Sweepa. Useful for early snow traversal.",
-          "techPoints": 1
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Sweepa Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sweepa_menu.png"
         },
         {
+          "id": "univolt-saddle",
           "name": "Univolt Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for riding Univolt, unlocking its lightning mount ability.",
-          "techPoints": 1
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Univolt Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Univolt_menu.png"
+        },
+        {
+          "id": "antique-desk-set",
+          "name": "Antique Desk Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Antique Desk Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Desk_Set.png"
+        },
+        {
+          "id": "pal-essence-condenser",
+          "name": "Pal Essence Condenser",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Combines duplicate pals to strengthen a favorite worker.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Essence_Condenser.png"
         }
       ]
     },
@@ -15219,10 +19290,464 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 15,
       "items": [
         {
+          "id": "beginner-fishing-set",
+          "name": "Beginner Fishing Set",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Beginner Fishing Set.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Beginner_Fishing_Set.png"
+        },
+        {
+          "id": "fire-arrow-crossbow",
+          "name": "Fire Arrow Crossbow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Fire Arrow Crossbow.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Arrow_Crossbow.png"
+        },
+        {
+          "id": "pal-expedition-station",
+          "name": "Pal Expedition Station",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Pal Expedition Station structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Expedition_Station.png"
+        },
+        {
+          "id": "wheat-plantation",
+          "name": "Wheat Plantation",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 2,
+          "description": "Farm plot that grows wheat for flour and Cake.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wheat_Plantation.png"
+        },
+        {
+          "id": "mill",
+          "name": "Mill",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Production",
+          "techPoints": 2,
+          "description": "Processes wheat into flour for advanced cooking.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mill.png"
+        },
+        {
+          "id": "viewing-cage",
+          "name": "Viewing Cage",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Viewing Cage structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Viewing_Cage.png"
+        },
+        {
+          "id": "nitewing-saddle",
           "name": "Nitewing Saddle",
+          "branch": "Technology",
+          "group": "Item",
           "category": "Pal Gear",
-          "description": "Saddle for riding Nitewing, a reliable flying mount.",
-          "techPoints": 2
+          "techPoints": 2,
+          "description": "Unlocks riding for Nitewing so you can fly.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Nitewing_menu.png"
+        },
+        {
+          "id": "hip-lantern",
+          "name": "Hip Lantern",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Hip Lantern.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hip_Lantern_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "items": [
+        {
+          "id": "mega-shield",
+          "name": "Mega Shield",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Mega Shield.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mega_Shield_icon.png"
+        },
+        {
+          "id": "heat-resistant-pelt-armor",
+          "name": "Heat Resistant Pelt Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Heat Resistant Pelt Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heat_Resistant_Pelt_Armor.png"
+        },
+        {
+          "id": "metal-chest",
+          "name": "Metal Chest",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Metal Chest structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Chest.png"
+        },
+        {
+          "id": "wooden-defensive-wall",
+          "name": "Wooden Defensive Wall",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Wooden Defensive Wall structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wood_Defensive_Wall.png"
+        },
+        {
+          "id": "arsox-saddle",
+          "name": "Arsox Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Arsox Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Arsox_menu.png"
+        },
+        {
+          "id": "antique-bath-set",
+          "name": "Antique Bath Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Antique Bath Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Bath_Set.png"
+        },
+        {
+          "id": "antique-mirror-set",
+          "name": "Antique Mirror Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Antique Mirror Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Mirror_Set.png"
+        },
+        {
+          "id": "lockpicking-tool-v1",
+          "name": "Lockpicking Tool v1",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 1,
+          "description": "Unlocks the ancient blueprint for the Lockpicking Tool v1.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lockpicking_Tool_v1_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "items": [
+        {
+          "id": "poison-arrow-crossbow",
+          "name": "Poison Arrow Crossbow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Poison Arrow Crossbow.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Poison_Arrow_Crossbow.png"
+        },
+        {
+          "id": "cooking-pot",
+          "name": "Cooking Pot",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Cooking",
+          "techPoints": 2,
+          "description": "Lets you prepare cooked meals and Cake.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cooking_Pot.png"
+        },
+        {
+          "id": "heater",
+          "name": "Heater",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Heater structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heater.png"
+        },
+        {
+          "id": "tombstone",
+          "name": "Tombstone",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Tombstone structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Tombstone.png"
+        },
+        {
+          "id": "pengullet-s-rocket-launcher",
+          "name": "Pengullet's Rocket Launcher",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Pengullet's Rocket Launcher.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pengullet_menu.png"
+        },
+        {
+          "id": "flopie-s-necklace",
+          "name": "Flopie's Necklace",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Flopie's Necklace.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flopie_menu.png"
+        },
+        {
+          "id": "piano-furniture-set",
+          "name": "Piano Furniture Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Piano Furniture Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Piano_Furniture_Set.png"
+        },
+        {
+          "id": "mega-grappling-gun",
+          "name": "Mega Grappling Gun",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Upgraded grapple with longer range and speed.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grappling_Gun_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "items": [
+        {
+          "id": "mega-glider",
+          "name": "Mega Glider",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Mega Glider.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mega_Glider_icon.png"
+        },
+        {
+          "id": "cold-resistant-pelt-armor",
+          "name": "Cold Resistant Pelt Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Cold Resistant Pelt Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cold_Resistant_Pelt_Armor.png"
+        },
+        {
+          "id": "stone-structure-set",
+          "name": "Stone Structure Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Stone Structure Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Structure_Set.png"
+        },
+        {
+          "id": "cooler",
+          "name": "Cooler",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Cooler structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cooler.png"
+        },
+        {
+          "id": "tocotoco-s-gloves",
+          "name": "Tocotoco's Gloves",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Tocotoco's Gloves.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Tocotoco_menu.png"
+        },
+        {
+          "id": "metal-shelf-set",
+          "name": "Metal Shelf Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Metal Shelf Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Shelf_Set.png"
+        },
+        {
+          "id": "bathroom-set",
+          "name": "Bathroom Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Bathroom Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Bathroom_Set.png"
+        },
+        {
+          "id": "ring-of-mercy",
+          "name": "Ring of Mercy",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Ring of Mercy.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ring_of_Mercy_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "items": [
+        {
+          "id": "breeding-farm",
+          "name": "Breeding Farm",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base",
+          "techPoints": 2,
+          "description": "Facility that hatches new pals when stocked with Cake.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Breeding_Farm.png"
+        },
+        {
+          "id": "cement",
+          "name": "Cement",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Cement.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cement_icon.png"
+        },
+        {
+          "id": "wall-mounted-sign",
+          "name": "Wall-Mounted Sign",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Wall-Mounted Sign structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wall-Mounted_Sign.png"
+        },
+        {
+          "id": "dinossom-saddle",
+          "name": "Dinossom Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Dinossom Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Dinossom_menu.png"
+        },
+        {
+          "id": "broncherry-saddle",
+          "name": "Broncherry Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Broncherry Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Broncherry_menu.png"
+        },
+        {
+          "id": "digtoise-s-headband",
+          "name": "Digtoise's Headband",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Digtoise's Headband.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Digtoise_menu.png"
+        },
+        {
+          "id": "antique-high-quality-furniture-set",
+          "name": "Antique High Quality Furniture Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Antique High Quality Furniture Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_High_Quality_Furniture_Set.png"
+        },
+        {
+          "id": "average-feed-bag",
+          "name": "Average Feed Bag",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Average Feed Bag.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Small_Feed_Bag_icon.png"
         }
       ]
     },
@@ -15230,27 +19755,667 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 20,
       "items": [
         {
+          "id": "giga-sphere",
           "name": "Giga Sphere",
+          "branch": "Technology",
+          "group": "Item",
           "category": "Equipment",
+          "techPoints": 3,
+          "description": "Craft Giga Sphere with materials and capture high-level pals.",
+          "isAncient": false,
           "materials": {
             "Paladium Fragment": 2,
             "Ingot": 2,
             "Wood": 7,
             "Stone": 7
           },
-          "description": "Mid-tier capture sphere with improved success rate for stronger Pals."
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Giga_Sphere_icon.png"
         },
         {
-          "name": "Hangyu Gloves",
-          "category": "Pal Gear",
-          "description": "Gloves for holding Hangyu’s arms. They allow you to glide long distances.",
-          "techPoints": 1
+          "id": "weapon-workbench",
+          "name": "Weapon Workbench",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Weapon Workbench structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Weapon_Workbench.png"
         },
         {
+          "id": "pal-labor-research-laboratory",
+          "name": "Pal Labor Research Laboratory",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Pal Labor Research Laboratory structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Labor_Research_Laboratory.png"
+        },
+        {
+          "id": "large-toolbox",
+          "name": "Large Toolbox",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Large Toolbox structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Toolbox.png"
+        },
+        {
+          "id": "hangyu-s-gloves",
+          "name": "Hangyu's Gloves",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Hangyu's Gloves.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hangyu_menu.png"
+        },
+        {
+          "id": "elphidran-saddle",
           "name": "Elphidran Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for riding Elphidran, a strong flying mount.",
-          "techPoints": 2
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Elphidran Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Elphidran_menu.png"
+        },
+        {
+          "id": "antique-couch-set",
+          "name": "Antique Couch Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Antique Couch Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Couch_Set.png"
+        },
+        {
+          "id": "dimensional-pal-storage",
+          "name": "Dimensional Pal Storage",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Dimensional Pal Storage.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Dimensional_Pal_Storage.png"
+        }
+      ]
+    },
+    {
+      "level": 21,
+      "items": [
+        {
+          "id": "musket",
+          "name": "Musket",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Musket.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Musket.png"
+        },
+        {
+          "id": "gunpowder",
+          "name": "Gunpowder",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Gunpowder.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gunpowder_icon.png"
+        },
+        {
+          "id": "coarse-ammo",
+          "name": "Coarse Ammo",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Coarse Ammo.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Coarse_Ammo_icon.png"
+        },
+        {
+          "id": "tomato-plantation",
+          "name": "Tomato Plantation",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Tomato Plantation structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Tomato_icon.png"
+        },
+        {
+          "id": "flame-cauldron",
+          "name": "Flame Cauldron",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Flame Cauldron structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flame_Cauldron.png"
+        },
+        {
+          "id": "vanwyrm-saddle",
+          "name": "Vanwyrm Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Vanwyrm Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Vanwyrm_menu.png"
+        },
+        {
+          "id": "kingpaca-saddle",
+          "name": "Kingpaca Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Kingpaca Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Kingpaca_menu.png"
+        },
+        {
+          "id": "antique-dresser",
+          "name": "Antique Dresser",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 1,
+          "description": "Unlocks the ancient blueprint for the Antique Dresser.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Dresser.png"
+        }
+      ]
+    },
+    {
+      "level": 22,
+      "items": [
+        {
+          "id": "stun-baton",
+          "name": "Stun Baton",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Stun Baton.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stun_Baton.png"
+        },
+        {
+          "id": "high-quality-bait",
+          "name": "High Quality Bait",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for High Quality Bait.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/High_Quality_Bait.png"
+        },
+        {
+          "id": "flea-market-items",
+          "name": "Flea Market (Items)",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Flea Market (Items) structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flea_Market_%28Items%29.png"
+        },
+        {
+          "id": "flea-market-pals",
+          "name": "Flea Market (Pals)",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Flea Market (Pals) structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flea_Market_%28Pals%29.png"
+        },
+        {
+          "id": "bear-trap-large",
+          "name": "Bear Trap (Large)",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Bear Trap (Large) structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Bear_Trap%28Large%29.png"
+        },
+        {
+          "id": "dazzi-s-necklace",
+          "name": "Dazzi's Necklace",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Dazzi's Necklace.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Dazzi_menu.png"
+        },
+        {
+          "id": "dazemu-saddle",
+          "name": "Dazemu Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Dazemu Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Dazemu_menu.png"
+        },
+        {
+          "id": "homeward-thundercloud",
+          "name": "Homeward Thundercloud",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Ancient recall gadget that returns you to your base.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Homeward_Thundercloud_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 23,
+      "items": [
+        {
+          "id": "metal-armor",
+          "name": "Metal Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Metal Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Armor.png"
+        },
+        {
+          "id": "metal-helm",
+          "name": "Metal Helm",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Metal Helm.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Helm.png"
+        },
+        {
+          "id": "curve-module",
+          "name": "Curve Module",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Curve Module.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Curve_Module_icon.png"
+        },
+        {
+          "id": "water-fountain",
+          "name": "Water Fountain",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Water Fountain structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Water_Fountain.png"
+        },
+        {
+          "id": "maraith-saddle",
+          "name": "Maraith Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Maraith Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Maraith_menu.png"
+        },
+        {
+          "id": "galeclaw-s-gloves",
+          "name": "Galeclaw's Gloves",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Galeclaw's Gloves.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Galeclaw_menu.png"
+        },
+        {
+          "id": "killamari-primo-s-gloves",
+          "name": "Killamari Primo's Gloves",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Killamari Primo's Gloves.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Killamari_Primo_menu.png"
+        },
+        {
+          "id": "large-feed-bag",
+          "name": "Large Feed Bag",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 3,
+          "description": "Expanded feed bag that keeps more snacks on hand.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Feed_Bag.png"
+        }
+      ]
+    },
+    {
+      "level": 24,
+      "items": [
+        {
+          "id": "makeshift-handgun",
+          "name": "Makeshift Handgun",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Makeshift Handgun structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Makeshift_Handgun.png"
+        },
+        {
+          "id": "fluffy-pal-bed",
+          "name": "Fluffy Pal Bed",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Fluffy Pal Bed structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fluffy_Pal_Bed_icon.png"
+        },
+        {
+          "id": "medicine-rack",
+          "name": "Medicine Rack",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Medicine Rack structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Medicine_Rack.png"
+        },
+        {
+          "id": "flower-bed",
+          "name": "Flower Bed",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Flower Bed structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flower_Bed.png"
+        },
+        {
+          "id": "foxparks-cryst-s-harness",
+          "name": "Foxparks Cryst's Harness",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Foxparks Cryst's Harness.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Foxparks_Cryst_menu.png"
+        },
+        {
+          "id": "mossanda-s-grenade-launcher",
+          "name": "Mossanda's Grenade Launcher",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Mossanda's Grenade Launcher.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mossanda_menu.png"
+        },
+        {
+          "id": "azurobe-saddle",
+          "name": "Azurobe Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Azurobe Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Azurobe_menu.png"
+        },
+        {
+          "id": "ore-mining-site",
+          "name": "Ore Mining Site",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Ancient extractor that passively mines ore.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ore_Mining_Site.png"
+        }
+      ]
+    },
+    {
+      "level": 25,
+      "items": [
+        {
+          "id": "boost-gun",
+          "name": "Boost Gun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Boost Gun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Boost_Gun.png"
+        },
+        {
+          "id": "boost-gun-ammo",
+          "name": "Boost Gun Ammo",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Boost Gun Ammo.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Boost_Gun_Ammo.png"
+        },
+        {
+          "id": "frag-grenade",
+          "name": "Frag Grenade",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Frag Grenade.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Frag_Grenade.png"
+        },
+        {
+          "id": "heat-resistant-metal-armor",
+          "name": "Heat Resistant Metal Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Heat Resistant Metal Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heat_Resistant_Metal_Armor.png"
+        },
+        {
+          "id": "lettuce-plantation",
+          "name": "Lettuce Plantation",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Lettuce Plantation structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lettuce_Plantation.png"
+        },
+        {
+          "id": "silo",
+          "name": "Silo",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Silo structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Silo.png"
+        },
+        {
+          "id": "surfent-terra-saddle",
+          "name": "Surfent Terra Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Surfent Terra Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Surfent_Terra_menu.png"
+        },
+        {
+          "id": "eikthyrdeer-terra-saddle",
+          "name": "Eikthyrdeer Terra Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Eikthyrdeer Terra Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Eikthyrdeer_Terra_menu.png"
+        },
+        {
+          "id": "lockpicking-tool-v2",
+          "name": "Lockpicking Tool v2",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Lockpicking Tool v2.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lockpicking_Tool_v2_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 26,
+      "items": [
+        {
+          "id": "makeshift-smg",
+          "name": "Makeshift SMG",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Makeshift SMG.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Makeshift_SMG_icon.png"
+        },
+        {
+          "id": "power-generator",
+          "name": "Power Generator",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Power Generator structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Power_Generator.png"
+        },
+        {
+          "id": "lamp",
+          "name": "Lamp",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Lamp structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lamp.png"
+        },
+        {
+          "id": "mounted-crossbow",
+          "name": "Mounted Crossbow",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Mounted Crossbow structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mounted_Crossbow.png"
+        },
+        {
+          "id": "fenglope-saddle",
+          "name": "Fenglope Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Fenglope Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fenglope_menu.png"
+        },
+        {
+          "id": "mossanda-lux-s-grenade-launcher",
+          "name": "Mossanda Lux's Grenade Launcher",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Mossanda Lux's Grenade Launcher.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mossanda_Lux_menu.png"
+        },
+        {
+          "id": "celaray-lux-s-gloves",
+          "name": "Celaray Lux's Gloves",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Celaray Lux's Gloves structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Celaray_Lux_menu.png"
+        },
+        {
+          "id": "single-shot-sphere-launcher",
+          "name": "Single-Shot Sphere Launcher",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 4,
+          "description": "Unlocks the ancient blueprint for the Single-Shot Sphere Launcher.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sphere_Launcher.png"
         }
       ]
     },
@@ -15258,27 +20423,826 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 27,
       "items": [
         {
+          "id": "hyper-sphere",
           "name": "Hyper Sphere",
+          "branch": "Technology",
+          "group": "Item",
           "category": "Equipment",
+          "techPoints": 3,
+          "description": "Craft Hyper Sphere with materials and capture high-level pals.",
+          "isAncient": false,
           "materials": {
             "Paladium Fragment": 3,
             "Ingot": 3,
             "Wood": 10,
             "Cement": 2
           },
-          "description": "High-tier capture sphere with excellent success rate."
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hyper_Sphere_icon.png"
         },
         {
+          "id": "sphere-assembly-line",
+          "name": "Sphere Assembly Line",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Production",
+          "techPoints": 3,
+          "description": "Automated station for crafting advanced spheres.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sphere_Assembly_Line.png"
+        },
+        {
+          "id": "shock-grenade",
+          "name": "Shock Grenade",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Shock Grenade.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Shock_Grenade.png"
+        },
+        {
+          "id": "cold-resistant-metal-armor",
+          "name": "Cold Resistant Metal Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Cold Resistant Metal Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cold_Resistant_Metal_Armor.png"
+        },
+        {
+          "id": "ceiling-lamp",
+          "name": "Ceiling Lamp",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Ceiling Lamp structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ceiling_Lamp.png"
+        },
+        {
+          "id": "water-broncherry-saddle",
+          "name": "Water Broncherry Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Water Broncherry Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Broncherry_Aqua_menu.png"
+        },
+        {
+          "id": "rayhound-saddle",
           "name": "Rayhound Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for riding Rayhound, granting incredible land speed.",
-          "techPoints": 2
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Rayhound Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rayhound_menu.png"
         },
         {
-          "name": "Broncherry Aqua Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for riding Broncherry Aqua, enabling swift aquatic travel.",
-          "techPoints": 2
+          "id": "herbil-s-harness",
+          "name": "Herbil's Harness",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Herbil's Harness.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Herbil_menu.png"
+        },
+        {
+          "id": "small-pouch",
+          "name": "Small Pouch",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Small Pouch.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Small_Pouch_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 28,
+      "items": [
+        {
+          "id": "handgun",
+          "name": "Handgun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Handgun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Handgun.png"
+        },
+        {
+          "id": "handgun-ammo",
+          "name": "Handgun Ammo",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Handgun Ammo.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Handgun_Ammo_icon.png"
+        },
+        {
+          "id": "giga-shield",
+          "name": "Giga Shield",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Giga Shield.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Giga_Shield_icon.png"
+        },
+        {
+          "id": "production-assembly-line",
+          "name": "Production Assembly Line",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Production Assembly Line structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Production_Assembly_Line.png"
+        },
+        {
+          "id": "stump-and-axe",
+          "name": "Stump and Axe",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Stump and Axe structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stump_and_Axe.png"
+        },
+        {
+          "id": "defensive-wall",
+          "name": "Defensive Wall",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Defensive Wall structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Defensive_Wall.png"
+        },
+        {
+          "id": "water-elphidran-saddle",
+          "name": "Water Elphidran Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Water Elphidran Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Elphidran_Aqua_menu.png"
+        },
+        {
+          "id": "tarantriss-saddle",
+          "name": "Tarantriss Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Tarantriss Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Tarantriss_menu.png"
+        },
+        {
+          "id": "anti-gravity-belt",
+          "name": "Anti-Gravity Belt",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Anti-Gravity Belt.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Anti-Gravity_Belt_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 29,
+      "items": [
+        {
+          "id": "intermediate-fishing-rod-cattiva",
+          "name": "Intermediate Fishing Rod (Cattiva)",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Intermediate Fishing Rod (Cattiva).",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Intermediate_Fishing_Rod_%28Cattiva%29.png"
+        },
+        {
+          "id": "katana",
+          "name": "Katana",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Katana.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Katana_icon.png"
+        },
+        {
+          "id": "ice-grenade",
+          "name": "Ice Grenade",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Ice Grenade.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ice_Grenade.png"
+        },
+        {
+          "id": "potato-plantation",
+          "name": "Potato Plantation",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Potato Plantation structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Potato_Plantation.png"
+        },
+        {
+          "id": "fine-bed",
+          "name": "Fine Bed",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Fine Bed structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fine_Bed.png"
+        },
+        {
+          "id": "mammorest-saddle",
+          "name": "Mammorest Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Mammorest Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mammorest_menu.png"
+        },
+        {
+          "id": "reindrix-saddle",
+          "name": "Reindrix Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Reindrix Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Reindrix_menu.png"
+        },
+        {
+          "id": "azurobe-cryst-saddle",
+          "name": "Azurobe Cryst Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Azurobe Cryst Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Azurobe_Cryst_menu.png"
+        },
+        {
+          "id": "enhanced-hip-lantern",
+          "name": "Enhanced Hip Lantern",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Enhanced Hip Lantern.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Enhanced_Hip_Lantern_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 30,
+      "items": [
+        {
+          "id": "makeshift-shotgun",
+          "name": "Makeshift Shotgun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Makeshift Shotgun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Makeshift_Shotgun_icon.png"
+        },
+        {
+          "id": "mine",
+          "name": "Mine",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Mine structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+        },
+        {
+          "id": "metal-structure-set",
+          "name": "Metal Structure Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 4,
+          "description": "Unlocks the Metal Structure Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Structure_Set.png"
+        },
+        {
+          "id": "pickaxe-and-helmet",
+          "name": "Pickaxe and Helmet",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Pickaxe and Helmet structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pickaxe_and_Helmet.png"
+        },
+        {
+          "id": "kitsun-saddle",
+          "name": "Kitsun Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Kitsun Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Kitsun_menu.png"
+        },
+        {
+          "id": "vanwyrm-cryst-saddle",
+          "name": "Vanwyrm Cryst Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Vanwyrm Cryst Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Vanwyrm_Cryst_menu.png"
+        },
+        {
+          "id": "dinossom-lux-saddle",
+          "name": "Dinossom Lux Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Dinossom Lux Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Dinossom_Lux_menu.png"
+        },
+        {
+          "id": "meowmere",
+          "name": "Meowmere",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Meowmere.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Meowmere_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 31,
+      "items": [
+        {
+          "id": "makeshift-assault-rifle",
+          "name": "Makeshift Assault Rifle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Makeshift Assault Rifle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Makeshift_Assault_Rifle_icon.png"
+        },
+        {
+          "id": "incendiary-grenade",
+          "name": "Incendiary Grenade",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Incendiary Grenade.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Incendiary_Grenade.png"
+        },
+        {
+          "id": "sniper-module",
+          "name": "Sniper Module",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Sniper Module.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sniper_Module_icon.png"
+        },
+        {
+          "id": "fishing-pond",
+          "name": "Fishing Pond",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Fishing Pond structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fishing_Pond.png"
+        },
+        {
+          "id": "high-quality-hot-spring",
+          "name": "High Quality Hot Spring",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the High Quality Hot Spring structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/High_Quality_Hot_Spring.png"
+        },
+        {
+          "id": "stone-gate",
+          "name": "Stone Gate",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Stone Gate structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Gate.png"
+        },
+        {
+          "id": "pyrin-saddle",
+          "name": "Pyrin Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Pyrin Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pyrin_menu.png"
+        },
+        {
+          "id": "hangyu-cryst-s-glove",
+          "name": "Hangyu Cryst's Glove",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Hangyu Cryst's Glove.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hangyu_Cryst_menu.png"
+        },
+        {
+          "id": "giga-grappling-gun",
+          "name": "Giga Grappling Gun",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 3,
+          "description": "Top-tier grapple for extreme mobility across the map.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grappling_Gun_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 32,
+      "items": [
+        {
+          "id": "compound-bow",
+          "name": "Compound Bow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Compound Bow.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Compound_Bow_icon.png"
+        },
+        {
+          "id": "reinforced-arrow",
+          "name": "Reinforced Arrow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Reinforced Arrow.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Reinforced_Arrow_icon.png"
+        },
+        {
+          "id": "pal-recovery-grenade",
+          "name": "Pal Recovery Grenade",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Pal Recovery Grenade structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Recovery_Grenade.png"
+        },
+        {
+          "id": "weapon-assembly-line",
+          "name": "Weapon Assembly Line",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Weapon Assembly Line structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Weapon_Assembly_Line.png"
+        },
+        {
+          "id": "carrot-plantation",
+          "name": "Carrot Plantation",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Carrot Plantation structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Carrot_Plantation.png"
+        },
+        {
+          "id": "witch-cauldron",
+          "name": "Witch Cauldron",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Witch Cauldron structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Witch_Cauldron.png"
+        },
+        {
+          "id": "palbox-control-device",
+          "name": "Palbox Control Device",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Palbox Control Device structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox_Control_Device.png"
+        },
+        {
+          "id": "reptyro-saddle",
+          "name": "Reptyro Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Reptyro Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Reptyro_menu.png"
+        },
+        {
+          "id": "summoning-altar",
+          "name": "Summoning Altar",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 3,
+          "description": "Unlocks the ancient blueprint for the Summoning Altar.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Summoning_Altar.png"
+        }
+      ]
+    },
+    {
+      "level": 33,
+      "items": [
+        {
+          "id": "old-revolver",
+          "name": "Old Revolver",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Old Revolver.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Old_Revolver_icon.png"
+        },
+        {
+          "id": "water-grenade",
+          "name": "Water Grenade",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Water Grenade.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Water_Grenade_icon.png"
+        },
+        {
+          "id": "polymer",
+          "name": "Polymer",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Polymer.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Polymer_icon.png"
+        },
+        {
+          "id": "electric-mine",
+          "name": "Electric Mine",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Electric Mine structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Mine.png"
+        },
+        {
+          "id": "snowman",
+          "name": "Snowman",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Snowman structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Snowman.png"
+        },
+        {
+          "id": "helzephyr-saddle",
+          "name": "Helzephyr Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Helzephyr Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Helzephyr_menu.png"
+        },
+        {
+          "id": "blazehowl-saddle",
+          "name": "Blazehowl Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Blazehowl Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Blazehowl_menu.png"
+        },
+        {
+          "id": "clock-set",
+          "name": "Clock Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Clock Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Clock_Set.png"
+        },
+        {
+          "id": "ability-glasses",
+          "name": "Ability Glasses",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 4,
+          "description": "Unlocks the ancient blueprint for the Ability Glasses.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ability_Glasses_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 34,
+      "items": [
+        {
+          "id": "improved-furnace",
+          "name": "Improved Furnace",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 4,
+          "description": "Unlocks the Improved Furnace structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Improved_Furnace.png"
+        },
+        {
+          "id": "refined-metal-axe",
+          "name": "Refined Metal Axe",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Refined Metal Axe.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Axe.png"
+        },
+        {
+          "id": "refined-metal-pickaxe",
+          "name": "Refined Metal Pickaxe",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Refined Metal Pickaxe.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Pickaxe.png"
+        },
+        {
+          "id": "refined-metal-spear",
+          "name": "Refined Metal Spear",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Refined Metal Spear.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Spear.png"
+        },
+        {
+          "id": "beakon-saddle",
+          "name": "Beakon Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Beakon Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Beakon_menu.png"
+        },
+        {
+          "id": "pyrin-noct-saddle",
+          "name": "Pyrin Noct Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Pyrin Noct Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pyrin_Noct_menu.png"
+        },
+        {
+          "id": "polapup-s-harness",
+          "name": "Polapup's Harness",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Polapup's Harness.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Polapup_menu.png"
+        },
+        {
+          "id": "storage-container-set",
+          "name": "Storage Container Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Storage Container Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Storage_Container_Set.png"
+        },
+        {
+          "id": "air-dash-boots",
+          "name": "Air Dash Boots",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Air Dash Boots.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Air_Dash_Boots_icon.png"
         }
       ]
     },
@@ -15286,21 +21250,514 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 35,
       "items": [
         {
+          "id": "ultra-sphere",
           "name": "Ultra Sphere",
+          "branch": "Technology",
+          "group": "Item",
           "category": "Equipment",
+          "techPoints": 4,
+          "description": "Craft Ultra Sphere with materials and capture high-level pals.",
+          "isAncient": false,
           "materials": {
             "Paladium Fragment": 5,
             "Refined Ingot": 5,
             "Carbon Fiber": 2,
             "Cement": 3
           },
-          "description": "Top-tier capture sphere for end‑game Pals."
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ultra_Sphere_icon.png"
         },
         {
-          "name": "Blazehowl Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for riding Blazehowl. This fiery mount excels in battle and traversal.",
-          "techPoints": 3
+          "id": "sphere-assembly-line-2",
+          "name": "Sphere Assembly Line II",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Production",
+          "techPoints": 5,
+          "description": "Improved line that produces Ultra Spheres efficiently.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sphere_Assembly_Line_II.png"
+        },
+        {
+          "id": "grass-grenade",
+          "name": "Grass Grenade",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Grass Grenade.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grass_Grenade_icon.png"
+        },
+        {
+          "id": "circuit-board",
+          "name": "Circuit Board",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Circuit Board.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Circuit_Board_icon.png"
+        },
+        {
+          "id": "carbon-fiber",
+          "name": "Carbon Fiber",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Carbon Fiber.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Carbon_Fiber_icon.png"
+        },
+        {
+          "id": "whalaska-saddle",
+          "name": "Whalaska Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Whalaska Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Whalaska_menu.png"
+        },
+        {
+          "id": "blazehowl-noct-saddle",
+          "name": "Blazehowl Noct Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Blazehowl Noct Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Blazehowl_Noct_menu.png"
+        },
+        {
+          "id": "metal-chair-and-desk-set",
+          "name": "Metal Chair and Desk Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Metal Chair and Desk Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Chair_and_Desk_Set.png"
+        },
+        {
+          "id": "huge-feed-bag",
+          "name": "Huge Feed Bag",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 4,
+          "description": "Unlocks the ancient blueprint for the Huge Feed Bag.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Feed_Bag.png"
+        }
+      ]
+    },
+    {
+      "level": 36,
+      "items": [
+        {
+          "id": "single-shot-rifle",
+          "name": "Single-Shot Rifle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Single-Shot Rifle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Single-Shot_Rifle.png"
+        },
+        {
+          "id": "rifle-ammo",
+          "name": "Rifle Ammo",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Rifle Ammo.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rifle_Ammo_icon.png"
+        },
+        {
+          "id": "pal-surgery-table",
+          "name": "Pal Surgery Table",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Pal Surgery Table.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Surgery_Table.png"
+        },
+        {
+          "id": "onion-plantation",
+          "name": "Onion Plantation",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Onion Plantation structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Onion_Plantation.png"
+        },
+        {
+          "id": "high-quality-cloth",
+          "name": "High Quality Cloth",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for High Quality Cloth.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/High_Quality_Cloth_icon.png"
+        },
+        {
+          "id": "large-pal-bed",
+          "name": "Large Pal Bed",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Large Pal Bed structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Pal_Bed.png"
+        },
+        {
+          "id": "quivern-saddle",
+          "name": "Quivern Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Quivern Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Quivern_menu.png"
+        },
+        {
+          "id": "antique-lamp-set",
+          "name": "Antique Lamp Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Antique Lamp Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Lamp_Set.png"
+        },
+        {
+          "id": "electric-egg-incubator",
+          "name": "Electric Egg Incubator",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 5,
+          "description": "Improved incubator that speeds hatching with power.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Egg_Incubator.png"
+        }
+      ]
+    },
+    {
+      "level": 37,
+      "items": [
+        {
+          "id": "smg",
+          "name": "SMG",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for SMG.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/SMG_icon.png"
+        },
+        {
+          "id": "refined-metal-armor",
+          "name": "Refined Metal Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Refined Metal Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Refined_Metal_Armor.png"
+        },
+        {
+          "id": "refined-metal-helm",
+          "name": "Refined Metal Helm",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Refined Metal Helm.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Refined_Metal_Helm.png"
+        },
+        {
+          "id": "accumulator",
+          "name": "Accumulator",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Accumulator structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Accumulator.png"
+        },
+        {
+          "id": "ragnahawk-saddle",
+          "name": "Ragnahawk Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Ragnahawk Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ragnahawk_menu.png"
+        },
+        {
+          "id": "reptyro-cryst-saddle",
+          "name": "Reptyro Cryst Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Reptyro Cryst Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Reptyro_Cryst_menu.png"
+        },
+        {
+          "id": "ironwood-table-set",
+          "name": "Ironwood Table Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Ironwood Table Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ironwood_Table_Set.png"
+        },
+        {
+          "id": "scattered-sphere-launcher",
+          "name": "Scattered Sphere Launcher",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 5,
+          "description": "Unlocks the ancient blueprint for the Scattered Sphere Launcher.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sphere_Launcher.png"
+        }
+      ]
+    },
+    {
+      "level": 38,
+      "items": [
+        {
+          "id": "meteor-launcher",
+          "name": "Meteor Launcher",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Meteor Launcher.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Meteor_Launcher.png"
+        },
+        {
+          "id": "ground-grenade",
+          "name": "Ground Grenade",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Ground Grenade.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ground_Grenade_icon.png"
+        },
+        {
+          "id": "deluxe-bait",
+          "name": "Deluxe Bait",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Deluxe Bait structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Deluxe_Bait.png"
+        },
+        {
+          "id": "refrigerator",
+          "name": "Refrigerator",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Refrigerator structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Refrigerator.png"
+        },
+        {
+          "id": "ice-mine",
+          "name": "Ice Mine",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Ice Mine structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ice_Mine.png"
+        },
+        {
+          "id": "blazamut-saddle",
+          "name": "Blazamut Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Blazamut Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Blazamut_menu.png"
+        },
+        {
+          "id": "faleris-saddle",
+          "name": "Faleris Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Faleris Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Faleris_menu.png"
+        },
+        {
+          "id": "outdoor-furniture-set",
+          "name": "Outdoor Furniture Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Outdoor Furniture Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Outdoor_Furniture_Set.png"
+        },
+        {
+          "id": "ore-mining-site-ii",
+          "name": "Ore Mining Site II",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 3,
+          "description": "Unlocks the ancient blueprint for the Ore Mining Site II.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ore_Mining_Site_II.png"
+        }
+      ]
+    },
+    {
+      "level": 39,
+      "items": [
+        {
+          "id": "double-barreled-shotgun",
+          "name": "Double-barreled Shotgun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Double-barreled Shotgun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Double-barreled_Shotgun.png"
+        },
+        {
+          "id": "shotgun-shells",
+          "name": "Shotgun Shells",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Shotgun Shells.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Shotgun_Shells.png"
+        },
+        {
+          "id": "slider-module",
+          "name": "Slider Module",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Slider Module.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Slider_Module_icon.png"
+        },
+        {
+          "id": "glass-structure-set",
+          "name": "Glass Structure Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Glass Structure Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Glass_Foundation.png"
+        },
+        {
+          "id": "refined-metal-chest",
+          "name": "Refined Metal Chest",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Refined Metal Chest structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Refined_Metal_Chest.png"
+        },
+        {
+          "id": "pengullet-lux-s-rocket-launcher",
+          "name": "Pengullet Lux's Rocket Launcher",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Pengullet Lux's Rocket Launcher.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pengullet_Lux_menu.png"
+        },
+        {
+          "id": "jormuntide-saddle",
+          "name": "Jormuntide Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Jormuntide Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Jormuntide_menu.png"
+        },
+        {
+          "id": "metal-barrel-set",
+          "name": "Metal Barrel Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Metal Barrel Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Barrel_Set.png"
+        },
+        {
+          "id": "double-jump-boots",
+          "name": "Double Jump Boots",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Double Jump Boots.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Jump_Boots_icon.png"
         }
       ]
     },
@@ -15308,21 +21765,2181 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "level": 40,
       "items": [
         {
-          "name": "Legendary Sphere",
+          "id": "dark-grenade",
+          "name": "Dark Grenade",
+          "branch": "Technology",
+          "group": "Item",
           "category": "Equipment",
-          "materials": {
-            "Paladium Fragment": 10,
-            "Refined Ingot": 10,
-            "Carbon Fiber": 5,
-            "Circuit Board": 2
-          },
-          "description": "The ultimate capture sphere with the highest success rate for legendary Pals."
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Dark Grenade.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Dark_Grenade_icon.png"
         },
         {
-          "name": "Quivern Saddle",
-          "category": "Pal Gear",
-          "description": "Saddle for riding Quivern, one of the fastest flying mounts.",
-          "techPoints": 3
+          "id": "heat-resistant-refined-metal-armor",
+          "name": "Heat Resistant Refined Metal Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Heat Resistant Refined Metal Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heat_Resistant_Refined_Metal_Armor.png"
+        },
+        {
+          "id": "giga-glider",
+          "name": "Giga Glider",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Giga Glider.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Giga_Glider_icon.png"
+        },
+        {
+          "id": "mounted-machine-gun",
+          "name": "Mounted Machine Gun",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Mounted Machine Gun structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mounted_Machine_Gun.png"
+        },
+        {
+          "id": "grizzbolt-s-minigun",
+          "name": "Grizzbolt's Minigun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Grizzbolt's Minigun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grizzbolt_menu.png"
+        },
+        {
+          "id": "leather-chair-set",
+          "name": "Leather Chair Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Leather Chair Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Leather_Chair_Set.png"
+        },
+        {
+          "id": "guild-chest",
+          "name": "Guild Chest",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 4,
+          "description": "Unlocks the ancient blueprint for the Guild Chest.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Guild_Chest.png"
+        }
+      ]
+    },
+    {
+      "level": 41,
+      "items": [
+        {
+          "id": "semi-auto-rifle",
+          "name": "Semi-Auto Rifle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Semi-Auto Rifle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Semi-Auto_Rifle_icon.png"
+        },
+        {
+          "id": "cold-resistant-refined-metal-armor",
+          "name": "Cold Resistant Refined Metal Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Cold Resistant Refined Metal Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cold_Resistant_Refined_Metal_Armor.png"
+        },
+        {
+          "id": "electric-kitchen",
+          "name": "Electric Kitchen",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Electric Kitchen structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Kitchen.png"
+        },
+        {
+          "id": "alpha-wave-generator",
+          "name": "Alpha Wave Generator",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Alpha Wave Generator structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Alpha_Wave_Generator.png"
+        },
+        {
+          "id": "electric-heater",
+          "name": "Electric Heater",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Electric Heater structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Heater.png"
+        },
+        {
+          "id": "suzaku-saddle",
+          "name": "Suzaku Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Suzaku Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Suzaku_menu.png"
+        },
+        {
+          "id": "street-lamp-set",
+          "name": "Street Lamp Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Street Lamp Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Street_Lamp_Set.png"
+        },
+        {
+          "id": "coal-mine",
+          "name": "Coal Mine",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 5,
+          "description": "Unlocks the ancient blueprint for the Coal Mine.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Coal_Mine.png"
+        }
+      ]
+    },
+    {
+      "level": 42,
+      "items": [
+        {
+          "id": "dragon-grenade",
+          "name": "Dragon Grenade",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Dragon Grenade.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Dragon_Grenade_icon.png"
+        },
+        {
+          "id": "production-assembly-line-ii",
+          "name": "Production Assembly Line II",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 5,
+          "description": "Unlocks the Production Assembly Line II structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Production_Assembly_Line_II.png"
+        },
+        {
+          "id": "electric-cooler",
+          "name": "Electric Cooler",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Electric Cooler structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Cooler.png"
+        },
+        {
+          "id": "iron-gate",
+          "name": "Iron Gate",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Iron Gate structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Iron_Gate.png"
+        },
+        {
+          "id": "ice-kingpaca-saddle",
+          "name": "Ice Kingpaca Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Ice Kingpaca Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Kingpaca_Cryst_menu.png"
+        },
+        {
+          "id": "palumba-saddle",
+          "name": "Palumba Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Palumba Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palumba_menu.png"
+        },
+        {
+          "id": "amusement-furniture-set",
+          "name": "Amusement Furniture Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Amusement Furniture Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Amusement_Furniture_Set.png"
+        },
+        {
+          "id": "emergency-exit-sign-set",
+          "name": "Emergency Exit Sign Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Emergency Exit Sign Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Emergency_Exit_Sign_Set.png"
+        },
+        {
+          "id": "medium-pouch",
+          "name": "Medium Pouch",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 2,
+          "description": "Unlocks the ancient blueprint for the Medium Pouch.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Medium_Pouch_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 43,
+      "items": [
+        {
+          "id": "pump-action-shotgun",
+          "name": "Pump-Action Shotgun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Weapon",
+          "techPoints": 4,
+          "description": "Close-range firearm with high burst damage.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pump-Action_Shotgun.png"
+        },
+        {
+          "id": "hyper-shield",
+          "name": "Hyper Shield",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Hyper Shield.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hyper_Shield_icon.png"
+        },
+        {
+          "id": "electric-medicine-workbench",
+          "name": "Electric Medicine Workbench",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Electric Medicine Workbench structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Medicine_Workbench.png"
+        },
+        {
+          "id": "metal-defensive-wall",
+          "name": "Metal Defensive Wall",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Metal Defensive Wall structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Defensive_Wall.png"
+        },
+        {
+          "id": "water-suzaku-saddle",
+          "name": "Water Suzaku Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Water Suzaku Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Suzaku_Aqua_menu.png"
+        },
+        {
+          "id": "jormuntide-ignis-saddle",
+          "name": "Jormuntide Ignis Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Jormuntide Ignis Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Jormuntide_Ignis_menu.png"
+        },
+        {
+          "id": "yakumo-saddle",
+          "name": "Yakumo Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Yakumo Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Yakumo_menu.png"
+        },
+        {
+          "id": "lily-s-spear",
+          "name": "Lily's Spear",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 3,
+          "description": "Unlocks the ancient blueprint for the Lily's Spear.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lily%27s_Spear.png"
+        }
+      ]
+    },
+    {
+      "level": 44,
+      "items": [
+        {
+          "id": "legendary-sphere",
+          "name": "Legendary Sphere",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Craft Legendary Sphere with materials and capture high-level pals.",
+          "isAncient": false,
+          "materials": {
+            "Paladium Fragment": 10,
+            "Carbon Fiber": 5,
+            "Circuit Board": 5,
+            "Polymer": 5
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Legendary_Sphere_icon.png"
+        },
+        {
+          "id": "electric-furnace",
+          "name": "Electric Furnace",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Production",
+          "techPoints": 5,
+          "description": "High-tier furnace needed for Pal Metal Ingots.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Furnace.png"
+        },
+        {
+          "id": "sword",
+          "name": "Sword",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Sword.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sword.png"
+        },
+        {
+          "id": "pal-metal-pickaxe",
+          "name": "Pal Metal Pickaxe",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Pal Metal Pickaxe.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Metal_Pickaxe_icon.png"
+        },
+        {
+          "id": "pal-metal-axe",
+          "name": "Pal Metal Axe",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Pal Metal Axe.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Metal_Axe_icon.png"
+        },
+        {
+          "id": "relaxaurus-s-missile-launcher",
+          "name": "Relaxaurus's Missile Launcher",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Relaxaurus's Missile Launcher.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Relaxaurus_menu.png"
+        },
+        {
+          "id": "wumpo-saddle",
+          "name": "Wumpo Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Wumpo Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wumpo_menu.png"
+        },
+        {
+          "id": "decal-gun-set",
+          "name": "Decal Gun Set",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 1,
+          "description": "Unlocks the ancient blueprint for the Decal Gun Set.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Decal_Gun_Set.png"
+        }
+      ]
+    },
+    {
+      "level": 45,
+      "items": [
+        {
+          "id": "assault-rifle",
+          "name": "Assault Rifle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Weapon",
+          "techPoints": 4,
+          "description": "Fully automatic rifle for late-game firefights.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Assault_Rifle_icon.png"
+        },
+        {
+          "id": "assault-rifle-ammo",
+          "name": "Assault Rifle Ammo",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Ammo",
+          "techPoints": 1,
+          "description": "Ammo crafted for the Assault Rifle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Assault_Rifle_Ammo_icon.png"
+        },
+        {
+          "id": "advanced-fishing-rod-pengullet",
+          "name": "Advanced Fishing Rod (Pengullet)",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Advanced Fishing Rod (Pengullet).",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Fishing_Rod_%28Pengullet%29_icon.png"
+        },
+        {
+          "id": "drafting-table",
+          "name": "Drafting Table",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Drafting Table.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Drafting_Table.png"
+        },
+        {
+          "id": "wumpo-botan-saddle",
+          "name": "Wumpo Botan Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Wumpo Botan Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wumpo_Botan_menu.png"
+        },
+        {
+          "id": "mammorest-cryst-saddle",
+          "name": "Mammorest Cryst Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Mammorest Cryst Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mammorest_Cryst_menu.png"
+        },
+        {
+          "id": "chillet-ignis-saddle",
+          "name": "Chillet Ignis Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Chillet Ignis Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Chillet_Ignis_menu.png"
+        },
+        {
+          "id": "traffic-control-set",
+          "name": "Traffic Control Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Traffic Control Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Traffic_Control_Set.png"
+        },
+        {
+          "id": "sulfur-mine",
+          "name": "Sulfur Mine",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 5,
+          "description": "Unlocks the ancient blueprint for the Sulfur Mine.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sulfur_Mine.png"
+        }
+      ]
+    },
+    {
+      "level": 46,
+      "items": [
+        {
+          "id": "pal-metal-armor",
+          "name": "Pal Metal Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Pal Metal Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Metal_Armor.png"
+        },
+        {
+          "id": "pal-metal-helm",
+          "name": "Pal Metal Helm",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Pal Metal Helm.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Metal_Helm.png"
+        },
+        {
+          "id": "beta-wave-generator",
+          "name": "Beta Wave Generator",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Beta Wave Generator structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Beta_Wave_Generator.png"
+        },
+        {
+          "id": "large-mounted-lamp",
+          "name": "Large Mounted Lamp",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Large Mounted Lamp structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Mounted_Lamp.png"
+        },
+        {
+          "id": "relaxaurus-lux-s-missile-launcher",
+          "name": "Relaxaurus Lux's Missile Launcher",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Relaxaurus Lux's Missile Launcher.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Relaxaurus_Lux_menu.png"
+        },
+        {
+          "id": "shroomer-saddle",
+          "name": "Shroomer Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Shroomer Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Shroomer_menu.png"
+        },
+        {
+          "id": "braloha-saddle",
+          "name": "Braloha Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Braloha Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Braloha_menu.png"
+        },
+        {
+          "id": "road-sign-set",
+          "name": "Road Sign Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Road Sign Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Road_Sign_Set.png"
+        },
+        {
+          "id": "giant-feed-bag",
+          "name": "Giant Feed Bag",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 5,
+          "description": "Unlocks the ancient blueprint for the Giant Feed Bag.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Giant_Feed_Bag.png"
+        }
+      ]
+    },
+    {
+      "level": 47,
+      "items": [
+        {
+          "id": "semi-auto-shotgun",
+          "name": "Semi-Auto Shotgun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Semi-Auto Shotgun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Semi-Auto_Shotgun_icon.png"
+        },
+        {
+          "id": "weapon-assembly-line-ii",
+          "name": "Weapon Assembly Line II",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 5,
+          "description": "Unlocks the Weapon Assembly Line II structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Weapon_Assembly_Line_II.png"
+        },
+        {
+          "id": "sniper-module-ii",
+          "name": "Sniper Module II",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Sniper Module II.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sniper_Module_%E2%85%A1_icon.png"
+        },
+        {
+          "id": "large-ceiling-lamp",
+          "name": "Large Ceiling Lamp",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Large Ceiling Lamp structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Ceiling_Lamp.png"
+        },
+        {
+          "id": "astegon-saddle",
+          "name": "Astegon Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Astegon Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Astegon_menu.png"
+        },
+        {
+          "id": "shadowbeak-saddle",
+          "name": "Shadowbeak Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Shadowbeak Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Shadowbeak_menu.png"
+        },
+        {
+          "id": "shroomer-noct-saddle",
+          "name": "Shroomer Noct Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Shroomer Noct Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Shroomer_Noct_menu.png"
+        },
+        {
+          "id": "large-incubator",
+          "name": "Large Incubator",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 5,
+          "description": "Unlocks the ancient blueprint for the Large Incubator.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Incubator.png"
+        }
+      ]
+    },
+    {
+      "level": 48,
+      "items": [
+        {
+          "id": "heat-resistant-pal-metal-armor",
+          "name": "Heat Resistant Pal Metal Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Heat Resistant Pal Metal Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heat_Resistant_Pal_Metal_Armor.png"
+        },
+        {
+          "id": "skillfruit-orchard",
+          "name": "Skillfruit Orchard",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Skillfruit Orchard structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Skillfruit_Orchard.png"
+        },
+        {
+          "id": "gold-coin-assembly-line",
+          "name": "Gold Coin Assembly Line",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Gold Coin Assembly Line structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gold_Coin_Assembly_Line.png"
+        },
+        {
+          "id": "electric-pylon",
+          "name": "Electric Pylon",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Electric Pylon structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Pylon.png"
+        },
+        {
+          "id": "frostallion-saddle",
+          "name": "Frostallion Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Frostallion Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Frostallion_menu.png"
+        },
+        {
+          "id": "frostallion-noct-saddle",
+          "name": "Frostallion Noct Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Frostallion Noct Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Frostallion_Noct_menu.png"
+        },
+        {
+          "id": "barricade-set",
+          "name": "Barricade Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 1,
+          "description": "Unlocks the Barricade Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Barricade_Set.png"
+        },
+        {
+          "id": "hyper-grappling-gun",
+          "name": "Hyper Grappling Gun",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 4,
+          "description": "Unlocks the ancient blueprint for the Hyper Grappling Gun.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grappling_Gun_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 49,
+      "items": [
+        {
+          "id": "rocket-launcher",
+          "name": "Rocket Launcher",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Rocket Launcher.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rocket_Launcher.png"
+        },
+        {
+          "id": "rocket-ammo",
+          "name": "Rocket Ammo",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Rocket Ammo.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rocket_Ammo_icon.png"
+        },
+        {
+          "id": "item-retrieval-machine",
+          "name": "Item Retrieval Machine",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 5,
+          "description": "Unlocks the Item Retrieval Machine structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Item_Retrieval_Machine.png"
+        },
+        {
+          "id": "large-scale-stone-oven",
+          "name": "Large-Scale Stone Oven",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 5,
+          "description": "Unlocks the Large-Scale Stone Oven structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large-Scale_Stone_Oven.png"
+        },
+        {
+          "id": "paladius-saddle",
+          "name": "Paladius Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Paladius Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Paladius_menu.png"
+        },
+        {
+          "id": "necromus-saddle",
+          "name": "Necromus Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Necromus Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Necromus_menu.png"
+        },
+        {
+          "id": "quivern-botan-saddle",
+          "name": "Quivern Botan Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Quivern Botan Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Quivern_Botan_menu.png"
+        },
+        {
+          "id": "large-power-generator",
+          "name": "Large Power Generator",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 4,
+          "description": "Unlocks the ancient blueprint for the Large Power Generator.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Power_Generator.png"
+        }
+      ]
+    },
+    {
+      "level": 50,
+      "items": [
+        {
+          "id": "cold-resistant-pal-metal-armor",
+          "name": "Cold Resistant Pal Metal Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Cold Resistant Pal Metal Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cold_Resistant_Pal_Metal_Armor.png"
+        },
+        {
+          "id": "mounted-missile-launcher",
+          "name": "Mounted Missile Launcher",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 3,
+          "description": "Unlocks the Mounted Missile Launcher structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mounted_Missile_Launcher.png"
+        },
+        {
+          "id": "plasteel",
+          "name": "Plasteel",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Plasteel.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Plasteel_icon.png"
+        },
+        {
+          "id": "crude-oil-extractor",
+          "name": "Crude Oil Extractor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Crude Oil Extractor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Crude_Oil_Extractor.png"
+        },
+        {
+          "id": "japanese-style-structure-set",
+          "name": "Japanese-Style Structure Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Japanese-Style Structure Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Japanese-Style_Structure_Set.png"
+        },
+        {
+          "id": "jetragon-s-missile-launcher",
+          "name": "Jetragon's Missile Launcher",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Jetragon's Missile Launcher.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Jetragon_menu.png"
+        },
+        {
+          "id": "xenogard-saddle",
+          "name": "Xenogard Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Xenogard Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Xenogard_menu.png"
+        },
+        {
+          "id": "pure-quartz-mine",
+          "name": "Pure Quartz Mine",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 5,
+          "description": "Unlocks the ancient blueprint for the Pure Quartz Mine.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pure_Quartz_Mine.png"
+        }
+      ]
+    },
+    {
+      "level": 51,
+      "items": [
+        {
+          "id": "ultimate-sphere",
+          "name": "Ultimate Sphere",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Ultimate Sphere.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ultimate_Sphere_icon.png"
+        },
+        {
+          "id": "plasteel-armor",
+          "name": "Plasteel Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Plasteel Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Plasteel_Armor_icon.png"
+        },
+        {
+          "id": "plasteel-helmet",
+          "name": "Plasteel Helmet",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Plasteel Helmet.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Plasteel_Helmet_icon.png"
+        },
+        {
+          "id": "laser-rifle",
+          "name": "Laser Rifle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Laser Rifle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Laser_Rifle.png"
+        },
+        {
+          "id": "energy-cartridge",
+          "name": "Energy Cartridge",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Energy Cartridge.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Energy_Cartridge_icon.png"
+        },
+        {
+          "id": "cold-food-box",
+          "name": "Cold Food Box",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Cold Food Box.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cold_Food_Box.png"
+        },
+        {
+          "id": "dazzi-noct-s-necklace",
+          "name": "Dazzi Noct's Necklace",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Dazzi Noct's Necklace.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Dazzi_Noct_menu.png"
+        },
+        {
+          "id": "lockpicking-tool-v3",
+          "name": "Lockpicking Tool v3",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 3,
+          "description": "Unlocks the ancient blueprint for the Lockpicking Tool v3.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lockpicking_Tool_v3_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 52,
+      "items": [
+        {
+          "id": "hyper-glider",
+          "name": "Hyper Glider",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Hyper Glider.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hyper_Glider_icon.png"
+        },
+        {
+          "id": "flamethrower",
+          "name": "Flamethrower",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Flamethrower.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flamethrower.png"
+        },
+        {
+          "id": "flamethrower-fuel",
+          "name": "Flamethrower Fuel",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Flamethrower Fuel.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flamethrower_Fuel_icon.png"
+        },
+        {
+          "id": "alluring-bait",
+          "name": "Alluring Bait",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Alluring Bait.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Alluring_Bait_icon.png"
+        },
+        {
+          "id": "refrigerated-crusher",
+          "name": "Refrigerated Crusher",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Refrigerated Crusher structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Refrigerated_Crusher.png"
+        },
+        {
+          "id": "helzephyr-lux-saddle",
+          "name": "Helzephyr Lux Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Helzephyr Lux Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Helzephyr_Lux_menu.png"
+        },
+        {
+          "id": "fenglope-lux-saddle",
+          "name": "Fenglope Lux Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Fenglope Lux Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fenglope_Lux_menu.png"
+        },
+        {
+          "id": "large-pouch",
+          "name": "Large Pouch",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 3,
+          "description": "Unlocks the ancient blueprint for the Large Pouch.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Pouch_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 53,
+      "items": [
+        {
+          "id": "heat-resistant-plasteel-armor",
+          "name": "Heat Resistant Plasteel Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Heat Resistant Plasteel Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heat_Resistant_Plasteel_Armor_icon.png"
+        },
+        {
+          "id": "grenade-launcher",
+          "name": "Grenade Launcher",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Grenade Launcher.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grenade_Launcher.png"
+        },
+        {
+          "id": "grenade-ammo",
+          "name": "Grenade Ammo",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Grenade Ammo.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grenade_Ammo_icon.png"
+        },
+        {
+          "id": "frag-grenade-mk2",
+          "name": "Frag Grenade Mk2",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Frag Grenade Mk2.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Frag_Grenade_Mk2_icon.png"
+        },
+        {
+          "id": "selyne-saddle",
+          "name": "Selyne Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Selyne Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Selyne_menu.png"
+        },
+        {
+          "id": "nyafia-s-shotgun",
+          "name": "Nyafia's Shotgun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Nyafia's Shotgun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Nyafia_menu.png"
+        },
+        {
+          "id": "kitsun-noct-saddle",
+          "name": "Kitsun Noct Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Kitsun Noct Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Kitsun_Noct_menu.png"
+        }
+      ]
+    },
+    {
+      "level": 54,
+      "items": [
+        {
+          "id": "cold-resistant-plasteel-armor",
+          "name": "Cold Resistant Plasteel Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Cold Resistant Plasteel Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cold_Resistant_Plasteel_Armor_icon.png"
+        },
+        {
+          "id": "gatling-gun",
+          "name": "Gatling Gun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Gatling Gun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gatling_Gun.png"
+        },
+        {
+          "id": "gatling-gun-bullet",
+          "name": "Gatling Gun Bullet",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Gatling Gun Bullet.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gatling_Gun_Bullet_icon.png"
+        },
+        {
+          "id": "pal-disassembly-conveyor",
+          "name": "Pal Disassembly Conveyor",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 5,
+          "description": "Unlocks the Pal Disassembly Conveyor structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Disassembly_Conveyor.png"
+        },
+        {
+          "id": "gildane-saddle",
+          "name": "Gildane Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Gildane Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gildane_menu.png"
+        },
+        {
+          "id": "japanese-style-furniture-set",
+          "name": "Japanese-Style Furniture Set",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 2,
+          "description": "Unlocks the Japanese-Style Furniture Set structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Japanese-Style_Furniture_Set.png"
+        },
+        {
+          "id": "double-air-dash-boots",
+          "name": "Double Air Dash Boots",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 3,
+          "description": "Unlocks the ancient blueprint for the Double Air Dash Boots.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Air_Dash_Boots_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 55,
+      "items": [
+        {
+          "id": "ultra-shield",
+          "name": "Ultra Shield",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Ultra Shield.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ultra_Shield_icon.png"
+        },
+        {
+          "id": "lightweight-plasteel-armor",
+          "name": "Lightweight Plasteel Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Lightweight Plasteel Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lightweight_Plasteel_Armor_icon.png"
+        },
+        {
+          "id": "guided-missile-launcher",
+          "name": "Guided Missile Launcher",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Guided Missile Launcher.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Guided_Missile_Launcher.png"
+        },
+        {
+          "id": "missile-ammo",
+          "name": "Missile Ammo",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Missile Ammo.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Missile_Ammo_icon.png"
+        },
+        {
+          "id": "blazamut-ryu-saddle",
+          "name": "Blazamut Ryu Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Blazamut Ryu Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Blazamut_Ryu_menu.png"
+        },
+        {
+          "id": "faleris-aqua-saddle",
+          "name": "Faleris Aqua Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Faleris Aqua Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Faleris_Aqua_menu.png"
+        },
+        {
+          "id": "homing-sphere-launcher",
+          "name": "Homing Sphere Launcher",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 5,
+          "description": "Unlocks the ancient blueprint for the Homing Sphere Launcher.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sphere_Launcher.png"
+        }
+      ]
+    },
+    {
+      "level": 56,
+      "items": [
+        {
+          "id": "exotic-sphere",
+          "name": "Exotic Sphere",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Exotic Sphere.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Exotic_Sphere_icon.png"
+        },
+        {
+          "id": "advanced-sphere-assembly-line",
+          "name": "Advanced Sphere Assembly Line",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 5,
+          "description": "Unlocks the Advanced Sphere Assembly Line structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Sphere_Assembly_Line.png"
+        },
+        {
+          "id": "hexolite",
+          "name": "Hexolite",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Hexolite.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hexolite_icon.png"
+        },
+        {
+          "id": "gigantic-furnace",
+          "name": "Gigantic Furnace",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 5,
+          "description": "Unlocks the Gigantic Furnace structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gigantic_Furnace.png"
+        },
+        {
+          "id": "metal-detector",
+          "name": "Metal Detector",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Metal Detector.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Detector_icon.png"
+        },
+        {
+          "id": "azurmane-saddle",
+          "name": "Azurmane Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Azurmane Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Azurmane_menu.png"
+        },
+        {
+          "id": "smokie-s-harness",
+          "name": "Smokie's Harness",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Smokie's Harness.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Smokie_menu.png"
+        }
+      ]
+    },
+    {
+      "level": 57,
+      "items": [
+        {
+          "id": "advanced-bow",
+          "name": "Advanced Bow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Advanced Bow.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Bow_icon.png"
+        },
+        {
+          "id": "advanced-arrow",
+          "name": "Advanced Arrow",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Advanced Arrow.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Arrow_icon.png"
+        },
+        {
+          "id": "hexolite-armor",
+          "name": "Hexolite Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Hexolite Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hexolite_Armor_icon.png"
+        },
+        {
+          "id": "beam-sword",
+          "name": "Beam Sword",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Beam Sword.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Beam_Sword_icon.png"
+        },
+        {
+          "id": "homing-module",
+          "name": "Homing Module",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Homing Module.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Homing_Module_icon.png"
+        },
+        {
+          "id": "pal-pod",
+          "name": "Pal Pod",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 5,
+          "description": "Unlocks the Pal Pod structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Pod.png"
+        },
+        {
+          "id": "starryon-saddle",
+          "name": "Starryon Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Starryon Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Starryon_menu.png"
+        },
+        {
+          "id": "giant-pouch",
+          "name": "Giant Pouch",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 4,
+          "description": "Unlocks the ancient blueprint for the Giant Pouch.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Giant_Pouch_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 58,
+      "items": [
+        {
+          "id": "advanced-chest",
+          "name": "Advanced Chest",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 4,
+          "description": "Unlocks the Advanced Chest structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Chest.png"
+        },
+        {
+          "id": "laser-gatling-gun",
+          "name": "Laser Gatling Gun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Laser Gatling Gun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Laser_Gatling_Gun_icon.png"
+        },
+        {
+          "id": "laser-gatling-cartridge",
+          "name": "Laser Gatling Cartridge",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Laser Gatling Cartridge.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Laser_Gatling_Cartridge_icon.png"
+        },
+        {
+          "id": "hexolite-helmet",
+          "name": "Hexolite Helmet",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Hexolite Helmet.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hexolite_Helmet_icon.png"
+        },
+        {
+          "id": "silvegis-saddle",
+          "name": "Silvegis Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Silvegis Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Silvegis_menu.png"
+        },
+        {
+          "id": "celesdir-saddle",
+          "name": "Celesdir Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Celesdir Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Celesdir_menu.png"
+        },
+        {
+          "id": "triple-jump-boots",
+          "name": "Triple Jump Boots",
+          "branch": "Ancient Technology",
+          "group": "Item",
+          "category": "Ancient Tech",
+          "techPoints": 3,
+          "description": "Unlocks the ancient blueprint for the Triple Jump Boots.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Jump_Boots_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 59,
+      "items": [
+        {
+          "id": "advanced-recovery-meds",
+          "name": "Advanced Recovery Meds",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Advanced Recovery Meds.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Recovery_Meds_icon.png"
+        },
+        {
+          "id": "revival-potion",
+          "name": "Revival Potion",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Revival Potion.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Revival_Potion_icon.png"
+        },
+        {
+          "id": "advanced-medicine-workbench",
+          "name": "Advanced Medicine Workbench",
+          "branch": "Technology",
+          "group": "Structure",
+          "category": "Base Building",
+          "techPoints": 4,
+          "description": "Unlocks the Advanced Medicine Workbench structure at your base.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Medicine_Workbench.png"
+        },
+        {
+          "id": "heat-resistant-hexolite-armor",
+          "name": "Heat Resistant Hexolite Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Heat Resistant Hexolite Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heat_Resistant_Hexolite_Armor_icon.png"
+        },
+        {
+          "id": "cold-resistant-hexolite-armor",
+          "name": "Cold Resistant Hexolite Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Cold Resistant Hexolite Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cold_Resistant_Hexolite_Armor_icon.png"
+        },
+        {
+          "id": "bastigor-s-hammer",
+          "name": "Bastigor's Hammer",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Bastigor's Hammer.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Bastigor_menu.png"
+        }
+      ]
+    },
+    {
+      "level": 60,
+      "items": [
+        {
+          "id": "plasma-cannon",
+          "name": "Plasma Cannon",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Plasma Cannon.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Plasma_Cannon_icon.png"
+        },
+        {
+          "id": "plasma-cartridge",
+          "name": "Plasma Cartridge",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Plasma Cartridge.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Plasma_Cartridge_icon.png"
+        },
+        {
+          "id": "advanced-shield",
+          "name": "Advanced Shield",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Advanced Shield.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Shield_icon.png"
+        },
+        {
+          "id": "lightweight-hexolite-armor",
+          "name": "Lightweight Hexolite Armor",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Lightweight Hexolite Armor.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lightweight_Hexolite_Armor_icon.png"
+        },
+        {
+          "id": "xenolord-saddle",
+          "name": "Xenolord Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Xenolord Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Xenolord_menu.png"
+        },
+        {
+          "id": "large-scale-electric-egg-incubator",
+          "name": "Large-Scale Electric Egg Incubator",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 5,
+          "description": "Unlocks the ancient blueprint for the Large-Scale Electric Egg Incubator.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large-Scale_Electric_Egg_Incubator.png"
+        }
+      ]
+    },
+    {
+      "level": 61,
+      "items": [
+        {
+          "id": "powerful-fishing-magnet",
+          "name": "Powerful Fishing Magnet",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Powerful Fishing Magnet.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Powerful_Fishing_Magnet_icon.png"
+        },
+        {
+          "id": "coralum-ingot",
+          "name": "Coralum Ingot",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Coralum Ingot.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Coralum_Ingot_icon.png"
+        },
+        {
+          "id": "advanced-civilization-workshop",
+          "name": "Advanced Civilization Workshop",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Advanced Civilization Workshop.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Civilization_Workshop.png"
+        },
+        {
+          "id": "futuristic-structure-set",
+          "name": "Futuristic Structure Set",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 2,
+          "description": "Unlocks the recipe for Futuristic Structure Set.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Futuristic_Structure_Set.png"
+        },
+        {
+          "id": "ghangler-ignis-saddle",
+          "name": "Ghangler Ignis Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Ghangler Ignis Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ghangler_Ignis_menu.png"
+        },
+        {
+          "id": "hexolite-quartz-mine",
+          "name": "Hexolite Quartz Mine",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 5,
+          "description": "Unlocks the ancient blueprint for the Hexolite Quartz Mine.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hexolite_Quartz_Mine.png"
+        }
+      ]
+    },
+    {
+      "level": 62,
+      "items": [
+        {
+          "id": "energy-shotgun",
+          "name": "Energy Shotgun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Energy Shotgun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Energy_Shotgun_icon.png"
+        },
+        {
+          "id": "energy-shotgun-ammo",
+          "name": "Energy Shotgun Ammo",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Energy Shotgun Ammo.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Energy_Shotgun_Ammo_icon.png"
+        },
+        {
+          "id": "advanced-civilization-weapon-assembly-line",
+          "name": "Advanced Civilization Weapon Assembly Line",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Advanced Civilization Weapon Assembly Line.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Civilization_Weapon_Assembly_Line.png"
+        },
+        {
+          "id": "japanese-style-hot-spring",
+          "name": "Japanese-Style Hot Spring",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Japanese-Style Hot Spring.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Japanese-Style_Hot_Spring.png"
+        },
+        {
+          "id": "whalaska-ignis-saddle",
+          "name": "Whalaska Ignis Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 4,
+          "description": "Unlocks the recipe for Whalaska Ignis Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Whalaska_Ignis_menu.png"
+        },
+        {
+          "id": "triple-air-dash-boots",
+          "name": "Triple Air Dash Boots",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 4,
+          "description": "Unlocks the ancient blueprint for the Triple Air Dash Boots.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Triple_Air_Dash_Boots_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 63,
+      "items": [
+        {
+          "id": "megaboost-gun",
+          "name": "Megaboost Gun",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Megaboost Gun.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Megaboost_Gun_icon.png"
+        },
+        {
+          "id": "rayne-syndicate-flag-set",
+          "name": "Rayne Syndicate Flag Set",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Rayne Syndicate Flag Set.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rayne_Syndicate_Flag_Set.png"
+        },
+        {
+          "id": "free-pal-alliance-flag-set",
+          "name": "Free Pal Alliance Flag Set",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Free Pal Alliance Flag Set.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Free_Pal_Alliance_Flag_Set.png"
+        },
+        {
+          "id": "neptilius-saddle",
+          "name": "Neptilius Saddle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Neptilius Saddle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Neptilius_menu.png"
+        },
+        {
+          "id": "ultra-grappling-gun",
+          "name": "Ultra Grappling Gun",
+          "branch": "Ancient Technology",
+          "group": "Structure",
+          "category": "Ancient Tech",
+          "techPoints": 5,
+          "description": "Unlocks the ancient blueprint for the Ultra Grappling Gun.",
+          "isAncient": true,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ultra_Grappling_Gun_icon.png"
+        }
+      ]
+    },
+    {
+      "level": 64,
+      "items": [
+        {
+          "id": "overheat-rifle",
+          "name": "Overheat Rifle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Overheat Rifle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Overheat_Rifle_icon.png"
+        },
+        {
+          "id": "overheat-rifle-ammo",
+          "name": "Overheat Rifle Ammo",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Overheat Rifle Ammo.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Overheat_Rifle_Ammo_icon.png"
+        },
+        {
+          "id": "brothers-of-the-eternal-pyre-flag-set",
+          "name": "Brothers of the Eternal Pyre Flag Set",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Brothers of the Eternal Pyre Flag Set.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Brothers_of_the_Eternal_Pyre_Flag_Set.png"
+        },
+        {
+          "id": "pidf-flag-set",
+          "name": "PIDF Flag Set",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for PIDF Flag Set.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/PIDF_Flag_Set.png"
+        }
+      ]
+    },
+    {
+      "level": 65,
+      "items": [
+        {
+          "id": "charge-rifle",
+          "name": "Charge Rifle",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 5,
+          "description": "Unlocks the recipe for Charge Rifle.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Charge_Rifle_icon.png"
+        },
+        {
+          "id": "charge-rifle-ammo",
+          "name": "Charge Rifle Ammo",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 1,
+          "description": "Unlocks the recipe for Charge Rifle Ammo.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Charge_Rifle_Ammo_icon.png"
+        },
+        {
+          "id": "pal-genetic-research-unit-flag-set",
+          "name": "PAL Genetic Research Unit Flag Set",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for PAL Genetic Research Unit Flag Set.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/PAL_Genetic_Research_Unit_Flag_Set.png"
+        },
+        {
+          "id": "moonflower-flag-set",
+          "name": "Moonflower Flag Set",
+          "branch": "Technology",
+          "group": "Item",
+          "category": "Equipment",
+          "techPoints": 3,
+          "description": "Unlocks the recipe for Moonflower Flag Set.",
+          "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Moonflower_Flag_Set.png"
         }
       ]
     }
