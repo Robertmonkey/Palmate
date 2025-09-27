@@ -14676,7 +14676,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark",
         "Neutral"
       ],
-      "localImage": null,
+      "localImage": "assets/pals/138_selyne.png",
       "breedingCombos": [],
       "spawnAreas": [
         "Sakurajima Meteorite Event"
@@ -14763,7 +14763,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "types": [
         "Water"
       ],
-      "localImage": null,
+      "localImage": "assets/pals/139_croajiro.png",
       "breedingCombos": [],
       "spawnAreas": []
     },
@@ -14848,7 +14848,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "types": [
         "Neutral"
       ],
-      "localImage": null,
+      "localImage": "assets/pals/140_dogen.png",
       "breedingCombos": [],
       "spawnAreas": [
         "Sakurajima Cherry Blossom Grove"
