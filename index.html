@@ -297,6 +297,72 @@
       padding: 4px 8px;
       cursor: pointer;
     }
+    .external-embed {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .external-embed .embed-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .external-embed .embed-actions h3 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    .external-embed .embed-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .external-embed .embed-link:hover,
+    .external-embed .embed-link:focus {
+      text-decoration: underline;
+    }
+    .external-embed .embed-note,
+    .external-embed .embed-fallback {
+      font-size: 0.9rem;
+      color: var(--light);
+      margin: 0;
+    }
+    .external-embed .embed-summary {
+      background: rgba(65, 90, 119, 0.35);
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    body.kid-mode .external-embed .embed-summary {
+      font-size: 1rem;
+    }
+    .external-embed .embed-frame {
+      width: 100%;
+      min-height: 70vh;
+      border: none;
+      border-radius: 10px;
+      background: #fff;
+    }
+    .modal-action-btn {
+      background: var(--accent);
+      border: none;
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .modal-action-btn:hover,
+    .modal-action-btn:focus {
+      background: var(--secondary);
+      transform: translateY(-1px);
+    }
+    body.kid-mode .modal-action-btn {
+      font-size: 1rem;
+    }
     /* Environment map */
     #mapContainer {
       position: relative;
@@ -986,6 +1052,76 @@
       modalBody.innerHTML = '';
       playSound(closeSound);
     }
+    const PALWORLD_BASE_URL = 'https://palworld.gg';
+    const PALWORLD_PAL_SLUG_OVERRIDES = {
+      // Reserved for pals whose Palworld.gg slug does not match the default slugification.
+    };
+    const PALWORLD_ITEM_SLUG_OVERRIDES = {
+      // Reserved for items whose Palworld.gg slug does not match their key.
+    };
+    function slugifyForPalworld(text) {
+      if (!text) return '';
+      return text
+        .toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/&/g, ' and ')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+    function openPalworldEmbed({ heading, url, fallbackUrl, note, summaryHtml }) {
+      modalBody.innerHTML = '';
+      const wrap = document.createElement('div');
+      wrap.className = 'external-embed';
+      const actions = document.createElement('div');
+      actions.className = 'embed-actions';
+      const titleEl = document.createElement('h3');
+      titleEl.textContent = heading;
+      actions.appendChild(titleEl);
+      if (url) {
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.className = 'embed-link';
+        link.textContent = 'Open in new tab';
+        actions.appendChild(link);
+      }
+      wrap.appendChild(actions);
+      const noteEl = document.createElement('p');
+      noteEl.className = 'embed-note';
+      noteEl.textContent = note || 'This view pulls live details from Palworld.gg while keeping your progress tracker close at hand.';
+      wrap.appendChild(noteEl);
+      if (summaryHtml) {
+        const summary = document.createElement('div');
+        summary.className = 'embed-summary';
+        summary.innerHTML = summaryHtml;
+        wrap.appendChild(summary);
+      }
+      if (url) {
+        const frame = document.createElement('iframe');
+        frame.src = url;
+        frame.title = heading;
+        frame.loading = 'lazy';
+        frame.referrerPolicy = 'no-referrer-when-downgrade';
+        frame.className = 'embed-frame';
+        wrap.appendChild(frame);
+      }
+      const fallback = document.createElement('p');
+      fallback.className = 'embed-fallback';
+      const fallbackLink = document.createElement('a');
+      fallbackLink.href = fallbackUrl || url || PALWORLD_BASE_URL;
+      fallbackLink.target = '_blank';
+      fallbackLink.rel = 'noopener';
+      fallbackLink.textContent = 'Open on Palworld.gg';
+      fallback.appendChild(document.createTextNode('If the page does not load, '));
+      fallback.appendChild(fallbackLink);
+      fallback.appendChild(document.createTextNode('.'));
+      wrap.appendChild(fallback);
+      modalBody.appendChild(wrap);
+      openModal();
+      return wrap;
+    }
     async function loadDatasetSequentially() {
       const isFileProtocol = window.location.protocol === 'file:';
       if (isFileProtocol) {
@@ -1156,303 +1292,56 @@
       search.addEventListener('input', () => render(search.value));
       render();
     }
-    // Show pal details in modal
+    // Show pal details in a modal by embedding the Palworld.gg page
+    // alongside quick progress hints and a shortcut back to the map.
     function showPalDetail(id) {
       const pal = PALS[id];
       if (!pal) return;
-      modalBody.innerHTML = '';
-      const container = document.createElement('div');
-      // Header with icon and name
-      const header = document.createElement('div');
-      header.style.display = 'flex';
-      header.style.alignItems = 'center';
-      header.style.gap = '12px';
-      // Use the local Pal image for the detail header
-      const img = document.createElement('img');
-      img.src = pal.localImage || iconMap[pal.types[0]] || iconMap['Neutral'];
-      img.style.width = '120px';
-      img.style.height = '120px';
-      img.style.borderRadius = '8px';
-      // Fallback in case the Pal image fails to load. Replace it with the primary type icon.
-      img.onerror = () => {
-        img.onerror = null;
-        img.src = iconMap[pal.types[0]] || iconMap['Neutral'];
-      };
-      const titleWrap = document.createElement('div');
-      // Build type icons row for the header
-      const typesHtml = pal.types.map(t => `<img src="${iconMap[t] || iconMap['Neutral']}" alt="${t}" style="width:20px;height:20px;margin-right:4px;">`).join('');
-      // Build rarity label and stars for the detail header
-      const rarity = Math.max(1, Math.min(pal.rarity || 0, 6));
-      const rLabel = rarityNames[rarity] || '';
-      const rStars = Array(rarity).fill('<i class="fa-solid fa-star" style="color:#E4B914"></i>').join('');
-      titleWrap.innerHTML = `<h3>${pal.name}</h3><div style="font-size:0.8rem;color:var(--light);display:flex;align-items:center;gap:6px;">${typesHtml}<span class="rarity-label" style="color:var(--accent);font-weight:bold;">${rLabel}</span><span class="rarity-stars">${rStars}</span></div>`;
-      header.appendChild(img);
-      header.appendChild(titleWrap);
-      container.appendChild(header);
-      // Basic info.  In kid mode we omit price to keep it simple.
-      const info = document.createElement('div');
-      info.style.margin = '10px 0';
-      let infoHtml = `<strong>Genus:</strong> ${pal.genus}<br><strong>Size:</strong> ${pal.size.toUpperCase()}`;
-      if (!kidMode) infoHtml += `<br><strong>Price:</strong> ${pal.price} G`;
-      info.innerHTML = infoHtml;
-      container.appendChild(info);
-      // Habitat / spawn areas info.  Show all configured spawn
-      // regions if available; fall back to the generic environment
-      // mapping.  Provide a button to open the map page for further
-      // exploration.
-      const habitats = pal.spawnAreas && pal.spawnAreas.length ? pal.spawnAreas : [environmentMap[pal.types[0]] || 'Unknown'];
-      const envInfo = document.createElement('div');
-      envInfo.style.marginTop = '4px';
-      envInfo.innerHTML = `<strong>Habitat:</strong> ${habitats.join(', ')}`;
-      // Add an "Open on Map" button that brings the user to the Map page
-      const mapBtn = document.createElement('button');
-      mapBtn.textContent = 'Open on Map';
-      mapBtn.className = 'collect-btn';
-      mapBtn.style.marginLeft = '8px';
-      mapBtn.addEventListener('click', () => {
-        // Switch to map page and scroll into view
-        switchPage('map');
-      });
-      envInfo.appendChild(mapBtn);
-      container.appendChild(envInfo);
-      // Capture advice.  In kid mode we shorten the description.
+      const slug = PALWORLD_PAL_SLUG_OVERRIDES[pal.name] || slugifyForPalworld(pal.name);
+      const palUrl = slug ? `${PALWORLD_BASE_URL}/pal/${slug}` : `${PALWORLD_BASE_URL}/pals`;
+      const fallbackUrl = `${PALWORLD_BASE_URL}/pals?search=${encodeURIComponent(pal.name)}`;
+      const habitats = pal.spawnAreas && pal.spawnAreas.length
+        ? pal.spawnAreas.join(', ')
+        : (environmentMap[pal.types && pal.types[0]] || 'Unknown');
       const sphere = raritySphere[pal.rarity] || 'Pal Sphere';
-      const sRate = sphereRates[sphere];
-      const sphereInfo = document.createElement('div');
+      const sphereInfo = sphereRates[sphere];
+      const caughtStatus = caught[pal.id];
+      const summaryLines = [];
       if (kidMode) {
-        sphereInfo.innerHTML = `<strong>Catch Tip:</strong> Use a ${sphere}.`;
+        summaryLines.push(`<strong>Status:</strong> ${caughtStatus ? 'We caught this pal!' : 'Still looking for this pal.'}`);
+        if (habitats && habitats !== 'Unknown') {
+          summaryLines.push(`<strong>Where it lives:</strong> ${habitats}`);
+        }
+        summaryLines.push(`<strong>Catch tip:</strong> Try a ${sphere}.`);
       } else {
-        sphereInfo.innerHTML = `<strong>Recommended Sphere:</strong> ${sphere} – ${(sRate.rate * 100).toFixed(0)}% chance. ${sRate.description}`;
+        summaryLines.push(`<strong>Tracking:</strong> ${caughtStatus ? 'Caught' : 'Not caught yet'}`);
+        if (habitats) {
+          summaryLines.push(`<strong>Habitats:</strong> ${habitats}`);
+        }
+        if (sphereInfo) {
+          summaryLines.push(`<strong>Suggested Sphere:</strong> ${sphere} (${Math.round(sphereInfo.rate * 100)}% base) – ${sphereInfo.description}`);
+        }
       }
-      container.appendChild(sphereInfo);
-      // Traits info.  In kid mode we provide a simple explanation rather
-      // than lists.  In grown-up mode we link to trait definitions.
-      const traitInfo = document.createElement('div');
-      if (kidMode) {
-        traitInfo.innerHTML = `<strong>Traits:</strong> Some pals have special traits that make them fast, strong or clever. Collect many pals to discover them!`;
-      } else {
-        const goodLinks = goodTraits.map(t => `<a href="#" class="trait-link" data-trait="${t}">${t}</a>`).join(', ');
-        const badLinks = badTraits.map(t => `<a href="#" class="trait-link" data-trait="${t}">${t}</a>`).join(', ');
-        traitInfo.innerHTML = `<strong>Traits:</strong> Good traits include ${goodLinks}. Bad traits include ${badLinks}. Breeding can pass traits down to babies!`;
-      }
-      container.appendChild(traitInfo);
-      // Radar chart.  Only render in grown-up mode to avoid
-      // overwhelming kids with numbers.  In kid mode we leave it
-      // out entirely.
-      if (!kidMode) {
-        const canvas = document.createElement('canvas');
-        canvas.width = 300;
-        canvas.height = 300;
-        container.appendChild(canvas);
-        // Stats chart data
-        const statValues = ['hp','attack','defense','speed','stamina','support','food'];
-        const chartData = statValues.map(k => Math.round(pal.stats[k] / maxStats[k] * 100));
-        new Chart(canvas.getContext('2d'), {
-          type: 'radar',
-          data: {
-            labels: ['HP','ATK','DEF','SPD','STA','SUP','FOOD'],
-            datasets: [{
-              label: pal.name,
-              data: chartData,
-              fill: true,
-              backgroundColor: 'rgba(119,141,169,0.3)',
-              borderColor: 'rgba(119,141,169,0.8)',
-              pointBackgroundColor: 'rgba(119,141,169,1)'
-            }]
-          },
-          options: {
-            scales: {
-              r: {
-                beginAtZero: true,
-                max: 100,
-                grid: { color: 'rgba(255,255,255,0.1)' },
-                pointLabels: { color: getComputedStyle(document.documentElement).getPropertyValue('--text') }
-              }
-            },
-            plugins: { legend: { display: false } }
-          }
-        });
-      }
-      // Work skills
-      if (kidMode) {
-        // Summarise work roles in a single sentence
-        const summary = document.createElement('div');
-        summary.style.marginTop = '10px';
-        if (pal.work && Object.keys(pal.work).length) {
-          const roles = Object.keys(pal.work).join(', ');
-          summary.innerHTML = `<strong>Base Jobs:</strong> ${roles}`;
-        } else {
-          summary.innerHTML = `<strong>Base Jobs:</strong> None`;
-        }
-        container.appendChild(summary);
-      } else {
-        const workDiv = document.createElement('div');
-        workDiv.style.marginTop = '10px';
-        let workHtml = '<strong>Work Skills:</strong> ';
-        if (pal.work && Object.keys(pal.work).length) {
-          workHtml += '<ul>';
-          for (const skill in pal.work) {
-            workHtml += `<li>${skill} (Lv ${pal.work[skill]})</li>`;
-          }
-          workHtml += '</ul>';
-        } else {
-          workHtml += 'None';
-        }
-        workDiv.innerHTML = workHtml;
-        container.appendChild(workDiv);
-      }
-      // Active skills
-      if (kidMode) {
-        const skillsDiv = document.createElement('div');
-        skillsDiv.style.marginTop = '10px';
-        let skillsHtml = '<strong>Skills:</strong> ';
-        if (pal.skills && pal.skills.length) {
-          const names = pal.skills.map(s => s.name.replace(/_/g,' '));
-          skillsHtml += names.join(', ');
-        } else {
-          skillsHtml += 'None';
-        }
-        skillsDiv.innerHTML = skillsHtml;
-        container.appendChild(skillsDiv);
-      } else {
-        const skillsDiv = document.createElement('div');
-        skillsDiv.style.marginTop = '10px';
-        let skillsHtml = '<strong>Active Skills:</strong> ';
-        if (pal.skills && pal.skills.length) {
-          skillsHtml += '<ul>';
-          pal.skills.forEach(s => {
-            const rawName = s.name;
-            const humanName = rawName.replace(/_/g, ' ');
-            skillsHtml += `<li><a href="#" class="skill-link" data-skill="${rawName}">${humanName}</a> (Lv ${s.level}, Power ${s.power}, CD ${s.cooldown}s)</li>`;
-          });
-          skillsHtml += '</ul>';
-        } else {
-          skillsHtml += 'None';
-        }
-        skillsDiv.innerHTML = skillsHtml;
-        container.appendChild(skillsDiv);
-      }
-      // Drops
-      if (kidMode) {
-        const dropDiv = document.createElement('div');
-        dropDiv.style.marginTop = '10px';
-        let dropsHtml = '<strong>Drops:</strong> ';
-        if (pal.drops && pal.drops.length) {
-          dropsHtml += pal.drops.map(item => item.replace(/_/g,' ')).join(', ');
-        } else {
-          dropsHtml += 'None';
-        }
-        dropDiv.innerHTML = dropsHtml;
-        container.appendChild(dropDiv);
-      } else {
-        const dropDiv = document.createElement('div');
-        dropDiv.style.marginTop = '10px';
-        let dropsHtml = '<strong>Drops:</strong> ';
-        if (pal.drops && pal.drops.length) {
-          dropsHtml += '<ul>';
-          pal.drops.forEach(item => {
-            const cat = ITEMS[item] ? ITEMS[item].category : 'Unknown';
-            const human = item.replace(/_/g,' ');
-            dropsHtml += `<li><a href="#" class="item-link" data-item="${item}">${human}</a> (${cat})</li>`;
-          });
-          dropsHtml += '</ul>';
-        } else {
-          dropsHtml += 'None';
-        }
-        dropDiv.innerHTML = dropsHtml;
-        container.appendChild(dropDiv);
-      }
-      // Breeding info
-      if (!kidMode) {
-        const breedDiv = document.createElement('div');
-        breedDiv.style.marginTop = '10px';
-        breedDiv.innerHTML = `<strong>Breeding Power:</strong> ${pal.breeding.power}<br><strong>Types:</strong> ${pal.breeding.type1}${pal.breeding.type2 ? ' / ' + pal.breeding.type2 : ''}<br>Babies inherit traits and stats from both parents. Average the parents’ breeding power to predict the baby!`;
-        container.appendChild(breedDiv);
-      }
-      // Breeding combos section.  Show a list of parent pairs that can
-      // produce this pal.  Each parent name is clickable to view its
-      // details.  We clamp to a reasonable number of combos to
-      // avoid overwhelming the UI.  If no combos exist, skip this
-      // section.
-      if (!kidMode && pal.breedingCombos && pal.breedingCombos.length) {
-        const combosDiv = document.createElement('div');
-        combosDiv.style.marginTop = '10px';
-        let combosHtml = '<strong>Breeding Combos:</strong><ul>';
-        pal.breedingCombos.slice(0, 5).forEach(pair => {
-          const p1 = pair[0];
-          const p2 = pair[1];
-          combosHtml += `<li><a href="#" class="pal-link" data-pal-name="${p1}">${p1}</a> + <a href="#" class="pal-link" data-pal-name="${p2}">${p2}</a></li>`;
-        });
-        combosHtml += '</ul>';
-        combosDiv.innerHTML = combosHtml;
-        container.appendChild(combosDiv);
-      }
-      // Map container with highlight
-      const mapWrap = document.createElement('div');
-      mapWrap.id = 'mapContainer';
-      const mapImg = document.createElement('img');
-      mapImg.src = 'assets/images/palworld-full-map-2.webp';
-      mapImg.alt = 'Palworld map';
-      mapWrap.appendChild(mapImg);
-      const overlay = document.createElement('div');
-      overlay.id = 'mapOverlay';
-      // We no longer create a fixed set of rectangular zones.  Instead,
-      // when a pal is selected we will insert a single circular
-      // highlight representing its preferred habitat.  Remove any
-      // previous highlights from the overlay.
-      overlay.innerHTML = '';
-      mapWrap.appendChild(overlay);
-      container.appendChild(mapWrap);
-      modalBody.appendChild(container);
-      // Create and position the highlight based on the primary environment.
-      const envName = environmentMap[pal.types[0]];
-      if (envName && zonePositions[envName]) {
-        const zp = zonePositions[envName];
-        const hl = document.createElement('div');
-        hl.style.position = 'absolute';
-        hl.style.left = zp.x + '%';
-        hl.style.top = zp.y + '%';
-        hl.style.width = zp.w + '%';
-        hl.style.height = zp.h + '%';
-        hl.style.borderRadius = '50%';
-        hl.style.background = 'rgba(197,122,255,0.35)';
-        hl.style.border = '2px solid var(--light)';
-        hl.style.pointerEvents = 'none';
-        overlay.appendChild(hl);
-      }
-      // Attach click handlers for skill, trait and item links within this modal.
-      container.addEventListener('click', (e) => {
-        // Skill link: show skill details
-        if (e.target.classList.contains('skill-link')) {
-          e.preventDefault();
-          const skillKey = e.target.dataset.skill;
-          showSkillDetail(skillKey);
-          return;
-        }
-        // Trait link: show trait details
-        if (e.target.classList.contains('trait-link')) {
-          e.preventDefault();
-          const traitName = e.target.dataset.trait;
-          showTraitDetail(traitName);
-          return;
-        }
-        // Item link: show item details
-        if (e.target.classList.contains('item-link')) {
-          e.preventDefault();
-          const itemName = e.target.dataset.item;
-          openItemDetail(itemName);
-          return;
-        }
-        // Pal link in breeding combos: open that pal by name
-        if (e.target.classList.contains('pal-link')) {
-          e.preventDefault();
-          const name = e.target.dataset.palName;
-          const pid = PAL_NAME_TO_ID[name];
-          if (pid) showPalDetail(pid);
-          return;
-        }
+      summaryLines.push(`<button type="button" class="open-map-button modal-action-btn">Open Map</button>`);
+      const summaryHtml = summaryLines.map(line => `<p>${line}</p>`).join('');
+      const note = kidMode
+        ? 'We show the Palworld.gg page here so you can read about this pal without leaving your guide.'
+        : 'Palworld.gg has the most complete breakdowns. Enjoy them in-place while Palmate keeps tracking your progress.';
+      const wrap = openPalworldEmbed({
+        heading: `${pal.name} – Palworld.gg`,
+        url: palUrl,
+        fallbackUrl,
+        note,
+        summaryHtml
       });
-      openModal();
+      const mapButton = wrap.querySelector('.open-map-button');
+      if (mapButton) {
+        mapButton.addEventListener('click', (event) => {
+          event.preventDefault();
+          closeModal();
+          switchPage('map');
+        });
+      }
     }
     // Build items page
     function buildItemPage() {
@@ -1863,40 +1752,59 @@
       if (techText) techText.textContent = `${unlockedCount} / ${totalRecipes} tech recipes unlocked`;
     }
 
-    // Display detailed information about an item.  This function builds
-    // modal content including the item name, category, which pals drop it,
-    // and any tech recipes using the item.  If the item appears in the
-    // technology tree, we also list the recipes that require it.  The
-    // function expects the raw item key as stored in the ITEMS object.
+    // Display detailed information about an item by embedding the
+    // Palworld.gg entry alongside a quick progress summary.  We still
+    // surface high-level drop and tech usage info so players can track
+    // their goals while reading the external database.
     function openItemDetail(itemKey) {
       const item = ITEMS[itemKey];
-      modalBody.innerHTML = '';
-      const wrap = document.createElement('div');
+      if (!item) return;
       const human = itemKey.replace(/_/g, ' ');
-      wrap.innerHTML = `<h3>${human}</h3><p><strong>Category:</strong> ${item.category || 'Unknown'}</p>`;
-      // Pals dropping this item
+      const slug = PALWORLD_ITEM_SLUG_OVERRIDES[itemKey] || slugifyForPalworld(human);
+      const itemUrl = slug ? `${PALWORLD_BASE_URL}/item/${slug}` : `${PALWORLD_BASE_URL}/items`;
+      const fallbackUrl = `${PALWORLD_BASE_URL}/items?search=${encodeURIComponent(human)}`;
       const drops = DROPS_MAP[itemKey] || [];
-      const dropsHtml = drops.length ? drops.join(', ') : 'None';
-      wrap.innerHTML += `<p><strong>Dropped by:</strong> ${dropsHtml}</p>`;
-      // Show tech recipes that require this item as a material
+      const collectedStatus = !!collected[itemKey];
       const recipes = [];
       TECH.forEach(level => {
         level.items.forEach(it => {
-          if (it.materials[itemKey]) {
+          if (it.materials && it.materials[itemKey]) {
             recipes.push({ name: it.name, qty: it.materials[itemKey], level: level.level });
           }
         });
       });
-      if (recipes.length) {
-        let recHtml = '<ul>';
-        recipes.forEach(r => {
-          recHtml += `<li>Level ${r.level}: ${r.name} (x${r.qty})</li>`;
-        });
-        recHtml += '</ul>';
-        wrap.innerHTML += `<p><strong>Used in Tech:</strong> ${recHtml}</p>`;
+      const summaryParts = [];
+      if (kidMode) {
+        summaryParts.push(`<p><strong>Status:</strong> ${collectedStatus ? 'We have this item!' : 'Let’s go find this!'}</p>`);
+        summaryParts.push(`<p><strong>Item type:</strong> ${item.category || 'Useful stuff'}</p>`);
+        const dropPreview = drops.length ? drops.slice(0, 4).join(', ') + (drops.length > 4 ? '…' : '') : 'Not sure yet';
+        summaryParts.push(`<p><strong>Find it from:</strong> ${dropPreview}</p>`);
+        if (recipes.length) {
+          summaryParts.push(`<p><strong>Used for:</strong> ${recipes.length} tech unlock${recipes.length === 1 ? '' : 's'}.</p>`);
+        }
+      } else {
+        summaryParts.push(`<p><strong>Tracking:</strong> ${collectedStatus ? 'Collected' : 'Not collected yet'}</p>`);
+        summaryParts.push(`<p><strong>Category:</strong> ${item.category || 'Unknown'}</p>`);
+        summaryParts.push(`<p><strong>Dropped by:</strong> ${drops.length ? drops.join(', ') : 'None'}</p>`);
+        if (recipes.length) {
+          let recList = '<ul>';
+          recipes.forEach(r => {
+            recList += `<li>Level ${r.level}: ${r.name} (x${r.qty})</li>`;
+          });
+          recList += '</ul>';
+          summaryParts.push(`<p><strong>Used in Tech:</strong></p>${recList}`);
+        }
       }
-      modalBody.appendChild(wrap);
-      openModal();
+      const note = kidMode
+        ? 'We show the Palworld.gg page so you can read more about the item right inside Palmate.'
+        : 'Palworld.gg keeps item data up to date; embedding it here lets you read everything without leaving your tracker.';
+      openPalworldEmbed({
+        heading: `${human} – Palworld.gg`,
+        url: itemUrl,
+        fallbackUrl,
+        note,
+        summaryHtml: summaryParts.join('')
+      });
     }
 
     // Show details about an active skill.  Looks up the skill in the
