@@ -14593,6 +14593,180 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Swamp",
         "Wild"
       ]
+    },
+    "138": {
+      "id": 138,
+      "key": "138",
+      "name": "Selyne",
+      "wiki": "https://palworld.fandom.com/wiki/Selyne",
+      "image": "https://static.wikia.nocookie.net/palworld/images/1/17/Selyne.png/revision/latest?cb=20240628092011",
+      "genus": "unknown",
+      "rarity": 9,
+      "price": 0,
+      "size": "unknown",
+      "stats": {
+        "hp": 130.0,
+        "attack": 115.0,
+        "defense": 110.0,
+        "speed": 0.0,
+        "stamina": 0.0,
+        "support": 0.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 4,
+        "medicine": 3,
+        "transporting": 3
+      },
+      "skills": [
+        {
+          "name": "dark_cannon",
+          "level": 1,
+          "power": 0.0,
+          "cooldown": 0.0
+        },
+        {
+          "name": "dark_arrow",
+          "level": 7,
+          "power": 65.0,
+          "cooldown": 10.0
+        },
+        {
+          "name": "air_blade",
+          "level": 15,
+          "power": 85.0,
+          "cooldown": 20.0
+        },
+        {
+          "name": "holy_burst",
+          "level": 22,
+          "power": 0.0,
+          "cooldown": 0.0
+        },
+        {
+          "name": "seigetsu_blade",
+          "level": 30,
+          "power": 0.0,
+          "cooldown": 0.0
+        },
+        {
+          "name": "star_mine",
+          "level": 40,
+          "power": 0.0,
+          "cooldown": 0.0
+        },
+        {
+          "name": "moonlight_beam",
+          "level": 50,
+          "power": 170.0,
+          "cooldown": 40.0
+        }
+      ],
+      "drops": [
+        "Cloth",
+        "Sapphire",
+        "Precious Claw"
+      ],
+      "breeding": {
+        "power": 0,
+        "type1": "Dark",
+        "type2": "Neutral"
+      },
+      "types": [
+        "Dark",
+        "Neutral"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": [
+        "Sakurajima Meteorite Event"
+      ]
+    },
+    "139": {
+      "id": 139,
+      "key": "139",
+      "name": "Croajiro",
+      "wiki": "https://palworld.fandom.com/wiki/Croajiro",
+      "image": "https://static.wikia.nocookie.net/palworld/images/1/17/Croajiro.png/revision/latest?cb=20241207184404",
+      "genus": "unknown",
+      "rarity": 4,
+      "price": 0,
+      "size": "unknown",
+      "stats": {
+        "hp": 0.0,
+        "attack": 0.0,
+        "defense": 0.0,
+        "speed": 0.0,
+        "stamina": 0.0,
+        "support": 0.0,
+        "food": 2.0
+      },
+      "work": {
+        "watering": 1,
+        "handiwork": 1,
+        "gathering": 1,
+        "transporting": 1
+      },
+      "skills": [],
+      "drops": [
+        "Pal Fluids",
+        "Cloth"
+      ],
+      "breeding": {
+        "power": 0,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": []
+    },
+    "140": {
+      "id": 140,
+      "key": "140",
+      "name": "Dogen",
+      "wiki": "https://palworld.fandom.com/wiki/Dogen",
+      "image": "https://static.wikia.nocookie.net/palworld/images/1/13/Dogen.png/revision/latest?cb=20240703075012",
+      "genus": "unknown",
+      "rarity": 6,
+      "price": 0,
+      "size": "unknown",
+      "stats": {
+        "hp": 90.0,
+        "attack": 100.0,
+        "defense": 100.0,
+        "speed": 0.0,
+        "stamina": 0.0,
+        "support": 0.0,
+        "food": 4.0
+      },
+      "work": {
+        "handiwork": 3,
+        "lumbering": 2,
+        "medicine": 1,
+        "transporting": 2,
+        "gathering": 2
+      },
+      "skills": [],
+      "drops": [
+        "Bone"
+      ],
+      "breeding": {
+        "power": 0,
+        "type1": "Neutral",
+        "type2": "Neutral"
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": null,
+      "breedingCombos": [],
+      "spawnAreas": [
+        "Sakurajima Cherry Blossom Grove"
+      ]
     }
   },
   "items": {
@@ -15081,12 +15255,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "location": "Windswept Hills (112, -434)",
       "tips": "Stock up on Pal Spheres, some basic healing items, and wear basic armor.",
       "steps": [
-        "Prepare your team: gather ['Ground']-type pals and craft gear effective against Electric elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Windswept Hills (112, -434). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Confirm your pals are at least level 15 and slot Ground-type attackers to exploit Grizzbolt.",
+        "Repair melee and ranged weapons, and craft extra Pal Spheres plus crossbow bolts.",
+        "Cook stamina meals and pack bandages or medical supplies for emergency heals.",
+        "Travel to Windswept Hills (112, -434), unlocking the Cliffside fast travel statue en route.",
+        "Establish a forward camp with a bed or campfire just outside the tower entrance.",
+        "Clear Syndicate patrols, gathering ore from the cliffs for last-minute gear repairs.",
+        "Enter the arena, circle around Grizzbolt's telegraphed lightning and punish after each slam.",
+        "Loot the tower chest, collect boss drops, then return home to upgrade workbenches."
       ]
     },
     {
@@ -15103,12 +15279,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "tips": "Craft some Mega Spheres before heading out and keep a fire source ready to warm up.",
       "climate": "Cold",
       "steps": [
-        "Prepare your team: gather ['Fire']-type pals and craft gear effective against Grass elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Free Pal Alliance territory (185, 28). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Raise your core team to at least level 25 and equip Fire pals with high burst skills.",
+        "Craft cold-resistance armor and brew heat drinks to counter the blizzard approach.",
+        "Cook hearty meals that boost defense and carry thawing medicine for emergencies.",
+        "Fast travel toward (185, 28) and clear ice blocking the final ascent to the tower.",
+        "Place a heater or bonfire near the entrance so you can warm up between attempts.",
+        "Defeat Free Pal scouts on the plateau and loot supply crates for ammo and fiber.",
+        "During the fight, focus fire on Lyleen while dodging Lily's wide arcing shots.",
+        "After victory, relight your heater, restock ammo, and upgrade Fire weapons at base."
       ]
     },
     {
@@ -15126,12 +15304,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "tips": "Use Surfent or another water mount to cross safely. Maintain distance and avoid standing on lava pools.",
       "climate": "Hot",
       "steps": [
-        "Prepare your team: gather ['Ground', 'Ice']-type pals and craft gear effective against Electric/Dragon elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Lava island (approx). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Ensure your squad is level 30+ and slot Ice or Ground pals with lightning resistance.",
+        "Forge heat-resistant armor and pack cooling consumables for the volcanic climb.",
+        "Cook spicy meals that boost stamina and bring antidotes for toxic vents.",
+        "Glide or sail to the volcano, unlocking the Mount Obsidian fast travel statue.",
+        "Build a safe respawn camp on a basalt ledge before approaching the tower.",
+        "Clear roaming fire mobs and harvest sulfur deposits for emergency ammo crafting.",
+        "Inside the arena, stagger Orserk with Ice bursts, then punish Axel from range.",
+        "Secure the loot chest, refill cooling supplies, and send pals to rest at your base."
       ]
     },
     {
@@ -15148,12 +15328,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "tips": "Craft plenty of Hyper Spheres and bring water because the journey is long.",
       "climate": "Hot/Cold",
       "steps": [
-        "Prepare your team: gather ['Water']-type pals and craft gear effective against Fire elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to PIDF desert (approx). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Train your Water-focused team to level 35+ and slot pals with ranged Hydro attacks.",
+        "Upgrade weapons to steel tier and brew flame-resistant tonics for the desert heat.",
+        "Prepare chilled meals and carry extra water to avoid overheating on the march.",
+        "Ride a fast mount toward (350, -200), capturing the desert fast travel anchor.",
+        "Set up shade structures or a tent outside the tower to manage temperature.",
+        "Eliminate PIDF patrols and dismantle turrets guarding the elevator entrance.",
+        "During the fight, ground Faleris with Water artillery, then pressure Marcus.",
+        "After the win, loot the cache, refill water skins, and craft new ammo back home."
       ]
     },
     {
@@ -15170,12 +15352,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "tips": "Prepare Ultra Spheres and craft gear like the Quivern Saddle to reach the tower quickly.",
       "climate": "Cold",
       "steps": [
-        "Prepare your team: gather ['Dragon']-type pals and craft gear effective against Dark elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Snowy mountain (approx). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Bring your squad to level 40+ with Dragon pals capable of burst damage and shields.",
+        "Reinforce armor with Dark-resistant plates and craft plenty of Legendary Spheres.",
+        "Cook focus-restoring meals and pack energy potions for prolonged aerial phases.",
+        "Glide across the tundra to (558, 340), activating the nearby fast travel tower.",
+        "Construct a small generator base with lights to cut through the laboratory gloom.",
+        "Disable roaming security drones and hack supply crates for extra batteries.",
+        "In combat, bait Shadowbeak's beam, counter with Dragon slams, then corner Victor.",
+        "Claim the experimental loot, recharge equipment, and schedule base upgrades."
       ]
     },
     {
@@ -15193,12 +15377,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "tips": "Use mounts like Nitewing or Quivern to cross quickly and avoid ambushes.",
       "climate": "Foggy",
       "steps": [
-        "Prepare your team: gather ['Dark', 'Dragon']-type pals and craft gear effective against Dark/Neutral elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Sakurajima island (approx). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Raise Dark or Dragon pals to level 45+ and slot passives that cleanse debuffs.",
+        "Craft fog-cutting lanterns and antidotes to counter poisonous Sakurajima plants.",
+        "Cook stamina soups and pack plenty of glider repair kits for the island crossing.",
+        "Fly or sail to Sakurajima, unlocking the Moonflower waypoint along the cliffs.",
+        "Build a lantern-lined safe zone outside the tower to purge poison stacks.",
+        "Clear ambushing Moonflower cultists and harvest glowshrooms for extra cures.",
+        "In the arena, dispel Selyne's orbs with Dark attacks while dodging Saya's beams.",
+        "Gather the relic rewards, detox your team, and rotate fresh pals in at base."
       ]
     },
     {
@@ -15215,12 +15401,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "tips": "Craft Legendary Spheres and upgrade your base before the fight. Bring plenty of food and stamina potions for a long battle.",
       "climate": "Cold",
       "steps": [
-        "Prepare your team: gather ['Fire']-type pals and craft gear effective against Ice elements.",
-        "Stock up on healing items and food, and ensure your equipment is fully repaired.",
-        "Travel to Feybreak island (approx). Use nearby fast travel points to reduce journey time.",
-        "Clear the tower approach of minor enemies. Watch out for environmental hazards.",
-        "Confront the tower boss. Employ your elemental advantage and dodge its attacks.",
-        "After victory, collect any loot and return home to rest and upgrade your gear."
+        "Push your Fire squad to level 50+ with high durability mounts like Blazamut.",
+        "Forge top-tier fire gear and brew hot drinks to counter Feybreak's deep freeze.",
+        "Stockpile spicy meals and stamina tonics for the long trek through snow fields.",
+        "Hunt the three bounty bosses (Dazzi Noct, Caprity Noct, Omascul) for entry tokens.",
+        "Unlock the Feybreak fast travel statues and place a camp heater near the tower gate.",
+        "Clear remaining ice golems and salvage metal from wreckage for mid-run repairs.",
+        "Inside the arena, melt Bastigor's armor while interrupting Bjorn's cannon volleys.",
+        "Celebrate by looting the vault, restocking supplies, and planning postgame raids."
       ]
     }
   ],
@@ -15344,6 +15532,28 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "ct": 30,
       "power": 110,
       "description": "Summons a swirling tornado of sand that tears through enemies."
+    },
+    "Dark Cannon": {
+      "element": "Dark",
+      "description": "Fires off a focused orb of dark energy straight ahead."
+    },
+    "Holy Burst": {
+      "element": "Neutral",
+      "description": "Detonates a radiant shockwave that harms foes in a short radius."
+    },
+    "Seigetsu Blade": {
+      "element": "Dark",
+      "description": "Calls down crescent blades from the new moon to slash enemies."
+    },
+    "Star Mine": {
+      "element": "Dark",
+      "description": "Launches clustered dark orbs that detonate after a short delay."
+    },
+    "Moonlight Beam": {
+      "element": "Neutral",
+      "ct": 40,
+      "power": 170,
+      "description": "Selyne stores lunar energy then fires a crescent beam forward."
     }
   },
   "passiveDetails": {
