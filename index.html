@@ -941,18 +941,9 @@
         </header>
         <p>Explore Palpagos! Toggle layers to highlight points of interest. Open the interactive map for detailed navigation.</p>
         <div id="mapLayers" style="margin-bottom:10px;"></div>
-        <!-- Interactive map iframe: embed the palworld.gg map directly in the app.  The iframe
-             loads the external interactive map inside our site so you can browse
-             without leaving the page.  For mobile or restricted browsers this
-             may not display due to cross‑origin policies, so we also provide
-             the static map below as a fallback. -->
-        <div id="interactiveMapWrapper" style="width:100%; height:600px; border-radius:8px; overflow:hidden; margin-bottom:12px;">
+        <!-- Interactive map iframe: embed the palworld.gg map directly in the app with a larger viewing window. -->
+        <div id="interactiveMapWrapper" style="width:100%; height:75vh; min-height:600px; border-radius:8px; overflow:hidden; margin-bottom:12px;">
           <iframe id="mapIframe" src="https://palworld.gg/map" style="width:100%; height:100%; border:none;" title="Palworld Interactive Map"></iframe>
-        </div>
-        <!-- Static map fallback with dynamic overlay for spawn highlights -->
-        <div id="mapWrapper" style="position:relative; width:100%; border-radius:8px; overflow:hidden;">
-          <img src="assets/images/palworld-full-map-2.webp" alt="Palworld map" style="width:100%;height:auto;">
-          <div id="mapOverlayDynamic" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"></div>
         </div>
       </section>
       <!-- Route page -->
