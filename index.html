@@ -501,7 +501,19 @@
         </header>
         <p>Explore Palpagos! Toggle layers to highlight points of interest. Open the interactive map for detailed navigation.</p>
         <div id="mapLayers" style="margin-bottom:10px;"></div>
-        <div id="mapWrapper" style="position:relative; width:100%; border-radius:8px; overflow:hidden;"><img src="assets/images/palworld-full-map-2.webp" alt="Palworld map" style="width:100%;height:auto;"><div id="mapOverlayDynamic" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"></div></div>
+        <!-- Interactive map iframe: embed the palworld.gg map directly in the app.  The iframe
+             loads the external interactive map inside our site so you can browse
+             without leaving the page.  For mobile or restricted browsers this
+             may not display due to cross‑origin policies, so we also provide
+             the static map below as a fallback. -->
+        <div id="interactiveMapWrapper" style="width:100%; height:600px; border-radius:8px; overflow:hidden; margin-bottom:12px;">
+          <iframe id="mapIframe" src="https://palworld.gg/map" style="width:100%; height:100%; border:none;" title="Palworld Interactive Map"></iframe>
+        </div>
+        <!-- Static map fallback with dynamic overlay for spawn highlights -->
+        <div id="mapWrapper" style="position:relative; width:100%; border-radius:8px; overflow:hidden;">
+          <img src="assets/images/palworld-full-map-2.webp" alt="Palworld map" style="width:100%;height:auto;">
+          <div id="mapOverlayDynamic" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"></div>
+        </div>
       </section>
       <!-- Route page -->
       <section id="routePage" class="page">
@@ -824,40 +836,61 @@
       playSound(closeSound);
     }
     // Fetch data on load
-    fetch('data/palworld_complete_data_enhanced.json').then(r => r.json()).then(data => {
-      // Data is namespaced under pals, items and tech
-      PALS = data.pals || {};
-      ITEMS = data.items || {};
-      TECH = data.tech || [];
-      // Build name-to-ID lookup map
-      PAL_NAME_TO_ID = {};
-      Object.values(PALS).forEach(p => {
-        PAL_NAME_TO_ID[p.name] = p.id;
-      });
-      // Build a global map of item drops for quick lookup.  For each pal,
-      // iterate through its drops and record which pals drop a given item.
-      DROPS_MAP = {};
-      Object.values(PALS).forEach(pal => {
-        (pal.drops || []).forEach(item => {
-          if (!DROPS_MAP[item]) DROPS_MAP[item] = [];
-          DROPS_MAP[item].push(pal.name);
+    fetch('data/palworld_complete_data_final.json')
+      .then(r => r.json())
+      .then(data => {
+        // Data is namespaced under pals, items and tech plus extra sections
+        PALS = data.pals || {};
+        ITEMS = data.items || {};
+        TECH = data.tech || [];
+        ROUTE = data.route || [];
+        SKILL_DETAILS = data.skillsDetails || {};
+        PASSIVE_DETAILS = data.passiveDetails || {};
+        // Build name‑to‑ID lookup map
+        PAL_NAME_TO_ID = {};
+        Object.values(PALS).forEach(p => {
+          PAL_NAME_TO_ID[p.name] = p.id;
         });
+        // Build a global map of item drops for quick lookup
+        DROPS_MAP = {};
+        Object.values(PALS).forEach(pal => {
+          (pal.drops || []).forEach(item => {
+            if (!DROPS_MAP[item]) DROPS_MAP[item] = [];
+            DROPS_MAP[item].push(pal.name);
+          });
+        });
+        // Build pages
+        buildPalPage();
+        buildItemPage();
+        buildTechPage();
+        buildBreedingPage();
+        buildHomePage();
+        buildRoutePage();
+        // Synchronise skills and traits dictionaries with the loaded data.
+        // Override the static dictionaries with entries from the JSON file.
+        skillsDictionary = {};
+        Object.keys(SKILL_DETAILS).forEach(key => {
+          const info = SKILL_DETAILS[key] || {};
+          skillsDictionary[key] = {
+            name: (info.name || key).replace(/_/g, ' '),
+            damage: info.damage || 'Unknown',
+            type: info.type || 'Unknown',
+            description: info.description || 'No description available.'
+          };
+        });
+        traitsDictionary = {};
+        Object.keys(PASSIVE_DETAILS).forEach(key => {
+          traitsDictionary[key] = PASSIVE_DETAILS[key];
+        });
+        buildGlossaryPage();
+        buildMapPage();
+        buildProgressPage();
+        updateProgressUI();
+      })
+      .catch(err => {
+        console.error(err);
+        document.body.insertAdjacentHTML('beforeend', '<p style="color:red">Failed to load data. Make sure the JSON file is in the correct folder.</p>');
       });
-      buildPalPage();
-      buildItemPage();
-      buildTechPage();
-      buildBreedingPage();
-      updateProgressUI();
-
-      // Build additional pages after data load
-      buildHomePage();
-      buildRoutePage();
-      buildGlossaryPage();
-      buildMapPage();
-    }).catch(err => {
-      console.error(err);
-      document.body.insertAdjacentHTML('beforeend', '<p style="color:red">Failed to load data. Make sure the JSON file is in the same folder.</p>');
-    });
     // Build pal page
     function buildPalPage() {
       const list = document.getElementById('palsList');
@@ -956,10 +989,24 @@
       if (!kidMode) infoHtml += `<br><strong>Price:</strong> ${pal.price} G`;
       info.innerHTML = infoHtml;
       container.appendChild(info);
-      // Environment info
-      const env = environmentMap[pal.types[0]] || 'Unknown';
+      // Habitat / spawn areas info.  Show all configured spawn
+      // regions if available; fall back to the generic environment
+      // mapping.  Provide a button to open the map page for further
+      // exploration.
+      const habitats = pal.spawnAreas && pal.spawnAreas.length ? pal.spawnAreas : [environmentMap[pal.types[0]] || 'Unknown'];
       const envInfo = document.createElement('div');
-      envInfo.innerHTML = `<strong>Habitat:</strong> ${env}`;
+      envInfo.style.marginTop = '4px';
+      envInfo.innerHTML = `<strong>Habitat:</strong> ${habitats.join(', ')}`;
+      // Add an "Open on Map" button that brings the user to the Map page
+      const mapBtn = document.createElement('button');
+      mapBtn.textContent = 'Open on Map';
+      mapBtn.className = 'collect-btn';
+      mapBtn.style.marginLeft = '8px';
+      mapBtn.addEventListener('click', () => {
+        // Switch to map page and scroll into view
+        switchPage('mapPage');
+      });
+      envInfo.appendChild(mapBtn);
       container.appendChild(envInfo);
       // Capture advice.  In kid mode we shorten the description.
       const sphere = raritySphere[pal.rarity] || 'Pal Sphere';
@@ -1259,11 +1306,13 @@
         level.items.forEach(item => {
           const div = document.createElement('div');
           div.className = 'tech-item';
-          const matList = Object.entries(item.materials).map(([k,v]) => `${k}: ${v}`).join(', ');
-          div.innerHTML = `
+        const matList = item.materials ? Object.entries(item.materials).map(([k,v]) => `${k}: ${v}`).join(', ') : '';
+        const matStr = matList ? `<span class="materials">Materials: ${matList}</span><br>` : '';
+        const techPoints = item.techPoints ? `<span class="materials">Tech Points: ${item.techPoints}</span><br>` : '';
+        div.innerHTML = `
             <strong>${item.name}</strong> (${item.category})<br>
-            <span class="materials">Materials: ${matList}</span><br>
-            <span class="description">${item.description}</span><br>
+            ${matStr}${techPoints}
+            <span class="description">${item.description || ''}</span><br>
             <button class="unlock-btn ${unlocked[item.name] ? 'unlocked' : ''}">${unlocked[item.name] ? 'Unlocked' : 'Unlock'}</button>
           `;
           const btn = div.querySelector('button');
@@ -1387,35 +1436,42 @@
         card.className = 'pal-card';
         // Determine if this step is complete via localStorage
         const routeProgress = JSON.parse(localStorage.getItem('routeProgress') || '{}');
-        const done = !!routeProgress[step.order];
-        // Attempt to find the boss pal ID by its name (the second name in the pair)
-        const bossNames = step.name.split('&').map(s => s.trim());
-        const bossPalName = bossNames[1] ? bossNames[1].trim() : bossNames[0];
+        const done = !!routeProgress[step.step];
+        // Attempt to link the boss pal to its detail page
+        const bossNames = step.boss.split('&').map(s => s.trim());
+        // We'll link the first pal in the pair; additional names link separately
+        const bossPalName = bossNames[1] ? bossNames[1] : bossNames[0];
         const bossId = PAL_NAME_TO_ID[bossPalName];
-        const bossImg = bossId ? PALS[bossId].localImage : '';
-        // Build link HTML for boss; if found, wrap in anchor
-        let bossLink = bossPalName;
+        let bossLink = step.boss;
         if (bossId) {
-          bossLink = `<a href="#" class="pal-link" data-pal-name="${bossPalName}">${bossPalName}</a>`;
+          bossLink = bossNames.map(name => {
+            const id = PAL_NAME_TO_ID[name.trim()];
+            return id ? `<a href="#" class="pal-link" data-pal-name="${name.trim()}">${name.trim()}</a>` : name.trim();
+          }).join(' & ');
         }
+        const weaknesses = Array.isArray(step.weakness) ? step.weakness.join(', ') : step.weakness;
         card.innerHTML = `
-          <div class="name">${step.order}. ${step.name}</div>
-          <div style="font-size:0.9rem;color:var(--light);">Recommended: ${step.rec}</div>
-          <div style="font-size:0.8rem;color:var(--text);margin:6px 0;">${step.desc}</div>
-          <div style="font-size:0.8rem;">Boss: ${bossLink}</div>
+          <div class="name">${step.step}. ${step.name}</div>
+          <div style="font-size:0.9rem;color:var(--light);">Boss: ${bossLink}</div>
+          <div style="font-size:0.8rem;color:var(--light);">Element: ${step.element}</div>
+          <div style="font-size:0.8rem;color:var(--light);">Weakness: ${weaknesses}</div>
+          <div style="font-size:0.8rem;color:var(--light);">HP: ${step.hp.toLocaleString()}</div>
+          <div style="font-size:0.75rem;color:var(--text);margin:6px 0;">${step.description}</div>
+          <div style="font-size:0.7rem;color:var(--light);">Location: ${step.location || 'Unknown'}</div>
+          <div style="font-size:0.7rem;color:var(--light);">Tips: ${step.tips || ''}</div>
+          ${step.steps ? '<div style="font-size:0.7rem;color:var(--light); margin-top:4px;"><ol style="padding-left:18px; margin:4px 0;">' + step.steps.map(s => `<li>${s}</li>`).join('') + '</ol></div>' : ''}
           <button class="collect-btn${done ? ' collected' : ''}" style="margin-top:8px;">${done ? 'Completed' : 'Mark done'}</button>
         `;
-        // Event: mark done
         const btn = card.querySelector('button');
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
           const prog = JSON.parse(localStorage.getItem('routeProgress') || '{}');
-          prog[step.order] = !done;
+          prog[step.step] = !done;
           localStorage.setItem('routeProgress', JSON.stringify(prog));
           buildRoutePage();
           playSound(clickSound);
         });
-        // Boss link click handler
+        // Link click handler inside card
         card.addEventListener('click', (e) => {
           if (e.target.classList.contains('pal-link')) {
             e.preventDefault();
