@@ -14600,18 +14600,18 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "name": "Selyne",
       "wiki": "https://palworld.fandom.com/wiki/Selyne",
       "image": "https://static.wikia.nocookie.net/palworld/images/1/17/Selyne.png/revision/latest?cb=20240628092011",
-      "genus": "unknown",
+      "genus": "humanoid",
       "rarity": 9,
-      "price": 0,
-      "size": "unknown",
+      "price": 9500,
+      "size": "l",
       "stats": {
-        "hp": 130.0,
-        "attack": 115.0,
-        "defense": 110.0,
-        "speed": 0.0,
-        "stamina": 0.0,
-        "support": 0.0,
-        "food": 2.0
+        "hp": 130,
+        "attack": 115,
+        "defense": 110,
+        "speed": 1000,
+        "stamina": 300,
+        "support": 100,
+        "food": 2
       },
       "work": {
         "handiwork": 4,
@@ -14622,43 +14622,43 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         {
           "name": "dark_cannon",
           "level": 1,
-          "power": 0.0,
-          "cooldown": 0.0
+          "power": 50,
+          "cooldown": 2.0
         },
         {
           "name": "dark_arrow",
           "level": 7,
-          "power": 65.0,
+          "power": 65,
           "cooldown": 10.0
         },
         {
           "name": "air_blade",
           "level": 15,
-          "power": 85.0,
+          "power": 85,
           "cooldown": 20.0
         },
         {
           "name": "holy_burst",
           "level": 22,
-          "power": 0.0,
-          "cooldown": 0.0
+          "power": 120,
+          "cooldown": 30.0
         },
         {
           "name": "seigetsu_blade",
           "level": 30,
-          "power": 0.0,
-          "cooldown": 0.0
+          "power": 110,
+          "cooldown": 24.0
         },
         {
           "name": "star_mine",
           "level": 40,
-          "power": 0.0,
-          "cooldown": 0.0
+          "power": 110,
+          "cooldown": 55.0
         },
         {
           "name": "moonlight_beam",
           "level": 50,
-          "power": 170.0,
+          "power": 170,
           "cooldown": 40.0
         }
       ],
@@ -14668,7 +14668,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Precious Claw"
       ],
       "breeding": {
-        "power": 0,
+        "power": 345,
         "type1": "Dark",
         "type2": "Neutral"
       },
@@ -14688,18 +14688,18 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "name": "Croajiro",
       "wiki": "https://palworld.fandom.com/wiki/Croajiro",
       "image": "https://static.wikia.nocookie.net/palworld/images/1/17/Croajiro.png/revision/latest?cb=20241207184404",
-      "genus": "unknown",
+      "genus": "humanoid",
       "rarity": 4,
-      "price": 0,
-      "size": "unknown",
+      "price": 2070,
+      "size": "xs",
       "stats": {
-        "hp": 0.0,
-        "attack": 0.0,
-        "defense": 0.0,
-        "speed": 0.0,
-        "stamina": 0.0,
-        "support": 0.0,
-        "food": 2.0
+        "hp": 80,
+        "attack": 100,
+        "defense": 85,
+        "speed": 300,
+        "stamina": 100,
+        "support": 100,
+        "food": 2
       },
       "work": {
         "watering": 1,
@@ -14707,13 +14707,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "gathering": 1,
         "transporting": 1
       },
-      "skills": [],
+      "skills": [
+        {
+          "name": "aqua_gun",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "acid_rain",
+          "level": 15,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "aqua_burst",
+          "level": 22,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "splash",
+          "level": 30,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "curtain_splash",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40.0
+        },
+        {
+          "name": "hydro_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
       "drops": [
         "Pal Fluids",
         "Cloth"
       ],
       "breeding": {
-        "power": 0,
+        "power": 795,
         "type1": "Water",
         "type2": null
       },
@@ -14730,34 +14773,77 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "name": "Dogen",
       "wiki": "https://palworld.fandom.com/wiki/Dogen",
       "image": "https://static.wikia.nocookie.net/palworld/images/1/13/Dogen.png/revision/latest?cb=20240703075012",
-      "genus": "unknown",
+      "genus": "humanoid",
       "rarity": 6,
-      "price": 0,
-      "size": "unknown",
+      "price": 4440,
+      "size": "s",
       "stats": {
-        "hp": 90.0,
-        "attack": 100.0,
-        "defense": 100.0,
-        "speed": 0.0,
-        "stamina": 0.0,
-        "support": 0.0,
-        "food": 4.0
+        "hp": 90,
+        "attack": 100,
+        "defense": 100,
+        "speed": 300,
+        "stamina": 100,
+        "support": 100,
+        "food": 4
       },
       "work": {
         "handiwork": 3,
+        "gathering": 2,
         "lumbering": 2,
         "medicine": 1,
-        "transporting": 2,
-        "gathering": 2
+        "transporting": 2
       },
-      "skills": [],
+      "skills": [
+        {
+          "name": "air_cannon",
+          "level": 1,
+          "power": 25,
+          "cooldown": 2.0
+        },
+        {
+          "name": "power_shot",
+          "level": 7,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "stone_cannon",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "power_bomb",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "air_blade",
+          "level": 30,
+          "power": 85,
+          "cooldown": 20.0
+        },
+        {
+          "name": "wholehearted_stance",
+          "level": 40,
+          "power": 170,
+          "cooldown": 30.0
+        },
+        {
+          "name": "pal_blast",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
       "drops": [
         "Bone"
       ],
       "breeding": {
-        "power": 0,
+        "power": 665,
         "type1": "Neutral",
-        "type2": "Neutral"
+        "type2": null
       },
       "types": [
         "Neutral"
@@ -15415,19 +15501,19 @@ window.__PALMATE_EMBEDDED_DATA__ = {
   "skillsDetails": {
     "Acid Rain": {
       "element": "Water",
-      "ct": 18,
+      "ct": 18.0,
       "power": 80,
       "description": "Creates acidic clouds that pour down acid rain on enemies."
     },
     "Air Blade": {
       "element": "Neutral",
-      "ct": 20,
+      "ct": 20.0,
       "power": 85,
       "description": "Sends out sharp blades of air in a fan shape that cut through foes."
     },
     "Air Cannon": {
       "element": "Neutral",
-      "ct": 2,
+      "ct": 2.0,
       "power": 25,
       "description": "Quickly fires a burst of highly pressurized air to stagger enemies."
     },
@@ -15439,13 +15525,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
     },
     "Aqua Burst": {
       "element": "Water",
-      "ct": 30,
+      "ct": 30.0,
       "power": 100,
       "description": "Creates a giant ball of water and hurls it at the enemy, splashing nearby foes."
     },
     "Aqua Gun": {
       "element": "Water",
-      "ct": 4,
+      "ct": 4.0,
       "power": 40,
       "description": "Hurls a ball of water straight at an enemy with moderate power."
     },
@@ -15475,7 +15561,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
     },
     "Bubble Blast": {
       "element": "Water",
-      "ct": 13,
+      "ct": 13.0,
       "power": 65,
       "description": "Fires numerous bubbles that slowly pursue an enemy and pop to cause damage."
     },
@@ -15499,13 +15585,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
     },
     "Curtain Splash": {
       "element": "Water",
-      "ct": 40,
+      "ct": 40.0,
       "power": 120,
       "description": "Continuously creates walls of water columns at the enemy’s location, trapping and damaging foes."
     },
     "Dark Arrow": {
       "element": "Dark",
-      "ct": 10,
+      "ct": 10.0,
       "power": 65,
       "description": "Fires off dark energy that homes in on an enemy and pierces their defences."
     },
@@ -15535,25 +15621,75 @@ window.__PALMATE_EMBEDDED_DATA__ = {
     },
     "Dark Cannon": {
       "element": "Dark",
-      "description": "Fires off a focused orb of dark energy straight ahead."
+      "description": "Fires off a focused orb of dark energy straight ahead.",
+      "ct": 2.0,
+      "power": 50
     },
     "Holy Burst": {
       "element": "Neutral",
-      "description": "Detonates a radiant shockwave that harms foes in a short radius."
+      "description": "Detonates a radiant shockwave that harms foes in a short radius.",
+      "ct": 30.0,
+      "power": 120
     },
     "Seigetsu Blade": {
-      "element": "Dark",
-      "description": "Calls down crescent blades from the new moon to slash enemies."
+      "element": "Neutral",
+      "description": "Calls down crescent blades from the new moon to slash enemies.",
+      "ct": 24.0,
+      "power": 110
     },
     "Star Mine": {
-      "element": "Dark",
-      "description": "Launches clustered dark orbs that detonate after a short delay."
+      "element": "Neutral",
+      "description": "Launches clustered dark orbs that detonate after a short delay.",
+      "ct": 55.0,
+      "power": 110
     },
     "Moonlight Beam": {
       "element": "Neutral",
-      "ct": 40,
+      "ct": 40.0,
       "power": 170,
       "description": "Selyne stores lunar energy then fires a crescent beam forward."
+    },
+    "Splash": {
+      "element": "Water",
+      "ct": 22.0,
+      "power": 90,
+      "description": "Generates a column of water that travels in a straight line."
+    },
+    "Hydro Laser": {
+      "element": "Water",
+      "ct": 55.0,
+      "power": 150,
+      "description": "Shoots pressurized water at extreme velocities, sweeping over a wide area in front of it."
+    },
+    "Power Shot": {
+      "element": "Neutral",
+      "ct": 4.0,
+      "power": 35,
+      "description": "Charges energy into a focused blast."
+    },
+    "Stone Cannon": {
+      "element": "Earth",
+      "ct": 15.0,
+      "power": 70,
+      "description": "Digs up a boulder and hurls it at an enemy."
+    },
+    "Power Bomb": {
+      "element": "Neutral",
+      "ct": 15.0,
+      "power": 70,
+      "description": "Charges a massive amount of energy before firing a large destructive ball."
+    },
+    "Wholehearted Stance": {
+      "element": "Neutral",
+      "ct": 30.0,
+      "power": 170,
+      "description": "Dogen's exclusive skill. Adopts an aiki stance. While in this stance, nullify any incoming attack, instantly close in on the enemy, and counter with a full-force palm strike."
+    },
+    "Pal Blast": {
+      "element": "Neutral",
+      "ct": 55.0,
+      "power": 150,
+      "description": "Charges destructive energy before firing a high-powered beam forward across a wide area."
     }
   },
   "passiveDetails": {
