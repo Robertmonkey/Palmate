@@ -2497,6 +2497,114 @@
       flex-direction: column;
       gap: 16px;
     }
+    .base-intel__shuffle {
+      background: rgba(119, 141, 169, 0.18);
+      border-radius: 999px;
+      border: 1px solid rgba(119, 141, 169, 0.45);
+      color: var(--light);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .base-intel__shuffle:hover,
+    .base-intel__shuffle:focus-visible {
+      background: rgba(224, 225, 221, 0.2);
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .base-intel-stage {
+      font-size: 0.82rem;
+      color: rgba(224, 225, 221, 0.72);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .base-intel-stage__badge {
+      background: rgba(42, 157, 143, 0.2);
+      border: 1px solid rgba(42, 157, 143, 0.4);
+      color: #9be8d8;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .base-intel-notes {
+      position: relative;
+      min-height: 148px;
+      padding-top: 6px;
+    }
+    .base-note {
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(10, 21, 34, 0.68);
+      border: 1px solid rgba(119, 141, 169, 0.3);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+      pointer-events: none;
+    }
+    .base-note--active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    .base-note__header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .base-note__icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: rgba(119, 141, 169, 0.2);
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+    }
+    .base-note__title {
+      margin: 0;
+      font-size: 1rem;
+    }
+    .base-note__body {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(224, 225, 221, 0.85);
+      line-height: 1.45;
+    }
+    .base-note__body + .base-note__body {
+      margin-top: -4px;
+    }
+    .base-note__badge {
+      align-self: flex-start;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(148, 210, 189, 0.18);
+      color: #e0f2f1;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 210, 189, 0.35);
+    }
+    .base-note__footer {
+      margin-top: auto;
+      font-size: 0.78rem;
+      color: rgba(224, 225, 221, 0.65);
+    }
+    body.kid-mode .base-note__body {
+      font-size: 0.95rem;
+    }
     .base-card__header {
       display: flex;
       justify-content: space-between;
@@ -3151,6 +3259,459 @@
       { techLevel: 45, level: 9 },
       { techLevel: 55, level: 10 }
     ];
+    const BASE_INTEL_ROTATION_INTERVAL = 12000;
+    const MEDICINE_TECH_NAMES = [
+      'Medieval Medicine Workbench',
+      'Electric Medicine Workbench',
+      'Advanced Medicine Workbench'
+    ];
+    const FURNACE_TECH_NAMES = ['Primitive Furnace', 'Improved Furnace', 'Electric Furnace', 'Gigantic Furnace'];
+    const POWER_TECH_NAMES = ['Human-Powered Generator', 'Power Generator', 'Production Assembly Line'];
+    const BASE_STAGE_OVERVIEWS = {
+      ch0: {
+        icon: '🛖',
+        badge: { kid: 'Guide step', grown: 'Guide step' },
+        kid: {
+          title: 'Build the starter camp',
+          lines: [
+            'Place the Palbox and Primitive Workbench so helpers know where to work.',
+            'Add a Feed Box early so Lamballs and Cattiva stay happy while you learn jobs.'
+          ]
+        },
+        grown: {
+          title: 'Anchor Base #1',
+          lines: [
+            'Palbox + Primitive Workbench unlock automation toggles and your first crafting loop.',
+            'A Feed Box right away keeps stamina downtime low as you juggle early chores.'
+          ]
+        }
+      },
+      ch1: {
+        icon: '🎯',
+        kid: {
+          title: 'Make Pal Spheres nonstop',
+          lines: [
+            'Catch a Vixy and let it live on the Ranch—it digs up Pal Spheres for free.',
+            'Logging Sites and Stone Pits keep wood and rocks ready for sphere crafting.'
+          ]
+        },
+        grown: {
+          title: 'Sphere supply & early automation',
+          lines: [
+            'Ranch a Vixy early; its unique ranch output is Pal Spheres, perfect for the capture spike.',
+            'Automate wood and stone so Crusher + workbenches never stall while you push Tech Lv 8.'
+          ]
+        }
+      },
+      ch2: {
+        icon: '🍰',
+        kid: {
+          title: 'Bake Cake ingredients',
+          lines: [
+            'Build a Wheat Plantation, Mill, and Cooking Pot so batter is always ready.',
+            'Catch Mozzarina for milk, Chikipi for eggs, and Beegarde for honey.'
+          ]
+        },
+        grown: {
+          title: 'Farm lines for Cake & ingots',
+          lines: [
+            'Primitive Furnace plus Wheat → Mill → Cooking Pot is the midgame backbone.',
+            'Secure Mozzarina, Chikipi, and Beegarde so milk, eggs, and honey flow into Cakes.'
+          ]
+        }
+      },
+      ch3: {
+        icon: '❄️',
+        kid: {
+          title: 'Keep food cold',
+          lines: [
+            'A Cooler Box keeps snacks fresh while you travel through the snow.',
+            'Leave strong fire pals on the furnace so metal keeps cooking.'
+          ]
+        },
+        grown: {
+          title: 'Snow prep & smelting uptime',
+          lines: [
+            'Cooler Box coverage protects food during long northern expeditions.',
+            'Stack high-level Kindling on furnaces so refined ingots stay ahead of tech unlocks.'
+          ]
+        }
+      },
+      ch4: {
+        icon: '🗺️',
+        kid: {
+          title: 'Plan Base Three',
+          lines: [
+            'Pick a desert or ice cliff for coal and shiny quartz.',
+            'Bring pals that can mine, haul, and cool things down.'
+          ]
+        },
+        grown: {
+          title: 'Chart the resource campus',
+          lines: [
+            'Scout a coal/quartz plateau for Base #3 once base level 15 unlocks.',
+            'Reserve strong Mining, Transporting, and Cooling pals for the expansion site.'
+          ]
+        }
+      },
+      ch5: {
+        icon: '🌋',
+        kid: {
+          title: 'Heat-proof the factory',
+          lines: [
+            'Fire pals handle furnaces while Water pals cool food in the volcano zone.',
+            'Pack extra feed so workers recover fast after hot jobs.'
+          ]
+        },
+        grown: {
+          title: 'Volcano logistics',
+          lines: [
+            'Keep Heat-resistant pals on furnaces and move spare Water/Cooling pals onto fridges.',
+            'Stockpile coal and refine ore nonstop so weapon upgrades stay on schedule.'
+          ]
+        }
+      },
+      ch6: {
+        icon: '⚡',
+        kid: {
+          title: 'Power every station',
+          lines: [
+            'Strong Electric pals should live on generators so machines keep running.',
+            'Have one healer ready for surprise damage.'
+          ]
+        },
+        grown: {
+          title: 'Generator & support focus',
+          lines: [
+            'Marcus & Faleris prep demands continuous power—assign resilient Electricity pals to every generator.',
+            'Begin rotating a medicine specialist so revives and first aid are covered.'
+          ]
+        }
+      },
+      ch7: {
+        icon: '🩺',
+        kid: {
+          title: 'Keep everyone healed',
+          lines: [
+            'Unlock the fancy medicine tables and let a gentle pal run them.',
+            'Double-check that fridges stay cold for late-game cooking.'
+          ]
+        },
+        grown: {
+          title: 'Late-game clinic & cooling',
+          lines: [
+            'Shadowbeak runs demand medkits—rotate high Medicine pals onto the bench when you unlock it.',
+            'Cooling + Electricity coverage keeps the endgame assembly lines from stalling.'
+          ]
+        }
+      },
+      ch8: {
+        icon: '🌸',
+        kid: {
+          title: 'Sakurajima supplies',
+          lines: [
+            'Bring extra gardeners so new crops grow fast in the pink isles.',
+            'Swap pals between bases so power and cooling stay strong.'
+          ]
+        },
+        grown: {
+          title: 'Selyne support loop',
+          lines: [
+            'Balance Electricity, Cooling, and Medicine so Sakurajima recipes finish while you raid the island.',
+            'Stage extra honey and flour so Cake breeding chains never pause.'
+          ]
+        }
+      },
+      ch9: {
+        icon: '🛡️',
+        kid: {
+          title: 'Feybreak finale prep',
+          lines: [
+            'Make sure generators, coolers, and ranch pals are all full so battles stay easy.',
+            'Keep your strongest pals rested before big fights.'
+          ]
+        },
+        grown: {
+          title: 'Feybreak sustain',
+          lines: [
+            'Max out power, cooling, and medicine coverage so Bastigor attempts always start with fresh stocks.',
+            'Rotate Artisan handiwork pals so endgame ammo and armor finish quickly.'
+          ]
+        }
+      },
+      default: {
+        icon: '🛠️',
+        kid: {
+          title: 'Keep the base happy',
+          lines: [
+            'Make sure someone builds, someone cooks, and someone carries goodies.',
+            'Swap pals between jobs if a meter drops low.'
+          ]
+        },
+        grown: {
+          title: 'Balance the roster',
+          lines: [
+            'Watch your coverage meters—shift pals toward weak jobs to keep automation humming.',
+            'Rotate captures based on upcoming tech unlocks so nothing bottlenecks the route.'
+          ]
+        }
+      }
+    };
+    const BASE_STEP_NOTE_OVERRIDES = {
+      'ch0-base-foundation': {
+        icon: '🪵',
+        badge: { kid: 'Guide step', grown: 'Guide step' },
+        kidTitle: 'Place the Palbox',
+        grownTitle: 'Anchor your first base',
+        kidLines: [
+          'Drop the Palbox and Primitive Workbench so pals know where to work.',
+          'This lets Palmate track jobs for the Base planner.'
+        ],
+        grownLines: [
+          'Palbox + Primitive Workbench unlocks automation toggles and fast access to build menus.',
+          'Log the unlock in Palmate so route detection stays accurate.'
+        ]
+      },
+      'ch0-base-feedbox': {
+        icon: '🥕',
+        badge: { kid: 'Bonus', grown: 'Optional' },
+        kidTitle: 'Set up the Feed Box',
+        grownTitle: 'Automate feeding',
+        kidLines: [
+          'A Feed Box keeps Lamball and Cattiva fed while you adventure.',
+          'It stops work breaks from hunger.'
+        ],
+        grownLines: [
+          'Early Feed Box placement keeps stamina downtime low as you expand Base #1.',
+          'Even though optional, it speeds every other job immediately.'
+        ]
+      },
+      'ch1-base-alarm-monitor': {
+        icon: '🔔',
+        badge: { kid: 'Guide step', grown: 'Guide step' },
+        kidTitle: 'Build the alert bell',
+        grownTitle: 'Set up alert network',
+        kidLines: [
+          'An Alarm Bell and Monitoring Stand warn you if pals get sleepy or hungry.',
+          'Check in when it rings so work keeps going.'
+        ],
+        grownLines: [
+          'Alarm Bell now, Monitoring Stand at Tech Lv 15 keeps downtime visible even when you roam.',
+          'Pair it with rested Transporting pals so deliveries keep moving.'
+        ]
+      },
+      'ch1-base-resource-sites': {
+        icon: '🏭',
+        badge: { kid: 'Guide step', grown: 'Guide step' },
+        kidTitle: 'Build wood & rock helpers',
+        grownTitle: 'Automate logs and stone',
+        kidLines: [
+          'Logging Sites and Stone Pits mean pals haul wood and rocks all day.',
+          'Put a Crusher nearby so ore turns into Paldium for Pal Spheres.'
+        ],
+        grownLines: [
+          'Drop Logging Site + Stone Pit at Tech Lv 7, then add a Crusher at Lv 8.',
+          'This fuels sphere crafting and furnace inputs while you chase Zoe.'
+        ]
+      },
+      'ch1-base-hot-spring': {
+        icon: '🛁',
+        badge: { kid: 'Guide step', grown: 'Guide step' },
+        kidTitle: 'Hot Spring break',
+        grownTitle: 'Install the Hot Spring',
+        kidLines: [
+          'A Hot Spring helps pals rest fast when they get tired.',
+          'Keep it near the work sites so breaks are quick.'
+        ],
+        grownLines: [
+          'Hot Springs dramatically shorten rest cycles—place one between crafting and furnace rows.',
+          'It offsets the workload spike once Crusher and furnaces come online.'
+        ]
+      },
+      'ch2-base-furnace': {
+        icon: '🔥',
+        badge: { kid: 'Guide step', grown: 'Guide step' },
+        kidTitle: 'Light the furnace',
+        grownTitle: 'Staff the Primitive Furnace',
+        kidLines: [
+          'Build the Primitive Furnace and leave two fire pals to keep it hot.',
+          'Ingots are needed for saddles and better tools.'
+        ],
+        grownLines: [
+          'Primitive Furnace unlocks at Tech Lv 10—assign high Kindling pals immediately.',
+          'Parallel furnaces prevent metal bottlenecks during the cake/flyer rush.'
+        ]
+      },
+      'ch2-base-farm-line': {
+        icon: '🌾',
+        badge: { kid: 'Guide step', grown: 'Guide step' },
+        kidTitle: 'Start the wheat line',
+        grownTitle: 'Build the Cake chain',
+        kidLines: [
+          'Plant wheat, grind flour, and cook it so Cake batter is ready.',
+          'Let Water pals splash plantations so crops grow fast.'
+        ],
+        grownLines: [
+          'Wheat Plantation + Mill + Cooking Pot should sit in one loop with Watering pals on call.',
+          'Keep flour ahead of honey to avoid the Cake bottleneck once breeding opens.'
+        ]
+      },
+      'ch2-base-ranch': {
+        icon: '🍯',
+        badge: { kid: 'Guide step', grown: 'Guide step' },
+        kidTitle: 'Ranch sweet treats',
+        grownTitle: 'Assign ranch producers',
+        kidLines: [
+          'Give Chikipi, Mozzarina, and Beegarde ranch jobs for eggs, milk, and honey.',
+          'Those goodies turn into Cake for baby pals.'
+        ],
+        grownLines: [
+          'Chikipi (eggs), Mozzarina (milk), and Beegarde/Elizabee (honey) cover the Cake recipe.',
+          'Stage storage near the Cooking Pot so ingredients stay topped off.'
+        ]
+      },
+      'ch2-base-new-site': {
+        icon: '🏞️',
+        badge: { kid: 'Guide step', grown: 'Guide step' },
+        kidTitle: 'Place Base Two',
+        grownTitle: 'Establish the ore campus',
+        kidLines: [
+          'Hit base level 10 then drop Base Two near a cliff packed with ore.',
+          'Fly back often to empty the boxes.'
+        ],
+        grownLines: [
+          'Base Lv 10 unlock lets you settle the Desolate Church ridge or similar ore shelf.',
+          'Anchor furnaces and storage there to supercharge metal throughput.'
+        ]
+      },
+      'roster-mining': {
+        icon: '⛏️',
+        badge: { kid: 'Roster', grown: 'Roster' },
+        kidTitle: 'Keep miners ready',
+        grownTitle: 'Mining lineup',
+        kidLines: [
+          'Have two or three mining pals like Digtoise or Rushoar working ore.',
+          'Swap in stronger pals later like Anubis.'
+        ],
+        grownLines: [
+          'Maintain at least two Mining specialists (Digtoise, Rushoar, Anubis) at every base.',
+          'Their ore feed powers furnaces, Crusher, and sphere crafting simultaneously.'
+        ]
+      },
+      'roster-lumber': {
+        icon: '🪓',
+        badge: { kid: 'Roster', grown: 'Roster' },
+        kidTitle: 'Wood team',
+        grownTitle: 'Lumber coverage',
+        kidLines: [
+          'Two lumber pals like Tanzee or Eikthyrdeer keep planks coming.',
+          'Wood fuels Pal Spheres and building upgrades.'
+        ],
+        grownLines: [
+          'Assign two Lumbering pals (Tanzee, Eikthyrdeer, or Dinossom) so planks and beams never stall builds.',
+          'Combine with Transporters to keep Logging Site outputs moving.'
+        ]
+      },
+      'roster-transport': {
+        icon: '🚚',
+        badge: { kid: 'Roster', grown: 'Roster' },
+        kidTitle: 'Hauling pals',
+        grownTitle: 'Transport loop',
+        kidLines: [
+          'Use fliers like Vixy or Pengullet to move items fast.',
+          'Vixy on the Ranch can also dig up bonus Pal Spheres.'
+        ],
+        grownLines: [
+          'Keep two dedicated Transporting pals—Pengullet, Vixy, or Fenglope—to prevent crafting clogs.',
+          'Bonus: Vixy ranch duty produces Pal Spheres while it isn’t hauling.'
+        ]
+      },
+      'roster-kindling': {
+        icon: '🔥',
+        badge: { kid: 'Roster', grown: 'Roster' },
+        kidTitle: 'Fire pals',
+        grownTitle: 'Kindling core',
+        kidLines: [
+          'Foxparks and later Ragnahawk should stay on furnaces and ovens.',
+          'They make metal bars super fast.'
+        ],
+        grownLines: [
+          'Maintain two high-level Kindling pals—Foxparks, Arsox, Ragnahawk—to keep furnaces blazing.',
+          'Metal throughput is the gate on weapons, armor, and Cake cookware.'
+        ]
+      },
+      'roster-watering': {
+        icon: '💧',
+        badge: { kid: 'Roster', grown: 'Roster' },
+        kidTitle: 'Water team',
+        grownTitle: 'Water & cooling',
+        kidLines: [
+          'Pengullet or Fuack can water crops and chill fridges.',
+          'Cold pals keep food from spoiling.'
+        ],
+        grownLines: [
+          'At least two Watering/Cooling pals (Pengullet, Surfent, Jormuntide) keep plantations and fridges online.',
+          'Balance them between Cake production and exploration prep.'
+        ]
+      },
+      'roster-handiwork': {
+        icon: '🛠️',
+        badge: { kid: 'Roster', grown: 'Roster' },
+        kidTitle: 'Crafting pals',
+        grownTitle: 'Handiwork trio',
+        kidLines: [
+          'Have three builders with Handywork so stations finish quick.',
+          'Traits like Artisan make them even faster.'
+        ],
+        grownLines: [
+          'Run three Handiwork specialists (Artisan trait preferred) so benches, ammo, and armor queue smoothly.',
+          'Rotate extras into training to chase perfect passives.'
+        ]
+      },
+      'roster-ranch': {
+        icon: '🐝',
+        badge: { kid: 'Roster', grown: 'Roster' },
+        kidTitle: 'Ranch crew',
+        grownTitle: 'Ranch rotation',
+        kidLines: [
+          'Keep ranch pals like Chikipi, Mozzarina, and Beegarde working the pens.',
+          'They make eggs, milk, and honey while you explore.'
+        ],
+        grownLines: [
+          'Reserve one or two ranch slots for Cake staples plus specialty drops (Vixy for Pal Spheres, Wool pals for cloth).',
+          'Swap outputs based on the tech you are chasing next.'
+        ]
+      },
+      'ch3-base-cooler': {
+        icon: '❄️',
+        badge: { kid: 'Guide step', grown: 'Guide step' },
+        kidTitle: 'Cool the snacks',
+        grownTitle: 'Install Cooler Box',
+        kidLines: [
+          'Build a Cooler Box so meat and berries stay fresh in the snow.',
+          'Keep a Water or Ice pal nearby to power it.'
+        ],
+        grownLines: [
+          'Cooler Box prevents spoilage during long Lily expeditions—staff it with Cooling pals before you leave.',
+          'Pair it with Wheat + Honey stores so Cake baking continues while you travel.'
+        ]
+      },
+      'ch4-base-plan': {
+        icon: '🧭',
+        badge: { kid: 'Optional', grown: 'Optional' },
+        kidTitle: 'Plan the next base',
+        grownTitle: 'Sketch Base #3',
+        kidLines: [
+          'Draw where Base Three will go—desert coal or icy quartz spots are best.',
+          'List which pals you need to move there.'
+        ],
+        grownLines: [
+          'Scout a plateau with dense coal/quartz for Base #3 and note which pals will migrate.',
+          'Queue transporters and miners to follow once the slot unlocks.'
+        ]
+      }
+    };
+    let baseIntelState = { notes: [], activeIndex: 0, rotationTimer: null };
     const BASE_LEVEL_CONFIG = [
       {
         level: 1,
@@ -4150,6 +4711,601 @@
       const level = deriveBaseLevelFromTech(highestTechLevel);
       return { level, highestTechLevel, highestItem, unlockCount };
     }
+    function isTechUnlocked(name) {
+      if (!name) return false;
+      if (unlocked && unlocked[name]) return true;
+      const normalized = String(name).toLowerCase();
+      return Object.keys(unlocked || {}).some(key => {
+        return unlocked[key] && typeof key === 'string' && key.toLowerCase() === normalized;
+      });
+    }
+    function hasAnyTechUnlocked(names) {
+      if (!Array.isArray(names)) return false;
+      return names.some(name => isTechUnlocked(name));
+    }
+    function findPalByName(name) {
+      if (!name) return null;
+      const id = PAL_NAME_TO_ID && Object.prototype.hasOwnProperty.call(PAL_NAME_TO_ID, name)
+        ? PAL_NAME_TO_ID[name]
+        : null;
+      if (id != null && PALS && PALS[id]) {
+        return PALS[id];
+      }
+      return Object.values(PALS || {}).find(pal => pal && pal.name === name) || null;
+    }
+    function isPalCaughtByName(name) {
+      const pal = findPalByName(name);
+      if (!pal) return false;
+      return !!caught[pal.id];
+    }
+    function palsThatDropItem(itemKey) {
+      if (!itemKey) return [];
+      const needle = String(itemKey).toLowerCase();
+      return Object.values(PALS || {}).filter(pal => {
+        return Array.isArray(pal?.drops) && pal.drops.some(drop => String(drop || '').toLowerCase() === needle);
+      });
+    }
+    function collectPendingBaseSteps({ includeOptional = true } = {}) {
+      const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
+      const pending = [];
+      chapters.forEach((chapter, chapterIndex) => {
+        (chapter?.steps || []).forEach(step => {
+          if (!step || step.category !== 'Base') return;
+          if (!includeOptional && step.optional) return;
+          if (routeState && routeState[step.id]) return;
+          pending.push({ chapter, step, chapterIndex });
+        });
+      });
+      pending.sort((a, b) => {
+        if (a.chapterIndex !== b.chapterIndex) {
+          return a.chapterIndex - b.chapterIndex;
+        }
+        const optionalA = !!a.step?.optional;
+        const optionalB = !!b.step?.optional;
+        if (optionalA !== optionalB) {
+          return optionalA ? 1 : -1;
+        }
+        return 0;
+      });
+      return pending;
+    }
+    function determineGuideStageSnapshot() {
+      const pendingBaseSteps = collectPendingBaseSteps();
+      const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
+      if (!chapters.length) {
+        return {
+          stageId: null,
+          stageIndex: -1,
+          stageTitleKid: '',
+          stageTitleGrown: '',
+          progressPercent: null,
+          pendingBaseSteps,
+          nextStep: null
+        };
+      }
+      const nextRoute = findNextRouteStep ? findNextRouteStep({ includeOptional: false }) : null;
+      let activeChapter = nextRoute?.chapter || null;
+      if (!activeChapter) {
+        activeChapter = chapters[chapters.length - 1];
+      }
+      const stageId = activeChapter?.id || null;
+      const stageIndex = chapters.findIndex(chapter => chapter && (chapter === activeChapter || chapter.id === stageId));
+      const stageTitleKid = activeChapter ? (activeChapter.titleKid || activeChapter.title || '') : '';
+      const stageTitleGrown = activeChapter ? (activeChapter.title || activeChapter.titleKid || '') : '';
+      const progress = typeof calculateGuideProgressSummary === 'function' ? calculateGuideProgressSummary() : null;
+      const progressPercent = progress ? progress.percent : null;
+      return {
+        stageId,
+        stageIndex,
+        stageTitleKid,
+        stageTitleGrown,
+        progressPercent,
+        pendingBaseSteps,
+        nextStep: nextRoute?.step || null
+      };
+    }
+    function createStageOverviewNote(stageSnapshot) {
+      const stageId = stageSnapshot?.stageId;
+      const overview = (stageId && BASE_STAGE_OVERVIEWS[stageId]) || BASE_STAGE_OVERVIEWS.default;
+      if (!overview) return null;
+      const badgeConfig = overview.badge || null;
+      const kidLines = Array.isArray(overview.kid?.lines) && overview.kid.lines.length
+        ? overview.kid.lines.slice()
+        : [stageSnapshot?.stageTitleKid || 'Keep your base balanced.'];
+      const grownLines = Array.isArray(overview.grown?.lines) && overview.grown.lines.length
+        ? overview.grown.lines.slice()
+        : [stageSnapshot?.stageTitleGrown || 'Keep your base balanced.'];
+      if (stageId === 'ch1') {
+        if (isPalCaughtByName('Vixy')) {
+          if (kidLines.length) kidLines[0] = 'Let Vixy live on the Ranch so it digs Pal Spheres while you explore.';
+          kidLines.push('Keep wood and stone pals busy so the Crusher never stops.');
+          if (grownLines.length) grownLines[0] = 'Park Vixy on the Ranch for passive Pal Sphere income and keep Crusher fed.';
+          grownLines.push('Balance Transporting coverage so logging and stone outputs stay clear.');
+        }
+      }
+      if (stageId === 'ch2') {
+        const honeyReady = palsThatDropItem('honey').some(pal => caught && caught[pal.id]);
+        if (honeyReady) {
+          kidLines.push('Check the honey chest often so Cakes never pause.');
+          grownLines.push('With honey secured, ensure flour and milk stay ahead of egg demand.');
+        }
+      }
+      return {
+        id: `base-stage-${stageId || 'default'}`,
+        icon: overview.icon || '🛠️',
+        badge: badgeConfig
+          ? { kid: badgeConfig.kid || badgeConfig.grown || '', grown: badgeConfig.grown || badgeConfig.kid || '' }
+          : null,
+        kid: {
+          title: overview.kid?.title || stageSnapshot?.stageTitleKid || 'Base focus',
+          lines: kidLines
+        },
+        grown: {
+          title: overview.grown?.title || stageSnapshot?.stageTitleGrown || 'Base focus',
+          lines: grownLines
+        }
+      };
+    }
+    function createBaseStepNote(entry) {
+      if (!entry || !entry.step) return null;
+      const { step } = entry;
+      const override = BASE_STEP_NOTE_OVERRIDES[step.id] || {};
+      const badgeConfig = override.badge || (step.optional ? { kid: 'Bonus', grown: 'Optional' } : { kid: 'Guide step', grown: 'Guide step' });
+      const kidLines = Array.isArray(override.kidLines) && override.kidLines.length
+        ? override.kidLines.slice()
+        : [(step.textKid || step.text || '').trim()].filter(Boolean);
+      const grownLines = Array.isArray(override.grownLines) && override.grownLines.length
+        ? override.grownLines.slice()
+        : [(step.textAdult || step.text || step.textKid || '').trim()].filter(Boolean);
+      const note = {
+        id: `base-step-${step.id}`,
+        icon: override.icon || '📋',
+        badge: badgeConfig
+          ? { kid: badgeConfig.kid || badgeConfig.grown || '', grown: badgeConfig.grown || badgeConfig.kid || '' }
+          : null,
+        kid: {
+          title: override.kidTitle || step.textKid || step.text || 'Base reminder',
+          lines: kidLines
+        },
+        grown: {
+          title: override.grownTitle || step.textAdult || step.text || 'Base reminder',
+          lines: grownLines
+        }
+      };
+      if (step.optional) {
+        note.kid.footer = 'Optional step';
+        note.grown.footer = 'Optional checklist item';
+      }
+      return note;
+    }
+    function suggestPalsForWork(key, { crew } = {}) {
+      const result = { kid: [], grown: [] };
+      const seen = new Set();
+      if (crew && Array.isArray(crew.selections)) {
+        crew.selections.forEach(entry => {
+          if (!entry || !entry.pal) return;
+          if (!Array.isArray(entry.contributions)) return;
+          if (!entry.contributions.some(contribution => contribution.key === key)) return;
+          const name = entry.pal.name;
+          if (!name || seen.has(name)) return;
+          if (!entry.isCaught && result.kid.length < 2) {
+            result.kid.push(name);
+            seen.add(name);
+            return;
+          }
+          if (entry.isCaught && result.grown.length < 2) {
+            result.grown.push(name);
+            seen.add(name);
+          }
+        });
+      }
+      if (result.kid.length < 2 || result.grown.length < 2) {
+        const dataset = Object.values(PALS || {})
+          .filter(pal => pal?.work && Number(pal.work[key]) > 0)
+          .sort((a, b) => {
+            const levelA = Number(a.work[key]) || 0;
+            const levelB = Number(b.work[key]) || 0;
+            if (levelB !== levelA) return levelB - levelA;
+            return (a.rarity || 0) - (b.rarity || 0);
+          });
+        dataset.forEach(pal => {
+          if (!pal?.name || seen.has(pal.name)) return;
+          if (result.kid.length < 2) {
+            result.kid.push(pal.name);
+          }
+          if (result.grown.length < 2) {
+            result.grown.push(pal.name);
+          }
+          seen.add(pal.name);
+        });
+      }
+      if (!result.grown.length) {
+        result.grown = result.kid.slice();
+      }
+      if (!result.kid.length) {
+        result.kid = result.grown.slice();
+      }
+      return result;
+    }
+    function calculateEffectiveWorkWeights(config, context = {}) {
+      const baseWeights = config?.workWeights || {};
+      const weights = {};
+      Object.keys(baseWeights).forEach(key => {
+        weights[key] = baseWeights[key];
+      });
+      const defaultWeight = config?.defaultWeight != null ? config.defaultWeight : 0.2;
+      const stageSnapshot = context.stageSnapshot || determineGuideStageSnapshot();
+      const stageIndex = typeof stageSnapshot?.stageIndex === 'number' ? stageSnapshot.stageIndex : null;
+      if (!hasAnyTechUnlocked(MEDICINE_TECH_NAMES)) {
+        if (weights.medicine != null) {
+          weights.medicine = Math.min(weights.medicine, defaultWeight * 0.6);
+        } else {
+          weights.medicine = defaultWeight * 0.5;
+        }
+      }
+      if (hasAnyTechUnlocked(FURNACE_TECH_NAMES)) {
+        const baseKindling = weights.kindling != null ? weights.kindling : defaultWeight;
+        weights.kindling = Math.max(baseKindling, baseKindling + 0.15);
+        const baseMining = weights.mining != null ? weights.mining : defaultWeight;
+        weights.mining = Math.max(baseMining, baseMining + 0.05);
+        const baseTransport = weights.transporting != null ? weights.transporting : defaultWeight;
+        weights.transporting = Math.max(baseTransport, baseTransport + 0.05);
+      }
+      if (stageIndex != null && stageIndex >= 2) {
+        const baseFarming = weights.farming != null ? weights.farming : defaultWeight;
+        weights.farming = Math.max(baseFarming, baseFarming + 0.1);
+        const basePlanting = weights.planting != null ? weights.planting : defaultWeight;
+        weights.planting = Math.max(basePlanting, basePlanting + 0.05);
+        const baseWatering = weights.watering != null ? weights.watering : defaultWeight;
+        weights.watering = Math.max(baseWatering, baseWatering + 0.05);
+      }
+      if (hasAnyTechUnlocked(POWER_TECH_NAMES)) {
+        const basePower = weights.generating_electricity != null ? weights.generating_electricity : defaultWeight;
+        weights.generating_electricity = Math.max(basePower, basePower + 0.08);
+      }
+      return weights;
+    }
+    function generateCoverageNotes({ config, crew, weights }) {
+      const notes = [];
+      if (!crew || !crew.coverage) return notes;
+      const entries = Object.entries(weights || config?.workWeights || {})
+        .filter(([, weight]) => weight && weight > 0)
+        .sort((a, b) => b[1] - a[1]);
+      if (!entries.length) return notes;
+      const highestWeight = entries[0][1];
+      const threshold = (config?.defaultWeight != null ? config.defaultWeight : 0.2) * 1.5;
+      const gaps = entries
+        .map(([key, weight]) => {
+          const total = crew.coverage[key] || 0;
+          const descriptor = coverageDescriptor(weight, total, config, highestWeight);
+          return { key, weight, descriptor };
+        })
+        .filter(entry => entry.descriptor.percent < 55 && entry.weight >= threshold);
+      gaps.sort((a, b) => {
+        if (a.descriptor.percent !== b.descriptor.percent) {
+          return a.descriptor.percent - b.descriptor.percent;
+        }
+        return b.weight - a.weight;
+      });
+      gaps.slice(0, 2).forEach(entry => {
+        const detail = getWorkTypeDetail(entry.key);
+        const helperNames = suggestPalsForWork(entry.key, { crew });
+        const kidTargets = helperNames.kid.slice(0, 2);
+        const grownTargets = helperNames.grown.slice(0, 2);
+        const kidLines = [
+          `We need more ${detail.kidLabel || detail.label.toLowerCase()} helpers (${Math.round(entry.descriptor.percent)}% filled).`
+        ];
+        if (kidTargets.length) {
+          kidLines.push(`Try ${kidTargets.join(' or ')}.`);
+        } else {
+          kidLines.push('Open the pal list to find workers with this job.');
+        }
+        kidLines.push('Switch pals around until this meter turns green.');
+        const grownLines = [
+          `${detail.label} coverage is ${Math.round(entry.descriptor.percent)}%.`,
+          grownTargets.length
+            ? `Recruit or reassign ${grownTargets.join(' or ')}.`
+            : 'Review your pal list for strong specialists to cover this role.',
+          'Balancing this job keeps automation from stalling.'
+        ];
+        notes.push({
+          id: `coverage-${entry.key}`,
+          icon: detail.icon || '⭐',
+          badge: { kid: 'Coverage', grown: 'Coverage' },
+          kid: {
+            title: `${detail.kidLabel || detail.label} boost`,
+            lines: kidLines
+          },
+          grown: {
+            title: `${detail.label} priority`,
+            lines: grownLines
+          }
+        });
+      });
+      return notes;
+    }
+    function generateCatchNotes(crew) {
+      const notes = [];
+      if (!crew || !Array.isArray(crew.selections)) return notes;
+      const missing = crew.selections.filter(entry => entry && entry.pal && !entry.isCaught);
+      missing.sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        return b.rawScore - a.rawScore;
+      });
+      missing.slice(0, 3).forEach(entry => {
+        const pal = entry.pal;
+        const contributions = Array.isArray(entry.contributions) ? entry.contributions : [];
+        const top = contributions.slice(0, 2);
+        const kidHighlights = top.map(contribution => {
+          const detail = getWorkTypeDetail(contribution.key);
+          return `${detail.kidLabel || detail.label} ${workLevelLabel(contribution.level)}`;
+        });
+        const grownHighlights = top.map(contribution => {
+          const detail = getWorkTypeDetail(contribution.key);
+          return `${detail.label} Lv ${contribution.level}`;
+        });
+        const habitats = Array.isArray(pal.spawnAreas) && pal.spawnAreas.length
+          ? pal.spawnAreas.slice(0, 2).join(', ')
+          : '';
+        const rarityLabel = rarityNames[pal.rarity] || '';
+        const sphere = raritySphere[pal.rarity] || 'Pal Sphere';
+        const kidLines = [
+          kidHighlights.length ? `${pal.name} brings ${kidHighlights.join(' & ')}.` : `${pal.name} helps with lots of jobs.`,
+          habitats ? `Look in ${habitats}.` : 'Check the map page to see where it lives.',
+          `Try a ${sphere}.`
+        ];
+        const grownLines = [
+          `${pal.name} covers ${grownHighlights.join(', ') || 'important roles'}${rarityLabel ? ` (${rarityLabel})` : ''}.`,
+          habitats ? `Spawns: ${habitats}.` : 'Use the map tab or modal to confirm spawn points.',
+          `Suggested sphere: ${sphere}.`
+        ];
+        notes.push({
+          id: `target-${pal.id}`,
+          icon: '🎯',
+          badge: { kid: 'Next catch', grown: 'Next catch' },
+          kid: {
+            title: `Catch ${pal.name}`,
+            lines: kidLines
+          },
+          grown: {
+            title: `Recruit ${pal.name}`,
+            lines: grownLines
+          }
+        });
+      });
+      return notes;
+    }
+    function generateTechPriorityNotes({ config, crew, weights, stageSnapshot }) {
+      const notes = [];
+      const medicineUnlocked = hasAnyTechUnlocked(MEDICINE_TECH_NAMES);
+      if (!medicineUnlocked && (weights?.medicine || 0) > (config?.defaultWeight || 0.2) * 0.5) {
+        notes.push({
+          id: 'tech-medicine',
+          icon: '💊',
+          badge: { kid: 'Heads-up', grown: 'Heads-up' },
+          kid: {
+            title: 'Medicine comes later',
+            lines: [
+              'No doctor table is unlocked yet, so it is okay if healer pals rest for now.',
+              'Focus on builders, haulers, and fire pals until the medicine bench is ready.'
+            ]
+          },
+          grown: {
+            title: 'Delay medicine coverage',
+            lines: [
+              'Medicine benches are not unlocked, so Palmate deprioritises specialist healers.',
+              'Revisit once the Medieval Medicine Workbench (or better) is marked unlocked.'
+            ]
+          }
+        });
+      }
+      const honeyCandidates = palsThatDropItem('honey');
+      const hasHoneyPal = honeyCandidates.some(pal => caught && caught[pal.id]);
+      const hasRanch = isTechUnlocked('Ranch');
+      if (hasRanch && !hasHoneyPal && (stageSnapshot?.stageIndex ?? 0) >= 1) {
+        const honeyNames = honeyCandidates.map(pal => pal.name).filter(Boolean);
+        const preview = honeyNames.slice(0, 2).join(' or ') || 'Beegarde';
+        notes.push({
+          id: 'tech-honey',
+          icon: '🍯',
+          badge: { kid: 'Cake prep', grown: 'Cake prep' },
+          kid: {
+            title: 'Catch a honey pal',
+            lines: [
+              `We still need honey for Cakes. Try to catch ${preview} soon.`,
+              'Give them a Ranch slot so honey flows while you explore.'
+            ]
+          },
+          grown: {
+            title: 'Secure honey production',
+            lines: [
+              `Cakes hinge on honey—target ${preview} and park them on the Ranch.`,
+              'Pair with Mozzarina (milk) and Chikipi (eggs) to complete the recipe pipeline.'
+            ]
+          }
+        });
+      }
+      const furnaceUnlocked = hasAnyTechUnlocked(FURNACE_TECH_NAMES);
+      if (furnaceUnlocked) {
+        const kindlingCoverage = crew?.coverage?.kindling || 0;
+        const expected = Math.max(1, crew?.slotCount || 1) * Math.max(1, MAX_WORK_LEVEL);
+        if (kindlingCoverage < expected * 0.6) {
+          const helpers = suggestPalsForWork('kindling', { crew });
+          const kidTargets = helpers.kid.slice(0, 2).join(' or ') || 'strong fire pals';
+          const grownTargets = helpers.grown.slice(0, 2).join(' or ') || 'dedicated Kindling specialists';
+          notes.push({
+            id: 'tech-kindling',
+            icon: '🔥',
+            badge: { kid: 'Smelting', grown: 'Smelting' },
+            kid: {
+              title: 'More fire pals',
+              lines: [
+                `Furnaces love fire pals. Add ${kidTargets} to keep metal bars cooking.`,
+                'More flames mean faster saddles, weapons, and Cake cookware.'
+              ]
+            },
+            grown: {
+              title: 'Boost kindling uptime',
+              lines: [
+                `Kindling coverage is light—recruit ${grownTargets} so furnaces never idle.`,
+                'Parallel smelters prevent bottlenecks during the midgame tech rush.'
+              ]
+            }
+          });
+        }
+      }
+      return notes;
+    }
+    function generateBaseIntelNotes({ config, crew, weights, stageSnapshot }) {
+      const notes = [];
+      const snapshot = stageSnapshot || determineGuideStageSnapshot();
+      const queue = new Set();
+      const addNote = note => {
+        if (!note || !note.id || queue.has(note.id)) return;
+        queue.add(note.id);
+        notes.push(note);
+      };
+      const pending = snapshot.pendingBaseSteps || [];
+      const prioritizedStep = pending.find(entry => {
+        if (snapshot.stageIndex != null && entry.chapterIndex > snapshot.stageIndex + 1) return false;
+        return true;
+      }) || pending[0];
+      if (prioritizedStep) {
+        addNote(createBaseStepNote(prioritizedStep));
+      } else {
+        addNote(createStageOverviewNote(snapshot));
+      }
+      generateCoverageNotes({ config, crew, weights }).forEach(addNote);
+      generateCatchNotes(crew).forEach(addNote);
+      generateTechPriorityNotes({ config, crew, weights, stageSnapshot: snapshot }).forEach(addNote);
+      if (!notes.length) {
+        addNote(createStageOverviewNote(snapshot));
+      }
+      return notes.slice(0, 6);
+    }
+    function renderBaseIntelNotes(notes, activeIndex, { stageSnapshot } = {}) {
+      const elements = basePlannerElements || {};
+      if (elements.intelStage) {
+        const label = kidMode
+          ? (stageSnapshot?.stageTitleKid || 'Follow the guide')
+          : (stageSnapshot?.stageTitleGrown || 'Follow the route guide');
+        const badgeText = typeof stageSnapshot?.progressPercent === 'number'
+          ? `${stageSnapshot.progressPercent}% ${kidMode ? 'done' : 'complete'}`
+          : '';
+        const parts = [];
+        parts.push(`<span>${escapeHTML(label)}</span>`);
+        if (badgeText) {
+          parts.push(`<span class="base-intel-stage__badge">${escapeHTML(badgeText)}</span>`);
+        }
+        elements.intelStage.innerHTML = parts.join(' ');
+      }
+      if (elements.intelMeta) {
+        const total = notes.length;
+        if (total > 1) {
+          elements.intelMeta.textContent = kidMode
+            ? `Palmate shows ${total} tips. They swap every ${Math.round(BASE_INTEL_ROTATION_INTERVAL / 1000)} seconds.`
+            : `${total} rotating notes — auto-advance every ${Math.round(BASE_INTEL_ROTATION_INTERVAL / 1000)}s.`;
+        } else if (total === 1) {
+          elements.intelMeta.textContent = kidMode
+            ? 'Palmate found one big tip for your base.'
+            : 'Palmate found a key insight for your base.';
+        } else {
+          elements.intelMeta.textContent = kidMode
+            ? 'Mark guide steps and unlock tech so Palmate can share base tips.'
+            : 'Track guide progress and unlocked tech to unlock tailored base insights.';
+        }
+      }
+      const container = elements.intelNotes;
+      if (!container) return;
+      container.innerHTML = '';
+      if (!notes.length) {
+        const empty = document.createElement('div');
+        empty.className = 'base-note base-note--active';
+        const body = document.createElement('p');
+        body.className = 'base-note__body';
+        body.textContent = kidMode
+          ? 'Palmate needs more info. Check off guide steps and mark pals as caught to unlock tips!'
+          : 'Palmate needs more data. Update your guide steps and captured pals to unlock insights.';
+        empty.appendChild(body);
+        container.appendChild(empty);
+        return;
+      }
+      notes.forEach((note, index) => {
+        const card = document.createElement('article');
+        card.className = `base-note${index === activeIndex ? ' base-note--active' : ''}`;
+        const header = document.createElement('div');
+        header.className = 'base-note__header';
+        const icon = document.createElement('div');
+        icon.className = 'base-note__icon';
+        icon.textContent = note.icon || '⭐';
+        header.appendChild(icon);
+        const title = document.createElement('h4');
+        title.className = 'base-note__title';
+        const variant = kidMode ? note.kid : note.grown;
+        title.textContent = variant?.title || (kidMode ? 'Base tip' : 'Base insight');
+        header.appendChild(title);
+        card.appendChild(header);
+        const badge = note.badge && (kidMode ? note.badge.kid : note.badge.grown);
+        if (badge) {
+          const badgeEl = document.createElement('span');
+          badgeEl.className = 'base-note__badge';
+          badgeEl.textContent = badge;
+          card.appendChild(badgeEl);
+        }
+        (variant?.lines || []).forEach(line => {
+          if (!line) return;
+          const body = document.createElement('p');
+          body.className = 'base-note__body';
+          body.textContent = line;
+          card.appendChild(body);
+        });
+        if (variant?.footer) {
+          const footer = document.createElement('div');
+          footer.className = 'base-note__footer';
+          footer.textContent = variant.footer;
+          card.appendChild(footer);
+        }
+        container.appendChild(card);
+      });
+    }
+    function restartBaseIntelTimer() {
+      if (baseIntelState.rotationTimer) {
+        clearInterval(baseIntelState.rotationTimer);
+        baseIntelState.rotationTimer = null;
+      }
+      if (!baseIntelState.notes || baseIntelState.notes.length <= 1) {
+        return;
+      }
+      baseIntelState.rotationTimer = setInterval(() => {
+        rotateBaseIntel(1);
+      }, BASE_INTEL_ROTATION_INTERVAL);
+    }
+    function rotateBaseIntel(step = 1, { userInitiated = false } = {}) {
+      const notes = baseIntelState.notes || [];
+      if (!notes.length) return;
+      const total = notes.length;
+      baseIntelState.activeIndex = (baseIntelState.activeIndex + step + total) % total;
+      renderBaseIntelNotes(notes, baseIntelState.activeIndex, { stageSnapshot: baseIntelState.stageSnapshot });
+      if (userInitiated) {
+        restartBaseIntelTimer();
+      }
+    }
+    function updateBaseIntel(config, crew, { weights, stageSnapshot } = {}) {
+      const snapshot = stageSnapshot || determineGuideStageSnapshot();
+      baseIntelState.stageSnapshot = snapshot;
+      const previous = baseIntelState.notes && baseIntelState.notes[baseIntelState.activeIndex];
+      const previousId = previous?.id || null;
+      const notes = generateBaseIntelNotes({ config, crew, weights, stageSnapshot: snapshot });
+      baseIntelState.notes = notes;
+      if (previousId) {
+        const idx = notes.findIndex(note => note.id === previousId);
+        baseIntelState.activeIndex = idx >= 0 ? idx : 0;
+      } else {
+        baseIntelState.activeIndex = 0;
+      }
+      renderBaseIntelNotes(notes, baseIntelState.activeIndex, { stageSnapshot: snapshot });
+      restartBaseIntelTimer();
+    }
     function getBaseLevelConfig(level) {
       if (!Array.isArray(BASE_LEVEL_CONFIG) || !BASE_LEVEL_CONFIG.length) return null;
       return BASE_LEVEL_CONFIG.find(cfg => cfg.level === level) || BASE_LEVEL_CONFIG[BASE_LEVEL_CONFIG.length - 1];
@@ -4228,6 +5384,17 @@
             </div>
             <div class="base-coverage-grid" id="baseCoverageGrid"></div>
           </article>
+          <article class="base-card base-card--intel">
+            <div class="base-card__header">
+              <div>
+                <h3 class="base-card__title">${kidMode ? 'Base intel' : 'Base intel'}</h3>
+                <p class="base-card__meta" id="baseIntelMeta"></p>
+              </div>
+              <button type="button" class="base-intel__shuffle" id="baseIntelShuffle">${kidMode ? 'Next tip' : 'Shuffle tips'}</button>
+            </div>
+            <div class="base-intel-stage" id="baseIntelStage"></div>
+            <div class="base-intel-notes" id="baseIntelNotes"></div>
+          </article>
         </div>
       `;
       basePlannerElements = {
@@ -4246,8 +5413,16 @@
         levelCopy: page.querySelector('#baseLevelCopy'),
         crewMeta: page.querySelector('#baseCrewMeta'),
         modeBadge: page.querySelector('#baseModeBadge'),
-        activeBadge: page.querySelector('#baseActiveBadge')
+        activeBadge: page.querySelector('#baseActiveBadge'),
+        intelNotes: page.querySelector('#baseIntelNotes'),
+        intelMeta: page.querySelector('#baseIntelMeta'),
+        intelStage: page.querySelector('#baseIntelStage'),
+        intelShuffle: page.querySelector('#baseIntelShuffle')
       };
+      if (baseIntelState.rotationTimer) {
+        clearInterval(baseIntelState.rotationTimer);
+        baseIntelState.rotationTimer = null;
+      }
       if (basePlannerElements.slider) {
         basePlannerElements.slider.max = String(BASE_LEVEL_CONFIG.length);
         basePlannerElements.slider.addEventListener('input', event => {
@@ -4282,6 +5457,11 @@
           updateBasePlanner();
         });
       }
+      if (basePlannerElements.intelShuffle) {
+        basePlannerElements.intelShuffle.addEventListener('click', () => {
+          rotateBaseIntel(1, { userInitiated: true });
+        });
+      }
       updateBasePlanner();
     }
     function updateBasePlanner() {
@@ -4297,6 +5477,8 @@
       const activeLevel = useManual ? basePlannerState.manualLevel : autoInfo.level;
       const config = getBaseLevelConfig(activeLevel);
       if (!config) return;
+      const stageSnapshot = determineGuideStageSnapshot();
+      const weights = calculateEffectiveWorkWeights(config, { stageSnapshot, activeLevel, autoInfo });
       const sliderValue = useManual ? basePlannerState.manualLevel : autoInfo.level;
       elements.slider.value = String(sliderValue);
       elements.slider.disabled = !useManual;
@@ -4361,7 +5543,7 @@
       }
       if (elements.priorityList) {
         elements.priorityList.innerHTML = '';
-        const entries = Object.entries(config.workWeights || {})
+        const entries = Object.entries(weights || {})
           .filter(([, weight]) => weight && weight > 0)
           .sort((a, b) => b[1] - a[1]);
         const limit = kidMode ? Math.min(entries.length, 5) : entries.length;
@@ -4388,7 +5570,8 @@
           elements.priorityList.appendChild(item);
         });
       }
-      const crew = recommendBaseCrew(config);
+      const crew = recommendBaseCrew(config, { stageSnapshot, weightsOverride: weights });
+      updateBaseIntel(config, crew, { weights, stageSnapshot });
       if (elements.slotsGrid) {
         elements.slotsGrid.innerHTML = '';
         for (let slotIndex = 0; slotIndex < config.slots; slotIndex += 1) {
@@ -4532,7 +5715,7 @@
       }
       if (elements.coverageGrid) {
         elements.coverageGrid.innerHTML = '';
-        const weightEntries = Object.entries(config.workWeights || {})
+        const weightEntries = Object.entries(weights || {})
           .filter(([, weight]) => weight && weight > 0)
           .sort((a, b) => b[1] - a[1]);
         const highestWeight = weightEntries.length ? weightEntries[0][1] : 1;
@@ -4565,12 +5748,14 @@
         });
       }
     }
-    function recommendBaseCrew(config) {
+    function recommendBaseCrew(config, options = {}) {
       const slotCount = config?.slots || 0;
       if (!slotCount) {
         return { selections: [], coverage: {}, slotCount: 0, capturedCount: 0 };
       }
-      const weights = config?.workWeights || {};
+      const weights = options.weightsOverride
+        ? { ...options.weightsOverride }
+        : calculateEffectiveWorkWeights(config, options);
       const defaultWeight = config?.defaultWeight != null ? config.defaultWeight : 0.2;
       const available = Object.values(PALS || {}).filter(pal => {
         if (!pal || !pal.work) return false;
@@ -4632,7 +5817,7 @@
         }
       }
       const capturedCount = selections.filter(entry => entry && entry.isCaught).length;
-      return { selections, coverage, slotCount, capturedCount };
+      return { selections, coverage, slotCount, capturedCount, weights };
     }
     function scorePalForBase(pal, weights, coverage, config, defaultWeight) {
       if (!pal || !pal.work) return null;
