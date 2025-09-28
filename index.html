@@ -2474,6 +2474,334 @@
     .progress-choice-actions .btn {
       flex: 1 1 auto;
     }
+    /* Base planner styles */
+    .base-planner-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 1024px) {
+      .base-planner-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .base-card {
+      background: linear-gradient(145deg, rgba(30, 50, 70, 0.92), rgba(21, 36, 53, 0.92));
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      box-shadow: 0 18px 36px rgba(8, 16, 32, 0.4);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .base-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .base-card__title {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .base-card__meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .base-card__badge {
+      align-self: flex-start;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(119, 141, 169, 0.2);
+      color: var(--light);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(119, 141, 169, 0.3);
+    }
+    .base-level-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .base-level-controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .base-level-summary__item {
+      background: rgba(10, 22, 36, 0.55);
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid rgba(119, 141, 169, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .base-level-summary__label {
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .base-level-summary__value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .base-level-slider {
+      width: 100%;
+      accent-color: var(--accent);
+      margin: 6px 0 4px;
+    }
+    .base-toggle {
+      background: rgba(119, 141, 169, 0.2);
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      border-radius: 999px;
+      color: var(--light);
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .base-toggle[aria-pressed="true"] {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+    .base-toggle:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .base-priority-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .base-priority-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: rgba(13, 27, 42, 0.65);
+      border-radius: 14px;
+      padding: 10px 12px;
+      border: 1px solid rgba(119, 141, 169, 0.25);
+    }
+    .base-priority-item__icon {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .base-priority-item__content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .base-priority-item__label {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .base-priority-item__note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 0;
+    }
+    .base-slot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .base-slot-card {
+      position: relative;
+      background: linear-gradient(155deg, rgba(25, 45, 65, 0.88), rgba(15, 28, 46, 0.92));
+      border-radius: 18px;
+      border: 1px solid rgba(119, 141, 169, 0.3);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .base-slot-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 32px rgba(6, 14, 28, 0.45);
+    }
+    .base-slot-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .base-slot-card__slot {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .base-slot-card__status {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      background: rgba(119, 141, 169, 0.18);
+      color: var(--light);
+    }
+    .base-slot-card__status--caught {
+      border-color: rgba(42, 157, 143, 0.6);
+      background: rgba(42, 157, 143, 0.2);
+      color: var(--success);
+    }
+    .base-slot-card__status--missing {
+      border-color: rgba(231, 111, 81, 0.55);
+      background: rgba(231, 111, 81, 0.18);
+      color: var(--danger);
+    }
+    .base-slot-card__pal {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .base-slot-card__portrait {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      background: rgba(9, 20, 34, 0.9);
+      object-fit: contain;
+      border: 1px solid rgba(119, 141, 169, 0.25);
+    }
+    .base-slot-card__info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .base-slot-card__name {
+      margin: 0;
+      font-size: 1rem;
+    }
+    .base-slot-card__types {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .base-slot-card__types img {
+      width: 18px;
+      height: 18px;
+    }
+    .base-slot-card__work {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .base-slot-card__work li {
+      background: rgba(119, 141, 169, 0.18);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(119, 141, 169, 0.25);
+    }
+    .base-slot-card__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .base-slot-card__action {
+      background: rgba(119, 141, 169, 0.15);
+      border: 1px solid rgba(119, 141, 169, 0.3);
+      border-radius: 999px;
+      color: var(--light);
+      font-size: 0.75rem;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .base-slot-card__action:hover {
+      background: rgba(119, 141, 169, 0.25);
+      color: var(--text);
+    }
+    .base-slot-card__action--primary {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+    .base-slot-card__empty {
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border: 1px dashed rgba(119, 141, 169, 0.3);
+      border-radius: 18px;
+      padding: 24px;
+    }
+    .base-coverage-grid {
+      display: grid;
+      gap: 10px;
+    }
+    .base-coverage-item {
+      display: grid;
+      gap: 6px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(13, 27, 42, 0.6);
+      border: 1px solid rgba(119, 141, 169, 0.2);
+    }
+    .base-coverage-item__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      gap: 10px;
+    }
+    .base-coverage-item__title {
+      font-weight: 600;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .base-coverage-item__status {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .base-coverage-meter {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(119, 141, 169, 0.18);
+      overflow: hidden;
+    }
+    .base-coverage-meter__fill {
+      height: 100%;
+      background: linear-gradient(90deg, rgba(119, 141, 169, 0.8), rgba(224, 225, 221, 0.9));
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+    .base-slot-card__note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 0;
+    }
+    .base-card__hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0;
+    }
     /* Custom scrollbars */
     ::-webkit-scrollbar {
       width: 8px;
@@ -2503,6 +2831,7 @@
     <button class="nav-item" data-page="map"><i class="fa-solid fa-map"></i><span>Map</span></button>
     <button class="nav-item" data-page="route"><i class="fa-solid fa-road"></i><span>Route</span></button>
     <button class="nav-item" data-page="tech"><i class="fa-solid fa-cog"></i><span>Tech</span></button>
+    <button class="nav-item" data-page="base"><i class="fa-solid fa-helmet-safety"></i><span>Base</span></button>
     <button class="nav-item" data-page="items"><i class="fa-solid fa-box"></i><span>Items</span></button>
     <button class="nav-item" data-page="glossary"><i class="fa-solid fa-book-open"></i><span>Glossary</span></button>
     <button class="nav-item" data-page="breeding"><i class="fa-solid fa-egg"></i><span>Breeding</span></button>
@@ -2559,6 +2888,8 @@
         <p>Browse every Technology and Ancient Technology tier just like the in-game tree. Review costs, materials, and mark blueprints as you unlock them.</p>
         <div id="techList"></div>
       </section>
+      <!-- Base page -->
+      <section id="basePage" class="page"></section>
       <!-- Breeding page -->
       <section id="breedingPage" class="page">
         <div class="breeding-hero">
@@ -2788,6 +3119,304 @@
     // Trait lists for guidance (simplified)
     const goodTraits = ['Diligent', 'Runner', 'Strong', 'Loyal'];
     const badTraits = ['Coward', 'Lazy', 'Gullible'];
+
+    const WORK_TYPE_DETAILS = {
+      handiwork: { label: 'Handiwork', kidLabel: 'Building crew', icon: '🛠️' },
+      transporting: { label: 'Transporting', kidLabel: 'Hauling crew', icon: '📦' },
+      gathering: { label: 'Gathering', kidLabel: 'Picker', icon: '🎒' },
+      lumbering: { label: 'Lumbering', kidLabel: 'Woodcutter', icon: '🪓' },
+      mining: { label: 'Mining', kidLabel: 'Ore team', icon: '⛏️' },
+      watering: { label: 'Watering', kidLabel: 'Water team', icon: '💧' },
+      planting: { label: 'Planting', kidLabel: 'Seed planter', icon: '🌱' },
+      kindling: { label: 'Kindling', kidLabel: 'Fire starter', icon: '🔥' },
+      generating_electricity: { label: 'Electricity', kidLabel: 'Power pals', icon: '⚡' },
+      cooling: { label: 'Cooling', kidLabel: 'Chillers', icon: '❄️' },
+      medicine: { label: 'Medicine', kidLabel: 'Healers', icon: '💊' },
+      farming: { label: 'Ranching', kidLabel: 'Ranch pals', icon: '🐑' }
+    };
+    const WORK_KEY_ALIASES = {
+      medicine_production: 'medicine',
+      electricity: 'generating_electricity'
+    };
+    const BASE_TECH_KEYWORDS = ['base', 'ranch', 'plantation', 'farm', 'logging', 'pit', 'furnace', 'generator', 'mill', 'feed', 'palbox', 'cooler', 'monitoring', 'breeding', 'workbench', 'assembly', 'refinery', 'hot spring'];
+    const BASE_TECH_THRESHOLDS = [
+      { techLevel: 1, level: 1 },
+      { techLevel: 4, level: 2 },
+      { techLevel: 7, level: 3 },
+      { techLevel: 10, level: 4 },
+      { techLevel: 15, level: 5 },
+      { techLevel: 20, level: 6 },
+      { techLevel: 28, level: 7 },
+      { techLevel: 36, level: 8 },
+      { techLevel: 45, level: 9 },
+      { techLevel: 55, level: 10 }
+    ];
+    const BASE_LEVEL_CONFIG = [
+      {
+        level: 1,
+        label: 'Starter Camp',
+        slots: 5,
+        preferredRarity: 2,
+        defaultWeight: 0.25,
+        focus: ['Handiwork', 'Lumbering', 'Transporting'],
+        copy: {
+          kid: 'Keep the first camp busy with helpers who build, haul and chop wood.',
+          grown: 'Lean on quick builders, haulers and lumber crews to finish early structures.'
+        },
+        workWeights: {
+          handiwork: 1.2,
+          transporting: 1.0,
+          gathering: 0.85,
+          lumbering: 1.1,
+          mining: 0.9,
+          watering: 0.55,
+          planting: 0.45,
+          kindling: 0.65,
+          generating_electricity: 0.25,
+          cooling: 0.2,
+          medicine: 0.15,
+          farming: 0.5
+        }
+      },
+      {
+        level: 2,
+        label: 'Settled Outpost',
+        slots: 7,
+        preferredRarity: 2,
+        defaultWeight: 0.25,
+        focus: ['Handiwork', 'Mining', 'Watering'],
+        copy: {
+          kid: 'Add pals who can mine rock and carry water so crafting never pauses.',
+          grown: 'Expand stone, water and handiwork coverage to unlock stronger buildings.'
+        },
+        workWeights: {
+          handiwork: 1.15,
+          transporting: 0.95,
+          gathering: 0.7,
+          lumbering: 1.05,
+          mining: 1.0,
+          watering: 0.7,
+          planting: 0.55,
+          kindling: 0.7,
+          generating_electricity: 0.3,
+          cooling: 0.2,
+          medicine: 0.15,
+          farming: 0.55
+        }
+      },
+      {
+        level: 3,
+        label: 'Growing Workshop',
+        slots: 9,
+        preferredRarity: 3,
+        defaultWeight: 0.25,
+        focus: ['Mining', 'Kindling', 'Watering'],
+        copy: {
+          kid: 'Fire pals and miners keep furnaces roaring while water pals feed farms.',
+          grown: 'Balance ore, furnaces and early crops so metal tools arrive on schedule.'
+        },
+        workWeights: {
+          handiwork: 1.1,
+          transporting: 0.9,
+          gathering: 0.65,
+          lumbering: 1.0,
+          mining: 1.1,
+          watering: 0.75,
+          planting: 0.6,
+          kindling: 0.75,
+          generating_electricity: 0.35,
+          cooling: 0.25,
+          medicine: 0.2,
+          farming: 0.6
+        }
+      },
+      {
+        level: 4,
+        label: 'Elemental Shift',
+        slots: 11,
+        preferredRarity: 3,
+        defaultWeight: 0.25,
+        focus: ['Kindling', 'Watering', 'Planting'],
+        copy: {
+          kid: 'Fire pals light furnaces while garden pals grow berries for food.',
+          grown: 'Kindling and irrigation ramp up production for cooking pots and plantations.'
+        },
+        workWeights: {
+          handiwork: 1.0,
+          transporting: 0.85,
+          gathering: 0.6,
+          lumbering: 0.95,
+          mining: 1.1,
+          watering: 0.8,
+          planting: 0.7,
+          kindling: 0.85,
+          generating_electricity: 0.45,
+          cooling: 0.3,
+          medicine: 0.25,
+          farming: 0.65
+        }
+      },
+      {
+        level: 5,
+        label: 'Production Hub',
+        slots: 13,
+        preferredRarity: 4,
+        defaultWeight: 0.25,
+        focus: ['Planting', 'Watering', 'Kindling'],
+        copy: {
+          kid: 'Big farms need pals to plant, water and cook lots of food.',
+          grown: 'Stabilise plantations, ranching and furnaces to support long craft queues.'
+        },
+        workWeights: {
+          handiwork: 0.95,
+          transporting: 0.8,
+          gathering: 0.55,
+          lumbering: 0.9,
+          mining: 1.0,
+          watering: 0.95,
+          planting: 0.85,
+          kindling: 0.9,
+          generating_electricity: 0.55,
+          cooling: 0.35,
+          medicine: 0.3,
+          farming: 0.75
+        }
+      },
+      {
+        level: 6,
+        label: 'Powered Base',
+        slots: 15,
+        preferredRarity: 4,
+        defaultWeight: 0.25,
+        focus: ['Kindling', 'Planting', 'Electricity'],
+        copy: {
+          kid: 'Electric pals join the team so machines and fridges can stay on.',
+          grown: 'Introduce generators without losing momentum on crops, cooking and smelting.'
+        },
+        workWeights: {
+          handiwork: 0.9,
+          transporting: 0.8,
+          gathering: 0.5,
+          lumbering: 0.85,
+          mining: 0.95,
+          watering: 1.0,
+          planting: 0.9,
+          kindling: 1.0,
+          generating_electricity: 0.7,
+          cooling: 0.45,
+          medicine: 0.35,
+          farming: 0.8
+        }
+      },
+      {
+        level: 7,
+        label: 'Industrial Yard',
+        slots: 17,
+        preferredRarity: 5,
+        defaultWeight: 0.25,
+        focus: ['Electricity', 'Watering', 'Planting'],
+        copy: {
+          kid: 'Power pals, gardeners and farmers keep every station buzzing.',
+          grown: 'Push automation with strong generators while maintaining crop uptime.'
+        },
+        workWeights: {
+          handiwork: 0.85,
+          transporting: 0.75,
+          gathering: 0.45,
+          lumbering: 0.8,
+          mining: 0.95,
+          watering: 1.0,
+          planting: 0.95,
+          kindling: 1.05,
+          generating_electricity: 0.85,
+          cooling: 0.55,
+          medicine: 0.4,
+          farming: 0.85
+        }
+      },
+      {
+        level: 8,
+        label: 'Balanced Campus',
+        slots: 19,
+        preferredRarity: 5,
+        defaultWeight: 0.25,
+        focus: ['Electricity', 'Planting', 'Cooling'],
+        copy: {
+          kid: 'Keep the farm happy and the fridges cold while power stays green.',
+          grown: 'Manage cooling, generators and plantations to prep for late-game crafting.'
+        },
+        workWeights: {
+          handiwork: 0.8,
+          transporting: 0.75,
+          gathering: 0.45,
+          lumbering: 0.75,
+          mining: 0.9,
+          watering: 1.0,
+          planting: 1.0,
+          kindling: 1.05,
+          generating_electricity: 0.95,
+          cooling: 0.7,
+          medicine: 0.55,
+          farming: 0.9
+        }
+      },
+      {
+        level: 9,
+        label: 'Advanced Facility',
+        slots: 22,
+        preferredRarity: 6,
+        defaultWeight: 0.25,
+        focus: ['Electricity', 'Cooling', 'Medicine'],
+        copy: {
+          kid: 'Science pals join to heal friends and power fancy machines.',
+          grown: 'Late-game tech leans on reliable energy, refrigeration and medical coverage.'
+        },
+        workWeights: {
+          handiwork: 0.75,
+          transporting: 0.7,
+          gathering: 0.4,
+          lumbering: 0.7,
+          mining: 0.85,
+          watering: 1.05,
+          planting: 1.05,
+          kindling: 1.1,
+          generating_electricity: 1.05,
+          cooling: 0.85,
+          medicine: 0.7,
+          farming: 0.95
+        }
+      },
+      {
+        level: 10,
+        label: 'Prime Headquarters',
+        slots: 25,
+        preferredRarity: 6,
+        defaultWeight: 0.25,
+        focus: ['Electricity', 'Medicine', 'Ranching'],
+        copy: {
+          kid: 'Your dream base runs on power pals, healers and ranch hands.',
+          grown: 'Cover every specialty—power grids, cooling, medicine and ranch outputs stay maxed.'
+        },
+        workWeights: {
+          handiwork: 0.7,
+          transporting: 0.7,
+          gathering: 0.4,
+          lumbering: 0.65,
+          mining: 0.8,
+          watering: 1.05,
+          planting: 1.05,
+          kindling: 1.1,
+          generating_electricity: 1.15,
+          cooling: 0.95,
+          medicine: 0.85,
+          farming: 1.0
+        }
+      }
+    ];
+    const BASE_PLANNER_STORAGE_KEY = 'palmate:basePlanner';
+    let basePlannerState = loadBasePlannerState();
+    let basePlannerElements = {};
+    let MAX_WORK_LEVEL = 4;
 
     // Whether we’re in Kid Mode.  Kid Mode simplifies the UI by
     // enlarging fonts, hiding advanced stats and using shorter
@@ -3141,6 +3770,7 @@
       buildPalPage();
       buildItemPage();
       buildTechPage();
+      buildBasePage();
       buildBreedingPage();
       buildGlossaryPage();
       renderRouteGuide();
@@ -3407,6 +4037,652 @@
         .map(part => part.charAt(0).toUpperCase() + part.slice(1))
         .join(' ');
     }
+    function loadBasePlannerState() {
+      const defaults = { mode: 'auto', manualLevel: 1 };
+      try {
+        const stored = localStorage.getItem(BASE_PLANNER_STORAGE_KEY);
+        if (!stored) {
+          return { ...defaults };
+        }
+        const parsed = JSON.parse(stored);
+        if (!parsed || typeof parsed !== 'object') {
+          return { ...defaults };
+        }
+        const mode = parsed.mode === 'manual' ? 'manual' : 'auto';
+        const levelRaw = Number(parsed.manualLevel);
+        const manualLevel = clampToRange(Number.isFinite(levelRaw) ? Math.round(levelRaw) : 1, 1, BASE_LEVEL_CONFIG.length || 1);
+        return { mode, manualLevel };
+      } catch (err) {
+        console.warn('Failed to load base planner state', err);
+        return { ...defaults };
+      }
+    }
+    function persistBasePlannerState() {
+      try {
+        localStorage.setItem(BASE_PLANNER_STORAGE_KEY, JSON.stringify(basePlannerState));
+      } catch (err) {
+        console.warn('Failed to persist base planner state', err);
+      }
+    }
+    function canonicalWorkKey(key) {
+      if (!key) return null;
+      const normalized = String(key).toLowerCase();
+      return WORK_KEY_ALIASES[normalized] || normalized;
+    }
+    function getWorkTypeDetail(key) {
+      const canonical = canonicalWorkKey(key);
+      return WORK_TYPE_DETAILS[canonical] || { label: humaniseItemKey(canonical || key || 'Work'), kidLabel: humaniseItemKey(canonical || key || 'Work'), icon: '⭐' };
+    }
+    function priorityDescriptor(weight) {
+      if (weight >= 1.1) {
+        return { kid: 'Mega important job', grown: 'Critical priority' };
+      }
+      if (weight >= 0.95) {
+        return { kid: 'Very important job', grown: 'High priority' };
+      }
+      if (weight >= 0.75) {
+        return { kid: 'Helpful job', grown: 'Support priority' };
+      }
+      if (weight >= 0.5) {
+        return { kid: 'Nice to have', grown: 'Supplemental focus' };
+      }
+      return { kid: 'Bonus coverage', grown: 'Low priority' };
+    }
+    function coverageDescriptor(weight, totalLevel, config, highestWeight) {
+      const slots = Math.max(1, config?.slots || 1);
+      const maxWork = Math.max(1, MAX_WORK_LEVEL);
+      const normalized = totalLevel > 0 ? totalLevel / (slots * maxWork) : 0;
+      const priorityFactor = highestWeight > 0 ? weight / highestWeight : 1;
+      const effective = normalized * (0.6 + 0.4 * priorityFactor);
+      if (totalLevel <= 0) {
+        return { kid: 'Add a pal here', grown: 'No coverage yet', percent: 0 };
+      }
+      if (effective >= 0.75) {
+        return { kid: 'Crew ready', grown: 'Excellent coverage', percent: Math.min(100, Math.round(normalized * 100)) };
+      }
+      if (effective >= 0.5) {
+        return { kid: 'Strong', grown: 'Strong coverage', percent: Math.min(100, Math.round(normalized * 100)) };
+      }
+      if (effective >= 0.3) {
+        return { kid: 'Okay', grown: 'Light coverage', percent: Math.min(100, Math.round(normalized * 100)) };
+      }
+      return { kid: 'Needs helpers', grown: 'Needs attention', percent: Math.min(100, Math.round(normalized * 100)) };
+    }
+    function isBaseRelatedTech(item) {
+      if (!item) return false;
+      const fields = [item.category, item.group, item.name];
+      return fields.some(field => {
+        if (!field) return false;
+        const value = String(field).toLowerCase();
+        return BASE_TECH_KEYWORDS.some(keyword => value.includes(keyword));
+      });
+    }
+    function deriveBaseLevelFromTech(techLevel) {
+      if (!Array.isArray(BASE_TECH_THRESHOLDS) || !BASE_TECH_THRESHOLDS.length) {
+        return 1;
+      }
+      let derived = 1;
+      BASE_TECH_THRESHOLDS.forEach(threshold => {
+        if (techLevel >= threshold.techLevel) {
+          derived = threshold.level;
+        }
+      });
+      return clampToRange(derived, 1, BASE_LEVEL_CONFIG.length || 1);
+    }
+    function calculateAutoBaseLevelDetail() {
+      let highestTechLevel = 0;
+      let highestItem = null;
+      let unlockCount = 0;
+      (Array.isArray(TECH) ? TECH : []).forEach(levelEntry => {
+        const tierLevel = Number(levelEntry?.level) || 0;
+        (levelEntry?.items || []).forEach(item => {
+          if (!item || !item.name) return;
+          if (!isBaseRelatedTech(item)) return;
+          if (unlocked[item.name]) {
+            unlockCount += 1;
+            if (tierLevel > highestTechLevel) {
+              highestTechLevel = tierLevel;
+              highestItem = { name: item.name, techLevel: tierLevel };
+            }
+          }
+        });
+      });
+      const level = deriveBaseLevelFromTech(highestTechLevel);
+      return { level, highestTechLevel, highestItem, unlockCount };
+    }
+    function getBaseLevelConfig(level) {
+      if (!Array.isArray(BASE_LEVEL_CONFIG) || !BASE_LEVEL_CONFIG.length) return null;
+      return BASE_LEVEL_CONFIG.find(cfg => cfg.level === level) || BASE_LEVEL_CONFIG[BASE_LEVEL_CONFIG.length - 1];
+    }
+    function computeMaxWorkLevel() {
+      let max = 0;
+      Object.values(PALS || {}).forEach(pal => {
+        const work = pal?.work || {};
+        Object.values(work).forEach(value => {
+          if (typeof value === 'number' && value > max) {
+            max = value;
+          }
+        });
+      });
+      return max || 4;
+    }
+    function workLevelLabel(level) {
+      const numeric = Number(level) || 0;
+      return `Lv ${numeric}`;
+    }
+    function buildBasePage() {
+      const page = document.getElementById('basePage');
+      if (!page) return;
+      const introText = kidMode
+        ? 'Palmate watches your tech unlocks and pals to build a dream crew for your base.'
+        : 'Palmate analyses unlocked tech, captured pals, and work priorities to recommend an optimal base roster.';
+      page.innerHTML = `
+        <header class="page-header">
+          <h2>${kidMode ? 'Base Crew' : 'Base Planner'}</h2>
+        </header>
+        <p class="page-intro">${introText}</p>
+        <div class="base-planner-layout">
+          <article class="base-card base-card--level">
+            <div class="base-card__header">
+              <div>
+                <h3 class="base-card__title">${kidMode ? 'Track your base level' : 'Track your base level'}</h3>
+                <p class="base-card__meta" id="baseLevelCopy"></p>
+              </div>
+              <span class="base-card__badge" id="baseModeBadge"></span>
+            </div>
+            <div class="base-level-summary">
+              <div class="base-level-summary__item">
+                <span class="base-level-summary__label">${kidMode ? 'Auto level' : 'Detected level'}</span>
+                <span class="base-level-summary__value" id="baseDetectedLevel">1</span>
+              </div>
+              <div class="base-level-summary__item">
+                <span class="base-level-summary__label">${kidMode ? 'Manual level' : 'Manual level'}</span>
+                <span class="base-level-summary__value" id="baseManualValue">1</span>
+              </div>
+              <div class="base-level-summary__item">
+                <span class="base-level-summary__label">${kidMode ? 'Crew slots' : 'Slots available'}</span>
+                <span class="base-level-summary__value" id="baseSlotCount">5</span>
+              </div>
+            </div>
+            <label for="baseLevelInput">${kidMode ? 'Slide to match your base level.' : 'Use the slider when you want to override the detected level.'}</label>
+            <input type="range" min="1" max="${BASE_LEVEL_CONFIG.length}" value="${basePlannerState.manualLevel}" id="baseLevelInput" class="base-level-slider">
+            <div class="base-level-controls">
+              <button type="button" class="base-toggle" id="baseManualToggle" aria-pressed="${basePlannerState.mode === 'manual'}">${kidMode ? 'Manual level' : 'Manual control'}: ${basePlannerState.mode === 'manual' ? (kidMode ? 'On' : 'On') : (kidMode ? 'Off' : 'Off')}</button>
+              <button type="button" class="base-toggle" id="baseUseDetected">${kidMode ? 'Use detected level' : 'Use detected level'}</button>
+            </div>
+            <p class="base-card__hint" id="baseLevelHint"></p>
+            <p class="base-card__meta" id="baseFocusText"></p>
+            <ul class="base-priority-list" id="basePriorityList"></ul>
+          </article>
+          <article class="base-card base-card--crew">
+            <div class="base-card__header">
+              <div>
+                <h3 class="base-card__title">${kidMode ? 'Suggested pals' : 'Suggested crew'}</h3>
+                <p class="base-card__meta" id="baseCrewMeta"></p>
+              </div>
+              <span class="base-card__badge" id="baseActiveBadge"></span>
+            </div>
+            <div class="base-slot-grid" id="baseSlotsGrid"></div>
+            <div>
+              <h4 class="base-card__title" style="font-size:1rem;">${kidMode ? 'Coverage check' : 'Work coverage check'}</h4>
+            </div>
+            <div class="base-coverage-grid" id="baseCoverageGrid"></div>
+          </article>
+        </div>
+      `;
+      basePlannerElements = {
+        page,
+        slider: page.querySelector('#baseLevelInput'),
+        manualToggle: page.querySelector('#baseManualToggle'),
+        useDetected: page.querySelector('#baseUseDetected'),
+        detectedValue: page.querySelector('#baseDetectedLevel'),
+        manualValue: page.querySelector('#baseManualValue'),
+        slotCount: page.querySelector('#baseSlotCount'),
+        levelHint: page.querySelector('#baseLevelHint'),
+        priorityList: page.querySelector('#basePriorityList'),
+        slotsGrid: page.querySelector('#baseSlotsGrid'),
+        coverageGrid: page.querySelector('#baseCoverageGrid'),
+        focusText: page.querySelector('#baseFocusText'),
+        levelCopy: page.querySelector('#baseLevelCopy'),
+        crewMeta: page.querySelector('#baseCrewMeta'),
+        modeBadge: page.querySelector('#baseModeBadge'),
+        activeBadge: page.querySelector('#baseActiveBadge')
+      };
+      if (basePlannerElements.slider) {
+        basePlannerElements.slider.max = String(BASE_LEVEL_CONFIG.length);
+        basePlannerElements.slider.addEventListener('input', event => {
+          const raw = Number(event.target.value);
+          const value = clampToRange(Number.isFinite(raw) ? Math.round(raw) : 1, 1, BASE_LEVEL_CONFIG.length || 1);
+          basePlannerState.manualLevel = value;
+          basePlannerState.mode = 'manual';
+          persistBasePlannerState();
+          updateBasePlanner();
+        });
+      }
+      if (basePlannerElements.manualToggle) {
+        basePlannerElements.manualToggle.addEventListener('click', () => {
+          if (basePlannerState.mode === 'manual') {
+            basePlannerState.mode = 'auto';
+          } else {
+            const sliderValue = basePlannerElements.slider ? Number(basePlannerElements.slider.value) : NaN;
+            const fallback = calculateAutoBaseLevelDetail().level;
+            basePlannerState.manualLevel = clampToRange(Number.isFinite(sliderValue) ? Math.round(sliderValue) : fallback, 1, BASE_LEVEL_CONFIG.length || 1);
+            basePlannerState.mode = 'manual';
+          }
+          persistBasePlannerState();
+          updateBasePlanner();
+        });
+      }
+      if (basePlannerElements.useDetected) {
+        basePlannerElements.useDetected.addEventListener('click', () => {
+          const autoInfo = calculateAutoBaseLevelDetail();
+          basePlannerState.manualLevel = autoInfo.level;
+          basePlannerState.mode = 'auto';
+          persistBasePlannerState();
+          updateBasePlanner();
+        });
+      }
+      updateBasePlanner();
+    }
+    function updateBasePlanner() {
+      const elements = basePlannerElements || {};
+      if (!elements.slider || !BASE_LEVEL_CONFIG.length) return;
+      const autoInfo = calculateAutoBaseLevelDetail();
+      const clampedManual = clampToRange(basePlannerState.manualLevel || autoInfo.level || 1, 1, BASE_LEVEL_CONFIG.length || 1);
+      if (basePlannerState.manualLevel !== clampedManual) {
+        basePlannerState.manualLevel = clampedManual;
+        persistBasePlannerState();
+      }
+      const useManual = basePlannerState.mode === 'manual';
+      const activeLevel = useManual ? basePlannerState.manualLevel : autoInfo.level;
+      const config = getBaseLevelConfig(activeLevel);
+      if (!config) return;
+      const sliderValue = useManual ? basePlannerState.manualLevel : autoInfo.level;
+      elements.slider.value = String(sliderValue);
+      elements.slider.disabled = !useManual;
+      if (elements.slider.disabled) {
+        elements.slider.setAttribute('aria-disabled', 'true');
+      } else {
+        elements.slider.removeAttribute('aria-disabled');
+      }
+      if (elements.manualValue) {
+        elements.manualValue.textContent = String(sliderValue);
+      }
+      if (elements.detectedValue) {
+        elements.detectedValue.textContent = String(autoInfo.level || 1);
+      }
+      if (elements.slotCount) {
+        elements.slotCount.textContent = String(config.slots);
+      }
+      if (elements.modeBadge) {
+        elements.modeBadge.textContent = useManual
+          ? (kidMode ? 'Manual' : 'Manual override')
+          : (kidMode ? 'Auto detect' : 'Auto detect');
+      }
+      if (elements.activeBadge) {
+        elements.activeBadge.textContent = `Lv ${activeLevel}`;
+      }
+      if (elements.levelCopy) {
+        elements.levelCopy.textContent = kidMode ? (config.copy?.kid || '') : (config.copy?.grown || '');
+      }
+      if (elements.focusText) {
+        const focusNames = Array.isArray(config.focus)
+          ? config.focus.map(key => {
+              const detail = getWorkTypeDetail(key);
+              return kidMode ? (detail.kidLabel || detail.label) : detail.label;
+            }).filter(Boolean)
+          : [];
+        elements.focusText.textContent = focusNames.length
+          ? `${kidMode ? 'Focus:' : 'Priority focus:'} ${focusNames.join(kidMode ? ', ' : ' • ')}`
+          : '';
+      }
+      if (elements.manualToggle) {
+        elements.manualToggle.setAttribute('aria-pressed', useManual ? 'true' : 'false');
+        elements.manualToggle.textContent = `${kidMode ? 'Manual level' : 'Manual control'}: ${useManual ? (kidMode ? 'On' : 'On') : (kidMode ? 'Off' : 'Off')}`;
+      }
+      if (elements.useDetected) {
+        elements.useDetected.disabled = !useManual && autoInfo.level === basePlannerState.manualLevel;
+      }
+      if (elements.levelHint) {
+        const hints = [];
+        if (useManual) {
+          hints.push(kidMode ? 'Manual mode is on. Match the slider to your real base level.' : 'Manual override active. Use the slider to match your in-game base level.');
+        } else if (autoInfo.highestItem) {
+          hints.push(kidMode
+            ? `Detected level from ${autoInfo.highestItem.name} (Tech Lv ${autoInfo.highestItem.techLevel}).`
+            : `Detected from ${autoInfo.highestItem.name} at Tech Lv ${autoInfo.highestItem.techLevel}.`);
+        } else {
+          hints.push(kidMode ? 'No base unlocks marked yet, so we start at Level 1.' : 'No base-focused tech marked unlocked yet. Defaulting to Level 1.');
+        }
+        if (!useManual && autoInfo.highestItem) {
+          hints.push(kidMode ? 'Switch to manual if your camp is ahead.' : 'Toggle manual control if your base has progressed further.');
+        }
+        elements.levelHint.textContent = hints.join(' ');
+      }
+      if (elements.priorityList) {
+        elements.priorityList.innerHTML = '';
+        const entries = Object.entries(config.workWeights || {})
+          .filter(([, weight]) => weight && weight > 0)
+          .sort((a, b) => b[1] - a[1]);
+        const limit = kidMode ? Math.min(entries.length, 5) : entries.length;
+        entries.slice(0, limit).forEach(([key, weight]) => {
+          const detail = getWorkTypeDetail(key);
+          const item = document.createElement('li');
+          item.className = 'base-priority-item';
+          const icon = document.createElement('span');
+          icon.className = 'base-priority-item__icon';
+          icon.textContent = detail.icon || '⭐';
+          item.appendChild(icon);
+          const content = document.createElement('div');
+          content.className = 'base-priority-item__content';
+          const label = document.createElement('span');
+          label.className = 'base-priority-item__label';
+          label.textContent = kidMode ? (detail.kidLabel || detail.label) : detail.label;
+          content.appendChild(label);
+          const note = document.createElement('p');
+          note.className = 'base-priority-item__note';
+          const descriptor = priorityDescriptor(weight);
+          note.textContent = kidMode ? descriptor.kid : descriptor.grown;
+          content.appendChild(note);
+          item.appendChild(content);
+          elements.priorityList.appendChild(item);
+        });
+      }
+      const crew = recommendBaseCrew(config);
+      if (elements.slotsGrid) {
+        elements.slotsGrid.innerHTML = '';
+        for (let slotIndex = 0; slotIndex < config.slots; slotIndex += 1) {
+          const entry = crew.selections[slotIndex];
+          if (entry && entry.pal) {
+            const card = document.createElement('article');
+            card.className = 'base-slot-card';
+            card.dataset.palId = entry.pal.id || '';
+            const header = document.createElement('div');
+            header.className = 'base-slot-card__header';
+            const slotLabel = document.createElement('span');
+            slotLabel.className = 'base-slot-card__slot';
+            slotLabel.textContent = `${kidMode ? 'Slot' : 'Slot'} ${slotIndex + 1}`;
+            header.appendChild(slotLabel);
+            const status = document.createElement('span');
+            status.className = `base-slot-card__status ${entry.isCaught ? 'base-slot-card__status--caught' : 'base-slot-card__status--missing'}`;
+            status.textContent = entry.isCaught ? (kidMode ? 'Caught' : 'Caught') : (kidMode ? 'Catch next' : 'Not caught');
+            header.appendChild(status);
+            card.appendChild(header);
+            const palInfo = document.createElement('div');
+            palInfo.className = 'base-slot-card__pal';
+            const portrait = document.createElement('img');
+            portrait.className = 'base-slot-card__portrait';
+            applyPalArtwork(portrait, entry.pal, { alt: `${entry.pal.name || 'Pal'} portrait` });
+            palInfo.appendChild(portrait);
+            const infoWrap = document.createElement('div');
+            infoWrap.className = 'base-slot-card__info';
+            const nameEl = document.createElement('h4');
+            nameEl.className = 'base-slot-card__name';
+            nameEl.textContent = entry.pal.name || 'Pal';
+            infoWrap.appendChild(nameEl);
+            const types = Array.isArray(entry.pal.types) ? entry.pal.types : [];
+            if (types.length) {
+              const typesWrap = document.createElement('div');
+              typesWrap.className = 'base-slot-card__types';
+              types.forEach(type => {
+                const icon = document.createElement('img');
+                icon.src = iconMap[type] || iconMap['Neutral'];
+                icon.alt = `${type} icon`;
+                typesWrap.appendChild(icon);
+              });
+              infoWrap.appendChild(typesWrap);
+            }
+            palInfo.appendChild(infoWrap);
+            card.appendChild(palInfo);
+            const workList = document.createElement('ul');
+            workList.className = 'base-slot-card__work';
+            entry.contributions.slice(0, kidMode ? 2 : 3).forEach(contribution => {
+              const detail = getWorkTypeDetail(contribution.key);
+              const item = document.createElement('li');
+              item.innerHTML = `<span>${detail.icon || '⭐'}</span><span>${kidMode ? (detail.kidLabel || detail.label) : detail.label} ${workLevelLabel(contribution.level)}</span>`;
+              workList.appendChild(item);
+            });
+            card.appendChild(workList);
+            const note = document.createElement('p');
+            note.className = 'base-slot-card__note';
+            const highlights = entry.contributions.slice(0, 2).map(contribution => {
+              const detail = getWorkTypeDetail(contribution.key);
+              const label = kidMode ? (detail.kidLabel || detail.label) : detail.label;
+              return `${label} ${workLevelLabel(contribution.level)}`;
+            });
+            note.textContent = highlights.length
+              ? (kidMode ? `Great at ${highlights.join(' & ')}` : `Highlights: ${highlights.join(' • ')}`)
+              : (kidMode ? 'Flexible helper' : 'General support');
+            card.appendChild(note);
+            const actions = document.createElement('div');
+            actions.className = 'base-slot-card__actions';
+            const viewButton = document.createElement('button');
+            viewButton.type = 'button';
+            viewButton.className = 'base-slot-card__action base-slot-card__action--primary';
+            viewButton.textContent = kidMode ? 'View pal' : 'Open details';
+            viewButton.addEventListener('click', event => {
+              event.stopPropagation();
+              showPalDetail(entry.pal.id);
+            });
+            actions.appendChild(viewButton);
+            const toggleButton = document.createElement('button');
+            toggleButton.type = 'button';
+            toggleButton.className = 'base-slot-card__action';
+            toggleButton.textContent = entry.isCaught
+              ? (kidMode ? 'Mark not caught' : 'Mark as not caught')
+              : (kidMode ? 'Mark caught' : 'Mark as caught');
+            toggleButton.addEventListener('click', event => {
+              event.stopPropagation();
+              setPalCaught(entry.pal.id, !entry.isCaught);
+            });
+            actions.appendChild(toggleButton);
+            card.appendChild(actions);
+            elements.slotsGrid.appendChild(card);
+          } else {
+            const placeholder = document.createElement('article');
+            placeholder.className = 'base-slot-card';
+            const header = document.createElement('div');
+            header.className = 'base-slot-card__header';
+            const slotLabel = document.createElement('span');
+            slotLabel.className = 'base-slot-card__slot';
+            slotLabel.textContent = `${kidMode ? 'Slot' : 'Slot'} ${slotIndex + 1}`;
+            header.appendChild(slotLabel);
+            const status = document.createElement('span');
+            status.className = 'base-slot-card__status';
+            status.textContent = kidMode ? 'Open slot' : 'Open slot';
+            header.appendChild(status);
+            placeholder.appendChild(header);
+            const empty = document.createElement('div');
+            empty.className = 'base-slot-card__empty';
+            empty.textContent = kidMode
+              ? 'Catch another helper to fill this job.'
+              : 'Catch or recruit another worker to fill this assignment.';
+            placeholder.appendChild(empty);
+            elements.slotsGrid.appendChild(placeholder);
+          }
+        }
+      }
+      if (elements.crewMeta) {
+        const filled = Math.min(crew.selections.length, config.slots);
+        const capturedCount = crew.capturedCount || 0;
+        const suggestionCount = Math.max(0, filled - capturedCount);
+        if (config.slots) {
+          const baseSummary = kidMode
+            ? `Palmate filled ${filled} of ${config.slots} slots.`
+            : `Recommended crew covers ${filled} of ${config.slots} slots.`;
+          let detailSummary = '';
+          if (!filled) {
+            detailSummary = kidMode
+              ? 'Catch pals to start filling your camp.'
+              : 'Mark captured pals to start building your roster.';
+          } else if (kidMode) {
+            detailSummary = suggestionCount
+              ? `${capturedCount} from your crew, ${suggestionCount} to catch next.`
+              : `${capturedCount} from your crew ready to work.`;
+          } else {
+            const capturedLabel = `${capturedCount} slot${capturedCount === 1 ? '' : 's'} use captured pals`;
+            detailSummary = suggestionCount
+              ? `${capturedLabel}; ${suggestionCount} new recruit${suggestionCount === 1 ? '' : 's'} suggested.`
+              : `${capturedLabel}.`;
+          }
+          elements.crewMeta.textContent = `${baseSummary} ${detailSummary}`.trim();
+        } else {
+          elements.crewMeta.textContent = '';
+        }
+      }
+      if (elements.coverageGrid) {
+        elements.coverageGrid.innerHTML = '';
+        const weightEntries = Object.entries(config.workWeights || {})
+          .filter(([, weight]) => weight && weight > 0)
+          .sort((a, b) => b[1] - a[1]);
+        const highestWeight = weightEntries.length ? weightEntries[0][1] : 1;
+        weightEntries.forEach(([key, weight]) => {
+          const detail = getWorkTypeDetail(key);
+          const total = crew.coverage[key] || 0;
+          const descriptor = coverageDescriptor(weight, total, config, highestWeight);
+          const item = document.createElement('div');
+          item.className = 'base-coverage-item';
+          const header = document.createElement('div');
+          header.className = 'base-coverage-item__header';
+          const title = document.createElement('span');
+          title.className = 'base-coverage-item__title';
+          title.innerHTML = `${detail.icon || '⭐'} <span>${kidMode ? (detail.kidLabel || detail.label) : detail.label}</span>`;
+          header.appendChild(title);
+          const status = document.createElement('span');
+          status.className = 'base-coverage-item__status';
+          status.textContent = kidMode ? descriptor.kid : descriptor.grown;
+          header.appendChild(status);
+          item.appendChild(header);
+          const meter = document.createElement('div');
+          meter.className = 'base-coverage-meter';
+          const fill = document.createElement('div');
+          fill.className = 'base-coverage-meter__fill';
+          const percent = Math.max(0, Math.min(100, descriptor.percent));
+          fill.style.width = `${percent}%`;
+          meter.appendChild(fill);
+          item.appendChild(meter);
+          elements.coverageGrid.appendChild(item);
+        });
+      }
+    }
+    function recommendBaseCrew(config) {
+      const slotCount = config?.slots || 0;
+      if (!slotCount) {
+        return { selections: [], coverage: {}, slotCount: 0, capturedCount: 0 };
+      }
+      const weights = config?.workWeights || {};
+      const defaultWeight = config?.defaultWeight != null ? config.defaultWeight : 0.2;
+      const available = Object.values(PALS || {}).filter(pal => {
+        if (!pal || !pal.work) return false;
+        return Object.values(pal.work).some(value => Number(value) > 0);
+      });
+      const coverage = {};
+      const selections = [];
+      const used = new Set();
+      const addSelection = candidate => {
+        if (!candidate || !candidate.pal) return;
+        selections.push(candidate);
+        used.add(candidate.pal.id);
+        candidate.contributions.forEach(entry => {
+          coverage[entry.key] = (coverage[entry.key] || 0) + entry.level;
+        });
+      };
+      const pickBestFromPool = (pool, { coverageAware = true } = {}) => {
+        let best = null;
+        pool.forEach(pal => {
+          if (!pal || used.has(pal.id)) return;
+          const evaluation = scorePalForBase(pal, weights, coverageAware ? coverage : {}, config, defaultWeight);
+          if (!evaluation) return;
+          if (!best || evaluation.score > best.score || (evaluation.score === best.score && evaluation.rawScore > best.rawScore)) {
+            best = { pal, ...evaluation };
+          }
+        });
+        return best;
+      };
+      const fillFromPool = pool => {
+        if (!Array.isArray(pool) || !pool.length) return;
+        while (selections.length < slotCount) {
+          const candidate = pickBestFromPool(pool);
+          if (!candidate) break;
+          addSelection(candidate);
+        }
+      };
+      const caughtPool = available.filter(pal => pal && caught[pal.id]);
+      const suggestionPool = available.filter(pal => pal && !caught[pal.id]);
+      fillFromPool(caughtPool);
+      fillFromPool(suggestionPool);
+      if (selections.length < slotCount) {
+        const remainder = available.filter(pal => pal && !used.has(pal.id));
+        const fallback = remainder
+          .map(pal => {
+            const evaluation = scorePalForBase(pal, weights, {}, config, defaultWeight);
+            if (!evaluation) return null;
+            return { pal, ...evaluation };
+          })
+          .filter(Boolean)
+          .sort((a, b) => {
+            if (b.rawScore !== a.rawScore) {
+              return b.rawScore - a.rawScore;
+            }
+            return (b.pal?.rarity || 0) - (a.pal?.rarity || 0);
+          });
+        while (selections.length < slotCount && fallback.length) {
+          const next = fallback.shift();
+          addSelection(next);
+        }
+      }
+      const capturedCount = selections.filter(entry => entry && entry.isCaught).length;
+      return { selections, coverage, slotCount, capturedCount };
+    }
+    function scorePalForBase(pal, weights, coverage, config, defaultWeight) {
+      if (!pal || !pal.work) return null;
+      const contributions = [];
+      let rawScore = 0;
+      let score = 0;
+      const coverageMap = coverage || {};
+      const maxLevel = Math.max(1, MAX_WORK_LEVEL);
+      const workEntries = Object.entries(pal.work || {});
+      workEntries.forEach(([key, value]) => {
+        const level = Number(value) || 0;
+        if (!level) return;
+        const canonical = canonicalWorkKey(key);
+        if (!canonical) return;
+        const weight = Object.prototype.hasOwnProperty.call(weights, canonical)
+          ? weights[canonical]
+          : defaultWeight;
+        if (!weight) return;
+        const normalizedLevel = level / maxLevel;
+        const baseContribution = weight * normalizedLevel;
+        rawScore += baseContribution;
+        const existing = coverageMap[canonical] || 0;
+        const coverageFactor = 1 / (1 + existing);
+        const contributionScore = baseContribution * (1 + coverageFactor);
+        score += contributionScore;
+        contributions.push({ key: canonical, level, weight, baseContribution, contributionScore });
+      });
+      if (!contributions.length) return null;
+      contributions.sort((a, b) => {
+        if (b.contributionScore !== a.contributionScore) {
+          return b.contributionScore - a.contributionScore;
+        }
+        return b.level - a.level;
+      });
+      const isCaught = !!caught[pal.id];
+      if (isCaught) {
+        score += 0.6;
+      } else {
+        score -= 0.15;
+      }
+      const preferred = config?.preferredRarity || 6;
+      const rarity = pal?.rarity || 0;
+      if (rarity && rarity > preferred) {
+        const penalty = (rarity - preferred) * 0.35;
+        score -= penalty;
+        rawScore -= penalty * 0.6;
+      }
+      score += contributions.length * 0.05;
+      return { score, rawScore, contributions, isCaught };
+    }
     function openPalworldEmbed({ heading, url, fallbackUrl, note, summaryHtml }) {
       modalBody.innerHTML = '';
       const wrap = document.createElement('div');
@@ -3532,10 +4808,12 @@
             DROPS_MAP[item].push(pal.name);
           });
         });
+        MAX_WORK_LEVEL = computeMaxWorkLevel();
         // Build pages
         buildPalPage();
         buildItemPage();
         buildTechPage();
+        buildBasePage();
         buildBreedingPage();
         buildHomePage();
         renderRouteGuide();
@@ -3621,13 +4899,7 @@
           btn.dataset.palId = pal.id;
           btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            caught[pal.id] = !caught[pal.id];
-            localStorage.setItem('caught', JSON.stringify(caught));
-            btn.classList.toggle('caught', caught[pal.id]);
-            btn.textContent = caught[pal.id] ? 'Caught' : 'Catch';
-            updateProgressUI();
-            autoCompleteRouteStepsForPal(pal.id);
-            playSound(clickSound);
+            setPalCaught(pal.id);
           });
           list.appendChild(card);
         });
@@ -3643,6 +4915,37 @@
         btn.textContent = state ? 'Caught' : 'Catch';
       });
     }
+    function setPalCaught(palId, value, { silent = false, skipAutoComplete = false, deferProgressUpdate = false } = {}) {
+      if (palId === undefined || palId === null) return null;
+      const current = !!caught[palId];
+      const desired = value == null ? !current : !!value;
+      if (current === desired) {
+        syncPalButtons(palId);
+        if (deferProgressUpdate) {
+          updateBasePlanner();
+        }
+        return desired;
+      }
+      caught[palId] = desired;
+      try {
+        localStorage.setItem('caught', JSON.stringify(caught));
+      } catch (err) {
+        console.warn('Failed to save caught pals', err);
+      }
+      syncPalButtons(palId);
+      if (!skipAutoComplete) {
+        autoCompleteRouteStepsForPal(palId);
+      }
+      if (deferProgressUpdate) {
+        updateBasePlanner();
+      } else {
+        updateProgressUI();
+      }
+      if (!silent) {
+        playSound(clickSound);
+      }
+      return desired;
+    }
     function syncTechButtons(techKey, techName) {
       if (!techKey) return;
       document.querySelectorAll(`.unlock-btn[data-tech-key="${techKey}"]`).forEach(btn => {
@@ -3655,6 +4958,37 @@
           card.classList.toggle('tech-card--unlocked', state);
         }
       });
+    }
+    function setTechUnlocked(techName, value, { techKey, silent = false, skipAutoComplete = false, deferProgressUpdate = false } = {}) {
+      if (!techName) return null;
+      const current = !!unlocked[techName];
+      const desired = value == null ? !current : !!value;
+      if (current === desired) {
+        if (techKey) syncTechButtons(techKey, techName);
+        if (deferProgressUpdate) {
+          updateBasePlanner();
+        }
+        return desired;
+      }
+      unlocked[techName] = desired;
+      try {
+        localStorage.setItem('unlocked', JSON.stringify(unlocked));
+      } catch (err) {
+        console.warn('Failed to save unlocked tech', err);
+      }
+      if (techKey) syncTechButtons(techKey, techName);
+      if (!skipAutoComplete) {
+        autoCompleteRouteStepsForTech(techKey, techName);
+      }
+      if (deferProgressUpdate) {
+        updateBasePlanner();
+      } else {
+        updateProgressUI();
+      }
+      if (!silent) {
+        playSound(clickSound);
+      }
+      return desired;
     }
     function updateItemCollectionButtons(itemKey) {
       document.querySelectorAll(`.item-card button.collect-btn[data-item-key="${itemKey}"]`).forEach(btn => {
@@ -3977,13 +5311,7 @@
         button.textContent = isUnlocked ? 'Unlocked' : 'Unlock';
         button.addEventListener('click', (event) => {
           event.stopPropagation();
-          unlocked[item.name] = !unlocked[item.name];
-          localStorage.setItem('unlocked', JSON.stringify(unlocked));
-          button.classList.toggle('unlocked', unlocked[item.name]);
-          button.textContent = unlocked[item.name] ? 'Unlocked' : 'Unlock';
-          card.classList.toggle('tech-card--unlocked', unlocked[item.name]);
-          updateProgressUI();
-          autoCompleteRouteStepsForTech(techKey, item.name);
+          setTechUnlocked(item.name, !unlocked[item.name], { techKey });
         });
         actions.appendChild(button);
         info.appendChild(actions);
@@ -5101,28 +6429,26 @@
       options.forEach(option => {
         const isSelected = selected.has(option.key);
         if(option.type === 'pal' && option.palId !== undefined && option.palId !== null){
-          if(caught[option.palId] !== isSelected){
-            caught[option.palId] = isSelected;
+          const current = !!caught[option.palId];
+          if(current !== isSelected){
+            setPalCaught(option.palId, isSelected, { silent: true, skipAutoComplete: true, deferProgressUpdate: true });
             caughtChanged = true;
-            syncPalButtons(option.palId);
           }
         } else if(option.type === 'tech'){
           const techName = option.techName;
-          if(techName && unlocked[techName] !== isSelected){
-            unlocked[techName] = isSelected;
-            techChanged = true;
-            if(option.slug) syncTechButtons(option.slug, techName);
+          if(techName){
+            const current = !!unlocked[techName];
+            if(current !== isSelected){
+              setTechUnlocked(techName, isSelected, { techKey: option.slug, silent: true, skipAutoComplete: true, deferProgressUpdate: true });
+              techChanged = true;
+            } else if(option.slug){
+              syncTechButtons(option.slug, techName);
+            }
           } else if(option.slug){
             syncTechButtons(option.slug, techName);
           }
         }
       });
-      if(caughtChanged){
-        localStorage.setItem('caught', JSON.stringify(caught));
-      }
-      if(techChanged){
-        localStorage.setItem('unlocked', JSON.stringify(unlocked));
-      }
       return caughtChanged || techChanged;
     }
 
@@ -6642,6 +7968,7 @@
           spotlightBtn.disabled = true;
         }
       }
+      updateBasePlanner();
     }
 
     // Display detailed information about an item using a Palworld-inspired card.
