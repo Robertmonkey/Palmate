@@ -2116,6 +2116,7 @@
     let caught = JSON.parse(localStorage.getItem('caught') || '{}');
     let collected = JSON.parse(localStorage.getItem('collected') || '{}');
     let unlocked = JSON.parse(localStorage.getItem('unlocked') || '{}');
+    const KID_MODE_STORAGE_KEY = 'palmate:kidMode';
     // Maximum stats for scaling radar chart
     // Maximum stats for scaling radar chart.  Speed is capped lower to avoid
     // overpowering the chart – the fastest pals reach around 1000.
@@ -2166,10 +2167,12 @@
 
     // Whether we’re in Kid Mode.  Kid Mode simplifies the UI by
     // enlarging fonts, hiding advanced stats and using shorter
-    // explanations.  Start in kid mode by default; toggled via the
-    // mode button in the nav bar.
-    let kidMode = true;
+    // explanations.  Remember the user’s previous choice so the
+    // experience stays consistent between visits.
+    const savedKidMode = localStorage.getItem(KID_MODE_STORAGE_KEY);
+    let kidMode = savedKidMode === null ? true : savedKidMode === 'true';
     document.body.classList.toggle('kid-mode', kidMode);
+    persistKidMode();
 
     // Descriptions for active skills.  Each entry maps the skill key
     // (as it appears in the data) to a human-friendly object with
@@ -2186,8 +2189,7 @@
       'electric_ball': { name:'Electric Ball', damage:'High', type:'Projectile', description:'Launches a ball of lightning that zaps enemies on contact' },
       'dragon_burst': { name:'Dragon Burst', damage:'High', type:'Area', description:'Unleashes draconic energy in a burst around the user' },
       'fire_blast': { name:'Fire Blast', damage:'High', type:'Cone', description:'Breathes fire in a wide cone, burning anything in its path' },
-      'leaf_dance': { name:'Leaf Dance', damage:'Moderate', type:'Area', description:'Summons swirling leaves that slice nearby enemies' }
-    ,
+      'leaf_dance': { name:'Leaf Dance', damage:'Moderate', type:'Area', description:'Summons swirling leaves that slice nearby enemies' },
       // Additional skills with descriptions derived from the Palworld Wiki【841863502450800†L124-L156】.  These give
       // players a better sense of each move’s effect.
       'acid_rain': { name:'Acid Rain', damage:'Moderate', type:'Area', description:'Creates acidic clouds that pour down rain on enemies' },
@@ -2360,6 +2362,56 @@
       'Air': 'assets/icons/air.png'
     };
 
+    // A handful of recently added pals still lack bundled artwork.  Rather than
+    // shipping temporary binary placeholders (which broke our last build), keep
+    // a small deny-list of missing files so we can fall back to type icons
+    // without triggering console errors.
+    const missingPalArt = new Set([
+      'assets/pals/098_astegon.png',
+      'assets/pals/130_ice_reptyro.png',
+      'assets/pals/131_ice_kingpaca.png',
+      'assets/pals/138_selyne.png',
+      'assets/pals/139_croajiro.png',
+      'assets/pals/140_dogen.png'
+    ]);
+
+    function getPrimaryType(pal) {
+      if (!pal || !Array.isArray(pal.types)) return 'Neutral';
+      const type = pal.types.find(entry => typeof entry === 'string' && entry.trim().length);
+      return type || 'Neutral';
+    }
+
+    function getPalIconSource(pal) {
+      const primary = getPrimaryType(pal);
+      return iconMap[primary] || iconMap['Neutral'];
+    }
+
+    function getPalArtSource(pal) {
+      if (!pal) return null;
+      const candidate = pal.localImage;
+      if (!candidate || missingPalArt.has(candidate)) {
+        return null;
+      }
+      return candidate;
+    }
+
+    function applyPalArtwork(img, pal, { alt } = {}) {
+      if (!img) return;
+      const fallback = getPalIconSource(pal);
+      const art = getPalArtSource(pal) || fallback;
+      img.loading = img.loading || 'lazy';
+      img.decoding = img.decoding || 'async';
+      img.src = art;
+      if (alt !== undefined) {
+        img.alt = alt;
+      } else if (!img.alt || img.alt === '') {
+        img.alt = pal && pal.name ? `${pal.name} artwork` : 'Pal artwork';
+      }
+      img.addEventListener('error', () => {
+        img.src = fallback;
+      }, { once: true });
+    }
+
     // Audio cues for a more immersive UI.  Users can add their own sound files
     // (e.g. click.mp3, modal_open.mp3, modal_close.mp3) inside assets/sounds.
     const clickSound = new Audio('assets/sounds/click.mp3');
@@ -2437,9 +2489,18 @@
       updateProgressUI();
     }
 
+    function persistKidMode() {
+      try {
+        localStorage.setItem(KID_MODE_STORAGE_KEY, kidMode ? 'true' : 'false');
+      } catch (err) {
+        console.warn('Failed to save kid mode preference', err);
+      }
+    }
+
     function setKidMode(value, { rebuild = true } = {}) {
       const desired = !!value;
       if (kidMode === desired) {
+        persistKidMode();
         refreshModeUI();
         if (rebuild) {
           rebuildModeAwarePages();
@@ -2447,6 +2508,7 @@
         return;
       }
       kidMode = desired;
+      persistKidMode();
       refreshModeUI();
       if (rebuild) {
         rebuildModeAwarePages();
@@ -2858,15 +2920,16 @@
         list.innerHTML = '';
         const term = filter.toLowerCase();
         Object.values(PALS).forEach(pal => {
-          if (!pal.name.toLowerCase().includes(term) && !pal.types.join(',').toLowerCase().includes(term)) return;
+          const types = Array.isArray(pal.types) ? pal.types : [];
+          if (!pal.name.toLowerCase().includes(term) && !types.join(',').toLowerCase().includes(term)) return;
           const card = document.createElement('div');
           card.className = 'pal-card';
           // Build type icon HTML
-          const typeIcons = pal.types.map(t => `<img src="${iconMap[t] || iconMap['Neutral']}" alt="${t} icon" style="width:20px;height:20px;margin-right:2px;">`).join('');
-          // Render the pal card. Use the local image if available. If the image fails to load
-          // (for example, if the pal image file is missing), fall back to the first element
-          // icon so the card always has a visual cue. The onerror handler sets the source
-          // to the appropriate icon based on the pal’s primary type.
+          const typeIcons = types.map(t => `<img src="${iconMap[t] || iconMap['Neutral']}" alt="${t} icon" style="width:20px;height:20px;margin-right:2px;">`).join('');
+          // Render the pal card. Use the local image if available. If the art is missing
+          // (for example, when we have not yet added the file to assets/pals),
+          // applyPalArtwork() swaps in a matching type icon automatically so the
+          // card always has a visual cue without throwing console errors.
           // Build rarity label and star icons.  Rarity names add readability and
           // stars provide a quick visual indicator.  We use Font Awesome stars
           // here to ensure consistent sizing and colour.
@@ -2881,13 +2944,14 @@
             starIcons = '';
           }
           card.innerHTML = `
-            <img src="${pal.localImage || iconMap[pal.types[0]] || iconMap['Neutral']}" alt="${pal.name} image"
-                 onerror="this.onerror=null; this.src='${'assets/icons/'}${pal.types[0].toLowerCase()}.png';">
+            <img alt="">
             <div class="name">${pal.name}</div>
             <div class="badge">${typeIcons}</div>
             <div class="rarity"><span class="stars">${starIcons}</span> <span class="label">${rarityLabel}</span></div>
             <button class="catch-btn ${caught[pal.id] ? 'caught' : ''}">${caught[pal.id] ? 'Caught' : 'Catch'}</button>
           `;
+          const portrait = card.querySelector('img');
+          applyPalArtwork(portrait, pal, { alt: `${pal.name} portrait` });
           card.dataset.palId = pal.id;
           card.addEventListener('click', (e) => {
             if (e.target.tagName.toLowerCase() === 'button') return;
@@ -3391,14 +3455,8 @@
         if (selectable) card.classList.add('selectable');
         else card.classList.add('static');
         if (selected) card.classList.add('selected');
-        const primaryType = (pal.types && pal.types[0]) || 'Neutral';
         const img = document.createElement('img');
-        img.src = pal.localImage || iconMap[primaryType] || iconMap['Neutral'];
-        img.alt = `${pal.name} image`;
-        img.onerror = () => {
-          img.onerror = null;
-          img.src = iconMap[primaryType] || iconMap['Neutral'];
-        };
+        applyPalArtwork(img, pal);
         card.appendChild(img);
         const name = document.createElement('div');
         name.className = 'name';
@@ -5410,7 +5468,6 @@
         const primaryPal = findNextPalTarget();
         const spotlightPal = primaryPal || findRandomPalCandidate();
         if (spotlightPal) {
-          const artSrc = spotlightPal.localImage || iconMap[spotlightPal.types && spotlightPal.types[0]] || iconMap['Neutral'];
           const typeLabel = Array.isArray(spotlightPal.types) && spotlightPal.types.length
             ? spotlightPal.types.join(' • ')
             : '';
@@ -5423,13 +5480,15 @@
             ? `<span class="home-spotlight-card__types">${escapeHTML(typeLabel)}</span>`
             : '';
           spotlightBtn.innerHTML = `
-            <img src="${escapeHTML(artSrc || '')}" alt="${escapeHTML((spotlightPal.name || 'Pal') + ' portrait')}">
+            <img alt="">
             <div class="home-spotlight-card__text">
               <span class="home-spotlight-card__title">${escapeHTML(spotlightPal.name || 'Pal')}</span>
               <span class="home-spotlight-card__meta">${escapeHTML(metaText)}</span>
               ${typesHtml}
             </div>
           `;
+          const spotlightImg = spotlightBtn.querySelector('img');
+          applyPalArtwork(spotlightImg, spotlightPal, { alt: `${spotlightPal.name || 'Pal'} portrait` });
           spotlightBtn.dataset.palId = spotlightPal.id || '';
           spotlightBtn.disabled = false;
         } else {
