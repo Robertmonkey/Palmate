@@ -3130,6 +3130,65 @@
       border-radius: 999px;
       transition: width 0.3s ease;
     }
+    .ranch-suggestion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .ranch-suggestion {
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(15, 40, 64, 0.55);
+      border: 1px solid rgba(119, 141, 169, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .ranch-suggestion__header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .ranch-suggestion__item {
+      border: none;
+      background: rgba(119, 141, 169, 0.15);
+      color: inherit;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .ranch-suggestion__item:hover,
+    .ranch-suggestion__item:focus-visible {
+      background: rgba(119, 141, 169, 0.3);
+      color: var(--light);
+      outline: none;
+    }
+    .ranch-suggestion__item[disabled] {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+    .ranch-suggestion__reason {
+      font-size: 0.9rem;
+      color: var(--muted);
+      flex: 1 1 160px;
+    }
+    .ranch-suggestion__action {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .ranch-suggestion__producers {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(224, 225, 221, 0.8);
+    }
+    .ranch-suggestion__producers--missing {
+      color: var(--danger);
+    }
     .base-slot-card__note {
       font-size: 0.8rem;
       color: var(--muted);
@@ -3482,6 +3541,126 @@
       cooling: { label: 'Cooling', kidLabel: 'Chillers', icon: '❄️' },
       medicine: { label: 'Medicine', kidLabel: 'Healers', icon: '💊' },
       farming: { label: 'Ranching', kidLabel: 'Ranch pals', icon: '🐑' }
+    };
+    const RANCH_ITEM_LIBRARY = {
+      pal_sphere: {
+        key: 'pal_sphere',
+        name: 'Pal Sphere',
+        tags: ['sphere', 'early', 'universal'],
+        priority: 120,
+        producers: ['Vixy'],
+        openUrl: `${PALWORLD_BASE_URL}/items?search=${encodeURIComponent('Pal Sphere')}`,
+        reasons: {
+          sphere: {
+            kid: 'Pal Spheres help you catch lots of pals without shopping trips.',
+            grown: 'Passive Pal Sphere income keeps capture sprees rolling between tech pushes.'
+          },
+          default: {
+            kid: 'Pal Spheres keep your catching tools stocked up.',
+            grown: 'Keep Pal Spheres flowing so every recruitment sprint stays smooth.'
+          }
+        }
+      },
+      egg: {
+        key: 'egg',
+        name: 'Eggs',
+        tags: ['cake', 'early'],
+        priority: 100,
+        reasons: {
+          cake: {
+            kid: 'Cake batter needs lots of eggs soon.',
+            grown: 'Breeding Cakes demand dozens of Eggs—build the surplus early.'
+          },
+          default: {
+            kid: 'Eggs cook into tasty stamina snacks.',
+            grown: 'Eggs keep the cooking pot productive before wheat farms scale.'
+          }
+        }
+      },
+      milk: {
+        key: 'milk',
+        name: 'Milk',
+        tags: ['cake'],
+        priority: 95,
+        reasons: {
+          cake: {
+            kid: 'Cake cream needs lots of milk.',
+            grown: 'Cake and high-tier meals burn through Milk nonstop once breeding starts.'
+          },
+          default: {
+            kid: 'Milk keeps the cooking pot stocked.',
+            grown: 'Milk covers cooking buffs while you chase late-game recipes.'
+          }
+        }
+      },
+      honey: {
+        key: 'honey',
+        name: 'Honey',
+        tags: ['cake'],
+        priority: 98,
+        reasons: {
+          cake: {
+            kid: 'Honey is the sticky part of Cake—make sure it never runs out.',
+            grown: 'Honey is the classic Cake bottleneck; automate it before the breeding rush.'
+          },
+          default: {
+            kid: 'Honey sweetens lots of late meals.',
+            grown: 'Honey supports Cake plus medicine buffs later on.'
+          }
+        }
+      },
+      wool: {
+        key: 'wool',
+        name: 'Wool',
+        tags: ['cloth', 'cold', 'early'],
+        priority: 90,
+        reasons: {
+          cloth: {
+            kid: 'Wool spins into cloth for armor and story quests.',
+            grown: 'Cloth stockpiles gate Chapter 1 prep and early armor upgrades.'
+          },
+          cold: {
+            kid: 'Warm outfits need wool when you hike into the snow.',
+            grown: 'Cold-resist armor and late gear both lean on a deep Wool reserve.'
+          },
+          default: {
+            kid: 'Wool keeps the tailor busy.',
+            grown: 'Wool converts to Cloth, blankets, and winter gear.'
+          }
+        }
+      },
+      high_quality_pal_oil: {
+        key: 'high_quality_pal_oil',
+        name: 'High Quality Pal Oil',
+        tags: ['oil', 'advanced'],
+        priority: 70,
+        reasons: {
+          oil: {
+            kid: 'Factory parts and Polymer eat lots of shiny oil.',
+            grown: 'Polymer, firearms, and Production Lines guzzle High Quality Pal Oil.'
+          },
+          default: {
+            kid: 'Oil helps late-game machines work.',
+            grown: 'HQ Pal Oil keeps late factories and weapon benches humming.'
+          }
+        }
+      },
+      pal_fluids: {
+        key: 'pal_fluids',
+        name: 'Pal Fluids',
+        tags: ['medicine', 'advanced'],
+        priority: 60,
+        reasons: {
+          medicine: {
+            kid: 'Medicine benches and hot springs sip Pal Fluids.',
+            grown: 'Electric and advanced medicine benches plus Hot Springs consume Pal Fluids constantly.'
+          },
+          default: {
+            kid: 'Pal Fluids help heal pals.',
+            grown: 'Pal Fluids feed medicine production and luxury baths.'
+          }
+        }
+      }
     };
     const WORK_KEY_ALIASES = {
       medicine_production: 'medicine',
@@ -4979,6 +5158,137 @@
       }
       return { kid: 'Needs helpers', grown: 'Needs attention', percent: Math.min(100, Math.round(normalized * 100)) };
     }
+    function gatherUpcomingRouteSteps(limit = 8, { includeOptional = true } = {}) {
+      const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
+      const upcoming = [];
+      for (const chapter of chapters) {
+        if (!chapter) continue;
+        const steps = Array.isArray(chapter.steps) ? chapter.steps : [];
+        for (const step of steps) {
+          if (!step) continue;
+          if (!includeOptional && step.optional) continue;
+          if (routeState && routeState[step.id]) continue;
+          upcoming.push({ chapter, step });
+          if (upcoming.length >= limit) {
+            return upcoming;
+          }
+        }
+      }
+      return upcoming;
+    }
+    function computeRanchPlan({ stageSnapshot, limit = 5 } = {}) {
+      const plan = {
+        recommendations: [],
+        summaryKid: '',
+        summaryGrown: '',
+        hasRanch: isTechUnlocked('Ranch'),
+        stageTags: new Set()
+      };
+      const stageId = stageSnapshot?.stageId || null;
+      const stageIndex = typeof stageSnapshot?.stageIndex === 'number' ? stageSnapshot.stageIndex : -1;
+      const tags = plan.stageTags;
+      if (stageIndex <= 1) tags.add('early');
+      if (stageIndex <= 4) tags.add('sphere');
+      if (stageIndex >= 2) tags.add('mid');
+      if (stageIndex >= 3) tags.add('cold');
+      if (stageIndex >= 4) tags.add('advanced');
+      if (stageId === 'ch1') tags.add('cloth');
+      if (stageId === 'ch2') tags.add('cake');
+      if (stageId === 'ch3') tags.add('cold');
+      if (stageId && /^ch\d+/i.test(stageId)) {
+        const numeric = Number(stageId.replace(/[^0-9]/g, ''));
+        if (Number.isFinite(numeric) && numeric >= 4) tags.add('oil');
+      }
+      const upcomingSteps = gatherUpcomingRouteSteps(12);
+      const addTagsFromText = raw => {
+        if (!raw) return;
+        const text = String(raw).toLowerCase();
+        if (text.includes('cake') || text.includes('breeding farm') || text.includes('bake')) tags.add('cake');
+        if (text.includes('cloth') || text.includes('wool') || text.includes('tailor')) tags.add('cloth');
+        if (text.includes('snow') || text.includes('cold') || text.includes('freez') || text.includes('tundra')) tags.add('cold');
+        if (text.includes('polymer') || text.includes('assembly line') || text.includes('factory') || text.includes('assault rifle')) tags.add('oil');
+        if (text.includes('medicine') || text.includes('medical') || text.includes('hot spring')) tags.add('medicine');
+        if (text.includes('ranch')) tags.add('cake');
+      };
+      upcomingSteps.forEach(entry => addTagsFromText(entry?.step?.text));
+      (stageSnapshot?.pendingBaseSteps || []).forEach(entry => addTagsFromText(entry?.step?.text));
+      if (stageSnapshot?.nextStep) addTagsFromText(stageSnapshot.nextStep.text);
+      tags.add('sphere');
+      const pickReason = (entry) => {
+        const reasons = entry?.reasons || {};
+        const entryTags = Array.isArray(entry?.tags) ? entry.tags : [];
+        for (const tag of entryTags) {
+          if (tags.has(tag) && reasons[tag]) {
+            return reasons[tag];
+          }
+        }
+        return reasons.default || { kid: '', grown: '' };
+      };
+      const unique = arr => Array.from(new Set((arr || []).map(item => String(item || '').trim()).filter(Boolean)));
+      const candidates = Object.values(RANCH_ITEM_LIBRARY || {})
+        .filter(entry => {
+          const entryTags = Array.isArray(entry.tags) ? entry.tags : [];
+          if (!entryTags.length && !entry.always) return false;
+          return entryTags.some(tag => tags.has(tag)) || entry.always;
+        })
+        .sort((a, b) => (b.priority || 0) - (a.priority || 0));
+      const maxItems = Math.max(1, Number.isFinite(limit) ? Math.round(limit) : 5);
+      candidates.slice(0, maxItems).forEach(entry => {
+        const detail = (ITEM_DETAILS && ITEM_DETAILS[entry.key]) || (ITEMS && ITEMS[entry.key]) || {};
+        const name = entry.name || detail.name || humaniseItemKey(entry.key || 'Item');
+        const producers = unique(entry.producers || detail.ranchProducers || (ITEMS && ITEMS[entry.key]?.ranchProducers));
+        if (!producers.length) return;
+        const caughtProducers = producers.filter(name => isPalCaughtByName(name));
+        const missingProducers = producers.filter(name => !isPalCaughtByName(name));
+        const reason = pickReason(entry);
+        const targetName = name.toLowerCase();
+        const caughtLabelKid = caughtProducers.slice(0, 2).join(' and ');
+        const caughtLabelGrown = caughtProducers.join(', ');
+        const prospectKid = missingProducers.slice(0, 2).join(' or ') || producers.slice(0, 2).join(' or ');
+        const prospectGrown = missingProducers.join(', ') || producers.join(', ');
+        const actionKid = caughtProducers.length
+          ? `Let ${caughtLabelKid} stay on the Ranch so ${targetName} piles up.`
+          : `Catch ${prospectKid || 'new pals'} so the Ranch makes ${targetName}.`;
+        const actionGrown = caughtProducers.length
+          ? `Assign ${caughtProducers[0]} to the Ranch to keep ${targetName} flowing.`
+          : `Recruit ${prospectGrown || 'ranch producers'} to automate ${targetName}.`;
+        const hasDetail = !!((ITEM_DETAILS && ITEM_DETAILS[entry.key]) || (ITEMS && ITEMS[entry.key]));
+        plan.recommendations.push({
+          key: entry.key,
+          itemKey: entry.key,
+          name,
+          reasonKid: reason.kid || '',
+          reasonGrown: reason.grown || '',
+          actionKid,
+          actionGrown,
+          producers,
+          caughtProducers,
+          missingProducers,
+          hasDetail,
+          openUrl: entry.openUrl || null
+        });
+      });
+      const names = plan.recommendations.map(rec => rec.name).slice(0, 4);
+      if (names.length) {
+        const kidJoin = names.slice(0, 3).join(' & ');
+        const grownJoin = names.join(' • ');
+        if (plan.hasRanch) {
+          plan.summaryKid = `Focus: ${kidJoin}`;
+          plan.summaryGrown = `Focus outputs: ${grownJoin}`;
+        } else {
+          plan.summaryKid = `Plan ahead: ${kidJoin}`;
+          plan.summaryGrown = `Plan ahead: ${grownJoin}`;
+        }
+      } else {
+        plan.summaryKid = plan.hasRanch
+          ? 'Choose a ranch item to chase next.'
+          : 'Unlock the Ranch to start planning outputs.';
+        plan.summaryGrown = plan.hasRanch
+          ? 'Choose the next ranch output to pursue.'
+          : 'Unlock the Ranch to start planning outputs.';
+      }
+      return plan;
+    }
     function isBaseRelatedTech(item) {
       if (!item) return false;
       const fields = [item.category, item.group, item.name];
@@ -5360,7 +5670,64 @@
         }
         return b.weight - a.weight;
       });
+      const ranchPlan = computeRanchPlan({ stageSnapshot, limit: kidMode ? 3 : 4 });
+      let ranchNoteAdded = false;
       gaps.slice(0, 2).forEach(entry => {
+        const canonical = canonicalWorkKey(entry.key);
+        if (canonical === 'farming') {
+          if (ranchNoteAdded) return;
+          ranchNoteAdded = true;
+          const focusKid = ranchPlan.recommendations.map(rec => rec.name).slice(0, kidMode ? 2 : 3).join(' & ');
+          const focusGrown = ranchPlan.recommendations.map(rec => rec.name).slice(0, 3).join(' • ');
+          const primary = ranchPlan.recommendations[0] || null;
+          const secondary = ranchPlan.recommendations[1] || null;
+          const kidLines = [];
+          if (focusKid) {
+            kidLines.push(ranchPlan.hasRanch
+              ? `Ranch focus: ${focusKid}.`
+              : `Plan for ${focusKid} when the Ranch is ready.`);
+          } else if (!ranchPlan.hasRanch) {
+            kidLines.push('Unlock the Ranch to start making special items.');
+          }
+          if (primary?.reasonKid) kidLines.push(primary.reasonKid);
+          if (primary?.actionKid) kidLines.push(primary.actionKid);
+          if (secondary && !secondary.caughtProducers.length) {
+            kidLines.push(secondary.actionKid);
+          }
+          if (!kidLines.length) {
+            kidLines.push('Assign a pal to the Ranch to begin passive production.');
+          }
+          const grownLines = [];
+          if (focusGrown) {
+            grownLines.push(ranchPlan.hasRanch
+              ? `Target outputs: ${focusGrown}.`
+              : `Queue these outputs post-Ranch: ${focusGrown}.`);
+          } else if (!ranchPlan.hasRanch) {
+            grownLines.push('Unlock the Ranch to add passive item production.');
+          }
+          if (primary?.reasonGrown) grownLines.push(primary.reasonGrown);
+          if (primary?.actionGrown) grownLines.push(primary.actionGrown);
+          if (secondary && secondary.missingProducers.length) {
+            grownLines.push(`Recruit ${secondary.missingProducers.join(', ')} to unlock ${secondary.name.toLowerCase()}.`);
+          }
+          if (!grownLines.length) {
+            grownLines.push('Review ranch slots and assign producers for upcoming recipes.');
+          }
+          notes.push({
+            id: 'coverage-ranch-plan',
+            icon: '🐑',
+            badge: { kid: 'Ranch', grown: 'Ranch' },
+            kid: {
+              title: 'Ranch plan',
+              lines: kidLines
+            },
+            grown: {
+              title: 'Ranch focus',
+              lines: grownLines
+            }
+          });
+          return;
+        }
         const detail = getWorkTypeDetail(entry.key);
         const helperNames = suggestPalsForWork(entry.key, { crew, baseConfig: config, stageSnapshot });
         const kidTargets = helperNames.kid.slice(0, 2);
@@ -6097,10 +6464,10 @@
           .filter(([, weight]) => weight && weight > 0)
           .sort((a, b) => b[1] - a[1]);
         const highestWeight = weightEntries.length ? weightEntries[0][1] : 1;
+        const ranchPlan = computeRanchPlan({ stageSnapshot, limit: kidMode ? 3 : 4 });
         weightEntries.forEach(([key, weight]) => {
           const detail = getWorkTypeDetail(key);
-          const total = crew.coverage[key] || 0;
-          const descriptor = coverageDescriptor(weight, total, config, highestWeight);
+          const canonical = canonicalWorkKey(key);
           const item = document.createElement('div');
           item.className = 'base-coverage-item';
           const header = document.createElement('div');
@@ -6111,6 +6478,80 @@
           header.appendChild(title);
           const status = document.createElement('span');
           status.className = 'base-coverage-item__status';
+          if (canonical === 'farming') {
+            status.textContent = kidMode ? ranchPlan.summaryKid : ranchPlan.summaryGrown;
+            header.appendChild(status);
+            item.appendChild(header);
+            const list = document.createElement('div');
+            list.className = 'ranch-suggestion-list';
+            if (ranchPlan.recommendations.length) {
+              ranchPlan.recommendations.forEach(rec => {
+                const suggestion = document.createElement('div');
+                suggestion.className = 'ranch-suggestion';
+                const suggestionHeader = document.createElement('div');
+                suggestionHeader.className = 'ranch-suggestion__header';
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'ranch-suggestion__item';
+                button.textContent = rec.name;
+                if (rec.hasDetail) {
+                  button.dataset.itemKey = rec.itemKey;
+                  button.addEventListener('click', event => {
+                    event.stopPropagation();
+                    openItemDetail(rec.itemKey);
+                  });
+                } else if (rec.openUrl) {
+                  button.addEventListener('click', event => {
+                    event.stopPropagation();
+                    window.open(rec.openUrl, '_blank', 'noopener');
+                  });
+                } else {
+                  button.disabled = true;
+                }
+                suggestionHeader.appendChild(button);
+                const reasonText = kidMode ? rec.reasonKid : rec.reasonGrown;
+                if (reasonText) {
+                  const reason = document.createElement('span');
+                  reason.className = 'ranch-suggestion__reason';
+                  reason.textContent = reasonText;
+                  suggestionHeader.appendChild(reason);
+                }
+                suggestion.appendChild(suggestionHeader);
+                const action = document.createElement('p');
+                action.className = 'ranch-suggestion__action';
+                action.textContent = kidMode ? rec.actionKid : rec.actionGrown;
+                suggestion.appendChild(action);
+                if (rec.caughtProducers.length) {
+                  const ready = document.createElement('p');
+                  ready.className = 'ranch-suggestion__producers';
+                  ready.textContent = kidMode
+                    ? `Ready pals: ${rec.caughtProducers.slice(0, 3).join(' & ')}.`
+                    : `Ready producers: ${rec.caughtProducers.join(', ')}.`;
+                  suggestion.appendChild(ready);
+                } else if (rec.missingProducers.length) {
+                  const missing = document.createElement('p');
+                  missing.className = 'ranch-suggestion__producers ranch-suggestion__producers--missing';
+                  missing.textContent = kidMode
+                    ? `Catch ${rec.missingProducers.slice(0, 3).join(' or ')} to start.`
+                    : `Recruit ${rec.missingProducers.join(', ')} to unlock ${rec.name.toLowerCase()}.`;
+                  suggestion.appendChild(missing);
+                }
+                list.appendChild(suggestion);
+              });
+            } else {
+              const empty = document.createElement('p');
+              empty.className = 'ranch-suggestion__action';
+              empty.textContent = kidMode
+                ? 'Unlock the Ranch to start planning outputs.'
+                : 'Unlock the Ranch to start planning outputs.';
+              list.appendChild(empty);
+            }
+            item.appendChild(list);
+            elements.coverageGrid.appendChild(item);
+            return;
+          }
+          const total = crew.coverage[key] || 0;
+          const descriptor = coverageDescriptor(weight, total, config, highestWeight);
           status.textContent = kidMode ? descriptor.kid : descriptor.grown;
           header.appendChild(status);
           item.appendChild(header);
