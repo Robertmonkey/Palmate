@@ -165,6 +165,140 @@
     .page.active {
       display: block;
     }
+    .glossary-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 20px;
+    }
+    .glossary-nav button {
+      background: var(--secondary);
+      color: var(--text);
+      border: none;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .glossary-nav button:hover,
+    .glossary-nav button:focus {
+      background: var(--accent);
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .glossary-section {
+      padding: 16px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      background: var(--card-bg);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    }
+    .glossary-section h3 {
+      margin-top: 0;
+    }
+    .glossary-search {
+      width: 100%;
+      padding: 10px 12px;
+      margin: 12px 0 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(17,34,51,0.6);
+      color: var(--text);
+    }
+    .glossary-search::placeholder {
+      color: var(--muted);
+    }
+    .glossary-chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .glossary-skill-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .glossary-count {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .glossary-empty {
+      margin: 8px 0 0;
+      font-style: italic;
+      color: var(--muted);
+    }
+    .chip.passive,
+    .chip.move,
+    .glossary-skill {
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .chip.passive:hover,
+    .chip.passive:focus,
+    .chip.move:hover,
+    .chip.move:focus,
+    .glossary-skill:hover,
+    .glossary-skill:focus {
+      transform: translateY(-1px);
+      outline: none;
+      background: var(--card-hover);
+    }
+    .glossary-skill {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      text-align: left;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: rgba(14,27,42,0.8);
+      color: inherit;
+      cursor: pointer;
+    }
+    .glossary-skill__header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      width: 100%;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .glossary-skill__name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .glossary-skill__element {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(119,141,169,0.2);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .glossary-skill__meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .glossary-skill__description {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .glossary-callout {
+      border-left: 4px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(17,34,51,0.7);
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+    .glossary-callout strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
     .page-header {
       display: flex;
       justify-content: space-between;
@@ -1944,7 +2078,7 @@
         <header class="page-header">
           <h2>Glossary</h2>
         </header>
-        <p>Here you’ll find definitions for passives, moves, elements and work suitabilities. Tap any term to learn more.</p>
+        <p>Browse every passive trait, active skill, element matchup and work task in one place. Use the quick links and search boxes below to jump right to what you need.</p>
         <div id="glossaryContent"></div>
       </section>
     </div>
@@ -4629,61 +4763,246 @@
       return capitalize(String(id).replace(/_/g, ' '));
     }
     // with their descriptions.  Elements and work suitabilities are
-    // summarised in simple tables.  Clicking a passive or move
-    // shows more detail in a modal using the existing functions.
+    // summarised in organised sections with quick filters for faster lookup.
     function buildGlossaryPage() {
       const container = document.getElementById('glossaryContent');
       if (!container) return;
       container.innerHTML = '';
-      // Build passives list
-      const passivesSection = document.createElement('div');
-      passivesSection.className = 'card';
-      passivesSection.innerHTML = '<h3>Passive Skills</h3>';
-      const passiveWrap = document.createElement('div');
-      passiveWrap.className = 'badges';
-      Object.keys(traitsDictionary).sort().forEach(trait => {
-        const id = slugifyForPalworld(trait);
+
+      const normalizedSkillDetails = {};
+      Object.entries(SKILL_DETAILS || {}).forEach(([name, info = {}]) => {
+        const normalizedKey = name.toLowerCase().replace(/[\s-]+/g, '_');
+        normalizedSkillDetails[normalizedKey] = { name, ...info };
+      });
+
+      const nav = document.createElement('div');
+      nav.className = 'glossary-nav';
+      container.appendChild(nav);
+
+      function createSection(id, title, description) {
+        const section = document.createElement('section');
+        section.className = 'glossary-section card';
+        section.id = id;
+        const heading = document.createElement('h3');
+        heading.textContent = title;
+        section.appendChild(heading);
+        if (description) {
+          const desc = document.createElement('p');
+          desc.textContent = description;
+          section.appendChild(desc);
+        }
+        container.appendChild(section);
+
         const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = title;
+        btn.dataset.target = id;
+        btn.setAttribute('aria-controls', id);
+        btn.addEventListener('click', () => {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        nav.appendChild(btn);
+
+        return section;
+      }
+
+      function createSearch(placeholder) {
+        const input = document.createElement('input');
+        input.type = 'search';
+        input.className = 'glossary-search';
+        input.placeholder = placeholder;
+        input.setAttribute('aria-label', placeholder);
+        return input;
+      }
+
+      const passiveDescription = kidMode
+        ? 'All partner traits pals can roll. Tap a trait to read what it does.'
+        : 'Complete alphabetical list of every passive trait. Select any entry for detailed effects.';
+      const passiveSection = createSection('glossary-passives', 'Passive Skills', passiveDescription);
+      const passiveSearch = createSearch(kidMode ? 'Search passive traits…' : 'Filter passive traits…');
+      passiveSection.appendChild(passiveSearch);
+      const passiveCount = document.createElement('p');
+      passiveCount.className = 'glossary-count';
+      passiveSection.appendChild(passiveCount);
+      const passiveWrap = document.createElement('div');
+      passiveWrap.className = 'glossary-chip-grid';
+      passiveSection.appendChild(passiveWrap);
+      const passiveEmpty = document.createElement('p');
+      passiveEmpty.className = 'glossary-empty';
+      passiveEmpty.textContent = kidMode
+        ? 'No passives found. Try a different word.'
+        : 'No passive traits match your search.';
+      passiveEmpty.hidden = true;
+      passiveSection.appendChild(passiveEmpty);
+
+      const passiveEntries = Object.keys(traitsDictionary || {})
+        .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+      passiveEntries.forEach(trait => {
+        const description = typeof traitsDictionary[trait] === 'string' ? traitsDictionary[trait] : '';
+        const btn = document.createElement('button');
+        btn.type = 'button';
         btn.className = 'chip passive';
         btn.dataset.trait = trait;
-        btn.id = id ? `passive-${id}` : '';
-        btn.title = traitsDictionary[trait];
+        const slug = slugifyForPalworld(trait);
+        if (slug) {
+          btn.id = `passive-${slug}`;
+        }
+        btn.title = description || trait;
         btn.textContent = trait;
+        btn.dataset.search = `${trait} ${description}`.toLowerCase();
         passiveWrap.appendChild(btn);
       });
-      passivesSection.appendChild(passiveWrap);
-      container.appendChild(passivesSection);
-      // Build moves list (only first 30 for brevity)
-      const movesSection = document.createElement('div');
-      movesSection.className = 'card';
-      movesSection.innerHTML = '<h3>Active Skills</h3>';
-      const movesWrap = document.createElement('div');
-      movesWrap.className = 'badges';
-      const moveKeys = Object.keys(skillsDictionary);
-      moveKeys.sort().slice(0, 30).forEach(key => {
-        const info = skillsDictionary[key];
-        const btn = document.createElement('button');
-        btn.className = 'chip move';
-        btn.dataset.skill = key;
-        btn.id = `move-${slugifyForPalworld(key)}`;
-        btn.textContent = info.name || key;
-        movesWrap.appendChild(btn);
-      });
-      movesSection.appendChild(movesWrap);
-      if (moveKeys.length > 30) {
-        const more = document.createElement('p');
-        more.innerHTML = `...and ${moveKeys.length - 30} more skills. Use search or view pals for full list.`;
-        movesSection.appendChild(more);
+
+      const totalPassives = passiveEntries.length;
+      function filterPassives() {
+        const term = passiveSearch.value.trim().toLowerCase();
+        let visible = 0;
+        passiveWrap.querySelectorAll('.chip.passive').forEach(btn => {
+          const searchable = btn.dataset.search || '';
+          const matches = !term || searchable.includes(term);
+          btn.style.display = matches ? '' : 'none';
+          btn.tabIndex = matches ? 0 : -1;
+          if (matches) visible += 1;
+        });
+        passiveCount.textContent = totalPassives
+          ? (visible === totalPassives
+            ? `${totalPassives} passive traits listed.`
+            : `Showing ${visible} of ${totalPassives} passive traits.`)
+          : 'No passive traits available.';
+        passiveEmpty.hidden = visible !== 0;
       }
-      container.appendChild(movesSection);
-      // Elements table
-      const elemSection = document.createElement('div');
-      elemSection.innerHTML = '<h3>Elements & Type Chart</h3>';
+      filterPassives();
+      passiveSearch.addEventListener('input', filterPassives);
+
+      const activeDescription = kidMode
+        ? 'Every move pals can learn. Search by name, element or effect.'
+        : 'Complete catalogue of partner and weapon skills. Filter by name, element or effect.';
+      const activeSection = createSection('glossary-active', 'Active Skills', activeDescription);
+      const rainbowCallout = document.createElement('div');
+      rainbowCallout.className = 'glossary-callout';
+      rainbowCallout.innerHTML = `<strong>Rainbow skills</strong>Rainbow-fruit moves ignore normal type weaknesses and resistances, so they deal steady damage even when enemies resist your pal’s element. They can be taught to any pal, making them perfect coverage options for favourite partners.`;
+      activeSection.appendChild(rainbowCallout);
+
+      const skillSearch = createSearch(kidMode ? 'Search active skills…' : 'Filter active skills by name, element or effect…');
+      activeSection.appendChild(skillSearch);
+      const skillCount = document.createElement('p');
+      skillCount.className = 'glossary-count';
+      activeSection.appendChild(skillCount);
+      const skillsWrap = document.createElement('div');
+      skillsWrap.className = 'glossary-skill-grid';
+      activeSection.appendChild(skillsWrap);
+      const skillEmpty = document.createElement('p');
+      skillEmpty.className = 'glossary-empty';
+      skillEmpty.textContent = kidMode
+        ? 'No skills found. Try another word or element.'
+        : 'No active skills match your filters.';
+      skillEmpty.hidden = true;
+      activeSection.appendChild(skillEmpty);
+
+      const skillEntriesMap = new Map();
+      Object.entries(normalizedSkillDetails).forEach(([key, info]) => {
+        skillEntriesMap.set(key, {
+          key,
+          displayName: info.name || key,
+          element: info.element || 'Unknown',
+          power: typeof info.power === 'number' ? info.power : null,
+          cooldown: typeof info.ct === 'number' ? info.ct : null,
+          description: info.description || ''
+        });
+      });
+      Object.entries(skillsDictionary || {}).forEach(([rawKey, info = {}]) => {
+        const normalizedKey = rawKey.toLowerCase();
+        const existing = skillEntriesMap.get(normalizedKey);
+        const baseName = info.name || niceName(rawKey);
+        const fallbackPower = typeof info.power === 'number'
+          ? info.power
+          : (() => {
+              const match = (info.damage || '').match(/(\d+)/);
+              return match ? Number(match[1]) : null;
+            })();
+        const description = info.description || existing?.description || '';
+        const element = (existing && existing.element && existing.element !== 'Unknown')
+          ? existing.element
+          : (info.element || info.type || 'Unknown');
+        const cooldown = existing?.cooldown != null ? existing.cooldown : null;
+        const merged = {
+          key: normalizedKey,
+          displayName: baseName,
+          element,
+          power: existing?.power != null ? existing.power : fallbackPower,
+          cooldown,
+          description
+        };
+        skillEntriesMap.set(normalizedKey, { ...existing, ...merged });
+      });
+
+      const skillEntries = Array.from(skillEntriesMap.values())
+        .filter(entry => entry && entry.displayName)
+        .sort((a, b) => a.displayName.localeCompare(b.displayName, undefined, { sensitivity: 'base' }));
+      skillEntries.forEach(entry => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'glossary-skill';
+        btn.dataset.skill = entry.key;
+        const slug = slugifyForPalworld(entry.displayName);
+        if (slug) {
+          btn.id = `move-${slug}`;
+        }
+        const metaBits = [];
+        if (typeof entry.power === 'number' && !Number.isNaN(entry.power)) {
+          metaBits.push(`Power ${entry.power}`);
+        }
+        if (typeof entry.cooldown === 'number' && !Number.isNaN(entry.cooldown)) {
+          metaBits.push(`CT ${entry.cooldown}s`);
+        }
+        const metaText = metaBits.join(' • ');
+        btn.innerHTML = `
+          <span class="glossary-skill__header">
+            <span class="glossary-skill__name">${escapeHTML(entry.displayName)}</span>
+            <span class="glossary-skill__element">${escapeHTML(entry.element || 'Unknown')}</span>
+          </span>
+          ${metaText ? `<span class="glossary-skill__meta">${escapeHTML(metaText)}</span>` : ''}
+          <span class="glossary-skill__description">${escapeHTML(entry.description || 'No description available.')}</span>
+        `;
+        const searchableChunks = [
+          entry.displayName,
+          entry.element,
+          entry.description,
+          metaText
+        ].filter(Boolean);
+        btn.dataset.search = searchableChunks.join(' ').toLowerCase();
+        skillsWrap.appendChild(btn);
+      });
+
+      const totalSkills = skillEntries.length;
+      function filterSkills() {
+        const term = skillSearch.value.trim().toLowerCase();
+        let visible = 0;
+        skillsWrap.querySelectorAll('.glossary-skill').forEach(btn => {
+          const matches = !term || (btn.dataset.search || '').includes(term);
+          btn.style.display = matches ? '' : 'none';
+          btn.tabIndex = matches ? 0 : -1;
+          if (matches) visible += 1;
+        });
+        skillCount.textContent = totalSkills
+          ? (visible === totalSkills
+            ? `${totalSkills} active skills listed.`
+            : `Showing ${visible} of ${totalSkills} active skills.`)
+          : 'No active skills available.';
+        skillEmpty.hidden = visible !== 0;
+      }
+      filterSkills();
+      skillSearch.addEventListener('input', filterSkills);
+
+      const elementsDescription = kidMode
+        ? 'Check which elements pals are strong or weak against.'
+        : 'Reference chart for attack advantages and resistances.';
+      const elemSection = createSection('glossary-elements', 'Elements & Type Chart', elementsDescription);
       const elemTable = document.createElement('table');
       elemTable.style.width = '100%';
       elemTable.style.borderCollapse = 'collapse';
-      const types = ['Neutral','Fire','Water','Grass','Electric','Ice','Ground','Dragon','Dark','Air'];
-      elemTable.innerHTML = `<tr><th>Element</th><th>Strong Against</th><th>Weak Against</th></tr>`;
+      elemTable.innerHTML = '<tr><th>Element</th><th>Strong Against</th><th>Weak Against</th></tr>';
+      const elementOrder = ['Neutral','Fire','Water','Grass','Electric','Ice','Ground','Dragon','Dark','Air'];
       const strengths = {
         Fire: 'Grass, Ice',
         Water: 'Fire, Ground',
@@ -4708,41 +5027,57 @@
         Air: 'Electric, Ice',
         Neutral: 'None'
       };
-      types.forEach(t => {
+      elementOrder.forEach(t => {
         const row = document.createElement('tr');
         row.innerHTML = `<td>${t}</td><td>${strengths[t] || 'Unknown'}</td><td>${weaknesses[t] || 'Unknown'}</td>`;
         elemTable.appendChild(row);
       });
       elemSection.appendChild(elemTable);
-      container.appendChild(elemSection);
-      // Work suitabilities legend
-      const workSection = document.createElement('div');
-      workSection.innerHTML = '<h3>Work Suitabilities</h3>';
-      const suits = ['Kindling','Watering','Planting','Electricity','Handiwork','Gathering','Lumbering','Mining','Medicine','Cooling','Transporting','Farming'];
-      const ul = document.createElement('ul');
-      suits.forEach(s => {
+
+      const workDescription = kidMode
+        ? 'These jobs tell you what pals can help with at base.'
+        : 'Use these notes to decide which pals to station at each production line.';
+      const workSection = createSection('glossary-work', 'Work Suitabilities', workDescription);
+      const workList = document.createElement('ul');
+      const workEntries = [
+        { name: 'Kindling', desc: 'Lights furnaces, cooking pots and heaters so crafting stays on schedule.' },
+        { name: 'Watering', desc: 'Keeps berry plantations, mill wheels and condensers supplied with water.' },
+        { name: 'Planting', desc: 'Sows seeds in your fields and refills ranch plots automatically.' },
+        { name: 'Electricity', desc: 'Generates power for batteries, assembly lines and refrigerators.' },
+        { name: 'Handiwork', desc: 'Builds structures, crafts gear and assists with any construction queue.' },
+        { name: 'Gathering', desc: 'Picks up dropped items around base and hauls them to nearby chests.' },
+        { name: 'Lumbering', desc: 'Cuts logs at the logging site and processes wood for crafting.' },
+        { name: 'Mining', desc: 'Breaks ore nodes and keeps refining stations stocked with stone and ingots.' },
+        { name: 'Medicine', desc: 'Brews medical supplies at the workbench and treats sick pals faster.' },
+        { name: 'Cooling', desc: 'Runs refrigerators, air conditioners and ice workbenches.' },
+        { name: 'Transporting', desc: 'Moves materials between stations and storage so production never stalls.' },
+        { name: 'Farming', desc: 'Produces rare drops like milk, wool and eggs while stationed at the ranch.' }
+      ];
+      workEntries.forEach(entry => {
         const li = document.createElement('li');
-        li.textContent = `${s} – useful for base tasks like ${s.toLowerCase()}.`;
-        ul.appendChild(li);
+        li.innerHTML = `<strong>${escapeHTML(entry.name)}:</strong> ${escapeHTML(entry.desc)}`;
+        workList.appendChild(li);
       });
-      workSection.appendChild(ul);
-      container.appendChild(workSection);
-      // Click handlers for glossary links
-      container.addEventListener('click', (e) => {
-        const passiveBtn = e.target.closest('.chip.passive');
-        if (passiveBtn) {
-          e.preventDefault();
-          const trait = passiveBtn.dataset.trait;
-          showTraitDetail(trait);
-          return;
-        }
-        const moveBtn = e.target.closest('.chip.move');
-        if (moveBtn) {
-          e.preventDefault();
-          const key = moveBtn.dataset.skill;
-          showSkillDetail(key);
-        }
-      });
+      workSection.appendChild(workList);
+
+      if (!container.dataset.listenerBound) {
+        container.addEventListener('click', (e) => {
+          const passiveBtn = e.target.closest('.chip.passive');
+          if (passiveBtn) {
+            e.preventDefault();
+            const trait = passiveBtn.dataset.trait;
+            showTraitDetail(trait);
+            return;
+          }
+          const moveBtn = e.target.closest('.glossary-skill');
+          if (moveBtn) {
+            e.preventDefault();
+            const key = moveBtn.dataset.skill;
+            showSkillDetail(key);
+          }
+        });
+        container.dataset.listenerBound = 'true';
+      }
     }
 
     // Map page builder.  Creates toggles for different layers and
