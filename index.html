@@ -161,6 +161,7 @@
       border-bottom: 3px solid transparent;
       transition: border-color 0.3s, color 0.3s;
       flex: 0 0 auto;
+      min-height: 44px;
     }
     #navbar .nav-item i {
       font-size: 1.1rem;
@@ -186,6 +187,43 @@
     }
     .mode-btn:hover {
       color: var(--accent);
+    }
+
+    @media (min-width: 900px) {
+      #navbar .nav-shell {
+        gap: clamp(8px, 1.5vw, 16px);
+      }
+      .nav-brand {
+        min-width: 0;
+      }
+      .nav-links {
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: clamp(4px, 0.7vw, 8px);
+        padding-inline: clamp(0px, 0.6vw, 10px);
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(119, 141, 169, 0.55) transparent;
+        scrollbar-gutter: stable both-edges;
+      }
+      #navbar .nav-item {
+        flex: 0 1 auto;
+        justify-content: center;
+        padding: 6px 10px;
+      }
+      .nav-links::-webkit-scrollbar {
+        height: 6px;
+      }
+      .nav-links::-webkit-scrollbar-thumb {
+        background: rgba(119, 141, 169, 0.55);
+        border-radius: 999px;
+      }
+      .nav-links::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .nav-actions {
+        padding-left: clamp(2px, 0.8vw, 10px);
+      }
     }
 
     @media (max-width: 720px) {
