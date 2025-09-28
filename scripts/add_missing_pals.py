@@ -128,8 +128,11 @@ def build_skill_lookup(existing: Dict[str, dict]) -> Dict[str, Dict[str, float]]
     for pal in existing.values():
         for skill in pal.get('skills', []):
             name = skill.get('name')
-            if name and name not in lookup:
-                lookup[name] = {
+            if not name:
+                continue
+            slug = slugify(name)
+            if slug not in lookup:
+                lookup[slug] = {
                     'power': skill.get('power'),
                     'cooldown': skill.get('cooldown'),
                 }
