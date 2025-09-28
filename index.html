@@ -1572,6 +1572,15 @@
       font-size: 0.7rem;
       color: var(--text);
     }
+    .item-card .ranch {
+      font-size: 0.7rem;
+      color: var(--light);
+      margin-top: 4px;
+    }
+    .item-card .ranch--empty {
+      opacity: 0.75;
+      font-style: italic;
+    }
     .item-card .collect-btn {
       margin-top: 6px;
       background: var(--success);
@@ -3394,14 +3403,29 @@
           dropsMap[item].push(pal.name);
         });
       });
+      const allItemKeys = Array.from(new Set([
+        ...Object.keys(ITEMS || {}),
+        ...Object.keys(ITEM_DETAILS || {})
+      ])).sort((a, b) => niceName(a).localeCompare(niceName(b)));
       function render(filter = '') {
         list.innerHTML = '';
-        const term = filter.toLowerCase();
-        Object.keys(ITEMS).sort().forEach(itemKey => {
-          const human = itemKey.replace(/_/g, ' ');
-          if (!human.toLowerCase().includes(term)) return;
-
+        const term = filter.trim().toLowerCase();
+        allItemKeys.forEach(itemKey => {
           const detail = ITEM_DETAILS[itemKey] || {};
+          const baseInfo = ITEMS[itemKey] || {};
+          const displayName = detail.name || niceName(itemKey);
+          const ranchProducers = Array.isArray(detail.ranchProducers)
+            ? detail.ranchProducers
+            : (Array.isArray(baseInfo.ranchProducers) ? baseInfo.ranchProducers : []);
+          const searchable = [
+            itemKey,
+            displayName,
+            detail.type,
+            baseInfo.category,
+            ...(ranchProducers || [])
+          ].filter(Boolean).join(' ').toLowerCase();
+          if (term && !searchable.includes(term)) return;
+
           const card = document.createElement('div');
           card.className = 'item-card';
           card.dataset.itemKey = itemKey;
@@ -3416,12 +3440,12 @@
               art.appendChild(placeholder);
             }
           };
-          const imageUrl = detail.image || ITEMS[itemKey].image || null;
+          const imageUrl = detail.image || baseInfo.image || null;
           if (imageUrl) {
             const img = document.createElement('img');
             img.loading = 'lazy';
             img.decoding = 'async';
-            img.alt = `${human} icon`;
+            img.alt = `${displayName} icon`;
             img.referrerPolicy = 'no-referrer';
             img.src = imageUrl;
             img.onerror = () => {
@@ -3437,20 +3461,30 @@
 
           const nameEl = document.createElement('div');
           nameEl.className = 'name';
-          nameEl.textContent = human;
+          nameEl.textContent = displayName;
           card.appendChild(nameEl);
 
-          const category = detail.type || ITEMS[itemKey].category || 'Misc';
+          const category = detail.type || baseInfo.category || 'Misc';
           const categoryEl = document.createElement('div');
           categoryEl.className = 'category';
           categoryEl.textContent = category;
           card.appendChild(categoryEl);
 
-          const dropList = (dropsMap[itemKey] || []).join(', ') || 'None';
+          const dropNames = dropsMap[itemKey] || [];
           const dropsEl = document.createElement('div');
           dropsEl.className = 'drops';
-          dropsEl.textContent = `Dropped by: ${dropList}`;
+          dropsEl.textContent = `Dropped by: ${dropNames.length ? dropNames.join(', ') : 'None recorded'}`;
           card.appendChild(dropsEl);
+
+          const ranchEl = document.createElement('div');
+          ranchEl.className = 'ranch';
+          if (ranchProducers.length) {
+            ranchEl.textContent = `Ranch pals: ${ranchProducers.join(', ')}`;
+          } else {
+            ranchEl.textContent = 'Ranch pals: None recorded';
+            ranchEl.classList.add('ranch--empty');
+          }
+          card.appendChild(ranchEl);
 
           const btn = document.createElement('button');
           btn.className = `collect-btn ${collected[itemKey] ? 'collected' : ''}`;
@@ -6220,9 +6254,9 @@
 
     // Display detailed information about an item using a Palworld-inspired card.
     function openItemDetail(itemKey) {
-      const item = ITEMS[itemKey];
-      if (!item) return;
+      const item = ITEMS[itemKey] || {};
       const detail = ITEM_DETAILS[itemKey] || {};
+      if (!Object.keys(item).length && !Object.keys(detail).length) return;
       const human = detail.name || humaniseItemKey(itemKey);
       const slug = PALWORLD_ITEM_SLUG_OVERRIDES[itemKey] || slugifyForPalworld(human);
       const itemUrl = slug ? `${PALWORLD_BASE_URL}/item/${slug}` : `${PALWORLD_BASE_URL}/items`;
@@ -6230,6 +6264,10 @@
       const drops = (DROPS_MAP[itemKey] || []).slice();
       const collectedStatus = !!collected[itemKey];
       const recipes = [];
+      const ranchProducers = Array.isArray(detail.ranchProducers)
+        ? detail.ranchProducers
+        : (Array.isArray(item.ranchProducers) ? item.ranchProducers : []);
+      const categoryLabel = detail.type || item.category || 'Item';
       TECH.forEach(level => {
         level.items.forEach(it => {
           if (it.materials && it.materials[itemKey]) {
@@ -6276,7 +6314,7 @@
       const titleEl = document.createElement('h3');
       titleEl.textContent = human;
       const typeEl = document.createElement('span');
-      const typeLabel = detail.type || item.category || 'Item';
+      const typeLabel = categoryLabel;
       typeEl.className = 'type-tag';
       typeEl.textContent = typeLabel;
       meta.appendChild(titleEl);
@@ -6302,7 +6340,7 @@
 
       const descriptionLines = Array.isArray(detail.description) && detail.description.length
         ? detail.description
-        : [`${human} belongs to the ${item.category || typeLabel} family.`];
+        : [`${human} belongs to the ${categoryLabel} family.`];
       const descWrapper = document.createElement('div');
       descWrapper.className = 'item-detail-description';
       const maxParagraphs = kidMode ? Math.min(2, descriptionLines.length) : descriptionLines.length;
@@ -6314,8 +6352,8 @@
       card.appendChild(descWrapper);
 
       const statsEntries = Object.entries(detail.stats || {});
-      if (item.category && !statsEntries.some(entry => entry[0].toLowerCase() === 'category')) {
-        statsEntries.push(['Category', item.category]);
+      if (categoryLabel && !statsEntries.some(entry => entry[0].toLowerCase() === 'category')) {
+        statsEntries.push(['Category', categoryLabel]);
       }
       if (statsEntries.length) {
         const statGrid = document.createElement('div');
@@ -6343,10 +6381,14 @@
       summarySection.appendChild(summaryHeading);
       if (kidMode) {
         const dropPreview = drops.length ? drops.slice(0, 4).join(', ') + (drops.length > 4 ? '…' : '') : 'Not sure yet';
+        const ranchPreview = ranchProducers.length
+          ? ranchProducers.slice(0, 4).join(', ') + (ranchProducers.length > 4 ? '…' : '')
+          : 'Not recorded yet';
         const summaryLines = [
           `Status: ${collectedStatus ? 'We have this item!' : 'Let’s go find this!'}`,
           `Item type: ${typeLabel}`,
-          `Find it from: ${dropPreview}`
+          `Find it from: ${dropPreview}`,
+          `Ranch pals: ${ranchPreview}`
         ];
         if (recipes.length) {
           summaryLines.push(`Used for: ${recipes.length} tech unlock${recipes.length === 1 ? '' : 's'}.`);
@@ -6360,8 +6402,11 @@
         const summaryList = document.createElement('ul');
         const lines = [
           `Tracking status: ${collectedStatus ? 'Collected' : 'Not collected yet'}`,
-          `Category: ${item.category || typeLabel}`,
+          `Category: ${categoryLabel}`,
           drops.length ? `Drops recorded: ${drops.length}` : 'Drops recorded: none yet',
+          ranchProducers.length
+            ? `Ranch producers: ${ranchProducers.join(', ')}`
+            : 'Ranch producers: none recorded yet',
           recipes.length ? `Tech unlocks: ${recipes.length} recipe${recipes.length === 1 ? '' : 's'} listed below.` : 'Tech unlocks: none recorded yet.'
         ];
         if (detail.fromPalworld === false) {
@@ -6407,6 +6452,36 @@
         dropSection.appendChild(none);
       }
       card.appendChild(dropSection);
+
+      const ranchSection = document.createElement('section');
+      ranchSection.className = 'item-detail-section';
+      const ranchHeading = document.createElement('h4');
+      ranchHeading.textContent = 'Ranch producers';
+      ranchSection.appendChild(ranchHeading);
+      if (ranchProducers.length) {
+        const ranchList = document.createElement('div');
+        ranchList.className = 'chip-list';
+        const limit = kidMode ? Math.min(6, ranchProducers.length) : ranchProducers.length;
+        ranchProducers.slice(0, limit).forEach((name, index) => {
+          const chip = document.createElement('span');
+          chip.className = 'chip';
+          if (index === 0) chip.classList.add('highlight');
+          chip.textContent = name;
+          ranchList.appendChild(chip);
+        });
+        if (ranchProducers.length > limit) {
+          const more = document.createElement('span');
+          more.className = 'chip';
+          more.textContent = `+${ranchProducers.length - limit} more`;
+          ranchList.appendChild(more);
+        }
+        ranchSection.appendChild(ranchList);
+      } else {
+        const none = document.createElement('p');
+        none.textContent = 'No pals are confirmed to produce this item at the ranch yet.';
+        ranchSection.appendChild(none);
+      }
+      card.appendChild(ranchSection);
 
       if (Array.isArray(detail.recipe) && detail.recipe.length) {
         const recipeSection = document.createElement('section');
