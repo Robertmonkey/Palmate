@@ -14083,6 +14083,36 @@
         }
     },
     "items": {
+        "wood": {
+            "category": "Material"
+        },
+        "stone": {
+            "category": "Material"
+        },
+        "nail": {
+            "category": "Material"
+        },
+        "flour": {
+            "category": "Food"
+        },
+        "circuit_board": {
+            "category": "Technology"
+        },
+        "refined_ingot": {
+            "category": "Material"
+        },
+        "high_grade_medical_supplies": {
+            "category": "Consumable"
+        },
+        "ultra_sphere": {
+            "category": "Equipment"
+        },
+        "legendary_sphere": {
+            "category": "Equipment"
+        },
+        "sulfur": {
+            "category": "Material"
+        },
         "wool": {
             "category": "Misc"
         },

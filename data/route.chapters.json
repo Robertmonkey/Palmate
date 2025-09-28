@@ -170,7 +170,29 @@
                     "id": "ch0-stockpile",
                     "category": "Prep",
                     "text": "Stockpile 200 Wood, 200 Stone, 60 Fiber, 40 Paldium Fragments, and 5 Flame Organs before Chapter 1.",
-                    "textKid": "Collect 200 wood, 200 stone, 60 fiber, 40 paldium bits, and 5 flame organs."
+                    "textKid": "Collect 200 wood, 200 stone, 60 fiber, 40 paldium bits, and 5 flame organs.",
+                    "links": [
+                        {
+                            "type": "item",
+                            "id": "wood"
+                        },
+                        {
+                            "type": "item",
+                            "id": "stone"
+                        },
+                        {
+                            "type": "item",
+                            "id": "fiber"
+                        },
+                        {
+                            "type": "item",
+                            "id": "paldium_fragment"
+                        },
+                        {
+                            "type": "item",
+                            "id": "flame_organ"
+                        }
+                    ]
                 },
                 {
                     "id": "ch0-tip-catch-bonus",
@@ -381,7 +403,25 @@
                     "id": "ch1-stockpile",
                     "category": "Prep",
                     "text": "Stockpile 40 Ingots, 15 Nails, 20 Leather, and 20 Cloth before pushing to Chapter 2.",
-                    "textKid": "Collect 40 ingots, 15 nails, 20 leather, and 20 cloth before the next chapter."
+                    "textKid": "Collect 40 ingots, 15 nails, 20 leather, and 20 cloth before the next chapter.",
+                    "links": [
+                        {
+                            "type": "item",
+                            "id": "ingot"
+                        },
+                        {
+                            "type": "item",
+                            "id": "nail"
+                        },
+                        {
+                            "type": "item",
+                            "id": "leather"
+                        },
+                        {
+                            "type": "item",
+                            "id": "cloth"
+                        }
+                    ]
                 }
             ]
         },
@@ -664,7 +704,41 @@
                     "id": "ch2-stockpile",
                     "category": "Prep",
                     "text": "Stockpile 400 Ore, 120 Coal, 40 Leather, 20 Honey, 20 Milk, 20 Eggs, 20 Flour, and bake 5 Cakes.",
-                    "textKid": "Collect 400 ore, 120 coal, 40 leather, 20 honey, 20 milk, 20 eggs, 20 flour, and bake five cakes."
+                    "textKid": "Collect 400 ore, 120 coal, 40 leather, 20 honey, 20 milk, 20 eggs, 20 flour, and bake five cakes.",
+                    "links": [
+                        {
+                            "type": "item",
+                            "id": "ore"
+                        },
+                        {
+                            "type": "item",
+                            "id": "coal"
+                        },
+                        {
+                            "type": "item",
+                            "id": "leather"
+                        },
+                        {
+                            "type": "item",
+                            "id": "honey"
+                        },
+                        {
+                            "type": "item",
+                            "id": "milk"
+                        },
+                        {
+                            "type": "item",
+                            "id": "egg"
+                        },
+                        {
+                            "type": "item",
+                            "id": "flour"
+                        },
+                        {
+                            "type": "item",
+                            "id": "cake"
+                        }
+                    ]
                 }
             ]
         },
@@ -838,7 +912,29 @@
                     "id": "ch3-stockpile",
                     "category": "Prep",
                     "text": "Stockpile 200 Ingots, 50 Refined Ingots, 20 Polymer, 10 Circuit Boards, and 40 Carbon Fiber before Chapter 4.",
-                    "textKid": "Collect 200 ingots, 50 refined ingots, 20 polymer, 10 circuit boards, and 40 carbon fiber."
+                    "textKid": "Collect 200 ingots, 50 refined ingots, 20 polymer, 10 circuit boards, and 40 carbon fiber.",
+                    "links": [
+                        {
+                            "type": "item",
+                            "id": "ingot"
+                        },
+                        {
+                            "type": "item",
+                            "id": "refined_ingot"
+                        },
+                        {
+                            "type": "item",
+                            "id": "polymer"
+                        },
+                        {
+                            "type": "item",
+                            "id": "circuit_board"
+                        },
+                        {
+                            "type": "item",
+                            "id": "carbon_fiber"
+                        }
+                    ]
                 }
             ]
         },
@@ -937,7 +1033,21 @@
                     "id": "ch4-stockpile",
                     "category": "Prep",
                     "text": "Stockpile 50+ Ultra Spheres, favorite ammo types, and both heat and cold outfits.",
-                    "textKid": "Make 50 Ultra Spheres, gather ammo you like, and pack hot and cold outfits."
+                    "textKid": "Make 50 Ultra Spheres, gather ammo you like, and pack hot and cold outfits.",
+                    "links": [
+                        {
+                            "type": "item",
+                            "id": "ultra_sphere"
+                        },
+                        {
+                            "type": "tech",
+                            "id": "heat-resistant-metal-armor"
+                        },
+                        {
+                            "type": "tech",
+                            "id": "cold-resistant-metal-armor"
+                        }
+                    ]
                 }
             ]
         },
@@ -992,7 +1102,13 @@
                     "id": "ch5-prep-ultra-spheres",
                     "category": "Prep",
                     "text": "Carry plenty of Ultra Spheres to snag strong volcano spawns en route.",
-                    "textKid": "Bring lots of Ultra Spheres to catch strong pals on the volcano trip."
+                    "textKid": "Bring lots of Ultra Spheres to catch strong pals on the volcano trip.",
+                    "links": [
+                        {
+                            "type": "item",
+                            "id": "ultra_sphere"
+                        }
+                    ]
                 },
                 {
                     "id": "sheet-axel",
@@ -1061,7 +1177,25 @@
                     "id": "ch5-stockpile",
                     "category": "Prep",
                     "text": "Stockpile 150 Refined Ingots, 60 Polymer, 120 Carbon Fiber, and 200 Sulfur for ammo and bombs.",
-                    "textKid": "Collect 150 refined ingots, 60 polymer, 120 carbon fiber, and 200 sulfur for ammo and bombs."
+                    "textKid": "Collect 150 refined ingots, 60 polymer, 120 carbon fiber, and 200 sulfur for ammo and bombs.",
+                    "links": [
+                        {
+                            "type": "item",
+                            "id": "refined_ingot"
+                        },
+                        {
+                            "type": "item",
+                            "id": "polymer"
+                        },
+                        {
+                            "type": "item",
+                            "id": "carbon_fiber"
+                        },
+                        {
+                            "type": "item",
+                            "id": "sulfur"
+                        }
+                    ]
                 }
             ]
         },
@@ -1194,7 +1328,25 @@
                     "id": "ch6-stockpile",
                     "category": "Prep",
                     "text": "Stockpile 200 Refined Ingots, 80 Polymer, 20 Circuit Boards, and 160 Carbon Fiber for Pal Metal gear.",
-                    "textKid": "Collect 200 refined ingots, 80 polymer, 20 circuit boards, and 160 carbon fiber."
+                    "textKid": "Collect 200 refined ingots, 80 polymer, 20 circuit boards, and 160 carbon fiber.",
+                    "links": [
+                        {
+                            "type": "item",
+                            "id": "refined_ingot"
+                        },
+                        {
+                            "type": "item",
+                            "id": "polymer"
+                        },
+                        {
+                            "type": "item",
+                            "id": "circuit_board"
+                        },
+                        {
+                            "type": "item",
+                            "id": "carbon_fiber"
+                        }
+                    ]
                 }
             ]
         },
@@ -1328,7 +1480,21 @@
                     "id": "ch7-stockpile",
                     "category": "Prep",
                     "text": "Stockpile 75 Pal Metal Ingots, 200 Carbon Fiber, and 100 Polymer before Chapter 8.",
-                    "textKid": "Collect 75 Pal Metal Ingots, 200 carbon fiber, and 100 polymer."
+                    "textKid": "Collect 75 Pal Metal Ingots, 200 carbon fiber, and 100 polymer.",
+                    "links": [
+                        {
+                            "type": "item",
+                            "id": "pal_metal_ingot"
+                        },
+                        {
+                            "type": "item",
+                            "id": "carbon_fiber"
+                        },
+                        {
+                            "type": "item",
+                            "id": "polymer"
+                        }
+                    ]
                 }
             ]
         },
@@ -1421,7 +1587,21 @@
                     "id": "ch8-stockpile",
                     "category": "Prep",
                     "text": "Stockpile top-tier meds, food, Ultra/Legendary Spheres, and preferred ammo before the finale.",
-                    "textKid": "Pack best food, medicine, Ultra or Legendary Spheres, and ammo you like."
+                    "textKid": "Pack best food, medicine, Ultra or Legendary Spheres, and ammo you like.",
+                    "links": [
+                        {
+                            "type": "item",
+                            "id": "high_grade_medical_supplies"
+                        },
+                        {
+                            "type": "item",
+                            "id": "ultra_sphere"
+                        },
+                        {
+                            "type": "item",
+                            "id": "legendary_sphere"
+                        }
+                    ]
                 }
             ]
         },
