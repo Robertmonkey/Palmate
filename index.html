@@ -612,6 +612,23 @@
       object-fit: contain;
       margin-bottom: 8px;
     }
+    .item-card-art {
+      width: 100%;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .item-card-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .item-card-placeholder {
+      font-size: 2rem;
+      color: var(--accent);
+    }
     .pal-card .name, .item-card .name {
       font-size: 1rem;
       font-weight: bold;
@@ -2893,34 +2910,79 @@
       function render(filter = '') {
         list.innerHTML = '';
         const term = filter.toLowerCase();
-        Object.keys(ITEMS).sort().forEach(item => {
-          const human = item.replace(/_/g,' ');
+        Object.keys(ITEMS).sort().forEach(itemKey => {
+          const human = itemKey.replace(/_/g, ' ');
           if (!human.toLowerCase().includes(term)) return;
+
+          const detail = ITEM_DETAILS[itemKey] || {};
           const card = document.createElement('div');
           card.className = 'item-card';
-          card.dataset.itemKey = item;
-          const category = ITEMS[item].category || 'Misc';
-          card.innerHTML = `
-            <div class="name">${human}</div>
-            <div class="category">${category}</div>
-            <div class="drops">Dropped by: ${(dropsMap[item] || []).join(', ') || 'None'}</div>
-            <button class="collect-btn ${collected[item] ? 'collected' : ''}">${collected[item] ? 'Collected' : 'Collect'}</button>
-          `;
-          const btn = card.querySelector('button');
-          btn.dataset.itemKey = item;
+          card.dataset.itemKey = itemKey;
+
+          const art = document.createElement('div');
+          art.className = 'item-card-art';
+          const usePlaceholder = () => {
+            if (!art.querySelector('.item-card-placeholder')) {
+              const placeholder = document.createElement('div');
+              placeholder.className = 'item-card-placeholder';
+              placeholder.innerHTML = '<i class="fa-solid fa-box"></i>';
+              art.appendChild(placeholder);
+            }
+          };
+          const imageUrl = detail.image || ITEMS[itemKey].image || null;
+          if (imageUrl) {
+            const img = document.createElement('img');
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.alt = `${human} icon`;
+            img.referrerPolicy = 'no-referrer';
+            img.src = imageUrl;
+            img.onerror = () => {
+              img.remove();
+              usePlaceholder();
+            };
+            art.appendChild(img);
+          }
+          if (!art.hasChildNodes()) {
+            usePlaceholder();
+          }
+          card.appendChild(art);
+
+          const nameEl = document.createElement('div');
+          nameEl.className = 'name';
+          nameEl.textContent = human;
+          card.appendChild(nameEl);
+
+          const category = detail.type || ITEMS[itemKey].category || 'Misc';
+          const categoryEl = document.createElement('div');
+          categoryEl.className = 'category';
+          categoryEl.textContent = category;
+          card.appendChild(categoryEl);
+
+          const dropList = (dropsMap[itemKey] || []).join(', ') || 'None';
+          const dropsEl = document.createElement('div');
+          dropsEl.className = 'drops';
+          dropsEl.textContent = `Dropped by: ${dropList}`;
+          card.appendChild(dropsEl);
+
+          const btn = document.createElement('button');
+          btn.className = `collect-btn ${collected[itemKey] ? 'collected' : ''}`;
+          btn.textContent = collected[itemKey] ? 'Collected' : 'Collect';
+          btn.dataset.itemKey = itemKey;
           btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            collected[item] = !collected[item];
+            collected[itemKey] = !collected[itemKey];
             localStorage.setItem('collected', JSON.stringify(collected));
-            btn.classList.toggle('collected', collected[item]);
-            btn.textContent = collected[item] ? 'Collected' : 'Collect';
+            btn.classList.toggle('collected', collected[itemKey]);
+            btn.textContent = collected[itemKey] ? 'Collected' : 'Collect';
             updateProgressUI();
           });
+          card.appendChild(btn);
+
           // Clicking the card opens the item details modal.  Exclude button clicks.
           card.addEventListener('click', (e) => {
-            // Only trigger if the click target is not the button
             if (e.target.tagName.toLowerCase() === 'button') return;
-            openItemDetail(item);
+            openItemDetail(itemKey);
           });
           list.appendChild(card);
         });
@@ -2969,7 +3031,9 @@
         if (item.image) {
           const img = document.createElement('img');
           img.loading = 'lazy';
+          img.decoding = 'async';
           img.alt = `${item.name} image`;
+          img.referrerPolicy = 'no-referrer';
           img.src = item.image;
           img.onerror = () => {
             img.remove();
@@ -4977,17 +5041,29 @@
       headingWrap.className = 'item-detail-heading';
       const art = document.createElement('div');
       art.className = 'item-detail-image';
+      const renderPlaceholder = () => {
+        if (!art.querySelector('.item-detail-placeholder')) {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'item-detail-placeholder';
+          placeholder.innerHTML = '<i class="fa-solid fa-box"></i>';
+          art.appendChild(placeholder);
+        }
+      };
       if (detail.image) {
         const img = document.createElement('img');
         img.src = detail.image;
         img.alt = human;
         img.loading = 'lazy';
+        img.decoding = 'async';
+        img.referrerPolicy = 'no-referrer';
+        img.onerror = () => {
+          img.remove();
+          renderPlaceholder();
+        };
         art.appendChild(img);
-      } else {
-        const placeholder = document.createElement('div');
-        placeholder.className = 'item-detail-placeholder';
-        placeholder.innerHTML = '<i class="fa-solid fa-box"></i>';
-        art.appendChild(placeholder);
+      }
+      if (!art.hasChildNodes()) {
+        renderPlaceholder();
       }
       const meta = document.createElement('div');
       meta.className = 'item-detail-meta';
