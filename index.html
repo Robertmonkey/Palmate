@@ -168,81 +168,119 @@
     .glossary-nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin: 12px 0 20px;
+      align-items: center;
+      gap: 12px;
+      padding: 18px;
+      margin: 0 0 28px;
+      border-radius: 18px;
+      background: linear-gradient(140deg, rgba(13, 27, 42, 0.78), rgba(35, 68, 107, 0.62));
+      box-shadow: 0 18px 36px rgba(5, 15, 30, 0.45);
+      border: 1px solid rgba(119, 141, 169, 0.28);
+      backdrop-filter: blur(12px);
     }
     .glossary-nav button {
-      background: var(--secondary);
+      background: transparent;
       color: var(--text);
-      border: none;
+      border: 1px solid rgba(119, 141, 169, 0.35);
       border-radius: 999px;
-      padding: 8px 14px;
+      padding: 9px 18px;
       font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       cursor: pointer;
-      transition: background 0.2s ease, transform 0.2s ease;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.08);
     }
     .glossary-nav button:hover,
-    .glossary-nav button:focus {
-      background: var(--accent);
+    .glossary-nav button:focus-visible {
+      background: rgba(119, 141, 169, 0.16);
+      border-color: var(--accent);
       transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
       outline: none;
     }
     .glossary-section {
-      padding: 16px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      background: var(--card-bg);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+      position: relative;
+      padding: 24px;
+      margin-bottom: 32px;
+      border-radius: 22px;
+      background: linear-gradient(155deg, rgba(12, 24, 38, 0.92), rgba(20, 42, 66, 0.82));
+      box-shadow: 0 28px 48px rgba(2, 12, 24, 0.45);
+      border: 1px solid rgba(119, 141, 169, 0.25);
+      overflow: hidden;
+    }
+    .glossary-section::before {
+      content: '';
+      position: absolute;
+      inset: -120px -120px auto auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle at center, rgba(119, 141, 169, 0.18), transparent 70%);
+      opacity: 0.9;
+      pointer-events: none;
+      transform: rotate(18deg);
+    }
+    .glossary-section > * {
+      position: relative;
+      z-index: 1;
     }
     .glossary-section h3 {
       margin-top: 0;
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
     .glossary-search {
       width: 100%;
-      padding: 10px 12px;
-      margin: 12px 0 16px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(17,34,51,0.6);
+      padding: 12px 16px;
+      margin: 18px 0 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      background: rgba(9, 19, 33, 0.6);
       color: var(--text);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     }
     .glossary-search::placeholder {
-      color: var(--muted);
+      color: rgba(224, 225, 221, 0.55);
+      letter-spacing: 0.02em;
     }
     .glossary-chip-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
     .glossary-skill-grid {
       display: grid;
-      gap: 12px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
     .glossary-count {
-      margin: 0 0 12px;
-      color: var(--muted);
+      margin: 0 0 14px;
+      color: rgba(224, 225, 221, 0.75);
       font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
     .glossary-empty {
-      margin: 8px 0 0;
+      margin: 10px 0 0;
       font-style: italic;
-      color: var(--muted);
+      color: rgba(224, 225, 221, 0.6);
     }
     .chip.passive,
     .chip.move,
     .glossary-skill {
-      transition: transform 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .chip.passive:hover,
-    .chip.passive:focus,
+    .chip.passive:focus-visible,
     .chip.move:hover,
-    .chip.move:focus,
+    .chip.move:focus-visible,
     .glossary-skill:hover,
-    .glossary-skill:focus {
-      transform: translateY(-1px);
+    .glossary-skill:focus-visible {
+      transform: translateY(-2px);
       outline: none;
-      background: var(--card-hover);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
     }
     .glossary-skill {
       display: flex;
@@ -250,12 +288,18 @@
       align-items: flex-start;
       width: 100%;
       text-align: left;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 14px 16px;
-      background: rgba(14,27,42,0.8);
+      border: 1px solid rgba(119, 141, 169, 0.26);
+      border-radius: 16px;
+      padding: 18px 20px;
+      background: linear-gradient(160deg, rgba(14, 27, 42, 0.92), rgba(21, 43, 67, 0.78));
       color: inherit;
       cursor: pointer;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+    }
+    .glossary-skill:hover,
+    .glossary-skill:focus-visible {
+      border-color: var(--accent);
+      background: linear-gradient(160deg, rgba(18, 36, 56, 0.95), rgba(32, 64, 98, 0.82));
     }
     .glossary-skill__header {
       display: flex;
@@ -266,38 +310,303 @@
       margin-bottom: 6px;
     }
     .glossary-skill__name {
-      font-weight: 600;
-      font-size: 1rem;
+      font-weight: 700;
+      font-size: 1.05rem;
     }
     .glossary-skill__element {
       padding: 2px 8px;
       border-radius: 999px;
-      background: rgba(119,141,169,0.2);
+      background: rgba(119,141,169,0.25);
       font-size: 0.75rem;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      color: rgba(224, 225, 221, 0.82);
     }
     .glossary-skill__meta {
       font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 6px;
+      color: rgba(224, 225, 221, 0.7);
+      margin-bottom: 8px;
     }
     .glossary-skill__description {
-      font-size: 0.9rem;
-      line-height: 1.4;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: rgba(224, 225, 221, 0.86);
     }
     .glossary-callout {
       border-left: 4px solid var(--accent);
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: rgba(17,34,51,0.7);
-      margin-bottom: 16px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(23, 46, 68, 0.85), rgba(42, 78, 108, 0.72));
+      margin-bottom: 20px;
       font-size: 0.95rem;
+      box-shadow: inset 0 0 0 1px rgba(119, 141, 169, 0.2);
     }
     .glossary-callout strong {
       display: block;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .work-tier-legend {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 18px;
+      padding: 16px 20px;
+      margin: 0 0 24px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(17, 34, 51, 0.82), rgba(31, 58, 88, 0.7));
+      border: 1px solid rgba(119, 141, 169, 0.25);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+    .work-tier-legend__label {
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(224, 225, 221, 0.75);
+    }
+    .work-tier-legend__items {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .work-tier-legend__item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(224, 225, 221, 0.7);
+    }
+    .work-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 0 0 1px rgba(12, 24, 38, 0.6), 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+    .work-tier-badge--ss {
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      color: #1a1a1a;
+    }
+    .work-tier-badge--s {
+      background: linear-gradient(135deg, #56ccf2, #2f80ed);
+      color: #0b1a2a;
+    }
+    .work-tier-badge--a {
+      background: linear-gradient(135deg, #6be67e, #2ecc71);
+      color: #0b2214;
+    }
+    .work-tier-badge--b {
+      background: linear-gradient(135deg, #f2c94c, #f2994a);
+      color: #301b07;
+    }
+    .work-tier-badge--c {
+      background: linear-gradient(135deg, #ff758f, #a83279);
+      color: #fff;
+    }
+    .work-tier-badge--d {
+      background: linear-gradient(135deg, rgba(149, 158, 174, 0.35), rgba(96, 110, 133, 0.3));
+      color: rgba(224, 225, 221, 0.8);
+    }
+    .glossary-work-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .work-role-card {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 22px;
+      border-radius: 20px;
+      background: linear-gradient(165deg, rgba(10, 22, 37, 0.92), rgba(23, 46, 68, 0.78));
+      border: 1px solid rgba(119, 141, 169, 0.24);
+      box-shadow: 0 24px 44px rgba(0, 0, 0, 0.45);
+    }
+    .work-role-card__header {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .work-role-card__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      background: linear-gradient(135deg, rgba(224, 225, 221, 0.12), rgba(119, 141, 169, 0.18));
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.18);
+    }
+    .work-role-card__titles {
+      flex: 1;
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+    }
+    .work-role-card__name {
+      margin: 0;
+      font-size: 1.25rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .work-role-card__blurb {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: rgba(224, 225, 221, 0.72);
+    }
+    .work-pal-grid {
+      display: grid;
+      gap: 14px;
+    }
+    @media (min-width: 540px) {
+      .work-pal-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+    }
+    .work-pal-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(119, 141, 169, 0.26);
+      background: linear-gradient(155deg, rgba(15, 32, 50, 0.9), rgba(31, 58, 88, 0.75));
+      color: inherit;
+      cursor: pointer;
+      text-align: left;
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .work-pal-card:hover,
+    .work-pal-card:focus-visible {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 24px 46px rgba(0, 0, 0, 0.5);
+      outline: none;
+    }
+    .work-pal-card::after {
+      content: '';
+      position: absolute;
+      inset: -60px -60px auto auto;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle at center, rgba(119, 141, 169, 0.16), transparent 70%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    .work-pal-card__rank {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(224, 225, 221, 0.75);
+    }
+    .work-pal-card__art {
+      width: 76px;
+      height: 76px;
+      border-radius: 18px;
+      background: rgba(5, 14, 26, 0.65);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.12);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .work-pal-card__art img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+    }
+    .work-pal-card__placeholder {
+      font-size: 1.6rem;
+      color: rgba(224, 225, 221, 0.8);
+    }
+    .work-pal-card__info {
+      flex: 1;
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+    }
+    .work-pal-card__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .work-pal-card__name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .work-pal-card__skill {
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(224, 225, 221, 0.7);
+    }
+    .work-skill-meter {
+      position: relative;
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(8, 17, 30, 0.6);
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.1);
+    }
+    .work-skill-meter__fill {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), rgba(119, 141, 169, 0.85));
+      transition: width 0.4s ease;
+    }
+    .work-pal-card__empty {
+      font-size: 0.9rem;
+      color: rgba(224, 225, 221, 0.6);
+    }
+    .work-pal-empty {
+      font-size: 0.9rem;
+      color: rgba(224, 225, 221, 0.7);
+      font-style: italic;
+    }
+    body.kid-mode .glossary-nav button {
+      font-size: 0.95rem;
+      padding: 12px 20px;
+    }
+    body.kid-mode .glossary-section h3 {
+      font-size: 1.8rem;
+    }
+    body.kid-mode .glossary-search {
       font-size: 1rem;
-      margin-bottom: 4px;
+    }
+    body.kid-mode .work-role-card__name {
+      font-size: 1.4rem;
+    }
+    body.kid-mode .work-role-card__blurb {
+      font-size: 1.05rem;
+    }
+    body.kid-mode .work-pal-card__name {
+      font-size: 1.15rem;
+    }
+    body.kid-mode .work-pal-card__skill {
+      font-size: 0.95rem;
     }
     .page-header {
       display: flex;
@@ -5394,27 +5703,210 @@
         ? 'These jobs tell you what pals can help with at base.'
         : 'Use these notes to decide which pals to station at each production line.';
       const workSection = createSection('glossary-work', 'Work Suitabilities', workDescription);
-      const workList = document.createElement('ul');
-      const workEntries = [
-        { name: 'Kindling', desc: 'Lights furnaces, cooking pots and heaters so crafting stays on schedule.' },
-        { name: 'Watering', desc: 'Keeps berry plantations, mill wheels and condensers supplied with water.' },
-        { name: 'Planting', desc: 'Sows seeds in your fields and refills ranch plots automatically.' },
-        { name: 'Electricity', desc: 'Generates power for batteries, assembly lines and refrigerators.' },
-        { name: 'Handiwork', desc: 'Builds structures, crafts gear and assists with any construction queue.' },
-        { name: 'Gathering', desc: 'Picks up dropped items around base and hauls them to nearby chests.' },
-        { name: 'Lumbering', desc: 'Cuts logs at the logging site and processes wood for crafting.' },
-        { name: 'Mining', desc: 'Breaks ore nodes and keeps refining stations stocked with stone and ingots.' },
-        { name: 'Medicine', desc: 'Brews medical supplies at the workbench and treats sick pals faster.' },
-        { name: 'Cooling', desc: 'Runs refrigerators, air conditioners and ice workbenches.' },
-        { name: 'Transporting', desc: 'Moves materials between stations and storage so production never stalls.' },
-        { name: 'Farming', desc: 'Produces rare drops like milk, wool and eggs while stationed at the ranch.' }
-      ];
-      workEntries.forEach(entry => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${escapeHTML(entry.name)}:</strong> ${escapeHTML(entry.desc)}`;
-        workList.appendChild(li);
+      const workLevelLabels = {
+        5: kidMode ? 'Mythic helper' : 'Mythic specialist',
+        4: kidMode ? 'Master helper' : 'Master specialist',
+        3: kidMode ? 'Elite helper' : 'Expert artisan',
+        2: kidMode ? 'Trained helper' : 'Skilled worker',
+        1: kidMode ? 'Rookie helper' : 'Apprentice',
+        0: kidMode ? 'Needs practice' : 'Untrained'
+      };
+
+      const tierLookup = {
+        5: { badge: 'SS', className: 'work-tier-badge work-tier-badge--ss' },
+        4: { badge: 'S', className: 'work-tier-badge work-tier-badge--s' },
+        3: { badge: 'A', className: 'work-tier-badge work-tier-badge--a' },
+        2: { badge: 'B', className: 'work-tier-badge work-tier-badge--b' },
+        1: { badge: 'C', className: 'work-tier-badge work-tier-badge--c' },
+        0: { badge: '—', className: 'work-tier-badge work-tier-badge--d' }
+      };
+
+      const tierLegend = document.createElement('div');
+      tierLegend.className = 'work-tier-legend';
+      const tierLegendLabel = document.createElement('span');
+      tierLegendLabel.className = 'work-tier-legend__label';
+      tierLegendLabel.textContent = kidMode
+        ? 'Badges show how strong a pal is at the job:'
+        : 'Tier badges convert work levels at a glance:';
+      tierLegend.appendChild(tierLegendLabel);
+      const tierLegendItems = document.createElement('div');
+      tierLegendItems.className = 'work-tier-legend__items';
+      [4, 3, 2, 1].forEach(level => {
+        const tierInfo = tierLookup[level];
+        if (!tierInfo) return;
+        const item = document.createElement('span');
+        item.className = 'work-tier-legend__item';
+        const badge = document.createElement('span');
+        badge.className = tierInfo.className;
+        badge.textContent = tierInfo.badge;
+        const text = document.createElement('span');
+        text.textContent = `${kidMode ? 'Level' : 'Level'} ${level} • ${workLevelLabels[level]}`;
+        item.appendChild(badge);
+        item.appendChild(text);
+        tierLegendItems.appendChild(item);
       });
-      workSection.appendChild(workList);
+      if (tierLegendItems.childElementCount) {
+        tierLegend.appendChild(tierLegendItems);
+        workSection.appendChild(tierLegend);
+      }
+
+      const allPals = Object.values(PALS || {});
+      let highestWorkLevel = 0;
+      allPals.forEach(pal => {
+        const work = pal?.work || {};
+        Object.values(work).forEach(val => {
+          if (typeof val === 'number' && val > highestWorkLevel) {
+            highestWorkLevel = val;
+          }
+        });
+      });
+      if (!highestWorkLevel) {
+        highestWorkLevel = 4;
+      }
+
+      function getWorkLevel(pal, keys) {
+        const work = pal?.work || {};
+        return keys.reduce((max, key) => {
+          const value = work?.[key] ?? 0;
+          return typeof value === 'number' && value > max ? value : max;
+        }, 0);
+      }
+
+      function findTopPals(keys) {
+        return allPals
+          .map(pal => ({ pal, level: getWorkLevel(pal, keys) }))
+          .filter(item => item.level > 0 && item.pal && item.pal.name)
+          .sort((a, b) => {
+            if (b.level !== a.level) return b.level - a.level;
+            return (a.pal.name || '').localeCompare(b.pal.name || '', undefined, { sensitivity: 'base' });
+          })
+          .slice(0, 5);
+      }
+
+      function getTierInfo(level) {
+        if (level >= 5 && tierLookup[5]) return tierLookup[5];
+        if (level >= 4) return tierLookup[4];
+        if (level >= 3) return tierLookup[3];
+        if (level >= 2) return tierLookup[2];
+        if (level >= 1) return tierLookup[1];
+        return tierLookup[0];
+      }
+
+      function getWorkLabel(level) {
+        if (level > 0) {
+          const descriptor = workLevelLabels[level] != null
+            ? workLevelLabels[level]
+            : (kidMode ? 'Trusted helper' : 'Seasoned worker');
+          return `${kidMode ? 'Level' : 'Level'} ${level} • ${descriptor}`;
+        }
+        return workLevelLabels[0];
+      }
+
+      const workEntries = [
+        { id: 'kindling', name: 'Kindling', icon: '🔥', keys: ['kindling'], desc: 'Lights furnaces, cooking pots and heaters so crafting stays on schedule.' },
+        { id: 'watering', name: 'Watering', icon: '💧', keys: ['watering'], desc: 'Keeps berry plantations, mill wheels and condensers supplied with water.' },
+        { id: 'planting', name: 'Planting', icon: '🌱', keys: ['planting'], desc: 'Sows seeds in your fields and refills ranch plots automatically.' },
+        { id: 'electricity', name: 'Electricity', icon: '⚡', keys: ['generating_electricity', 'electricity'], desc: 'Generates power for batteries, assembly lines and refrigerators.' },
+        { id: 'handiwork', name: 'Handiwork', icon: '🛠️', keys: ['handiwork'], desc: 'Builds structures, crafts gear and assists with any construction queue.' },
+        { id: 'gathering', name: 'Gathering', icon: '🎒', keys: ['gathering'], desc: 'Picks up dropped items around base and hauls them to nearby chests.' },
+        { id: 'lumbering', name: 'Lumbering', icon: '🪓', keys: ['lumbering'], desc: 'Cuts logs at the logging site and processes wood for crafting.' },
+        { id: 'mining', name: 'Mining', icon: '⛏️', keys: ['mining'], desc: 'Breaks ore nodes and keeps refining stations stocked with stone and ingots.' },
+        { id: 'medicine', name: 'Medicine', icon: '💊', keys: ['medicine_production', 'medicine'], desc: 'Brews medical supplies at the workbench and treats sick pals faster.' },
+        { id: 'cooling', name: 'Cooling', icon: '❄️', keys: ['cooling'], desc: 'Runs refrigerators, air conditioners and ice workbenches.' },
+        { id: 'transporting', name: 'Transporting', icon: '📦', keys: ['transporting'], desc: 'Moves materials between stations and storage so production never stalls.' },
+        { id: 'farming', name: 'Farming', icon: '🐑', keys: ['farming'], desc: 'Produces rare drops like milk, wool and eggs while stationed at the ranch.' }
+      ];
+
+      const workGrid = document.createElement('div');
+      workGrid.className = 'glossary-work-grid';
+
+      workEntries.forEach(entry => {
+        const card = document.createElement('article');
+        card.className = 'work-role-card';
+        card.id = `work-${entry.id}`;
+
+        const header = document.createElement('header');
+        header.className = 'work-role-card__header';
+
+        const icon = document.createElement('span');
+        icon.className = 'work-role-card__icon';
+        icon.textContent = entry.icon || '⭐';
+        icon.setAttribute('aria-hidden', 'true');
+        header.appendChild(icon);
+
+        const titles = document.createElement('div');
+        titles.className = 'work-role-card__titles';
+
+        const title = document.createElement('h4');
+        title.className = 'work-role-card__name';
+        title.textContent = entry.name;
+        titles.appendChild(title);
+
+        const blurb = document.createElement('p');
+        blurb.className = 'work-role-card__blurb';
+        blurb.textContent = entry.desc;
+        titles.appendChild(blurb);
+
+        header.appendChild(titles);
+        card.appendChild(header);
+
+        const palGrid = document.createElement('div');
+        palGrid.className = 'work-pal-grid';
+
+        const topPals = findTopPals(entry.keys);
+        if (!topPals.length) {
+          const emptyState = document.createElement('p');
+          emptyState.className = 'work-pal-empty';
+          emptyState.textContent = kidMode
+            ? 'No pals recorded yet.'
+            : 'No pals currently specialise in this task.';
+          palGrid.appendChild(emptyState);
+        } else {
+          topPals.forEach((item, index) => {
+            const { pal, level } = item;
+            const palId = pal.id || pal.key || '';
+            const palName = pal.name || 'Unknown Pal';
+            const tierInfo = getTierInfo(level);
+            const label = getWorkLabel(level);
+            const normalizedWidth = Math.min(100, Math.max(0, (level / Math.max(1, highestWorkLevel)) * 100));
+            const art = pal.localImage || pal.image || '';
+            const initial = (palName || '?').trim().charAt(0) || '?';
+
+            const cardBtn = document.createElement('button');
+            cardBtn.type = 'button';
+            cardBtn.className = 'work-pal-card';
+            cardBtn.dataset.palId = palId;
+            cardBtn.dataset.workRole = entry.id;
+            cardBtn.dataset.workLevel = String(level);
+            cardBtn.setAttribute('aria-label', `${palName} ${label}`);
+            cardBtn.title = `${palName} — ${label}`;
+            cardBtn.innerHTML = `
+              <span class="work-pal-card__rank">#${index + 1}</span>
+              <span class="work-pal-card__art">
+                ${art
+                  ? `<img src="${escapeHTML(art)}" alt="${escapeHTML(palName)}" loading="lazy">`
+                  : `<span class="work-pal-card__placeholder">${escapeHTML(initial)}</span>`}
+              </span>
+              <span class="work-pal-card__info">
+                <span class="work-pal-card__head">
+                  <span class="work-pal-card__name">${escapeHTML(palName)}</span>
+                  <span class="${tierInfo.className}">${escapeHTML(tierInfo.badge)}</span>
+                </span>
+                <span class="work-pal-card__skill">${escapeHTML(label)}</span>
+                <span class="work-skill-meter" aria-hidden="true">
+                  <span class="work-skill-meter__fill" style="width: ${normalizedWidth.toFixed(0)}%;"></span>
+                </span>
+              </span>
+            `;
+            palGrid.appendChild(cardBtn);
+          });
+        }
+
+        card.appendChild(palGrid);
+        workGrid.appendChild(card);
+      });
+
+      workSection.appendChild(workGrid);
 
       if (!container.dataset.listenerBound) {
         container.addEventListener('click', (e) => {
@@ -5423,6 +5915,12 @@
             e.preventDefault();
             const trait = passiveBtn.dataset.trait;
             showTraitDetail(trait);
+            return;
+          }
+          const workPalCard = e.target.closest('.work-pal-card');
+          if (workPalCard && workPalCard.dataset.palId) {
+            e.preventDefault();
+            showPalDetail(workPalCard.dataset.palId);
             return;
           }
           const moveBtn = e.target.closest('.glossary-skill');
