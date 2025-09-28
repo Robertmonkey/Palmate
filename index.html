@@ -2713,21 +2713,57 @@
       return candidate;
     }
 
+    function getPalOnlineArtSource(pal) {
+      if (!pal) return null;
+      const remote = typeof pal.image === 'string' ? pal.image.trim() : '';
+      if (!remote) return null;
+      return remote;
+    }
+
     function applyPalArtwork(img, pal, { alt } = {}) {
       if (!img) return;
-      const fallback = getPalIconSource(pal);
-      const art = getPalArtSource(pal) || fallback;
+      const sources = [];
+      const localArt = getPalArtSource(pal);
+      if (localArt) sources.push(localArt);
+      const onlineArt = getPalOnlineArtSource(pal);
+      if (onlineArt && !sources.includes(onlineArt)) {
+        sources.push(onlineArt);
+      }
+      const iconFallback = getPalIconSource(pal);
+      if (iconFallback && !sources.includes(iconFallback)) {
+        sources.push(iconFallback);
+      }
+      let attemptIndex = 0;
+      function tryNextSource() {
+        while (attemptIndex < sources.length) {
+          const candidate = sources[attemptIndex++];
+          if (!candidate) continue;
+          if (/^https?:/i.test(candidate)) {
+            img.referrerPolicy = img.referrerPolicy || 'no-referrer';
+          } else if (img.referrerPolicy) {
+            img.removeAttribute('referrerpolicy');
+          }
+          img.src = candidate;
+          return;
+        }
+        img.removeEventListener('error', handleError);
+      }
+      function handleError() {
+        if (attemptIndex < sources.length) {
+          tryNextSource();
+        } else {
+          img.removeEventListener('error', handleError);
+        }
+      }
       img.loading = img.loading || 'lazy';
       img.decoding = img.decoding || 'async';
-      img.src = art;
       if (alt !== undefined) {
         img.alt = alt;
       } else if (!img.alt || img.alt === '') {
         img.alt = pal && pal.name ? `${pal.name} artwork` : 'Pal artwork';
       }
-      img.addEventListener('error', () => {
-        img.src = fallback;
-      }, { once: true });
+      img.addEventListener('error', handleError);
+      tryNextSource();
     }
 
     // Audio cues for a more immersive UI.  Users can add their own sound files
