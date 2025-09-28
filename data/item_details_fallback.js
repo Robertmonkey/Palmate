@@ -75,7 +75,10 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "recipe": [],
     "image": "https://static.wikia.nocookie.net/palworld/images/8/80/Bone_icon.png/revision/latest?cb=20240405194033",
     "fromPalworld": false,
-    "source": "Palworld Fandom"
+    "source": "Palworld Fandom",
+    "ranchProducers": [
+      "Sootseer"
+    ]
   },
   "broncherry_meat": {
     "name": "Broncherry Meat",
@@ -174,7 +177,10 @@ window.__PALMATE_ITEM_DETAILS__ = {
     ],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Cloth.png",
     "fromPalworld": true,
-    "source": "Palworld.gg"
+    "source": "Palworld.gg",
+    "ranchProducers": [
+      "Sibelyx"
+    ]
   },
   "coal": {
     "name": "Coal",
@@ -218,7 +224,10 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "recipe": [],
     "image": "https://static.wikia.nocookie.net/palworld/images/5/50/Cotton_Candy_icon.png/revision/latest?cb=20240123202202",
     "fromPalworld": false,
-    "source": "Palworld Fandom"
+    "source": "Palworld Fandom",
+    "ranchProducers": [
+      "Woolipop"
+    ]
   },
   "diamond": {
     "name": "Diamond",
@@ -248,7 +257,10 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "recipe": [],
     "image": "https://static.wikia.nocookie.net/palworld/images/e/ef/Egg_icon.png/revision/latest?cb=20240121070416",
     "fromPalworld": false,
-    "source": "Palworld Fandom"
+    "source": "Palworld Fandom",
+    "ranchProducers": [
+      "Chikipi"
+    ]
   },
   "eikthyrdeer_venison": {
     "name": "Eikthyrdeer Venison",
@@ -329,7 +341,11 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "recipe": [],
     "image": "https://static.wikia.nocookie.net/palworld/images/3/31/Flame_Organ_icon.png/revision/latest?cb=20240121070828",
     "fromPalworld": false,
-    "source": "Palworld Fandom"
+    "source": "Palworld Fandom",
+    "ranchProducers": [
+      "Flambelle",
+      "Kelpsea Ignis"
+    ]
   },
   "galeclaw_poultry": {
     "name": "Galeclaw Poultry",
@@ -367,7 +383,11 @@ window.__PALMATE_ITEM_DETAILS__ = {
     ],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Money.png",
     "fromPalworld": true,
-    "source": "Palworld.gg"
+    "source": "Palworld.gg",
+    "ranchProducers": [
+      "Mau",
+      "Mau Cryst"
+    ]
   },
   "gumoss_leaf": {
     "name": "Gumoss Leaf",
@@ -451,7 +471,10 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "recipe": [],
     "image": "https://static.wikia.nocookie.net/palworld/images/5/52/High_Quality_Pal_Oil_icon.png/revision/latest?cb=20240123145948",
     "fromPalworld": false,
-    "source": "Palworld Fandom"
+    "source": "Palworld Fandom",
+    "ranchProducers": [
+      "Dumud"
+    ]
   },
   "honey": {
     "name": "Honey",
@@ -466,7 +489,10 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "recipe": [],
     "image": "https://static.wikia.nocookie.net/palworld/images/0/02/Honey_icon.png/revision/latest?cb=20240121074134",
     "fromPalworld": false,
-    "source": "Palworld Fandom"
+    "source": "Palworld Fandom",
+    "ranchProducers": [
+      "Beegarde"
+    ]
   },
   "horn": {
     "name": "Horn",
@@ -678,7 +704,10 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "recipe": [],
     "image": "https://static.wikia.nocookie.net/palworld/images/5/53/Milk_icon.png/revision/latest?cb=20240405193734",
     "fromPalworld": false,
-    "source": "Palworld Fandom"
+    "source": "Palworld Fandom",
+    "ranchProducers": [
+      "Mozzarina"
+    ]
   },
   "mozzarina_meat": {
     "name": "Mozzarina Meat",
@@ -740,7 +769,10 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "recipe": [],
     "image": "https://static.wikia.nocookie.net/palworld/images/e/e8/Pal_Fluids_icon.png/revision/latest?cb=20240121071006",
     "fromPalworld": false,
-    "source": "Palworld Fandom"
+    "source": "Palworld Fandom",
+    "ranchProducers": [
+      "Kelpsea"
+    ]
   },
   "pal_metal_ingot": {
     "name": "Pal Metal Ingot",
@@ -876,7 +908,10 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "recipe": [],
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Berries.png",
     "fromPalworld": true,
-    "source": "Palworld.gg"
+    "source": "Palworld.gg",
+    "ranchProducers": [
+      "Caprity"
+    ]
   },
   "reindrix_venison": {
     "name": "Reindrix Venison",
@@ -1088,7 +1123,10 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "recipe": [],
     "image": "https://static.wikia.nocookie.net/palworld/images/0/00/Venom_Gland_icon.png/revision/latest?cb=20240121071045",
     "fromPalworld": false,
-    "source": "Palworld Fandom"
+    "source": "Palworld Fandom",
+    "ranchProducers": [
+      "Caprity Noct"
+    ]
   },
   "wheat_seeds": {
     "name": "Wheat Seeds",
@@ -1117,6 +1155,11 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "recipe": [],
     "image": "https://static.wikia.nocookie.net/palworld/images/b/b5/Wool_icon.png/revision/latest?cb=20240121050351",
     "fromPalworld": false,
-    "source": "Palworld Fandom"
+    "source": "Palworld Fandom",
+    "ranchProducers": [
+      "Lamball",
+      "Cremis",
+      "Melpaca"
+    ]
   }
 };
