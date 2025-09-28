@@ -40,6 +40,8 @@
       --muted: rgba(224,225,221,0.7);
       --danger: #e76f51;
       --success: #2a9d8f;
+      --layout-max-width: 1200px;
+      --layout-page-padding: clamp(16px, 3vw, 32px);
     }
     * {
       box-sizing: border-box;
@@ -59,8 +61,9 @@
     body {
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      min-height: 100dvh;
       overflow-x: hidden;
+      line-height: 1.6;
     }
     /* Remove the old #app layout (previously used for sidebar).  The
        content area now sits below the navbar and fills the remaining
@@ -71,26 +74,79 @@
       top: 0;
       z-index: 10;
       background: var(--primary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      width: 100%;
+    }
+    #navbar .nav-shell {
+      --navbar-padding-block: clamp(10px, 2vw, 18px);
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 10px;
-      padding-top: calc(env(safe-area-inset-top, 0px) + 8px);
-      min-height: 60px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      gap: 12px;
+      width: min(100%, var(--layout-max-width));
+      margin: 0 auto;
+      padding-inline: clamp(12px, 3vw, 28px);
+      padding-block: var(--navbar-padding-block);
+      padding-block-start: calc(env(safe-area-inset-top, 0px) + var(--navbar-padding-block));
     }
-    #navbar::-webkit-scrollbar {
-      display: none;
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
     }
     #navbar .logo {
       font-size: 1.4rem;
       font-weight: bold;
       letter-spacing: 1px;
-      margin-right: 12px;
       flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1 1 auto;
+      flex-wrap: wrap;
+      row-gap: 6px;
+      min-width: 0;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+      flex: 0 0 auto;
+    }
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: rgba(14, 32, 52, 0.35);
+      color: var(--text);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .nav-toggle:hover,
+    .nav-toggle:focus-visible {
+      color: var(--accent);
+      border-color: rgba(224, 225, 221, 0.25);
+      background: rgba(14, 32, 52, 0.5);
+      outline: none;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
     #navbar .nav-item {
       border: none;
@@ -119,7 +175,6 @@
 
     /* Mode toggle button styling */
     .mode-btn {
-      margin-left: auto;
       background: none;
       border: none;
       color: var(--text);
@@ -131,6 +186,53 @@
     }
     .mode-btn:hover {
       color: var(--accent);
+    }
+
+    @media (max-width: 720px) {
+      #navbar .nav-shell {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .nav-brand {
+        justify-content: space-between;
+      }
+      .nav-actions {
+        width: 100%;
+        justify-content: flex-end;
+        margin-left: 0;
+      }
+      .nav-toggle {
+        display: inline-flex;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 12px;
+        border-radius: 14px;
+        border-top: 1px solid rgba(224, 225, 221, 0.08);
+        background: rgba(13, 27, 42, 0.85);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      }
+      #navbar[data-open="true"] .nav-shell {
+        gap: 16px;
+      }
+      #navbar[data-open="true"] .nav-links {
+        display: flex;
+        max-height: 600px;
+        padding-top: 8px;
+        padding-bottom: 12px;
+        box-shadow: 0 18px 36px rgba(5, 15, 30, 0.45);
+        border-top-color: rgba(224, 225, 221, 0.2);
+      }
+      .nav-links .nav-item {
+        width: 100%;
+        justify-content: flex-start;
+      }
     }
 
     /* Kid mode adjustments: larger targets and font sizes, simplified cards */
@@ -156,14 +258,22 @@
        navbar.  We add a top margin equal to the navbar height to
        ensure the content does not scroll underneath it. */
     #content {
-      padding: 20px;
-      margin-top: 20px;
+      flex: 1 1 auto;
+      width: 100%;
+      max-width: var(--layout-max-width);
+      margin-inline: auto;
+      margin-block: clamp(12px, 2vw, 24px) clamp(36px, 6vw, 72px);
+      padding: var(--layout-page-padding);
     }
     .page {
       display: none;
     }
     .page.active {
       display: block;
+    }
+    .page > p {
+      max-width: 68ch;
+      margin-bottom: 24px;
     }
     .glossary-nav {
       display: flex;
@@ -253,7 +363,7 @@
     .glossary-skill-grid {
       display: grid;
       gap: 16px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
     .glossary-count {
       margin: 0 0 14px;
@@ -420,7 +530,7 @@
     .glossary-work-grid {
       display: grid;
       gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
     .work-role-card {
       display: flex;
@@ -612,7 +722,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
     }
 
     @media (max-width: 900px) {
@@ -626,15 +738,12 @@
     }
 
     @media (max-width: 600px) {
-      #navbar {
-        gap: 6px;
-      }
-      #navbar .logo {
-        font-size: 1.1rem;
-        margin-right: 8px;
+      .nav-brand .logo {
+        font-size: 1.15rem;
       }
       #content {
-        padding: 16px 12px 24px;
+        padding: clamp(16px, 6vw, 28px);
+        margin-block: clamp(10px, 2vw, 18px) clamp(28px, 7vw, 60px);
       }
       .page-header {
         flex-direction: column;
@@ -654,8 +763,8 @@
     }
 
     @media (max-width: 480px) {
-      #navbar {
-        gap: 4px;
+      .nav-brand .logo {
+        font-size: 1.05rem;
       }
       #navbar .nav-item {
         padding: 8px 10px;
@@ -665,7 +774,7 @@
         font-size: 1rem;
       }
       #content {
-        padding: 14px 10px 20px;
+        padding: clamp(14px, 7vw, 24px);
       }
       .card-grid {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -1204,9 +1313,34 @@
     body.kid-mode .external-embed .embed-summary {
       font-size: 1rem;
     }
+    .map-iframe-wrapper {
+      width: 100%;
+      height: clamp(320px, 70vh, 720px);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 1px solid rgba(119, 141, 169, 0.3);
+      box-shadow: 0 18px 36px rgba(5, 15, 30, 0.45);
+      background: #000;
+    }
+    .map-iframe-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    #mapLayers {
+      margin-bottom: 12px;
+    }
+    @media (max-width: 600px) {
+      .map-iframe-wrapper {
+        height: clamp(260px, 60vh, 480px);
+        border-radius: 14px;
+      }
+    }
     .external-embed .embed-frame {
       width: 100%;
-      min-height: 70vh;
+      min-height: clamp(320px, 65vh, 640px);
       border: none;
       border-radius: 10px;
       background: #fff;
@@ -1709,7 +1843,7 @@
     .tech-columns {
       display: grid;
       gap: 18px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
     .tech-column {
       display: flex;
@@ -2077,7 +2211,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 14px;
-      max-height: 420px;
+      max-height: clamp(280px, 60vh, 420px);
       overflow-y: auto;
       padding: 12px;
       border-radius: 16px;
@@ -2292,7 +2426,7 @@
         padding: 20px 18px;
       }
       .pal-grid {
-        max-height: 320px;
+        max-height: clamp(240px, 55vh, 360px);
       }
       .breeding-tabs {
         width: 100%;
@@ -3024,28 +3158,40 @@
        present a horizontal bar across the top of the page.  Each button
        contains an icon and label.  The active tab is highlighted
        via a coloured underline defined in CSS. -->
-  <nav id="navbar">
-    <div class="logo">Pal Marathon</div>
-    <!-- Navigation items.  We add Home, Map, Route and Glossary to
-         provide quick access to all major sections of the app.  The
-         first item (Home) is active by default.  Icons chosen via
-         Font Awesome provide an intuitive visual cue for each tab. -->
-    <button class="nav-item active" data-page="home"><i class="fa-solid fa-house"></i><span>Home</span></button>
-    <button class="nav-item" data-page="pals"><i class="fa-solid fa-paw"></i><span>Pals</span></button>
-    <button class="nav-item" data-page="map"><i class="fa-solid fa-map"></i><span>Map</span></button>
-    <button class="nav-item" data-page="route"><i class="fa-solid fa-road"></i><span>Route</span></button>
-    <button class="nav-item" data-page="tech"><i class="fa-solid fa-cog"></i><span>Tech</span></button>
-    <button class="nav-item" data-page="base"><i class="fa-solid fa-helmet-safety"></i><span>Base</span></button>
-    <button class="nav-item" data-page="items"><i class="fa-solid fa-box"></i><span>Items</span></button>
-    <button class="nav-item" data-page="glossary"><i class="fa-solid fa-book-open"></i><span>Glossary</span></button>
-    <button class="nav-item" data-page="breeding"><i class="fa-solid fa-egg"></i><span>Breeding</span></button>
-    <button class="nav-item" data-page="progress"><i class="fa-solid fa-chart-line"></i><span>Progress</span></button>
-    <!-- Mode toggle button sits on the far right.  Clicking it
-         switches between Kid Mode (simplified UI) and Grown‑up
-         Mode (full details).  The icon updates accordingly. -->
-    <button id="modeToggle" class="mode-btn" title="Switch to grown-up mode"><i class="fa-solid fa-child"></i></button>
+  <nav id="navbar" data-open="false" aria-label="Primary navigation">
+    <div class="nav-shell">
+      <div class="nav-brand">
+        <button type="button" id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navbarLinks" aria-label="Open navigation menu">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="logo">Pal Marathon</div>
+      </div>
+      <!-- Navigation items.  We add Home, Map, Route and Glossary to
+           provide quick access to all major sections of the app.  The
+           first item (Home) is active by default.  Icons chosen via
+           Font Awesome provide an intuitive visual cue for each tab. -->
+      <div id="navbarLinks" class="nav-links">
+        <button type="button" class="nav-item active" data-page="home"><i class="fa-solid fa-house"></i><span>Home</span></button>
+        <button type="button" class="nav-item" data-page="pals"><i class="fa-solid fa-paw"></i><span>Pals</span></button>
+        <button type="button" class="nav-item" data-page="map"><i class="fa-solid fa-map"></i><span>Map</span></button>
+        <button type="button" class="nav-item" data-page="route"><i class="fa-solid fa-road"></i><span>Route</span></button>
+        <button type="button" class="nav-item" data-page="tech"><i class="fa-solid fa-cog"></i><span>Tech</span></button>
+        <button type="button" class="nav-item" data-page="base"><i class="fa-solid fa-helmet-safety"></i><span>Base</span></button>
+        <button type="button" class="nav-item" data-page="items"><i class="fa-solid fa-box"></i><span>Items</span></button>
+        <button type="button" class="nav-item" data-page="glossary"><i class="fa-solid fa-book-open"></i><span>Glossary</span></button>
+        <button type="button" class="nav-item" data-page="breeding"><i class="fa-solid fa-egg"></i><span>Breeding</span></button>
+        <button type="button" class="nav-item" data-page="progress"><i class="fa-solid fa-chart-line"></i><span>Progress</span></button>
+      </div>
+      <!-- Mode toggle button sits on the far right.  Clicking it
+           switches between Kid Mode (simplified UI) and Grown‑up
+           Mode (full details).  The icon updates accordingly. -->
+      <div class="nav-actions">
+        <button type="button" id="modeToggle" class="mode-btn" title="Switch to grown-up mode"><i class="fa-solid fa-child"></i></button>
+      </div>
+    </div>
   </nav>
-  <div id="content">
+  <main id="content" role="main">
       <!-- Home page -->
       <section id="homePage" class="page active">
         <header class="page-header">
@@ -3076,10 +3222,10 @@
           <h2>Map</h2>
         </header>
         <p>Explore Palpagos! Toggle layers to highlight points of interest. Open the interactive map for detailed navigation.</p>
-        <div id="mapLayers" style="margin-bottom:10px;"></div>
+        <div id="mapLayers"></div>
         <!-- Interactive map iframe: embed the palworld.gg map directly in the app with a larger viewing window. -->
-        <div id="interactiveMapWrapper" style="width:100%; height:75vh; min-height:600px; border-radius:8px; overflow:hidden; margin-bottom:12px;">
-          <iframe id="mapIframe" src="https://palworld.gg/map" style="width:100%; height:100%; border:none;" title="Palworld Interactive Map"></iframe>
+        <div id="interactiveMapWrapper" class="map-iframe-wrapper">
+          <iframe id="mapIframe" src="https://palworld.gg/map" title="Palworld Interactive Map" loading="lazy"></iframe>
         </div>
       </section>
       <!-- Route page -->
@@ -3245,8 +3391,7 @@
         <p>Browse every passive trait, active skill, element matchup and work task in one place. Use the quick links and search boxes below to jump right to what you need.</p>
         <div id="glossaryContent"></div>
       </section>
-    </div>
-  </div>
+  </main>
   <!-- Modal for pal details -->
   <div id="modal">
     <div id="modalContent">
@@ -4376,13 +4521,76 @@
     }
     // Navigation handling: top nav bar.  Each .nav-item button
     // switches to its associated page when clicked.  After the
-    // switch, we play a click sound.
-    document.querySelectorAll('#navbar .nav-item').forEach(btn => {
+    // switch, we play a click sound.  On small screens the nav
+    // collapses into a menu controlled by #navToggle.
+    const navElement = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navItems = Array.from(document.querySelectorAll('#navbar .nav-item'));
+    const navMobileQuery = window.matchMedia ? window.matchMedia('(max-width: 720px)') : { matches: false };
+    const navToggleIcon = navToggle ? navToggle.querySelector('i') : null;
+
+    function setNavOpen(desired) {
+      if (!navElement || !navToggle) return;
+      const open = !!desired;
+      navElement.dataset.open = open ? 'true' : 'false';
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      if (navToggleIcon) {
+        navToggleIcon.classList.toggle('fa-bars', !open);
+        navToggleIcon.classList.toggle('fa-xmark', open);
+      }
+    }
+
+    function collapseNavIfMobile() {
+      if (navToggle && navMobileQuery.matches) {
+        setNavOpen(false);
+      }
+    }
+
+    setNavOpen(false);
+
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navElement?.dataset.open === 'true';
+        setNavOpen(!isOpen);
+      });
+      document.addEventListener('click', event => {
+        if (!navElement || navElement.dataset.open !== 'true' || !navMobileQuery.matches) return;
+        if (!navElement.contains(event.target)) {
+          setNavOpen(false);
+        }
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && navElement?.dataset.open === 'true') {
+          setNavOpen(false);
+          navToggle.focus();
+        }
+      });
+      const navBreakpointHandler = event => {
+        if (!event.matches) {
+          setNavOpen(false);
+        }
+      };
+      if (typeof navMobileQuery.addEventListener === 'function') {
+        navMobileQuery.addEventListener('change', navBreakpointHandler);
+      } else if (typeof navMobileQuery.addListener === 'function') {
+        navMobileQuery.addListener(navBreakpointHandler);
+      }
+    }
+
+    navItems.forEach(btn => {
       btn.addEventListener('click', () => {
         const target = btn.getAttribute('data-page');
         switchPage(target);
         playSound(clickSound);
+        collapseNavIfMobile();
       });
+    });
+
+    navItems.forEach(btn => {
+      if (btn.classList.contains('active')) {
+        btn.setAttribute('aria-current', 'page');
+      }
     });
 
     function refreshModeUI() {
@@ -4477,8 +4685,14 @@
       const activePage = document.getElementById(page + 'Page');
       if (activePage) activePage.classList.add('active');
       // Update navigation item active state
-      document.querySelectorAll('#navbar .nav-item').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-page') === page);
+      navItems.forEach(btn => {
+        const isActive = btn.getAttribute('data-page') === page;
+        btn.classList.toggle('active', isActive);
+        if (isActive) {
+          btn.setAttribute('aria-current', 'page');
+        } else {
+          btn.removeAttribute('aria-current');
+        }
       });
     }
     // Modal controls
