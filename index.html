@@ -2902,6 +2902,7 @@
             btn.classList.toggle('caught', caught[pal.id]);
             btn.textContent = caught[pal.id] ? 'Caught' : 'Catch';
             updateProgressUI();
+            autoCompleteRouteStepsForPal(pal.id);
             playSound(clickSound);
           });
           list.appendChild(card);
@@ -3233,6 +3234,7 @@
           button.textContent = unlocked[item.name] ? 'Unlocked' : 'Unlock';
           card.classList.toggle('tech-card--unlocked', unlocked[item.name]);
           updateProgressUI();
+          autoCompleteRouteStepsForTech(techKey, item.name);
         });
         actions.appendChild(button);
         info.appendChild(actions);
@@ -4363,6 +4365,118 @@
         localStorage.setItem('unlocked', JSON.stringify(unlocked));
       }
       return caughtChanged || techChanged;
+    }
+
+    function autoCompleteRouteStepsForPal(palId){
+      if(palId === undefined || palId === null) return;
+      autoCompleteRouteSteps({ type: 'pal', palId });
+    }
+
+    function autoCompleteRouteStepsForTech(rawKey, techName){
+      const slugSource = rawKey || techName;
+      if(!slugSource && !techName) return;
+      const slug = slugifyForPalworld(slugSource || '');
+      const name = typeof techName === 'string' ? techName.toLowerCase() : '';
+      autoCompleteRouteSteps({ type: 'tech', slug, name });
+    }
+
+    function autoCompleteRouteSteps(change){
+      if(!change) return;
+      ensureRouteGuide()
+        .then(guide => {
+          const chapters = Array.isArray(guide?.chapters) ? guide.chapters : [];
+          if(!chapters.length) return;
+          routeState = loadRouteState();
+          const rerenderIds = new Set();
+          let stateChanged = false;
+
+          chapters.forEach(chapter => {
+            const steps = Array.isArray(chapter?.steps) ? chapter.steps : [];
+            steps.forEach(step => {
+              if(!step || !step.id) return;
+              const options = buildStepProgressOptions(step);
+              if(!Array.isArray(options) || !options.length) return;
+              const matches = options.some(option => {
+                if(change.type === 'pal'){
+                  return option.type === 'pal' && option.palId === change.palId;
+                }
+                if(change.type === 'tech'){
+                  if(option.type !== 'tech') return false;
+                  const slugMatch = change.slug && option.slug === change.slug;
+                  const nameMatch = change.name && option.techName && option.techName.toLowerCase() === change.name;
+                  return slugMatch || nameMatch;
+                }
+                return false;
+              });
+              if(!matches) return;
+              if(shouldAutoCompleteStep(step, options) && !routeState[step.id]){
+                routeState[step.id] = true;
+                stateChanged = true;
+                rerenderIds.add(chapter.id);
+              }
+            });
+          });
+
+          if(stateChanged){
+            saveRouteState(routeState);
+            rerenderIds.forEach(id => {
+              const chapter = chapters.find(ch => ch.id === id);
+              if(chapter) rerenderChapter(chapter);
+            });
+            updateProgressUI();
+          }
+        })
+        .catch(err => {
+          console.error('Failed to auto-sync route progress', err);
+        });
+    }
+
+    function shouldAutoCompleteStep(step, options){
+      if(!step || !Array.isArray(options) || !options.length) return false;
+      const relevant = options.filter(option => option.type === 'pal' || option.type === 'tech');
+      if(!relevant.length) return false;
+      const satisfiedCount = relevant.filter(optionIsComplete).length;
+      if(satisfiedCount === 0) return false;
+      if(stepRequiresAllOptions(step, relevant)){
+        return satisfiedCount === relevant.length;
+      }
+      return true;
+    }
+
+    function stepRequiresAllOptions(step, options){
+      if(!Array.isArray(options) || options.length <= 1) return true;
+      const samples = [];
+      if(typeof step.text === 'string') samples.push(step.text);
+      if(typeof step.textKid === 'string') samples.push(step.textKid);
+      if(typeof step.textAdult === 'string') samples.push(step.textAdult);
+      const orPattern = /\b(or|either)\b/i;
+      return !samples.some(sample => orPattern.test(sample));
+    }
+
+    function optionIsComplete(option){
+      if(!option) return false;
+      if(option.type === 'pal'){
+        return option.palId !== undefined && option.palId !== null && !!caught[option.palId];
+      }
+      if(option.type === 'tech'){
+        if(option.techName){
+          const direct = unlocked[option.techName];
+          if(direct) return true;
+          const normalized = option.techName.toLowerCase();
+          if(normalized){
+            const match = Object.keys(unlocked || {}).some(key => {
+              return unlocked[key] && typeof key === 'string' && key.toLowerCase() === normalized;
+            });
+            if(match) return true;
+          }
+        }
+        if(option.slug){
+          const entry = TECH_LOOKUP && TECH_LOOKUP[option.slug];
+          const itemName = entry?.item?.name;
+          if(itemName && unlocked[itemName]) return true;
+        }
+      }
+      return false;
     }
 
     function showStepChoiceDialog(step, options){
