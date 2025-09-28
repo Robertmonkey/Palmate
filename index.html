@@ -2804,13 +2804,14 @@
     }
     .base-intel-notes {
       position: relative;
+      display: grid;
       min-height: 180px;
       padding-top: 6px;
       overflow-wrap: anywhere;
     }
     .base-note {
-      position: absolute;
-      inset: 0;
+      position: relative;
+      grid-area: 1 / 1;
       border-radius: 18px;
       padding: 16px;
       background: rgba(10, 21, 34, 0.68);
