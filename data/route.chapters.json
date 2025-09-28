@@ -525,7 +525,25 @@
                         {
                             "type": "tower",
                             "id": "desolate-church",
-                            "url": "https://palworld.gg/map"
+                            "url": "https://palworld.gg/map",
+                            "map": {
+                                "title": "Desolate Church Ore Ridge",
+                                "label": "Desolate Church",
+                                "region": "Windswept Hills",
+                                "coords": [
+                                    72,
+                                    -400
+                                ],
+                                "coordsLabel": "Ore ridge",
+                                "kid": [
+                                    "Glide north of the church to the red cliffs packed with ore.",
+                                    "It's a roomy perch for Base #2 with fast travel close by."
+                                ],
+                                "grown": [
+                                    "The ore-rich plateau at (72, -400) overlooks the Desolate Church statue.",
+                                    "You get dense iron and coal nodes plus a glide path back toward Rayne Tower."
+                                ]
+                            }
                         }
                     ]
                 },
