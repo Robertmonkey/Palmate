@@ -1214,7 +1214,12 @@
       background: var(--danger);
       border: 2px solid var(--light);
       border-radius: 50%;
-      transform: translate(-50%, -100%);
+      --marker-tail-length: 16px;
+      --marker-horizontal-adjust: 0px;
+      transform: translate(
+        calc(-50% + var(--marker-horizontal-adjust)),
+        calc(-100% - var(--marker-tail-length))
+      );
       box-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
     .map-marker::after {
@@ -1223,7 +1228,7 @@
       top: 100%;
       left: 50%;
       width: 2px;
-      height: 16px;
+      height: var(--marker-tail-length);
       background: var(--danger);
       transform: translateX(-50%);
     }
@@ -2582,10 +2587,6 @@
         mapResizeCleanup = null;
       }
       const { left, top } = worldCoordsToPercent(coords);
-      // Convert the percentage results into 0-1 ratios so we can position
-      // the marker in actual pixels after the image finishes rendering.
-      const leftRatio = left / 100;
-      const topRatio = top / 100;
       modalBody.innerHTML = '';
       const wrap = document.createElement('div');
       wrap.className = 'map-modal';
@@ -2628,6 +2629,8 @@
       canvas.appendChild(mapImage);
       const marker = document.createElement('div');
       marker.className = 'map-marker';
+      marker.style.left = `${left}%`;
+      marker.style.top = `${top}%`;
       const markerLabel = (entrance && entrance.label) || mapInfo.label || mapInfo.title;
       if (markerLabel) {
         const label = document.createElement('span');
@@ -2636,31 +2639,7 @@
         marker.appendChild(label);
       }
       canvas.appendChild(marker);
-      const updateMarkerPosition = () => {
-        const { width, height } = canvas.getBoundingClientRect();
-        if (!width || !height) {
-          return;
-        }
-        // Recompute pixel offsets so the pin stays accurate even when the
-        // modal resizes on different screen resolutions.
-        marker.style.left = `${leftRatio * width}px`;
-        marker.style.top = `${topRatio * height}px`;
-      };
-      const onImageLoad = () => {
-        window.requestAnimationFrame(updateMarkerPosition);
-      };
-      const handleResize = () => {
-        window.requestAnimationFrame(updateMarkerPosition);
-      };
-      mapImage.addEventListener('load', onImageLoad);
-      if (mapImage.complete) {
-        window.requestAnimationFrame(updateMarkerPosition);
-      }
-      window.addEventListener('resize', handleResize);
-      mapResizeCleanup = () => {
-        mapImage.removeEventListener('load', onImageLoad);
-        window.removeEventListener('resize', handleResize);
-      };
+      mapResizeCleanup = null;
       wrap.appendChild(canvas);
       const actions = document.createElement('div');
       actions.className = 'badges';
