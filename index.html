@@ -2230,6 +2230,30 @@
     .breeding-combo .pal-card + .combo-arrow {
       justify-self: center;
     }
+    .breeding-workspace .pal-card .badge {
+      gap: 2px;
+    }
+    .breeding-workspace .pal-card .badge img {
+      width: 14px;
+      height: 14px;
+    }
+    .breeding-workspace .pal-card .caught-status {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 999px;
+      margin-bottom: 4px;
+      color: var(--text);
+      background: rgba(119, 141, 169, 0.2);
+      text-align: center;
+    }
+    .breeding-workspace .pal-card .caught-status[data-caught="true"] {
+      background: rgba(42, 157, 143, 0.25);
+      color: #daf5f0;
+    }
+    .breeding-workspace .pal-card .caught-status[data-caught="false"] {
+      background: rgba(231, 111, 81, 0.25);
+      color: #ffe0d8;
+    }
     .breeding-baby-header {
       display: flex;
       align-items: center;
@@ -4138,6 +4162,16 @@
           badge.appendChild(span);
         }
         card.appendChild(badge);
+        if (pal && typeof pal.id !== 'undefined') {
+          const caughtStatus = document.createElement('div');
+          const isCaught = !!caught[pal.id];
+          caughtStatus.className = 'caught-status';
+          caughtStatus.dataset.caught = isCaught ? 'true' : 'false';
+          caughtStatus.textContent = isCaught
+            ? (kidMode ? 'We caught it!' : 'Caught')
+            : (kidMode ? 'Need this pal' : 'Not caught yet');
+          card.appendChild(caughtStatus);
+        }
         const rarityEl = document.createElement('div');
         rarityEl.className = 'rarity';
         const starSpan = document.createElement('span');
