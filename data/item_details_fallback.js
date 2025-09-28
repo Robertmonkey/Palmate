@@ -141,6 +141,19 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "fromPalworld": false,
     "source": "Palworld Fandom"
   },
+  "circuit_board": {
+    "name": "Circuit Board",
+    "type": "Technology",
+    "description": [
+      "Electronic crafting component for late-game structures and gear.",
+      "Needed for advanced weapons, generators, and automation tech."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_ElectronicCircuit.png",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
+  },
   "chikipi_poultry": {
     "name": "Chikipi Poultry",
     "type": "Ingredient",
@@ -329,6 +342,19 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "fromPalworld": true,
     "source": "Palworld.gg"
   },
+  "flour": {
+    "name": "Flour",
+    "type": "Ingredient",
+    "description": [
+      "Ground wheat used for cooking and baking recipes.",
+      "Essential for dishes like Cake and other late-game meals."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": "https://static.wikia.nocookie.net/palworld/images/4/4a/Flour_icon.png/revision/latest?cb=20240124060459",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
+  },
   "flame_organ": {
     "name": "Flame Organ",
     "type": "Material",
@@ -420,6 +446,19 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Gunpowder.png",
     "fromPalworld": true,
     "source": "Palworld.gg"
+  },
+  "high_grade_medical_supplies": {
+    "name": "High Grade Medical Supplies",
+    "type": "Consumable",
+    "description": [
+      "Advanced medicine kit for healing serious injuries and status effects.",
+      "Restores more health than low grade supplies and cures harsh debuffs."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_LuxuryMedicines.png",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "high_grade_technical_manual": {
     "name": "High Grade Technical Manual",
@@ -619,6 +658,19 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "fromPalworld": true,
     "source": "Palworld.gg"
   },
+  "legendary_sphere": {
+    "name": "Legendary Sphere",
+    "type": "Capture Gear",
+    "description": [
+      "Ultimate pal-catching sphere with the highest capture rate.",
+      "Reserved for rare encounters due to its steep crafting cost."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_PalSphere_Legend.png",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
+  },
   "lettuce_seeds": {
     "name": "Lettuce Seeds",
     "type": "Material",
@@ -739,6 +791,19 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "fromPalworld": false,
     "source": "Palworld Fandom"
   },
+  "nail": {
+    "name": "Nail",
+    "type": "Material",
+    "description": [
+      "Metal fastener produced in bulk for building projects.",
+      "Required by many base upgrades and higher-tier crafting benches."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_MachineParts.png",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
+  },
   "ore": {
     "name": "Ore",
     "type": "Material",
@@ -845,6 +910,19 @@ window.__PALMATE_ITEM_DETAILS__ = {
     },
     "recipe": [],
     "image": "https://static.wikia.nocookie.net/palworld/images/f/f0/Precious_Dragon_Stone_icon.png/revision/latest?cb=20240125040206",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
+  },
+  "refined_ingot": {
+    "name": "Refined Ingot",
+    "type": "Material",
+    "description": [
+      "High-quality metal ingot smelted in upgraded furnaces.",
+      "Forms the basis of refined weapons, armor, and base tech."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_IronIngot.png",
     "fromPalworld": false,
     "source": "Palworld Fandom"
   },
@@ -1000,6 +1078,19 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "fromPalworld": false,
     "source": "Palworld Fandom"
   },
+  "stone": {
+    "name": "Stone",
+    "type": "Material",
+    "description": [
+      "Common rock gathered from outcrops and quarry sites.",
+      "Forms the backbone of early crafting, ammo, and base defenses."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Stone.png",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
+  },
   "strange_juice": {
     "name": "Strange Juice",
     "type": "Consumable",
@@ -1039,6 +1130,19 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Food_Narcotic.png",
     "fromPalworld": true,
     "source": "Palworld.gg"
+  },
+  "sulfur": {
+    "name": "Sulfur",
+    "type": "Material",
+    "description": [
+      "Volatile mineral mined from volcanic deposits.",
+      "Used to craft gunpowder, ammunition, and explosives."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Sulfur.png",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
   },
   "suspicious_juice": {
     "name": "Suspicious Juice",
@@ -1110,6 +1214,19 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "fromPalworld": false,
     "source": "Palworld Fandom"
   },
+  "ultra_sphere": {
+    "name": "Ultra Sphere",
+    "type": "Capture Gear",
+    "description": [
+      "High-grade pal-catching sphere with excellent capture rates.",
+      "Crafted on advanced assembly lines using refined materials."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_PalSphere_Master.png",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
+  },
   "venom_gland": {
     "name": "Venom Gland",
     "type": "Material",
@@ -1143,6 +1260,19 @@ window.__PALMATE_ITEM_DETAILS__ = {
     "fromPalworld": false,
     "source": "Palworld Fandom"
   },
+  "wood": {
+    "name": "Wood",
+    "type": "Material",
+    "description": [
+      "Basic lumber gathered from trees across Palpagos Island.",
+      "Fuel and structural component for countless early-game recipes."
+    ],
+    "stats": {},
+    "recipe": [],
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Wood.png",
+    "fromPalworld": false,
+    "source": "Palworld Fandom"
+  },
   "wool": {
     "name": "Wool",
     "type": "Material",
@@ -1162,4 +1292,5 @@ window.__PALMATE_ITEM_DETAILS__ = {
       "Melpaca"
     ]
   }
+}
 };
