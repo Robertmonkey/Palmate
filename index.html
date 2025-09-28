@@ -8694,9 +8694,14 @@
       if(!pendingRouteFocus) return;
       const routePage = document.getElementById('routePage');
       if(!routePage) return;
-      const target = routePage.querySelector(`input[data-step="${pendingRouteFocus}"]`);
-      if(!target) return;
       const stepId = pendingRouteFocus;
+      const target = routePage.querySelector(`input[data-step="${stepId}"]`);
+      if(!target){
+        if(ensureRouteOptionalVisible(stepId)){
+          requestAnimationFrame(applyQueuedRouteFocus);
+        }
+        return;
+      }
       pendingRouteFocus = null;
       requestAnimationFrame(() => {
         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -8710,6 +8715,26 @@
           }
         }
       });
+    }
+
+    function ensureRouteOptionalVisible(stepId){
+      if(!routeHideOptional || !stepId || !routeGuideData) return false;
+      const chapters = Array.isArray(routeGuideData.chapters) ? routeGuideData.chapters : [];
+      for(const chapter of chapters){
+        const steps = Array.isArray(chapter?.steps) ? chapter.steps : [];
+        const step = steps.find(entry => entry && entry.id === stepId);
+        if(step && step.optional){
+          routeHideOptional = false;
+          const routePage = document.getElementById('routePage');
+          const toggleBtn = routePage ? routePage.querySelector('#toggleOptional') : null;
+          if(toggleBtn){
+            toggleBtn.textContent = routeOptionalToggleLabel(routeHideOptional);
+          }
+          chapters.forEach(ch => rerenderChapter(ch));
+          return true;
+        }
+      }
+      return false;
     }
 
     function renderChapterCard(chapter, openByDefault){
@@ -9288,13 +9313,21 @@
     function renderLinks(links){
       if(!links || !links.length) return '';
       return `<span class="badges">${links.map(link => {
-        const payload = JSON.stringify(link).replace(/"/g, '&quot;');
+        const payload = JSON.stringify(link)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
         return `<a href="#" class="chip link" data-link="${payload}" role="button">${escapeHTML(linkLabel(link))}</a>`;
       }).join('')}</span>`;
     }
 
     function linkLabel(link){
-      if(link.type === 'pal') return capitalize(link.slug);
+      if(link.type === 'pal'){
+        const source = link.slug || link.id || link.name;
+        return capitalize(source);
+      }
       if(link.type === 'item') return niceName(link.id);
       if(link.type === 'passive') return capitalize(link.id);
       if(link.type === 'move') return niceName(link.id);

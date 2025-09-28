@@ -200,7 +200,10 @@ function isKidMode(){
 }
 
 function linkLabel(l){
-  if(l.type==='pal') return capitalize(l.slug);
+  if(l.type==='pal'){
+    const source = l.slug || l.id || l.name;
+    return capitalize(source);
+  }
   if(l.type==='passive') return capitalize(l.id);
   if(l.type==='move') return niceName(l.id);
   if(l.type==='tech') return techName(l.id);
@@ -239,7 +242,11 @@ function pulse(el){
 }
 
 function focusSearch(q){
-  const input = document.querySelector('#q');
+  if(typeof window.focusSearch === 'function'){
+    window.focusSearch(q);
+    return;
+  }
+  const input = document.getElementById('palSearch') || document.getElementById('itemSearch');
   if(input){
     input.value = q;
     input.dispatchEvent(new Event('input', {bubbles:true}));
