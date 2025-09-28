@@ -2325,11 +2325,19 @@
         closeModal();
       }
     });
+    // Track resize handlers registered by the map modal so they can be
+    // removed when the dialog closes.  Without this cleanup we would leak
+    // listeners as the player opens multiple guide entries.
+    let mapResizeCleanup = null;
     function openModal() {
       modal.classList.add('active');
       playSound(openSound);
     }
     function closeModal() {
+      if (typeof mapResizeCleanup === 'function') {
+        mapResizeCleanup();
+        mapResizeCleanup = null;
+      }
       modal.classList.remove('active');
       modalBody.innerHTML = '';
       playSound(closeSound);
@@ -2369,7 +2377,12 @@
         note: 'Palmate keeps this move info handy so you can stay on track.'
       }
     };
-    const MAP_WORLD_BOUNDS = { minX: -720, maxX: 720, minY: -720, maxY: 720 };
+    // Palworld's in-game coordinates are not symmetrical on the X/Y axes.
+    // The static map we render here is cropped to the explorable landmass,
+    // which spans roughly X = [-560, 640] and Y = [-662, 340] in world units.
+    // Using tighter bounds keeps the marker aligned with tower entrances
+    // instead of drifting toward the centre of the image.
+    const MAP_WORLD_BOUNDS = { minX: -560, maxX: 640, minY: -662, maxY: 340 };
     function clampToRange(value, min, max) {
       return Math.min(Math.max(value, min), max);
     }
@@ -2413,7 +2426,15 @@
         window.open(mapInfo.url || fallbackUrl || `${PALWORLD_BASE_URL}/map`, '_blank', 'noopener');
         return;
       }
+      if (typeof mapResizeCleanup === 'function') {
+        mapResizeCleanup();
+        mapResizeCleanup = null;
+      }
       const { left, top } = worldCoordsToPercent(coords);
+      // Convert the percentage results into 0-1 ratios so we can position
+      // the marker in actual pixels after the image finishes rendering.
+      const leftRatio = left / 100;
+      const topRatio = top / 100;
       modalBody.innerHTML = '';
       const wrap = document.createElement('div');
       wrap.className = 'map-modal';
@@ -2456,8 +2477,6 @@
       canvas.appendChild(mapImage);
       const marker = document.createElement('div');
       marker.className = 'map-marker';
-      marker.style.left = `${left}%`;
-      marker.style.top = `${top}%`;
       const markerLabel = (entrance && entrance.label) || mapInfo.label || mapInfo.title;
       if (markerLabel) {
         const label = document.createElement('span');
@@ -2466,6 +2485,31 @@
         marker.appendChild(label);
       }
       canvas.appendChild(marker);
+      const updateMarkerPosition = () => {
+        const { width, height } = canvas.getBoundingClientRect();
+        if (!width || !height) {
+          return;
+        }
+        // Recompute pixel offsets so the pin stays accurate even when the
+        // modal resizes on different screen resolutions.
+        marker.style.left = `${leftRatio * width}px`;
+        marker.style.top = `${topRatio * height}px`;
+      };
+      const onImageLoad = () => {
+        window.requestAnimationFrame(updateMarkerPosition);
+      };
+      const handleResize = () => {
+        window.requestAnimationFrame(updateMarkerPosition);
+      };
+      mapImage.addEventListener('load', onImageLoad);
+      if (mapImage.complete) {
+        window.requestAnimationFrame(updateMarkerPosition);
+      }
+      window.addEventListener('resize', handleResize);
+      mapResizeCleanup = () => {
+        mapImage.removeEventListener('load', onImageLoad);
+        window.removeEventListener('resize', handleResize);
+      };
       wrap.appendChild(canvas);
       const actions = document.createElement('div');
       actions.className = 'badges';
