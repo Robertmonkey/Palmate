@@ -1869,84 +1869,253 @@
       font-style: italic;
     }
     /* Breeding page */
-    .breeding-tabs {
+    .breeding-hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 24px;
+      padding: 28px;
+      margin-bottom: 28px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(65, 90, 119, 0.92), rgba(13, 27, 42, 0.88));
+      border: 1px solid rgba(119, 141, 169, 0.4);
+      box-shadow: 0 22px 45px rgba(5, 15, 30, 0.55);
+      overflow: hidden;
+    }
+    .breeding-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(224, 225, 221, 0.18), transparent 55%);
+      pointer-events: none;
+    }
+    .breeding-hero__icon {
+      width: 84px;
+      height: 84px;
+      display: grid;
+      place-items: center;
+      border-radius: 28px;
+      background: linear-gradient(140deg, rgba(224, 225, 221, 0.25), rgba(119, 141, 169, 0.2));
+      border: 1px solid rgba(224, 225, 221, 0.3);
+      box-shadow: 0 18px 36px rgba(6, 18, 35, 0.4);
+      font-size: 2.2rem;
+      color: #fff;
+    }
+    .breeding-hero__content {
+      position: relative;
+      z-index: 1;
       display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .breeding-hero__title {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .breeding-hero__title h2 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 0.02em;
+    }
+    .breeding-hero__intro {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--light);
+      max-width: 42ch;
+    }
+    .breeding-perks {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .breeding-perks li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      background: rgba(13, 27, 42, 0.32);
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      border-radius: 14px;
+      padding: 10px 14px;
+      backdrop-filter: blur(8px);
+    }
+    .breeding-perks i {
+      color: var(--accent);
+    }
+    .breeding-hero__callout {
+      position: relative;
+      z-index: 1;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      padding: 24px;
+      border-radius: 20px;
+      background: linear-gradient(160deg, rgba(119, 141, 169, 0.32), rgba(13, 27, 42, 0.6));
+      border: 1px solid rgba(224, 225, 221, 0.22);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.08);
+    }
+    .breeding-hero__callout span {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(224, 225, 221, 0.72);
+    }
+    .breeding-hero__callout p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .breeding-workspace {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .breeding-tabs {
+      position: relative;
+      display: inline-flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin: 12px 0;
+      gap: 10px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(13, 27, 42, 0.65);
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.08);
+      width: fit-content;
     }
     .breeding-tab {
-      padding: 8px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
       border-radius: 999px;
-      border: 1px solid var(--card-hover);
+      border: 1px solid transparent;
       background: transparent;
-      color: var(--text);
+      color: rgba(224, 225, 221, 0.78);
       cursor: pointer;
-      font-size: 0.9rem;
-      transition: background 0.2s, color 0.2s, border 0.2s;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+    .breeding-tab i {
+      font-size: 1rem;
+    }
+    .breeding-tab:hover,
+    .breeding-tab:focus-visible {
+      color: #fff;
+      transform: translateY(-1px);
     }
     .breeding-tab.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(119, 141, 169, 0.9), rgba(119, 141, 169, 0.7));
+      color: #0d1b2a;
+      border-color: rgba(224, 225, 221, 0.65);
+      box-shadow: 0 12px 24px rgba(7, 21, 36, 0.45);
     }
     .breeding-mode {
       display: none;
-      margin-top: 16px;
+      border-radius: 24px;
+      padding: 24px;
+      background: linear-gradient(160deg, rgba(18, 34, 49, 0.78), rgba(10, 21, 33, 0.88));
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      box-shadow: 0 18px 32px rgba(5, 15, 30, 0.48);
     }
     .breeding-mode.active {
       display: block;
     }
     .breeding-panels {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      align-items: start;
     }
     .breeding-panel {
-      flex: 1 1 280px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 16px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(13, 27, 42, 0.68);
+      border: 1px solid rgba(119, 141, 169, 0.25);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.05);
+      min-height: 100%;
     }
-    .breeding-panel h3 {
+    .breeding-panel__header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .breeding-panel__header h3 {
       margin: 0;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
+    }
+    .breeding-panel__description {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(224, 225, 221, 0.72);
     }
     .breeding-panel .pal-search input {
       width: 100%;
-      padding: 8px 10px;
-      border-radius: 6px;
-      border: none;
-      background: var(--card-bg);
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      background: rgba(13, 27, 42, 0.6);
       color: var(--text);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .breeding-panel .pal-search input:focus {
+      outline: none;
+      border-color: rgba(224, 225, 221, 0.5);
+      box-shadow: 0 0 0 3px rgba(119, 141, 169, 0.25);
     }
     .pal-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 14px;
       max-height: 420px;
       overflow-y: auto;
-      padding-right: 4px;
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(9, 19, 30, 0.6);
+      border: 1px solid rgba(119, 141, 169, 0.2);
+      box-shadow: inset 0 0 18px rgba(5, 15, 30, 0.45);
+    }
+    .pal-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+    .pal-grid::-webkit-scrollbar-track {
+      background: rgba(13, 27, 42, 0.6);
+      border-radius: 999px;
+    }
+    .pal-grid::-webkit-scrollbar-thumb {
+      background: rgba(119, 141, 169, 0.45);
+      border-radius: 999px;
     }
     body.kid-mode .pal-grid {
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
     .pal-card.compact {
-      padding: 10px;
+      padding: 12px;
+      border-radius: 14px;
+      backdrop-filter: blur(2px);
     }
     .pal-card.compact img {
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
     }
     .pal-card.compact .name {
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
     .pal-card.compact .badge {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
     }
     .pal-card.compact .rarity {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
     }
     .pal-card.static {
       cursor: default;
@@ -1960,86 +2129,154 @@
       cursor: pointer;
     }
     .pal-card.selected {
-      outline: 3px solid var(--accent);
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+      outline: 3px solid rgba(224, 225, 221, 0.55);
+      box-shadow: 0 0 0 4px rgba(119, 141, 169, 0.35);
     }
-    .breeding-result {
-      margin-top: 16px;
+    .breeding-result-card {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 16px;
+      padding: 20px;
+      border-radius: 18px;
+      background: linear-gradient(140deg, rgba(119, 141, 169, 0.35), rgba(13, 27, 42, 0.65));
+      border: 1px solid rgba(224, 225, 221, 0.25);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.06);
+    }
+    .breeding-result-card header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .breeding-result-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .breeding-result-card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(224, 225, 221, 0.75);
+    }
+    .breeding-result {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
     .breeding-flow {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
       align-items: center;
+      justify-content: flex-start;
     }
     .combo-arrow {
-      font-size: 1.4rem;
-      color: var(--light);
+      font-size: 1.5rem;
+      color: rgba(224, 225, 221, 0.85);
+      font-weight: 700;
     }
     .breeding-tip {
-      font-size: 0.9rem;
-      color: var(--light);
+      font-size: 0.95rem;
+      color: rgba(224, 225, 221, 0.85);
+      line-height: 1.5;
     }
     .breeding-combo-link {
       align-self: flex-start;
-      padding: 8px 12px;
-      background: var(--accent);
-      color: #fff;
+      padding: 10px 18px;
+      background: linear-gradient(135deg, rgba(42, 157, 143, 0.85), rgba(42, 157, 143, 0.65));
+      color: #0d1b2a;
       border: none;
-      border-radius: 6px;
+      border-radius: 999px;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      box-shadow: 0 12px 24px rgba(2, 20, 22, 0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
     }
-    .breeding-combo-link:hover {
-      opacity: 0.9;
+    .breeding-combo-link:hover,
+    .breeding-combo-link:focus-visible {
+      transform: translateY(-2px);
+      opacity: 0.95;
+      outline: none;
+      box-shadow: 0 16px 32px rgba(2, 20, 22, 0.55);
     }
     .breeding-combos {
-      margin-top: 16px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
     }
     .breeding-combo {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       align-items: center;
-      gap: 8px;
-      background: var(--card-bg);
-      border-radius: 8px;
-      padding: 8px;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(13, 27, 42, 0.75), rgba(65, 90, 119, 0.45));
+      border: 1px solid rgba(119, 141, 169, 0.25);
       cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
-    .breeding-combo:hover {
-      background: var(--card-hover);
-      transform: translateY(-2px);
+    .breeding-combo:hover,
+    .breeding-combo:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 28px rgba(5, 15, 30, 0.55);
+      border-color: rgba(224, 225, 221, 0.45);
+      outline: none;
     }
     .breeding-combo .pal-card {
-      flex: 1 1 160px;
+      width: 100%;
       margin: 0;
+    }
+    .breeding-combo .pal-card + .combo-arrow {
+      justify-self: center;
     }
     .breeding-baby-header {
       display: flex;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
+      justify-content: space-between;
     }
     .breeding-baby-header h3 {
       margin: 0;
     }
     .empty-state {
-      font-size: 0.9rem;
-      color: var(--light);
+      font-size: 0.92rem;
+      color: rgba(224, 225, 221, 0.75);
       padding: 12px 0;
     }
+    body.kid-mode .breeding-hero {
+      background: linear-gradient(135deg, rgba(119, 141, 169, 0.92), rgba(65, 90, 119, 0.88));
+    }
+    body.kid-mode .breeding-hero__intro {
+      font-size: 1rem;
+    }
+    body.kid-mode .breeding-panel__description,
+    body.kid-mode .breeding-hero__callout p {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 1024px) {
+      .breeding-hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .breeding-hero__callout {
+        order: 3;
+      }
+    }
     @media (max-width: 768px) {
-      .breeding-panels {
-        flex-direction: column;
+      .breeding-mode {
+        padding: 20px 18px;
       }
       .pal-grid {
-        max-height: 300px;
+        max-height: 320px;
+      }
+      .breeding-tabs {
+        width: 100%;
+        justify-content: center;
+      }
+      .breeding-combo {
+        grid-template-columns: repeat(5, minmax(0, 120px));
+        overflow-x: auto;
       }
     }
     /* Progress page */
@@ -2300,42 +2537,87 @@
       </section>
       <!-- Breeding page -->
       <section id="breedingPage" class="page">
-        <header class="page-header">
-          <h2>Breeding Planner</h2>
-        </header>
-        <p class="breeding-intro">Tap pals to choose your breeding partners or switch tabs to work backwards from the baby you want.</p>
-        <div class="breeding-tabs">
-          <button type="button" class="breeding-tab active" data-target="breedingPredict">Pick parents</button>
-          <button type="button" class="breeding-tab" data-target="breedingDiscover">Find parents</button>
-        </div>
-        <div id="breedingPredict" class="breeding-mode active">
-          <div class="breeding-panels">
-            <div class="breeding-panel">
-              <h3>Parent A</h3>
-              <div class="pal-search">
-                <input type="search" id="parent1Search" placeholder="Search pals" aria-label="Search parent A pals">
-              </div>
-              <div class="pal-grid" id="parent1Grid"></div>
+        <div class="breeding-hero">
+          <div class="breeding-hero__content">
+            <div class="breeding-hero__title">
+              <div class="breeding-hero__icon"><i class="fa-solid fa-egg"></i></div>
+              <h2>Breeding Workshop</h2>
             </div>
-            <div class="breeding-panel">
-              <h3>Parent B</h3>
-              <div class="pal-search">
-                <input type="search" id="parent2Search" placeholder="Search pals" aria-label="Search parent B pals">
-              </div>
-              <div class="pal-grid" id="parent2Grid"></div>
+            <p class="breeding-hero__intro">Match the perfect parents, queue up cakes and hatch legendary helpers faster with our polished Pal pairing lab.</p>
+            <ul class="breeding-perks">
+              <li><i class="fa-solid fa-wand-magic-sparkles"></i><span>See likely babies instantly by matching breeding power.</span></li>
+              <li><i class="fa-solid fa-people-arrows"></i><span>Swap between Parent and Target modes without losing your picks.</span></li>
+              <li><i class="fa-solid fa-cookie-bite"></i><span>Kid Mode reminders keep the process friendly for junior keepers.</span></li>
+            </ul>
+          </div>
+          <div class="breeding-hero__callout">
+            <span>Pro tip</span>
+            <p>Keep a stack of Cakes in the farm chest and tap any combo below to auto-fill the parents. You will be incubating dream pals in no time.</p>
+          </div>
+        </div>
+        <div class="breeding-workspace">
+          <div class="breeding-tabs" role="tablist" aria-label="Breeding planner modes">
+            <button type="button" id="breedingTabPredict" class="breeding-tab active" data-target="breedingPredict" role="tab" aria-controls="breedingPredict" aria-selected="true" aria-pressed="true">
+              <i class="fa-solid fa-people-group"></i>
+              <span>Pick parents</span>
+            </button>
+            <button type="button" id="breedingTabDiscover" class="breeding-tab" data-target="breedingDiscover" role="tab" aria-controls="breedingDiscover" aria-selected="false" aria-pressed="false">
+              <i class="fa-solid fa-compass"></i>
+              <span>Find parents</span>
+            </button>
+          </div>
+          <div id="breedingPredict" class="breeding-mode active" role="tabpanel" aria-labelledby="breedingTabPredict" aria-hidden="false" tabindex="0">
+            <div class="breeding-panels">
+              <article class="breeding-panel">
+                <div class="breeding-panel__header">
+                  <h3>Parent A</h3>
+                  <p class="breeding-panel__description">Choose your first partner. Filter by pal name or elemental type.</p>
+                </div>
+                <div class="pal-search">
+                  <input type="search" id="parent1Search" placeholder="Search pals" aria-label="Search parent A pals">
+                </div>
+                <div class="pal-grid" id="parent1Grid"></div>
+              </article>
+              <article class="breeding-panel">
+                <div class="breeding-panel__header">
+                  <h3>Parent B</h3>
+                  <p class="breeding-panel__description">Match a second pal to balance breeding power and passives.</p>
+                </div>
+                <div class="pal-search">
+                  <input type="search" id="parent2Search" placeholder="Search pals" aria-label="Search parent B pals">
+                </div>
+                <div class="pal-grid" id="parent2Grid"></div>
+              </article>
+              <article class="breeding-result-card">
+                <header>
+                  <h3>Predicted egg</h3>
+                  <p>We average breeding power and surface the closest baby match.</p>
+                </header>
+                <div class="breeding-result" id="breedingResult"></div>
+              </article>
             </div>
           </div>
-          <div class="breeding-result" id="breedingResult"></div>
-        </div>
-        <div id="breedingDiscover" class="breeding-mode">
-          <div class="breeding-panel">
-            <h3>Desired pal</h3>
-            <div class="pal-search">
-              <input type="search" id="babySearch" placeholder="Search pals" aria-label="Search desired pals">
+          <div id="breedingDiscover" class="breeding-mode" role="tabpanel" aria-labelledby="breedingTabDiscover" aria-hidden="true" tabindex="-1">
+            <div class="breeding-panels">
+              <article class="breeding-panel">
+                <div class="breeding-panel__header">
+                  <h3>Dream pal</h3>
+                  <p class="breeding-panel__description">Search for the pal you want to hatch or browse the list below.</p>
+                </div>
+                <div class="pal-search">
+                  <input type="search" id="babySearch" placeholder="Search pals" aria-label="Search desired pals">
+                </div>
+                <div class="pal-grid" id="babyGrid"></div>
+              </article>
+              <article class="breeding-panel">
+                <div class="breeding-panel__header">
+                  <h3>Parent recipes</h3>
+                  <p class="breeding-panel__description">Tap any combo to auto-fill the parents and jump back to predictions.</p>
+                </div>
+                <div class="breeding-combos" id="breedingCombos"></div>
+              </article>
             </div>
-            <div class="pal-grid" id="babyGrid"></div>
           </div>
-          <div class="breeding-combos" id="breedingCombos"></div>
         </div>
       </section>
       <!-- Progress page -->
@@ -4117,10 +4399,16 @@
 
       function switchBreedingMode(targetId) {
         modes.forEach(mode => {
-          mode.classList.toggle('active', mode.id === targetId);
+          const isActive = mode.id === targetId;
+          mode.classList.toggle('active', isActive);
+          mode.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+          mode.setAttribute('tabindex', isActive ? '0' : '-1');
         });
         modeButtons.forEach(btn => {
-          btn.classList.toggle('active', btn.dataset.target === targetId);
+          const isActive = btn.dataset.target === targetId;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         });
         BREEDING_SELECTION.mode = targetId;
       }
