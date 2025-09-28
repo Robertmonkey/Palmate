@@ -5149,41 +5149,246 @@
         ? 'Check which elements pals are strong or weak against.'
         : 'Reference chart for attack advantages and resistances.';
       const elemSection = createSection('glossary-elements', 'Elements & Type Chart', elementsDescription);
-      const elemTable = document.createElement('table');
-      elemTable.style.width = '100%';
-      elemTable.style.borderCollapse = 'collapse';
-      elemTable.innerHTML = '<tr><th>Element</th><th>Strong Against</th><th>Weak Against</th></tr>';
-      const elementOrder = ['Neutral','Fire','Water','Grass','Electric','Ice','Ground','Dragon','Dark','Air'];
-      const strengths = {
-        Fire: 'Grass, Ice',
-        Water: 'Fire, Ground',
-        Grass: 'Water, Ground',
-        Electric: 'Water, Air',
-        Ice: 'Dragon, Grass',
-        Ground: 'Electric, Fire',
-        Dragon: 'Dark, Dragon',
-        Dark: 'Neutral',
-        Air: 'Grass, Ground',
-        Neutral: 'None'
+
+      const typeRelations = {
+        Neutral: { strong: [], weak: [] },
+        Fire: { strong: ['Grass', 'Ice'], weak: ['Water', 'Ground'] },
+        Water: { strong: ['Fire', 'Ground'], weak: ['Electric', 'Grass'] },
+        Grass: { strong: ['Water', 'Ground'], weak: ['Fire', 'Ice', 'Air'] },
+        Electric: { strong: ['Water', 'Air'], weak: ['Ground'] },
+        Ice: { strong: ['Dragon', 'Grass'], weak: ['Fire', 'Electric'] },
+        Ground: { strong: ['Electric', 'Fire'], weak: ['Water', 'Grass'] },
+        Dragon: { strong: ['Dark', 'Dragon'], weak: ['Dragon', 'Ice'] },
+        Dark: { strong: ['Neutral'], weak: ['Dragon'] },
+        Air: { strong: ['Grass', 'Ground'], weak: ['Electric', 'Ice'] }
       };
-      const weaknesses = {
-        Fire: 'Water, Ground',
-        Water: 'Electric, Grass',
-        Grass: 'Fire, Ice, Air',
-        Electric: 'Ground',
-        Ice: 'Fire, Electric',
-        Ground: 'Water, Grass',
-        Dragon: 'Dragon, Ice',
-        Dark: 'Dragon',
-        Air: 'Electric, Ice',
-        Neutral: 'None'
+
+      const typeColors = {
+        Neutral: '#adb5c7',
+        Fire: '#ff7247',
+        Water: '#3ac7ff',
+        Grass: '#6be67e',
+        Electric: '#ffd166',
+        Ice: '#8ee7ff',
+        Ground: '#e0a15b',
+        Dragon: '#c386ff',
+        Dark: '#7e6bff',
+        Air: '#81d3ff'
       };
-      elementOrder.forEach(t => {
-        const row = document.createElement('tr');
-        row.innerHTML = `<td>${t}</td><td>${strengths[t] || 'Unknown'}</td><td>${weaknesses[t] || 'Unknown'}</td>`;
-        elemTable.appendChild(row);
+
+      function toRGBString(hex) {
+        if (!hex) return '154, 166, 198';
+        const cleaned = hex.replace('#', '').trim();
+        const normalized = cleaned.length === 3
+          ? cleaned.split('').map(ch => ch + ch).join('')
+          : (cleaned + '000000').slice(0, 6);
+        const r = parseInt(normalized.slice(0, 2), 16);
+        const g = parseInt(normalized.slice(2, 4), 16);
+        const b = parseInt(normalized.slice(4, 6), 16);
+        if ([r, g, b].some(num => Number.isNaN(num))) {
+          return '154, 166, 198';
+        }
+        return `${r}, ${g}, ${b}`;
+      }
+
+      const typeColorRGB = {};
+      Object.entries(typeColors).forEach(([type, color]) => {
+        typeColorRGB[type] = toRGBString(color);
       });
-      elemSection.appendChild(elemTable);
+
+      const typeMapLayout = document.createElement('div');
+      typeMapLayout.className = 'type-map-layout';
+      elemSection.appendChild(typeMapLayout);
+
+      const typeMap = document.createElement('div');
+      typeMap.className = 'type-map';
+      typeMapLayout.appendChild(typeMap);
+
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const connections = document.createElementNS(svgNS, 'svg');
+      connections.classList.add('type-map__connections');
+      connections.setAttribute('viewBox', '0 0 100 100');
+      connections.setAttribute('aria-hidden', 'true');
+
+      const defs = document.createElementNS(svgNS, 'defs');
+      const marker = document.createElementNS(svgNS, 'marker');
+      marker.id = 'type-map-arrowhead';
+      marker.setAttribute('viewBox', '0 0 10 10');
+      marker.setAttribute('refX', '10');
+      marker.setAttribute('refY', '5');
+      marker.setAttribute('markerWidth', '6');
+      marker.setAttribute('markerHeight', '6');
+      marker.setAttribute('orient', 'auto');
+      const markerPath = document.createElementNS(svgNS, 'path');
+      markerPath.setAttribute('d', 'M 0 0 L 10 5 L 0 10 z');
+      markerPath.setAttribute('fill', 'currentColor');
+      marker.appendChild(markerPath);
+      defs.appendChild(marker);
+      connections.appendChild(defs);
+
+      const connectionGroup = document.createElementNS(svgNS, 'g');
+      connectionGroup.classList.add('type-map__link-group');
+      connections.appendChild(connectionGroup);
+      typeMap.appendChild(connections);
+
+      const nodesLayer = document.createElement('div');
+      nodesLayer.className = 'type-map__nodes';
+      typeMap.appendChild(nodesLayer);
+
+      const detailPanel = document.createElement('aside');
+      detailPanel.className = 'type-map__detail';
+      detailPanel.setAttribute('aria-live', 'polite');
+      typeMapLayout.appendChild(detailPanel);
+
+      const legend = document.createElement('p');
+      legend.className = 'type-map__legend';
+      legend.textContent = kidMode
+        ? 'Follow the glowing arrows—each line shows which pals hit super hard!'
+        : 'Arrows flow from the attacking element to the element it overwhelms.';
+      elemSection.appendChild(legend);
+
+      const orbitElements = Object.keys(typeRelations).filter(type => type !== 'Neutral');
+      const nodePositions = {};
+      const radius = 38;
+      orbitElements.forEach((type, index) => {
+        const angle = (index / orbitElements.length) * (Math.PI * 2) - Math.PI / 2;
+        const x = 50 + radius * Math.cos(angle);
+        const y = 50 + radius * Math.sin(angle);
+        nodePositions[type] = { x, y };
+      });
+      nodePositions.Neutral = { x: 50, y: 50 };
+
+      const links = [];
+
+      function createPath(start, end) {
+        const midX = (start.x + end.x) / 2;
+        const midY = (start.y + end.y) / 2;
+        const dx = end.x - start.x;
+        const dy = end.y - start.y;
+        const distance = Math.hypot(dx, dy) || 1;
+        const offset = Math.min(12, distance / 3);
+        const controlX = midX + (-dy / distance) * offset;
+        const controlY = midY + (dx / distance) * offset;
+        return `M ${start.x} ${start.y} Q ${controlX} ${controlY} ${end.x} ${end.y}`;
+      }
+
+      Object.entries(typeRelations).forEach(([source, info]) => {
+        const start = nodePositions[source];
+        if (!start) return;
+        (info.strong || []).forEach(target => {
+          if (target === source) return;
+          const end = nodePositions[target];
+          if (!end) return;
+          const path = document.createElementNS(svgNS, 'path');
+          path.classList.add('type-map__link');
+          path.dataset.source = source;
+          path.dataset.target = target;
+          path.setAttribute('d', createPath(start, end));
+          const color = typeColors[source] || '#f0f4f8';
+          const rgb = typeColorRGB[source] || toRGBString(color);
+          path.style.setProperty('--type-color', color);
+          path.style.setProperty('--type-color-rgb', rgb);
+          path.style.color = color;
+          path.setAttribute('marker-end', 'url(#type-map-arrowhead)');
+          connectionGroup.appendChild(path);
+          links.push(path);
+        });
+      });
+
+      const nodeButtons = [];
+
+      function createNode(type) {
+        const pos = nodePositions[type];
+        if (!pos) return;
+        const strong = (typeRelations[type] && typeRelations[type].strong) || [];
+        const weak = (typeRelations[type] && typeRelations[type].weak) || [];
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'type-map__node';
+        button.dataset.type = type;
+        const color = typeColors[type] || '#9aa6c6';
+        const rgb = typeColorRGB[type] || toRGBString(color);
+        button.style.setProperty('--type-color', color);
+        button.style.setProperty('--type-color-rgb', rgb);
+        button.style.setProperty('--type-x', `${pos.x}%`);
+        button.style.setProperty('--type-y', `${pos.y}%`);
+        button.setAttribute('aria-label', `${type} element: strong against ${strong.length ? strong.join(', ') : 'no elements'}; weak against ${weak.length ? weak.join(', ') : 'no elements'}`);
+        button.setAttribute('aria-pressed', 'false');
+        button.innerHTML = `
+          <span class="type-map__node-ring"></span>
+          <span class="type-map__node-name">${escapeHTML(type)}</span>
+          <span class="type-map__node-meta">
+            <span class="type-map__node-pill type-map__node-pill--strong" title="${kidMode ? 'Number of elements you overpower' : 'Advantage count'}">${strong.length}</span>
+            <span class="type-map__node-pill type-map__node-pill--weak" title="${kidMode ? 'Number of elements that overpower you' : 'Weakness count'}">${weak.length}</span>
+          </span>
+        `;
+        button.addEventListener('click', () => selectType(type));
+        nodesLayer.appendChild(button);
+        nodeButtons.push(button);
+      }
+
+      Object.keys(typeRelations).forEach(createNode);
+
+      function renderList(items, empty) {
+        if (!items || items.length === 0) {
+          return `<p class="type-map__detail-empty">${empty}</p>`;
+        }
+        return `
+          <ul class="type-map__detail-list">
+            ${items.map(item => `<li>${escapeHTML(item)}</li>`).join('')}
+          </ul>
+        `;
+      }
+
+      function selectType(type) {
+        const info = typeRelations[type] || { strong: [], weak: [] };
+        const strongSet = new Set(info.strong);
+        const weakSet = new Set(info.weak);
+        nodeButtons.forEach(btn => {
+          const nodeType = btn.dataset.type;
+          const isFocus = nodeType === type;
+          btn.classList.toggle('type-map__node--focus', isFocus);
+          btn.classList.toggle('type-map__node--ally', strongSet.has(nodeType));
+          btn.classList.toggle('type-map__node--danger', weakSet.has(nodeType));
+          btn.setAttribute('aria-pressed', isFocus ? 'true' : 'false');
+        });
+        links.forEach(path => {
+          const fromSelected = path.dataset.source === type;
+          const toSelected = path.dataset.target === type;
+          path.classList.toggle('type-map__link--active', fromSelected);
+          path.classList.toggle('type-map__link--incoming', toSelected);
+          path.classList.toggle('type-map__link--dim', !fromSelected && !toSelected);
+        });
+
+        const strongLabel = kidMode ? 'Super Effective On' : 'Dominates';
+        const weakLabel = kidMode ? 'Takes Big Damage From' : 'Vulnerable To';
+        const noteText = kidMode
+          ? 'Tap another element to see who it blasts or who blasts it.'
+          : 'Select different nodes to trace optimal matchups and counters.';
+        const color = typeColors[type] || '#9aa6c6';
+        const rgb = typeColorRGB[type] || toRGBString(color);
+        detailPanel.style.setProperty('--type-color', color);
+        detailPanel.style.setProperty('--type-color-rgb', rgb);
+        detailPanel.innerHTML = `
+          <header class="type-map__detail-header">
+            <span class="type-map__detail-chip">${escapeHTML(type)}</span>
+            <span class="type-map__detail-sub">${info.strong.length} advantage${info.strong.length === 1 ? '' : 's'} • ${info.weak.length} weakness${info.weak.length === 1 ? '' : 'es'}</span>
+          </header>
+          <div class="type-map__detail-columns">
+            <div>
+              <h4>${strongLabel}</h4>
+              ${renderList(info.strong, kidMode ? 'No super strengths.' : 'No direct advantages recorded.')}
+            </div>
+            <div>
+              <h4>${weakLabel}</h4>
+              ${renderList(info.weak, kidMode ? 'No big threats.' : 'No notable weaknesses recorded.')}
+            </div>
+          </div>
+          <p class="type-map__detail-note">${noteText}</p>
+        `;
+      }
+
+      selectType('Fire');
 
       const workDescription = kidMode
         ? 'These jobs tell you what pals can help with at base.'
