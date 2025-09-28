@@ -5275,185 +5275,6 @@
         return input;
       }
 
-      const passiveDescription = kidMode
-        ? 'All partner traits pals can roll. Tap a trait to read what it does.'
-        : 'Complete alphabetical list of every passive trait. Select any entry for detailed effects.';
-      const passiveSection = createSection('glossary-passives', 'Passive Skills', passiveDescription);
-      const passiveSearch = createSearch(kidMode ? 'Search passive traits…' : 'Filter passive traits…');
-      passiveSection.appendChild(passiveSearch);
-      const passiveCount = document.createElement('p');
-      passiveCount.className = 'glossary-count';
-      passiveSection.appendChild(passiveCount);
-      const passiveWrap = document.createElement('div');
-      passiveWrap.className = 'glossary-chip-grid';
-      passiveSection.appendChild(passiveWrap);
-      const passiveEmpty = document.createElement('p');
-      passiveEmpty.className = 'glossary-empty';
-      passiveEmpty.textContent = kidMode
-        ? 'No passives found. Try a different word.'
-        : 'No passive traits match your search.';
-      passiveEmpty.hidden = true;
-      passiveSection.appendChild(passiveEmpty);
-
-      const passiveEntries = Object.keys(traitsDictionary || {})
-        .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
-      passiveEntries.forEach(trait => {
-        const description = typeof traitsDictionary[trait] === 'string' ? traitsDictionary[trait] : '';
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'chip passive';
-        btn.dataset.trait = trait;
-        const slug = slugifyForPalworld(trait);
-        if (slug) {
-          btn.id = `passive-${slug}`;
-        }
-        btn.title = description || trait;
-        btn.textContent = trait;
-        btn.dataset.search = `${trait} ${description}`.toLowerCase();
-        passiveWrap.appendChild(btn);
-      });
-
-      const totalPassives = passiveEntries.length;
-      function filterPassives() {
-        const term = passiveSearch.value.trim().toLowerCase();
-        let visible = 0;
-        passiveWrap.querySelectorAll('.chip.passive').forEach(btn => {
-          const searchable = btn.dataset.search || '';
-          const matches = !term || searchable.includes(term);
-          btn.style.display = matches ? '' : 'none';
-          btn.tabIndex = matches ? 0 : -1;
-          if (matches) visible += 1;
-        });
-        passiveCount.textContent = totalPassives
-          ? (visible === totalPassives
-            ? `${totalPassives} passive traits listed.`
-            : `Showing ${visible} of ${totalPassives} passive traits.`)
-          : 'No passive traits available.';
-        passiveEmpty.hidden = visible !== 0;
-      }
-      filterPassives();
-      passiveSearch.addEventListener('input', filterPassives);
-
-      const activeDescription = kidMode
-        ? 'Every move pals can learn. Search by name, element or effect.'
-        : 'Complete catalogue of partner and weapon skills. Filter by name, element or effect.';
-      const activeSection = createSection('glossary-active', 'Active Skills', activeDescription);
-      const rainbowCallout = document.createElement('div');
-      rainbowCallout.className = 'glossary-callout';
-      rainbowCallout.innerHTML = `<strong>Rainbow skills</strong>Rainbow-fruit moves ignore normal type weaknesses and resistances, so they deal steady damage even when enemies resist your pal’s element. They can be taught to any pal, making them perfect coverage options for favourite partners.`;
-      activeSection.appendChild(rainbowCallout);
-
-      const skillSearch = createSearch(kidMode ? 'Search active skills…' : 'Filter active skills by name, element or effect…');
-      activeSection.appendChild(skillSearch);
-      const skillCount = document.createElement('p');
-      skillCount.className = 'glossary-count';
-      activeSection.appendChild(skillCount);
-      const skillsWrap = document.createElement('div');
-      skillsWrap.className = 'glossary-skill-grid';
-      activeSection.appendChild(skillsWrap);
-      const skillEmpty = document.createElement('p');
-      skillEmpty.className = 'glossary-empty';
-      skillEmpty.textContent = kidMode
-        ? 'No skills found. Try another word or element.'
-        : 'No active skills match your filters.';
-      skillEmpty.hidden = true;
-      activeSection.appendChild(skillEmpty);
-
-      const skillEntriesMap = new Map();
-      Object.entries(normalizedSkillDetails).forEach(([key, info]) => {
-        skillEntriesMap.set(key, {
-          key,
-          displayName: info.name || key,
-          element: info.element || 'Unknown',
-          power: typeof info.power === 'number' ? info.power : null,
-          cooldown: typeof info.ct === 'number' ? info.ct : null,
-          description: info.description || ''
-        });
-      });
-      Object.entries(skillsDictionary || {}).forEach(([rawKey, info = {}]) => {
-        const normalizedKey = rawKey.toLowerCase();
-        const existing = skillEntriesMap.get(normalizedKey);
-        const baseName = info.name || niceName(rawKey);
-        const fallbackPower = typeof info.power === 'number'
-          ? info.power
-          : (() => {
-              const match = (info.damage || '').match(/(\d+)/);
-              return match ? Number(match[1]) : null;
-            })();
-        const description = info.description || existing?.description || '';
-        const element = (existing && existing.element && existing.element !== 'Unknown')
-          ? existing.element
-          : (info.element || info.type || 'Unknown');
-        const cooldown = existing?.cooldown != null ? existing.cooldown : null;
-        const merged = {
-          key: normalizedKey,
-          displayName: baseName,
-          element,
-          power: existing?.power != null ? existing.power : fallbackPower,
-          cooldown,
-          description
-        };
-        skillEntriesMap.set(normalizedKey, { ...existing, ...merged });
-      });
-
-      const skillEntries = Array.from(skillEntriesMap.values())
-        .filter(entry => entry && entry.displayName)
-        .sort((a, b) => a.displayName.localeCompare(b.displayName, undefined, { sensitivity: 'base' }));
-      skillEntries.forEach(entry => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'glossary-skill';
-        btn.dataset.skill = entry.key;
-        const slug = slugifyForPalworld(entry.displayName);
-        if (slug) {
-          btn.id = `move-${slug}`;
-        }
-        const metaBits = [];
-        if (typeof entry.power === 'number' && !Number.isNaN(entry.power)) {
-          metaBits.push(`Power ${entry.power}`);
-        }
-        if (typeof entry.cooldown === 'number' && !Number.isNaN(entry.cooldown)) {
-          metaBits.push(`CT ${entry.cooldown}s`);
-        }
-        const metaText = metaBits.join(' • ');
-        btn.innerHTML = `
-          <span class="glossary-skill__header">
-            <span class="glossary-skill__name">${escapeHTML(entry.displayName)}</span>
-            <span class="glossary-skill__element">${escapeHTML(entry.element || 'Unknown')}</span>
-          </span>
-          ${metaText ? `<span class="glossary-skill__meta">${escapeHTML(metaText)}</span>` : ''}
-          <span class="glossary-skill__description">${escapeHTML(entry.description || 'No description available.')}</span>
-        `;
-        const searchableChunks = [
-          entry.displayName,
-          entry.element,
-          entry.description,
-          metaText
-        ].filter(Boolean);
-        btn.dataset.search = searchableChunks.join(' ').toLowerCase();
-        skillsWrap.appendChild(btn);
-      });
-
-      const totalSkills = skillEntries.length;
-      function filterSkills() {
-        const term = skillSearch.value.trim().toLowerCase();
-        let visible = 0;
-        skillsWrap.querySelectorAll('.glossary-skill').forEach(btn => {
-          const matches = !term || (btn.dataset.search || '').includes(term);
-          btn.style.display = matches ? '' : 'none';
-          btn.tabIndex = matches ? 0 : -1;
-          if (matches) visible += 1;
-        });
-        skillCount.textContent = totalSkills
-          ? (visible === totalSkills
-            ? `${totalSkills} active skills listed.`
-            : `Showing ${visible} of ${totalSkills} active skills.`)
-          : 'No active skills available.';
-        skillEmpty.hidden = visible !== 0;
-      }
-      filterSkills();
-      skillSearch.addEventListener('input', filterSkills);
-
       const elementsDescription = kidMode
         ? 'Check which elements pals are strong or weak against.'
         : 'Reference chart for attack advantages and resistances.';
@@ -5504,6 +5325,14 @@
       Object.entries(typeColors).forEach(([type, color]) => {
         typeColorRGB[type] = toRGBString(color);
       });
+
+      function getTypeIconSource(type) {
+        const source = iconMap[type];
+        if (typeof source === 'string' && source.trim().length) {
+          return source;
+        }
+        return iconMap['Neutral'] || 'assets/icons/neutral.png';
+      }
 
       const typeMapLayout = document.createElement('div');
       typeMapLayout.className = 'type-map-layout';
@@ -5623,8 +5452,12 @@
         button.style.setProperty('--type-y', `${pos.y}%`);
         button.setAttribute('aria-label', `${type} element: strong against ${strong.length ? strong.join(', ') : 'no elements'}; weak against ${weak.length ? weak.join(', ') : 'no elements'}`);
         button.setAttribute('aria-pressed', 'false');
+        const iconSrc = getTypeIconSource(type);
         button.innerHTML = `
           <span class="type-map__node-ring"></span>
+          <span class="type-map__node-visual">
+            <img src="${escapeHTML(iconSrc)}" alt="" loading="lazy" class="type-map__node-icon" aria-hidden="true">
+          </span>
           <span class="type-map__node-name">${escapeHTML(type)}</span>
           <span class="type-map__node-meta">
             <span class="type-map__node-pill type-map__node-pill--strong" title="${kidMode ? 'Number of elements you overpower' : 'Advantage count'}">${strong.length}</span>
@@ -5676,11 +5509,15 @@
           : 'Select different nodes to trace optimal matchups and counters.';
         const color = typeColors[type] || '#9aa6c6';
         const rgb = typeColorRGB[type] || toRGBString(color);
+        const iconSrc = getTypeIconSource(type);
         detailPanel.style.setProperty('--type-color', color);
         detailPanel.style.setProperty('--type-color-rgb', rgb);
         detailPanel.innerHTML = `
           <header class="type-map__detail-header">
-            <span class="type-map__detail-chip">${escapeHTML(type)}</span>
+            <span class="type-map__detail-chip">
+              <img src="${escapeHTML(iconSrc)}" alt="" loading="lazy" class="type-map__detail-icon" aria-hidden="true">
+              ${escapeHTML(type)}
+            </span>
             <span class="type-map__detail-sub">${info.strong.length} advantage${info.strong.length === 1 ? '' : 's'} • ${info.weak.length} weakness${info.weak.length === 1 ? '' : 'es'}</span>
           </header>
           <div class="type-map__detail-columns">
@@ -5907,6 +5744,185 @@
       });
 
       workSection.appendChild(workGrid);
+
+      const passiveDescription = kidMode
+        ? 'All partner traits pals can roll. Tap a trait to read what it does.'
+        : 'Complete alphabetical list of every passive trait. Select any entry for detailed effects.';
+      const passiveSection = createSection('glossary-passives', 'Passive Skills', passiveDescription);
+      const passiveSearch = createSearch(kidMode ? 'Search passive traits…' : 'Filter passive traits…');
+      passiveSection.appendChild(passiveSearch);
+      const passiveCount = document.createElement('p');
+      passiveCount.className = 'glossary-count';
+      passiveSection.appendChild(passiveCount);
+      const passiveWrap = document.createElement('div');
+      passiveWrap.className = 'glossary-chip-grid';
+      passiveSection.appendChild(passiveWrap);
+      const passiveEmpty = document.createElement('p');
+      passiveEmpty.className = 'glossary-empty';
+      passiveEmpty.textContent = kidMode
+        ? 'No passives found. Try a different word.'
+        : 'No passive traits match your search.';
+      passiveEmpty.hidden = true;
+      passiveSection.appendChild(passiveEmpty);
+
+      const passiveEntries = Object.keys(traitsDictionary || {})
+        .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+      passiveEntries.forEach(trait => {
+        const description = typeof traitsDictionary[trait] === 'string' ? traitsDictionary[trait] : '';
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'chip passive';
+        btn.dataset.trait = trait;
+        const slug = slugifyForPalworld(trait);
+        if (slug) {
+          btn.id = `passive-${slug}`;
+        }
+        btn.title = description || trait;
+        btn.textContent = trait;
+        btn.dataset.search = `${trait} ${description}`.toLowerCase();
+        passiveWrap.appendChild(btn);
+      });
+
+      const totalPassives = passiveEntries.length;
+      function filterPassives() {
+        const term = passiveSearch.value.trim().toLowerCase();
+        let visible = 0;
+        passiveWrap.querySelectorAll('.chip.passive').forEach(btn => {
+          const searchable = btn.dataset.search || '';
+          const matches = !term || searchable.includes(term);
+          btn.style.display = matches ? '' : 'none';
+          btn.tabIndex = matches ? 0 : -1;
+          if (matches) visible += 1;
+        });
+        passiveCount.textContent = totalPassives
+          ? (visible === totalPassives
+            ? `${totalPassives} passive traits listed.`
+            : `Showing ${visible} of ${totalPassives} passive traits.`)
+          : 'No passive traits available.';
+        passiveEmpty.hidden = visible !== 0;
+      }
+      filterPassives();
+      passiveSearch.addEventListener('input', filterPassives);
+
+      const activeDescription = kidMode
+        ? 'Every move pals can learn. Search by name, element or effect.'
+        : 'Complete catalogue of partner and weapon skills. Filter by name, element or effect.';
+      const activeSection = createSection('glossary-active', 'Active Skills', activeDescription);
+      const rainbowCallout = document.createElement('div');
+      rainbowCallout.className = 'glossary-callout';
+      rainbowCallout.innerHTML = `<strong>Rainbow skills</strong>Rainbow-fruit moves ignore normal type weaknesses and resistances, so they deal steady damage even when enemies resist your pal’s element. They can be taught to any pal, making them perfect coverage options for favourite partners.`;
+      activeSection.appendChild(rainbowCallout);
+
+      const skillSearch = createSearch(kidMode ? 'Search active skills…' : 'Filter active skills by name, element or effect…');
+      activeSection.appendChild(skillSearch);
+      const skillCount = document.createElement('p');
+      skillCount.className = 'glossary-count';
+      activeSection.appendChild(skillCount);
+      const skillsWrap = document.createElement('div');
+      skillsWrap.className = 'glossary-skill-grid';
+      activeSection.appendChild(skillsWrap);
+      const skillEmpty = document.createElement('p');
+      skillEmpty.className = 'glossary-empty';
+      skillEmpty.textContent = kidMode
+        ? 'No skills found. Try another word or element.'
+        : 'No active skills match your filters.';
+      skillEmpty.hidden = true;
+      activeSection.appendChild(skillEmpty);
+
+      const skillEntriesMap = new Map();
+      Object.entries(normalizedSkillDetails).forEach(([key, info]) => {
+        skillEntriesMap.set(key, {
+          key,
+          displayName: info.name || key,
+          element: info.element || 'Unknown',
+          power: typeof info.power === 'number' ? info.power : null,
+          cooldown: typeof info.ct === 'number' ? info.ct : null,
+          description: info.description || ''
+        });
+      });
+      Object.entries(skillsDictionary || {}).forEach(([rawKey, info = {}]) => {
+        const normalizedKey = rawKey.toLowerCase();
+        const existing = skillEntriesMap.get(normalizedKey);
+        const baseName = info.name || niceName(rawKey);
+        const fallbackPower = typeof info.power === 'number'
+          ? info.power
+          : (() => {
+              const match = (info.damage || '').match(/(\d+)/);
+              return match ? Number(match[1]) : null;
+            })();
+        const description = info.description || existing?.description || '';
+        const element = (existing && existing.element && existing.element !== 'Unknown')
+          ? existing.element
+          : (info.element || info.type || 'Unknown');
+        const cooldown = existing?.cooldown != null ? existing.cooldown : null;
+        const merged = {
+          key: normalizedKey,
+          displayName: baseName,
+          element,
+          power: existing?.power != null ? existing.power : fallbackPower,
+          cooldown,
+          description
+        };
+        skillEntriesMap.set(normalizedKey, { ...existing, ...merged });
+      });
+
+      const skillEntries = Array.from(skillEntriesMap.values())
+        .filter(entry => entry && entry.displayName)
+        .sort((a, b) => a.displayName.localeCompare(b.displayName, undefined, { sensitivity: 'base' }));
+      skillEntries.forEach(entry => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'glossary-skill';
+        btn.dataset.skill = entry.key;
+        const slug = slugifyForPalworld(entry.displayName);
+        if (slug) {
+          btn.id = `move-${slug}`;
+        }
+        const metaBits = [];
+        if (typeof entry.power === 'number' && !Number.isNaN(entry.power)) {
+          metaBits.push(`Power ${entry.power}`);
+        }
+        if (typeof entry.cooldown === 'number' && !Number.isNaN(entry.cooldown)) {
+          metaBits.push(`CT ${entry.cooldown}s`);
+        }
+        const metaText = metaBits.join(' • ');
+        btn.innerHTML = `
+          <span class="glossary-skill__header">
+            <span class="glossary-skill__name">${escapeHTML(entry.displayName)}</span>
+            <span class="glossary-skill__element">${escapeHTML(entry.element || 'Unknown')}</span>
+          </span>
+          ${metaText ? `<span class="glossary-skill__meta">${escapeHTML(metaText)}</span>` : ''}
+          <span class="glossary-skill__description">${escapeHTML(entry.description || 'No description available.')}</span>
+        `;
+        const searchableChunks = [
+          entry.displayName,
+          entry.element,
+          entry.description,
+          metaText
+        ].filter(Boolean);
+        btn.dataset.search = searchableChunks.join(' ').toLowerCase();
+        skillsWrap.appendChild(btn);
+      });
+
+      const totalSkills = skillEntries.length;
+      function filterSkills() {
+        const term = skillSearch.value.trim().toLowerCase();
+        let visible = 0;
+        skillsWrap.querySelectorAll('.glossary-skill').forEach(btn => {
+          const matches = !term || (btn.dataset.search || '').includes(term);
+          btn.style.display = matches ? '' : 'none';
+          btn.tabIndex = matches ? 0 : -1;
+          if (matches) visible += 1;
+        });
+        skillCount.textContent = totalSkills
+          ? (visible === totalSkills
+            ? `${totalSkills} active skills listed.`
+            : `Showing ${visible} of ${totalSkills} active skills.`)
+          : 'No active skills available.';
+        skillEmpty.hidden = visible !== 0;
+      }
+      filterSkills();
+      skillSearch.addEventListener('input', filterSkills);
 
       if (!container.dataset.listenerBound) {
         container.addEventListener('click', (e) => {
