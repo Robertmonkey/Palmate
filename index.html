@@ -2582,6 +2582,239 @@
       color: var(--light);
       box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.2);
     }
+    .progress-route {
+      position: relative;
+      margin-top: clamp(16px, 4vw, 28px);
+      padding: clamp(20px, 3vw, 32px);
+      background: linear-gradient(135deg, rgba(35, 55, 88, 0.92), rgba(119, 141, 169, 0.55));
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 28px 48px rgba(8, 16, 32, 0.45);
+      overflow: hidden;
+      display: grid;
+      gap: clamp(16px, 3vw, 28px);
+    }
+    .progress-route::after {
+      content: '';
+      position: absolute;
+      inset: auto -60px -80px auto;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle at center, rgba(224, 225, 221, 0.35), transparent 70%);
+      opacity: 0.65;
+      pointer-events: none;
+      transform: rotate(18deg);
+    }
+    .progress-route__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .progress-route__intro {
+      display: grid;
+      gap: 10px;
+      max-width: 520px;
+    }
+    .progress-route__intro h3 {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+    }
+    .progress-route__intro p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: rgba(224, 225, 221, 0.85);
+    }
+    .progress-route__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: rgba(13, 27, 42, 0.45);
+      padding: 6px 14px;
+      border-radius: 999px;
+      color: rgba(224, 225, 221, 0.85);
+      font-weight: 700;
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.25);
+    }
+    .progress-route__eyebrow i {
+      font-size: 0.85rem;
+    }
+    .progress-route__actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .progress-route__stats {
+      position: relative;
+      z-index: 1;
+    }
+    .progress-route__next {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--light);
+      position: relative;
+      z-index: 1;
+    }
+    .progress-route__next strong {
+      color: var(--text);
+    }
+    .progress-route__filters {
+      position: relative;
+      z-index: 1;
+    }
+    .progress-route__timeline {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 14px;
+      padding-left: 42px;
+    }
+    .progress-route__timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(224, 225, 221, 0.35), rgba(224, 225, 221, 0.05));
+    }
+    .progress-route__boss {
+      position: relative;
+      background: rgba(13, 27, 42, 0.55);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
+      padding: 18px 20px 18px 22px;
+      display: grid;
+      gap: 10px;
+      overflow: hidden;
+    }
+    .progress-route__boss::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 22px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(119, 141, 169, 0.35);
+    }
+    .progress-route__boss::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 65%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .progress-route__boss:hover::after,
+    .progress-route__boss:focus-within::after {
+      opacity: 0.35;
+    }
+    .progress-route__boss-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .progress-route__boss-index {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(224, 225, 221, 0.14);
+      color: rgba(224, 225, 221, 0.9);
+      padding: 6px 12px;
+      border-radius: 999px;
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.2);
+    }
+    .progress-route__boss-body {
+      flex: 1 1 auto;
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+    .progress-route__boss-body h4 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+    .progress-route__boss-body p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(224, 225, 221, 0.75);
+    }
+    .progress-route__boss-status {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: rgba(224, 225, 221, 0.9);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.25);
+    }
+    .progress-route__boss-copy {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(224, 225, 221, 0.82);
+    }
+    .progress-route__boss--complete::before {
+      background: var(--success);
+      box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.35);
+    }
+    .progress-route__boss--complete .progress-route__boss-status {
+      background: rgba(42, 157, 143, 0.28);
+      color: #bff7ec;
+      box-shadow: inset 0 0 0 1px rgba(42, 157, 143, 0.45);
+    }
+    .progress-route__boss--next::before {
+      background: #ffd166;
+      box-shadow: 0 0 0 4px rgba(255, 209, 102, 0.35);
+    }
+    .progress-route__boss--next .progress-route__boss-status {
+      background: rgba(255, 209, 102, 0.25);
+      color: #fff2c6;
+      box-shadow: inset 0 0 0 1px rgba(255, 209, 102, 0.45);
+    }
+    .progress-route__boss--upcoming::before {
+      background: rgba(119, 141, 169, 0.6);
+    }
+    .progress-route__boss--upcoming .progress-route__boss-status {
+      background: rgba(119, 141, 169, 0.22);
+      color: rgba(224, 225, 221, 0.7);
+    }
+    .progress-route__empty {
+      margin: 0;
+      font-size: 0.95rem;
+      color: rgba(224, 225, 221, 0.8);
+    }
+    .route-controls {
+      display: grid;
+      gap: 14px;
+      margin-bottom: clamp(12px, 3vw, 24px);
+    }
+    .route-controls__lead {
+      margin: 0;
+      font-size: 0.95rem;
+      color: rgba(224, 225, 221, 0.82);
+    }
+    .route-controls__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .route-controls__filters {
+      margin-top: 4px;
+    }
     .progress-choice-backdrop {
       position: fixed;
       inset: 0;
@@ -3607,6 +3840,63 @@
             </div>
           </article>
         </div>
+        <section id="progressRouteSection" class="progress-route card">
+          <div class="progress-route__header">
+            <div class="progress-route__intro">
+              <span class="progress-route__eyebrow"><i class="fa-solid fa-tower-broadcast"></i> Boss Route</span>
+              <h3>Boss Route &amp; Progress</h3>
+              <p id="progressRouteLead">Track tower victories, see what’s next, and fine-tune the route filters without leaving this page.</p>
+            </div>
+            <div class="progress-route__actions">
+              <button type="button" class="btn" data-route-action="toggle-optional">Hide Optional</button>
+              <button type="button" class="btn" data-route-action="jump-next" data-step-id="">Jump to next required</button>
+            </div>
+          </div>
+          <div class="progress-route__stats route-overview__stats">
+            <article class="route-overview__stat">
+              <div class="route-overview__stat-header">
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-list-check"></i></span>
+                <div>
+                  <p class="route-overview__stat-title" data-route-role="required-title">Required steps</p>
+                  <p class="route-overview__stat-value" data-route-role="required-count">0/0</p>
+                </div>
+              </div>
+              <div class="route-overview__meter" data-route-role="required-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="fill" data-route-role="required-fill"></div>
+              </div>
+              <p class="route-overview__stat-sub" data-route-role="required-note">Main path objectives</p>
+            </article>
+            <article class="route-overview__stat">
+              <div class="route-overview__stat-header">
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                <div>
+                  <p class="route-overview__stat-title" data-route-role="optional-title">Optional tasks</p>
+                  <p class="route-overview__stat-value" data-route-role="optional-count">0/0</p>
+                </div>
+              </div>
+              <div class="route-overview__meter" data-route-role="optional-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="fill" data-route-role="optional-fill"></div>
+              </div>
+              <p class="route-overview__stat-sub" data-route-role="optional-note">Bonus cleanup and prep</p>
+            </article>
+            <article class="route-overview__stat">
+              <div class="route-overview__stat-header">
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-tower-broadcast"></i></span>
+                <div>
+                  <p class="route-overview__stat-title" data-route-role="tower-title">Towers cleared</p>
+                  <p class="route-overview__stat-value" data-route-role="tower-count">0/0</p>
+                </div>
+              </div>
+              <div class="route-overview__meter" data-route-role="tower-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="fill" data-route-role="tower-fill"></div>
+              </div>
+              <p class="route-overview__stat-sub" data-route-role="tower-note">Tower bosses defeated so far</p>
+            </article>
+          </div>
+          <p class="progress-route__next" data-route-role="next-callout"></p>
+          <div class="progress-route__filters" data-route-role="filters"></div>
+          <div class="progress-route__timeline" id="progressBossTimeline"></div>
+        </section>
       </section>
       <!-- Glossary page -->
       <section id="glossaryPage" class="page">
@@ -4977,6 +5267,45 @@
         } else {
           btn.removeAttribute('aria-pressed');
         }
+      });
+    }
+
+    function bindRouteActionButtons(){
+      document.querySelectorAll('[data-route-action="toggle-optional"]').forEach(btn => {
+        if(btn.dataset.boundToggle) return;
+        btn.dataset.boundToggle = 'true';
+        btn.addEventListener('click', () => {
+          routeHideOptional = !routeHideOptional;
+          persistRoutePreferences();
+          const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
+          chapters.forEach(ch => rerenderChapter(ch));
+          updateRouteOverviewUI();
+          renderBossRouteTimeline();
+          playSound(clickSound);
+        });
+      });
+      document.querySelectorAll('[data-route-action="jump-next"]').forEach(btn => {
+        if(btn.dataset.boundJump) return;
+        btn.dataset.boundJump = 'true';
+        btn.addEventListener('click', () => {
+          const queued = btn.dataset.stepId;
+          const next = queued
+            || (findNextRouteStep() || findNextRouteStep({ includeOptional: true }))?.step?.id
+            || '';
+          if(next){
+            queueRouteFocus(next);
+          }
+          playSound(clickSound);
+        });
+      });
+    }
+
+    function updateRouteToggleButtons(){
+      const label = routeOptionalToggleLabel(routeHideOptional);
+      const pressed = routeHideOptional ? 'true' : 'false';
+      document.querySelectorAll('[data-route-action="toggle-optional"]').forEach(btn => {
+        btn.textContent = label;
+        btn.setAttribute('aria-pressed', pressed);
       });
     }
 
@@ -8678,63 +9007,21 @@
         } else {
           routeHiddenCategories = new Set(cleanedHidden);
         }
+        const routeLead = kidMode
+          ? 'Check off each friendly step together. Hide bonus chores or jump ahead when you need a faster run.'
+          : 'Work through every chapter of the marathon. Filter categories, hide optional tasks or jump to the next objective.';
+        const routeHeading = kidMode ? 'Route Checklist' : 'Story Route Planner';
         node.innerHTML = `
-          <section class="card route-overview">
-            <div class="route-overview__header">
-              <div>
-                <h2>Boss Route & Progress</h2>
-                <p>Work through each chapter. Check off steps as you do them. <em>Optional</em> steps don’t block completion.</p>
-                <p class="route-overview__next" id="routeNextCallout"></p>
-              </div>
-              <div class="route-overview__stats">
-                <article class="route-overview__stat">
-                  <div class="route-overview__stat-header">
-                    <span class="route-overview__stat-icon"><i class="fa-solid fa-list-check"></i></span>
-                    <div>
-                      <p class="route-overview__stat-title">${kidMode ? 'Big steps' : 'Required steps'}</p>
-                      <p class="route-overview__stat-value" id="routeRequiredCount">0/0</p>
-                    </div>
-                  </div>
-                  <div class="route-overview__meter" id="routeRequiredMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                    <div class="fill" id="routeRequiredFill"></div>
-                  </div>
-                  <p class="route-overview__stat-sub" id="routeRequiredNote">${kidMode ? 'Main path goals' : 'Main path objectives'}</p>
-                </article>
-                <article class="route-overview__stat">
-                  <div class="route-overview__stat-header">
-                    <span class="route-overview__stat-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
-                    <div>
-                      <p class="route-overview__stat-title">${kidMode ? 'Bonus ideas' : 'Optional tasks'}</p>
-                      <p class="route-overview__stat-value" id="routeOptionalCount">0/0</p>
-                    </div>
-                  </div>
-                  <div class="route-overview__meter" id="routeOptionalMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                    <div class="fill" id="routeOptionalFill"></div>
-                  </div>
-                  <p class="route-overview__stat-sub" id="routeOptionalNote">${kidMode ? 'Extra fun chores' : 'Bonus cleanup and prep'}</p>
-                </article>
-                <article class="route-overview__stat">
-                  <div class="route-overview__stat-header">
-                    <span class="route-overview__stat-icon"><i class="fa-solid fa-tower-broadcast"></i></span>
-                    <div>
-                      <p class="route-overview__stat-title">${kidMode ? 'Tower wins' : 'Towers cleared'}</p>
-                      <p class="route-overview__stat-value" id="routeTowerCount">0/0</p>
-                    </div>
-                  </div>
-                  <div class="route-overview__meter" id="routeTowerMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                    <div class="fill" id="routeTowerFill"></div>
-                  </div>
-                  <p class="route-overview__stat-sub" id="routeTowerNote">${kidMode ? 'Defeat bosses together' : 'Tower bosses defeated so far'}</p>
-                </article>
-              </div>
+          <header class="page-header">
+            <h2>${routeHeading}</h2>
+          </header>
+          <section class="card route-controls">
+            <p class="route-controls__lead">${escapeHTML(routeLead)}</p>
+            <div class="route-controls__actions">
+              <button type="button" class="btn" data-route-action="toggle-optional">${routeOptionalToggleLabel(routeHideOptional)}</button>
+              <button type="button" class="btn" data-route-action="jump-next" data-step-id="">${kidMode ? 'Jump to next step' : 'Jump to next required'}</button>
             </div>
-            <div class="route-overview__controls">
-              <div class="route-filters" id="routeFilters" aria-label="Filter steps by category"></div>
-              <div class="route-overview__actions">
-                <button class="btn" id="toggleOptional">${routeOptionalToggleLabel(routeHideOptional)}</button>
-                <button class="btn" id="routeJumpNext" data-step-id="">${kidMode ? 'Jump to next step' : 'Jump to next required'}</button>
-              </div>
-            </div>
+            <div class="route-controls__filters" data-route-role="filters" aria-label="Filter steps by category"></div>
           </section>
           <div id="routeChapters"></div>
         `;
@@ -8746,32 +9033,11 @@
         wrap.addEventListener('change', handleRouteCheckboxChange);
         wrap.addEventListener('click', handleRouteClick);
 
-        const toggleBtn = node.querySelector('#toggleOptional');
-        if(toggleBtn){
-          toggleBtn.onclick = () => {
-            routeHideOptional = !routeHideOptional;
-            toggleBtn.textContent = routeOptionalToggleLabel(routeHideOptional);
-            persistRoutePreferences();
-            chapters.forEach(ch => rerenderChapter(ch));
-            updateRouteOverviewUI();
-          };
-        }
-        const jumpBtn = node.querySelector('#routeJumpNext');
-        if(jumpBtn){
-          jumpBtn.addEventListener('click', () => {
-            const queued = jumpBtn.dataset.stepId;
-            const next = queued
-              || (findNextRouteStep() || findNextRouteStep({ includeOptional: true }))?.step?.id
-              || '';
-            if(next){
-              queueRouteFocus(next);
-            }
-            playSound(clickSound);
-          });
-        }
+        bindRouteActionButtons();
         renderRouteFiltersUI(summary.categories);
         applyQueuedRouteFocus();
         updateRouteOverviewUI(summary);
+        renderBossRouteTimeline();
         updateProgressUI();
       });
     }
@@ -8830,11 +9096,7 @@
         const step = steps.find(entry => entry && entry.id === stepId);
         if(step && step.optional){
           routeHideOptional = false;
-          const routePage = document.getElementById('routePage');
-          const toggleBtn = routePage ? routePage.querySelector('#toggleOptional') : null;
-          if(toggleBtn){
-            toggleBtn.textContent = routeOptionalToggleLabel(routeHideOptional);
-          }
+          updateRouteToggleButtons();
           persistRoutePreferences();
           return true;
         }
@@ -9006,44 +9268,120 @@
     }
 
     function renderRouteFiltersUI(categories){
-      const container = document.getElementById('routeFilters');
-      if(!container) return;
-      if(!Array.isArray(categories) || !categories.length){
-        container.innerHTML = `<p class="route-filters__empty">${kidMode ? 'Step categories will appear once the guide loads.' : 'Step categories will appear once the guide loads.'}</p>`;
-        return;
-      }
+      const containers = document.querySelectorAll('[data-route-role="filters"]');
+      if(!containers.length) return;
       const headingLabel = kidMode ? 'Step types:' : 'Step categories:';
       const showAllLabel = kidMode ? 'Show every step type' : 'Show all categories';
-      const chips = categories.map(cat => {
-        const slug = cat.slug;
-        const label = cat.label || niceName(slug);
-        const total = cat.total || 0;
-        const complete = cat.complete || 0;
-        const active = !routeHiddenCategories.has(slug);
-        const ariaLabel = `${label}: ${complete} of ${total} steps complete`;
+      containers.forEach(container => {
+        if(!Array.isArray(categories) || !categories.length){
+          container.innerHTML = `<p class="route-filters__empty">${kidMode ? 'Step categories will appear once the guide loads.' : 'Step categories will appear once the guide loads.'}</p>`;
+          return;
+        }
+        const chips = categories.map(cat => {
+          const slug = cat.slug;
+          const label = cat.label || niceName(slug);
+          const total = cat.total || 0;
+          const complete = cat.complete || 0;
+          const active = !routeHiddenCategories.has(slug);
+          const ariaLabel = `${label}: ${complete} of ${total} steps complete`;
+          return `
+            <button type="button" class="chip route-filter${active ? '' : ' route-filter--inactive'}" data-category="${slug}" aria-pressed="${active}" aria-label="${escapeHTML(ariaLabel)}">
+              <span class="route-filter__label">${escapeHTML(label)}</span>
+              <span class="route-filter__count">${complete}/${total}</span>
+            </button>
+          `;
+        }).join('');
+        const resetButton = routeHiddenCategories.size
+          ? `<button type="button" class="home-progress-link route-filters__reset" data-action="route-filters-reset">${escapeHTML(showAllLabel)}</button>`
+          : '';
+        container.innerHTML = `
+          <div class="route-filters__header">
+            <span class="route-filters__label">${escapeHTML(headingLabel)}</span>
+            ${resetButton}
+          </div>
+          <div class="route-filters__chips">
+            ${chips}
+          </div>
+        `;
+        if(!container.dataset.bound){
+          container.addEventListener('click', handleRouteFilterClick);
+          container.dataset.bound = 'true';
+        }
+      });
+    }
+
+    function renderBossRouteTimeline(){
+      const timeline = document.getElementById('progressBossTimeline');
+      if(!timeline) return;
+      const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
+      const bosses = [];
+      chapters.forEach((chapter, index) => {
+        const steps = Array.isArray(chapter?.steps) ? chapter.steps : [];
+        const bossStep = steps.find(step => step && step.category === 'Boss');
+        if(!bossStep) return;
+        const towerLink = (bossStep.links || []).find(link => link && link.type === 'tower');
+        bosses.push({
+          order: index + 1,
+          chapter,
+          step: bossStep,
+          map: towerLink && towerLink.map ? towerLink.map : null
+        });
+      });
+      if(!bosses.length){
+        timeline.innerHTML = '<p class="progress-route__empty">Boss route data loading…</p>';
+        return;
+      }
+      let nextAssigned = false;
+      const cards = bosses.map(entry => {
+        const { order, chapter, step, map } = entry;
+        const complete = !!routeState[step.id];
+        let status = 'upcoming';
+        if(complete){
+          status = 'complete';
+        } else if(!nextAssigned){
+          status = 'next';
+          nextAssigned = true;
+        }
+        const title = map?.label || map?.title || routeChapterTitle(chapter) || `Tower ${order}`;
+        const weakness = extractBossWeakness(step);
+        const region = map?.region || '';
+        const metaParts = [];
+        if(region) metaParts.push(region);
+        if(weakness) metaParts.push(`${kidMode ? 'Weak to' : 'Weakness'}: ${weakness}`);
+        const metaLine = metaParts.length ? metaParts.join(' • ') : '';
+        const copySourceKid = Array.isArray(map?.kid) && map.kid.length ? map.kid[0] : (step.textKid || step.text || '');
+        const copySourceGrown = Array.isArray(map?.grown) && map.grown.length ? map.grown[0] : (step.text || step.textKid || '');
+        const copy = kidMode ? copySourceKid : copySourceGrown;
+        const statusLabel = status === 'complete'
+          ? (kidMode ? 'Complete' : 'Complete')
+          : status === 'next'
+            ? (kidMode ? 'Next up' : 'Next')
+            : (kidMode ? 'Upcoming' : 'Planned');
         return `
-          <button type="button" class="chip route-filter${active ? '' : ' route-filter--inactive'}" data-category="${slug}" aria-pressed="${active}" aria-label="${escapeHTML(ariaLabel)}">
-            <span class="route-filter__label">${escapeHTML(label)}</span>
-            <span class="route-filter__count">${complete}/${total}</span>
-          </button>
+          <article class="progress-route__boss progress-route__boss--${status}">
+            <div class="progress-route__boss-head">
+              <span class="progress-route__boss-index">Tower ${order}</span>
+              <div class="progress-route__boss-body">
+                <h4>${escapeHTML(title)}</h4>
+                ${metaLine ? `<p>${escapeHTML(metaLine)}</p>` : ''}
+              </div>
+              <span class="progress-route__boss-status">${escapeHTML(statusLabel)}</span>
+            </div>
+            <p class="progress-route__boss-copy">${escapeHTML(copy)}</p>
+          </article>
         `;
       }).join('');
-      const resetButton = routeHiddenCategories.size
-        ? `<button type="button" class="home-progress-link route-filters__reset" data-action="route-filters-reset">${escapeHTML(showAllLabel)}</button>`
-        : '';
-      container.innerHTML = `
-        <div class="route-filters__header">
-          <span class="route-filters__label">${escapeHTML(headingLabel)}</span>
-          ${resetButton}
-        </div>
-        <div class="route-filters__chips">
-          ${chips}
-        </div>
-      `;
-      if(!container.dataset.bound){
-        container.addEventListener('click', handleRouteFilterClick);
-        container.dataset.bound = 'true';
+      timeline.innerHTML = cards;
+    }
+
+    function extractBossWeakness(step){
+      if(!step) return '';
+      const adult = step.text || '';
+      const match = adult.match(/\(weak to ([^)]+)\)/i);
+      if(match && match[1]){
+        return match[1].trim();
       }
+      return '';
     }
 
     function handleRouteFilterClick(event){
@@ -9512,106 +9850,104 @@
         ? Math.round((summary.towersComplete / summary.towersTotal) * 100)
         : 0;
 
-      const requiredCountEl = document.getElementById('routeRequiredCount');
-      if(requiredCountEl){
-        requiredCountEl.textContent = summary.requiredTotal
+      document.querySelectorAll('[data-route-role="required-title"]').forEach(el => {
+        el.textContent = kidMode ? 'Big steps' : 'Required steps';
+      });
+      document.querySelectorAll('[data-route-role="optional-title"]').forEach(el => {
+        el.textContent = kidMode ? 'Bonus ideas' : 'Optional tasks';
+      });
+      document.querySelectorAll('[data-route-role="tower-title"]').forEach(el => {
+        el.textContent = kidMode ? 'Tower wins' : 'Towers cleared';
+      });
+
+      document.querySelectorAll('[data-route-role="required-count"]').forEach(el => {
+        el.textContent = summary.requiredTotal
           ? `${summary.requiredComplete}/${summary.requiredTotal}`
           : '0/0';
-      }
-      const requiredMeter = document.getElementById('routeRequiredMeter');
-      if(requiredMeter){
-        requiredMeter.setAttribute('aria-valuenow', String(requiredPct));
-      }
-      const requiredFill = document.getElementById('routeRequiredFill');
-      if(requiredFill){
-        requiredFill.style.width = `${requiredPct}%`;
-      }
-      const requiredNote = document.getElementById('routeRequiredNote');
-      if(requiredNote){
+      });
+      document.querySelectorAll('[data-route-role="required-meter"]').forEach(el => {
+        el.setAttribute('aria-valuenow', String(requiredPct));
+      });
+      document.querySelectorAll('[data-route-role="required-fill"]').forEach(el => {
+        el.style.width = `${requiredPct}%`;
+      });
+      document.querySelectorAll('[data-route-role="required-note"]').forEach(el => {
         if(summary.requiredTotal){
           const remaining = summary.requiredTotal - summary.requiredComplete;
           if(remaining === 0){
-            requiredNote.textContent = kidMode
+            el.textContent = kidMode
               ? 'All big steps complete!'
               : 'All required steps complete.';
           } else {
-            requiredNote.textContent = kidMode
+            el.textContent = kidMode
               ? `${remaining} big step${remaining === 1 ? '' : 's'} left`
               : `${remaining} required step${remaining === 1 ? '' : 's'} remaining`;
           }
         } else {
-          requiredNote.textContent = kidMode ? 'Main path goals' : 'Main path objectives';
+          el.textContent = kidMode ? 'Main path goals' : 'Main path objectives';
         }
-      }
+      });
 
-      const optionalCountEl = document.getElementById('routeOptionalCount');
-      if(optionalCountEl){
-        optionalCountEl.textContent = summary.optionalTotal
+      document.querySelectorAll('[data-route-role="optional-count"]').forEach(el => {
+        el.textContent = summary.optionalTotal
           ? `${summary.optionalComplete}/${summary.optionalTotal}`
           : '0/0';
-      }
-      const optionalMeter = document.getElementById('routeOptionalMeter');
-      if(optionalMeter){
-        optionalMeter.setAttribute('aria-valuenow', String(optionalPct));
-      }
-      const optionalFill = document.getElementById('routeOptionalFill');
-      if(optionalFill){
-        optionalFill.style.width = `${optionalPct}%`;
-      }
-      const optionalNote = document.getElementById('routeOptionalNote');
-      if(optionalNote){
+      });
+      document.querySelectorAll('[data-route-role="optional-meter"]').forEach(el => {
+        el.setAttribute('aria-valuenow', String(optionalPct));
+      });
+      document.querySelectorAll('[data-route-role="optional-fill"]').forEach(el => {
+        el.style.width = `${optionalPct}%`;
+      });
+      document.querySelectorAll('[data-route-role="optional-note"]').forEach(el => {
         if(summary.optionalTotal){
           const remainingOptional = summary.optionalTotal - summary.optionalComplete;
           if(remainingOptional === 0){
-            optionalNote.textContent = kidMode
+            el.textContent = kidMode
               ? 'Bonus adventures wrapped!'
               : 'All optional tasks completed.';
           } else {
-            optionalNote.textContent = kidMode
+            el.textContent = kidMode
               ? `${remainingOptional} bonus step${remainingOptional === 1 ? '' : 's'} to try`
               : `${remainingOptional} optional step${remainingOptional === 1 ? '' : 's'} remaining`;
           }
         } else {
-          optionalNote.textContent = kidMode ? 'Extra fun chores' : 'Bonus cleanup and prep';
+          el.textContent = kidMode ? 'Extra fun chores' : 'Bonus cleanup and prep';
         }
-      }
+      });
 
-      const towerCountEl = document.getElementById('routeTowerCount');
-      if(towerCountEl){
-        towerCountEl.textContent = summary.towersTotal
+      document.querySelectorAll('[data-route-role="tower-count"]').forEach(el => {
+        el.textContent = summary.towersTotal
           ? `${summary.towersComplete}/${summary.towersTotal}`
           : '0/0';
-      }
-      const towerMeter = document.getElementById('routeTowerMeter');
-      if(towerMeter){
-        towerMeter.setAttribute('aria-valuenow', String(towersPct));
-      }
-      const towerFill = document.getElementById('routeTowerFill');
-      if(towerFill){
-        towerFill.style.width = `${towersPct}%`;
-      }
-      const towerNote = document.getElementById('routeTowerNote');
-      if(towerNote){
+      });
+      document.querySelectorAll('[data-route-role="tower-meter"]').forEach(el => {
+        el.setAttribute('aria-valuenow', String(towersPct));
+      });
+      document.querySelectorAll('[data-route-role="tower-fill"]').forEach(el => {
+        el.style.width = `${towersPct}%`;
+      });
+      document.querySelectorAll('[data-route-role="tower-note"]').forEach(el => {
         if(summary.towersTotal){
           const remainingTowers = summary.towersTotal - summary.towersComplete;
           if(remainingTowers === 0){
-            towerNote.textContent = kidMode
+            el.textContent = kidMode
               ? 'Every tower champion beaten!'
               : 'All tower bosses defeated.';
           } else {
-            towerNote.textContent = kidMode
+            el.textContent = kidMode
               ? `${remainingTowers} tower${remainingTowers === 1 ? '' : 's'} left`
               : `${remainingTowers} tower boss${remainingTowers === 1 ? '' : 'es'} remaining`;
           }
         } else {
-          towerNote.textContent = kidMode ? 'Defeat bosses together' : 'Tower bosses defeated so far';
+          el.textContent = kidMode ? 'Defeat bosses together' : 'Tower bosses defeated so far';
         }
-      }
+      });
 
-      const nextCallout = document.getElementById('routeNextCallout');
       const nextRequired = findNextRouteStep();
       const nextAny = nextRequired || findNextRouteStep({ includeOptional: true });
-      if(nextCallout){
+
+      document.querySelectorAll('[data-route-role="next-callout"]').forEach(el => {
         if(nextAny && nextAny.step){
           const isOptional = nextAny.step.optional && !nextRequired;
           const prefix = isOptional
@@ -9624,28 +9960,29 @@
           const chapterHtml = chapterTitle
             ? ` <span class="route-overview__next-chapter">(${escapeHTML(chapterTitle)})</span>`
             : '';
-          nextCallout.innerHTML = `<strong>${escapeHTML(prefix)}</strong> ${escapeHTML(stepCopy)}${chapterHtml}`;
+          el.innerHTML = `<strong>${escapeHTML(prefix)}</strong> ${escapeHTML(stepCopy)}${chapterHtml}`;
         } else {
-          nextCallout.innerHTML = kidMode
+          el.innerHTML = kidMode
             ? '<strong>Guide complete!</strong> Revisit bonus adventures anytime.'
             : '<strong>Guide complete!</strong> Re-run towers or tidy up optional chores.';
         }
-      }
+      });
 
-      const jumpBtn = document.getElementById('routeJumpNext');
-      if(jumpBtn){
+      document.querySelectorAll('[data-route-action="jump-next"]').forEach(btn => {
         const targetStep = nextAny && nextAny.step ? nextAny.step.id : '';
-        jumpBtn.dataset.stepId = targetStep || '';
+        btn.dataset.stepId = targetStep || '';
         if(targetStep){
-          jumpBtn.disabled = false;
-          jumpBtn.textContent = nextRequired
+          btn.disabled = false;
+          btn.textContent = nextRequired
             ? (kidMode ? 'Jump to next step' : 'Jump to next required')
             : (kidMode ? 'Jump to bonus step' : 'Jump to optional step');
         } else {
-          jumpBtn.disabled = true;
-          jumpBtn.textContent = kidMode ? 'All steps done!' : 'All steps complete';
+          btn.disabled = true;
+          btn.textContent = kidMode ? 'All steps done!' : 'All steps complete';
         }
-      }
+      });
+
+      updateRouteToggleButtons();
 
       const summarySlugs = new Set(summary.categories.map(cat => cat.slug));
       const currentHidden = Array.from(routeHiddenCategories);
@@ -9655,6 +9992,7 @@
         persistRoutePreferences();
       }
       renderRouteFiltersUI(summary.categories);
+      renderBossRouteTimeline();
     }
 
     function findNextRouteStep(options = {}){
@@ -10733,6 +11071,21 @@
           ? 'Unlock new gadgets to light up this meter.'
           : 'Unlock tech to power up your workshop.';
       }
+      const routeLead = document.getElementById('progressRouteLead');
+      if (routeLead) {
+        routeLead.textContent = kidMode
+          ? 'Check tower victories, next big steps, and filters without leaving this hub.'
+          : 'Review tower progress, upcoming priorities, and tune filters from the progress dashboard.';
+      }
+      document.querySelectorAll('[data-route-action="toggle-optional"]').forEach(btn => {
+        btn.textContent = routeOptionalToggleLabel(routeHideOptional);
+        btn.setAttribute('aria-pressed', routeHideOptional ? 'true' : 'false');
+      });
+      document.querySelectorAll('[data-route-action="jump-next"]').forEach(btn => {
+        btn.disabled = true;
+        btn.textContent = kidMode ? 'Loading next step…' : 'Loading next step…';
+        btn.dataset.stepId = '';
+      });
       const resetGuideBtn = document.getElementById('resetRouteProgress');
       if (resetGuideBtn) {
         resetGuideBtn.onclick = () => {
