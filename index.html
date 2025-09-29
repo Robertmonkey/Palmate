@@ -3662,8 +3662,24 @@
       <section id="palsPage" class="page">
         <header class="page-header">
           <h2>Pals</h2>
-          <div class="search-bar"><input id="palSearch" type="text" placeholder="Search pals by name or type..."></div>
+          <div class="search-bar"><input id="palSearch" type="text" placeholder="Search pals by name, type, work or drops..."></div>
         </header>
+        <div id="palFilters" class="pal-filters" aria-label="Filter pals">
+          <div class="pal-filters__groups">
+            <div class="pal-filter-group">
+              <span class="pal-filter-label" id="palFilterStatusLabel">Collection status</span>
+              <div class="pal-filter-chips" role="group" aria-labelledby="palFilterStatusLabel" data-filter-group="status"></div>
+            </div>
+            <div class="pal-filter-group">
+              <span class="pal-filter-label" id="palFilterWorkLabel">Work roles</span>
+              <div class="pal-filter-chips" role="group" aria-labelledby="palFilterWorkLabel" data-filter-group="work"></div>
+            </div>
+          </div>
+          <div class="pal-filter-tools">
+            <p id="palFilterSummary" class="pal-filter-summary" aria-live="polite"></p>
+            <button type="button" id="palFilterReset" class="pal-filters__reset">Reset filters</button>
+          </div>
+        </div>
         <div id="palsList" class="card-grid"></div>
       </section>
       <!-- Items page -->
@@ -3935,6 +3951,7 @@
     let caught = JSON.parse(localStorage.getItem('caught') || '{}');
     let collected = JSON.parse(localStorage.getItem('collected') || '{}');
     let unlocked = JSON.parse(localStorage.getItem('unlocked') || '{}');
+    let refreshPalList = null;
     const KID_MODE_STORAGE_KEY = 'palmate:kidMode';
     // Maximum stats for scaling radar chart
     // Maximum stats for scaling radar chart.  Speed is capped lower to avoid
@@ -4864,6 +4881,32 @@
     let kidMode = savedKidMode === null ? true : savedKidMode === 'true';
     document.body.classList.toggle('kid-mode', kidMode);
     persistKidMode();
+
+    const WORK_ROLE_COPY = {
+      kindling: { kid: 'Fire helper', grown: 'Kindling' },
+      watering: { kid: 'Watering', grown: 'Watering' },
+      planting: { kid: 'Plant seeds', grown: 'Planting' },
+      generating_electricity: { kid: 'Make power', grown: 'Generating Electricity' },
+      transporting: { kid: 'Carry items', grown: 'Transporting' },
+      handiwork: { kid: 'Crafting', grown: 'Handiwork' },
+      gathering: { kid: 'Gathering', grown: 'Gathering' },
+      lumbering: { kid: 'Chop wood', grown: 'Lumbering' },
+      mining: { kid: 'Mining', grown: 'Mining' },
+      medicine: { kid: 'Healing', grown: 'Medicine' },
+      medicine_production: { kid: 'Brew medicine', grown: 'Medicine Production' },
+      cooling: { kid: 'Cooling', grown: 'Cooling' },
+      farming: { kid: 'Ranch helper', grown: 'Farming' }
+    };
+
+    function getWorkRoleLabel(role){
+      const entry = WORK_ROLE_COPY[role];
+      const fallback = niceName(role);
+      if(entry){
+        const label = kidMode ? entry.kid : entry.grown;
+        return label || fallback;
+      }
+      return fallback;
+    }
 
     // Descriptions for active skills.  Each entry maps the skill key
     // (as it appears in the data) to a human-friendly object with
@@ -7695,38 +7738,252 @@
     function buildPalPage() {
       const list = document.getElementById('palsList');
       const search = document.getElementById('palSearch');
-      function render(filter = '') {
+      const filtersContainer = document.getElementById('palFilters');
+      const statusGroup = filtersContainer ? filtersContainer.querySelector('[data-filter-group="status"]') : null;
+      const workGroup = filtersContainer ? filtersContainer.querySelector('[data-filter-group="work"]') : null;
+      const summaryEl = document.getElementById('palFilterSummary');
+      const resetBtn = document.getElementById('palFilterReset');
+      if (!list || !search) return;
+      const filterState = {
+        search: '',
+        status: 'all',
+        work: new Set()
+      };
+      const statusOptions = [
+        { key: 'all', kid: 'All pals', grown: 'All pals' },
+        { key: 'caught', kid: 'Caught pals', grown: 'Caught pals' },
+        { key: 'missing', kid: 'Need to catch', grown: 'Missing pals' }
+      ];
+      const workRoleStats = (() => {
+        const stats = {};
+        Object.values(PALS || {}).forEach(pal => {
+          Object.entries(pal.work || {}).forEach(([role, level]) => {
+            if (level) {
+              stats[role] = (stats[role] || 0) + 1;
+            }
+          });
+        });
+        return stats;
+      })();
+      if (filtersContainer) {
+        const statusLabel = document.getElementById('palFilterStatusLabel');
+        const workLabel = document.getElementById('palFilterWorkLabel');
+        if (statusLabel) {
+          statusLabel.textContent = kidMode ? 'Crew status' : 'Collection status';
+        }
+        if (workLabel) {
+          workLabel.textContent = kidMode ? 'Work helpers' : 'Work roles';
+        }
+        if (resetBtn) {
+          resetBtn.textContent = kidMode ? 'Clear filters' : 'Reset filters';
+        }
+      }
+      if (statusGroup) {
+        statusGroup.innerHTML = '';
+        statusOptions.forEach(option => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'chip pal-filter-chip';
+          btn.dataset.status = option.key;
+          btn.setAttribute('aria-pressed', 'false');
+          statusGroup.appendChild(btn);
+        });
+        statusGroup.addEventListener('click', event => {
+          const btn = event.target.closest('button[data-status]');
+          if (!btn) return;
+          const key = btn.dataset.status;
+          if (!key) return;
+          if (filterState.status === key && key !== 'all') {
+            filterState.status = 'all';
+          } else {
+            filterState.status = key;
+          }
+          render();
+        });
+      }
+      if (workGroup) {
+        workGroup.innerHTML = '';
+        Object.keys(workRoleStats)
+          .sort((a, b) => getWorkRoleLabel(a).localeCompare(getWorkRoleLabel(b), undefined, { sensitivity: 'base' }))
+          .forEach(role => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'chip pal-filter-chip';
+            btn.dataset.role = role;
+            btn.setAttribute('aria-pressed', 'false');
+            workGroup.appendChild(btn);
+          });
+        workGroup.addEventListener('click', event => {
+          const btn = event.target.closest('button[data-role]');
+          if (!btn) return;
+          const role = btn.dataset.role;
+          if (!role) return;
+          if (filterState.work.has(role)) {
+            filterState.work.delete(role);
+          } else {
+            filterState.work.add(role);
+          }
+          render();
+        });
+      }
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          filterState.status = 'all';
+          filterState.work.clear();
+          filterState.search = '';
+          search.value = '';
+          render();
+          if (typeof search.focus === 'function') {
+            try {
+              search.focus({ preventScroll: true });
+            } catch (err) {
+              search.focus();
+            }
+          }
+        });
+      }
+      function statusLabel(key) {
+        const entry = statusOptions.find(option => option.key === key);
+        if (!entry) return kidMode ? 'All pals' : 'All pals';
+        return kidMode ? entry.kid : entry.grown;
+      }
+      function buildSearchHaystack(pal) {
+        const parts = [pal.name];
+        if (Array.isArray(pal.types)) parts.push(...pal.types);
+        if (Array.isArray(pal.drops)) parts.push(...pal.drops);
+        if (Array.isArray(pal.passives)) parts.push(...pal.passives);
+        if (Array.isArray(pal.spawnAreas)) parts.push(...pal.spawnAreas);
+        Object.entries(pal.work || {}).forEach(([role, level]) => {
+          if (level) {
+            parts.push(role);
+            parts.push(getWorkRoleLabel(role));
+          }
+        });
+        return parts.join(' ').toLowerCase();
+      }
+      function createWorkBadges(pal) {
+        const entries = Object.entries(pal.work || {})
+          .filter(([, level]) => level)
+          .sort((a, b) => (b[1] || 0) - (a[1] || 0))
+          .slice(0, 3);
+        if (!entries.length) return '';
+        return entries.map(([role, level]) => {
+          const label = getWorkRoleLabel(role);
+          const highlight = filterState.work.size && filterState.work.has(role) ? ' pal-work-badge--active' : '';
+          return `<span class='pal-work-badge${highlight}' data-role='${escapeHTML(role)}'><span class='pal-work-badge__label'>${escapeHTML(label)}</span><span class='pal-work-badge__level'>Lv ${escapeHTML(String(level))}</span></span>`;
+        }).join('');
+      }
+      function updateStatusChips(totals) {
+        if (!statusGroup) return;
+        statusGroup.querySelectorAll('button[data-status]').forEach(btn => {
+          const key = btn.dataset.status;
+          const label = statusLabel(key);
+          const count = key === 'all'
+            ? totals.total
+            : key === 'caught'
+              ? totals.caught
+              : totals.missing;
+          btn.innerHTML = `<span class="pal-filter-chip__label">${escapeHTML(label)}</span><span class="pal-filter-chip__count">${count}</span>`;
+          const active = filterState.status === key;
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+          btn.classList.toggle('pal-filter-chip--active', active);
+          btn.setAttribute('aria-label', `${label}: ${count} pals`);
+        });
+      }
+      function updateWorkChips() {
+        if (!workGroup) return;
+        workGroup.querySelectorAll('button[data-role]').forEach(btn => {
+          const role = btn.dataset.role;
+          const label = getWorkRoleLabel(role);
+          const count = workRoleStats[role] || 0;
+          const active = filterState.work.has(role);
+          btn.innerHTML = `<span class="pal-filter-chip__label">${escapeHTML(label)}</span><span class="pal-filter-chip__count">${count}</span>`;
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+          btn.classList.toggle('pal-filter-chip--active', active);
+          btn.setAttribute('aria-label', `${label}: ${count} pals`);
+        });
+      }
+      function render() {
+        const palsArray = Object.values(PALS || {});
+        const totals = {
+          total: palsArray.length,
+          caught: palsArray.filter(p => caught[p.id]).length
+        };
+        totals.missing = totals.total - totals.caught;
+        updateStatusChips(totals);
+        updateWorkChips();
+        const normalizedSearch = filterState.search.trim().toLowerCase();
+        const results = palsArray
+          .slice()
+          .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))
+          .filter(pal => {
+            if (filterState.status === 'caught' && !caught[pal.id]) return false;
+            if (filterState.status === 'missing' && caught[pal.id]) return false;
+            if (filterState.work.size) {
+              const palWork = pal.work || {};
+              let matchesWork = false;
+              for (const role of filterState.work) {
+                if (palWork[role]) {
+                  matchesWork = true;
+                  break;
+                }
+              }
+              if (!matchesWork) return false;
+            }
+            if (normalizedSearch) {
+              const haystack = buildSearchHaystack(pal);
+              if (!haystack.includes(normalizedSearch)) return false;
+            }
+            return true;
+          });
         list.innerHTML = '';
-        const term = filter.toLowerCase();
-        Object.values(PALS).forEach(pal => {
-          const types = Array.isArray(pal.types) ? pal.types : [];
-          if (!pal.name.toLowerCase().includes(term) && !types.join(',').toLowerCase().includes(term)) return;
+        if (summaryEl) {
+          const count = results.length;
+          if (!totals.total) {
+            summaryEl.textContent = kidMode ? 'Pal data loading…' : 'Pal data loading…';
+          } else if (count === totals.total && !normalizedSearch && filterState.status === 'all' && !filterState.work.size) {
+            summaryEl.textContent = kidMode
+              ? `Showing all ${count} pals.`
+              : `Showing all ${count} pals.`;
+          } else {
+            summaryEl.textContent = kidMode
+              ? `Showing ${count} pal${count === 1 ? '' : 's'}.`
+              : `Showing ${count} of ${totals.total} pals.`;
+          }
+        }
+        if (!results.length) {
+          const empty = document.createElement('p');
+          empty.className = 'empty-state pal-list-empty';
+          empty.textContent = kidMode
+            ? 'No pals match those filters yet.'
+            : 'No pals match your filters yet.';
+          list.appendChild(empty);
+          return;
+        }
+        const fragment = document.createDocumentFragment();
+        results.forEach(pal => {
           const card = document.createElement('div');
           card.className = 'pal-card';
-          // Build type icon HTML
-          const typeIcons = types.map(t => `<img src="${iconMap[t] || iconMap['Neutral']}" alt="${t} icon" style="width:20px;height:20px;margin-right:2px;">`).join('');
-          // Render the pal card. Use the local image if available. If the art is missing
-          // (for example, when we have not yet added the file to assets/pals),
-          // applyPalArtwork() swaps in a matching type icon automatically so the
-          // card always has a visual cue without throwing console errors.
-          // Build rarity label and star icons.  Rarity names add readability and
-          // stars provide a quick visual indicator.  We use Font Awesome stars
-          // here to ensure consistent sizing and colour.
+          const types = Array.isArray(pal.types) ? pal.types : [];
+          const typeIcons = types.map(t => {
+            const safe = escapeHTML(t);
+            const icon = iconMap[t] || iconMap['Neutral'];
+            return `<img src='${icon}' alt='${safe} icon' style='width:20px;height:20px;margin-right:2px;'>`;
+          }).join('');
           const rarity = Math.max(1, Math.min(pal.rarity || 0, 6));
           let rarityLabel = rarityNames[rarity] || '';
           let starIcons = Array(rarity).fill('<i class="fa-solid fa-star"></i>').join('');
-          // In kid mode we suppress rarity and stars to avoid
-          // confusion and clutter.  Kids can still see the card
-          // colour and image to gauge rarity implicitly.
           if (kidMode) {
             rarityLabel = '';
             starIcons = '';
           }
+          const workBadges = createWorkBadges(pal);
           card.innerHTML = `
             <img alt="">
-            <div class="name">${pal.name}</div>
+            <div class="name">${escapeHTML(pal.name)}</div>
             <div class="badge">${typeIcons}</div>
-            <div class="rarity"><span class="stars">${starIcons}</span> <span class="label">${rarityLabel}</span></div>
+            ${workBadges ? `<div class="work">${workBadges}</div>` : ''}
+            <div class="rarity"><span class="stars">${starIcons}</span> <span class="label">${escapeHTML(rarityLabel)}</span></div>
             <button class="catch-btn ${caught[pal.id] ? 'caught' : ''}">${caught[pal.id] ? 'Caught' : 'Catch'}</button>
           `;
           const portrait = card.querySelector('img');
@@ -7742,11 +7999,17 @@
             e.stopPropagation();
             setPalCaught(pal.id);
           });
-          list.appendChild(card);
+          fragment.appendChild(card);
         });
+        list.appendChild(fragment);
       }
-      search.addEventListener('input', () => render(search.value));
+      filterState.search = search.value || '';
+      search.addEventListener('input', () => {
+        filterState.search = search.value;
+        render();
+      });
       render();
+      refreshPalList = render;
     }
     function syncPalButtons(palId) {
       if (palId === undefined || palId === null) return;
@@ -7781,6 +8044,9 @@
         updateBasePlanner();
       } else {
         updateProgressUI();
+      }
+      if (typeof refreshPalList === 'function') {
+        refreshPalList();
       }
       if (!silent) {
         playSound(clickSound);
