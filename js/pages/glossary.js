@@ -40,7 +40,7 @@ export function renderGlossary(node){
       } else if(typeof window.showGlossaryDetail === 'function'){
         window.showGlossaryDetail(traitId);
       } else if(typeof window.focusSearch === 'function'){
-        window.focusSearch(traitName);
+        window.focusSearch(traitName, { target: 'pals' });
       }
     });
   });

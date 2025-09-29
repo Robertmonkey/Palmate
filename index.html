@@ -4859,7 +4859,10 @@
       if (!sound || typeof sound.play !== 'function') return;
       try {
         sound.currentTime = 0;
-        sound.play();
+        const result = sound.play();
+        if (result && typeof result.catch === 'function') {
+          result.catch(err => console.debug('Sound error', err));
+        }
       } catch (err) {
         // Audio play can fail if files are missing or browser policy blocks it
         console.debug('Sound error', err);
@@ -5040,6 +5043,7 @@
           btn.removeAttribute('aria-current');
         }
       });
+      collapseNavIfMobile();
     }
     // Modal controls
     const modal = document.getElementById('modal');
@@ -7573,7 +7577,7 @@
         showPalDetail(byName);
         return;
       }
-      focusSearch(identifier);
+      focusSearch(identifier, { target: 'pals' });
     };
     // Build items page
     function buildItemPage() {
@@ -9343,14 +9347,14 @@
         if(window.viewPal){
           window.viewPal(link.slug || link.id);
         } else {
-          focusSearch(link.slug || link.id);
+          focusSearch(link.slug || link.id, { target: 'pals' });
         }
       } else if(link.type === 'item'){
         const itemKey = link.id || link.slug;
         if(itemKey && ITEMS[itemKey]){
           openItemDetail(itemKey);
         } else {
-          focusSearch(itemKey);
+          focusSearch(itemKey, { target: 'items' });
         }
       } else if(link.type === 'tech'){
         showTechDetail(link.id);
@@ -9449,11 +9453,30 @@
       setTimeout(() => el.classList.remove('pulse'), 1500);
     }
 
-    function focusSearch(term){
-      const input = document.getElementById('palSearch') || document.getElementById('itemSearch');
-      if(input){
-        input.value = term;
+    function focusSearch(term, { target } = {}) {
+      const desiredTarget = target === 'items' ? 'items' : 'pals';
+      const inputId = desiredTarget === 'items' ? 'itemSearch' : 'palSearch';
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      switchPage(desiredTarget);
+      const applySearch = () => {
+        if (typeof input.focus === 'function') {
+          try {
+            input.focus({ preventScroll: true });
+          } catch (err) {
+            input.focus();
+          }
+        }
+        if (typeof input.select === 'function') {
+          input.select();
+        }
+        input.value = term == null ? '' : String(term);
         input.dispatchEvent(new Event('input', { bubbles: true }));
+      };
+      if (typeof window.requestAnimationFrame === 'function') {
+        window.requestAnimationFrame(applySearch);
+      } else {
+        applySearch();
       }
     }
 
