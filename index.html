@@ -8576,9 +8576,16 @@
     }
 
     const ROUTE_STORAGE_KEY = 'palmarathon:route:v1';
+    const ROUTE_PREFS_KEY = 'palmarathon:route:prefs:v1';
     let routeGuideData = null;
     let routeState = loadRouteState();
-    let routeHideOptional = false;
+    const initialRoutePrefs = loadRoutePreferences();
+    let routeHideOptional = !!initialRoutePrefs.hideOptional;
+    let routeHiddenCategories = new Set(Array.isArray(initialRoutePrefs.hiddenCategories)
+      ? initialRoutePrefs.hiddenCategories
+          .map(value => routeCategorySlug(value, { strict: true }))
+          .filter(Boolean)
+      : []);
     let pendingRouteFocus = null;
     let pendingTechFocus = null;
 
@@ -8644,6 +8651,13 @@
       return hidden ? 'Show Optional' : 'Hide Optional';
     }
 
+    function routeCategorySlug(category, { fallback = 'task', strict = false } = {}){
+      const raw = category == null ? '' : String(category);
+      const slug = raw.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      if(slug) return slug;
+      return strict ? '' : fallback;
+    }
+
     function renderRouteGuide(){
       ensureRouteGuide().then(guide => {
         const node = document.getElementById('routePage');
@@ -8653,13 +8667,73 @@
           node.innerHTML = '<section class="card"><h2>Boss Route & Progress</h2><p>Route data unavailable.</p></section>';
           return;
         }
+        routeGuideData = guide;
         routeState = loadRouteState();
+        const summary = calculateGuideProgressSummary(chapters);
+        const availableSlugs = new Set(summary.categories.map(cat => cat.slug));
+        const cleanedHidden = Array.from(routeHiddenCategories).filter(slug => availableSlugs.has(slug));
+        if(cleanedHidden.length !== routeHiddenCategories.size){
+          routeHiddenCategories = new Set(cleanedHidden);
+          persistRoutePreferences();
+        } else {
+          routeHiddenCategories = new Set(cleanedHidden);
+        }
         node.innerHTML = `
-          <section class="card">
-            <h2>Boss Route & Progress</h2>
-            <p>Work through each chapter. Check off steps as you do them. <em>Optional</em> steps don’t block completion.</p>
-            <div class="badges" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-              <button class="btn" id="toggleOptional">${routeOptionalToggleLabel(routeHideOptional)}</button>
+          <section class="card route-overview">
+            <div class="route-overview__header">
+              <div>
+                <h2>Boss Route & Progress</h2>
+                <p>Work through each chapter. Check off steps as you do them. <em>Optional</em> steps don’t block completion.</p>
+                <p class="route-overview__next" id="routeNextCallout"></p>
+              </div>
+              <div class="route-overview__stats">
+                <article class="route-overview__stat">
+                  <div class="route-overview__stat-header">
+                    <span class="route-overview__stat-icon"><i class="fa-solid fa-list-check"></i></span>
+                    <div>
+                      <p class="route-overview__stat-title">${kidMode ? 'Big steps' : 'Required steps'}</p>
+                      <p class="route-overview__stat-value" id="routeRequiredCount">0/0</p>
+                    </div>
+                  </div>
+                  <div class="route-overview__meter" id="routeRequiredMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div class="fill" id="routeRequiredFill"></div>
+                  </div>
+                  <p class="route-overview__stat-sub" id="routeRequiredNote">${kidMode ? 'Main path goals' : 'Main path objectives'}</p>
+                </article>
+                <article class="route-overview__stat">
+                  <div class="route-overview__stat-header">
+                    <span class="route-overview__stat-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                    <div>
+                      <p class="route-overview__stat-title">${kidMode ? 'Bonus ideas' : 'Optional tasks'}</p>
+                      <p class="route-overview__stat-value" id="routeOptionalCount">0/0</p>
+                    </div>
+                  </div>
+                  <div class="route-overview__meter" id="routeOptionalMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div class="fill" id="routeOptionalFill"></div>
+                  </div>
+                  <p class="route-overview__stat-sub" id="routeOptionalNote">${kidMode ? 'Extra fun chores' : 'Bonus cleanup and prep'}</p>
+                </article>
+                <article class="route-overview__stat">
+                  <div class="route-overview__stat-header">
+                    <span class="route-overview__stat-icon"><i class="fa-solid fa-tower-broadcast"></i></span>
+                    <div>
+                      <p class="route-overview__stat-title">${kidMode ? 'Tower wins' : 'Towers cleared'}</p>
+                      <p class="route-overview__stat-value" id="routeTowerCount">0/0</p>
+                    </div>
+                  </div>
+                  <div class="route-overview__meter" id="routeTowerMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div class="fill" id="routeTowerFill"></div>
+                  </div>
+                  <p class="route-overview__stat-sub" id="routeTowerNote">${kidMode ? 'Defeat bosses together' : 'Tower bosses defeated so far'}</p>
+                </article>
+              </div>
+            </div>
+            <div class="route-overview__controls">
+              <div class="route-filters" id="routeFilters" aria-label="Filter steps by category"></div>
+              <div class="route-overview__actions">
+                <button class="btn" id="toggleOptional">${routeOptionalToggleLabel(routeHideOptional)}</button>
+                <button class="btn" id="routeJumpNext" data-step-id="">${kidMode ? 'Jump to next step' : 'Jump to next required'}</button>
+              </div>
             </div>
           </section>
           <div id="routeChapters"></div>
@@ -8677,10 +8751,27 @@
           toggleBtn.onclick = () => {
             routeHideOptional = !routeHideOptional;
             toggleBtn.textContent = routeOptionalToggleLabel(routeHideOptional);
+            persistRoutePreferences();
             chapters.forEach(ch => rerenderChapter(ch));
+            updateRouteOverviewUI();
           };
         }
+        const jumpBtn = node.querySelector('#routeJumpNext');
+        if(jumpBtn){
+          jumpBtn.addEventListener('click', () => {
+            const queued = jumpBtn.dataset.stepId;
+            const next = queued
+              || (findNextRouteStep() || findNextRouteStep({ includeOptional: true }))?.step?.id
+              || '';
+            if(next){
+              queueRouteFocus(next);
+            }
+            playSound(clickSound);
+          });
+        }
+        renderRouteFiltersUI(summary.categories);
         applyQueuedRouteFocus();
+        updateRouteOverviewUI(summary);
         updateProgressUI();
       });
     }
@@ -8701,7 +8792,17 @@
       const stepId = pendingRouteFocus;
       const target = routePage.querySelector(`input[data-step="${stepId}"]`);
       if(!target){
+        let revealed = false;
         if(ensureRouteOptionalVisible(stepId)){
+          revealed = true;
+        }
+        if(ensureRouteCategoryVisible(stepId)){
+          revealed = true;
+        }
+        if(revealed){
+          const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
+          chapters.forEach(ch => rerenderChapter(ch));
+          updateRouteOverviewUI();
           requestAnimationFrame(applyQueuedRouteFocus);
         }
         return;
@@ -8734,8 +8835,27 @@
           if(toggleBtn){
             toggleBtn.textContent = routeOptionalToggleLabel(routeHideOptional);
           }
-          chapters.forEach(ch => rerenderChapter(ch));
+          persistRoutePreferences();
           return true;
+        }
+      }
+      return false;
+    }
+
+    function ensureRouteCategoryVisible(stepId){
+      if(!stepId || !routeGuideData) return false;
+      const chapters = Array.isArray(routeGuideData.chapters) ? routeGuideData.chapters : [];
+      for(const chapter of chapters){
+        const steps = Array.isArray(chapter?.steps) ? chapter.steps : [];
+        const step = steps.find(entry => entry && entry.id === stepId);
+        if(step){
+          const slug = routeCategorySlug(step.category);
+          if(routeHiddenCategories.has(slug)){
+            routeHiddenCategories.delete(slug);
+            persistRoutePreferences();
+            return true;
+          }
+          break;
         }
       }
       return false;
@@ -8868,7 +8988,8 @@
         if(routeHideOptional && step.optional) return;
         const checked = !!routeState[step.id];
         const category = step.category || 'Task';
-        const categorySlug = category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'task';
+        const categorySlug = routeCategorySlug(category);
+        if(routeHiddenCategories.has(categorySlug)) return;
         fragments.push(`
           <label class="step ${step.optional ? 'optional' : ''}">
             <input type="checkbox" data-step="${step.id}" ${checked ? 'checked' : ''} />
@@ -8882,6 +9003,75 @@
       });
       if(!fragments.length) return '';
       return `<div class="step-list">${fragments.join('')}</div>`;
+    }
+
+    function renderRouteFiltersUI(categories){
+      const container = document.getElementById('routeFilters');
+      if(!container) return;
+      if(!Array.isArray(categories) || !categories.length){
+        container.innerHTML = `<p class="route-filters__empty">${kidMode ? 'Step categories will appear once the guide loads.' : 'Step categories will appear once the guide loads.'}</p>`;
+        return;
+      }
+      const headingLabel = kidMode ? 'Step types:' : 'Step categories:';
+      const showAllLabel = kidMode ? 'Show every step type' : 'Show all categories';
+      const chips = categories.map(cat => {
+        const slug = cat.slug;
+        const label = cat.label || niceName(slug);
+        const total = cat.total || 0;
+        const complete = cat.complete || 0;
+        const active = !routeHiddenCategories.has(slug);
+        const ariaLabel = `${label}: ${complete} of ${total} steps complete`;
+        return `
+          <button type="button" class="chip route-filter${active ? '' : ' route-filter--inactive'}" data-category="${slug}" aria-pressed="${active}" aria-label="${escapeHTML(ariaLabel)}">
+            <span class="route-filter__label">${escapeHTML(label)}</span>
+            <span class="route-filter__count">${complete}/${total}</span>
+          </button>
+        `;
+      }).join('');
+      const resetButton = routeHiddenCategories.size
+        ? `<button type="button" class="home-progress-link route-filters__reset" data-action="route-filters-reset">${escapeHTML(showAllLabel)}</button>`
+        : '';
+      container.innerHTML = `
+        <div class="route-filters__header">
+          <span class="route-filters__label">${escapeHTML(headingLabel)}</span>
+          ${resetButton}
+        </div>
+        <div class="route-filters__chips">
+          ${chips}
+        </div>
+      `;
+      if(!container.dataset.bound){
+        container.addEventListener('click', handleRouteFilterClick);
+        container.dataset.bound = 'true';
+      }
+    }
+
+    function handleRouteFilterClick(event){
+      const reset = event.target.closest('[data-action="route-filters-reset"]');
+      if(reset){
+        if(routeHiddenCategories.size){
+          routeHiddenCategories.clear();
+          persistRoutePreferences();
+          const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
+          chapters.forEach(ch => rerenderChapter(ch));
+          updateRouteOverviewUI();
+        }
+        return;
+      }
+      const btn = event.target.closest('button[data-category]');
+      if(!btn) return;
+      const slug = btn.dataset.category;
+      if(!slug) return;
+      const isActive = btn.getAttribute('aria-pressed') !== 'false';
+      if(isActive){
+        routeHiddenCategories.add(slug);
+      } else {
+        routeHiddenCategories.delete(slug);
+      }
+      persistRoutePreferences();
+      const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
+      chapters.forEach(ch => rerenderChapter(ch));
+      updateRouteOverviewUI();
     }
 
     function buildStepProgressOptions(step){
@@ -9245,25 +9435,226 @@
       `;
     }
 
-    function calculateGuideProgressSummary(){
-      const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
+    function calculateGuideProgressSummary(chaptersOverride){
+      const chapters = Array.isArray(chaptersOverride)
+        ? chaptersOverride
+        : (Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : []);
       let requiredTotal = 0;
       let requiredComplete = 0;
+      let optionalTotal = 0;
+      let optionalComplete = 0;
       let towersTotal = 0;
       let towersComplete = 0;
+      const categoryMap = new Map();
       chapters.forEach(chapter => {
-        const progress = chapterProgress(chapter);
-        requiredTotal += progress.requiredCount;
-        requiredComplete += progress.requiredChecked;
-        (chapter.steps || []).forEach(step => {
-          if(step?.category === 'Boss'){
+        const steps = Array.isArray(chapter?.steps) ? chapter.steps : [];
+        steps.forEach(step => {
+          if(!step || !step.id) return;
+          const slug = routeCategorySlug(step.category);
+          if(!categoryMap.has(slug)){
+            categoryMap.set(slug, {
+              slug,
+              label: step.category || 'Task',
+              total: 0,
+              complete: 0,
+              optional: 0,
+              optionalComplete: 0
+            });
+          }
+          const catStats = categoryMap.get(slug);
+          catStats.total += 1;
+          if(routeState[step.id]){
+            catStats.complete += 1;
+          }
+          if(step.optional){
+            optionalTotal += 1;
+            catStats.optional += 1;
+            if(routeState[step.id]){
+              optionalComplete += 1;
+              catStats.optionalComplete += 1;
+            }
+          } else {
+            requiredTotal += 1;
+            if(routeState[step.id]){
+              requiredComplete += 1;
+            }
+          }
+          if(step.category === 'Boss'){
             towersTotal += 1;
             if(routeState[step.id]) towersComplete += 1;
           }
         });
       });
       const percent = requiredTotal ? Math.round((requiredComplete / requiredTotal) * 100) : 0;
-      return { requiredTotal, requiredComplete, towersTotal, towersComplete, percent };
+      const categories = Array.from(categoryMap.values())
+        .sort((a, b) => a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }));
+      return {
+        requiredTotal,
+        requiredComplete,
+        optionalTotal,
+        optionalComplete,
+        towersTotal,
+        towersComplete,
+        percent,
+        categories
+      };
+    }
+
+    function updateRouteOverviewUI(summaryOverride){
+      const summary = summaryOverride || calculateGuideProgressSummary();
+      const requiredPct = summary.requiredTotal
+        ? Math.round((summary.requiredComplete / summary.requiredTotal) * 100)
+        : 0;
+      const optionalPct = summary.optionalTotal
+        ? Math.round((summary.optionalComplete / summary.optionalTotal) * 100)
+        : 0;
+      const towersPct = summary.towersTotal
+        ? Math.round((summary.towersComplete / summary.towersTotal) * 100)
+        : 0;
+
+      const requiredCountEl = document.getElementById('routeRequiredCount');
+      if(requiredCountEl){
+        requiredCountEl.textContent = summary.requiredTotal
+          ? `${summary.requiredComplete}/${summary.requiredTotal}`
+          : '0/0';
+      }
+      const requiredMeter = document.getElementById('routeRequiredMeter');
+      if(requiredMeter){
+        requiredMeter.setAttribute('aria-valuenow', String(requiredPct));
+      }
+      const requiredFill = document.getElementById('routeRequiredFill');
+      if(requiredFill){
+        requiredFill.style.width = `${requiredPct}%`;
+      }
+      const requiredNote = document.getElementById('routeRequiredNote');
+      if(requiredNote){
+        if(summary.requiredTotal){
+          const remaining = summary.requiredTotal - summary.requiredComplete;
+          if(remaining === 0){
+            requiredNote.textContent = kidMode
+              ? 'All big steps complete!'
+              : 'All required steps complete.';
+          } else {
+            requiredNote.textContent = kidMode
+              ? `${remaining} big step${remaining === 1 ? '' : 's'} left`
+              : `${remaining} required step${remaining === 1 ? '' : 's'} remaining`;
+          }
+        } else {
+          requiredNote.textContent = kidMode ? 'Main path goals' : 'Main path objectives';
+        }
+      }
+
+      const optionalCountEl = document.getElementById('routeOptionalCount');
+      if(optionalCountEl){
+        optionalCountEl.textContent = summary.optionalTotal
+          ? `${summary.optionalComplete}/${summary.optionalTotal}`
+          : '0/0';
+      }
+      const optionalMeter = document.getElementById('routeOptionalMeter');
+      if(optionalMeter){
+        optionalMeter.setAttribute('aria-valuenow', String(optionalPct));
+      }
+      const optionalFill = document.getElementById('routeOptionalFill');
+      if(optionalFill){
+        optionalFill.style.width = `${optionalPct}%`;
+      }
+      const optionalNote = document.getElementById('routeOptionalNote');
+      if(optionalNote){
+        if(summary.optionalTotal){
+          const remainingOptional = summary.optionalTotal - summary.optionalComplete;
+          if(remainingOptional === 0){
+            optionalNote.textContent = kidMode
+              ? 'Bonus adventures wrapped!'
+              : 'All optional tasks completed.';
+          } else {
+            optionalNote.textContent = kidMode
+              ? `${remainingOptional} bonus step${remainingOptional === 1 ? '' : 's'} to try`
+              : `${remainingOptional} optional step${remainingOptional === 1 ? '' : 's'} remaining`;
+          }
+        } else {
+          optionalNote.textContent = kidMode ? 'Extra fun chores' : 'Bonus cleanup and prep';
+        }
+      }
+
+      const towerCountEl = document.getElementById('routeTowerCount');
+      if(towerCountEl){
+        towerCountEl.textContent = summary.towersTotal
+          ? `${summary.towersComplete}/${summary.towersTotal}`
+          : '0/0';
+      }
+      const towerMeter = document.getElementById('routeTowerMeter');
+      if(towerMeter){
+        towerMeter.setAttribute('aria-valuenow', String(towersPct));
+      }
+      const towerFill = document.getElementById('routeTowerFill');
+      if(towerFill){
+        towerFill.style.width = `${towersPct}%`;
+      }
+      const towerNote = document.getElementById('routeTowerNote');
+      if(towerNote){
+        if(summary.towersTotal){
+          const remainingTowers = summary.towersTotal - summary.towersComplete;
+          if(remainingTowers === 0){
+            towerNote.textContent = kidMode
+              ? 'Every tower champion beaten!'
+              : 'All tower bosses defeated.';
+          } else {
+            towerNote.textContent = kidMode
+              ? `${remainingTowers} tower${remainingTowers === 1 ? '' : 's'} left`
+              : `${remainingTowers} tower boss${remainingTowers === 1 ? '' : 'es'} remaining`;
+          }
+        } else {
+          towerNote.textContent = kidMode ? 'Defeat bosses together' : 'Tower bosses defeated so far';
+        }
+      }
+
+      const nextCallout = document.getElementById('routeNextCallout');
+      const nextRequired = findNextRouteStep();
+      const nextAny = nextRequired || findNextRouteStep({ includeOptional: true });
+      if(nextCallout){
+        if(nextAny && nextAny.step){
+          const isOptional = nextAny.step.optional && !nextRequired;
+          const prefix = isOptional
+            ? (kidMode ? 'Bonus idea:' : 'Optional focus:')
+            : (kidMode ? 'Next big step:' : 'Next priority:');
+          const chapterTitle = routeChapterTitle(nextAny.chapter);
+          const stepCopy = kidMode
+            ? (nextAny.step.textKid || nextAny.step.text || '')
+            : (nextAny.step.text || nextAny.step.textKid || '');
+          const chapterHtml = chapterTitle
+            ? ` <span class="route-overview__next-chapter">(${escapeHTML(chapterTitle)})</span>`
+            : '';
+          nextCallout.innerHTML = `<strong>${escapeHTML(prefix)}</strong> ${escapeHTML(stepCopy)}${chapterHtml}`;
+        } else {
+          nextCallout.innerHTML = kidMode
+            ? '<strong>Guide complete!</strong> Revisit bonus adventures anytime.'
+            : '<strong>Guide complete!</strong> Re-run towers or tidy up optional chores.';
+        }
+      }
+
+      const jumpBtn = document.getElementById('routeJumpNext');
+      if(jumpBtn){
+        const targetStep = nextAny && nextAny.step ? nextAny.step.id : '';
+        jumpBtn.dataset.stepId = targetStep || '';
+        if(targetStep){
+          jumpBtn.disabled = false;
+          jumpBtn.textContent = nextRequired
+            ? (kidMode ? 'Jump to next step' : 'Jump to next required')
+            : (kidMode ? 'Jump to bonus step' : 'Jump to optional step');
+        } else {
+          jumpBtn.disabled = true;
+          jumpBtn.textContent = kidMode ? 'All steps done!' : 'All steps complete';
+        }
+      }
+
+      const summarySlugs = new Set(summary.categories.map(cat => cat.slug));
+      const currentHidden = Array.from(routeHiddenCategories);
+      const trimmed = currentHidden.filter(slug => summarySlugs.has(slug));
+      if(trimmed.length !== currentHidden.length){
+        routeHiddenCategories = new Set(trimmed);
+        persistRoutePreferences();
+      }
+      renderRouteFiltersUI(summary.categories);
     }
 
     function findNextRouteStep(options = {}){
@@ -9486,6 +9877,30 @@
       } catch(err){
         console.warn('Failed to load route progress', err);
         return {};
+      }
+    }
+
+    function loadRoutePreferences(){
+      try {
+        const stored = JSON.parse(localStorage.getItem(ROUTE_PREFS_KEY));
+        if(stored && typeof stored === 'object'){
+          return stored;
+        }
+      } catch(err){
+        console.warn('Failed to load route preferences', err);
+      }
+      return {};
+    }
+
+    function persistRoutePreferences(){
+      const payload = {
+        hideOptional: !!routeHideOptional,
+        hiddenCategories: Array.from(routeHiddenCategories)
+      };
+      try {
+        localStorage.setItem(ROUTE_PREFS_KEY, JSON.stringify(payload));
+      } catch(err){
+        console.warn('Failed to save route preferences', err);
       }
     }
 
@@ -10532,6 +10947,7 @@
           spotlightBtn.disabled = true;
         }
       }
+      updateRouteOverviewUI(guideSummary);
       updateBasePlanner();
     }
 
