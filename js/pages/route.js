@@ -217,16 +217,16 @@ function navigateLink(l){
   if(!l) return;
   if(l.type==='pal'){
     if(window.viewPal) window.viewPal(l.slug || l.id);
-    else focusSearch(l.slug || l.id);
+    else focusSearch(l.slug || l.id, { target: 'pals' });
   } else if(l.type==='tech'){
     if(window.showTechDetail) window.showTechDetail(l.id);
     else window.open(`https://palworld.gg/items?search=${encodeURIComponent(niceName(l.id))}`,'_blank','noopener');
   } else if(l.type==='passive'){
     if(window.showTraitDetail) window.showTraitDetail(capitalize(l.id));
-    else focusSearch(l.id);
+    else focusSearch(l.id, { target: 'pals' });
   } else if(l.type==='move'){
     if(window.showSkillDetail) window.showSkillDetail(l.id);
-    else focusSearch(niceName(l.id));
+    else focusSearch(niceName(l.id), { target: 'pals' });
   } else if(l.type==='glossary'){
     if(window.showGlossaryDetail) window.showGlossaryDetail(l.id);
     else window.open(`https://palworld.gg/items?search=${encodeURIComponent(niceName(l.id))}`,'_blank','noopener');
@@ -241,12 +241,13 @@ function pulse(el){
   setTimeout(()=>el.classList.remove('pulse'), 1500);
 }
 
-function focusSearch(q){
+function focusSearch(q, options){
   if(typeof window.focusSearch === 'function'){
-    window.focusSearch(q);
+    window.focusSearch(q, options);
     return;
   }
-  const input = document.getElementById('palSearch') || document.getElementById('itemSearch');
+  const target = options?.target === 'items' ? 'items' : 'pals';
+  const input = document.getElementById(target === 'items' ? 'itemSearch' : 'palSearch');
   if(input){
     input.value = q;
     input.dispatchEvent(new Event('input', {bubbles:true}));
