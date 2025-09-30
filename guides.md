@@ -844,6 +844,40 @@ mount acquisition.  Each route conforms to the schema above and
 references the ontologies defined earlier.  Citations back up non‑obvious
 facts (spawn locations, recipe costs, drop rates, etc.).
 
+## Guide Catalogue Integration
+
+To support intent-driven prompting, every guide described in
+`palworld_complete_guide.md` has been normalised into a machine-readable
+catalogue.  The parsed dataset contains **201** guide entries and lives at
+`data/guide_catalog.json`.  Each entry tracks its canonical title,
+category, trigger phrases, keyword set and numbered instructions (with
+citations preserved where they existed in the source material).
+
+```json
+{
+  "guide_catalog": {
+    "path": "data/guide_catalog.json",
+    "guide_count": 201,
+    "fields": [
+      "id",
+      "title",
+      "source_heading",
+      "category",
+      "category_group",
+      "trigger",
+      "keywords",
+      "steps"
+    ],
+    "step_fields": ["order", "instruction", "citations"],
+    "source": "palworld_complete_guide.md"
+  }
+}
+```
+
+Clients can load the JSON directly to surface a complete list of
+available guides, map player utterances to triggers/keywords, and feed
+the numbered instructions into adaptive routing logic.
+
 ### Route: Starter Base and Capture
 
 This introductory route teaches players how to gather resources, craft
