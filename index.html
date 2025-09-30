@@ -9386,6 +9386,15 @@
 
     const ROUTE_STORAGE_KEY = 'palmarathon:route:v1';
     const ROUTE_PREFS_KEY = 'palmarathon:route:prefs:v1';
+    const ROUTE_CONTEXT_KEY = 'palmarathon:route:context:v1';
+    const DEFAULT_ROUTE_CONTEXT = {
+      declaredLevel: null,
+      hardcore: false,
+      coop: false,
+      availableTimeMinutes: null,
+      goals: [],
+      resourceGaps: []
+    };
     let routeGuideData = null;
     let routeState = loadRouteState();
     const initialRoutePrefs = loadRoutePreferences();
@@ -9395,6 +9404,7 @@
           .map(value => routeCategorySlug(value, { strict: true }))
           .filter(Boolean)
       : []);
+    let routeContext = loadRouteContext();
     let pendingRouteFocus = null;
     let pendingTechFocus = null;
 
@@ -9421,20 +9431,350 @@
       if(routeGuideData){
         return Promise.resolve(routeGuideData);
       }
-      return fetch('data/route.chapters.json')
+      return fetch('guides.md')
         .then(res => {
           if(!res.ok){ throw new Error(`HTTP ${res.status}`); }
-          return res.json();
+          return res.text();
         })
-        .then(json => {
-          routeGuideData = json;
+        .then(text => {
+          const parsed = parseGuideMarkdown(text || '');
+          routeGuideData = augmentGuideData(parsed);
           return routeGuideData;
         })
         .catch(err => {
-          console.error('Failed to load route guide', err);
-          routeGuideData = { chapters: [] };
+          console.error('Failed to load adaptive guide', err);
+          routeGuideData = { routes: [], chapters: [], tags: [], routeLookup: {}, metadata: null, recommender: null };
           return routeGuideData;
         });
+    }
+
+    function parseGuideMarkdown(markdown){
+      const result = {
+        metadata: null,
+        xp: null,
+        routes: [],
+        routeSchema: null,
+        levelEstimator: null,
+        recommender: null,
+        sourceRegistry: null,
+        extras: [],
+        errors: []
+      };
+      if(typeof markdown !== 'string' || !markdown.trim()){
+        return result;
+      }
+      const blockPattern = /```json\s*([\s\S]*?)```/g;
+      let match;
+      while((match = blockPattern.exec(markdown))){
+        const snippet = match[1] ? match[1].trim() : '';
+        if(!snippet) continue;
+        try {
+          const json = JSON.parse(snippet);
+          if(json && typeof json === 'object'){
+            if(json.route_id){
+              result.routes.push(json);
+              continue;
+            }
+            if(Object.prototype.hasOwnProperty.call(json, 'schema_version')){
+              result.metadata = json;
+              continue;
+            }
+            if(json.route_schema){
+              result.routeSchema = json.route_schema;
+              continue;
+            }
+            if(Array.isArray(json.xp_thresholds)){
+              result.xp = json;
+              continue;
+            }
+            if(json.level_estimator){
+              result.levelEstimator = json.level_estimator;
+              continue;
+            }
+            if(json.recommender){
+              result.recommender = json.recommender;
+              continue;
+            }
+            if(json.source_registry){
+              result.sourceRegistry = json.source_registry;
+              continue;
+            }
+          }
+          result.extras.push(json);
+        } catch(err){
+          console.warn('Failed to parse guide block', err);
+          result.errors.push({ error: err, snippet });
+        }
+      }
+      return result;
+    }
+
+    const ROUTE_ROLE_CORE_VALUES = new Set(['core', 'main', 'story', 'campaign', 'primary', 'critical']);
+    const ROUTE_ROLE_SUPPORT_VALUES = new Set(['support', 'supporting', 'resource', 'farm', 'utility', 'supplemental']);
+    const ROUTE_ROLE_OPTIONAL_VALUES = new Set(['optional', 'side', 'branch', 'bonus', 'supplementary', 'situational']);
+    const STEP_REQUIRED_IMPORTANCE_VALUES = new Set(['required', 'core', 'critical', 'mandatory', 'main', 'story']);
+    const STEP_OPTIONAL_IMPORTANCE_VALUES = new Set(['optional', 'support', 'supporting', 'bonus', 'stretch', 'side', 'branch', 'situational', 'contextual']);
+
+    function normalizeRouteRole(value){
+      const raw = typeof value === 'string' ? value.trim().toLowerCase() : '';
+      if(ROUTE_ROLE_CORE_VALUES.has(raw)) return 'core';
+      if(ROUTE_ROLE_SUPPORT_VALUES.has(raw)) return 'support';
+      if(ROUTE_ROLE_OPTIONAL_VALUES.has(raw)) return 'optional';
+      if(raw) return raw;
+      return 'optional';
+    }
+
+    function normalizeStepImportance(step){
+      if(!step || typeof step !== 'object') return 'required';
+      const candidates = [
+        step.importance,
+        step.step_importance,
+        step.stepImportance,
+        step.role,
+        step.step_role,
+        step.progression_role,
+        step.tier
+      ];
+      for(const candidate of candidates){
+        if(typeof candidate === 'string' && candidate.trim()){
+          return candidate.trim().toLowerCase();
+        }
+      }
+      if(step.optional === true) return 'optional';
+      if(step.optional === false) return 'required';
+      if(Array.isArray(step.branching) && step.branching.length){
+        return 'support';
+      }
+      return 'required';
+    }
+
+    function stepImportanceIsOptional(importance){
+      return STEP_OPTIONAL_IMPORTANCE_VALUES.has(importance);
+    }
+
+    function stepImportanceIsRequired(importance){
+      return STEP_REQUIRED_IMPORTANCE_VALUES.has(importance);
+    }
+
+    function deriveStepProgressionState(route, rawStep){
+      const routeRole = normalizeRouteRole(route?.progression_role || route?.raw?.progression_role);
+      const routeIsCore = routeRole === 'core';
+      const importance = normalizeStepImportance(rawStep);
+      const optionalByImportance = stepImportanceIsOptional(importance);
+      const requiredByImportance = stepImportanceIsRequired(importance);
+      let optional = null;
+      if(requiredByImportance){
+        optional = false;
+      } else if(optionalByImportance){
+        optional = true;
+      }
+      if(optional === null){
+        optional = routeIsCore ? false : true;
+      } else if(!routeIsCore){
+        optional = true;
+      }
+      return { importance, optional: !!optional, routeRole };
+    }
+
+    function augmentGuideData(parsed){
+      const routes = Array.isArray(parsed?.routes) ? parsed.routes : [];
+      const augmentedRoutes = routes.map((route, index) => augmentRoute(route, index));
+      const chapters = augmentedRoutes.map(entry => entry.chapter);
+      const routeLookup = {};
+      const tagSet = new Set();
+      const resourceFrequency = new Map();
+      augmentedRoutes.forEach(entry => {
+        routeLookup[entry.id] = entry;
+        entry.tags.forEach(tag => tagSet.add(tag));
+        entry.resourceOutputs.forEach(itemId => {
+          resourceFrequency.set(itemId, (resourceFrequency.get(itemId) || 0) + 1);
+        });
+      });
+      const sortedResources = Array.from(resourceFrequency.entries())
+        .sort((a, b) => b[1] - a[1])
+        .map(entry => entry[0]);
+      return {
+        metadata: parsed?.metadata || null,
+        xp: parsed?.xp || null,
+        levelEstimator: parsed?.levelEstimator || null,
+        recommender: parsed?.recommender || null,
+        routes: augmentedRoutes,
+        chapters,
+        routeLookup,
+        tags: Array.from(tagSet).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' })),
+        keyResources: sortedResources.slice(0, 24),
+        extras: parsed?.extras || [],
+        errors: parsed?.errors || []
+      };
+    }
+
+    function augmentRoute(route, index){
+      const id = route?.route_id || `route-${index + 1}`;
+      const tags = Array.isArray(route?.tags) ? route.tags.slice() : [];
+      const objectives = Array.isArray(route?.objectives) ? route.objectives.slice() : [];
+      const level = route?.recommended_level || {};
+      const time = route?.estimated_time_minutes || {};
+      const xpGain = route?.estimated_xp_gain || {};
+      const risk = route?.risk_profile || 'medium';
+      const normalizedRole = normalizeRouteRole(route?.progression_role);
+      const adaptiveGuidance = route?.adaptive_guidance || {};
+      const steps = Array.isArray(route?.steps) ? route.steps.slice() : [];
+      const chapter = convertRouteToChapter(route, { index, role: normalizedRole });
+      const resourceOutputs = collectRouteResourceOutputs(route);
+      return {
+        id,
+        index,
+        title: route?.title || 'Route',
+        category: route?.category || 'progression',
+        tags,
+        progression_role: normalizedRole,
+        progression_role_raw: route?.progression_role || null,
+        recommended_level: level,
+        modes: route?.modes || {},
+        prerequisites: route?.prerequisites || { routes: [], tech: [], items: [], pals: [] },
+        objectives,
+        estimated_time_minutes: time,
+        estimated_xp_gain: xpGain,
+        risk_profile: risk,
+        failure_penalties: route?.failure_penalties || {},
+        adaptive_guidance: adaptiveGuidance,
+        checkpoints: Array.isArray(route?.checkpoints) ? route.checkpoints.slice() : [],
+        supporting_routes: route?.supporting_routes || { recommended: [], optional: [] },
+        failure_recovery: route?.failure_recovery || {},
+        steps,
+        completion_criteria: Array.isArray(route?.completion_criteria) ? route.completion_criteria.slice() : [],
+        yields: route?.yields || {},
+        metrics: route?.metrics || {},
+        next_routes: Array.isArray(route?.next_routes) ? route.next_routes.slice() : [],
+        raw: route,
+        chapter,
+        resourceOutputs
+      };
+    }
+
+    function convertRouteToChapter(route, { index = 0, role } = {}){
+      const id = route?.route_id || `route-${index + 1}`;
+      const steps = Array.isArray(route?.steps) ? route.steps : [];
+      const title = route?.title || 'Route';
+      const level = route?.recommended_level || {};
+      const levelLabel = level && (level.min != null || level.max != null)
+        ? `Lv ${level.min != null ? level.min : '?'}-${level.max != null ? level.max : '?'}`
+        : '';
+      const composedTitle = levelLabel ? `${title} — ${levelLabel}` : title;
+      const objectives = Array.isArray(route?.objectives) ? route.objectives : [];
+      const whyParts = [];
+      if(objectives.length){
+        whyParts.push(objectives.join('; '));
+      }
+      if(route?.risk_profile){
+        whyParts.push(`Risk: ${capitalize(route.risk_profile)}`);
+      }
+      if(route?.estimated_time_minutes){
+        const solo = route.estimated_time_minutes.solo;
+        const coop = route.estimated_time_minutes.coop;
+        if(solo || coop){
+          const timeBits = [];
+          if(solo) timeBits.push(`${solo}m solo`);
+          if(coop) timeBits.push(`${coop}m co-op`);
+          whyParts.push(`Time: ${timeBits.join(' / ')}`);
+        }
+      }
+      const kidSummary = objectives.length ? objectives[0] : 'Follow the plan and have fun!';
+      const normalizedRole = normalizeRouteRole(role || route?.progression_role);
+      return {
+        id,
+        title: composedTitle,
+        titleKid: title,
+        why: whyParts.join(' • '),
+        whyKid: kidSummary,
+        steps: steps.map((step, stepIndex) => convertRouteStep(route, step, stepIndex, normalizedRole))
+      };
+    }
+
+    function convertRouteStep(route, step, index, routeRoleOverride){
+      const id = step?.step_id || `${route?.route_id || 'route'}:${String(index + 1).padStart(3, '0')}`;
+      const type = step?.type || 'task';
+      const categoryLabel = stepCategoryLabel(type);
+      const detail = step?.detail || '';
+      const summary = step?.summary || '';
+      const text = detail || summary;
+      const textKid = summary || detail || '';
+      const routeRole = routeRoleOverride || normalizeRouteRole(route?.progression_role);
+      const progressionState = deriveStepProgressionState({ progression_role: routeRole, raw: route }, step);
+      const optional = progressionState.optional;
+      const links = createStepLinks(step);
+      return {
+        id,
+        category: categoryLabel,
+        text,
+        textKid,
+        optional,
+        importance: progressionState.importance,
+        routeRole,
+        links,
+        raw: step,
+        routeId: route?.route_id || null,
+        type
+      };
+    }
+
+    function stepCategoryLabel(type){
+      const map = {
+        'travel': 'Travel',
+        'gather': 'Gather',
+        'farm': 'Farm',
+        'capture': 'Catch',
+        'fight': 'Boss',
+        'craft': 'Craft',
+        'build': 'Build',
+        'unlock-tech': 'Tech',
+        'breed': 'Breed',
+        'deliver': 'Deliver',
+        'talk': 'Talk',
+        'explore': 'Explore',
+        'prepare': 'Prep'
+      };
+      return map[type] || capitalize(type || 'Task');
+    }
+
+    function createStepLinks(step){
+      const links = [];
+      if(step && Array.isArray(step.targets)){
+        step.targets.forEach(target => {
+          if(!target || !target.kind) return;
+          if(target.kind === 'pal'){
+            links.push({ type: 'pal', slug: target.id || target.slug, id: target.id || target.slug });
+          } else if(target.kind === 'item'){
+            links.push({ type: 'item', id: target.id });
+          } else if(target.kind === 'tech' || target.kind === 'station'){
+            links.push({ type: 'tech', id: target.id });
+          } else if(target.kind === 'boss'){
+            links.push({ type: 'tower', id: target.id || target.slug || target.name, map: target.map });
+          }
+        });
+      }
+      return links;
+    }
+
+    function collectRouteResourceOutputs(route){
+      const items = new Set();
+      if(route?.steps){
+        route.steps.forEach(step => {
+          const outputs = step?.outputs?.items || [];
+          outputs.forEach(entry => {
+            if(entry?.item_id){
+              items.add(entry.item_id);
+            }
+          });
+        });
+      }
+      const routeOutputs = route?.outputs?.items || [];
+      routeOutputs.forEach(entry => {
+        if(entry?.item_id){
+          items.add(entry.item_id);
+        }
+      });
+      return Array.from(items);
     }
 
     function routeChapterTitle(chapter){
@@ -9471,32 +9811,40 @@
       ensureRouteGuide().then(guide => {
         const node = document.getElementById('routePage');
         if(!node) return;
-        const chapters = Array.isArray(guide.chapters) ? guide.chapters : [];
-        if(!chapters.length){
-          node.innerHTML = '<section class="card"><h2>Boss Route & Progress</h2><p>Route data unavailable.</p></section>';
-          return;
-        }
-        routeGuideData = guide;
-        routeState = loadRouteState();
-        const summary = calculateGuideProgressSummary(chapters);
-        const availableSlugs = new Set(summary.categories.map(cat => cat.slug));
-        const cleanedHidden = Array.from(routeHiddenCategories).filter(slug => availableSlugs.has(slug));
-        if(cleanedHidden.length !== routeHiddenCategories.size){
-          routeHiddenCategories = new Set(cleanedHidden);
-          persistRoutePreferences();
-        } else {
-          routeHiddenCategories = new Set(cleanedHidden);
-        }
-        const routeLead = kidMode
-          ? 'Check off each friendly step together. Hide bonus chores or jump ahead when you need a faster run.'
-          : 'Work through every chapter of the marathon. Filter categories, hide optional tasks or jump to the next objective.';
-        const routeHeading = kidMode ? 'Route Checklist' : 'Story Route Planner';
-        node.innerHTML = `
+        const routes = Array.isArray(guide?.routes) ? guide.routes : [];
+        const chapters = Array.isArray(guide?.chapters) ? guide.chapters : [];
+        if(!routes.length || !chapters.length){
+          node.innerHTML = '<section class="card"><h2>Adaptive Route Planner</h2><p>Route data unavailable.</p></section>';}
+        else {
+          routeGuideData = guide;
+          routeState = loadRouteState();
+          routeContext = normalizeRouteContext(routeContext);
+          const summary = calculateGuideProgressSummary(chapters);
+          const levelEstimate = estimatePlayerLevel(routeContext);
+          const recommendations = computeRouteRecommendations(guide, routeContext, levelEstimate);
+          const heading = kidMode ? 'Adaptive Adventure Planner' : 'Adaptive Route Planner';
+          const lead = kidMode
+            ? 'Palmate studies your level, party mode, and wish list to recommend the perfect adventures.'
+            : 'Dial in your context, review adaptive recommendations, and follow richly detailed steps.';
+          node.innerHTML = `
           <header class="page-header">
-            <h2>${routeHeading}</h2>
+            <h2>${escapeHTML(heading)}</h2>
           </header>
+          <section class="card route-context" id="routeContextCard">
+            ${renderRouteContextOverview(routeContext, levelEstimate, summary)}
+            ${renderRouteContextControls(routeGuideData, routeContext)}
+          </section>
+          <section class="card route-recommendations-card" id="routeRecommendationsCard">
+            <div class="route-recommendations__header">
+              <h3>${kidMode ? 'Suggested Next Routes' : 'Adaptive Recommendations'}</h3>
+              <p class="route-recommendations__intro">${escapeHTML(lead)}</p>
+            </div>
+            <div id="routeRecommendationsList" class="route-recommendations__list"></div>
+          </section>
           <section class="card route-controls">
-            <p class="route-controls__lead">${escapeHTML(routeLead)}</p>
+            <p class="route-controls__lead">${escapeHTML(kidMode
+              ? 'Check off each friendly step together. Hide bonus chores, focus categories, or jump straight to the next task.'
+              : 'Track every objective across Palworld. Hide optional steps, filter by category, or jump straight to your next move.')}</p>
             <div class="route-controls__actions">
               <button type="button" class="btn" data-route-action="toggle-optional">${routeOptionalToggleLabel(routeHideOptional)}</button>
               <button type="button" class="btn" data-route-action="jump-next" data-step-id="">${kidMode ? 'Jump to next step' : 'Jump to next required'}</button>
@@ -9505,23 +9853,649 @@
           </section>
           <div id="routeChapters"></div>
         `;
-        const wrap = node.querySelector('#routeChapters');
-        chapters.forEach((ch, idx) => {
-          wrap.appendChild(renderChapterCard(ch, idx === 0));
-        });
-
-        wrap.addEventListener('change', handleRouteCheckboxChange);
-        wrap.addEventListener('click', handleRouteClick);
-
-        bindRouteActionButtons();
-        renderRouteFiltersUI(summary.categories);
-        applyQueuedRouteFocus();
-        updateRouteOverviewUI(summary);
-        renderBossRouteTimeline();
-        updateProgressUI();
+          const wrap = node.querySelector('#routeChapters');
+          routes.forEach((route, idx) => {
+            wrap.appendChild(renderChapterCard(route.chapter, idx === 0, route));
+          });
+          wrap.addEventListener('change', handleRouteCheckboxChange);
+          wrap.addEventListener('click', handleRouteClick);
+          bindRouteActionButtons();
+          renderRouteFiltersUI(summary.categories);
+          applyQueuedRouteFocus();
+          updateRouteOverviewUI(summary, { levelEstimate, recommendations });
+          renderBossRouteTimeline();
+          updateProgressUI();
+          renderRouteRecommendationsList(recommendations);
+          bindRouteContextControls(node, { guide, summary, levelEstimate, recommendations });
+        }
       });
     }
 
+
+    function renderRouteContextOverview(context, levelEstimate, summary){
+      const declared = context?.declaredLevel != null ? Number(context.declaredLevel) : null;
+      const estimatedLevel = levelEstimate?.level != null ? levelEstimate.level : null;
+      const xpTotal = levelEstimate?.totalXp != null ? Math.round(levelEstimate.totalXp) : null;
+      const confidence = levelEstimate?.confidence != null ? Math.round(levelEstimate.confidence * 100) : null;
+      const requiredPct = summary.requiredTotal ? Math.round((summary.requiredComplete / summary.requiredTotal) * 100) : 0;
+      const declaredLabel = declared != null ? String(declared) : (kidMode ? 'Not set' : 'Not set');
+      const estimatedLabel = estimatedLevel != null ? String(estimatedLevel) : '—';
+      const xpLabel = xpTotal != null ? xpTotal.toLocaleString() : '';
+      const confidenceLabel = confidence != null ? `${confidence}%` : '';
+      const coreRoutes = summary?.routes?.core || { total: 0, complete: 0 };
+      const stepsRemaining = summary.requiredTotal ? summary.requiredTotal - summary.requiredComplete : 0;
+      const routesRemaining = coreRoutes.total ? coreRoutes.total - coreRoutes.complete : 0;
+      let progressNote;
+      if(summary.requiredTotal){
+        if(routesRemaining > 0){
+          const routeLabel = routesRemaining === 1 ? (kidMode ? 'adventure' : 'core route') : (kidMode ? 'adventures' : 'core routes');
+          const stepLabel = stepsRemaining === 1 ? (kidMode ? 'big step' : 'required step') : (kidMode ? 'big steps' : 'required steps');
+          progressNote = `${routesRemaining} ${routeLabel} • ${stepsRemaining} ${stepLabel} left`;
+        } else if(stepsRemaining > 0){
+          const stepLabel = stepsRemaining === 1 ? (kidMode ? 'big step' : 'required step') : (kidMode ? 'big steps' : 'required steps');
+          progressNote = `${stepsRemaining} ${stepLabel} remaining`;
+        } else {
+          progressNote = kidMode ? 'All big steps complete!' : 'All required steps complete.';
+        }
+      } else {
+        progressNote = kidMode ? 'Start any route to begin the journey.' : 'Start a route to begin tracking progress.';
+      }
+      return `
+        <div class="route-overview__header">
+          <div class="route-overview__stats">
+            <div class="route-overview__stat">
+              <div class="route-overview__stat-header">
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-signal"></i></span>
+                <p class="route-overview__stat-title">${kidMode ? 'Declared level' : 'Declared level'}</p>
+              </div>
+              <div class="route-overview__stat-value">${escapeHTML(declaredLabel)}</div>
+              <p class="route-overview__stat-sub">${escapeHTML(kidMode ? 'Use the slider below to tell Palmate your level.' : 'Override the estimated level with your own.')}</p>
+            </div>
+            <div class="route-overview__stat">
+              <div class="route-overview__stat-header">
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-chart-line"></i></span>
+                <p class="route-overview__stat-title">${kidMode ? 'Estimated level' : 'Estimated level'}</p>
+              </div>
+              <div class="route-overview__stat-value">${escapeHTML(estimatedLabel)}</div>
+              <p class="route-overview__stat-sub">${xpLabel
+                ? `${escapeHTML(xpLabel)} XP${confidenceLabel ? ` • ${escapeHTML(confidenceLabel)} confidence` : ''}`
+                : escapeHTML(kidMode ? 'Complete steps to power up this estimate.' : 'Finish more steps to refine this estimate.')}</p>
+            </div>
+            <div class="route-overview__stat">
+              <div class="route-overview__stat-header">
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-list-check"></i></span>
+                <p class="route-overview__stat-title">${kidMode ? 'Big steps' : 'Required steps'}</p>
+              </div>
+              <div class="route-overview__stat-value">${summary.requiredTotal ? `${summary.requiredComplete}/${summary.requiredTotal}` : '0/0'}</div>
+              <div class="route-overview__meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${requiredPct}">
+                <span class="fill" style="width:${requiredPct}%"></span>
+              </div>
+              <p class="route-overview__stat-sub">${escapeHTML(progressNote)}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderRouteContextControls(guide, context){
+      const levelValue = context?.declaredLevel != null ? Number(context.declaredLevel) : '';
+      const timeValue = context?.availableTimeMinutes != null ? Number(context.availableTimeMinutes) : '';
+      const tags = Array.isArray(guide?.tags) ? guide.tags : [];
+      const resourceOptions = Array.isArray(guide?.keyResources) ? guide.keyResources : [];
+      const goalChips = tags.length
+        ? tags.map(tag => {
+            const active = context.goals.includes(tag);
+            const classes = ['route-goal-chip', 'chip'];
+            if(active) classes.push('route-goal-chip--active');
+            return `<button type="button" class="${classes.join(' ')}" data-context-goal="${escapeHTML(tag)}">${escapeHTML(capitalize(tag))}</button>`;
+          }).join('')
+        : `<p class="route-context__empty">${escapeHTML(kidMode ? 'Goals load soon.' : 'No goals available yet.')}</p>`;
+      const resourceChips = context.resourceGaps.length
+        ? context.resourceGaps.map(entry => renderResourceGapChip(entry)).join('')
+        : `<p class="route-context__empty">${escapeHTML(kidMode ? 'Add items you are missing.' : 'Add resource gaps to surface farming routes.')}</p>`;
+      const optionsHtml = resourceOptions.length
+        ? resourceOptions.map(itemId => `<option value="${escapeHTML(itemId)}">${escapeHTML(itemDisplayName(itemId))}</option>`).join('')
+        : '';
+      const levelSliderValue = levelValue === '' ? 1 : levelValue;
+      const sliderEmptyAttr = levelValue === '' ? ' data-empty="true"' : '';
+      return `
+        <div class="route-context__controls">
+          <div class="route-context__grid">
+            <div class="route-context__field">
+              <label class="route-context__label" for="routeLevelRange">${escapeHTML(kidMode ? 'Tell Palmate your level' : 'Declared level')}</label>
+              <div class="route-context__level">
+                <input type="range" id="routeLevelRange" min="1" max="50" value="${escapeHTML(String(levelSliderValue))}"${sliderEmptyAttr} />
+                <input type="number" id="routeLevelInput" min="1" max="50" value="${levelValue === '' ? '' : escapeHTML(String(levelValue))}" placeholder="${escapeHTML(kidMode ? 'Unset' : 'Optional')}" />
+              </div>
+            </div>
+            <div class="route-context__field">
+              <label class="route-context__label">${escapeHTML(kidMode ? 'Mode & party' : 'Difficulty & party')}</label>
+              <div class="route-context__toggles">
+                <button type="button" class="chip route-context__toggle${context.hardcore ? ' route-context__toggle--active' : ''}" data-context-toggle="hardcore">${escapeHTML(kidMode ? 'Hardcore' : 'Hardcore')}</button>
+                <button type="button" class="chip route-context__toggle${context.coop ? ' route-context__toggle--active' : ''}" data-context-toggle="coop">${escapeHTML(kidMode ? 'Co-Op' : 'Co-Op')}</button>
+              </div>
+            </div>
+            <div class="route-context__field">
+              <label class="route-context__label" for="routeTimeInput">${escapeHTML(kidMode ? 'Time available (minutes)' : 'Available time (minutes)')}</label>
+              <input type="number" id="routeTimeInput" min="5" max="480" step="5" value="${timeValue === '' ? '' : escapeHTML(String(timeValue))}" placeholder="${escapeHTML(kidMode ? 'Leave blank if unsure' : 'Leave blank if flexible')}" />
+            </div>
+            <div class="route-context__field">
+              <label class="route-context__label">${escapeHTML(kidMode ? 'Goals' : 'Focus goals')}</label>
+              <div class="route-context__goals">${goalChips}</div>
+            </div>
+            <div class="route-context__field">
+              <label class="route-context__label">${escapeHTML(kidMode ? 'Resource gaps' : 'Resource shortages')}</label>
+              <div class="route-context__resources">
+                <div class="route-context__resource-add">
+                  <select id="routeResourceSelect">
+                    <option value="">${escapeHTML(kidMode ? 'Pick a resource' : 'Select a resource')}</option>
+                    ${optionsHtml}
+                  </select>
+                  <input type="number" id="routeResourceQty" min="1" max="999" placeholder="${escapeHTML(kidMode ? 'Qty' : 'Qty')}" />
+                  <button type="button" class="btn route-context__resource-add-btn" data-action="add-resource-gap">${escapeHTML(kidMode ? 'Add' : 'Add')}</button>
+                </div>
+                <div class="route-context__resource-list" id="routeResourceList">${resourceChips}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function itemDisplayName(itemId){
+      if(!itemId) return 'Item';
+      const detail = ITEM_DETAILS?.[itemId];
+      if(detail?.name) return detail.name;
+      const item = ITEMS?.[itemId];
+      if(item?.name) return item.name;
+      return niceName(itemId);
+    }
+
+    function renderResourceGapChip(entry){
+      const itemId = entry?.item_id || entry?.itemId || '';
+      if(!itemId) return '';
+      const qty = entry?.qty != null ? Number(entry.qty) : null;
+      const qtyLabel = qty != null && !Number.isNaN(qty) ? ` ×${qty}` : '';
+      return `<button type="button" class="chip route-resource-chip" data-resource-id="${escapeHTML(itemId)}">${escapeHTML(itemDisplayName(itemId))}${escapeHTML(qtyLabel)}<span class="route-resource-chip__remove" aria-hidden="true">&times;</span></button>`;
+    }
+
+    let routeRecommendationsAbort = null;
+
+    function renderRouteRecommendationsList(recommendations){
+      const list = document.getElementById('routeRecommendationsList');
+      if(!list) return;
+      if(!Array.isArray(recommendations) || !recommendations.length){
+        list.innerHTML = `<p class="route-recommendations__empty">${escapeHTML(kidMode ? 'Set your level or add goals to see suggestions.' : 'Adjust your context to surface tailored recommendations.')}</p>`;
+      } else {
+        const cards = recommendations.slice(0, 5).map(renderRouteRecommendation).join('');
+        list.innerHTML = cards;
+      }
+      if(routeRecommendationsAbort){
+        routeRecommendationsAbort.abort();
+      }
+      routeRecommendationsAbort = new AbortController();
+      const { signal } = routeRecommendationsAbort;
+      list.addEventListener('click', event => {
+        const btn = event.target.closest('[data-route-focus]');
+        if(!btn) return;
+        const routeId = btn.dataset.routeFocus;
+        const requestedStep = btn.dataset.routeStep;
+        const route = routeGuideData?.routeLookup?.[routeId];
+        let stepId = requestedStep;
+        if(!stepId && route){
+          const nextStep = findFirstIncompleteStepForRoute(route, { includeOptional: true });
+          if(nextStep) stepId = nextStep.id;
+        }
+        if(stepId){
+          queueRouteFocus(stepId);
+        }
+        switchPage('route');
+        playSound(clickSound);
+      }, { signal });
+    }
+
+    function renderRouteRecommendation(entry){
+      const route = entry.route;
+      const range = route?.recommended_level || {};
+      const rangeLabel = (range.min != null || range.max != null)
+        ? `Lv ${range.min != null ? range.min : '?'}-${range.max != null ? range.max : '?'}`
+        : '';
+      const risk = route?.risk_profile ? `${capitalize(route.risk_profile)} risk` : '';
+      const timeLabel = formatTimeLabel(route?.estimated_time_minutes) || '';
+      const metaParts = [rangeLabel, risk, timeLabel].filter(Boolean);
+      const metaLine = metaParts.length ? metaParts.join(' • ') : '';
+      const scoreLabel = typeof entry.score === 'number' ? entry.score.toFixed(1) : '';
+      const tags = Array.isArray(route?.tags) && route.tags.length
+        ? `<div class="route-recommendation__tags">${route.tags.map(tag => `<span class="chip route-recommendation__tag">${escapeHTML(tag)}</span>`).join('')}</div>`
+        : '';
+      const reasons = Array.isArray(entry.reasons) && entry.reasons.length
+        ? `<ul class="route-recommendation__reasons">${entry.reasons.map(reason => `<li>${escapeHTML(reason)}</li>`).join('')}</ul>`
+        : `<p class="route-recommendation__fallback">${escapeHTML(kidMode ? 'Palmate picked this route for balanced fun and progress.' : 'Palmate selected this route based on your context.')}</p>`;
+      const focusStep = entry.nextStepId || route?.chapter?.steps?.[0]?.id || '';
+      return `
+        <article class="route-recommendation" data-route-id="${escapeHTML(route.id)}">
+          <div class="route-recommendation__header">
+            <div>
+              <h4>${escapeHTML(route.title)}</h4>
+              ${metaLine ? `<p class="route-recommendation__meta">${escapeHTML(metaLine)}</p>` : ''}
+              ${tags}
+            </div>
+            ${scoreLabel ? `<div class="route-recommendation__score">${escapeHTML(scoreLabel)}</div>` : ''}
+          </div>
+          ${reasons}
+          <div class="route-recommendation__actions">
+            <button type="button" class="btn" data-route-focus="${escapeHTML(route.id)}" data-route-step="${escapeHTML(focusStep)}">${escapeHTML(kidMode ? 'View steps' : 'Open route')}</button>
+          </div>
+        </article>
+      `;
+    }
+
+    let routeContextControlAbort = null;
+
+    function bindRouteContextControls(root, { guide } = {}){
+      if(!root) return;
+      if(routeContextControlAbort){
+        routeContextControlAbort.abort();
+      }
+      routeContextControlAbort = new AbortController();
+      const { signal } = routeContextControlAbort;
+      const levelRange = root.querySelector('#routeLevelRange');
+      const levelInput = root.querySelector('#routeLevelInput');
+      const timeInput = root.querySelector('#routeTimeInput');
+      const goalWrap = root.querySelector('.route-context__goals');
+      const toggleButtons = root.querySelectorAll('.route-context__toggle');
+      const resourceSelect = root.querySelector('#routeResourceSelect');
+      const resourceQty = root.querySelector('#routeResourceQty');
+      const resourceAdd = root.querySelector('[data-action="add-resource-gap"]');
+      const resourceList = root.querySelector('#routeResourceList');
+
+      if(levelRange){
+        if(levelRange.dataset.empty === 'true'){ levelRange.value = '1'; }
+        levelRange.addEventListener('input', () => {
+          if(levelInput){
+            levelInput.value = levelRange.dataset.empty === 'true' ? '' : levelRange.value;
+          }
+        }, { signal });
+        levelRange.addEventListener('change', () => {
+          levelRange.dataset.empty = 'false';
+          updateRouteContextState({ declaredLevel: Number(levelRange.value) });
+        }, { signal });
+      }
+      if(levelInput){
+        levelInput.addEventListener('change', () => {
+          const raw = levelInput.value;
+          updateRouteContextState({ declaredLevel: raw === '' ? null : Number(raw) });
+        }, { signal });
+      }
+      toggleButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.contextToggle;
+          if(!key) return;
+          const updated = { ...routeContext, [key]: !routeContext[key] };
+          updateRouteContextState(updated);
+        }, { signal });
+      });
+      if(timeInput){
+        timeInput.addEventListener('change', () => {
+          const raw = timeInput.value;
+          updateRouteContextState({ availableTimeMinutes: raw === '' ? null : Number(raw) });
+        }, { signal });
+      }
+      if(goalWrap){
+        goalWrap.addEventListener('click', event => {
+          const btn = event.target.closest('[data-context-goal]');
+          if(!btn) return;
+          const goal = btn.dataset.contextGoal;
+          const next = new Set(routeContext.goals);
+          if(next.has(goal)) next.delete(goal); else next.add(goal);
+          updateRouteContextState({ goals: Array.from(next) });
+        }, { signal });
+      }
+      if(resourceAdd){
+        resourceAdd.addEventListener('click', () => {
+          const itemId = resourceSelect ? resourceSelect.value : '';
+          if(!itemId) return;
+          const qty = resourceQty && resourceQty.value !== '' ? Number(resourceQty.value) : null;
+          const next = routeContext.resourceGaps.slice();
+          const existing = next.find(entry => entry.item_id === itemId);
+          if(existing){
+            existing.qty = qty;
+          } else {
+            next.push({ item_id: itemId, qty });
+          }
+          updateRouteContextState({ resourceGaps: next });
+        }, { signal });
+      }
+      if(resourceList){
+        resourceList.addEventListener('click', event => {
+          const chip = event.target.closest('.route-resource-chip');
+          if(!chip) return;
+          const itemId = chip.dataset.resourceId;
+          const next = routeContext.resourceGaps.filter(entry => entry.item_id !== itemId);
+          updateRouteContextState({ resourceGaps: next });
+        }, { signal });
+      }
+    }
+
+    function updateRouteContextState(updates){
+      routeContext = normalizeRouteContext({ ...routeContext, ...(updates || {}) });
+      saveRouteContext(routeContext);
+      renderRouteGuide();
+    }
+
+    function findFirstIncompleteStepForRoute(route, { includeOptional = false } = {}){
+      if(!route) return null;
+      const steps = Array.isArray(route?.chapter?.steps) ? route.chapter.steps : [];
+      for(const step of steps){
+        if(step.optional && !includeOptional) continue;
+        if(!routeState[step.id]){
+          return step;
+        }
+      }
+      if(includeOptional){
+        return steps.find(step => !routeState[step.id]) || null;
+      }
+      return null;
+    }
+
+    function formatTimeLabel(time){
+      if(!time) return '';
+      const solo = time.solo;
+      const coop = time.coop;
+      if(solo && coop) return `${solo}m solo / ${coop}m co-op`;
+      if(solo) return `${solo}m solo`;
+      if(coop) return `${coop}m co-op`;
+      return '';
+    }
+
+    function formatRecommendationText(template, values = {}){
+      if(!template) return '';
+      return template.replace(/\{(\w+)\}/g, (match, key) => {
+        const replacement = values[key];
+        return replacement != null ? String(replacement) : match;
+      });
+    }
+
+    function computeRouteRecommendations(guide, context, levelEstimate){
+      const routes = Array.isArray(guide?.routes) ? guide.routes : [];
+      if(!routes.length) return [];
+      const weights = guide?.recommender?.scoring_signals || {};
+      const templates = guide?.recommender?.explanation_templates || {};
+      const completedRoutes = new Set(routes.filter(route => isRouteComplete(route)).map(route => route.id));
+      const resourceMap = new Map();
+      (context.resourceGaps || []).forEach(entry => {
+        if(entry && entry.item_id){
+          resourceMap.set(entry.item_id, entry.qty != null ? Number(entry.qty) : null);
+        }
+      });
+      const availableTime = context?.availableTimeMinutes != null ? Number(context.availableTimeMinutes) : null;
+      const playerLevel = context?.declaredLevel != null ? Number(context.declaredLevel) : (levelEstimate?.level ?? null);
+      const results = [];
+      routes.forEach(route => {
+        const unmetRoutes = (route?.prerequisites?.routes || []).filter(id => !completedRoutes.has(id));
+        if(unmetRoutes.length) return;
+        const reasons = [];
+        let score = 0;
+        if(weights.prerequisites_met){
+          score += weights.prerequisites_met;
+          reasons.push(formatRecommendationText(templates.prerequisites_met));
+        }
+        const range = route?.recommended_level || {};
+        if(playerLevel != null && (range.min != null || range.max != null)){
+          if(range.min != null && range.max != null && playerLevel >= range.min && playerLevel <= range.max){
+            score += weights.level_fit || 0;
+            reasons.push(formatRecommendationText(templates.level_fit, { level: playerLevel, min: range.min, max: range.max }));
+          } else if(range.min != null && playerLevel < range.min){
+            if(route?.adaptive_guidance?.underleveled){
+              reasons.push(formatRecommendationText(templates.adaptive_guidance, { recommendation: route.adaptive_guidance.underleveled }));
+            }
+            score -= (weights.level_fit || 0) / 2;
+          } else if(range.max != null && playerLevel > range.max){
+            if(route?.adaptive_guidance?.overleveled){
+              reasons.push(formatRecommendationText(templates.adaptive_guidance, { recommendation: route.adaptive_guidance.overleveled }));
+            }
+            score -= (weights.level_fit || 0) / 2;
+          }
+        }
+        if(Array.isArray(route?.yields?.key_unlocks) && route.yields.key_unlocks.length){
+          score += weights.unlock_value || 0;
+          reasons.push(formatRecommendationText(templates.unlock_value, { unlocks: route.yields.key_unlocks.map(niceName).join(', ') }));
+        }
+        if(availableTime != null){
+          const desired = context.coop ? route?.estimated_time_minutes?.coop : route?.estimated_time_minutes?.solo;
+          const fallback = context.coop ? route?.estimated_time_minutes?.solo : route?.estimated_time_minutes?.coop;
+          const timeValue = desired != null ? desired : fallback;
+          if(timeValue != null){
+            if(timeValue <= availableTime){
+              score += weights.time_to_power_ratio || 0;
+            } else {
+              score -= (weights.time_to_power_ratio || 0) / 2;
+            }
+          }
+        }
+        if(route?.progression_role){
+          score += (weights.progression_role || 0) * (route.progression_role === 'core' ? 1 : 0.5);
+          reasons.push(formatRecommendationText(templates.progression_role, { role: capitalize(route.progression_role) }));
+        }
+        if(context.coop && route?.modes?.coop){
+          score += weights.coop_synergy || 0;
+        } else if(context.coop && route?.modes && route.modes.coop === false){
+          score -= (weights.coop_synergy || 0) / 2;
+        }
+        if(context.hardcore){
+          if(route?.risk_profile === 'high'){
+            score -= weights.risk_vs_mode || 0;
+          } else if(route?.risk_profile === 'low'){
+            score += (weights.risk_vs_mode || 0) / 2;
+          }
+        }
+        if(Array.isArray(route?.tags) && route.tags.length){
+          const overlap = route.tags.filter(tag => context.goals.includes(tag));
+          if(overlap.length){
+            score += weights.tag_alignment || 0;
+            reasons.push(kidMode ? `Goal match: ${overlap.map(capitalize).join(', ')}` : `Goal focus: ${overlap.join(', ')}`);
+          }
+        }
+        if(!completedRoutes.has(route.id)){
+          score += weights.novelty || 0;
+        } else {
+          score -= (weights.novelty || 0) / 2;
+        }
+        const metrics = route?.metrics || {};
+        const xpPerMinute = metrics.xp_per_minute;
+        if(xpPerMinute && (xpPerMinute.solo || xpPerMinute.coop)){
+          const values = [];
+          if(xpPerMinute.solo) values.push(Number(xpPerMinute.solo));
+          if(xpPerMinute.coop) values.push(Number(xpPerMinute.coop));
+          const avg = values.length ? values.reduce((sum, val) => sum + (Number.isNaN(val) ? 0 : val), 0) / values.length : null;
+          if(avg != null){
+            score += weights.metric_efficiency || 0;
+            reasons.push(formatRecommendationText(templates.metric_efficiency, { xp_per_minute: avg.toFixed(1) }));
+          }
+        }
+        let resourceMatch = false;
+        resourceMap.forEach((qty, itemId) => {
+          if(route.resourceOutputs.includes(itemId)){
+            resourceMatch = true;
+            reasons.push(formatRecommendationText(templates.resource_need, { item: niceName(itemId) }));
+          }
+        });
+        if(resourceMatch){
+          score += weights.resource_relief || 0;
+        }
+        const dynamicHits = evaluateDynamicRules(route, context, levelEstimate, resourceMap);
+        if(dynamicHits.length){
+          score += weights.dynamic_alignment || 0;
+          dynamicHits.forEach(hit => {
+            reasons.push(formatRecommendationText(templates.dynamic_alignment, { rule_adjustment: hit }));
+          });
+        }
+        const nextStep = findFirstIncompleteStepForRoute(route, { includeOptional: true });
+        results.push({ route, score, reasons, nextStepId: nextStep ? nextStep.id : null });
+      });
+      return results.sort((a, b) => (b.score || 0) - (a.score || 0));
+    }
+
+    function evaluateDynamicRules(route, context, levelEstimate, resourceMap){
+      const hits = [];
+      const rules = route?.adaptive_guidance?.dynamic_rules;
+      if(!Array.isArray(rules) || !rules.length) return hits;
+      const level = context?.declaredLevel != null ? Number(context.declaredLevel) : (levelEstimate?.level ?? null);
+      const timeBudget = context?.availableTimeMinutes != null ? Number(context.availableTimeMinutes) : null;
+      rules.forEach(rule => {
+        if(!rule || !rule.signal) return;
+        const scope = Array.isArray(rule.mode_scope) ? rule.mode_scope : [];
+        if(scope.includes('hardcore') && !context.hardcore) return;
+        if(scope.includes('solo') && context.coop) return;
+        if(scope.includes('coop') && !context.coop) return;
+        let triggered = false;
+        if(rule.signal.startsWith('level_gap')){
+          if(level == null) return;
+          const recommended = route?.recommended_level || {};
+          if(rule.signal.includes('over')){
+            if(recommended.max != null && level >= recommended.max + 2){
+              triggered = true;
+            }
+          } else if(rule.signal.includes('under')){
+            if(recommended.min != null && level <= recommended.min - 2){
+              triggered = true;
+            }
+          }
+        } else if(rule.signal === 'time_budget_short'){
+          if(timeBudget != null && timeBudget < 30){
+            triggered = true;
+          }
+        } else if(rule.signal.startsWith('resource_gap:')){
+          const itemId = rule.signal.split(':')[1];
+          if(itemId && resourceMap.has(itemId)){
+            triggered = true;
+          }
+        } else if(rule.signal.startsWith('mode:hardcore')){
+          if(context.hardcore) triggered = true;
+        }
+        if(triggered && rule.adjustment){
+          hits.push(rule.adjustment);
+        }
+      });
+      return hits;
+    }
+
+    function estimatePlayerLevel(context = routeContext){
+      if(!routeGuideData) return { level: null, totalXp: 0, confidence: 0 };
+      const estimator = routeGuideData.levelEstimator || {};
+      const xpThresholds = Array.isArray(routeGuideData?.xp?.xp_thresholds) ? routeGuideData.xp.xp_thresholds : [];
+      const fallbackRanges = estimator.per_step_xp_ranges || {};
+      const metricUsage = estimator.metric_usage || {};
+      let totalXp = 0;
+      let stepsWithXp = 0;
+      let completedSteps = 0;
+      routeGuideData.routes.forEach(route => {
+        const rawSteps = Array.isArray(route?.steps) ? route.steps : [];
+        let routeXp = 0;
+        let routeCompleted = true;
+        rawSteps.forEach(step => {
+          const stepId = step?.step_id || step?.id;
+          if(!stepId) return;
+          if(!routeState[stepId]){
+            routeCompleted = false;
+            return;
+          }
+          completedSteps += 1;
+          let xpMin = step?.xp_award_estimate?.min;
+          let xpMax = step?.xp_award_estimate?.max;
+          if((xpMin == null || xpMax == null) && step?.type){
+            const fallback = fallbackRanges[step.type];
+            if(fallback){
+              if(xpMin == null) xpMin = fallback.min;
+              if(xpMax == null) xpMax = fallback.max;
+            }
+          }
+          if(xpMin != null || xpMax != null){
+            const minVal = xpMin != null ? Number(xpMin) : Number(xpMax);
+            const maxVal = xpMax != null ? Number(xpMax) : Number(xpMin);
+            const median = (Number(minVal) + Number(maxVal)) / 2;
+            if(!Number.isNaN(median)){
+              totalXp += median;
+              routeXp += median;
+              stepsWithXp += 1;
+            }
+          }
+          const isBoss = step?.type === 'fight' || (Array.isArray(step?.targets) && step.targets.some(target => target?.kind === 'boss'));
+          if(isBoss){
+            totalXp += 500;
+            routeXp += 500;
+          }
+        });
+        if(routeCompleted && context?.hardcore){
+          totalXp += routeXp * 0.1;
+        }
+        const metrics = route?.metrics || {};
+        const xpPerMinute = metrics.xp_per_minute;
+        if(xpPerMinute && (xpPerMinute.solo || xpPerMinute.coop)){
+          const values = [];
+          if(xpPerMinute.solo) values.push(Number(xpPerMinute.solo));
+          if(xpPerMinute.coop) values.push(Number(xpPerMinute.coop));
+          const avg = values.length ? values.reduce((sum, val) => sum + (Number.isNaN(val) ? 0 : val), 0) / values.length : null;
+          if(avg != null){
+            totalXp += avg * (metricUsage.xp_per_minute_weight || 0);
+          }
+        }
+        if(metrics.travel_distance_m){
+          const travel = Number(metrics.travel_distance_m);
+          if(!Number.isNaN(travel)){
+            totalXp += travel * (metricUsage.travel_distance_weight || 0);
+          }
+        }
+        if(Array.isArray(metrics.consumable_cost)){
+          const consumableTotal = metrics.consumable_cost.reduce((sum, entry) => {
+            const qty = Number(entry?.qty);
+            return sum + (Number.isNaN(qty) ? 0 : qty);
+          }, 0);
+          if(consumableTotal){
+            totalXp += consumableTotal * (metricUsage.consumable_cost_weight || 0);
+          }
+        }
+      });
+      let level = null;
+      if(xpThresholds.length){
+        level = xpThresholds.reduce((acc, entry) => {
+          if(entry && typeof entry.cumulative_xp === 'number' && totalXp >= entry.cumulative_xp){
+            return entry.level != null ? entry.level : acc;
+          }
+          return acc;
+        }, xpThresholds[0]?.level || 1);
+      }
+      if(level == null) level = 1;
+      const confidenceBase = completedSteps ? stepsWithXp / completedSteps : 0;
+      const confidence = Math.max(0, Math.min(1, confidenceBase + 0.1));
+      return { level, totalXp, confidence };
+    }
+
+    function normalizeRouteContext(context){
+      const base = { ...DEFAULT_ROUTE_CONTEXT, ...(context || {}) };
+      base.declaredLevel = base.declaredLevel != null && base.declaredLevel !== '' ? clampNumber(base.declaredLevel, 1, 50) : null;
+      base.availableTimeMinutes = base.availableTimeMinutes != null && base.availableTimeMinutes !== '' ? clampNumber(base.availableTimeMinutes, 5, 480) : null;
+      base.hardcore = !!base.hardcore;
+      base.coop = !!base.coop;
+      base.goals = Array.from(new Set((Array.isArray(base.goals) ? base.goals : []).map(value => value == null ? '' : String(value).trim()))).filter(Boolean);
+      base.resourceGaps = Array.isArray(base.resourceGaps)
+        ? base.resourceGaps.map(entry => {
+            const itemId = entry?.item_id || entry?.itemId || '';
+            if(!itemId) return null;
+            const qty = entry?.qty != null ? clampNumber(entry.qty, 1, 999) : null;
+            return { item_id: itemId, qty };
+          }).filter(Boolean)
+        : [];
+      return base;
+    }
+
+    function clampNumber(value, min, max){
+      const num = Number(value);
+      if(Number.isNaN(num)) return null;
+      if(min != null && num < min) return min;
+      if(max != null && num > max) return max;
+      return num;
+    }
     function queueRouteFocus(stepId){
       if(!stepId){
         pendingRouteFocus = null;
@@ -9603,57 +10577,199 @@
       return false;
     }
 
-    function renderChapterCard(chapter, openByDefault){
+    function renderChapterCard(chapter, openByDefault, route){
       const section = document.createElement('section');
-      section.className = 'card';
+      section.className = 'card route-card';
       section.id = `chapter-${chapter.id}`;
+      section.innerHTML = buildRouteCardInnerHTML(chapter, openByDefault, route);
+      return section;
+    }
+
+    function buildRouteCardInnerHTML(chapter, openByDefault, route){
       const progress = chapterProgress(chapter);
-      section.innerHTML = `
-        <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap">
-          <div>
-            <h3 style="margin:0">${escapeHTML(routeChapterTitle(chapter))}</h3>
-            <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(routeChapterWhy(chapter))}</p>
+      const meta = renderRouteMeta(route);
+      const why = routeChapterWhy(chapter);
+      const completeLabel = progress.requiredDone
+        ? `<span class="route-card__complete">✅ ${escapeHTML(kidMode ? 'Route complete' : 'Chapter complete')}</span>`
+        : '';
+      return `
+        <div class="route-card__header">
+          <div class="route-card__title">
+            <h3>${escapeHTML(routeChapterTitle(chapter))}</h3>
+            ${why ? `<p class="route-card__why">${escapeHTML(why)}</p>` : ''}
+            ${meta}
           </div>
-          <div style="min-width:220px">${renderProgress(progress)}</div>
+          <div class="route-card__progress">${renderProgress(progress)}</div>
         </div>
-        <details ${openByDefault ? 'open' : ''}>
-          <summary class="btn" style="margin-top:8px">Open steps</summary>
-          ${renderSteps(chapter)}
-          <div style="display:flex;gap:8px;margin-top:12px">
-            <button class="btn" data-action="markRequired" data-ch="${chapter.id}">Mark Required Complete</button>
-            <button class="btn" data-action="resetChapter" data-ch="${chapter.id}">Reset Chapter</button>
-            ${progress.requiredDone ? '<span style="margin-left:auto">✅ Chapter Complete</span>' : ''}
+        <details class="route-card__details"${openByDefault ? ' open' : ''}>
+          <summary class="btn route-card__toggle">${escapeHTML(kidMode ? 'Show steps' : 'Open steps')}</summary>
+          ${renderSteps(chapter, route)}
+          <div class="route-card__actions">
+            <button class="btn" data-action="markRequired" data-ch="${chapter.id}">${escapeHTML(kidMode ? 'Mark big steps complete' : 'Mark Required Complete')}</button>
+            <button class="btn" data-action="resetChapter" data-ch="${chapter.id}">${escapeHTML(kidMode ? 'Reset route' : 'Reset Chapter')}</button>
+            ${completeLabel}
           </div>
         </details>
       `;
-      return section;
     }
 
     function rerenderChapter(chapter){
       const node = document.querySelector(`#chapter-${chapter.id}`);
       if(!node) return;
-      const wasOpen = node.querySelector('details')?.open;
-      const progress = chapterProgress(chapter);
-      node.innerHTML = `
-        <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap">
-          <div>
-            <h3 style="margin:0">${escapeHTML(routeChapterTitle(chapter))}</h3>
-            <p style="margin:.25rem 0;color:var(--muted)">${escapeHTML(routeChapterWhy(chapter))}</p>
-          </div>
-          <div style="min-width:220px">${renderProgress(progress)}</div>
-        </div>
-        <details ${wasOpen ? 'open' : ''}>
-          <summary class="btn" style="margin-top:8px">Open steps</summary>
-          ${renderSteps(chapter)}
-          <div style="display:flex;gap:8px;margin-top:12px">
-            <button class="btn" data-action="markRequired" data-ch="${chapter.id}">Mark Required Complete</button>
-            <button class="btn" data-action="resetChapter" data-ch="${chapter.id}">Reset Chapter</button>
-            ${progress.requiredDone ? '<span style="margin-left:auto">✅ Chapter Complete</span>' : ''}
-          </div>
-        </details>
-      `;
+      const details = node.querySelector('.route-card__details');
+      const wasOpen = details ? details.open : false;
+      const route = routeGuideData?.routeLookup?.[chapter.id] || null;
+      node.innerHTML = buildRouteCardInnerHTML(chapter, wasOpen, route);
     }
 
+
+    function renderRouteMeta(route){
+      if(!route) return '';
+      const parts = [];
+      if(route.category){
+        parts.push(`<span class="chip route-meta-chip">${escapeHTML(capitalize(route.category))}</span>`);
+      }
+      const level = route.recommended_level || {};
+      if(level.min != null || level.max != null){
+        parts.push(`<span class="chip route-meta-chip">Lv ${escapeHTML(level.min != null ? String(level.min) : '?')}-${escapeHTML(level.max != null ? String(level.max) : '?')}</span>`);
+      }
+      if(route.risk_profile){
+        parts.push(`<span class="chip route-meta-chip route-meta-chip--${escapeHTML(route.risk_profile)}">${escapeHTML(capitalize(route.risk_profile))} risk</span>`);
+      }
+      const timeLabel = formatTimeLabel(route.estimated_time_minutes);
+      if(timeLabel){
+        parts.push(`<span class="chip route-meta-chip">${escapeHTML(timeLabel)}</span>`);
+      }
+      const xpGain = route.estimated_xp_gain || {};
+      if(xpGain.min != null || xpGain.max != null){
+        parts.push(`<span class="chip route-meta-chip">${escapeHTML(`${xpGain.min != null ? xpGain.min : '?'}-${xpGain.max != null ? xpGain.max : '?'} XP`)}</span>`);
+      }
+      if(Array.isArray(route.tags) && route.tags.length){
+        const tagHtml = route.tags.map(tag => `<span class="chip route-meta-chip route-meta-chip--tag">${escapeHTML(tag)}</span>`).join('');
+        parts.push(`<span class="route-meta-tags">${tagHtml}</span>`);
+      }
+      return parts.length ? `<div class="route-card__meta">${parts.join('')}</div>` : '';
+    }
+
+    function renderStepDetail(step, route){
+      const raw = step?.raw || findRawStep(route, step.id);
+      if(!raw) return '';
+      const blocks = [];
+      const description = raw.detail && raw.detail !== raw.summary ? raw.detail : (raw.detail || raw.summary || '');
+      if(description){
+        blocks.push(`<p class="step-extra__text">${escapeHTML(description)}</p>`);
+      }
+      if(Array.isArray(raw.locations) && raw.locations.length){
+        blocks.push(renderStepLocations(raw.locations));
+      }
+      if(raw.recommended_loadout && (Array.isArray(raw.recommended_loadout.gear) && raw.recommended_loadout.gear.length || Array.isArray(raw.recommended_loadout.pals) && raw.recommended_loadout.pals.length || Array.isArray(raw.recommended_loadout.consumables) && raw.recommended_loadout.consumables.length)){
+        blocks.push(renderStepLoadout(raw.recommended_loadout));
+      }
+      if(raw.mode_adjustments && (raw.mode_adjustments.hardcore || raw.mode_adjustments.coop)){
+        blocks.push(renderStepModeAdjustments(raw.mode_adjustments));
+      }
+      if(raw.outputs){
+        const outputBlock = renderStepOutputs(raw.outputs);
+        if(outputBlock) blocks.push(outputBlock);
+      }
+      if(Array.isArray(raw.branching) && raw.branching.length){
+        const branchList = raw.branching.map(entry => {
+          const condition = entry?.condition ? entry.condition : '';
+          const action = entry?.action ? ` → ${entry.action}` : '';
+          const subroute = entry?.subroute_ref ? ` (${entry.subroute_ref})` : '';
+          return `<li>${escapeHTML(condition)}${escapeHTML(action)}${escapeHTML(subroute)}</li>`;
+        }).join('');
+        blocks.push(`<div class="step-extra__section"><h5>${escapeHTML(kidMode ? 'If you need' : 'Branching')}</h5><ul class="step-extra__list">${branchList}</ul></div>`);
+      }
+      if(raw.xp_award_estimate && (raw.xp_award_estimate.min != null || raw.xp_award_estimate.max != null)){
+        blocks.push(`<p class="step-extra__xp">${escapeHTML(`XP estimate: ${raw.xp_award_estimate.min != null ? raw.xp_award_estimate.min : '?'}-${raw.xp_award_estimate.max != null ? raw.xp_award_estimate.max : '?'}`)}</p>`);
+      }
+      return blocks.length ? `<div class="step-extra">${blocks.join('')}</div>` : '';
+    }
+
+    function renderStepLocations(locations){
+      if(!Array.isArray(locations) || !locations.length) return '';
+      const entries = locations.map(loc => {
+        const parts = [];
+        if(loc.region_id) parts.push(niceName(loc.region_id));
+        if(Array.isArray(loc.coords) && loc.coords.length === 2){
+          parts.push(`(${loc.coords[0]}, ${loc.coords[1]})`);
+        }
+        if(loc.time && loc.time !== 'any') parts.push(`Time: ${loc.time}`);
+        if(loc.weather && loc.weather !== 'any') parts.push(`Weather: ${loc.weather}`);
+        return `<li>${escapeHTML(parts.join(' • '))}</li>`;
+      }).join('');
+      return `<div class="step-extra__section"><h5>${escapeHTML(kidMode ? 'Where to go' : 'Locations')}</h5><ul class="step-extra__list">${entries}</ul></div>`;
+    }
+
+    function renderStepLoadout(loadout){
+      const rows = [];
+      if(Array.isArray(loadout.gear) && loadout.gear.length){
+        rows.push(`<li><strong>${escapeHTML(kidMode ? 'Gear' : 'Gear')}:</strong> ${escapeHTML(loadout.gear.map(niceName).join(', '))}</li>`);
+      }
+      if(Array.isArray(loadout.pals) && loadout.pals.length){
+        rows.push(`<li><strong>${escapeHTML(kidMode ? 'Pals' : 'Pals')}:</strong> ${escapeHTML(loadout.pals.map(niceName).join(', '))}</li>`);
+      }
+      if(Array.isArray(loadout.consumables) && loadout.consumables.length){
+        rows.push(`<li><strong>${escapeHTML(kidMode ? 'Items' : 'Consumables')}:</strong> ${escapeHTML(loadout.consumables.map(entry => `${entry?.qty != null ? `${entry.qty}× ` : ''}${niceName(entry?.item_id || entry?.itemId || '')}`).join(', '))}</li>`);
+      }
+      if(!rows.length) return '';
+      return `<div class="step-extra__section"><h5>${escapeHTML(kidMode ? 'Bring this' : 'Recommended loadout')}</h5><ul class="step-extra__list">${rows.join('')}</ul></div>`;
+    }
+
+    function renderStepModeAdjustments(adjustments){
+      const sections = [];
+      if(adjustments.hardcore){
+        const tactics = adjustments.hardcore.tactics ? `<p>${escapeHTML(adjustments.hardcore.tactics)}</p>` : '';
+        const items = Array.isArray(adjustments.hardcore.safety_buffer_items) && adjustments.hardcore.safety_buffer_items.length
+          ? `<ul class="step-extra__list">${adjustments.hardcore.safety_buffer_items.map(item => `<li>${escapeHTML(`${item.qty != null ? `${item.qty}× ` : ''}${niceName(item.item_id || item.itemId || '')}`)}</li>`).join('')}</ul>`
+          : '';
+        sections.push(`<div class="step-mode__entry"><h6>${escapeHTML(kidMode ? 'Hardcore tip' : 'Hardcore')}</h6>${tactics}${items}</div>`);
+      }
+      if(adjustments.coop){
+        const roles = Array.isArray(adjustments.coop.role_splits) && adjustments.coop.role_splits.length
+          ? `<ul class="step-extra__list">${adjustments.coop.role_splits.map(role => `<li><strong>${escapeHTML(capitalize(role.role || 'Role'))}:</strong> ${escapeHTML(role.tasks || '')}</li>`).join('')}</ul>`
+          : '';
+        const loot = adjustments.coop.loot_rules ? `<p>${escapeHTML(adjustments.coop.loot_rules)}</p>` : '';
+        sections.push(`<div class="step-mode__entry"><h6>${escapeHTML(kidMode ? 'Play together' : 'Co-Op')}</h6>${roles}${loot}</div>`);
+      }
+      if(!sections.length) return '';
+      return `<div class="step-extra__section step-mode"><h5>${escapeHTML(kidMode ? 'Mode tweaks' : 'Mode adjustments')}</h5>${sections.join('')}</div>`;
+    }
+
+    function renderStepOutputs(outputs){
+      const parts = [];
+      if(Array.isArray(outputs.items) && outputs.items.length){
+        parts.push(`${escapeHTML(kidMode ? 'Items' : 'Items')}: ${outputs.items.map(item => `${item.qty != null ? `${item.qty}× ` : ''}${niceName(item.item_id || item.itemId || '')}`).join(', ')}`);
+      }
+      if(Array.isArray(outputs.pals) && outputs.pals.length){
+        parts.push(`${escapeHTML(kidMode ? 'Pals' : 'Pals')}: ${outputs.pals.map(niceName).join(', ')}`);
+      }
+      const unlocks = outputs.unlocks || {};
+      if(Array.isArray(unlocks.tech) && unlocks.tech.length){
+        parts.push(`${escapeHTML(kidMode ? 'Unlocks' : 'Unlocks')}: ${unlocks.tech.map(niceName).join(', ')}`);
+      }
+      if(Array.isArray(unlocks.stations) && unlocks.stations.length){
+        parts.push(`${escapeHTML(kidMode ? 'Stations' : 'Stations')}: ${unlocks.stations.map(niceName).join(', ')}`);
+      }
+      if(!parts.length) return '';
+      return `<div class="step-extra__section"><h5>${escapeHTML(kidMode ? 'You get' : 'Outputs')}</h5><ul class="step-extra__list">${parts.map(line => `<li>${escapeHTML(line)}</li>`).join('')}</ul></div>`;
+    }
+
+    function findRawStep(route, stepId){
+      if(!route) return null;
+      const rawSteps = Array.isArray(route?.steps) ? route.steps : [];
+      return rawSteps.find(entry => entry?.step_id === stepId) || null;
+    }
+
+    function isRouteComplete(route){
+      if(!route) return false;
+      const steps = Array.isArray(route?.chapter?.steps) ? route.chapter.steps : [];
+      if(!steps.length) return false;
+      const requiredSteps = steps.filter(step => !step.optional);
+      const targetSteps = requiredSteps.length ? requiredSteps : steps;
+      return targetSteps.every(step => routeState[step.id]);
+    }
     async function handleRouteCheckboxChange(event){
       const target = event.target;
       if(!target.matches('input[type="checkbox"][data-step]')) return;
@@ -9724,26 +10840,32 @@
       }
     }
 
-    function renderSteps(chapter){
+    function renderSteps(chapter, route){
       const fragments = [];
-      (chapter.steps || []).forEach(step => {
+      const steps = Array.isArray(chapter?.steps) ? chapter.steps : [];
+      steps.forEach(step => {
         if(routeHideOptional && step.optional) return;
-        const checked = !!routeState[step.id];
         const category = step.category || 'Task';
         const categorySlug = routeCategorySlug(category);
         if(routeHiddenCategories.has(categorySlug)) return;
+        const checked = !!routeState[step.id];
+        const optionalHint = step.optional ? ` <em>(${escapeHTML(kidMode ? 'Bonus' : 'Optional')})</em>` : '';
+        const detailHtml = renderStepDetail(step, route);
         fragments.push(`
           <label class="step ${step.optional ? 'optional' : ''}">
             <input type="checkbox" data-step="${step.id}" ${checked ? 'checked' : ''} />
             <span class="step-meta">
               <span class="step-category step-category--${categorySlug}">${escapeHTML(category)}</span>
-              <span class="step-text">${escapeHTML(routeStepText(step))} ${step.optional ? '<em>(Optional)</em>' : ''}</span>
+              <span class="step-text">${escapeHTML(routeStepText(step))}${optionalHint}</span>
+              ${detailHtml}
             </span>
             ${renderLinks(step.links || [])}
           </label>
         `);
       });
-      if(!fragments.length) return '';
+      if(!fragments.length){
+        return '<p class="route-steps-empty">' + escapeHTML(kidMode ? 'All steps hidden by filters.' : 'All steps hidden by filters.') + '</p>';
+      }
       return `<div class="step-list">${fragments.join('')}</div>`;
     }
 
@@ -10257,15 +11379,28 @@
       const chapters = Array.isArray(chaptersOverride)
         ? chaptersOverride
         : (Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : []);
+      const routeLookup = routeGuideData?.routeLookup || {};
       let requiredTotal = 0;
       let requiredComplete = 0;
       let optionalTotal = 0;
       let optionalComplete = 0;
       let towersTotal = 0;
       let towersComplete = 0;
+      const routesByRole = {
+        core: { total: 0, complete: 0 },
+        support: { total: 0, complete: 0 },
+        optional: { total: 0, complete: 0 }
+      };
       const categoryMap = new Map();
       chapters.forEach(chapter => {
         const steps = Array.isArray(chapter?.steps) ? chapter.steps : [];
+        const route = routeLookup[chapter?.id];
+        const role = normalizeRouteRole(route?.progression_role || route?.progression_role_raw);
+        const roleKey = routesByRole[role] ? role : 'optional';
+        routesByRole[roleKey].total += 1;
+        if(route && isRouteComplete(route)){
+          routesByRole[roleKey].complete += 1;
+        }
         steps.forEach(step => {
           if(!step || !step.id) return;
           const slug = routeCategorySlug(step.category);
@@ -10314,7 +11449,8 @@
         towersTotal,
         towersComplete,
         percent,
-        categories
+        categories,
+        routes: routesByRole
       };
     }
 
@@ -10354,14 +11490,31 @@
       document.querySelectorAll('[data-route-role="required-note"]').forEach(el => {
         if(summary.requiredTotal){
           const remaining = summary.requiredTotal - summary.requiredComplete;
+          const coreRoutes = summary.routes?.core || { total: 0, complete: 0 };
+          const routesRemaining = coreRoutes.total ? coreRoutes.total - coreRoutes.complete : 0;
           if(remaining === 0){
-            el.textContent = kidMode
-              ? 'All big steps complete!'
-              : 'All required steps complete.';
+            if(routesRemaining === 0){
+              el.textContent = kidMode
+                ? 'All big steps complete!'
+                : 'All required steps complete.';
+            } else {
+              const routeLabel = routesRemaining === 1 ? (kidMode ? 'adventure' : 'core route') : (kidMode ? 'adventures' : 'core routes');
+              el.textContent = kidMode
+                ? `${routesRemaining} ${routeLabel} left`
+                : `${routesRemaining} ${routeLabel} remaining`;
+            }
           } else {
-            el.textContent = kidMode
-              ? `${remaining} big step${remaining === 1 ? '' : 's'} left`
-              : `${remaining} required step${remaining === 1 ? '' : 's'} remaining`;
+            const stepLabel = remaining === 1 ? (kidMode ? 'big step' : 'required step') : (kidMode ? 'big steps' : 'required steps');
+            if(routesRemaining > 0){
+              const routeLabel = routesRemaining === 1 ? (kidMode ? 'adventure' : 'core route') : (kidMode ? 'adventures' : 'core routes');
+              el.textContent = kidMode
+                ? `${routesRemaining} ${routeLabel} • ${remaining} ${stepLabel} left`
+                : `${routesRemaining} ${routeLabel} • ${remaining} ${stepLabel} remaining`;
+            } else {
+              el.textContent = kidMode
+                ? `${remaining} ${stepLabel} left`
+                : `${remaining} ${stepLabel} remaining`;
+            }
           }
         } else {
           el.textContent = kidMode ? 'Main path goals' : 'Main path objectives';
@@ -10710,6 +11863,26 @@
       return {};
     }
 
+    function loadRouteContext(){
+      try {
+        const stored = JSON.parse(localStorage.getItem(ROUTE_CONTEXT_KEY));
+        if(stored && typeof stored === 'object'){
+          return {
+            ...DEFAULT_ROUTE_CONTEXT,
+            ...stored,
+            goals: Array.isArray(stored.goals) ? stored.goals.slice() : [],
+            resourceGaps: Array.isArray(stored.resourceGaps) ? stored.resourceGaps.map(entry => ({
+              item_id: entry?.item_id || entry?.itemId || '',
+              qty: typeof entry?.qty === 'number' ? entry.qty : null
+            })).filter(entry => entry.item_id) : []
+          };
+        }
+      } catch(err){
+        console.warn('Failed to load route context', err);
+      }
+      return { ...DEFAULT_ROUTE_CONTEXT };
+    }
+
     function persistRoutePreferences(){
       const payload = {
         hideOptional: !!routeHideOptional,
@@ -10724,6 +11897,26 @@
 
     function saveRouteState(state){
       localStorage.setItem(ROUTE_STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function saveRouteContext(context){
+      if(!context || typeof context !== 'object') return;
+      const payload = {
+        declaredLevel: context.declaredLevel != null ? Number(context.declaredLevel) : null,
+        hardcore: !!context.hardcore,
+        coop: !!context.coop,
+        availableTimeMinutes: context.availableTimeMinutes != null ? Number(context.availableTimeMinutes) : null,
+        goals: Array.isArray(context.goals) ? context.goals.slice() : [],
+        resourceGaps: Array.isArray(context.resourceGaps) ? context.resourceGaps.map(entry => ({
+          item_id: entry?.item_id || entry?.itemId || '',
+          qty: entry?.qty != null ? Number(entry.qty) : null
+        })).filter(entry => entry.item_id) : []
+      };
+      try {
+        localStorage.setItem(ROUTE_CONTEXT_KEY, JSON.stringify(payload));
+      } catch(err){
+        console.warn('Failed to save route context', err);
+      }
     }
 
     function escapeHTML(str){
@@ -12087,10 +13280,17 @@
       const guideMeter = document.getElementById('guideProgressMeter');
       if (guideMeter) guideMeter.setAttribute('aria-valuenow', guideSummary.percent);
       const guideText = document.getElementById('guideProgressText');
+      const coreRouteStats = guideSummary.routes?.core || { total: 0, complete: 0 };
       if (guideText) {
-        guideText.textContent = guideSummary.requiredTotal
-          ? `${guideSummary.requiredComplete} / ${guideSummary.requiredTotal} guide steps complete`
-          : guideFallback;
+        if (guideSummary.requiredTotal) {
+          const stepLine = `${guideSummary.requiredComplete} / ${guideSummary.requiredTotal} guide steps complete`;
+          const routeLine = coreRouteStats.total
+            ? ` • ${coreRouteStats.complete}/${coreRouteStats.total} core routes cleared`
+            : '';
+          guideText.textContent = stepLine + routeLine;
+        } else {
+          guideText.textContent = guideFallback;
+        }
       }
       const homeRouteBar = document.getElementById('homeRouteProgressBar');
       if (homeRouteBar) homeRouteBar.style.width = guideSummary.percent + '%';
@@ -12099,9 +13299,14 @@
       const homeRouteText = document.getElementById('homeRouteProgressText');
       if (homeRouteText) {
         if (guideSummary.requiredTotal) {
+          const routeLine = coreRouteStats.total
+            ? kidMode
+              ? ` • ${coreRouteStats.complete}/${coreRouteStats.total} adventures`
+              : ` • ${coreRouteStats.complete}/${coreRouteStats.total} core routes`
+            : '';
           homeRouteText.textContent = kidMode
-            ? `${guideSummary.requiredComplete} of ${guideSummary.requiredTotal} big steps done`
-            : `${guideSummary.requiredComplete} / ${guideSummary.requiredTotal} required steps complete`;
+            ? `${guideSummary.requiredComplete} of ${guideSummary.requiredTotal} big steps done${routeLine}`
+            : `${guideSummary.requiredComplete} / ${guideSummary.requiredTotal} required steps complete${routeLine}`;
         } else {
           homeRouteText.textContent = guideFallback;
         }
