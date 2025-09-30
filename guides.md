@@ -1251,6 +1251,150 @@ options to convert Ore into fragments when nodes are depleted.
 }
 ```
 
+### Route: Recruit Base Merchant
+
+Catching a human merchant early gives permanent access to trading at home without
+waiting for wandering spawns.  This route shows how to prepare high-grade Pal
+Spheres, locate the Small Settlement vendors, capture them safely and assign the
+merchant to your workforce.
+
+```json
+{
+  "route_id": "capture-base-merchant",
+  "title": "Recruit Base Merchant",
+  "category": "capture-index",
+  "tags": [ "human", "merchant", "base-support" ],
+  "progression_role": "support",
+  "recommended_level": { "min": 10, "max": 18 },
+  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
+  "prerequisites": { "routes": [ "starter-base-capture" ], "tech": [], "items": [], "pals": [] },
+  "objectives": [
+    "Craft or buy high-grade Pal Spheres for human capture",
+    "Travel to the Small Settlement and separate a merchant from guards",
+    "Capture the merchant and assign them to your base"
+  ],
+  "estimated_time_minutes": { "solo": 25, "coop": 18 },
+  "estimated_xp_gain": { "min": 350, "max": 600 },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Knockouts drop your pouch and may cost gold if PIDF guards finish the fight.",
+    "hardcore": "Being executed by guards permanently ends the save—retreat if health drops below 40%."
+  },
+  "adaptive_guidance": {
+    "underleveled": "If your weapons are below Iron tier, focus on trapping single merchants at night when patrols thin out before attempting the capture.",
+    "overleveled": "Players above level 18 can skip step :001 if they already stock Mega Pal Spheres and move straight to isolating the merchant.",
+    "resource_shortages": [
+      { "item_id": "paldium-fragment", "solution": "Trigger resource-paldium from step :001 to restock fragments for higher-grade spheres." }
+    ],
+    "time_limited": "Complete steps :001 and :002 only; mark the merchant’s position and return later with time to handle the capture.",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Have one player kite PIDF guards away during step :003 while the other drops the merchant to low HP for an easy capture.",
+        "priority": 2,
+        "mode_scope": [ "coop" ],
+        "related_steps": [ "capture-base-merchant:003" ],
+        "follow_up_routes": []
+      },
+      {
+        "signal": "resource_gap:pal-sphere",
+        "condition": "resource_gaps contains pal-sphere >= 5",
+        "adjustment": "Loop resource-paldium immediately after step :001 to craft additional high-grade spheres before confronting the merchant.",
+        "priority": 1,
+        "mode_scope": [ "normal", "hardcore", "solo", "coop" ],
+        "related_steps": [ "capture-base-merchant:001" ],
+        "follow_up_routes": [ "resource-paldium" ]
+      }
+    ]
+  },
+  "checkpoints": [
+    { "id": "capture-base-merchant:checkpoint-scout", "summary": "Merchant location scouted", "benefits": [ "Safe pull path identified" ], "related_steps": [ "capture-base-merchant:002" ] },
+    { "id": "capture-base-merchant:checkpoint-captured", "summary": "Merchant captured", "benefits": [ "Permanent base vendor unlocked" ], "related_steps": [ "capture-base-merchant:003" ] }
+  ],
+  "supporting_routes": { "recommended": [ "resource-paldium" ], "optional": [] },
+  "failure_recovery": {
+    "normal": "If guards overwhelm you, fast travel back after respawning, recover your pouch and repeat from the scouting checkpoint.",
+    "hardcore": "Disengage using terrain when patrols converge; if capture attempts fail twice, retreat to avoid fatal guard focus fire."
+  },
+  "steps": [
+    {
+      "step_id": "capture-base-merchant:001",
+      "type": "prepare",
+      "summary": "Craft high-grade Pal Spheres",
+      "detail": "Use your best Pal Sphere recipe (Great or better) and craft at least six before leaving base. Human catch rates are far lower than standard Pals, so higher-grade spheres dramatically improve success odds【529f5c†L67-L80】.",
+      "targets": [ { "kind": "item", "id": "pal-sphere", "qty": 6 } ],
+      "locations": [ { "region_id": "windswept-hills", "coords": [ 0, 0 ], "time": "any", "weather": "any" } ],
+      "mode_adjustments": {
+        "hardcore": { "tactics": "Craft a spare stack to avoid mid-raid shortages; you cannot risk repeat crimes.", "safety_buffer_items": [ { "item_id": "pal-sphere", "qty": 3 } ] },
+        "coop": { "role_splits": [ { "role": "crafter", "tasks": "Queues high-grade spheres" }, { "role": "supplier", "tasks": "Feeds fragments and ingots" } ], "loot_rules": "Split sphere stacks evenly" }
+      },
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [ { "item_id": "pal-sphere", "qty": 6 } ] },
+      "xp_award_estimate": { "min": 80, "max": 120 },
+      "outputs": { "items": [ { "item_id": "pal-sphere", "qty": 6 } ], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "player lacks pal-sphere >= 6", "action": "include_subroute", "subroute_ref": "resource-paldium" } ],
+      "citations": [ "palwiki-humans" ]
+    },
+    {
+      "step_id": "capture-base-merchant:002",
+      "type": "travel",
+      "summary": "Scout the Small Settlement",
+      "detail": "Ride or glide to the Small Settlement at approximately (75, -479). The village hosts both a Pal Merchant and a Wandering Merchant—confirm patrol routes and identify clear back alleys for the capture attempt【165dd8†L71-L90】.",
+      "targets": [],
+      "locations": [ { "region_id": "windswept-hills", "coords": [ 75, -479 ], "time": "day", "weather": "any" } ],
+      "mode_adjustments": {
+        "hardcore": { "tactics": "Enter from the cliffside to avoid triggering wanted status while scouting." },
+        "coop": { "role_splits": [ { "role": "spotter", "tasks": "Marks guard paths" }, { "role": "controller", "tasks": "Prepares trap location" } ], "loot_rules": "Share any merchant stock equally" }
+      },
+      "recommended_loadout": { "gear": [ "glider" ], "pals": [ "foxparks" ], "consumables": [] },
+      "xp_award_estimate": { "min": 40, "max": 70 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [],
+      "citations": [ "palwiki-small-settlement" ]
+    },
+    {
+      "step_id": "capture-base-merchant:003",
+      "type": "capture",
+      "summary": "Weaken and capture the merchant",
+      "detail": "Aggro the merchant away from guards, chip them to low HP, then throw your high-grade Pal Spheres until the catch lands. All non-leader humans can be captured once weakened, but expect multiple throws because their catch rate is significantly lower than normal Pals【529f5c†L67-L90】.",
+      "targets": [],
+      "locations": [ { "region_id": "windswept-hills", "coords": [ 75, -479 ], "time": "night", "weather": "any" } ],
+      "mode_adjustments": {
+        "hardcore": { "tactics": "Use stun grenades or partner skills to avoid lethal retaliation—you cannot afford PIDF executions." },
+        "coop": { "role_splits": [ { "role": "tank", "tasks": "Holds aggro" }, { "role": "snare", "tasks": "Applies slow and throws spheres" } ], "loot_rules": "Whoever spends the most spheres gets priority on merchant placement" }
+      },
+      "recommended_loadout": { "gear": [ "pal-sphere" ], "pals": [ "direhowl" ], "consumables": [ { "item_id": "pal-sphere", "qty": 6 } ] },
+      "xp_award_estimate": { "min": 180, "max": 280 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [],
+      "citations": [ "palwiki-humans" ]
+    },
+    {
+      "step_id": "capture-base-merchant:004",
+      "type": "deliver",
+      "summary": "Assign the merchant to your base",
+      "detail": "Place the captured merchant in your base party. Humans have only rank 1 work suitability and cannot run farms or wield their weapons, but merchants stationed at your base permanently open their shop so you can buy and sell without hunting for a wandering spawn【94455f†L13-L18】【529f5c†L76-L90】.",
+      "targets": [],
+      "locations": [ { "region_id": "windswept-hills", "coords": [ 0, 0 ], "time": "any", "weather": "any" } ],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 50, "max": 80 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [],
+      "citations": [ "palwiki-humans" ]
+    }
+  ],
+  "completion_criteria": [ { "type": "have-base-npc", "npc_id": "pal-merchant" } ],
+  "yields": { "levels_estimate": "+0 to +1", "key_unlocks": [ "base-merchant-vendor" ] },
+  "metrics": {
+    "xp_per_minute": { "solo": 16.0, "coop": 22.0 },
+    "travel_distance_m": 1500,
+    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 6 } ]
+  },
+  "next_routes": []
+}
+```
+
 ### Route: Craft Foxparks Harness
 
 This route guides players through unlocking and crafting the Foxparks harness.
@@ -2406,6 +2550,8 @@ updating guides, refresh these entries with new dates and pages.
     ,"pcgamesn-bosses": { "title": "All Palworld bosses in order and how to beat them", "url": "https://www.pcgamesn.com/palworld/bosses", "access_date": "2025-09-30", "notes": "Provides details on tower bosses including Zoe & Grizzbolt, coordinates (112, -434), challenge damage (30K), recommended ground Pals and tactics【825211382965329†L103-L118】; also lists Nitewing as an Alpha Pal at Ice Wind Island (level 18)【825211382965329†L294-L302】 and Jetragon at Mount Obsidian (level 50)【825211382965329†L337-L339】." }
     ,"pcgamer-grappling-gun": { "title": "Palworld grappling gun guide", "url": "https://www.pcgamer.com/palworld-grappling-gun-crafting/", "access_date": "2025-09-30", "notes": "Explains that the Grappling Gun unlocks at level 12 and costs 1 Ancient Technology Point; crafting requires 10 Paldium Fragments, 10 Ingots, 30 Fiber and 1 Ancient Civilization Part【312162085103617†L180-L205】." }
     ,"pcgamesn-jetragon": { "title": "All Palworld bosses in order and how to beat them – Jetragon entry", "url": "https://www.pcgamesn.com/palworld/bosses", "access_date": "2025-09-30", "notes": "States that Jetragon is a level 50 Legendary Celestial Dragon found at Mount Obsidian【825211382965329†L337-L339】." }
+    ,"palwiki-humans": { "title": "Humans – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Humans", "access_date": "2025-09-30", "notes": "Explains that non-leader humans can be captured with Pal Spheres, have lower catch rates needing higher-grade spheres, cannot use their weapons, and merchants stationed at bases provide permanent shop access despite only rank 1 work suitability.【529f5c†L67-L90】【94455f†L13-L18】" }
+    ,"palwiki-small-settlement": { "title": "Small Settlement – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Small_Settlement", "access_date": "2025-09-30", "notes": "Gives the Small Settlement coordinates (~75,-479) and lists the Pal Merchant and Wandering Merchant inhabitants available to capture.【165dd8†L71-L90】" }
     ,"palwiki-paldium": { "title": "Paldium Fragment – Palworld Wiki", "url": "https://palworld.fandom.com/wiki/Paldium_Fragment", "access_date": "2025-09-30", "notes": "Lists river, cliff and smelting sources for Paldium Fragments including respawn timers and conversion tips【palwiki-paldium†L42-L71】【palwiki-paldium†L86-L115】【palwiki-paldium†L118-L140】." }
   }
 }
