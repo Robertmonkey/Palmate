@@ -151,6 +151,43 @@ gba(119,141,169,0.45)}
 .route-recommendation__actions{display:flex;justify-content:flex-start}
 .route-recommendations__empty,.route-recommendation__fallback{margin:0;color:var(--muted,rgba(224,225,221,0.7));font-size:.9rem}
 
+.route-suggestions-card{display:grid;gap:18px}
+.route-suggestions__header{display:grid;gap:6px}
+.route-suggestions__header h3{margin:0}
+.route-suggestions__intro{margin:0;color:var(--muted,rgba(224,225,221,0.72));font-size:.95rem}
+.route-suggestions__list{display:grid;gap:12px}
+@media (min-width:720px){.route-suggestions__list{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}}
+.route-suggestions__empty,.route-suggestions__placeholder{margin:0;color:var(--muted,rgba(224,225,221,0.72));font-size:.95rem;text-align:center;padding:12px}
+.route-suggestion-card{position:relative;display:grid;gap:12px;align-items:flex-start;padding:18px;border-radius:20px;background:rgba(12,24,40,0.75);border:1px solid rgba(119,141,169,0.28);color:var(--text,#f0f4f8);box-shadow:0 20px 36px rgba(0,0,0,0.4);cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;background-image:linear-gradient(160deg,var(--route-suggestion-overlay,rgba(12,24,40,0.78)),rgba(12,24,40,0.92)),var(--route-suggestion-image, url('../assets/images/palworld-full-map-2.webp'));background-size:cover;background-position:var(--route-suggestion-position,center)}
+.route-suggestion-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.4));pointer-events:none}
+.route-suggestion-card__body{position:relative;z-index:1;display:grid;gap:12px}
+.route-suggestion-card__top{display:flex;align-items:flex-start;gap:12px}
+.route-suggestion-card__icon{flex:0 0 auto;width:44px;height:44px;border-radius:14px;background:rgba(0,0,0,0.32);display:grid;place-items:center;font-size:1.2rem;color:var(--route-suggestion-accent,#9bd4ff);box-shadow:0 10px 20px rgba(0,0,0,0.4)}
+.route-suggestion-card__text{display:flex;flex-direction:column;gap:4px}
+.route-suggestion-card__title{margin:0;font-size:1.05rem;line-height:1.2}
+.route-suggestion-card__meta{margin:0;font-size:.85rem;color:rgba(224,225,221,0.78)}
+.route-suggestion-card__score{margin-left:auto;font-weight:700;font-size:1.1rem;color:var(--route-suggestion-accent,#9bd4ff)}
+.route-suggestion-card__progress{display:flex;align-items:center;gap:10px}
+.route-suggestion-card__progress-bar{flex:1;height:6px;border-radius:999px;background:rgba(255,255,255,0.16);overflow:hidden}
+.route-suggestion-card__progress-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--route-suggestion-accent,#9bd4ff),rgba(255,255,255,0.85))}
+.route-suggestion-card__progress-label{font-size:.85rem;color:rgba(224,225,221,0.86)}
+.route-suggestion-card__reason{margin:0;font-size:.85rem;color:rgba(224,225,221,0.88)}
+.route-suggestion-card:hover{transform:translateY(-4px);box-shadow:0 26px 48px rgba(0,0,0,0.48);border-color:rgba(255,255,255,0.35)}
+.route-suggestion-card--active{border-color:var(--route-suggestion-accent,#9bd4ff);box-shadow:0 28px 52px rgba(0,0,0,0.52);transform:translateY(-4px)}
+.route-suggestions__detail{position:relative;display:grid;gap:0;border-radius:24px;background:rgba(8,16,32,0.8);border:1px solid rgba(119,141,169,0.28);overflow:hidden;box-shadow:0 26px 52px rgba(0,0,0,0.5)}
+.route-suggestion-detail__hero{position:relative;display:grid;gap:12px;padding:24px;background-image:linear-gradient(160deg,var(--route-suggestion-overlay,rgba(8,16,32,0.85)),rgba(8,16,32,0.92)),var(--route-suggestion-image, url('../assets/images/palworld-full-map-2.webp'));background-size:cover;background-position:var(--route-suggestion-position,center)}
+.route-suggestion-detail__badge{justify-self:flex-start;padding:6px 12px;border-radius:999px;background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.24);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.78)}
+.route-suggestion-detail__title{margin:0;font-size:1.4rem}
+.route-suggestion-detail__meta{margin:0;font-size:.92rem;color:rgba(224,225,221,0.84)}
+.route-suggestion-detail__progress{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.route-suggestion-detail__progress-bar{flex:1;min-width:140px;height:8px;border-radius:999px;background:rgba(255,255,255,0.2);overflow:hidden}
+.route-suggestion-detail__progress-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--route-suggestion-accent,#9bd4ff),rgba(255,255,255,0.85))}
+.route-suggestion-detail__progress-label{font-size:.9rem;font-weight:600;color:rgba(255,255,255,0.9)}
+.route-suggestion-detail__reasons{margin:0;padding-left:20px;display:grid;gap:6px;font-size:.9rem;color:rgba(255,255,255,0.88)}
+.route-suggestion-detail__reason{margin:0;font-size:.9rem;color:rgba(255,255,255,0.88)}
+.route-suggestion-detail__actions{display:flex;flex-wrap:wrap;gap:10px}
+.route-suggestion-detail__body{padding:20px;background:rgba(10,20,34,0.9)}
+
 .route-overview{display:flex;flex-direction:column;gap:16px}
 .route-overview__header{display:flex;flex-direction:column;gap:16px}
 @media (min-width:768px){.route-overview__header{flex-direction:row;justify-content:space-between;align-items:stretch}}

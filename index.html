@@ -9407,6 +9407,49 @@
     let routeContext = loadRouteContext();
     let pendingRouteFocus = null;
     let pendingTechFocus = null;
+    const ROUTE_ART_IMAGE = 'assets/images/palworld-full-map-2.webp';
+    const ROUTE_ART_LIBRARY = {
+      boss: { overlay: 'rgba(126, 87, 255, 0.62)', accent: '#d1b8ff', icon: 'fa-chess-king', position: 'center 18%' },
+      tower: { overlay: 'rgba(126, 87, 255, 0.62)', accent: '#d1b8ff', icon: 'fa-chess-king', position: 'center 18%' },
+      farming: { overlay: 'rgba(42, 157, 143, 0.58)', accent: '#a7f2d2', icon: 'fa-seedling', position: 'center 68%' },
+      gather: { overlay: 'rgba(42, 157, 143, 0.58)', accent: '#a7f2d2', icon: 'fa-seedling', position: 'center 68%' },
+      capture: { overlay: 'rgba(255, 170, 102, 0.6)', accent: '#ffd6a5', icon: 'fa-paw', position: 'center 58%' },
+      exploration: { overlay: 'rgba(118, 206, 255, 0.6)', accent: '#9bd4ff', icon: 'fa-compass', position: 'center 32%' },
+      travel: { overlay: 'rgba(118, 206, 255, 0.6)', accent: '#9bd4ff', icon: 'fa-compass', position: 'center 32%' },
+      craft: { overlay: 'rgba(255, 214, 102, 0.58)', accent: '#ffe599', icon: 'fa-hammer', position: 'center 44%' },
+      base: { overlay: 'rgba(90, 126, 255, 0.58)', accent: '#b8c3ff', icon: 'fa-house-flag', position: 'center 66%' }
+    };
+    const ROUTE_ART_VARIANTS = [
+      { overlay: 'rgba(148, 187, 233, 0.55)', accent: '#9bd4ff', icon: 'fa-route', position: 'center 40%' },
+      { overlay: 'rgba(255, 123, 123, 0.52)', accent: '#ffb3c1', icon: 'fa-fire', position: 'center 64%' },
+      { overlay: 'rgba(92, 225, 230, 0.52)', accent: '#bde7f8', icon: 'fa-compass', position: 'center 28%' },
+      { overlay: 'rgba(255, 196, 77, 0.5)', accent: '#ffd6a5', icon: 'fa-sun', position: 'center 52%' }
+    ];
+    const DEFAULT_RECOMMENDER_WEIGHTS = {
+      prerequisites_met: 6,
+      level_fit: 5,
+      unlock_value: 4,
+      time_to_power_ratio: 2.5,
+      progression_role: 3,
+      coop_synergy: 2,
+      risk_vs_mode: 2,
+      tag_alignment: 3,
+      novelty: 1.5,
+      metric_efficiency: 2.5,
+      resource_relief: 3,
+      dynamic_alignment: 2,
+      progress_momentum: 4,
+      closeout_bonus: 3,
+      goal_objective_alignment: 4,
+      context_goal_keyword: 3,
+      synergy_next_routes: 2,
+      resource_urgency: 2.5,
+      returning_focus: 2.5,
+      tower_alignment: 3
+    };
+    let currentRouteSuggestionEntries = [];
+    let activeSuggestedRouteId = null;
+    let routeSuggestionsAbort = null;
 
     function rebuildTechLookup(){
       TECH_LOOKUP = {};
@@ -9807,6 +9850,372 @@
       return strict ? '' : fallback;
     }
 
+    function routeArtFor(route){
+      const category = (route?.category || '').toLowerCase();
+      const tags = Array.isArray(route?.tags) ? route.tags.map(tag => (tag || '').toLowerCase()) : [];
+      const lookupKeys = [category, ...tags];
+      let art = null;
+      for(const key of lookupKeys){
+        if(!key) continue;
+        if(ROUTE_ART_LIBRARY[key]){
+          art = ROUTE_ART_LIBRARY[key];
+          break;
+        }
+        if(key.includes('tower') || key.includes('boss')){
+          art = ROUTE_ART_LIBRARY.tower || ROUTE_ART_LIBRARY.boss;
+          break;
+        }
+        if(key.includes('farm')){
+          art = ROUTE_ART_LIBRARY.farming;
+        }
+      }
+      if(!art){
+        const variants = ROUTE_ART_VARIANTS.length ? ROUTE_ART_VARIANTS : [{ overlay: 'rgba(148, 187, 233, 0.55)', accent: '#9bd4ff', icon: 'fa-route', position: 'center 40%' }];
+        const variant = variants[Math.abs(hashString(route?.id || 'route')) % variants.length] || variants[0];
+        art = variant;
+      }
+      return { image: ROUTE_ART_IMAGE, ...art };
+    }
+
+    function routeProgressBreakdown(route){
+      const chapter = route?.chapter;
+      const steps = Array.isArray(chapter?.steps) ? chapter.steps : [];
+      let requiredTotal = 0;
+      let requiredDone = 0;
+      let optionalTotal = 0;
+      let optionalDone = 0;
+      let totalDone = 0;
+      steps.forEach(step => {
+        if(!step || !step.id) return;
+        const checked = !!routeState[step.id];
+        if(checked) totalDone += 1;
+        if(step.optional){
+          optionalTotal += 1;
+          if(checked) optionalDone += 1;
+        } else {
+          requiredTotal += 1;
+          if(checked) requiredDone += 1;
+        }
+      });
+      return {
+        total: steps.length,
+        totalDone,
+        requiredTotal,
+        requiredDone,
+        optionalTotal,
+        optionalDone
+      };
+    }
+
+    function refreshRouteIntelligenceUI({ summary, levelEstimate, recommendations } = {}){
+      if(!routeGuideData) return;
+      const effectiveSummary = summary || calculateGuideProgressSummary();
+      const effectiveLevel = levelEstimate || estimatePlayerLevel(routeContext);
+      const effectiveRecommendations = recommendations || computeRouteRecommendations(routeGuideData, routeContext, effectiveLevel);
+      const suggestionCount = renderRouteSuggestions(effectiveRecommendations);
+      renderRouteRecommendationsList(effectiveRecommendations, { offset: suggestionCount });
+      updateRouteOverviewUI(effectiveSummary);
+      renderBossRouteTimeline();
+    }
+
+    function renderRouteSuggestions(recommendations){
+      const card = document.getElementById('routeSuggestionsCard');
+      const list = card ? card.querySelector('#routeSuggestionsList') : null;
+      const detail = card ? card.querySelector('#routeSuggestionDetail') : null;
+      if(routeSuggestionsAbort){
+        routeSuggestionsAbort.abort();
+      }
+      const entries = Array.isArray(recommendations) ? recommendations.slice(0, 3) : [];
+      currentRouteSuggestionEntries = entries;
+      if(!entries.length){
+        activeSuggestedRouteId = null;
+        if(list){
+          list.innerHTML = `<p class="route-suggestions__empty">${escapeHTML(kidMode
+            ? 'Adjust the context above to unlock personalised picks.'
+            : 'Fine-tune the context above to surface tailored paths.')}</p>`;
+        }
+        if(detail){
+          detail.innerHTML = `<p class="route-suggestions__placeholder">${escapeHTML(kidMode
+            ? 'Highlight a suggestion to preview the guide here.'
+            : 'Highlight a suggestion to preview the full walkthrough here.')}</p>`;
+          detail.removeAttribute('data-chapter-id');
+          detail.removeAttribute('data-route-id');
+          ['--route-suggestion-image', '--route-suggestion-overlay', '--route-suggestion-accent', '--route-suggestion-position'].forEach(prop => detail.style.removeProperty(prop));
+        }
+        return 0;
+      }
+      if(activeSuggestedRouteId && !entries.some(entry => entry.route.id === activeSuggestedRouteId)){
+        activeSuggestedRouteId = null;
+      }
+      if(!activeSuggestedRouteId){
+        activeSuggestedRouteId = entries[0].route.id;
+      }
+      if(list){
+        list.innerHTML = entries.map(entry => renderRouteSuggestionCard(entry, entry.route.id === activeSuggestedRouteId)).join('');
+      }
+      routeSuggestionsAbort = new AbortController();
+      const { signal } = routeSuggestionsAbort;
+      if(list){
+        const handleSelect = event => {
+          const cardEl = event.target.closest('[data-suggestion-route]');
+          if(!cardEl) return;
+          const routeId = cardEl.dataset.suggestionRoute;
+          const entry = currentRouteSuggestionEntries.find(item => item.route.id === routeId);
+          if(entry){
+            setActiveRouteSuggestion(routeId, entry);
+          }
+        };
+        list.addEventListener('click', handleSelect, { signal });
+        list.addEventListener('mouseenter', handleSelect, { signal });
+        list.addEventListener('focusin', handleSelect, { signal });
+      }
+      if(detail){
+        const detailHandler = event => {
+          const routeBtn = event.target.closest('[data-route-focus]');
+          if(routeBtn){
+            event.preventDefault();
+            const routeId = routeBtn.dataset.routeFocus;
+            const route = routeGuideData?.routeLookup?.[routeId];
+            const nextStep = route ? findFirstIncompleteStepForRoute(route, { includeOptional: true }) : null;
+            if(nextStep){
+              queueRouteFocus(nextStep.id);
+            } else if(route && route.chapter?.steps?.[0]){
+              queueRouteFocus(route.chapter.steps[0].id);
+            }
+            switchPage('route');
+            playSound(clickSound);
+            return;
+          }
+          const stepBtn = event.target.closest('[data-step-focus]');
+          if(stepBtn){
+            event.preventDefault();
+            const stepId = stepBtn.dataset.stepFocus;
+            if(stepId){
+              queueRouteFocus(stepId);
+              switchPage('route');
+              playSound(clickSound);
+            }
+            return;
+          }
+          handleRouteClick(event);
+        };
+        detail.addEventListener('click', detailHandler, { signal });
+        detail.addEventListener('change', handleRouteCheckboxChange, { signal });
+      }
+      setActiveRouteSuggestion(activeSuggestedRouteId, entries.find(entry => entry.route.id === activeSuggestedRouteId));
+      return entries.length;
+    }
+
+    function setActiveRouteSuggestion(routeId, entry){
+      if(!routeId) return;
+      activeSuggestedRouteId = routeId;
+      const list = document.getElementById('routeSuggestionsList');
+      if(list){
+        list.querySelectorAll('[data-suggestion-route]').forEach(card => {
+          const isActive = card.dataset.suggestionRoute === routeId;
+          card.classList.toggle('route-suggestion-card--active', isActive);
+          card.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+      const targetEntry = entry || currentRouteSuggestionEntries.find(item => item.route.id === routeId);
+      if(targetEntry){
+        renderRouteSuggestionDetail(targetEntry);
+      }
+    }
+
+    function renderRouteSuggestionDetail(entry){
+      const detail = document.getElementById('routeSuggestionDetail');
+      if(!detail) return;
+      if(!entry || !entry.route){
+        detail.innerHTML = `<p class="route-suggestions__placeholder">${escapeHTML(kidMode
+          ? 'Highlight a suggestion to preview the guide here.'
+          : 'Highlight a suggestion to preview the full walkthrough here.')}</p>`;
+        detail.removeAttribute('data-chapter-id');
+        detail.removeAttribute('data-route-id');
+        ['--route-suggestion-image', '--route-suggestion-overlay', '--route-suggestion-accent', '--route-suggestion-position'].forEach(prop => detail.style.removeProperty(prop));
+        return;
+      }
+      const route = entry.route;
+      const art = routeArtFor(route);
+      detail.dataset.chapterId = route.chapter?.id || '';
+      detail.dataset.routeId = route.id || '';
+      detail.style.setProperty('--route-suggestion-image', `url('${art.image}')`);
+      detail.style.setProperty('--route-suggestion-overlay', art.overlay);
+      detail.style.setProperty('--route-suggestion-accent', art.accent);
+      detail.style.setProperty('--route-suggestion-position', art.position);
+      const breakdown = routeProgressBreakdown(route);
+      const requiredLabel = breakdown.requiredTotal
+        ? `${breakdown.requiredDone}/${breakdown.requiredTotal} ${kidMode ? 'big steps' : 'required'}`
+        : '';
+      const optionalLabel = breakdown.optionalTotal
+        ? `${breakdown.optionalDone}/${breakdown.optionalTotal} ${kidMode ? 'bonus' : 'optional'}`
+        : '';
+      const progressDetail = [requiredLabel, optionalLabel].filter(Boolean).join(' • ');
+      const overallPct = breakdown.total
+        ? Math.round((breakdown.totalDone / breakdown.total) * 100)
+        : (breakdown.requiredTotal ? Math.round((breakdown.requiredDone / breakdown.requiredTotal) * 100) : 0);
+      const progressLabel = progressDetail || (kidMode ? `${overallPct}% ready` : `${overallPct}% complete`);
+      const range = route?.recommended_level || {};
+      const rangeLabel = (range.min != null || range.max != null)
+        ? `Lv ${range.min != null ? range.min : '?'}-${range.max != null ? range.max : '?'}`
+        : '';
+      const risk = route?.risk_profile ? `${capitalize(route.risk_profile)} risk` : '';
+      const timeLabel = formatTimeLabel(route?.estimated_time_minutes) || '';
+      const metaParts = [rangeLabel, risk, timeLabel].filter(Boolean);
+      const metaLine = metaParts.length ? metaParts.join(' • ') : '';
+      const reasons = Array.isArray(entry.reasons) && entry.reasons.length
+        ? entry.reasons.slice(0, 3).map(reason => `<li>${escapeHTML(reason)}</li>`).join('')
+        : '';
+      const reasonsHtml = reasons
+        ? `<ul class="route-suggestion-detail__reasons">${reasons}</ul>`
+        : `<p class="route-suggestion-detail__reason">${escapeHTML(kidMode ? 'Balanced for your crew.' : 'Balanced recommendation tailored to your context.')}</p>`;
+      const focusStep = entry.nextStepId || (findFirstIncompleteStepForRoute(route, { includeOptional: true })?.id || '');
+      const roleLabel = route.progression_role ? capitalize(route.progression_role) : capitalize(route.category || 'route');
+      const stepButton = focusStep
+        ? `<button type="button" class="btn" data-step-focus="${escapeHTML(focusStep)}">${escapeHTML(kidMode ? 'Jump to this step' : 'Jump to this step')}</button>`
+        : '';
+      detail.innerHTML = `
+        <div class="route-suggestion-detail__hero">
+          <div class="route-suggestion-detail__badge">${escapeHTML(roleLabel)}</div>
+          <h4 class="route-suggestion-detail__title">${escapeHTML(route.title)}</h4>
+          ${metaLine ? `<p class="route-suggestion-detail__meta">${escapeHTML(metaLine)}</p>` : ''}
+          <div class="route-suggestion-detail__progress">
+            <div class="route-suggestion-detail__progress-bar"><span style="width:${overallPct}%"></span></div>
+            <span class="route-suggestion-detail__progress-label">${escapeHTML(progressLabel)}</span>
+          </div>
+          ${reasonsHtml}
+          <div class="route-suggestion-detail__actions">
+            <button type="button" class="btn" data-route-focus="${escapeHTML(route.id)}">${escapeHTML(kidMode ? 'Open full guide' : 'Open full guide')}</button>
+            ${stepButton}
+          </div>
+        </div>
+        <div class="route-suggestion-detail__body" data-chapter-id="${escapeHTML(route.chapter?.id || '')}">
+          ${renderSteps(route.chapter, route)}
+        </div>
+      `;
+    }
+
+    function renderRouteSuggestionCard(entry, active){
+      const route = entry.route;
+      const art = routeArtFor(route);
+      const breakdown = routeProgressBreakdown(route);
+      const overallPct = breakdown.total
+        ? Math.round((breakdown.totalDone / breakdown.total) * 100)
+        : (breakdown.requiredTotal ? Math.round((breakdown.requiredDone / breakdown.requiredTotal) * 100) : 0);
+      const range = route?.recommended_level || {};
+      const rangeLabel = (range.min != null || range.max != null)
+        ? `Lv ${range.min != null ? range.min : '?'}-${range.max != null ? range.max : '?'}`
+        : '';
+      const risk = route?.risk_profile ? `${capitalize(route.risk_profile)} risk` : '';
+      const timeLabel = formatTimeLabel(route?.estimated_time_minutes) || '';
+      const metaParts = [rangeLabel, risk, timeLabel].filter(Boolean);
+      const metaLine = metaParts.length ? metaParts.join(' • ') : '';
+      const reasonHighlight = Array.isArray(entry.reasons) && entry.reasons.length
+        ? entry.reasons[0]
+        : (kidMode ? 'Balanced for your crew.' : 'Balanced recommendation tailored to your context.');
+      const style = `--route-suggestion-image: url('${art.image}'); --route-suggestion-overlay: ${art.overlay}; --route-suggestion-accent: ${art.accent}; --route-suggestion-position: ${art.position};`;
+      const scoreLabel = typeof entry.score === 'number' ? entry.score.toFixed(1) : '';
+      return `
+        <button type="button" class="route-suggestion-card${active ? ' route-suggestion-card--active' : ''}" data-suggestion-route="${escapeHTML(route.id)}" aria-pressed="${active ? 'true' : 'false'}" style="${escapeHTML(style)}">
+          <div class="route-suggestion-card__body">
+            <div class="route-suggestion-card__top">
+              <span class="route-suggestion-card__icon"><i class="fa-solid ${escapeHTML(art.icon)}"></i></span>
+              <div class="route-suggestion-card__text">
+                <h4 class="route-suggestion-card__title">${escapeHTML(route.title)}</h4>
+                ${metaLine ? `<p class="route-suggestion-card__meta">${escapeHTML(metaLine)}</p>` : ''}
+              </div>
+              ${scoreLabel ? `<span class="route-suggestion-card__score">${escapeHTML(scoreLabel)}</span>` : ''}
+            </div>
+            <div class="route-suggestion-card__progress">
+              <div class="route-suggestion-card__progress-bar"><span style="width:${overallPct}%"></span></div>
+              <span class="route-suggestion-card__progress-label">${escapeHTML(kidMode ? `${overallPct}% ready` : `${overallPct}% complete`)}</span>
+            </div>
+            <p class="route-suggestion-card__reason">${escapeHTML(reasonHighlight)}</p>
+          </div>
+        </button>
+      `;
+    }
+
+    function hashString(value){
+      const str = String(value);
+      let hash = 0;
+      for(let i = 0; i < str.length; i += 1){
+        hash = ((hash << 5) - hash) + str.charCodeAt(i);
+        hash |= 0;
+      }
+      return hash;
+    }
+
+    function getLastCompletedRouteMeta(){
+      const meta = routeState?.__meta;
+      if(!meta || typeof meta !== 'object' || !meta.completedRoutes) return null;
+      const entries = Object.entries(meta.completedRoutes)
+        .map(([id, info]) => ({
+          id,
+          title: info?.title || (routeGuideData?.routeLookup?.[id]?.title) || niceName(id),
+          completedAt: info?.completedAt || null
+        }));
+      if(!entries.length) return null;
+      entries.sort((a, b) => {
+        const aTime = a.completedAt ? Date.parse(a.completedAt) : 0;
+        const bTime = b.completedAt ? Date.parse(b.completedAt) : 0;
+        return aTime - bTime;
+      });
+      return entries[entries.length - 1];
+    }
+
+    function formatGuideCompletionDate(iso){
+      if(!iso) return '';
+      const date = new Date(iso);
+      if(Number.isNaN(date.getTime())) return '';
+      try {
+        return new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric' }).format(date);
+      } catch(err){
+        return date.toLocaleDateString();
+      }
+    }
+
+    function syncRouteCompletionMetadata(){
+      if(!routeGuideData) return false;
+      const meta = routeState.__meta && typeof routeState.__meta === 'object' ? { ...routeState.__meta } : {};
+      const previous = meta.completedRoutes && typeof meta.completedRoutes === 'object' ? meta.completedRoutes : {};
+      const updated = {};
+      let changed = false;
+      routeGuideData.routes.forEach(route => {
+        const complete = isRouteComplete(route);
+        const prior = previous[route.id];
+        if(complete){
+          const entry = {
+            title: route.title,
+            completedAt: prior?.completedAt || new Date().toISOString()
+          };
+          updated[route.id] = entry;
+          if(!prior || prior.title !== entry.title){
+            changed = true;
+          }
+        } else if(prior){
+          changed = true;
+        }
+      });
+      const previousKeys = Object.keys(previous);
+      const updatedKeys = Object.keys(updated);
+      if(previousKeys.length !== updatedKeys.length){
+        changed = true;
+      }
+      if(changed){
+        if(updatedKeys.length){
+          routeState.__meta = { ...meta, completedRoutes: updated, updatedAt: new Date().toISOString() };
+        } else if(routeState.__meta){
+          delete routeState.__meta.completedRoutes;
+          delete routeState.__meta.updatedAt;
+          if(!Object.keys(routeState.__meta).length){
+            delete routeState.__meta;
+          }
+        }
+      }
+      return changed;
+    }
+
     function renderRouteGuide(){
       ensureRouteGuide().then(guide => {
         const node = document.getElementById('routePage');
@@ -9818,14 +10227,20 @@
         else {
           routeGuideData = guide;
           routeState = loadRouteState();
+          if(syncRouteCompletionMetadata()){
+            saveRouteState(routeState);
+          }
           routeContext = normalizeRouteContext(routeContext);
           const summary = calculateGuideProgressSummary(chapters);
           const levelEstimate = estimatePlayerLevel(routeContext);
           const recommendations = computeRouteRecommendations(guide, routeContext, levelEstimate);
           const heading = kidMode ? 'Adaptive Adventure Planner' : 'Adaptive Route Planner';
-          const lead = kidMode
-            ? 'Palmate studies your level, party mode, and wish list to recommend the perfect adventures.'
-            : 'Dial in your context, review adaptive recommendations, and follow richly detailed steps.';
+          const suggestionsLead = kidMode
+            ? 'Palmate studies your level, party mode, and wish list to queue up perfect adventures. Highlight one to see every step.'
+            : 'Palmate analyses the full guide library against your context. Highlight a path to preview the complete walkthrough.';
+          const recommendationLead = kidMode
+            ? 'Need other ideas? These extra adventures re-rank when your context changes.'
+            : 'Want alternatives? The rest of the ranked library updates whenever your context shifts.';
           node.innerHTML = `
           <header class="page-header">
             <h2>${escapeHTML(heading)}</h2>
@@ -9834,10 +10249,26 @@
             ${renderRouteContextOverview(routeContext, levelEstimate, summary)}
             ${renderRouteContextControls(routeGuideData, routeContext)}
           </section>
+          <section class="card route-suggestions-card" id="routeSuggestionsCard">
+            <div class="route-suggestions__header">
+              <h3>${kidMode ? 'Tonight’s Adventure Paths' : 'Suggested Adventure Paths'}</h3>
+              <p class="route-suggestions__intro">${escapeHTML(suggestionsLead)}</p>
+            </div>
+            <div class="route-suggestions__list" id="routeSuggestionsList">
+              <p class="route-suggestions__empty">${escapeHTML(kidMode
+                ? 'Adjust the context above to unlock personalised picks.'
+                : 'Fine-tune the context above to surface tailored paths.')}</p>
+            </div>
+            <div class="route-suggestions__detail" id="routeSuggestionDetail">
+              <p class="route-suggestions__placeholder">${escapeHTML(kidMode
+                ? 'Highlight a suggestion to preview the guide here.'
+                : 'Highlight a suggestion to preview the full walkthrough here.')}</p>
+            </div>
+          </section>
           <section class="card route-recommendations-card" id="routeRecommendationsCard">
             <div class="route-recommendations__header">
-              <h3>${kidMode ? 'Suggested Next Routes' : 'Adaptive Recommendations'}</h3>
-              <p class="route-recommendations__intro">${escapeHTML(lead)}</p>
+              <h3>${kidMode ? 'More adventures to consider' : 'More adaptive picks'}</h3>
+              <p class="route-recommendations__intro">${escapeHTML(recommendationLead)}</p>
             </div>
             <div id="routeRecommendationsList" class="route-recommendations__list"></div>
           </section>
@@ -9862,10 +10293,8 @@
           bindRouteActionButtons();
           renderRouteFiltersUI(summary.categories);
           applyQueuedRouteFocus();
-          updateRouteOverviewUI(summary, { levelEstimate, recommendations });
-          renderBossRouteTimeline();
+          refreshRouteIntelligenceUI({ summary, levelEstimate, recommendations });
           updateProgressUI();
-          renderRouteRecommendationsList(recommendations);
           bindRouteContextControls(node, { guide, summary, levelEstimate, recommendations });
         }
       });
@@ -9878,6 +10307,8 @@
       const xpTotal = levelEstimate?.totalXp != null ? Math.round(levelEstimate.totalXp) : null;
       const confidence = levelEstimate?.confidence != null ? Math.round(levelEstimate.confidence * 100) : null;
       const requiredPct = summary.requiredTotal ? Math.round((summary.requiredComplete / summary.requiredTotal) * 100) : 0;
+      const optionalPct = summary.optionalTotal ? Math.round((summary.optionalComplete / summary.optionalTotal) * 100) : 0;
+      const towersPct = summary.towersTotal ? Math.round((summary.towersComplete / summary.towersTotal) * 100) : 0;
       const declaredLabel = declared != null ? String(declared) : (kidMode ? 'Not set' : 'Not set');
       const estimatedLabel = estimatedLevel != null ? String(estimatedLevel) : '—';
       const xpLabel = xpTotal != null ? xpTotal.toLocaleString() : '';
@@ -9900,38 +10331,103 @@
       } else {
         progressNote = kidMode ? 'Start any route to begin the journey.' : 'Start a route to begin tracking progress.';
       }
+      let optionalNote;
+      if(summary.optionalTotal){
+        const remainingOptional = summary.optionalTotal - summary.optionalComplete;
+        if(remainingOptional === 0){
+          optionalNote = kidMode ? 'Bonus adventures wrapped!' : 'All optional tasks completed.';
+        } else {
+          optionalNote = kidMode
+            ? `${remainingOptional} bonus step${remainingOptional === 1 ? '' : 's'} to try`
+            : `${remainingOptional} optional step${remainingOptional === 1 ? '' : 's'} remaining`;
+        }
+      } else {
+        optionalNote = kidMode ? 'Extra fun chores' : 'Bonus cleanup and prep';
+      }
+      let towerNote;
+      if(summary.towersTotal){
+        const remainingTowers = summary.towersTotal - summary.towersComplete;
+        if(remainingTowers === 0){
+          towerNote = kidMode ? 'Every tower champion beaten!' : 'All tower bosses defeated.';
+        } else {
+          towerNote = kidMode
+            ? `${remainingTowers} tower${remainingTowers === 1 ? '' : 's'} left`
+            : `${remainingTowers} tower boss${remainingTowers === 1 ? '' : 'es'} remaining`;
+        }
+      } else {
+        towerNote = kidMode ? 'Defeat bosses together' : 'Tower bosses defeated so far';
+      }
+      const lastCompleted = getLastCompletedRouteMeta();
+      const lastLabel = (() => {
+        if(!lastCompleted) return kidMode ? 'No routes completed yet.' : 'No routes completed yet.';
+        const title = lastCompleted.title || niceName(lastCompleted.id);
+        const dateLabel = lastCompleted.completedAt ? formatGuideCompletionDate(lastCompleted.completedAt) : '';
+        if(kidMode){
+          return dateLabel ? `Finished ${title} (${dateLabel})` : `Finished ${title}`;
+        }
+        return dateLabel ? `Last cleared: ${title} — ${dateLabel}` : `Last cleared: ${title}`;
+      })();
+      const requiredValue = summary.requiredTotal ? `${summary.requiredComplete}/${summary.requiredTotal}` : '0/0';
+      const optionalValue = summary.optionalTotal ? `${summary.optionalComplete}/${summary.optionalTotal}` : '0/0';
+      const towerValue = summary.towersTotal ? `${summary.towersComplete}/${summary.towersTotal}` : '0/0';
       return `
         <div class="route-overview__header">
           <div class="route-overview__stats">
-            <div class="route-overview__stat">
+            <article class="route-overview__stat">
               <div class="route-overview__stat-header">
                 <span class="route-overview__stat-icon"><i class="fa-solid fa-signal"></i></span>
                 <p class="route-overview__stat-title">${kidMode ? 'Declared level' : 'Declared level'}</p>
               </div>
-              <div class="route-overview__stat-value">${escapeHTML(declaredLabel)}</div>
+              <p class="route-overview__stat-value">${escapeHTML(declaredLabel)}</p>
               <p class="route-overview__stat-sub">${escapeHTML(kidMode ? 'Use the slider below to tell Palmate your level.' : 'Override the estimated level with your own.')}</p>
-            </div>
-            <div class="route-overview__stat">
+            </article>
+            <article class="route-overview__stat">
               <div class="route-overview__stat-header">
                 <span class="route-overview__stat-icon"><i class="fa-solid fa-chart-line"></i></span>
                 <p class="route-overview__stat-title">${kidMode ? 'Estimated level' : 'Estimated level'}</p>
               </div>
-              <div class="route-overview__stat-value">${escapeHTML(estimatedLabel)}</div>
+              <p class="route-overview__stat-value">${escapeHTML(estimatedLabel)}</p>
               <p class="route-overview__stat-sub">${xpLabel
                 ? `${escapeHTML(xpLabel)} XP${confidenceLabel ? ` • ${escapeHTML(confidenceLabel)} confidence` : ''}`
                 : escapeHTML(kidMode ? 'Complete steps to power up this estimate.' : 'Finish more steps to refine this estimate.')}</p>
-            </div>
-            <div class="route-overview__stat">
+            </article>
+            <article class="route-overview__stat">
               <div class="route-overview__stat-header">
                 <span class="route-overview__stat-icon"><i class="fa-solid fa-list-check"></i></span>
-                <p class="route-overview__stat-title">${kidMode ? 'Big steps' : 'Required steps'}</p>
+                <p class="route-overview__stat-title" data-route-role="required-title">${kidMode ? 'Big steps' : 'Required steps'}</p>
               </div>
-              <div class="route-overview__stat-value">${summary.requiredTotal ? `${summary.requiredComplete}/${summary.requiredTotal}` : '0/0'}</div>
-              <div class="route-overview__meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${requiredPct}">
-                <span class="fill" style="width:${requiredPct}%"></span>
+              <p class="route-overview__stat-value" data-route-role="required-count">${escapeHTML(requiredValue)}</p>
+              <div class="route-overview__meter" data-route-role="required-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${requiredPct}">
+                <span class="fill" data-route-role="required-fill" style="width:${requiredPct}%"></span>
               </div>
-              <p class="route-overview__stat-sub">${escapeHTML(progressNote)}</p>
-            </div>
+              <p class="route-overview__stat-sub" data-route-role="required-note">${escapeHTML(progressNote)}</p>
+            </article>
+            <article class="route-overview__stat">
+              <div class="route-overview__stat-header">
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                <p class="route-overview__stat-title" data-route-role="optional-title">${kidMode ? 'Bonus ideas' : 'Optional tasks'}</p>
+              </div>
+              <p class="route-overview__stat-value" data-route-role="optional-count">${escapeHTML(optionalValue)}</p>
+              <div class="route-overview__meter" data-route-role="optional-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${optionalPct}">
+                <span class="fill" data-route-role="optional-fill" style="width:${optionalPct}%"></span>
+              </div>
+              <p class="route-overview__stat-sub" data-route-role="optional-note">${escapeHTML(optionalNote)}</p>
+            </article>
+            <article class="route-overview__stat">
+              <div class="route-overview__stat-header">
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-tower-broadcast"></i></span>
+                <p class="route-overview__stat-title" data-route-role="tower-title">${kidMode ? 'Tower wins' : 'Towers cleared'}</p>
+              </div>
+              <p class="route-overview__stat-value" data-route-role="tower-count">${escapeHTML(towerValue)}</p>
+              <div class="route-overview__meter" data-route-role="tower-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${towersPct}">
+                <span class="fill" data-route-role="tower-fill" style="width:${towersPct}%"></span>
+              </div>
+              <p class="route-overview__stat-sub" data-route-role="tower-note">${escapeHTML(towerNote)}</p>
+            </article>
+          </div>
+          <div class="route-overview__controls">
+            <p class="route-overview__next" data-route-role="next-callout"></p>
+            <p class="route-overview__history" data-route-role="last-completed">${escapeHTML(lastLabel)}</p>
           </div>
         </div>
       `;
@@ -10021,13 +10517,13 @@
 
     let routeRecommendationsAbort = null;
 
-    function renderRouteRecommendationsList(recommendations){
+    function renderRouteRecommendationsList(recommendations, { offset = 0 } = {}){
       const list = document.getElementById('routeRecommendationsList');
       if(!list) return;
-      if(!Array.isArray(recommendations) || !recommendations.length){
+      if(!Array.isArray(recommendations) || recommendations.length <= offset){
         list.innerHTML = `<p class="route-recommendations__empty">${escapeHTML(kidMode ? 'Set your level or add goals to see suggestions.' : 'Adjust your context to surface tailored recommendations.')}</p>`;
       } else {
-        const cards = recommendations.slice(0, 5).map(renderRouteRecommendation).join('');
+        const cards = recommendations.slice(offset, offset + 5).map(renderRouteRecommendation).join('');
         list.innerHTML = cards;
       }
       if(routeRecommendationsAbort){
@@ -10219,17 +10715,18 @@
     function computeRouteRecommendations(guide, context, levelEstimate){
       const routes = Array.isArray(guide?.routes) ? guide.routes : [];
       if(!routes.length) return [];
-      const weights = guide?.recommender?.scoring_signals || {};
+      const weights = { ...DEFAULT_RECOMMENDER_WEIGHTS, ...(guide?.recommender?.scoring_signals || {}) };
       const templates = guide?.recommender?.explanation_templates || {};
       const completedRoutes = new Set(routes.filter(route => isRouteComplete(route)).map(route => route.id));
       const resourceMap = new Map();
-      (context.resourceGaps || []).forEach(entry => {
+      (context?.resourceGaps || []).forEach(entry => {
         if(entry && entry.item_id){
           resourceMap.set(entry.item_id, entry.qty != null ? Number(entry.qty) : null);
         }
       });
       const availableTime = context?.availableTimeMinutes != null ? Number(context.availableTimeMinutes) : null;
       const playerLevel = context?.declaredLevel != null ? Number(context.declaredLevel) : (levelEstimate?.level ?? null);
+      const goalSet = new Set((context?.goals || []).map(goal => String(goal || '').toLowerCase()));
       const results = [];
       routes.forEach(route => {
         const unmetRoutes = (route?.prerequisites?.routes || []).filter(id => !completedRoutes.has(id));
@@ -10238,28 +10735,37 @@
         let score = 0;
         if(weights.prerequisites_met){
           score += weights.prerequisites_met;
-          reasons.push(formatRecommendationText(templates.prerequisites_met));
+          if(templates.prerequisites_met){
+            reasons.push(formatRecommendationText(templates.prerequisites_met));
+          }
         }
         const range = route?.recommended_level || {};
         if(playerLevel != null && (range.min != null || range.max != null)){
           if(range.min != null && range.max != null && playerLevel >= range.min && playerLevel <= range.max){
             score += weights.level_fit || 0;
-            reasons.push(formatRecommendationText(templates.level_fit, { level: playerLevel, min: range.min, max: range.max }));
+            if(templates.level_fit){
+              reasons.push(formatRecommendationText(templates.level_fit, { level: playerLevel, min: range.min, max: range.max }));
+            }
           } else if(range.min != null && playerLevel < range.min){
+            score -= (weights.level_fit || 0) / 2;
             if(route?.adaptive_guidance?.underleveled){
               reasons.push(formatRecommendationText(templates.adaptive_guidance, { recommendation: route.adaptive_guidance.underleveled }));
             }
-            score -= (weights.level_fit || 0) / 2;
           } else if(range.max != null && playerLevel > range.max){
+            score -= (weights.level_fit || 0) / 2;
             if(route?.adaptive_guidance?.overleveled){
               reasons.push(formatRecommendationText(templates.adaptive_guidance, { recommendation: route.adaptive_guidance.overleveled }));
             }
-            score -= (weights.level_fit || 0) / 2;
           }
         }
         if(Array.isArray(route?.yields?.key_unlocks) && route.yields.key_unlocks.length){
           score += weights.unlock_value || 0;
-          reasons.push(formatRecommendationText(templates.unlock_value, { unlocks: route.yields.key_unlocks.map(niceName).join(', ') }));
+          const unlockList = route.yields.key_unlocks.map(niceName).join(', ');
+          if(templates.unlock_value){
+            reasons.push(formatRecommendationText(templates.unlock_value, { unlocks: unlockList }));
+          } else {
+            reasons.push(kidMode ? `Unlocks ${unlockList}.` : `Unlocks: ${unlockList}`);
+          }
         }
         if(availableTime != null){
           const desired = context.coop ? route?.estimated_time_minutes?.coop : route?.estimated_time_minutes?.solo;
@@ -10275,7 +10781,9 @@
         }
         if(route?.progression_role){
           score += (weights.progression_role || 0) * (route.progression_role === 'core' ? 1 : 0.5);
-          reasons.push(formatRecommendationText(templates.progression_role, { role: capitalize(route.progression_role) }));
+          if(templates.progression_role){
+            reasons.push(formatRecommendationText(templates.progression_role, { role: capitalize(route.progression_role) }));
+          }
         }
         if(context.coop && route?.modes?.coop){
           score += weights.coop_synergy || 0;
@@ -10289,17 +10797,53 @@
             score += (weights.risk_vs_mode || 0) / 2;
           }
         }
-        if(Array.isArray(route?.tags) && route.tags.length){
-          const overlap = route.tags.filter(tag => context.goals.includes(tag));
-          if(overlap.length){
-            score += weights.tag_alignment || 0;
-            reasons.push(kidMode ? `Goal match: ${overlap.map(capitalize).join(', ')}` : `Goal focus: ${overlap.join(', ')}`);
+        const normalizedTags = Array.isArray(route?.tags) ? route.tags.map(tag => String(tag || '').toLowerCase()) : [];
+        const overlapTags = normalizedTags.filter(tag => goalSet.has(tag));
+        if(overlapTags.length){
+          const label = overlapTags.map(capitalize).join(', ');
+          score += weights.tag_alignment || 0;
+          reasons.push(kidMode ? `Goal match: ${label}` : `Goal focus: ${overlapTags.join(', ')}`);
+        }
+        const objectives = Array.isArray(route?.objectives) ? route.objectives.map(obj => String(obj || '').toLowerCase()) : [];
+        const objectiveMatches = goalSet.size ? objectives.filter(obj => Array.from(goalSet).some(goal => obj.includes(goal))) : [];
+        if(objectiveMatches.length){
+          score += weights.goal_objective_alignment || 0;
+          const display = objectiveMatches.slice(0, 2).map(niceName);
+          reasons.push(kidMode ? `Matches goals: ${display.join(', ')}` : `Objectives align with: ${display.join(', ')}`);
+        }
+        if(goalSet.size && !overlapTags.length){
+          const titleLower = (route.title || '').toLowerCase();
+          const keywordMatch = Array.from(goalSet).find(goal => titleLower.includes(goal));
+          if(keywordMatch){
+            score += weights.context_goal_keyword || 0;
+            reasons.push(kidMode ? `Focuses on ${capitalize(keywordMatch)}.` : `Title includes ${keywordMatch}.`);
           }
+        }
+        const normalizedCategory = (route?.category || '').toLowerCase();
+        const isTowerRoute = normalizedCategory.includes('tower') || normalizedCategory.includes('boss') || normalizedTags.some(tag => tag.includes('tower') || tag.includes('boss'));
+        const towerGoal = goalSet.has('tower') || goalSet.has('boss');
+        if(isTowerRoute && towerGoal){
+          score += weights.tower_alignment || 0;
+          reasons.push(kidMode ? 'Perfect for tower showdowns.' : 'Aligns with your tower/boss focus.');
         }
         if(!completedRoutes.has(route.id)){
           score += weights.novelty || 0;
         } else {
           score -= (weights.novelty || 0) / 2;
+        }
+        const breakdown = routeProgressBreakdown(route);
+        if(breakdown.requiredDone > 0 && breakdown.requiredDone < breakdown.requiredTotal){
+          score += weights.progress_momentum || 0;
+          reasons.push(kidMode ? 'You already started this route—keep going!' : 'Momentum bonus: you have partial progress here.');
+        }
+        const remainingRequired = breakdown.requiredTotal - breakdown.requiredDone;
+        if(breakdown.requiredTotal && remainingRequired > 0 && remainingRequired <= 2){
+          score += weights.closeout_bonus || 0;
+          reasons.push(kidMode ? 'Only a couple big steps left!' : 'Close to completion — only a few required steps remain.');
+        }
+        if(breakdown.totalDone > 0 && !completedRoutes.has(route.id)){
+          score += weights.returning_focus || 0;
+          reasons.push(kidMode ? 'Let’s finish what you started.' : 'Finish the route you already began.');
         }
         const metrics = route?.metrics || {};
         const xpPerMinute = metrics.xp_per_minute;
@@ -10310,18 +10854,33 @@
           const avg = values.length ? values.reduce((sum, val) => sum + (Number.isNaN(val) ? 0 : val), 0) / values.length : null;
           if(avg != null){
             score += weights.metric_efficiency || 0;
-            reasons.push(formatRecommendationText(templates.metric_efficiency, { xp_per_minute: avg.toFixed(1) }));
+            if(templates.metric_efficiency){
+              reasons.push(formatRecommendationText(templates.metric_efficiency, { xp_per_minute: avg.toFixed(1) }));
+            } else {
+              reasons.push(kidMode ? `Great XP: ${avg.toFixed(1)}/m.` : `XP efficiency: ${avg.toFixed(1)} per minute.`);
+            }
           }
         }
-        let resourceMatch = false;
+        const resourceMatches = [];
         resourceMap.forEach((qty, itemId) => {
           if(route.resourceOutputs.includes(itemId)){
-            resourceMatch = true;
-            reasons.push(formatRecommendationText(templates.resource_need, { item: niceName(itemId) }));
+            resourceMatches.push({ itemId, qty });
           }
         });
-        if(resourceMatch){
+        if(resourceMatches.length){
           score += weights.resource_relief || 0;
+          if(templates.resource_need){
+            resourceMatches.forEach(match => {
+              reasons.push(formatRecommendationText(templates.resource_need, { item: niceName(match.itemId) }));
+            });
+          } else {
+            const names = resourceMatches.map(match => niceName(match.itemId));
+            reasons.push(kidMode ? `Helps gather ${names.join(', ')}.` : `Addresses shortages: ${names.join(', ')}`);
+          }
+          if(resourceMatches.some(match => match.qty != null && match.qty >= 20)){
+            score += weights.resource_urgency || 0;
+            reasons.push(kidMode ? 'Big resource refill.' : 'High priority resource shortage covered.');
+          }
         }
         const dynamicHits = evaluateDynamicRules(route, context, levelEstimate, resourceMap);
         if(dynamicHits.length){
@@ -10329,6 +10888,11 @@
           dynamicHits.forEach(hit => {
             reasons.push(formatRecommendationText(templates.dynamic_alignment, { rule_adjustment: hit }));
           });
+        }
+        const futureRoutes = Array.isArray(route?.next_routes) ? route.next_routes.filter(id => !completedRoutes.has(id)) : [];
+        if(futureRoutes.length){
+          score += weights.synergy_next_routes || 0;
+          reasons.push(kidMode ? 'Opens new adventures next.' : 'Sets up follow-up routes.');
         }
         const nextStep = findFirstIncompleteStepForRoute(route, { includeOptional: true });
         results.push({ route, score, reasons, nextStepId: nextStep ? nextStep.id : null });
@@ -10581,6 +11145,7 @@
       const section = document.createElement('section');
       section.className = 'card route-card';
       section.id = `chapter-${chapter.id}`;
+      section.dataset.chapterId = chapter.id;
       section.innerHTML = buildRouteCardInnerHTML(chapter, openByDefault, route);
       return section;
     }
@@ -10775,11 +11340,17 @@
       if(!target.matches('input[type="checkbox"][data-step]')) return;
       const stepId = target.dataset.step;
       const isChecked = target.checked;
-      const chapterNode = target.closest('section.card');
+      const container = target.closest('[data-chapter-id]');
       let chapter = null;
       let step = null;
-      if(chapterNode){
-        const chapterId = chapterNode.id.replace('chapter-','');
+      let chapterId = container ? container.dataset.chapterId : '';
+      if(!chapterId){
+        const legacySection = target.closest('section.card');
+        if(legacySection){
+          chapterId = legacySection.dataset.chapterId || legacySection.id.replace('chapter-','');
+        }
+      }
+      if(chapterId){
         chapter = (routeGuideData?.chapters || []).find(ch => ch.id === chapterId) || null;
         if(chapter){
           step = (chapter.steps || []).find(s => s.id === stepId) || null;
@@ -10799,10 +11370,12 @@
         }
       }
       routeState[stepId] = isChecked;
+      syncRouteCompletionMetadata();
       saveRouteState(routeState);
       if(chapter){
         rerenderChapter(chapter);
       }
+      refreshRouteIntelligenceUI();
       updateProgressUI();
     }
 
@@ -10827,15 +11400,19 @@
             applyStepProgressSelection(options, [options[0].key]);
           }
         });
+        syncRouteCompletionMetadata();
         saveRouteState(routeState);
         rerenderChapter(chapter);
+        refreshRouteIntelligenceUI();
         updateProgressUI();
       } else if(btn.dataset.action === 'resetChapter'){
         chapter.steps.forEach(step => {
           delete routeState[step.id];
         });
+        syncRouteCompletionMetadata();
         saveRouteState(routeState);
         rerenderChapter(chapter);
+        refreshRouteIntelligenceUI();
         updateProgressUI();
       }
     }
@@ -11598,6 +12175,21 @@
           el.innerHTML = kidMode
             ? '<strong>Guide complete!</strong> Revisit bonus adventures anytime.'
             : '<strong>Guide complete!</strong> Re-run towers or tidy up optional chores.';
+        }
+      });
+
+      const lastMeta = getLastCompletedRouteMeta();
+      document.querySelectorAll('[data-route-role="last-completed"]').forEach(el => {
+        if(lastMeta){
+          const title = lastMeta.title || niceName(lastMeta.id);
+          const dateLabel = lastMeta.completedAt ? formatGuideCompletionDate(lastMeta.completedAt) : '';
+          if(kidMode){
+            el.textContent = dateLabel ? `Finished ${title} (${dateLabel})` : `Finished ${title}`;
+          } else {
+            el.textContent = dateLabel ? `Last cleared: ${title} — ${dateLabel}` : `Last cleared: ${title}`;
+          }
+        } else {
+          el.textContent = kidMode ? 'No routes completed yet.' : 'No routes completed yet.';
         }
       });
 
