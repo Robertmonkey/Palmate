@@ -10796,29 +10796,27 @@
       const elemSection = createSection('glossary-elements', 'Elements & Type Chart', elementsDescription);
 
       const typeRelations = {
-        Neutral: { strong: [], weak: [] },
-        Fire: { strong: ['Grass', 'Ice'], weak: ['Water', 'Ground'] },
-        Water: { strong: ['Fire', 'Ground'], weak: ['Electric', 'Grass'] },
-        Grass: { strong: ['Water', 'Ground'], weak: ['Fire', 'Ice', 'Air'] },
-        Electric: { strong: ['Water', 'Air'], weak: ['Ground'] },
-        Ice: { strong: ['Dragon', 'Grass'], weak: ['Fire', 'Electric'] },
-        Ground: { strong: ['Electric', 'Fire'], weak: ['Water', 'Grass'] },
-        Dragon: { strong: ['Dark', 'Dragon'], weak: ['Dragon', 'Ice'] },
-        Dark: { strong: ['Neutral'], weak: ['Dragon'] },
-        Air: { strong: ['Grass', 'Ground'], weak: ['Electric', 'Ice'] }
+        Neutral: { strong: [], weak: ['Dark'] },
+        Fire: { strong: ['Grass', 'Ice'], weak: ['Water'] },
+        Water: { strong: ['Fire'], weak: ['Electric'] },
+        Electric: { strong: ['Water'], weak: ['Ground'] },
+        Grass: { strong: ['Ground'], weak: ['Fire'] },
+        Ice: { strong: ['Dragon'], weak: ['Fire'] },
+        Ground: { strong: ['Electric'], weak: ['Grass'] },
+        Dragon: { strong: ['Dark', 'Dragon'], weak: ['Ice'] },
+        Dark: { strong: ['Neutral'], weak: ['Dragon'] }
       };
 
       const typeColors = {
-        Neutral: '#adb5c7',
-        Fire: '#ff7247',
-        Water: '#3ac7ff',
-        Grass: '#6be67e',
-        Electric: '#ffd166',
-        Ice: '#8ee7ff',
-        Ground: '#e0a15b',
-        Dragon: '#c386ff',
-        Dark: '#7e6bff',
-        Air: '#81d3ff'
+        Neutral: '#a5b2c8',
+        Fire: '#ff704a',
+        Water: '#41c5ff',
+        Grass: '#6fe07a',
+        Electric: '#ffd45c',
+        Ice: '#8fe5ff',
+        Ground: '#dba667',
+        Dragon: '#c490ff',
+        Dark: '#8a7bff'
       };
 
       function toRGBString(hex) {
@@ -10900,9 +10898,90 @@
         : 'Arrows flow from the attacking element to the element it overwhelms.';
       elemSection.appendChild(legend);
 
+      const sourceNote = document.createElement('p');
+      sourceNote.className = 'type-map__source';
+      const sourceLink = document.createElement('a');
+      sourceLink.href = 'https://palworld.wiki.gg/wiki/Elements';
+      sourceLink.target = '_blank';
+      sourceLink.rel = 'noreferrer noopener';
+      sourceLink.textContent = kidMode ? 'Palworld Wiki type chart' : 'Palworld Wiki type chart (rev. 18881)';
+      sourceNote.append(
+        kidMode ? 'Matchup data double-checked with the ' : 'Strengths and weaknesses verified against the ',
+        sourceLink,
+        kidMode ? ' so you have the latest info.' : ' to keep this guide current.'
+      );
+      elemSection.appendChild(sourceNote);
+
+      const critiqueWrap = document.createElement('div');
+      critiqueWrap.className = 'type-audit';
+      const critiqueTitle = document.createElement('h4');
+      critiqueTitle.className = 'type-audit__title';
+      critiqueTitle.textContent = kidMode ? 'Element highlights' : 'Matchup audit highlights';
+      critiqueWrap.appendChild(critiqueTitle);
+      const critiqueList = document.createElement('ul');
+      critiqueList.className = 'type-audit__list';
+      const critiqueData = [
+        {
+          type: 'Fire',
+          kid: 'Fire pals roast Grass and Ice, but water buddies soak them fast.',
+          grown: 'Fire is still the only element with two offensive wins (Grass, Ice) yet a single Water counter.'
+        },
+        {
+          type: 'Water',
+          kid: 'Water pals splash out Fire, but Electric shocks hurt the most.',
+          grown: 'Water now only checks Fire consistently and is punished sharply by Electric damage.'
+        },
+        {
+          type: 'Grass',
+          kid: 'Grass beats Ground pals, yet hates taking Fire hits.',
+          grown: 'Grass focuses on grounding Ground-types while Fire remains its lone hard weakness.'
+        },
+        {
+          type: 'Ground',
+          kid: 'Ground pals zap Electric foes but should dodge Grass moves.',
+          grown: 'Ground reliably blanks Electric attacks, though modern charts show Grass as its clean counter.'
+        },
+        {
+          type: 'Dragon',
+          kid: 'Dragon pals smash Dark foes, but Ice chills them instantly.',
+          grown: 'Dragon still rules mirrors and Dark types, yet every build must respect Ice coverage.'
+        },
+        {
+          type: 'Dark',
+          kid: 'Dark pals scare Neutral friends, but Dragons scare them back.',
+          grown: 'Dark stays the dedicated Neutral breaker, with Dragon remaining its only elemental check.'
+        }
+      ];
+      critiqueData.forEach(entry => {
+        const item = document.createElement('li');
+        item.className = 'type-audit__item';
+        const header = document.createElement('div');
+        header.className = 'type-audit__item-header';
+        const icon = document.createElement('img');
+        icon.className = 'type-audit__item-icon';
+        icon.src = getTypeIconSource(entry.type);
+        icon.alt = '';
+        icon.loading = 'lazy';
+        icon.setAttribute('aria-hidden', 'true');
+        header.appendChild(icon);
+        const label = document.createElement('span');
+        label.textContent = entry.type;
+        header.appendChild(label);
+        const text = document.createElement('p');
+        text.className = 'type-audit__item-text';
+        text.textContent = kidMode ? entry.kid : entry.grown;
+        item.appendChild(header);
+        item.appendChild(text);
+        critiqueList.appendChild(item);
+      });
+      critiqueWrap.appendChild(critiqueList);
+      elemSection.appendChild(critiqueWrap);
+
       const orbitElements = Object.keys(typeRelations).filter(type => type !== 'Neutral');
       const nodePositions = {};
-      const radius = 38;
+      const smallScreen = window.matchMedia('(max-width: 520px)').matches;
+      const mediumScreen = window.matchMedia('(max-width: 880px)').matches;
+      const radius = smallScreen ? 40 : (mediumScreen ? 38 : 36);
       orbitElements.forEach((type, index) => {
         const angle = (index / orbitElements.length) * (Math.PI * 2) - Math.PI / 2;
         const x = 50 + radius * Math.cos(angle);
