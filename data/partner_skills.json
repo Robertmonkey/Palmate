@@ -1,0 +1,1488 @@
+[
+  {
+    "id": "fluffy-shield",
+    "number": 1,
+    "name": "Fluffy Shield",
+    "pals": [
+      "Lamball"
+    ],
+    "type": "Combat / Farming",
+    "categories": [
+      "Combat",
+      "Farming"
+    ],
+    "description": "When activated, equips to the player and becomes a shield. Drops Wool when assigned to Ranch."
+  },
+  {
+    "id": "cat-helper",
+    "number": 2,
+    "name": "Cat Helper",
+    "pals": [
+      "Cattiva"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While in a team, Cattiva helps carry supplies, increasing the player's max carrying capacity."
+  },
+  {
+    "id": "egg-layer",
+    "number": 3,
+    "name": "Egg Layer",
+    "pals": [
+      "Chikipi"
+    ],
+    "type": "Farming",
+    "categories": [
+      "Farming"
+    ],
+    "description": "Sometimes lays Eggs when assigned to Ranch."
+  },
+  {
+    "id": "lifmunk-recoil",
+    "number": 4,
+    "name": "Lifmunk Recoil",
+    "pals": [
+      "Lifmunk"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, leaps onto the player's head and uses a submachine gun to follow up player attacks."
+  },
+  {
+    "id": "huggy-fire",
+    "number": 5,
+    "name": "Huggy Fire",
+    "pals": [
+      "Foxparks"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, equips the player and transforms into a flamethrower."
+  },
+  {
+    "id": "surfing-slam",
+    "number": 6,
+    "name": "Surfing Slam",
+    "pals": [
+      "Fuack"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, Fuack body surfs toward an enemy and slams into them."
+  },
+  {
+    "id": "static-electricity",
+    "number": 7,
+    "name": "Static Electricity",
+    "pals": [
+      "Sparkit"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While in team, increases the attack power of ElectricPals."
+  },
+  {
+    "id": "cheery-rifle",
+    "number": 8,
+    "name": "Cheery Rifle",
+    "pals": [
+      "Tanzee"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, Tanzee will mercilessly fire an assault rifle at nearby enemies."
+  },
+  {
+    "id": "tiny-spark",
+    "number": 9,
+    "name": "Tiny Spark",
+    "pals": [
+      "Rooby"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While in team, increases attack power of FirePals."
+  },
+  {
+    "id": "pengullet-cannon",
+    "number": 10,
+    "name": "Pengullet Cannon",
+    "pals": [
+      "Pengullet"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, the player equips a Rocket Launcher and fires Pengullet as ammunition. Pengullet explodes on contact and is incapacitated."
+  },
+  {
+    "id": "brave-sailor",
+    "number": 11,
+    "name": "Brave Sailor",
+    "pals": [
+      "Penking"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While fighting together, FirePals drop more items when defeated."
+  },
+  {
+    "id": "biribiri-bombs",
+    "number": 12,
+    "name": "Biribiri Bombs",
+    "pals": [
+      "Jolthog"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, equips Jolthog in hand, to be thrown at enemies and cause a lightning explosion upon impact."
+  },
+  {
+    "id": "logging-assistance",
+    "number": 13,
+    "name": "Logging Assistance",
+    "pals": [
+      "Gumoss"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While in team, improves efficiency of cutting trees."
+  },
+  {
+    "id": "dig-here",
+    "number": 14,
+    "name": "Dig Here!",
+    "pals": [
+      "Vixy"
+    ],
+    "type": "Farming",
+    "categories": [
+      "Farming"
+    ],
+    "description": "Sometimes digs up items from the ground when assigned to Ranch"
+  },
+  {
+    "id": "dark-knowledge",
+    "number": 15,
+    "name": "Dark Knowledge",
+    "pals": [
+      "Hoocrates"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While in team, increase attack power of DarkPals."
+  },
+  {
+    "id": "soothing-shower",
+    "number": 16,
+    "name": "Soothing Shower",
+    "pals": [
+      "Teafant"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "When activated, spouts mysterious water that soothes wounds and restores the playerHP."
+  },
+  {
+    "id": "caffeine-inoculation",
+    "number": 17,
+    "name": "Caffeine Inoculation",
+    "pals": [
+      "Depresso"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "When activated, Depresso chugs a bunch of energy drinks, drastically increasing its movement speed for a certain time."
+  },
+  {
+    "id": "fluffy-wool",
+    "number": 18,
+    "name": "Fluffy Wool",
+    "pals": [
+      "Cremis"
+    ],
+    "type": "Combat / Farming",
+    "categories": [
+      "Combat",
+      "Farming"
+    ],
+    "description": "While in team, increases attack power of NeutralPals. Sometimes drops Wool when assigned to Ranch."
+  },
+  {
+    "id": "dream-chaser",
+    "number": 19,
+    "name": "Dream Chaser",
+    "pals": [
+      "Daedream"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "While in team, appears near the player. Follows up player attacks with magic bullets."
+  },
+  {
+    "id": "hard-head",
+    "number": 20,
+    "name": "Hard Head",
+    "pals": [
+      "Rushoar"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Increases efficiency of destroying boulders while mounted."
+  },
+  {
+    "id": "kuudere",
+    "number": 21,
+    "name": "Kuudere",
+    "pals": [
+      "Nox"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When fighting together, applies Dark damage to the player's attacks."
+  },
+  {
+    "id": "ore-detector",
+    "number": 22,
+    "name": "Ore Detector",
+    "pals": [
+      "Fuddler"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "When activated, generates subtle vibrations to detect nearby ore."
+  },
+  {
+    "id": "fried-squid",
+    "number": 23,
+    "name": "Fried Squid",
+    "pals": [
+      "Killamari"
+    ],
+    "type": "Mount (Glider)",
+    "categories": [
+      "Mount (Glider)"
+    ],
+    "description": "While in team, can be summoned and used instead of a glider. Can float for long periods of time while gliding."
+  },
+  {
+    "id": "gold-digger",
+    "number": 24,
+    "name": "Gold Digger",
+    "pals": [
+      "Mau"
+    ],
+    "type": "Farming",
+    "categories": [
+      "Farming"
+    ],
+    "description": "Sometimes digs up Gold Coin when assigned to a Ranch."
+  },
+  {
+    "id": "zephyr-glider",
+    "number": 25,
+    "name": "Zephyr Glider",
+    "pals": [
+      "Celaray"
+    ],
+    "type": "Mount (Glider)",
+    "categories": [
+      "Mount (Glider)"
+    ],
+    "description": "While in team, can be summoned and used instead of a glider. Allows you to move quickly for long periods of time while gliding with this Pal."
+  },
+  {
+    "id": "direhowl-rider",
+    "number": 26,
+    "name": "Direhowl Rider",
+    "pals": [
+      "Direhowl"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Moves slightly faster than most mounts"
+  },
+  {
+    "id": "eggbomb-launcher",
+    "number": 27,
+    "name": "Eggbomb Launcher",
+    "pals": [
+      "Tocotoco"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, equips to the player and transforms into an egg launcher."
+  },
+  {
+    "id": "helper-bunny",
+    "number": 28,
+    "name": "Helper Bunny",
+    "pals": [
+      "Flopie"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While in team, appears near the player. Automatically picks up nearby items."
+  },
+  {
+    "id": "milk-maker",
+    "number": 29,
+    "name": "Milk Maker",
+    "pals": [
+      "Mozzarina"
+    ],
+    "type": "Farming",
+    "categories": [
+      "Farming"
+    ],
+    "description": "Sometimes produces Milk when assigned to a Ranch."
+  },
+  {
+    "id": "princess-gaze",
+    "number": 30,
+    "name": "Princess Gaze",
+    "pals": [
+      "Bristla"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While in team, increases the power of GrassPals."
+  },
+  {
+    "id": "angry-shark",
+    "number": 31,
+    "name": "Angry Shark",
+    "pals": [
+      "Gobfin"
+    ],
+    "type": "Combat / Utility",
+    "categories": [
+      "Combat",
+      "Utility"
+    ],
+    "description": "When activated, attacks targeted enemy with a powerful Aqua Gun. While in team, increases player's attack power."
+  },
+  {
+    "id": "flying-trapeze",
+    "number": 32,
+    "name": "Flying Trapeze",
+    "pals": [
+      "Hangyu"
+    ],
+    "type": "Mount (Glider)",
+    "categories": [
+      "Mount (Glider)"
+    ],
+    "description": "While in team, can be summoned and used instead of a glider. Carries the player high up while gliding."
+  },
+  {
+    "id": "grenadier-panda",
+    "number": 33,
+    "name": "Grenadier Panda",
+    "pals": [
+      "Mossanda"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Can rapidly fire a grenade launcher while mounted."
+  },
+  {
+    "id": "candy-pop",
+    "number": 34,
+    "name": "Candy Pop",
+    "pals": [
+      "Woolipop"
+    ],
+    "type": "Farming",
+    "categories": [
+      "Farming"
+    ],
+    "description": "Sometimes drop Cotton Candy when assigned to ranch."
+  },
+  {
+    "id": "berry-picker",
+    "number": 35,
+    "name": "Berry Picker",
+    "pals": [
+      "Caprity"
+    ],
+    "type": "Farming",
+    "categories": [
+      "Farming"
+    ],
+    "description": "Sometimes drops Red Berries from its back when assigned to Ranch."
+  },
+  {
+    "id": "pecapaca-wool",
+    "number": 36,
+    "name": "Pecapaca Wool",
+    "pals": [
+      "Melpaca"
+    ],
+    "type": "Mount / Farming",
+    "categories": [
+      "Farming",
+      "Mount"
+    ],
+    "description": "Can be Ridden. Sometimes drop Wool when assigned to Ranch."
+  },
+  {
+    "id": "guardian-of-the-forest",
+    "number": 37,
+    "name": "Guardian of the Forest",
+    "pals": [
+      "Eikthyrdeer"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Can perform a double jump while mounted. Increases efficiency of cutting trees."
+  },
+  {
+    "id": "travel-companion",
+    "number": 38,
+    "name": "Travel Companion",
+    "pals": [
+      "Nitewing"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden as a flying mount."
+  },
+  {
+    "id": "skilled-fingers",
+    "number": 39,
+    "name": "Skilled Fingers",
+    "pals": [
+      "Ribbuny"
+    ],
+    "type": "Combat / Utility",
+    "categories": [
+      "Combat",
+      "Utility"
+    ],
+    "description": "While in team, increases attack power of Neutral Pals. While at base, increases work efficiency if working at Weapon Workbench."
+  },
+  {
+    "id": "flameclaw-hunter",
+    "number": 40,
+    "name": "Flameclaw Hunter",
+    "pals": [
+      "Incineram"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, attacks targeted enemy with a powerful Hellfire Claw."
+  },
+  {
+    "id": "mysterious-scales",
+    "number": 41,
+    "name": "Mysterious Scales",
+    "pals": [
+      "Cinnamoth"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, attacks targeted enemy with Poison Fog."
+  },
+  {
+    "id": "warm-body",
+    "number": 42,
+    "name": "Warm Body",
+    "pals": [
+      "Arsox"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Keeps the rider warm in cold environments."
+  },
+  {
+    "id": "soil-improver",
+    "number": 43,
+    "name": "Soil Improver",
+    "pals": [
+      "Dumud"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "While in team, increases attack power of GroundPals."
+  },
+  {
+    "id": "telepeck",
+    "number": 44,
+    "name": "Telepeck",
+    "pals": [
+      "Cawgnito"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, attacks targeted enemy with a powerful Phantom Peck."
+  },
+  {
+    "id": "sixth-sense",
+    "number": 45,
+    "name": "Sixth Sense",
+    "pals": [
+      "Leezpunk"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "When activated, utilizes its sixth sense to detect nearby dungeons."
+  },
+  {
+    "id": "claws-glistening-in-the-dark",
+    "number": 46,
+    "name": "Claws Glistening in the Dark",
+    "pals": [
+      "Loupmoon"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, attacks targeted enemy with a powerful Jumping Claw."
+  },
+  {
+    "id": "galeclaw-rider",
+    "number": 47,
+    "name": "Galeclaw Rider",
+    "pals": [
+      "Galeclaw"
+    ],
+    "type": "Mount (Glider)",
+    "categories": [
+      "Mount (Glider)"
+    ],
+    "description": "While in team, can be summoned and used instead of a Gliders. Allows you to fire a gun while gliding with this Pal."
+  },
+  {
+    "id": "hawk-eye",
+    "number": 48,
+    "name": "Hawk Eye",
+    "pals": [
+      "Robinquill"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While fighting together, allows you to deal more damage to weak points."
+  },
+  {
+    "id": "full-power-gorilla-mode",
+    "number": 49,
+    "name": "Full-power Gorilla Mode",
+    "pals": [
+      "Gorirat"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "When activated, unleashes a primal fury that increases Gorirat's attack power."
+  },
+  {
+    "id": "worker-bee",
+    "number": 50,
+    "name": "Worker Bee",
+    "pals": [
+      "Beegarde"
+    ],
+    "type": "Utility / Farming",
+    "categories": [
+      "Farming",
+      "Utility"
+    ],
+    "description": "Sometimes drop Honey when assigned to Ranch. While in team, Elizabee's stats will be increased."
+  },
+  {
+    "id": "queen-bee-command",
+    "number": 51,
+    "name": "Queen Bee Command",
+    "pals": [
+      "Elizabee"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When fighting together, stats will increase the more Beegarde are in your team."
+  },
+  {
+    "id": "plump-body",
+    "number": 52,
+    "name": "Plump Body",
+    "pals": [
+      "Grintale"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Increases Neutral attacks while mounted."
+  },
+  {
+    "id": "fluffy",
+    "number": 53,
+    "name": "Fluffy",
+    "pals": [
+      "Swee"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While in team, Sweepa's stats will be increased."
+  },
+  {
+    "id": "king-of-fluff",
+    "number": 54,
+    "name": "King of Fluff",
+    "pals": [
+      "Sweepa"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. When fighting together, stats will increase the more Swee are in your team."
+  },
+  {
+    "id": "wriggling-weasel",
+    "number": 55,
+    "name": "Wriggling Weasel",
+    "pals": [
+      "Chillet"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Applies Dragon damage to the player's attacks while mounted."
+  },
+  {
+    "id": "swift-deity",
+    "number": 56,
+    "name": "Swift Deity",
+    "pals": [
+      "Univolt"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Applies Electric damage to the player's attack while mounted."
+  },
+  {
+    "id": "aurora-guide",
+    "number": 57,
+    "name": "Aurora Guide",
+    "pals": [
+      "Foxcicle"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "While in a team, increases attack power of Ice pals."
+  },
+  {
+    "id": "red-hare",
+    "number": 58,
+    "name": "Red Hare",
+    "pals": [
+      "Pyrin"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Applies Fire damage to the player's attacks while mounted."
+  },
+  {
+    "id": "cool-body",
+    "number": 59,
+    "name": "Cool Body",
+    "pals": [
+      "Reindrix"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Keeps the rider cool in hot environments."
+  },
+  {
+    "id": "jumping-force",
+    "number": 60,
+    "name": "Jumping Force",
+    "pals": [
+      "Rayhound"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Can double jump while mounted."
+  },
+  {
+    "id": "clear-mind",
+    "number": 61,
+    "name": "Clear Mind",
+    "pals": [
+      "Kitsun"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Unaffected by the cold or heat while riding this Pal."
+  },
+  {
+    "id": "lady-of-lightning",
+    "number": 62,
+    "name": "Lady of Lightning",
+    "pals": [
+      "Dazzi"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "While in team, appears near the player. Follows up player attacks with lightning bolts."
+  },
+  {
+    "id": "antigravity",
+    "number": 63,
+    "name": "Antigravity",
+    "pals": [
+      "Lunaris"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While in team, Lunaris manipulates gravity, increasing the player's max carrying capacity."
+  },
+  {
+    "id": "fragrant-dragon",
+    "number": 64,
+    "name": "Fragrant Dragon",
+    "pals": [
+      "Dinossom"
+    ],
+    "type": "Combat / Mount",
+    "categories": [
+      "Combat",
+      "Mount"
+    ],
+    "description": "Can be ridden. Enhances Grassattacks while mounted."
+  },
+  {
+    "id": "swift-swimmer",
+    "number": 65,
+    "name": "Swift Swimmer",
+    "pals": [
+      "Surfent"
+    ],
+    "type": "Mount (Swimmer)",
+    "categories": [
+      "Mount (Swimmer)"
+    ],
+    "description": "Can be ridden to travel on water. While mounted, prevents Stamina depletion while moving over water."
+  },
+  {
+    "id": "messenger-of-death",
+    "number": 66,
+    "name": "Messenger of Death",
+    "pals": [
+      "Maraith"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Applies Dark damage to the player's attacks while mounted."
+  },
+  {
+    "id": "drill-crusher",
+    "number": 67,
+    "name": "Drill Crusher",
+    "pals": [
+      "Digtoise"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "Performs Shell Spin, follows the player while spinning and mines ores efficiently."
+  },
+  {
+    "id": "ultrasonic-sensor",
+    "number": 68,
+    "name": "Ultrasonic Sensor",
+    "pals": [
+      "Tombat"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "When activated, uses ultrasonic waves to detect the presence of nearby Pals."
+  },
+  {
+    "id": "heart-drain",
+    "number": 69,
+    "name": "Heart Drain",
+    "pals": [
+      "Lovander"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While fighting together, grants the player and Loveander the life steal effect which absorbs some of the received damage and restores Health."
+  },
+  {
+    "id": "magma-tears",
+    "number": 70,
+    "name": "Magma Tears",
+    "pals": [
+      "Flambelle"
+    ],
+    "type": "Farming",
+    "categories": [
+      "Farming"
+    ],
+    "description": "Sometimes produces Flame Organ when assigned to Ranch."
+  },
+  {
+    "id": "aerial-marauder",
+    "number": 71,
+    "name": "Aerial Marauder",
+    "pals": [
+      "Vanwyrm"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden as a flying mount. Increases damage player deals to enemy weak points while mounted."
+  },
+  {
+    "id": "brandish-blade",
+    "number": 72,
+    "name": "Brandish Blade",
+    "pals": [
+      "Bushi"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, attacks targeted enemy with a powerful Iaigiri."
+  },
+  {
+    "id": "flash-blade",
+    "number": 72,
+    "name": "Flash Blade",
+    "pals": [
+      "Bushi Noct"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, attacks targeted enemy with a powerful Iaigiri."
+  },
+  {
+    "id": "thunderous",
+    "number": 73,
+    "name": "Thunderous",
+    "pals": [
+      "Beakon"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden as a flying mount. Applies Electric damage to the player's attacks while mounted."
+  },
+  {
+    "id": "flame-wing",
+    "number": 74,
+    "name": "Flame Wing",
+    "pals": [
+      "Ragnahawk"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden as a flying mount. Applies Fire damage to the player's attacks while mounted."
+  },
+  {
+    "id": "grimoire-collector",
+    "number": 75,
+    "name": "Grimoire Collector",
+    "pals": [
+      "Katress"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "When fighting together, Neutral Pals drop more items when defeated."
+  },
+  {
+    "id": "lord-fox",
+    "number": 76,
+    "name": "Lord Fox",
+    "pals": [
+      "Wixen"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When fighting together, applies Fire damage to the player's attacks."
+  },
+  {
+    "id": "grassland-speedster",
+    "number": 77,
+    "name": "Grassland Speedster",
+    "pals": [
+      "Verdash"
+    ],
+    "type": "Utility / Combat",
+    "categories": [
+      "Combat",
+      "Utility"
+    ],
+    "description": "When fighting together, increases player's movement speed and applies Grass damage to the player's attacks."
+  },
+  {
+    "id": "purification-of-gaia",
+    "number": 78,
+    "name": "Purification of Gaia",
+    "pals": [
+      "Vaelet"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While fighting together, Ground Pals drop more items when defeated."
+  },
+  {
+    "id": "silk-maker",
+    "number": 79,
+    "name": "Silk Maker",
+    "pals": [
+      "Sibelyx"
+    ],
+    "type": "Combat / Farming",
+    "categories": [
+      "Combat",
+      "Farming"
+    ],
+    "description": "When activated, attacks targeted enemy with a powerful Blizzard Spike. Sometimes produces High Quality Cloth when assigned to Ranch."
+  },
+  {
+    "id": "amicable-holy-dragon",
+    "number": 80,
+    "name": "Amicable Holy Dragon",
+    "pals": [
+      "Elphidran"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden as an aerial mount. While fighting together, DarkPals drop more items when defeated."
+  },
+  {
+    "id": "aqua-spout",
+    "number": 81,
+    "name": "Aqua Spout",
+    "pals": [
+      "Kelpsea"
+    ],
+    "type": "Utility / Farming",
+    "categories": [
+      "Farming",
+      "Utility"
+    ],
+    "description": "While in team, increases the attack power of WaterPals. Sometimes produces Pal Fluids when assigned to Ranch."
+  },
+  {
+    "id": "waterwing-dance",
+    "number": 82,
+    "name": "Waterwing Dance",
+    "pals": [
+      "Azurobe"
+    ],
+    "type": "Combat / Mount",
+    "categories": [
+      "Combat",
+      "Mount"
+    ],
+    "description": "Can be ridden to travel on water. Applies Water damage to the playerattacks while mounted."
+  },
+  {
+    "id": "dragon-hunter",
+    "number": 83,
+    "name": "Dragon Hunter",
+    "pals": [
+      "Cryolinx"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While fighting together, DragonPals drop more items when defeated."
+  },
+  {
+    "id": "hellflame-lion",
+    "number": 84,
+    "name": "Hellflame Lion",
+    "pals": [
+      "Blazehowl"
+    ],
+    "type": "Mount / Utility",
+    "categories": [
+      "Mount",
+      "Utility"
+    ],
+    "description": "Can be ridden. While fighting together, GrassPals drop more items when defeated."
+  },
+  {
+    "id": "missile-turret",
+    "number": 85,
+    "name": "Missile Turret",
+    "pals": [
+      "Relaxaurus"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Allows the the player to use a missile turret."
+  },
+  {
+    "id": "overaffectionate",
+    "number": 86,
+    "name": "Overaffectionate",
+    "pals": [
+      "Broncherry"
+    ],
+    "type": "Mount / Utility",
+    "categories": [
+      "Mount",
+      "Utility"
+    ],
+    "description": "Can be ridden. While in team, Broncherry helps carry supplies, increasing the player's max carrying capacity."
+  },
+  {
+    "id": "blessing-of-the-flower-spirit",
+    "number": 87,
+    "name": "Blessing of the Flower Spirit",
+    "pals": [
+      "Petallia"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, uses medicinal flowers to restore the player's Health."
+  },
+  {
+    "id": "ore-loving-beast",
+    "number": 88,
+    "name": "Ore-loving Beast",
+    "pals": [
+      "Reptyro"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Improves efficiency of mining ores while mounted."
+  },
+  {
+    "id": "king-of-muscles",
+    "number": 89,
+    "name": "King of Muscles",
+    "pals": [
+      "Kingpaca"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "While in a team, Kingpaca helps carry supplies, increasing the player's max carrying capacity."
+  },
+  {
+    "id": "gaia-crusher",
+    "number": 90,
+    "name": "Gaia Crusher",
+    "pals": [
+      "Mammorest"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Improves efficiency of cutting trees and mining ores while mounted."
+  },
+  {
+    "id": "guardian-of-the-snowy-mountain",
+    "number": 91,
+    "name": "Guardian of the Snowy Mountain",
+    "pals": [
+      "Wumpo"
+    ],
+    "type": "Mount / Utility",
+    "categories": [
+      "Mount",
+      "Utility"
+    ],
+    "description": "Can be ridden. While in team, Wumpo helps carry supplies, increasing the player's max carrying capacity."
+  },
+  {
+    "id": "hard-armor",
+    "number": 92,
+    "name": "Hard Armor",
+    "pals": [
+      "Warsect"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When fighting together, increases player's defense and Fire resistance."
+  },
+  {
+    "id": "wind-and-clouds",
+    "number": 93,
+    "name": "Wind and Clouds",
+    "pals": [
+      "Fenglope"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Can double jump while mounted."
+  },
+  {
+    "id": "life-steal",
+    "number": 94,
+    "name": "Life Steal",
+    "pals": [
+      "Felbat"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "While fighting together, grants the player and Felbat the life steal effect which absorbs some of the received damage and restores Health."
+  },
+  {
+    "id": "sky-dragons-affection",
+    "number": 95,
+    "name": "Sky Dragon's Affection",
+    "pals": [
+      "Quivern"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden as a flying mount. Enhances Dragonattacks while mounted."
+  },
+  {
+    "id": "grass-dragons-affection",
+    "number": 95,
+    "name": "Grass Dragon's Affection",
+    "pals": [
+      "Quivern Botan"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden as a flying mount. Enhances Grassattacks while mounted."
+  },
+  {
+    "id": "magma-kaiser",
+    "number": 96,
+    "name": "Magma Kaiser",
+    "pals": [
+      "Blazamut"
+    ],
+    "type": "Mount (Ridden)",
+    "categories": [
+      "Mount (Ridden)"
+    ],
+    "description": "Can be ridden. Enhances Fire attacks while mounted."
+  },
+  {
+    "id": "wings-of-death",
+    "number": 97,
+    "name": "Wings of Death",
+    "pals": [
+      "Helzephyr"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden as a flying mount. Applies Dark damage to the player's attacks while mounted."
+  },
+  {
+    "id": "black-ankylosaur",
+    "number": 98,
+    "name": "Black Ankylosaur",
+    "pals": [
+      "Astegon"
+    ],
+    "type": "Utility / Mount (Flying)",
+    "categories": [
+      "Mount (Flying)",
+      "Utility"
+    ],
+    "description": "Can be ridden as a flying mount. Increases damage dealt to ore while mounted."
+  },
+  {
+    "id": "steel-scorpion",
+    "number": 99,
+    "name": "Steel Scorpion",
+    "pals": [
+      "Menasting"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "When fighting together, increases the player's defense and ElectricPals drop more items when defeated."
+  },
+  {
+    "id": "guardian-of-the-desert",
+    "number": 100,
+    "name": "Guardian of the Desert",
+    "pals": [
+      "Anubis"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When fighting together, applies Ground damage to the player's attacks. Sometimes dodges attacks with a high speed sidestep in battle."
+  },
+  {
+    "id": "stormbringer-sea-dragon",
+    "number": 101,
+    "name": "Stormbringer Sea Dragon",
+    "pals": [
+      "Jormuntide"
+    ],
+    "type": "Mount (Swimmer)",
+    "categories": [
+      "Mount (Swimmer)"
+    ],
+    "description": "Can be ridden to travel on water. While mounted, prevents stamina depletion while moving over water."
+  },
+  {
+    "id": "wings-of-flame",
+    "number": 102,
+    "name": "Wings of Flame",
+    "pals": [
+      "Suzaku"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden as a flying mount. Enhances Fireattacks while mounted."
+  },
+  {
+    "id": "yellow-tank",
+    "number": 103,
+    "name": "Yellow Tank",
+    "pals": [
+      "Grizzbolt"
+    ],
+    "type": "Combat / Mount",
+    "categories": [
+      "Combat",
+      "Mount"
+    ],
+    "description": "Can be ridden. Can rapidly fire a minigun while mounted."
+  },
+  {
+    "id": "harvest-goddess",
+    "number": 104,
+    "name": "Harvest Goddess",
+    "pals": [
+      "Lyleen"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "When activated, the queen's soothing graces greatly restore the player's health."
+  },
+  {
+    "id": "scorching-predator",
+    "number": 105,
+    "name": "Scorching Predator",
+    "pals": [
+      "Faleris"
+    ],
+    "type": "Mount (Flying) / Utility",
+    "categories": [
+      "Mount (Flying)",
+      "Utility"
+    ],
+    "description": "Can be ridden as an aerial mount. While fighting together, Ice Pals drop more items when defeated."
+  },
+  {
+    "id": "ferocious-thunder-dragon",
+    "number": 106,
+    "name": "Ferocious Thunder Dragon",
+    "pals": [
+      "Orserk"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While fighting together, Water Pals drop more items when defeated."
+  },
+  {
+    "id": "modified-dna",
+    "number": 107,
+    "name": "Modified DNA",
+    "pals": [
+      "Shadowbeak"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden. Enhances Dark attacks while mounted."
+  },
+  {
+    "id": "holy-knight-of-the-firmament",
+    "number": 108,
+    "name": "Holy Knight of the Firmament",
+    "pals": [
+      "Paladius"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Can triple jump while mounted."
+  },
+  {
+    "id": "dark-knight-of-the-abyss",
+    "number": 109,
+    "name": "Dark Knight of the Abyss",
+    "pals": [
+      "Necromus"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Can double jump while mounted."
+  },
+  {
+    "id": "ice-steed",
+    "number": 110,
+    "name": "Ice Steed",
+    "pals": [
+      "Frostallion"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden as a flying mount. Changes the player's attack type to Ice, enhances Iceattacks while mounted."
+  },
+  {
+    "id": "aerial-missile",
+    "number": 111,
+    "name": "Aerial Missile",
+    "pals": [
+      "Jetragon"
+    ],
+    "type": "Mount (Flying)",
+    "categories": [
+      "Mount (Flying)"
+    ],
+    "description": "Can be ridden as a flying mount. Can rapidly fire a missile launcher while mounted."
+  }
+]

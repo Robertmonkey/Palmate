@@ -496,6 +496,173 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
+    .glossary-callout ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+      color: rgba(224, 225, 221, 0.78);
+      line-height: 1.45;
+    }
+    .glossary-callout li {
+      margin-bottom: 4px;
+    }
+    .partner-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 16px;
+    }
+    .partner-filter {
+      border-radius: 999px;
+      border: 1px solid rgba(119, 141, 169, 0.32);
+      background: rgba(12, 26, 42, 0.65);
+      color: var(--text);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .partner-filter:hover,
+    .partner-filter:focus-visible {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+      transform: translateY(-1px);
+    }
+    .partner-filter[aria-pressed="true"] {
+      background: linear-gradient(135deg, rgba(35, 68, 107, 0.78), rgba(57, 102, 147, 0.72));
+      border-color: var(--accent);
+      box-shadow: 0 10px 24px rgba(7, 19, 38, 0.5);
+    }
+    .partner-skill-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .partner-skill-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border: 1px solid rgba(119, 141, 169, 0.26);
+      border-radius: 18px;
+      padding: 20px;
+      background: linear-gradient(165deg, rgba(14, 28, 44, 0.92), rgba(26, 52, 78, 0.78));
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.38);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .partner-skill-card:hover,
+    .partner-skill-card:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.42);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    .partner-skill-card__header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .partner-skill-card__name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      flex: 1 1 auto;
+    }
+    .partner-skill-card__number {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(119, 141, 169, 0.2);
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: rgba(224, 225, 221, 0.75);
+      flex: 0 0 auto;
+    }
+    .partner-skill-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .partner-skill-card__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(119, 141, 169, 0.22);
+      color: rgba(224, 225, 221, 0.86);
+    }
+    .partner-skill-card__tag--mount {
+      background: rgba(129, 199, 245, 0.22);
+      color: rgba(224, 242, 255, 0.9);
+    }
+    .partner-skill-card__tag--damage {
+      background: rgba(255, 138, 101, 0.22);
+      color: rgba(255, 214, 186, 0.92);
+    }
+    .partner-skill-card__tag--drops {
+      background: rgba(144, 238, 144, 0.22);
+      color: rgba(226, 255, 226, 0.88);
+    }
+    .partner-skill-card__description {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: rgba(224, 225, 221, 0.88);
+    }
+    .partner-skill-card__pals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .partner-skill-card__pal {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(119, 141, 169, 0.32);
+      background: rgba(12, 24, 38, 0.7);
+      color: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+    .partner-skill-card__pal:hover,
+    .partner-skill-card__pal:focus-visible {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.38);
+      transform: translateY(-1px);
+    }
+    .partner-skill-card__pal[aria-disabled="true"] {
+      cursor: default;
+      opacity: 0.7;
+      border-style: dashed;
+    }
+    .partner-skill-card__pal-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: rgba(119, 141, 169, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+    .partner-skill-card__pal-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .work-tier-legend {
       display: flex;
       flex-wrap: wrap;
@@ -3939,6 +4106,7 @@
     let SKILL_DETAILS = {};
     let PASSIVE_DETAILS = {};
     let ITEM_DETAILS = {};
+    let PARTNER_SKILLS = [];
     // Map of items to pals that drop them.  Populated after data load.
     let DROPS_MAP = {};
     // Map pal names to IDs for quick lookup when clicking breeding
@@ -5003,6 +5171,7 @@
     const ITEM_DETAILS_SOURCES = ['data/item_details.json'];
     const ITEM_DETAILS_FALLBACK_SCRIPT = 'data/item_details_fallback.js';
     const ITEM_DETAILS_GLOBAL = '__PALMATE_ITEM_DETAILS__';
+    const PARTNER_SKILL_SOURCES = ['data/partner_skills.json'];
     let embeddedDataPromise = null;
     let itemDetailsEmbeddedPromise = null;
 
@@ -5081,6 +5250,24 @@
       if (fallback) return fallback;
       console.warn('Item detail dataset unavailable. Item cards will use minimal info.');
       return {};
+    }
+    async function loadPartnerSkillDataset() {
+      for (const source of PARTNER_SKILL_SOURCES) {
+        try {
+          const response = await fetch(source);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const payload = await response.json();
+          if (Array.isArray(payload)) {
+            return payload;
+          }
+          console.warn(`Partner skill payload from ${source} was not an array.`);
+        } catch (err) {
+          console.warn(`Failed to load partner skills from ${source}`, err);
+        }
+      }
+      return [];
     }
     // Type icon mapping (relative file paths)
     const iconMap = {
@@ -5475,6 +5662,32 @@
         ],
         url: `${PALWORLD_BASE_URL}/items?search=${encodeURIComponent('Skill Fruit')}`,
         note: 'Palmate keeps this move info handy so you can stay on track.'
+      },
+      'pal-essence-condenser': {
+        title: 'Pal Essence Condenser',
+        kid: [
+          'A special machine that eats extra pals to give your favorite buddy shiny stars.',
+          'Those stars make their partner skill stronger and can even help with base jobs.'
+        ],
+        grown: [
+          'Consumes 4, 16, 32 and 64 duplicates (116 total) to raise a partner skill to level 5.',
+          'Each star boosts base stats and the 4★ upgrade grants +1 to every work suitability.'
+        ],
+        url: `${PALWORLD_BASE_URL}/items?search=${encodeURIComponent('Pal Essence Condenser')}`,
+        note: 'Palmate keeps condensation tips nearby so you never lose the route context.'
+      },
+      'pal-condensation': {
+        title: 'Pal Condensation',
+        kid: [
+          'Feeding the condenser pals makes partner moves power up one star at a time.',
+          'Four stars also give that buddy better job levels back at base.'
+        ],
+        grown: [
+          'Every condenser star increases partner skill level by one (to Lv.5) while adding base stat boosts.',
+          'Damage-focused mounts scale hard with these ranks—watch for mount tags that boost player and pal damage.'
+        ],
+        url: `${PALWORLD_BASE_URL}/items?search=${encodeURIComponent('Pal Essence Condenser')}`,
+        note: 'Review condensation effects without leaving your tower or route notes.'
       }
     };
     // Palworld's in-game coordinates are not symmetrical on the X/Y axes.
@@ -7676,6 +7889,7 @@
         SKILL_DETAILS = payload.skillsDetails || {};
         PASSIVE_DETAILS = payload.passiveDetails || {};
         ITEM_DETAILS = await loadItemDetails();
+        PARTNER_SKILLS = await loadPartnerSkillDataset();
         // Build name‑to‑ID lookup map
         PAL_NAME_TO_ID = {};
         PAL_SLUG_TO_ID = {};
@@ -11080,6 +11294,308 @@
 
       workSection.appendChild(workGrid);
 
+      const partnerSkillsData = Array.isArray(PARTNER_SKILLS) ? PARTNER_SKILLS.slice() : [];
+      const partnerDescription = kidMode
+        ? 'Press the Partner Skill button to trigger these buddy powers.'
+        : 'Every ability you unlock with the Partner button, from mount bonuses to farming helpers.';
+      const partnerSection = createSection('glossary-partners', 'Partner Skills', partnerDescription);
+
+      const partnerSummary = document.createElement('div');
+      partnerSummary.className = 'glossary-callout';
+      const partnerCountLabel = kidMode
+        ? `Palmate now tracks ${partnerSkillsData.length} partner skills.`
+        : `${partnerSkillsData.length} partner skills catalogued across the full roster.`;
+      partnerSummary.innerHTML = kidMode
+        ? `<strong>Partner skill quick facts</strong><ul><li>${partnerCountLabel}—that’s even more than the 94 skills Palworld launched with.</li><li>Mount badges mark pals that boost you while you ride—look for the Damage Boost tag when you want your own attacks to hit harder.</li><li>Utility and farming pals are flagged so you can find harvest bonuses fast.</li></ul>`
+        : `<strong>Partner skill quick reference</strong><ul><li>${partnerCountLabel} (the roster has already grown past the ~94 launch abilities). Use the filters to zero in on combat, mount or production buffs.</li><li>The Damage Boost tag highlights mounts that amplify player or pal damage while ridden.</li><li>Utility and Ranch labels surface weight carriers, harvest multipliers and other base-side perks.</li></ul>`;
+      partnerSection.appendChild(partnerSummary);
+
+      const condenserCallout = document.createElement('div');
+      condenserCallout.className = 'glossary-callout';
+      condenserCallout.innerHTML = kidMode
+        ? `<strong>Power Condenser bonuses</strong><ul><li>Feed extra pals into the Power Condenser to add blue stars—each star raises the partner skill level.</li><li>Stars also boost a pal's stats, and the fourth star gives every job +1 level.</li><li>It takes 4 + 16 + 32 + 64 pals (116 total) to reach five stars, so mark your favorites before condensing.</li></ul>`
+        : `<strong>Power Condenser benefits</strong><ul><li>The Pal Essence Condenser consumes 4, 16, 32 and 64 duplicates (116 total) to push a partner skill to Lv.5.</li><li>Each condensation star raises base stats; the 4★ upgrade grants +1 to every work suitability.</li><li>Damage-focused partner skills scale with those levels—mount element swaps and active skill multipliers can double or better by rank 5.</li></ul>`;
+      partnerSection.appendChild(condenserCallout);
+
+      const partnerSearch = createSearch(kidMode ? 'Search partner skills…' : 'Filter partner skills by name, pal or effect…');
+      partnerSection.appendChild(partnerSearch);
+
+      const partnerFilterBar = document.createElement('div');
+      partnerFilterBar.className = 'partner-filter-bar';
+      partnerSection.appendChild(partnerFilterBar);
+
+      const partnerFilterState = { category: 'all', damageOnly: false };
+      const partnerCategoryButtons = [];
+      const partnerCategoryOptions = [
+        { key: 'all', kid: 'All', grown: 'All roles' },
+        { key: 'mount', kid: 'Mounts', grown: 'Mount bonuses' },
+        { key: 'combat', kid: 'Battle', grown: 'Combat' },
+        { key: 'utility', kid: 'Helpers', grown: 'Utility' },
+        { key: 'farming', kid: 'Ranch', grown: 'Farming' }
+      ];
+      partnerCategoryOptions.forEach(option => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'partner-filter';
+        btn.dataset.category = option.key;
+        btn.textContent = kidMode ? option.kid : option.grown;
+        btn.setAttribute('aria-pressed', option.key === partnerFilterState.category ? 'true' : 'false');
+        btn.addEventListener('click', () => {
+          if (partnerFilterState.category === option.key) return;
+          partnerFilterState.category = option.key;
+          updatePartnerCategoryButtons();
+          renderPartnerSkills();
+        });
+        partnerCategoryButtons.push(btn);
+        partnerFilterBar.appendChild(btn);
+      });
+
+      const damageToggle = document.createElement('button');
+      damageToggle.type = 'button';
+      damageToggle.className = 'partner-filter';
+      damageToggle.dataset.filter = 'damage';
+      damageToggle.textContent = kidMode ? 'Damage boost' : 'Damage boosts';
+      damageToggle.setAttribute('aria-pressed', partnerFilterState.damageOnly ? 'true' : 'false');
+      damageToggle.addEventListener('click', () => {
+        partnerFilterState.damageOnly = !partnerFilterState.damageOnly;
+        damageToggle.setAttribute('aria-pressed', partnerFilterState.damageOnly ? 'true' : 'false');
+        renderPartnerSkills();
+      });
+      partnerFilterBar.appendChild(damageToggle);
+
+      const partnerCount = document.createElement('p');
+      partnerCount.className = 'glossary-count';
+      partnerSection.appendChild(partnerCount);
+
+      const partnerGrid = document.createElement('div');
+      partnerGrid.className = 'partner-skill-grid';
+      partnerSection.appendChild(partnerGrid);
+
+      const partnerEmpty = document.createElement('p');
+      partnerEmpty.className = 'glossary-empty';
+      partnerEmpty.textContent = kidMode
+        ? 'No partner skills found. Try a different word or filter.'
+        : 'No partner skills match the current filters.';
+      partnerEmpty.hidden = true;
+      partnerSection.appendChild(partnerEmpty);
+
+      const categoryLabels = {
+        'Combat': { kid: 'Battle', grown: 'Combat' },
+        'Utility': { kid: 'Helper', grown: 'Utility' },
+        'Farming': { kid: 'Ranch', grown: 'Farming' },
+        'Mount': { kid: 'Ride', grown: 'Mount' },
+        'Mount (Flying)': { kid: 'Fly', grown: 'Flying Mount' },
+        'Mount (Glider)': { kid: 'Glide', grown: 'Glider Mount' },
+        'Mount (Swimmer)': { kid: 'Swim', grown: 'Swim Mount' },
+        'Mount (Ridden)': { kid: 'Ground', grown: 'Ground Mount' }
+      };
+
+      const decoratedPartnerSkills = partnerSkillsData.map(skill => {
+        const categories = Array.isArray(skill.categories) ? skill.categories.slice() : [];
+        const normalizedCategories = new Set();
+        const hasSpecializedMount = categories.some(cat => /^Mount \(/i.test(cat));
+        categories.forEach(cat => {
+          const lower = String(cat || '').toLowerCase();
+          if (!lower) return;
+          if (lower.includes('combat')) normalizedCategories.add('combat');
+          if (lower.includes('utility')) normalizedCategories.add('utility');
+          if (lower.includes('farming')) normalizedCategories.add('farming');
+          if (lower.startsWith('mount')) {
+            normalizedCategories.add('mount');
+            if (lower.includes('flying')) normalizedCategories.add('mount-flying');
+            if (lower.includes('glider')) normalizedCategories.add('mount-glider');
+            if (lower.includes('swimmer')) normalizedCategories.add('mount-swimmer');
+            if (lower.includes('ridden')) normalizedCategories.add('mount-ridden');
+          }
+        });
+        const description = typeof skill.description === 'string' ? skill.description : '';
+        const descLower = description.toLowerCase();
+        const modifiesPlayerDamage = descLower.includes('player') && descLower.includes('mounted') && (descLower.includes('damage') || descLower.includes('attack'));
+        const modifiesPalDamage = descLower.includes('pal') && descLower.includes('mounted') && descLower.includes('damage');
+        const modifiesAnyDamage = (descLower.includes('damage') || descLower.includes('attack')) && descLower.includes('mounted');
+        const dropBoost = descLower.includes('drop') || descLower.includes('harvest') || descLower.includes('ranch');
+        const workBoost = descLower.includes('work') || descLower.includes('carry') || descLower.includes('weight');
+        const speedBoost = descLower.includes('speed') && descLower.includes('mount');
+        const mountCategory = categories.find(cat => /^Mount/i.test(cat));
+        const palEntries = (Array.isArray(skill.pals) ? skill.pals : []).map(name => {
+          const palId = PAL_NAME_TO_ID[name];
+          const pal = palId != null ? PALS[palId] : null;
+          return { name, pal, palId };
+        });
+        const searchText = [
+          skill.name || '',
+          description,
+          skill.type || '',
+          (Array.isArray(skill.pals) ? skill.pals.join(' ') : '')
+        ].join(' ').toLowerCase();
+        return {
+          ...skill,
+          categories,
+          normalizedCategories,
+          hasSpecializedMount,
+          mountCategory,
+          modifiesPlayerDamage,
+          modifiesPalDamage,
+          modifiesAnyDamage,
+          dropBoost,
+          workBoost,
+          speedBoost,
+          palEntries,
+          searchText,
+          descLower
+        };
+      });
+
+      function updatePartnerCategoryButtons() {
+        partnerCategoryButtons.forEach(btn => {
+          const active = btn.dataset.category === partnerFilterState.category;
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+      }
+
+      function renderPartnerSkills() {
+        const totalSkills = decoratedPartnerSkills.length;
+        if (!totalSkills) {
+          partnerGrid.innerHTML = '';
+          partnerCount.textContent = kidMode
+            ? 'Partner skill data is loading…'
+            : 'Partner skill dataset unavailable.';
+          partnerEmpty.hidden = false;
+          partnerEmpty.textContent = kidMode
+            ? 'Partner skill list will appear once the data loads.'
+            : 'Partner skill dataset is unavailable.';
+          return;
+        }
+        const term = partnerSearch.value.trim().toLowerCase();
+        const category = partnerFilterState.category;
+        const requireDamage = partnerFilterState.damageOnly;
+        partnerGrid.innerHTML = '';
+        let visible = 0;
+        decoratedPartnerSkills.forEach(skill => {
+          const matchesTerm = !term || skill.searchText.includes(term);
+          const matchesCategory = category === 'all' || skill.normalizedCategories.has(category);
+          const matchesDamage = !requireDamage || skill.modifiesAnyDamage;
+          if (!matchesTerm || !matchesCategory || !matchesDamage) {
+            return;
+          }
+          visible += 1;
+          const card = document.createElement('article');
+          card.className = 'partner-skill-card';
+          card.dataset.skillId = skill.id || '';
+
+          const header = document.createElement('header');
+          header.className = 'partner-skill-card__header';
+          const nameEl = document.createElement('h4');
+          nameEl.className = 'partner-skill-card__name';
+          nameEl.textContent = skill.name || 'Partner Skill';
+          const numberEl = document.createElement('span');
+          numberEl.className = 'partner-skill-card__number';
+          numberEl.textContent = skill.number != null ? String(skill.number).padStart(3, '0') : '—';
+          header.appendChild(nameEl);
+          header.appendChild(numberEl);
+          card.appendChild(header);
+
+          const tags = document.createElement('div');
+          tags.className = 'partner-skill-card__tags';
+          const shownTags = new Set();
+          const hasMountSpecialisation = skill.hasSpecializedMount;
+          skill.categories.forEach(cat => {
+            if (!cat) return;
+            if (cat === 'Mount' && hasMountSpecialisation) return;
+            const mapping = categoryLabels[cat];
+            const label = mapping ? (kidMode ? mapping.kid : mapping.grown) : cat;
+            const tagKey = `cat:${label}`;
+            if (shownTags.has(tagKey)) return;
+            shownTags.add(tagKey);
+            const tag = document.createElement('span');
+            tag.className = 'partner-skill-card__tag';
+            if (/^Mount/i.test(cat)) {
+              tag.classList.add('partner-skill-card__tag--mount');
+            }
+            tag.textContent = label;
+            tags.appendChild(tag);
+          });
+          if (skill.modifiesAnyDamage) {
+            const tag = document.createElement('span');
+            tag.className = 'partner-skill-card__tag partner-skill-card__tag--damage';
+            tag.textContent = kidMode
+              ? (skill.modifiesPlayerDamage ? 'You hit harder' : 'Pal hits harder')
+              : (skill.modifiesPlayerDamage ? 'Player damage' : 'Pal damage');
+            tags.appendChild(tag);
+          }
+          if (skill.dropBoost) {
+            const tag = document.createElement('span');
+            tag.className = 'partner-skill-card__tag partner-skill-card__tag--drops';
+            tag.textContent = kidMode ? 'More drops' : 'Drop bonus';
+            tags.appendChild(tag);
+          }
+          if (skill.workBoost) {
+            const tag = document.createElement('span');
+            tag.className = 'partner-skill-card__tag';
+            tag.textContent = kidMode ? 'Helper boost' : 'Support bonus';
+            tags.appendChild(tag);
+          }
+          if (skill.speedBoost) {
+            const tag = document.createElement('span');
+            tag.className = 'partner-skill-card__tag';
+            tag.textContent = kidMode ? 'Faster ride' : 'Speed boost';
+            tags.appendChild(tag);
+          }
+          if (tags.childElementCount) {
+            card.appendChild(tags);
+          }
+
+          const description = document.createElement('p');
+          description.className = 'partner-skill-card__description';
+          description.textContent = skill.description || (kidMode ? 'Partner skill info unavailable.' : 'No description available.');
+          card.appendChild(description);
+
+          if (skill.palEntries.length) {
+            const palWrap = document.createElement('div');
+            palWrap.className = 'partner-skill-card__pals';
+            skill.palEntries.forEach(entry => {
+              const palBtn = document.createElement('button');
+              palBtn.type = 'button';
+              palBtn.className = 'partner-skill-card__pal';
+              const palId = entry.palId;
+              if (palId != null) {
+                palBtn.dataset.palId = String(palId);
+              } else {
+                palBtn.setAttribute('aria-disabled', 'true');
+                palBtn.disabled = true;
+              }
+              const avatar = document.createElement('span');
+              avatar.className = 'partner-skill-card__pal-avatar';
+              if (entry.pal) {
+                const img = document.createElement('img');
+                img.alt = '';
+                applyPalArtwork(img, entry.pal, { alt: '' });
+                avatar.appendChild(img);
+              } else {
+                avatar.textContent = entry.name ? entry.name.charAt(0).toUpperCase() : '?';
+              }
+              const label = document.createElement('span');
+              label.textContent = entry.name || (kidMode ? 'Pal' : 'Unknown Pal');
+              palBtn.appendChild(avatar);
+              palBtn.appendChild(label);
+              palWrap.appendChild(palBtn);
+            });
+            card.appendChild(palWrap);
+          }
+
+          partnerGrid.appendChild(card);
+        });
+
+        partnerCount.textContent = visible === totalSkills
+          ? `${visible} partner skills listed.`
+          : `Showing ${visible} of ${totalSkills} partner skills.`;
+        partnerEmpty.hidden = visible !== 0;
+      }
+
+      updatePartnerCategoryButtons();
+      partnerSearch.addEventListener('input', renderPartnerSkills);
+      renderPartnerSkills();
+
       const passiveDescription = kidMode
         ? 'All partner traits pals can roll. Tap a trait to read what it does.'
         : 'Complete alphabetical list of every passive trait. Select any entry for detailed effects.';
@@ -11272,6 +11788,15 @@
           if (workPalCard && workPalCard.dataset.palId) {
             e.preventDefault();
             showPalDetail(workPalCard.dataset.palId);
+            return;
+          }
+          const partnerPalBtn = e.target.closest('.partner-skill-card__pal');
+          if (partnerPalBtn) {
+            e.preventDefault();
+            const palId = partnerPalBtn.dataset.palId;
+            if (palId) {
+              showPalDetail(palId);
+            }
             return;
           }
           const moveBtn = e.target.closest('.glossary-skill');
