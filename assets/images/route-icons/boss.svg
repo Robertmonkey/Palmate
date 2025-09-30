@@ -1,0 +1,31 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="80" rx="18" fill="url(#boss-bg)"/>
+  <g filter="url(#boss-glow)">
+    <path d="M18 48L24 22L34 34L40 20L46 34L56 22L62 48L18 48Z" fill="url(#boss-crown)" stroke="#0d0b24" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="24" y="48" width="32" height="10" rx="5" fill="url(#boss-base)"/>
+    <circle cx="40" cy="36" r="6" fill="#0d0b24"/>
+    <circle cx="40" cy="36" r="3" fill="url(#boss-gem)"/>
+  </g>
+  <defs>
+    <linearGradient id="boss-bg" x1="12" y1="12" x2="70" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e7b9ff"/>
+      <stop offset="1" stop-color="#b084ff"/>
+    </linearGradient>
+    <linearGradient id="boss-crown" x1="24" y1="20" x2="60" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f9f1ff"/>
+      <stop offset="1" stop-color="#d9c4ff"/>
+    </linearGradient>
+    <linearGradient id="boss-base" x1="24" y1="48" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d9c4ff"/>
+      <stop offset="1" stop-color="#bda0ff"/>
+    </linearGradient>
+    <linearGradient id="boss-gem" x1="37" y1="33" x2="43" y2="39" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe4f5"/>
+      <stop offset="1" stop-color="#ff9ed9"/>
+    </linearGradient>
+    <filter id="boss-glow" x="12" y="14" width="56" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="1.4" result="blur"/>
+      <feBlend in="SourceGraphic" in2="blur" mode="normal"/>
+    </filter>
+  </defs>
+</svg>

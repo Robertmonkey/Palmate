@@ -1,0 +1,28 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="80" rx="18" fill="url(#item-bg)"/>
+  <g filter="url(#item-glow)">
+    <path d="M28 24H52L58 40L48 58H32L22 40L28 24Z" fill="url(#item-bag)" stroke="#261a02" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M28 24C30 20 34 18 40 18C46 18 50 20 52 24" stroke="#261a02" stroke-width="3" stroke-linecap="round"/>
+    <path d="M32 44H48" stroke="#261a02" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="40" cy="36" r="5" fill="#261a02"/>
+    <circle cx="40" cy="36" r="2.5" fill="url(#item-gem)"/>
+  </g>
+  <defs>
+    <linearGradient id="item-bg" x1="16" y1="12" x2="68" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffd166"/>
+      <stop offset="1" stop-color="#f4972c"/>
+    </linearGradient>
+    <linearGradient id="item-bag" x1="24" y1="22" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1c2"/>
+      <stop offset="1" stop-color="#ffd189"/>
+    </linearGradient>
+    <linearGradient id="item-gem" x1="37" y1="33" x2="43" y2="39" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fffbe0"/>
+      <stop offset="1" stop-color="#ffe27a"/>
+    </linearGradient>
+    <filter id="item-glow" x="18" y="14" width="44" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="1.4" result="blur"/>
+      <feBlend in="SourceGraphic" in2="blur" mode="normal"/>
+    </filter>
+  </defs>
+</svg>

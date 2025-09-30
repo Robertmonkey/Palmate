@@ -1,0 +1,29 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="80" rx="18" fill="url(#pal-bg)"/>
+  <g filter="url(#pal-glow)">
+    <circle cx="40" cy="44" r="20" fill="url(#pal-body)"/>
+    <circle cx="28" cy="30" r="10" fill="url(#pal-ear)"/>
+    <circle cx="52" cy="30" r="10" fill="url(#pal-ear)"/>
+    <circle cx="32" cy="44" r="4.5" fill="#0d1b2a"/>
+    <circle cx="48" cy="44" r="4.5" fill="#0d1b2a"/>
+    <path d="M34 55C36.4 58.2 43.6 58.2 46 55" stroke="#0d1b2a" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <defs>
+    <linearGradient id="pal-bg" x1="12" y1="12" x2="68" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4ecdc4"/>
+      <stop offset="1" stop-color="#3498db"/>
+    </linearGradient>
+    <linearGradient id="pal-body" x1="24" y1="28" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff8d6"/>
+      <stop offset="1" stop-color="#ffe0a3"/>
+    </linearGradient>
+    <linearGradient id="pal-ear" x1="22" y1="22" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe9f3"/>
+      <stop offset="1" stop-color="#ffc8dd"/>
+    </linearGradient>
+    <filter id="pal-glow" x="8" y="8" width="64" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feBlend in="SourceGraphic" in2="blur" mode="normal"/>
+    </filter>
+  </defs>
+</svg>
