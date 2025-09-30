@@ -9333,6 +9333,10 @@
           .filter(Boolean)
       : []);
     let routeContext = loadRouteContext();
+    let routeGoalDrawerOpen = false;
+    let guideCatalogSearchTerm = '';
+    let guideCatalogGroupFilter = 'all';
+    let guideCatalogCategoryFilter = 'all';
     let pendingRouteFocus = null;
     let pendingTechFocus = null;
     const ROUTE_ART_IMAGE = 'assets/images/palworld-full-map-2.webp';
@@ -9520,12 +9524,16 @@
         })
         .then(text => {
           const parsed = parseGuideMarkdown(text || '');
-          routeGuideData = augmentGuideData(parsed);
+          return augmentGuideData(parsed);
+        })
+        .then(guide => {
+          routeGuideData = guide;
+          ensureGuideCatalogFiltersValid();
           return routeGuideData;
         })
         .catch(err => {
           console.error('Failed to load adaptive guide', err);
-          routeGuideData = { routes: [], chapters: [], tags: [], routeLookup: {}, metadata: null, recommender: null };
+          routeGuideData = { routes: [], chapters: [], tags: [], routeLookup: {}, metadata: null, recommender: null, guideCatalog: null };
           return routeGuideData;
         });
     }
@@ -9539,6 +9547,7 @@
         levelEstimator: null,
         recommender: null,
         sourceRegistry: null,
+        guideCatalog: null,
         extras: [],
         errors: []
       };
@@ -9579,6 +9588,10 @@
             }
             if(json.source_registry){
               result.sourceRegistry = json.source_registry;
+              continue;
+            }
+            if(json.guide_catalog){
+              result.guideCatalog = json.guide_catalog;
               continue;
             }
           }
@@ -9658,7 +9671,7 @@
       return { importance, optional: !!optional, routeRole };
     }
 
-    function augmentGuideData(parsed){
+    async function augmentGuideData(parsed){
       const routes = Array.isArray(parsed?.routes) ? parsed.routes : [];
       const augmentedRoutes = routes.map((route, index) => augmentRoute(route, index));
       const chapters = augmentedRoutes.map(entry => entry.chapter);
@@ -9675,6 +9688,12 @@
       const sortedResources = Array.from(resourceFrequency.entries())
         .sort((a, b) => b[1] - a[1])
         .map(entry => entry[0]);
+      const catalogMeta = parsed?.guideCatalog || null;
+      let catalogData = null;
+      if(catalogMeta){
+        catalogData = await loadGuideCatalog(catalogMeta);
+      }
+      const preparedCatalog = prepareGuideCatalog(catalogData, catalogMeta);
       return {
         metadata: parsed?.metadata || null,
         xp: parsed?.xp || null,
@@ -9686,8 +9705,116 @@
         tags: Array.from(tagSet).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' })),
         keyResources: sortedResources.slice(0, 24),
         extras: parsed?.extras || [],
-        errors: parsed?.errors || []
+        errors: parsed?.errors || [],
+        guideCatalog: preparedCatalog
       };
+    }
+
+    async function loadGuideCatalog(meta){
+      if(!meta || !meta.path){
+        return null;
+      }
+      const source = meta.path;
+      try {
+        const res = await fetch(source);
+        if(!res.ok){
+          throw new Error(`HTTP ${res.status}`);
+        }
+        const payload = await res.json();
+        if(payload && typeof payload === 'object'){
+          return payload;
+        }
+      } catch(err){
+        console.warn('Failed to load guide catalog', err);
+      }
+      return null;
+    }
+
+    function prepareGuideCatalog(raw, meta){
+      if(!raw || typeof raw !== 'object' || !Array.isArray(raw.guides)){
+        return null;
+      }
+      const entries = [];
+      raw.guides.forEach((guide, index) => {
+        if(!guide || typeof guide !== 'object') return;
+        const groupLabelRaw = String(guide.category_group || 'General').trim() || 'General';
+        const groupLabel = groupLabelRaw;
+        const groupId = slugifyForPalworld(groupLabelRaw) || `group-${index}`;
+        const categoryLabelRaw = String(guide.category || 'General').trim() || 'General';
+        const categoryLabel = categoryLabelRaw;
+        const categoryId = slugifyForPalworld(categoryLabelRaw) || `${groupId}-category`;
+        const title = guide.title || guide.source_heading || 'Guide';
+        const trigger = guide.trigger || '';
+        const keywords = Array.isArray(guide.keywords) ? guide.keywords.filter(Boolean).map(value => String(value)) : [];
+        const steps = Array.isArray(guide.steps)
+          ? guide.steps.map((step, stepIndex) => ({
+            order: Number(step?.order ?? (stepIndex + 1)),
+            instruction: step?.instruction || '',
+            citations: Array.isArray(step?.citations) ? step.citations.slice() : []
+          })).filter(step => step.instruction)
+          : [];
+        steps.sort((a, b) => (a.order || 0) - (b.order || 0));
+        const searchParts = [title, groupLabel, categoryLabel, trigger, keywords.join(' '), steps.map(step => step.instruction).join(' ')];
+        const searchText = searchParts.join(' ').toLowerCase();
+        entries.push({
+          id: guide.id || `${groupId}-${categoryId}-${index}`,
+          title,
+          groupId,
+          groupLabel,
+          categoryId,
+          categoryLabel,
+          trigger,
+          keywords,
+          steps,
+          searchText
+        });
+      });
+      entries.sort((a, b) => {
+        const groupCompare = a.groupLabel.localeCompare(b.groupLabel, undefined, { sensitivity: 'base' });
+        if(groupCompare !== 0) return groupCompare;
+        return a.title.localeCompare(b.title, undefined, { sensitivity: 'base' });
+      });
+      const groupMap = new Map();
+      entries.forEach(entry => {
+        if(!groupMap.has(entry.groupId)){
+          groupMap.set(entry.groupId, { id: entry.groupId, label: entry.groupLabel, categories: new Map() });
+        }
+        const group = groupMap.get(entry.groupId);
+        if(!group.categories.has(entry.categoryId)){
+          group.categories.set(entry.categoryId, { id: entry.categoryId, label: entry.categoryLabel });
+        }
+      });
+      const groups = Array.from(groupMap.values()).map(group => ({
+        id: group.id,
+        label: group.label,
+        categories: Array.from(group.categories.values()).sort((a, b) => a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }))
+      })).sort((a, b) => a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }));
+      return { entries, groups, meta: meta || null, count: entries.length };
+    }
+
+    function ensureGuideCatalogFiltersValid(){
+      const catalog = routeGuideData?.guideCatalog;
+      if(!catalog || !Array.isArray(catalog.entries)){
+        return;
+      }
+      const groups = Array.isArray(catalog.groups) ? catalog.groups : [];
+      if(guideCatalogGroupFilter !== 'all' && !groups.some(group => group.id === guideCatalogGroupFilter)){
+        guideCatalogGroupFilter = 'all';
+      }
+      const categorySet = new Set();
+      if(guideCatalogGroupFilter === 'all'){
+        groups.forEach(group => {
+          (group.categories || []).forEach(cat => categorySet.add(cat.id));
+        });
+      } else {
+        const group = groups.find(entry => entry.id === guideCatalogGroupFilter);
+        if(group){
+          (group.categories || []).forEach(cat => categorySet.add(cat.id));
+        }
+      }
+      if(guideCatalogCategoryFilter !== 'all' && !categorySet.has(guideCatalogCategoryFilter)){
+        guideCatalogCategoryFilter = 'all';
+      }
     }
 
     function augmentRoute(route, index){
@@ -10205,6 +10332,20 @@
 
     function routeArtFor(route){
       const visual = computeRouteVisual(route);
+      const highlight = (routeHighlightMedia(route, { limit: 1 }) || [])[0];
+      if(highlight && highlight.image){
+        const themeMap = { pal: ROUTE_VISUAL_THEMES.pal, tech: ROUTE_VISUAL_THEMES.tech, item: ROUTE_VISUAL_THEMES.item };
+        const theme = themeMap[highlight.type] || {};
+        return {
+          ...visual,
+          image: sanitizeImageUrl(highlight.image || visual.image),
+          overlay: theme.overlay || visual.overlay || ROUTE_VISUAL_THEMES.generic.overlay,
+          accent: theme.accent || visual.accent || ROUTE_VISUAL_THEMES.generic.accent,
+          icon: theme.icon || visual.icon || ROUTE_VISUAL_THEMES.generic.icon,
+          position: visual.position || ROUTE_VISUAL_THEMES.generic.position,
+          marker: visual.marker || null
+        };
+      }
       return {
         ...visual,
         image: sanitizeImageUrl(visual.image),
@@ -10446,6 +10587,7 @@
       }
       if(list){
         list.innerHTML = entries.map(entry => renderRouteSuggestionCard(entry, entry.route.id === activeSuggestedRouteId)).join('');
+        applyRouteSuggestionArtStyles(list);
       }
       routeSuggestionsAbort = new AbortController();
       const { signal } = routeSuggestionsAbort;
@@ -10631,18 +10773,34 @@
       const reasonHighlight = Array.isArray(entry.reasons) && entry.reasons.length
         ? entry.reasons[0]
         : (kidMode ? 'Balanced for your crew.' : 'Balanced recommendation tailored to your context.');
-      const markerCss = art.marker
-        ? ` --route-suggestion-marker-left: ${art.marker.left}%; --route-suggestion-marker-top: ${art.marker.top}%; --route-suggestion-marker-opacity: 1;`
-        : ' --route-suggestion-marker-opacity: 0;';
-      const style = `--route-suggestion-image: url('${art.image}'); --route-suggestion-overlay: ${art.overlay}; --route-suggestion-accent: ${art.accent}; --route-suggestion-position: ${art.position};${markerCss}`;
       const scoreLabel = typeof entry.score === 'number' ? entry.score.toFixed(1) : '';
       const queued = isRouteActive(route.id);
       const highlights = routeHighlightMedia(route, { limit: 3 });
       const highlightsHtml = highlights.length
         ? `<div class="route-suggestion-card__highlights">${highlights.map(item => renderRouteHighlight(item, { size: 'small' })).join('')}</div>`
         : '';
+      const dataAttributes = [
+        `data-suggestion-route="${escapeHTML(route.id)}"`,
+        `aria-pressed="${active ? 'true' : 'false'}"`
+      ];
+      if(art.image){
+        dataAttributes.push(`data-art-image="${escapeHTML(art.image)}"`);
+      }
+      if(art.overlay){
+        dataAttributes.push(`data-art-overlay="${escapeHTML(art.overlay)}"`);
+      }
+      if(art.accent){
+        dataAttributes.push(`data-art-accent="${escapeHTML(art.accent)}"`);
+      }
+      if(art.position){
+        dataAttributes.push(`data-art-position="${escapeHTML(art.position)}"`);
+      }
+      if(art.marker && typeof art.marker.left === 'number' && typeof art.marker.top === 'number'){
+        dataAttributes.push(`data-art-marker-left="${escapeHTML(String(art.marker.left))}"`);
+        dataAttributes.push(`data-art-marker-top="${escapeHTML(String(art.marker.top))}"`);
+      }
       return `
-        <button type="button" class="route-suggestion-card${active ? ' route-suggestion-card--active' : ''}" data-suggestion-route="${escapeHTML(route.id)}" aria-pressed="${active ? 'true' : 'false'}" style="${escapeHTML(style)}">
+        <button type="button" class="route-suggestion-card${active ? ' route-suggestion-card--active' : ''}" ${dataAttributes.join(' ')}>
           <div class="route-suggestion-card__body">
             <div class="route-suggestion-card__top">
               <span class="route-suggestion-card__icon"><i class="fa-solid ${escapeHTML(art.icon)}"></i></span>
@@ -10662,6 +10820,48 @@
           </div>
         </button>
       `;
+    }
+
+    function applyRouteSuggestionArtStyles(container){
+      if(!container) return;
+      const cards = container.querySelectorAll('.route-suggestion-card');
+      cards.forEach(card => {
+        const image = card.dataset.artImage;
+        if(image){
+          card.style.setProperty('--route-suggestion-image', `url('${image}')`);
+        } else {
+          card.style.removeProperty('--route-suggestion-image');
+        }
+        const overlay = card.dataset.artOverlay;
+        if(overlay){
+          card.style.setProperty('--route-suggestion-overlay', overlay);
+        } else {
+          card.style.removeProperty('--route-suggestion-overlay');
+        }
+        const accent = card.dataset.artAccent;
+        if(accent){
+          card.style.setProperty('--route-suggestion-accent', accent);
+        } else {
+          card.style.removeProperty('--route-suggestion-accent');
+        }
+        const position = card.dataset.artPosition;
+        if(position){
+          card.style.setProperty('--route-suggestion-position', position);
+        } else {
+          card.style.removeProperty('--route-suggestion-position');
+        }
+        const markerLeft = Number(card.dataset.artMarkerLeft);
+        const markerTop = Number(card.dataset.artMarkerTop);
+        if(Number.isFinite(markerLeft) && Number.isFinite(markerTop)){
+          card.style.setProperty('--route-suggestion-marker-left', `${markerLeft}%`);
+          card.style.setProperty('--route-suggestion-marker-top', `${markerTop}%`);
+          card.style.setProperty('--route-suggestion-marker-opacity', '1');
+        } else {
+          card.style.removeProperty('--route-suggestion-marker-left');
+          card.style.removeProperty('--route-suggestion-marker-top');
+          card.style.setProperty('--route-suggestion-marker-opacity', '0');
+        }
+      });
     }
 
     function renderActiveRoutesList(){
@@ -10816,6 +11016,111 @@
       `;
     }
 
+    function renderGuideCatalogGroupOptions(catalog){
+      const groups = Array.isArray(catalog?.groups) ? catalog.groups : [];
+      const options = [`<option value="all"${guideCatalogGroupFilter === 'all' ? ' selected' : ''}>${escapeHTML(kidMode ? 'All categories' : 'All categories')}</option>`];
+      groups.forEach(group => {
+        if(!group || !group.id) return;
+        const value = String(group.id);
+        const label = group.label || niceName(value);
+        options.push(`<option value="${escapeHTML(value)}"${guideCatalogGroupFilter === value ? ' selected' : ''}>${escapeHTML(label)}</option>`);
+      });
+      return options.join('');
+    }
+
+    function renderGuideCatalogCategoryOptions(catalog){
+      const groups = Array.isArray(catalog?.groups) ? catalog.groups : [];
+      const categories = new Map();
+      if(guideCatalogGroupFilter === 'all'){
+        groups.forEach(group => {
+          (group?.categories || []).forEach(cat => {
+            if(cat && cat.id && !categories.has(cat.id)){
+              categories.set(cat.id, cat.label || niceName(cat.id));
+            }
+          });
+        });
+      } else {
+        const group = groups.find(entry => entry && entry.id === guideCatalogGroupFilter);
+        if(group){
+          (group.categories || []).forEach(cat => {
+            if(cat && cat.id && !categories.has(cat.id)){
+              categories.set(cat.id, cat.label || niceName(cat.id));
+            }
+          });
+        }
+      }
+      const sorted = Array.from(categories.entries()).sort((a, b) => a[1].localeCompare(b[1], undefined, { sensitivity: 'base' }));
+      const labelAll = kidMode ? 'All focuses' : 'All focuses';
+      const options = [`<option value="all"${guideCatalogCategoryFilter === 'all' ? ' selected' : ''}>${escapeHTML(labelAll)}</option>`];
+      sorted.forEach(([id, label]) => {
+        options.push(`<option value="${escapeHTML(id)}"${guideCatalogCategoryFilter === id ? ' selected' : ''}>${escapeHTML(label)}</option>`);
+      });
+      return options.join('');
+    }
+
+    function renderGuideCatalogCard(entry){
+      if(!entry) return '';
+      const badge = `<span class="guide-catalog__badge">${escapeHTML(entry.categoryLabel || 'Guide')}</span>`;
+      const groupLine = entry.groupLabel ? `<p class="guide-catalog__group">${escapeHTML(entry.groupLabel)}</p>` : '';
+      const triggerLabel = kidMode ? 'Why use it:' : 'Trigger:';
+      const trigger = entry.trigger ? `<p class="guide-catalog__trigger"><strong>${escapeHTML(triggerLabel)}</strong> ${escapeHTML(entry.trigger)}</p>` : '';
+      const keywords = entry.keywords && entry.keywords.length
+        ? `<div class="guide-catalog__keywords">${entry.keywords.map(keyword => `<span class="guide-catalog__keyword">${escapeHTML(keyword)}</span>`).join('')}</div>`
+        : '';
+      const steps = entry.steps && entry.steps.length
+        ? `<ol class="guide-catalog__steps">${entry.steps.map(step => `<li>${escapeHTML(step.instruction)}</li>`).join('')}</ol>`
+        : '';
+      return `
+        <article class="guide-catalog__item">
+          <div class="guide-catalog__item-header">
+            <h4 class="guide-catalog__title">${escapeHTML(entry.title)}</h4>
+            ${badge}
+          </div>
+          ${groupLine}
+          ${trigger}
+          ${keywords}
+          ${steps}
+        </article>
+      `;
+    }
+
+    function renderGuideCatalogList(){
+      const card = document.getElementById('guideCatalogCard');
+      if(!card) return;
+      const list = card.querySelector('#guideCatalogList');
+      const countNode = card.querySelector('[data-guide-catalog-count]');
+      if(!list) return;
+      const catalog = routeGuideData?.guideCatalog;
+      if(!catalog || !Array.isArray(catalog.entries) || !catalog.entries.length){
+        list.innerHTML = `<p class="guide-catalog__empty">${escapeHTML(kidMode ? 'Guide index loading…' : 'Guide catalog loading…')}</p>`;
+        if(countNode) countNode.textContent = '';
+        return;
+      }
+      let entries = catalog.entries.slice();
+      if(guideCatalogGroupFilter !== 'all'){
+        entries = entries.filter(entry => entry.groupId === guideCatalogGroupFilter);
+      }
+      if(guideCatalogCategoryFilter !== 'all'){
+        entries = entries.filter(entry => entry.categoryId === guideCatalogCategoryFilter);
+      }
+      const query = (guideCatalogSearchTerm || '').trim().toLowerCase();
+      if(query){
+        entries = entries.filter(entry => entry.searchText.includes(query));
+      }
+      const total = catalog.entries.length;
+      const countLabel = entries.length === total
+        ? `${total} ${total === 1 ? 'guide' : 'guides'}`
+        : `${entries.length} of ${total} guides`;
+      if(countNode){
+        countNode.textContent = countLabel;
+      }
+      if(!entries.length){
+        list.innerHTML = `<p class="guide-catalog__empty">${escapeHTML(kidMode ? 'No guides match those filters yet.' : 'No guides match your filters yet.')}</p>`;
+        return;
+      }
+      list.innerHTML = entries.map(renderGuideCatalogCard).join('');
+    }
+
     function hashString(value){
       const str = String(value);
       let hash = 0;
@@ -10921,6 +11226,17 @@
           const recommendationLead = kidMode
             ? 'Need other ideas? These extra adventures re-rank when your context changes.'
             : 'Want alternatives? The rest of the ranked library updates whenever your context shifts.';
+          const catalog = routeGuideData?.guideCatalog;
+          const catalogCount = catalog?.count != null ? catalog.count : (Array.isArray(catalog?.entries) ? catalog.entries.length : 0);
+          const catalogLead = catalogCount
+            ? (kidMode
+              ? `Browse ${catalogCount} quick guides covering Palworld adventures.`
+              : `Browse ${catalogCount} structured guides across Palworld systems.`)
+            : (kidMode
+              ? 'Browse the full guide index once data loads.'
+              : 'Browse the complete guide catalog as soon as it loads.');
+          const groupOptions = renderGuideCatalogGroupOptions(catalog);
+          const categoryOptions = renderGuideCatalogCategoryOptions(catalog);
           node.innerHTML = `
           <header class="page-header">
             <h2>${escapeHTML(heading)}</h2>
@@ -10991,6 +11307,30 @@
               </div>
             </details>
           </section>
+          <section class="card guide-catalog" id="guideCatalogCard">
+            <div class="guide-catalog__header">
+              <h3>${escapeHTML(kidMode ? 'Guide encyclopedia' : 'Complete guide index')}</h3>
+              <p>${escapeHTML(catalogLead)}</p>
+              <span class="guide-catalog__count" data-guide-catalog-count></span>
+            </div>
+            <div class="guide-catalog__controls">
+              <label class="guide-catalog__search">
+                <span class="sr-only">${escapeHTML(kidMode ? 'Search guides' : 'Search guide catalog')}</span>
+                <input type="search" id="guideCatalogSearch" placeholder="${escapeHTML(kidMode ? 'Search all guides' : 'Search the catalog')}" value="${escapeHTML(guideCatalogSearchTerm)}" />
+              </label>
+              <div class="guide-catalog__filters">
+                <label>
+                  <span>${escapeHTML(kidMode ? 'Category group' : 'Category group')}</span>
+                  <select id="guideCatalogGroup">${groupOptions}</select>
+                </label>
+                <label>
+                  <span>${escapeHTML(kidMode ? 'Focus' : 'Focus')}</span>
+                  <select id="guideCatalogCategory">${categoryOptions}</select>
+                </label>
+              </div>
+            </div>
+            <div class="guide-catalog__list" id="guideCatalogList"></div>
+          </section>
           <section class="card route-recommendations-card" id="routeRecommendationsCard">
             <div class="route-recommendations__header">
               <h3>${kidMode ? 'More adventures to consider' : 'More adaptive picks'}</h3>
@@ -11004,6 +11344,7 @@
           pruneCompletedActiveRoutes();
           renderActiveRoutesList();
           renderRouteLibraryList();
+          renderGuideCatalogList();
           const librarySearch = node.querySelector('#routeLibrarySearch');
           if(librarySearch && !librarySearch.dataset.bound){
             librarySearch.value = routeLibrarySearchTerm;
@@ -11014,6 +11355,7 @@
             });
           }
           bindRouteLibraryControls(node);
+          bindGuideCatalogControls(node);
           wrap.addEventListener('change', handleRouteCheckboxChange);
           wrap.addEventListener('click', handleRouteClick);
           bindRouteActionButtons();
@@ -11207,15 +11549,12 @@
       const levelValue = context?.declaredLevel != null ? Number(context.declaredLevel) : '';
       const timeValue = context?.availableTimeMinutes != null ? Number(context.availableTimeMinutes) : '';
       const tags = Array.isArray(guide?.tags) ? guide.tags : [];
+      if(!tags.length){
+        routeGoalDrawerOpen = false;
+      }
       const resourceOptions = Array.isArray(guide?.keyResources) ? guide.keyResources : [];
       const goalTiles = tags.length
-        ? `<div class="route-goal-board">${tags.map(tag => {
-            const active = context.goals.includes(tag);
-            const classes = ['route-goal-tile'];
-            if(active) classes.push('route-goal-tile--active');
-            const icon = routeGoalIcon(tag);
-            return `<button type="button" class="${classes.join(' ')}" data-context-goal="${escapeHTML(tag)}"><span class="route-goal-tile__icon"><i class="fa-solid ${escapeHTML(icon)}"></i></span><span class="route-goal-tile__label">${escapeHTML(capitalize(tag))}</span></button>`;
-          }).join('')}</div>`
+        ? renderGoalDrawer(tags, context.goals)
         : `<p class="route-context__empty">${escapeHTML(kidMode ? 'Goals load soon.' : 'No goals available yet.')}</p>`;
       const resourceChips = context.resourceGaps.length
         ? context.resourceGaps.map(entry => renderResourceGapChip(entry)).join('')
@@ -11263,6 +11602,63 @@
                 </div>
                 <div class="route-context__resource-list" id="routeResourceList">${resourceChips}</div>
               </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function formatGoalSummary(goals){
+      if(!Array.isArray(goals) || !goals.length){
+        return kidMode ? 'Tap to pick tonight’s goals' : 'Tap to pick tonight’s goals';
+      }
+      const labels = goals.slice(0, 3).map(goal => capitalize(goal));
+      const remainder = goals.length - labels.length;
+      const suffix = remainder > 0 ? ` +${remainder}` : '';
+      return `${labels.join(', ')}${suffix}`;
+    }
+
+    function renderGoalSummaryMarkup(goals){
+      if(!Array.isArray(goals) || !goals.length){
+        const label = kidMode ? 'Tap to pick tonight’s goals' : 'Tap to pick tonight’s goals';
+        return `<span class="route-goal-summary__placeholder">${escapeHTML(label)}</span>`;
+      }
+      const chips = goals.slice(0, 3).map(goal => `<span class="route-goal-summary__chip">${escapeHTML(capitalize(goal))}</span>`);
+      const remainder = goals.length - chips.length;
+      if(remainder > 0){
+        chips.push(`<span class="route-goal-summary__chip route-goal-summary__chip--more">+${remainder}</span>`);
+      }
+      return chips.join('');
+    }
+
+    function renderGoalDrawer(tags, selectedGoals){
+      const selectedSet = new Set((selectedGoals || []).map(goal => String(goal)));
+      const summary = formatGoalSummary(selectedGoals);
+      const summaryMarkup = renderGoalSummaryMarkup(selectedGoals);
+      const toggleLabel = kidMode ? 'Tonight’s goals' : 'Tonight’s goals';
+      const classes = ['route-goal-drawer'];
+      if(routeGoalDrawerOpen) classes.push('route-goal-drawer--open');
+      const panelHiddenAttr = routeGoalDrawerOpen ? '' : ' hidden';
+      const options = tags.map(tag => {
+        const normalized = String(tag);
+        const active = selectedSet.has(normalized);
+        const optionClasses = ['route-goal-option'];
+        if(active) optionClasses.push('route-goal-option--active');
+        const icon = routeGoalIcon(normalized);
+        return `<label class="${optionClasses.join(' ')}"><input type="checkbox" data-context-goal value="${escapeHTML(normalized)}" ${active ? 'checked' : ''} /><span class="route-goal-option__icon"><i class="fa-solid ${escapeHTML(icon)}"></i></span><span class="route-goal-option__label">${escapeHTML(capitalize(normalized))}</span></label>`;
+      }).join('');
+      return `
+        <div class="${classes.join(' ')}" data-goal-picker>
+          <button type="button" class="route-goal-drawer__toggle" data-goal-toggle aria-expanded="${routeGoalDrawerOpen ? 'true' : 'false'}" aria-label="${escapeHTML(`${toggleLabel}: ${summary}`)}" title="${escapeHTML(summary)}">
+            <span class="route-goal-drawer__title">${escapeHTML(toggleLabel)}</span>
+            <div class="route-goal-drawer__summary" data-goal-summary data-goal-summary-text="${escapeHTML(summary)}">${summaryMarkup}</div>
+          </button>
+          <div class="route-goal-drawer__panel"${panelHiddenAttr}>
+            <div class="route-goal-drawer__list">
+              ${options}
+            </div>
+            <div class="route-goal-drawer__footer">
+              <button type="button" class="chip route-goal-drawer__close" data-goal-close>${escapeHTML(kidMode ? 'Done picking' : 'Lock selections')}</button>
             </div>
           </div>
         </div>
@@ -11359,6 +11755,7 @@
 
     let routeContextControlAbort = null;
     let routeLibraryControlsAbort = null;
+    let guideCatalogControlsAbort = null;
 
     function bindRouteContextControls(root, { guide } = {}){
       if(!root) return;
@@ -11410,13 +11807,58 @@
         }, { signal });
       }
       if(goalWrap){
-        goalWrap.addEventListener('click', event => {
-          const btn = event.target.closest('[data-context-goal]');
-          if(!btn) return;
-          const goal = btn.dataset.contextGoal;
+        const goalDrawer = goalWrap.querySelector('[data-goal-picker]');
+        const panel = goalDrawer ? goalDrawer.querySelector('.route-goal-drawer__panel') : null;
+        const toggle = goalDrawer ? goalDrawer.querySelector('[data-goal-toggle]') : null;
+        const closeBtn = goalDrawer ? goalDrawer.querySelector('[data-goal-close]') : null;
+        const setDrawerOpen = open => {
+          routeGoalDrawerOpen = !!open;
+          if(goalDrawer){
+            goalDrawer.classList.toggle('route-goal-drawer--open', routeGoalDrawerOpen);
+          }
+          if(panel){
+            panel.hidden = !routeGoalDrawerOpen;
+          }
+          if(toggle){
+            toggle.setAttribute('aria-expanded', routeGoalDrawerOpen ? 'true' : 'false');
+          }
+        };
+        setDrawerOpen(routeGoalDrawerOpen);
+        if(toggle){
+          toggle.addEventListener('click', () => {
+            setDrawerOpen(!routeGoalDrawerOpen);
+          }, { signal });
+        }
+        if(closeBtn){
+          closeBtn.addEventListener('click', () => {
+            setDrawerOpen(false);
+            if(toggle) toggle.focus();
+          }, { signal });
+        }
+        const handleOutsideClick = event => {
+          if(!routeGoalDrawerOpen) return;
+          if(goalDrawer && goalDrawer.contains(event.target)) return;
+          setDrawerOpen(false);
+        };
+        document.addEventListener('click', handleOutsideClick, { signal });
+        goalWrap.addEventListener('change', event => {
+          const input = event.target.closest('input[type=checkbox][data-context-goal]');
+          if(!input) return;
+          const goal = input.value;
           const next = new Set(routeContext.goals);
-          if(next.has(goal)) next.delete(goal); else next.add(goal);
+          if(input.checked){
+            next.add(goal);
+          } else {
+            next.delete(goal);
+          }
           updateRouteContextState({ goals: Array.from(next) });
+        }, { signal });
+        goalWrap.addEventListener('keydown', event => {
+          if(event.key === 'Escape' && routeGoalDrawerOpen){
+            event.preventDefault();
+            setDrawerOpen(false);
+            if(toggle) toggle.focus();
+          }
         }, { signal });
       }
       if(resourceAdd){
@@ -11469,6 +11911,47 @@
           renderRouteLibraryList();
         }
       }, { signal });
+    }
+
+    function bindGuideCatalogControls(root){
+      if(!root) return;
+      if(guideCatalogControlsAbort){
+        guideCatalogControlsAbort.abort();
+      }
+      guideCatalogControlsAbort = new AbortController();
+      const { signal } = guideCatalogControlsAbort;
+      const card = root.querySelector('#guideCatalogCard');
+      if(!card) return;
+      const searchInput = card.querySelector('#guideCatalogSearch');
+      const groupSelect = card.querySelector('#guideCatalogGroup');
+      const categorySelect = card.querySelector('#guideCatalogCategory');
+      if(searchInput){
+        searchInput.value = guideCatalogSearchTerm;
+        searchInput.addEventListener('input', () => {
+          guideCatalogSearchTerm = searchInput.value || '';
+          renderGuideCatalogList();
+        }, { signal });
+      }
+      if(groupSelect){
+        groupSelect.value = guideCatalogGroupFilter;
+        groupSelect.addEventListener('change', () => {
+          guideCatalogGroupFilter = groupSelect.value || 'all';
+          guideCatalogCategoryFilter = 'all';
+          const catalog = routeGuideData?.guideCatalog;
+          if(categorySelect){
+            categorySelect.innerHTML = renderGuideCatalogCategoryOptions(catalog);
+            categorySelect.value = guideCatalogCategoryFilter;
+          }
+          renderGuideCatalogList();
+        }, { signal });
+      }
+      if(categorySelect){
+        categorySelect.value = guideCatalogCategoryFilter;
+        categorySelect.addEventListener('change', () => {
+          guideCatalogCategoryFilter = categorySelect.value || 'all';
+          renderGuideCatalogList();
+        }, { signal });
+      }
     }
 
     function updateRouteContextState(updates){
