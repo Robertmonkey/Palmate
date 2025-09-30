@@ -23,7 +23,7 @@ system used for map references, and the supported difficulty/party modes.
 
 ```json
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "game_version": "v0.6.7 (build 1.079.736)",
   "verified_at_utc": "2025-09-30T00:00:00Z",
   "world_map_reference": "Palworld uses a two‑dimensional coordinate system where the X axis runs east–west and the Y axis runs north–south.  Coordinates may be positive or negative.  (0,0) lies near the initial spawn area on the main island.",
@@ -774,7 +774,18 @@ section for actual route data.
       "underleveled": "text",
       "overleveled": "text",
       "resource_shortages": [ { "item_id": "...", "solution": "include_subroute or explain alternative" } ],
-      "time_limited": "text"
+      "time_limited": "text",
+      "dynamic_rules": [
+        {
+          "signal": "level_gap|time_budget|resource_gap|mode_state|geographic_context",
+          "condition": "human-readable expression describing when to trigger the adjustment",
+          "adjustment": "specific instruction to modify the route",
+          "priority": "int (1=highest urgency)",
+          "mode_scope": ["normal", "hardcore", "solo", "coop"],
+          "related_steps": ["route-id:001"],
+          "follow_up_routes": ["route-id"]
+        }
+      ]
     },
     "checkpoints": [
       { "id": "route-id:checkpoint-1", "summary": "text", "benefits": ["string"], "related_steps": ["route-id:001"] }
@@ -864,7 +875,35 @@ basic stations, create Pal Spheres and capture their first companions.
       { "item_id": "paldium-fragment", "solution": "Trigger the resource-paldium subroute from step :003 or mine blue ore veins along the riverbank." },
       { "item_id": "fiber", "solution": "Clear Windswept Hills bushes after step :001; each bush yields 2-3 Fiber quickly." }
     ],
-    "time_limited": "Complete steps :001 through :003 only; capture a single Lamball to unlock base chores and return later for the full roster."
+    "time_limited": "Complete steps :001 through :003 only; capture a single Lamball to unlock base chores and return later for the full roster.",
+    "dynamic_rules": [
+      {
+        "signal": "level_gap:over",
+        "condition": "player.estimated_level >= recommended_level.max + 2",
+        "adjustment": "Treat step :001 as maintenance only, finish :003 to restock spheres, then pivot into mount-foxparks-harness without repeating :004.",
+        "priority": 2,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["starter-base-capture:003"],
+        "follow_up_routes": ["mount-foxparks-harness"]
+      },
+      {
+        "signal": "time_budget_short",
+        "condition": "available_time_minutes && available_time_minutes < 20",
+        "adjustment": "Execute steps :001 through :003 only and bank captured materials; postpone the third capture in :004 until more time is available.",
+        "priority": 3,
+        "mode_scope": ["solo", "coop"],
+        "related_steps": ["starter-base-capture:001", "starter-base-capture:002", "starter-base-capture:003"]
+      },
+      {
+        "signal": "resource_gap:paldium-fragment",
+        "condition": "resource_gaps contains paldium-fragment >= 5",
+        "adjustment": "Loop the river rocks north of the spawn before step :003 or trigger the resource-paldium subroute immediately.",
+        "priority": 1,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["starter-base-capture:003"],
+        "follow_up_routes": ["resource-paldium"]
+      }
+    ]
   },
   "checkpoints": [
     { "id": "starter-base-capture:checkpoint-setup", "summary": "Primitive Workbench placed", "benefits": [ "Workbench crafting unlocked", "Establishes respawn anchor" ], "related_steps": [ "starter-base-capture:002" ] },
@@ -993,7 +1032,34 @@ Wandering Merchants sell Leather for 150 gold each【840767909995613†L78-L100
       { "item_id": "pal-sphere", "solution": "Craft a fresh batch at your Primitive Workbench before departing." },
       { "item_id": "gold", "solution": "Sell spare ores or berries at the Archipelago merchant to fund purchases." }
     ],
-    "time_limited": "Clear step :001 then buy the remainder from the merchant in step :003 to finish within five minutes."
+    "time_limited": "Clear step :001 then buy the remainder from the merchant in step :003 to finish within five minutes.",
+    "dynamic_rules": [
+      {
+        "signal": "mode:hardcore",
+        "condition": "mode.hardcore === true",
+        "adjustment": "Prioritise the merchant purchase in step :003 before engaging the densest spawn clusters in :002 to minimise death risk.",
+        "priority": 1,
+        "mode_scope": ["hardcore"],
+        "related_steps": ["resource-leather-early:003"]
+      },
+      {
+        "signal": "resource_gap:leather_high",
+        "condition": "resource_gaps contains leather >= 20",
+        "adjustment": "Run the Sea Breeze loop in :002 twice—first clockwise around the Church, then along the Bridge of the Twin Knights—to stock 20+ Leather in one outing.",
+        "priority": 2,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["resource-leather-early:002"]
+      },
+      {
+        "signal": "goal:mounts",
+        "condition": "goals includes mounts",
+        "adjustment": "Stay until you bank at least 15 Leather so upcoming saddle routes such as mount-eikthyrdeer-saddle do not immediately reinsert this farm.",
+        "priority": 3,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["resource-leather-early:002"],
+        "follow_up_routes": ["mount-eikthyrdeer-saddle", "mount-direhowl-harness"]
+      }
+    ]
   },
   "checkpoints": [
     { "id": "resource-leather-early:checkpoint-arrival", "summary": "Reached farming zone", "benefits": [ "Unlocks fast travel point if activated", "Spawns leather-dropping Pals" ], "related_steps": [ "resource-leather-early:001" ] },
@@ -1090,7 +1156,33 @@ options to convert Ore into fragments when nodes are depleted.
       { "item_id": "stone-pickaxe", "solution": "Craft a backup Stone Pickaxe at the Workbench before leaving base." },
       { "item_id": "paldium-fragment", "solution": "Crush Ore at the Primitive Furnace for 2 fragments per ingot batch." }
     ],
-    "time_limited": "Mine the waterfall circuit (step :001) once, then smelt spare Ore into fragments back at base."
+    "time_limited": "Mine the waterfall circuit (step :001) once, then smelt spare Ore into fragments back at base.",
+    "dynamic_rules": [
+      {
+        "signal": "time_budget_short",
+        "condition": "available_time_minutes && available_time_minutes <= 10",
+        "adjustment": "Run only step :001 and convert any Ore you already own via :003 on return to base for a quick 30+ fragment top-up.",
+        "priority": 2,
+        "mode_scope": ["solo", "coop"],
+        "related_steps": ["resource-paldium:001", "resource-paldium:003"]
+      },
+      {
+        "signal": "resource_gap:paldium_high",
+        "condition": "resource_gaps contains paldium-fragment >= 60",
+        "adjustment": "Chain steps :001 and :002 without travel breaks, then immediately queue Ore smelting in :003 to push past 60 fragments before leaving the valley.",
+        "priority": 1,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["resource-paldium:001", "resource-paldium:002", "resource-paldium:003"]
+      },
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign one player to ferry Ore back to the furnace after step :002 while the miner keeps nodes cycling, preventing respawn downtime.",
+        "priority": 3,
+        "mode_scope": ["coop"],
+        "related_steps": ["resource-paldium:002", "resource-paldium:003"]
+      }
+    ]
   },
   "checkpoints": [
     { "id": "resource-paldium:checkpoint-river", "summary": "River nodes cleared", "benefits": [ "50+ fragments gathered" ], "related_steps": [ "resource-paldium:001" ] },
@@ -1189,7 +1281,34 @@ player lacks materials.
       { "item_id": "leather", "solution": "Invoke resource-leather-early via step :003’s branching." },
       { "item_id": "flame-organ", "solution": "Farm Rushoar in the Sea Breeze Archipelago while Foxparks respawn." }
     ],
-    "time_limited": "Perform steps :002 through :004 only; purchase missing Leather to finish within ten minutes."
+    "time_limited": "Perform steps :002 through :004 only; purchase missing Leather to finish within ten minutes.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:flame-organ",
+        "condition": "resource_gaps contains flame-organ >= 5",
+        "adjustment": "Loop Rushoar packs near the Sea Breeze bridge between attempts in step :003 until the flame-organ shortage clears.",
+        "priority": 1,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["mount-foxparks-harness:003"],
+        "follow_up_routes": ["resource-leather-early"]
+      },
+      {
+        "signal": "time_budget_short",
+        "condition": "available_time_minutes && available_time_minutes < 15",
+        "adjustment": "Skip capturing in :001, buy the remaining Leather via the merchant tip, and craft immediately after step :002.",
+        "priority": 3,
+        "mode_scope": ["solo", "coop"],
+        "related_steps": ["mount-foxparks-harness:002", "mount-foxparks-harness:004"]
+      },
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign one player to gather Flame Organs while another mines Paldium in :003 to finish the material checklist in a single loop.",
+        "priority": 2,
+        "mode_scope": ["coop"],
+        "related_steps": ["mount-foxparks-harness:003"]
+      }
+    ]
   },
   "checkpoints": [
     { "id": "mount-foxparks-harness:checkpoint-capture", "summary": "Foxparks secured", "benefits": [ "Unlocks partner flamethrower", "Qualifies for harness tech" ], "related_steps": [ "mount-foxparks-harness:001" ] },
@@ -1316,7 +1435,34 @@ provides a speed boost, double jump and improved logging【142053078936299†L12
       { "item_id": "ingot", "solution": "Smelt Ore at a Primitive Furnace before starting step :003." },
       { "item_id": "horn", "solution": "Hunt extra Eikthyrdeer or trade with co-op partners who have surplus." }
     ],
-    "time_limited": "Complete steps :002 through :004 now and return for the capture later; the saddle can be pre-crafted once resources are stockpiled."
+    "time_limited": "Complete steps :002 through :004 now and return for the capture later; the saddle can be pre-crafted once resources are stockpiled.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:ingot",
+        "condition": "resource_gaps contains ingot >= 10",
+        "adjustment": "Insert a furnace run before step :003—queue 5 ore batches to cover the ingot deficit while other materials are gathered.",
+        "priority": 1,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["mount-eikthyrdeer-saddle:003"]
+      },
+      {
+        "signal": "level_gap:under",
+        "condition": "player.estimated_level < recommended_level.min",
+        "adjustment": "Delay the capture in :001 and loop resource-leather-early plus tower-free XP farms until level 12.",
+        "priority": 2,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["mount-eikthyrdeer-saddle:001"],
+        "follow_up_routes": ["resource-leather-early", "resource-paldium"]
+      },
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign the highest damage player to secure the capture in :001 while teammates pre-farm Fiber and Paldium for :003, reducing downtime.",
+        "priority": 3,
+        "mode_scope": ["coop"],
+        "related_steps": ["mount-eikthyrdeer-saddle:001", "mount-eikthyrdeer-saddle:003"]
+      }
+    ]
   },
   "checkpoints": [
     { "id": "mount-eikthyrdeer-saddle:checkpoint-capture", "summary": "Eikthyrdeer captured", "benefits": [ "Unlocks Guardian of the Forest partner skill" ], "related_steps": [ "mount-eikthyrdeer-saddle:001" ] },
@@ -1442,7 +1588,33 @@ Direhowl provides a faster ground mount than Eikthyrdeer but lacks logging bonus
       { "item_id": "wood", "solution": "Assign work Pals to logging while you hunt; deposit extras before step :003." },
       { "item_id": "leather", "solution": "Loop the leather subroute or trade with co-op allies." }
     ],
-    "time_limited": "Skip step :001 if Direhowl is already caught and fast travel to your base to craft immediately."
+    "time_limited": "Skip step :001 if Direhowl is already caught and fast travel to your base to craft immediately.",
+    "dynamic_rules": [
+      {
+        "signal": "mode:hardcore",
+        "condition": "mode.hardcore === true",
+        "adjustment": "Use the Moonless Shore spawn where cliffs provide cover; retreat after each pull to avoid overlapping packs during step :001.",
+        "priority": 1,
+        "mode_scope": ["hardcore"],
+        "related_steps": ["mount-direhowl-harness:001"]
+      },
+      {
+        "signal": "resource_gap:wood",
+        "condition": "resource_gaps contains wood >= 20",
+        "adjustment": "Queue base logging jobs before leaving or bring a logging Pal like Eikthyrdeer so step :003 completes in a single loop.",
+        "priority": 2,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["mount-direhowl-harness:003"]
+      },
+      {
+        "signal": "time_budget_short",
+        "condition": "available_time_minutes && available_time_minutes < 20",
+        "adjustment": "Craft immediately if Direhowl is already owned; otherwise capture once and postpone any optional repeat farming to a later session.",
+        "priority": 3,
+        "mode_scope": ["solo", "coop"],
+        "related_steps": ["mount-direhowl-harness:001", "mount-direhowl-harness:004"]
+      }
+    ]
   },
   "checkpoints": [
     { "id": "mount-direhowl-harness:checkpoint-capture", "summary": "Direhowl captured", "benefits": [ "Unlocks sprinting partner skill" ], "related_steps": [ "mount-direhowl-harness:001" ] },
@@ -1570,7 +1742,34 @@ This route enables players to obtain their first flying mount by capturing Nitew
       { "item_id": "cloth", "solution": "Queue extra Cloth at the Workbench before leaving for Ice Wind Island." },
       { "item_id": "paldium-fragment", "solution": "Mine volcanic nodes while mounted on Eikthyrdeer." }
     ],
-    "time_limited": "Skip step :001 if you already own Nitewing and focus on crafting to unlock flight quickly."
+    "time_limited": "Skip step :001 if you already own Nitewing and focus on crafting to unlock flight quickly.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:cloth",
+        "condition": "resource_gaps contains cloth >= 10",
+        "adjustment": "Batch-craft Cloth before departure so step :003 doesn’t require a return trip mid-route.",
+        "priority": 1,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["mount-nitewing-saddle:003"]
+      },
+      {
+        "signal": "time_budget_short",
+        "condition": "available_time_minutes && available_time_minutes < 30",
+        "adjustment": "Defer the Ice Wind Island capture to a future session; instead, craft outstanding materials in :003 and unlock the tech in :002 now.",
+        "priority": 2,
+        "mode_scope": ["solo", "coop"],
+        "related_steps": ["mount-nitewing-saddle:002", "mount-nitewing-saddle:003"]
+      },
+      {
+        "signal": "goal:exploration",
+        "condition": "goals includes exploration",
+        "adjustment": "Prioritise finishing all steps in one run to unlock aerial scouting; queue this route to the top of recommendations when exploration is requested.",
+        "priority": 3,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["mount-nitewing-saddle:004", "mount-nitewing-saddle:005"],
+        "follow_up_routes": ["tech-grappling-gun", "tower-rayne-syndicate"]
+      }
+    ]
   },
   "checkpoints": [
     { "id": "mount-nitewing-saddle:checkpoint-capture", "summary": "Nitewing captured", "benefits": [ "Access to flight-ready Pal" ], "related_steps": [ "mount-nitewing-saddle:001" ] },
@@ -1696,7 +1895,34 @@ The Grappling Gun allows players to traverse cliffs and gaps quickly.  Unlocking
       { "item_id": "ancient-civilization-part", "solution": "Run Ruin dungeons or reuse spare parts from tower caches." },
       { "item_id": "fiber", "solution": "Assign work Pals to logging stations to auto-gather while you clear the tower." }
     ],
-    "time_limited": "Borrow an Ancient Technology Point from stored inventory and postpone dungeon farming for later."
+    "time_limited": "Borrow an Ancient Technology Point from stored inventory and postpone dungeon farming for later.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:ancient-civilization-part",
+        "condition": "resource_gaps contains ancient-civilization-part >= 1",
+        "adjustment": "Schedule a dungeon run immediately after step :001 so the Ancient Part is secured before crafting begins.",
+        "priority": 1,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["tech-grappling-gun:003"],
+        "follow_up_routes": ["tower-rayne-syndicate"]
+      },
+      {
+        "signal": "goal:mobility",
+        "condition": "goals includes mobility",
+        "adjustment": "Prioritise this route once the Ancient Point is banked; the recommender boosts its score when mobility is requested.",
+        "priority": 2,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["tech-grappling-gun:004", "tech-grappling-gun:005"]
+      },
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Split duties—two players clear the tower while the others farm fiber and ingots—so crafting can start immediately after the point is earned.",
+        "priority": 3,
+        "mode_scope": ["coop"],
+        "related_steps": ["tech-grappling-gun:001", "tech-grappling-gun:003"]
+      }
+    ]
   },
   "checkpoints": [
     { "id": "tech-grappling-gun:checkpoint-point", "summary": "Ancient Technology Point acquired", "benefits": [ "Unlocks advanced tech tier" ], "related_steps": [ "tech-grappling-gun:001" ] },
@@ -1819,7 +2045,34 @@ The first tower challenge pits you against Zoe and her electric Pal Grizzbolt.  
       { "item_id": "healing-potion", "solution": "Craft Large Berries at camp before entry." },
       { "item_id": "shield", "solution": "Forge spares at the Weapon Workbench in case of durability loss." }
     ],
-    "time_limited": "If pressed for time, skip optional mobs and sprint straight to the arena; the boss instance starts instantly."
+    "time_limited": "If pressed for time, skip optional mobs and sprint straight to the arena; the boss instance starts instantly.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:healing-potion",
+        "condition": "resource_gaps contains healing-potion >= 3",
+        "adjustment": "Queue a berry crafting batch before travelling so each player carries at least three heals into step :003.",
+        "priority": 1,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["tower-rayne-syndicate:002", "tower-rayne-syndicate:003"]
+      },
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign a dedicated healer who rotates shields while the DPS focuses on Grizzbolt; swap roles after each phase to manage stamina.",
+        "priority": 2,
+        "mode_scope": ["coop"],
+        "related_steps": ["tower-rayne-syndicate:003"]
+      },
+      {
+        "signal": "goal:ancient-points",
+        "condition": "goals includes ancient-points",
+        "adjustment": "Push this tower to the top of recommendations until its Ancient Technology Points are secured, then immediately surface tech-grappling-gun as the follow-up.",
+        "priority": 3,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["tower-rayne-syndicate:003"],
+        "follow_up_routes": ["tech-grappling-gun"]
+      }
+    ]
   },
   "checkpoints": [
     { "id": "tower-rayne-syndicate:checkpoint-arrival", "summary": "Tower entrance reached", "benefits": [ "Unlocks fast travel statue" ], "related_steps": [ "tower-rayne-syndicate:001" ] },
@@ -1917,7 +2170,33 @@ This advanced route details how to capture Jetragon, a level 50 legendary Pal f
       { "item_id": "heat-resistant-armor", "solution": "Craft at a Production Assembly Line using Fire Organs and Ingot stock." },
       { "item_id": "ultra-pal-sphere", "solution": "Farm Ancient Parts and craft extras before travelling." }
     ],
-    "time_limited": "Skip optional prep by borrowing Ultra Spheres from teammates and focusing on the capture attempt." 
+    "time_limited": "Skip optional prep by borrowing Ultra Spheres from teammates and focusing on the capture attempt.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:heat-resistant-armor",
+        "condition": "resource_gaps contains heat-resistant-armor >= 1",
+        "adjustment": "Queue armor crafting before departure to prevent heat damage from ending the run early; do not proceed to step :002 without it.",
+        "priority": 1,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["capture-jetragon:001"]
+      },
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Designate a loot master to track Ultra Sphere usage so the team can rotate capture attempts without wasting consumables.",
+        "priority": 2,
+        "mode_scope": ["coop"],
+        "related_steps": ["capture-jetragon:003", "capture-jetragon:004"]
+      },
+      {
+        "signal": "goal:legendary",
+        "condition": "goals includes legendary",
+        "adjustment": "Surface this route immediately after prerequisites clear and highlight the need for Ultra Spheres plus Grappling Gun mobility in the recommendation copy.",
+        "priority": 3,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["capture-jetragon:001", "capture-jetragon:004"]
+      }
+    ]
   },
   "checkpoints": [
     { "id": "capture-jetragon:checkpoint-prep", "summary": "Heat gear and spheres ready", "benefits": [ "Ensures survival in Mount Obsidian" ], "related_steps": [ "capture-jetragon:001" ] },
@@ -2065,7 +2344,8 @@ help players understand why a route is suggested.
       "progression_role": 2,
       "tag_alignment": 2,
       "metric_efficiency": 2,
-      "resource_relief": 3
+      "resource_relief": 3,
+      "dynamic_alignment": 3
     },
     "metric_normalization": {
       "xp_per_minute": { "target": 15, "score_per_sigma": 1.5 },
@@ -2075,7 +2355,8 @@ help players understand why a route is suggested.
     "decision_flow": [
       "Filter out routes with unmet prerequisites or missing adaptive_guidance entries for requested goals",
       "Boost support routes when resource_gaps overlap with their outputs",
-      "Prefer routes whose metrics meet or exceed normalization targets when available_time_minutes is low"
+      "Prefer routes whose metrics meet or exceed normalization targets when available_time_minutes is low",
+      "Award dynamic_alignment when player context satisfies a route’s adaptive_guidance.dynamic_rules"
     ],
     "tie_breakers": [ "lowest_consumable_cost", "shortest_time", "highest_unlock_value", "alphabetical" ],
     "explanation_templates": {
@@ -2085,7 +2366,8 @@ help players understand why a route is suggested.
       "resource_need": "You need {item} for upcoming routes.",
       "progression_role": "This is a {role} route that keeps your progression on track.",
       "metric_efficiency": "Its projected {xp_per_minute} XP/min and short travel time make it efficient right now.",
-      "adaptive_guidance": "Adaptive guidance suggests {recommendation} based on your situation."
+      "adaptive_guidance": "Adaptive guidance suggests {recommendation} based on your situation.",
+      "dynamic_alignment": "Dynamic rule triggered: {rule_adjustment}."
     },
     "fallbacks": {
       "under_leveled": "Recommend resource loops and easier capture routes until you reach an appropriate level.",

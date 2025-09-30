@@ -6,10 +6,11 @@
 
 Palmate’s guides are organised into **routes**.  Each route is a high‑level objective broken down into actionable steps.  Routes include metadata such as recommended level ranges, prerequisites, estimated completion time and XP gain, risk profile, failure penalties, and a full list of steps with targets, locations and mode‑specific adjustments.  When the player completes a route, Palmate uses the XP earned in each step to estimate the player’s level and uses this estimate, along with declared difficulty and party mode, to recommend the next routes.
 
-Routes are adaptive in two ways:
+Routes are adaptive in three ways:
 
 1. **Difficulty and party adjustments** – Every step can include modifications for Hardcore and Co‑Op.  For example, a Hardcore variant may recommend additional safety gear or higher‑level pals, while Co‑Op steps split roles between group members (e.g. “puller” and “farmer”).
 2. **Resource dependencies** – When a route requires materials (e.g. a saddle needing Leather), it either contains steps to gather those materials or branches to a **resource subroute**.  The amount of material required is calculated from the current recipe (plus a buffer for Hardcore).  This ensures players never get stuck because they are missing ingredients.
+3. **Dynamic rules** – Each route now ships with machine-readable triggers (level gaps, time budgets, resource shortages, party composition, player goals) that tell the recommender how to pivot the route.  When the player’s context matches a rule, Palmate explains the adjustment (e.g. “Skip the capture step and craft now”) and boosts that route’s score.
 
 ## Data Layout
 
