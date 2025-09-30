@@ -9703,7 +9703,7 @@
       const steps = Array.isArray(route?.steps) ? route.steps.slice() : [];
       const chapter = convertRouteToChapter(route, { index, role: normalizedRole });
       const resourceOutputs = collectRouteResourceOutputs(route);
-      const highlights = collectRouteHighlights(route);
+      const highlights = collectRouteHighlights(route, resourceOutputs);
       const playstyleKey = deriveRoutePlaystyleKey(route);
       return {
         id,
@@ -9865,7 +9865,7 @@
       return Array.from(items);
     }
 
-    function collectRouteHighlights(route){
+    function collectRouteHighlights(route, resourceOutputs = []){
       const pals = new Set();
       const items = new Set();
       const tech = new Set();
@@ -9927,7 +9927,9 @@
         if(entry.type.startsWith('have-item')) addItem(entry.item_id || entry.id);
         if(entry.type.startsWith('unlock-tech')) addTech(entry.tech_id || entry.id);
       });
-      route.resourceOutputs.forEach(addItem);
+      if(Array.isArray(resourceOutputs)){
+        resourceOutputs.forEach(addItem);
+      }
       return {
         pals: Array.from(pals),
         items: Array.from(items),
