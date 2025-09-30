@@ -9349,6 +9349,18 @@
       npc: { overlay: 'rgba(236, 72, 153, 0.5)', accent: '#f9a8d4', icon: 'fa-user-astronaut', position: 'center 45%' },
       generic: { overlay: 'rgba(148, 187, 233, 0.55)', accent: '#9bd4ff', icon: 'fa-route', position: 'center 40%' }
     };
+    const GUIDE_CATALOG_THEME_MAP = {
+      missions: { overlay: ROUTE_VISUAL_THEMES.map.overlay, accent: ROUTE_VISUAL_THEMES.map.accent, icon: 'fa-map-signs', position: ROUTE_VISUAL_THEMES.map.position },
+      resources: { overlay: ROUTE_VISUAL_THEMES.item.overlay, accent: ROUTE_VISUAL_THEMES.item.accent, icon: 'fa-seedling', position: ROUTE_VISUAL_THEMES.item.position },
+      capturing: { overlay: ROUTE_VISUAL_THEMES.pal.overlay, accent: ROUTE_VISUAL_THEMES.pal.accent, icon: 'fa-paw', position: ROUTE_VISUAL_THEMES.pal.position },
+      'base-building': { overlay: ROUTE_VISUAL_THEMES.item.overlay, accent: '#ffe8a3', icon: 'fa-hammer', position: ROUTE_VISUAL_THEMES.item.position },
+      'base-management': { overlay: ROUTE_VISUAL_THEMES.tech.overlay, accent: ROUTE_VISUAL_THEMES.tech.accent, icon: 'fa-gears', position: ROUTE_VISUAL_THEMES.tech.position },
+      technology: { overlay: ROUTE_VISUAL_THEMES.tech.overlay, accent: ROUTE_VISUAL_THEMES.tech.accent, icon: ROUTE_VISUAL_THEMES.tech.icon, position: ROUTE_VISUAL_THEMES.tech.position },
+      npcs: { overlay: ROUTE_VISUAL_THEMES.npc.overlay, accent: ROUTE_VISUAL_THEMES.npc.accent, icon: ROUTE_VISUAL_THEMES.npc.icon, position: ROUTE_VISUAL_THEMES.npc.position },
+      bosses: { overlay: ROUTE_VISUAL_THEMES.boss.overlay, accent: ROUTE_VISUAL_THEMES.boss.accent, icon: ROUTE_VISUAL_THEMES.boss.icon, position: ROUTE_VISUAL_THEMES.boss.position },
+      exploration: { overlay: ROUTE_VISUAL_THEMES.map.overlay, accent: ROUTE_VISUAL_THEMES.map.accent, icon: 'fa-compass', position: ROUTE_VISUAL_THEMES.map.position },
+      generic: { overlay: ROUTE_VISUAL_THEMES.generic.overlay, accent: ROUTE_VISUAL_THEMES.generic.accent, icon: ROUTE_VISUAL_THEMES.generic.icon, position: ROUTE_VISUAL_THEMES.generic.position }
+    };
     const PAL_TYPE_VISUALS = {
       Fire: { overlay: 'rgba(255, 138, 101, 0.6)', accent: '#ffb199' },
       Water: { overlay: 'rgba(80, 176, 255, 0.6)', accent: '#75c8ff' },
@@ -10128,6 +10140,71 @@
       return String(url || ROUTE_ART_IMAGE).replace(/'/g, "\\'");
     }
 
+    function guideCatalogThemeFor(entry){
+      const fallback = GUIDE_CATALOG_THEME_MAP.generic;
+      if(!entry || typeof entry !== 'object') return fallback;
+      const candidates = [];
+      if(entry.categoryId) candidates.push(String(entry.categoryId));
+      if(entry.categoryLabel) candidates.push(slugifyForPalworld(entry.categoryLabel));
+      if(entry.groupId) candidates.push(String(entry.groupId));
+      if(entry.groupLabel) candidates.push(slugifyForPalworld(entry.groupLabel));
+      candidates.push('generic');
+      for(const candidate of candidates){
+        if(!candidate) continue;
+        const key = candidate.toLowerCase();
+        if(GUIDE_CATALOG_THEME_MAP[key]) return GUIDE_CATALOG_THEME_MAP[key];
+      }
+      return fallback;
+    }
+
+    function guideCatalogArtFor(entry){
+      const theme = guideCatalogThemeFor(entry) || GUIDE_CATALOG_THEME_MAP.generic;
+      return {
+        image: ROUTE_ART_IMAGE,
+        overlay: theme.overlay || GUIDE_CATALOG_THEME_MAP.generic.overlay,
+        accent: theme.accent || GUIDE_CATALOG_THEME_MAP.generic.accent,
+        icon: theme.icon || GUIDE_CATALOG_THEME_MAP.generic.icon,
+        position: theme.position || GUIDE_CATALOG_THEME_MAP.generic.position
+      };
+    }
+
+    function guideCardStyleAttr(art, { includeRouteSuggestionVars = false } = {}){
+      if(!art || typeof art !== 'object') return '';
+      const styleParts = [];
+      if(art.image){
+        const urlValue = `url('${sanitizeImageUrl(art.image)}')`;
+        styleParts.push(`--guide-card-image:${urlValue}`);
+        if(includeRouteSuggestionVars){
+          styleParts.push(`--route-suggestion-image:${urlValue}`);
+        }
+      }
+      if(art.overlay){
+        styleParts.push(`--guide-card-overlay:${art.overlay}`);
+        if(includeRouteSuggestionVars){
+          styleParts.push(`--route-suggestion-overlay:${art.overlay}`);
+        }
+      }
+      if(art.accent){
+        styleParts.push(`--guide-card-accent:${art.accent}`);
+        if(includeRouteSuggestionVars){
+          styleParts.push(`--route-suggestion-accent:${art.accent}`);
+        }
+      }
+      if(art.position){
+        styleParts.push(`--guide-card-position:${art.position}`);
+        if(includeRouteSuggestionVars){
+          styleParts.push(`--route-suggestion-position:${art.position}`);
+        }
+      }
+      if(includeRouteSuggestionVars && art.marker && typeof art.marker.left === 'number' && typeof art.marker.top === 'number'){
+        styleParts.push(`--route-suggestion-marker-left:${art.marker.left}%`);
+        styleParts.push(`--route-suggestion-marker-top:${art.marker.top}%`);
+        styleParts.push('--route-suggestion-marker-opacity:1');
+      }
+      if(!styleParts.length) return '';
+      return `style="${escapeHTML(styleParts.join('; '))}"`;
+    }
+
     function palVisualTheme(pal){
       const primary = getPrimaryType(pal) || 'Neutral';
       return PAL_TYPE_VISUALS[primary] || PAL_TYPE_VISUALS.Neutral || { overlay: ROUTE_VISUAL_THEMES.pal.overlay, accent: ROUTE_VISUAL_THEMES.pal.accent };
@@ -10667,17 +10744,22 @@
           : 'Highlight a suggestion to preview the full walkthrough here.')}</p>`;
         detail.removeAttribute('data-chapter-id');
         detail.removeAttribute('data-route-id');
-        ['--route-suggestion-image', '--route-suggestion-overlay', '--route-suggestion-accent', '--route-suggestion-position'].forEach(prop => detail.style.removeProperty(prop));
+        ['--route-suggestion-image', '--route-suggestion-overlay', '--route-suggestion-accent', '--route-suggestion-position', '--guide-card-image', '--guide-card-overlay', '--guide-card-accent', '--guide-card-position'].forEach(prop => detail.style.removeProperty(prop));
         return;
       }
       const route = entry.route;
       const art = routeArtFor(route);
       detail.dataset.chapterId = route.chapter?.id || '';
       detail.dataset.routeId = route.id || '';
-      detail.style.setProperty('--route-suggestion-image', `url('${art.image}')`);
+      const detailImage = `url('${sanitizeImageUrl(art.image)}')`;
+      detail.style.setProperty('--route-suggestion-image', detailImage);
+      detail.style.setProperty('--guide-card-image', detailImage);
       detail.style.setProperty('--route-suggestion-overlay', art.overlay);
+      detail.style.setProperty('--guide-card-overlay', art.overlay);
       detail.style.setProperty('--route-suggestion-accent', art.accent);
+      detail.style.setProperty('--guide-card-accent', art.accent);
       detail.style.setProperty('--route-suggestion-position', art.position);
+      detail.style.setProperty('--guide-card-position', art.position);
       if(art.marker){
         detail.style.setProperty('--route-suggestion-marker-left', `${art.marker.left}%`);
         detail.style.setProperty('--route-suggestion-marker-top', `${art.marker.top}%`);
@@ -10799,8 +10881,12 @@
         dataAttributes.push(`data-art-marker-left="${escapeHTML(String(art.marker.left))}"`);
         dataAttributes.push(`data-art-marker-top="${escapeHTML(String(art.marker.top))}"`);
       }
+      const styleAttr = guideCardStyleAttr(art, { includeRouteSuggestionVars: true });
+      if(styleAttr){
+        dataAttributes.push(styleAttr);
+      }
       return `
-        <button type="button" class="route-suggestion-card${active ? ' route-suggestion-card--active' : ''}" ${dataAttributes.join(' ')}>
+        <button type="button" class="guide-card route-suggestion-card${active ? ' route-suggestion-card--active' : ''}" ${dataAttributes.join(' ')}>
           <div class="route-suggestion-card__body">
             <div class="route-suggestion-card__top">
               <span class="route-suggestion-card__icon"><i class="fa-solid ${escapeHTML(art.icon)}"></i></span>
@@ -10828,27 +10914,36 @@
       cards.forEach(card => {
         const image = card.dataset.artImage;
         if(image){
-          card.style.setProperty('--route-suggestion-image', `url('${image}')`);
+          const urlValue = `url('${sanitizeImageUrl(image)}')`;
+          card.style.setProperty('--route-suggestion-image', urlValue);
+          card.style.setProperty('--guide-card-image', urlValue);
         } else {
           card.style.removeProperty('--route-suggestion-image');
+          card.style.removeProperty('--guide-card-image');
         }
         const overlay = card.dataset.artOverlay;
         if(overlay){
           card.style.setProperty('--route-suggestion-overlay', overlay);
+          card.style.setProperty('--guide-card-overlay', overlay);
         } else {
           card.style.removeProperty('--route-suggestion-overlay');
+          card.style.removeProperty('--guide-card-overlay');
         }
         const accent = card.dataset.artAccent;
         if(accent){
           card.style.setProperty('--route-suggestion-accent', accent);
+          card.style.setProperty('--guide-card-accent', accent);
         } else {
           card.style.removeProperty('--route-suggestion-accent');
+          card.style.removeProperty('--guide-card-accent');
         }
         const position = card.dataset.artPosition;
         if(position){
           card.style.setProperty('--route-suggestion-position', position);
+          card.style.setProperty('--guide-card-position', position);
         } else {
           card.style.removeProperty('--route-suggestion-position');
+          card.style.removeProperty('--guide-card-position');
         }
         const markerLeft = Number(card.dataset.artMarkerLeft);
         const markerTop = Number(card.dataset.artMarkerTop);
@@ -11060,23 +11155,32 @@
 
     function renderGuideCatalogCard(entry){
       if(!entry) return '';
-      const badge = `<span class="guide-catalog__badge">${escapeHTML(entry.categoryLabel || 'Guide')}</span>`;
+      const art = guideCatalogArtFor(entry);
+      const styleAttr = guideCardStyleAttr(art);
+      const badge = `<span class="guide-card__badge">${escapeHTML(entry.categoryLabel || 'Guide')}</span>`;
       const groupLine = entry.groupLabel ? `<p class="guide-catalog__group">${escapeHTML(entry.groupLabel)}</p>` : '';
       const triggerLabel = kidMode ? 'Why use it:' : 'Trigger:';
       const trigger = entry.trigger ? `<p class="guide-catalog__trigger"><strong>${escapeHTML(triggerLabel)}</strong> ${escapeHTML(entry.trigger)}</p>` : '';
       const keywords = entry.keywords && entry.keywords.length
-        ? `<div class="guide-catalog__keywords">${entry.keywords.map(keyword => `<span class="guide-catalog__keyword">${escapeHTML(keyword)}</span>`).join('')}</div>`
+        ? `<div class="guide-card__keywords guide-catalog__keywords">${entry.keywords.map(keyword => `<span class="guide-card__keyword guide-catalog__keyword">${escapeHTML(keyword)}</span>`).join('')}</div>`
         : '';
       const steps = entry.steps && entry.steps.length
         ? `<ol class="guide-catalog__steps">${entry.steps.map(step => `<li>${escapeHTML(step.instruction)}</li>`).join('')}</ol>`
         : '';
+      const attributes = [];
+      if(styleAttr){
+        attributes.push(styleAttr);
+      }
       return `
-        <article class="guide-catalog__item">
-          <div class="guide-catalog__item-header">
-            <h4 class="guide-catalog__title">${escapeHTML(entry.title)}</h4>
-            ${badge}
+        <article class="guide-card guide-catalog__item" ${attributes.join(' ')}>
+          <div class="guide-card__header">
+            <span class="guide-card__icon"><i class="fa-solid ${escapeHTML(art.icon)}"></i></span>
+            <div class="guide-card__headline">
+              ${badge}
+              <h4 class="guide-card__title">${escapeHTML(entry.title)}</h4>
+              ${groupLine}
+            </div>
           </div>
-          ${groupLine}
           ${trigger}
           ${keywords}
           ${steps}
@@ -11279,6 +11383,13 @@
             <div class="route-active__filters" data-route-role="filters" aria-label="Filter steps by category"></div>
             <div class="route-active__list" id="routeChapters"></div>
           </section>
+          <section class="card route-recommendations-card" id="routeRecommendationsCard">
+            <div class="route-recommendations__header">
+              <h3>${kidMode ? 'More adventures to consider' : 'More adaptive picks'}</h3>
+              <p class="route-recommendations__intro">${escapeHTML(recommendationLead)}</p>
+            </div>
+            <div id="routeRecommendationsList" class="route-recommendations__list"></div>
+          </section>
           <section class="card route-library" id="routeLibraryCard">
             <details class="route-library__details">
               <summary class="route-library__summary">
@@ -11330,13 +11441,6 @@
               </div>
             </div>
             <div class="guide-catalog__list" id="guideCatalogList"></div>
-          </section>
-          <section class="card route-recommendations-card" id="routeRecommendationsCard">
-            <div class="route-recommendations__header">
-              <h3>${kidMode ? 'More adventures to consider' : 'More adaptive picks'}</h3>
-              <p class="route-recommendations__intro">${escapeHTML(recommendationLead)}</p>
-            </div>
-            <div id="routeRecommendationsList" class="route-recommendations__list"></div>
           </section>
         `;
           const wrap = node.querySelector('#routeChapters');
@@ -11583,7 +11687,7 @@
             </div>
             <div class="route-context__field">
               <label class="route-context__label" for="routeTimeInput">${escapeHTML(kidMode ? 'Time available (minutes)' : 'Available time (minutes)')}</label>
-              <input type="number" id="routeTimeInput" min="5" max="480" step="5" value="${timeValue === '' ? '' : escapeHTML(String(timeValue))}" placeholder="${escapeHTML(kidMode ? 'Leave blank if unsure' : 'Leave blank if flexible')}" />
+              <input type="number" class="route-context__input" id="routeTimeInput" min="5" max="480" step="5" value="${timeValue === '' ? '' : escapeHTML(String(timeValue))}" placeholder="${escapeHTML(kidMode ? 'Leave blank if unsure' : 'Leave blank if flexible')}" />
             </div>
             <div class="route-context__field">
               <label class="route-context__label">${escapeHTML(kidMode ? 'Goals' : 'Focus goals')}</label>
@@ -11719,6 +11823,8 @@
 
     function renderRouteRecommendation(entry){
       const route = entry.route;
+      const art = routeArtFor(route);
+      const styleAttr = guideCardStyleAttr(art);
       const range = route?.recommended_level || {};
       const rangeLabel = (range.min != null || range.max != null)
         ? `Lv ${range.min != null ? range.min : '?'}-${range.max != null ? range.max : '?'}`
@@ -11735,19 +11841,30 @@
         ? `<ul class="route-recommendation__reasons">${entry.reasons.map(reason => `<li>${escapeHTML(reason)}</li>`).join('')}</ul>`
         : `<p class="route-recommendation__fallback">${escapeHTML(kidMode ? 'Palmate picked this route for balanced fun and progress.' : 'Palmate selected this route based on your context.')}</p>`;
       const focusStep = entry.nextStepId || route?.chapter?.steps?.[0]?.id || '';
+      const roleLabel = routePlaystyleLabel(route);
+      const attributes = [`data-route-id="${escapeHTML(route.id)}"`];
+      if(styleAttr){
+        attributes.push(styleAttr);
+      }
       return `
-        <article class="route-recommendation" data-route-id="${escapeHTML(route.id)}">
-          <div class="route-recommendation__header">
-            <div>
-              <h4>${escapeHTML(route.title)}</h4>
-              ${metaLine ? `<p class="route-recommendation__meta">${escapeHTML(metaLine)}</p>` : ''}
-              ${tags}
+        <article class="guide-card route-recommendation" ${attributes.join(' ')}>
+          <div class="guide-card__header">
+            <span class="guide-card__icon"><i class="fa-solid ${escapeHTML(art.icon)}"></i></span>
+            <div class="guide-card__headline">
+              <span class="guide-card__badge">${escapeHTML(roleLabel)}</span>
+              <h4 class="guide-card__title">${escapeHTML(route.title)}</h4>
+              ${metaLine ? `<p class="guide-card__meta">${escapeHTML(metaLine)}</p>` : ''}
             </div>
-            ${scoreLabel ? `<div class="route-recommendation__score">${escapeHTML(scoreLabel)}</div>` : ''}
+            ${scoreLabel ? `<span class="route-recommendation__score">${escapeHTML(scoreLabel)}</span>` : ''}
           </div>
-          ${reasons}
-          <div class="route-recommendation__actions">
-            <button type="button" class="btn" data-route-focus="${escapeHTML(route.id)}" data-route-step="${escapeHTML(focusStep)}">${escapeHTML(kidMode ? 'View steps' : 'Open route')}</button>
+          <div class="route-recommendation__body">
+            ${reasons}
+          </div>
+          <div class="guide-card__footer">
+            ${tags}
+            <div class="guide-card__actions">
+              <button type="button" class="btn" data-route-focus="${escapeHTML(route.id)}" data-route-step="${escapeHTML(focusStep)}">${escapeHTML(kidMode ? 'View steps' : 'Open route')}</button>
+            </div>
           </div>
         </article>
       `;
