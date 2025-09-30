@@ -1933,78 +1933,6 @@
     .item-card .collect-btn.collected {
       background: var(--secondary);
     }
-    /* Route tracking */
-    .route-card {
-      text-align: left;
-      cursor: default;
-      border: 1px solid transparent;
-    }
-    .route-card.completed {
-      border-color: var(--success);
-      box-shadow: 0 4px 14px rgba(46, 204, 113, 0.25);
-      background: rgba(46, 204, 113, 0.08);
-    }
-    .route-card .name {
-      margin-bottom: 6px;
-    }
-    .route-steps {
-      margin-top: 8px;
-    }
-    .route-step-list {
-      list-style-position: inside;
-      padding-left: 0;
-      margin: 4px 0 0;
-      counter-reset: route-step;
-    }
-    .route-step {
-      counter-increment: route-step;
-      margin-bottom: 6px;
-      padding: 6px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.02);
-      transition: background 0.2s, color 0.2s;
-    }
-    .route-step::marker {
-      font-weight: 700;
-      color: var(--secondary);
-    }
-    .route-step.completed {
-      background: rgba(46, 204, 113, 0.12);
-    }
-    .route-step.completed::marker {
-      color: var(--success);
-    }
-    .route-step-label {
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-      font-size: 0.75rem;
-      color: var(--light);
-    }
-    .route-step input[type="checkbox"] {
-      margin-top: 2px;
-      transform: scale(1.05);
-    }
-    .route-step-text {
-      flex: 1;
-      line-height: 1.35;
-    }
-    .route-step.completed .route-step-label {
-      color: var(--text);
-      font-weight: 600;
-    }
-    .route-step.completed .route-step-text {
-      text-decoration: line-through;
-    }
-    .route-progress-summary {
-      font-size: 0.7rem;
-      color: var(--light);
-      margin-top: 6px;
-    }
-    .route-card.completed .route-progress-summary {
-      color: var(--success);
-      font-weight: 600;
-    }
     /* Tech tree */
     #techList {
       display: flex;
@@ -9408,14 +9336,35 @@
     let pendingRouteFocus = null;
     let pendingTechFocus = null;
     const ROUTE_ART_IMAGE = 'assets/images/palworld-full-map-2.webp';
-    const ROUTE_ART_LIBRARY = {
+    const ROUTE_VISUAL_THEMES = {
+      pal: { overlay: 'rgba(119, 141, 169, 0.58)', accent: '#9bd4ff', icon: 'fa-paw', position: 'center 40%' },
+      tech: { overlay: 'rgba(42, 157, 143, 0.58)', accent: '#72e5c4', icon: 'fa-microchip', position: 'center 48%' },
+      item: { overlay: 'rgba(255, 196, 77, 0.6)', accent: '#ffd166', icon: 'fa-sack', position: 'center 52%' },
       boss: { overlay: 'rgba(126, 87, 255, 0.62)', accent: '#d1b8ff', icon: 'fa-chess-king', position: 'center 18%' },
-      tower: { overlay: 'rgba(126, 87, 255, 0.62)', accent: '#d1b8ff', icon: 'fa-chess-king', position: 'center 18%' },
-      farming: { overlay: 'rgba(42, 157, 143, 0.58)', accent: '#a7f2d2', icon: 'fa-seedling', position: 'center 68%' },
-      gather: { overlay: 'rgba(42, 157, 143, 0.58)', accent: '#a7f2d2', icon: 'fa-seedling', position: 'center 68%' },
+      map: { overlay: 'rgba(118, 206, 255, 0.6)', accent: '#6fe7ff', icon: 'fa-map-location-dot', position: 'center 32%' },
+      npc: { overlay: 'rgba(236, 72, 153, 0.5)', accent: '#f9a8d4', icon: 'fa-user-astronaut', position: 'center 45%' },
+      generic: { overlay: 'rgba(148, 187, 233, 0.55)', accent: '#9bd4ff', icon: 'fa-route', position: 'center 40%' }
+    };
+    const PAL_TYPE_VISUALS = {
+      Fire: { overlay: 'rgba(255, 138, 101, 0.6)', accent: '#ffb199' },
+      Water: { overlay: 'rgba(80, 176, 255, 0.6)', accent: '#75c8ff' },
+      Grass: { overlay: 'rgba(105, 228, 166, 0.6)', accent: '#8ff0b5' },
+      Electric: { overlay: 'rgba(255, 221, 89, 0.55)', accent: '#ffe066' },
+      Ice: { overlay: 'rgba(125, 206, 235, 0.6)', accent: '#b5e8ff' },
+      Ground: { overlay: 'rgba(216, 180, 160, 0.58)', accent: '#f2c8a2' },
+      Dark: { overlay: 'rgba(136, 84, 208, 0.6)', accent: '#d0a3ff' },
+      Dragon: { overlay: 'rgba(142, 178, 255, 0.6)', accent: '#a7c9ff' },
+      Air: { overlay: 'rgba(173, 216, 230, 0.55)', accent: '#c8f1ff' },
+      Neutral: { overlay: ROUTE_VISUAL_THEMES.pal.overlay, accent: ROUTE_VISUAL_THEMES.pal.accent }
+    };
+    const ROUTE_ART_LIBRARY = {
+      boss: { overlay: ROUTE_VISUAL_THEMES.boss.overlay, accent: ROUTE_VISUAL_THEMES.boss.accent, icon: ROUTE_VISUAL_THEMES.boss.icon, position: ROUTE_VISUAL_THEMES.boss.position },
+      tower: { overlay: ROUTE_VISUAL_THEMES.boss.overlay, accent: ROUTE_VISUAL_THEMES.boss.accent, icon: ROUTE_VISUAL_THEMES.boss.icon, position: ROUTE_VISUAL_THEMES.boss.position },
+      farming: { overlay: 'rgba(42, 157, 143, 0.6)', accent: '#8ff0b5', icon: 'fa-seedling', position: 'center 62%' },
+      gather: { overlay: 'rgba(42, 157, 143, 0.6)', accent: '#8ff0b5', icon: 'fa-seedling', position: 'center 62%' },
       capture: { overlay: 'rgba(255, 170, 102, 0.6)', accent: '#ffd6a5', icon: 'fa-paw', position: 'center 58%' },
-      exploration: { overlay: 'rgba(118, 206, 255, 0.6)', accent: '#9bd4ff', icon: 'fa-compass', position: 'center 32%' },
-      travel: { overlay: 'rgba(118, 206, 255, 0.6)', accent: '#9bd4ff', icon: 'fa-compass', position: 'center 32%' },
+      exploration: { overlay: ROUTE_VISUAL_THEMES.map.overlay, accent: ROUTE_VISUAL_THEMES.map.accent, icon: ROUTE_VISUAL_THEMES.map.icon, position: ROUTE_VISUAL_THEMES.map.position },
+      travel: { overlay: ROUTE_VISUAL_THEMES.map.overlay, accent: ROUTE_VISUAL_THEMES.map.accent, icon: ROUTE_VISUAL_THEMES.map.icon, position: ROUTE_VISUAL_THEMES.map.position },
       craft: { overlay: 'rgba(255, 214, 102, 0.58)', accent: '#ffe599', icon: 'fa-hammer', position: 'center 44%' },
       base: { overlay: 'rgba(90, 126, 255, 0.58)', accent: '#b8c3ff', icon: 'fa-house-flag', position: 'center 66%' }
     };
@@ -9450,6 +9399,66 @@
     let currentRouteSuggestionEntries = [];
     let activeSuggestedRouteId = null;
     let routeSuggestionsAbort = null;
+    let activeRouteIds = new Set();
+    let routeLibrarySearchTerm = '';
+
+    function loadActiveRouteIdsFromState(state){
+      const meta = state && typeof state.__meta === 'object' ? state.__meta : null;
+      const stored = meta && Array.isArray(meta.activeRoutes) ? meta.activeRoutes : [];
+      return stored
+        .map(id => typeof id === 'string' ? id.trim() : '')
+        .filter(Boolean);
+    }
+
+    function syncActiveRouteIds(){
+      activeRouteIds = new Set(loadActiveRouteIdsFromState(routeState));
+    }
+
+    function persistActiveRouteIds(){
+      if(!routeState.__meta || typeof routeState.__meta !== 'object'){
+        routeState.__meta = {};
+      }
+      routeState.__meta.activeRoutes = Array.from(activeRouteIds);
+      saveRouteState(routeState);
+    }
+
+    function isRouteActive(routeId){
+      if(!routeId) return false;
+      return activeRouteIds.has(routeId);
+    }
+
+    function addActiveRoute(routeId){
+      if(!routeId || isRouteActive(routeId)) return;
+      activeRouteIds.add(routeId);
+      persistActiveRouteIds();
+      renderActiveRoutesList();
+      renderRouteLibraryList();
+      refreshRouteIntelligenceUI();
+    }
+
+    function removeActiveRoute(routeId){
+      if(!routeId || !isRouteActive(routeId)) return;
+      activeRouteIds.delete(routeId);
+      persistActiveRouteIds();
+      renderActiveRoutesList();
+      renderRouteLibraryList();
+      refreshRouteIntelligenceUI();
+    }
+
+    function pruneCompletedActiveRoutes(){
+      if(!routeGuideData || !routeGuideData.routes) return;
+      let changed = false;
+      activeRouteIds.forEach(routeId => {
+        const route = routeGuideData.routeLookup?.[routeId];
+        if(route && isRouteComplete(route)){
+          activeRouteIds.delete(routeId);
+          changed = true;
+        }
+      });
+      if(changed){
+        persistActiveRouteIds();
+      }
+    }
 
     function rebuildTechLookup(){
       TECH_LOOKUP = {};
@@ -9850,31 +9859,223 @@
       return strict ? '' : fallback;
     }
 
-    function routeArtFor(route){
-      const category = (route?.category || '').toLowerCase();
-      const tags = Array.isArray(route?.tags) ? route.tags.map(tag => (tag || '').toLowerCase()) : [];
-      const lookupKeys = [category, ...tags];
-      let art = null;
-      for(const key of lookupKeys){
+    function sanitizeImageUrl(url){
+      return String(url || ROUTE_ART_IMAGE).replace(/'/g, "\\'");
+    }
+
+    function palVisualTheme(pal){
+      const primary = getPrimaryType(pal) || 'Neutral';
+      return PAL_TYPE_VISUALS[primary] || PAL_TYPE_VISUALS.Neutral || { overlay: ROUTE_VISUAL_THEMES.pal.overlay, accent: ROUTE_VISUAL_THEMES.pal.accent };
+    }
+
+    function resolveItemDetail(itemId){
+      if(!itemId || !ITEM_DETAILS) return null;
+      if(ITEM_DETAILS[itemId]) return ITEM_DETAILS[itemId];
+      const slug = slugifyForPalworld(String(itemId));
+      if(slug && ITEM_DETAILS[slug]) return ITEM_DETAILS[slug];
+      return null;
+    }
+
+    function gatherStepTargets(step){
+      const targets = [];
+      const seen = new Set();
+      const links = Array.isArray(step?.links) ? step.links : [];
+      links.forEach(link => {
+        if(!link || !link.type) return;
+        const key = `${link.type}:${link.id || link.slug || link.name || ''}`;
+        seen.add(key);
+        targets.push(link);
+      });
+      const rawTargets = Array.isArray(step?.raw?.targets) ? step.raw.targets : [];
+      rawTargets.forEach(target => {
+        if(!target || !target.kind) return;
+        const typeMap = { pal: 'pal', item: 'item', tech: 'tech', station: 'tech', boss: 'tower', npc: 'npc' };
+        const mapped = typeMap[target.kind];
+        if(!mapped) return;
+        const ident = target.id || target.slug || target.name || '';
+        const key = `${mapped}:${ident}`;
+        if(seen.has(key)) return;
+        seen.add(key);
+        targets.push({ type: mapped, id: target.id || target.slug, slug: target.slug, name: target.name, map: target.map });
+      });
+      return targets;
+    }
+
+    function routeStepLocation(step){
+      const raw = step?.raw;
+      if(raw && Array.isArray(raw.locations) && raw.locations.length){
+        const loc = raw.locations.find(entry => Array.isArray(entry.coords) && entry.coords.length >= 2) || raw.locations[0];
+        if(loc){
+          const coords = Array.isArray(loc.coords) && loc.coords.length >= 2 ? [Number(loc.coords[0]), Number(loc.coords[1])] : null;
+          const region = loc.region || loc.region_id || '';
+          const label = loc.label || loc.landmark || (region ? niceName(region) : '');
+          return { coords, region, label };
+        }
+      }
+      const link = (step?.links || []).find(entry => entry && entry.type === 'tower' && entry.map);
+      if(link && link.map){
+        const map = link.map;
+        const coords = Array.isArray(map.coords) ? [Number(map.coords[0]), Number(map.coords[1])] : (
+          map.entrance && Array.isArray(map.entrance.coords) ? [Number(map.entrance.coords[0]), Number(map.entrance.coords[1])] : null
+        );
+        const region = map.region || '';
+        const label = map.label || map.title || (map.entrance && map.entrance.label) || '';
+        return { coords, region, label };
+      }
+      return null;
+    }
+
+    function routeVisualFromStep(step, route){
+      const targets = gatherStepTargets(step);
+      for(const target of targets){
+        if(target.type === 'pal'){
+          const palId = resolvePalIdFromLink(target);
+          const pal = palId != null ? PALS?.[palId] : null;
+          if(pal){
+            const theme = palVisualTheme(pal);
+            const image = getPalArtSource(pal) || getPalOnlineArtSource(pal) || getPalIconSource(pal);
+            if(image){
+              return {
+                type: 'pal',
+                image,
+                overlay: theme.overlay,
+                accent: theme.accent,
+                icon: ROUTE_VISUAL_THEMES.pal.icon,
+                position: ROUTE_VISUAL_THEMES.pal.position,
+                label: pal.name,
+                alt: `${pal.name} pal artwork`
+              };
+            }
+          }
+        } else if(target.type === 'tech'){
+          const tech = resolveTechFromLink(target);
+          const item = tech?.item;
+          const image = item?.image || item?.icon;
+          if(item && image){
+            return {
+              type: 'tech',
+              image,
+              overlay: ROUTE_VISUAL_THEMES.tech.overlay,
+              accent: ROUTE_VISUAL_THEMES.tech.accent,
+              icon: ROUTE_VISUAL_THEMES.tech.icon,
+              position: ROUTE_VISUAL_THEMES.tech.position,
+              label: item.name || niceName(target.id || target.slug || ''),
+              alt: `${item.name || niceName(target.id || target.slug || '')} technology`
+            };
+          }
+        } else if(target.type === 'item'){
+          const detail = resolveItemDetail(target.id);
+          const image = detail?.image || detail?.icon;
+          if(image){
+            const name = detail?.name || niceName(target.id || '');
+            return {
+              type: 'item',
+              image,
+              overlay: ROUTE_VISUAL_THEMES.item.overlay,
+              accent: ROUTE_VISUAL_THEMES.item.accent,
+              icon: ROUTE_VISUAL_THEMES.item.icon,
+              position: ROUTE_VISUAL_THEMES.item.position,
+              label: name,
+              alt: `${name} item`
+            };
+          }
+        } else if(target.type === 'tower'){
+          const location = routeStepLocation(step);
+          const marker = location?.coords ? worldCoordsToPercent(location.coords) : null;
+          return {
+            type: 'boss',
+            image: ROUTE_ART_IMAGE,
+            overlay: ROUTE_VISUAL_THEMES.boss.overlay,
+            accent: ROUTE_VISUAL_THEMES.boss.accent,
+            icon: ROUTE_VISUAL_THEMES.boss.icon,
+            position: ROUTE_VISUAL_THEMES.boss.position,
+            marker,
+            label: location?.label || niceName(target.id || target.slug || target.name || ''),
+            alt: `${route?.title || 'Boss'} location`
+          };
+        } else if(target.type === 'npc' && target.image){
+          return {
+            type: 'npc',
+            image: target.image,
+            overlay: ROUTE_VISUAL_THEMES.npc.overlay,
+            accent: ROUTE_VISUAL_THEMES.npc.accent,
+            icon: ROUTE_VISUAL_THEMES.npc.icon,
+            position: ROUTE_VISUAL_THEMES.npc.position,
+            label: target.name || niceName(target.id || ''),
+            alt: `${target.name || 'NPC'} portrait`
+          };
+        }
+      }
+      const location = routeStepLocation(step);
+      if(location){
+        const marker = location.coords ? worldCoordsToPercent(location.coords) : null;
+        return {
+          type: 'map',
+          image: ROUTE_ART_IMAGE,
+          overlay: ROUTE_VISUAL_THEMES.map.overlay,
+          accent: ROUTE_VISUAL_THEMES.map.accent,
+          icon: ROUTE_VISUAL_THEMES.map.icon,
+          position: ROUTE_VISUAL_THEMES.map.position,
+          marker,
+          label: location.label || niceName(location.region || ''),
+          alt: `${route?.title || 'Route'} map location`
+        };
+      }
+      return null;
+    }
+
+    function routeVisualFromTags(route){
+      if(!route) return {};
+      const keys = [];
+      if(route.category) keys.push(String(route.category).toLowerCase());
+      if(Array.isArray(route.tags)){
+        route.tags.forEach(tag => keys.push(String(tag).toLowerCase()));
+      }
+      for(const key of keys){
         if(!key) continue;
         if(ROUTE_ART_LIBRARY[key]){
-          art = ROUTE_ART_LIBRARY[key];
-          break;
+          return { ...ROUTE_ART_LIBRARY[key], type: key };
         }
         if(key.includes('tower') || key.includes('boss')){
-          art = ROUTE_ART_LIBRARY.tower || ROUTE_ART_LIBRARY.boss;
-          break;
+          return { ...ROUTE_VISUAL_THEMES.boss, type: 'boss' };
         }
-        if(key.includes('farm')){
-          art = ROUTE_ART_LIBRARY.farming;
+        if(key.includes('farm') || key.includes('gather')){
+          return { ...ROUTE_VISUAL_THEMES.item, icon: 'fa-seedling', type: 'item' };
         }
       }
-      if(!art){
-        const variants = ROUTE_ART_VARIANTS.length ? ROUTE_ART_VARIANTS : [{ overlay: 'rgba(148, 187, 233, 0.55)', accent: '#9bd4ff', icon: 'fa-route', position: 'center 40%' }];
-        const variant = variants[Math.abs(hashString(route?.id || 'route')) % variants.length] || variants[0];
-        art = variant;
+      return {};
+    }
+
+    function computeRouteVisual(route){
+      const fallback = { ...ROUTE_VISUAL_THEMES.generic, image: ROUTE_ART_IMAGE, type: 'generic', label: route?.title || 'Route', alt: route?.title ? `${route.title} guide artwork` : 'Route guide artwork', marker: null };
+      if(!route) return fallback;
+      const steps = Array.isArray(route?.chapter?.steps) ? route.chapter.steps : [];
+      for(const step of steps){
+        const visual = routeVisualFromStep(step, route);
+        if(visual && visual.image){
+          return { ...fallback, ...visual };
+        }
       }
-      return { image: ROUTE_ART_IMAGE, ...art };
+      const tagVisual = routeVisualFromTags(route);
+      if(tagVisual && Object.keys(tagVisual).length){
+        return { ...fallback, ...tagVisual };
+      }
+      const variants = ROUTE_ART_VARIANTS.length ? ROUTE_ART_VARIANTS : [ROUTE_VISUAL_THEMES.generic];
+      const variant = variants[Math.abs(hashString(route?.id || route?.title || 'route')) % variants.length] || variants[0];
+      return { ...fallback, ...variant };
+    }
+
+    function routeArtFor(route){
+      const visual = computeRouteVisual(route);
+      return {
+        ...visual,
+        image: sanitizeImageUrl(visual.image),
+        overlay: visual.overlay || ROUTE_VISUAL_THEMES.generic.overlay,
+        accent: visual.accent || ROUTE_VISUAL_THEMES.generic.accent,
+        icon: visual.icon || ROUTE_VISUAL_THEMES.generic.icon,
+        position: visual.position || ROUTE_VISUAL_THEMES.generic.position,
+        marker: visual.marker || null
+      };
     }
 
     function routeProgressBreakdown(route){
@@ -9909,6 +10110,7 @@
 
     function refreshRouteIntelligenceUI({ summary, levelEstimate, recommendations } = {}){
       if(!routeGuideData) return;
+      pruneCompletedActiveRoutes();
       const effectiveSummary = summary || calculateGuideProgressSummary();
       const effectiveLevel = levelEstimate || estimatePlayerLevel(routeContext);
       const effectiveRecommendations = recommendations || computeRouteRecommendations(routeGuideData, routeContext, effectiveLevel);
@@ -9916,6 +10118,8 @@
       renderRouteRecommendationsList(effectiveRecommendations, { offset: suggestionCount });
       updateRouteOverviewUI(effectiveSummary);
       renderBossRouteTimeline();
+      renderActiveRoutesList();
+      renderRouteLibraryList();
     }
 
     function renderRouteSuggestions(recommendations){
@@ -10043,6 +10247,15 @@
       detail.style.setProperty('--route-suggestion-overlay', art.overlay);
       detail.style.setProperty('--route-suggestion-accent', art.accent);
       detail.style.setProperty('--route-suggestion-position', art.position);
+      if(art.marker){
+        detail.style.setProperty('--route-suggestion-marker-left', `${art.marker.left}%`);
+        detail.style.setProperty('--route-suggestion-marker-top', `${art.marker.top}%`);
+        detail.style.setProperty('--route-suggestion-marker-opacity', '1');
+      } else {
+        detail.style.removeProperty('--route-suggestion-marker-left');
+        detail.style.removeProperty('--route-suggestion-marker-top');
+        detail.style.setProperty('--route-suggestion-marker-opacity', '0');
+      }
       const breakdown = routeProgressBreakdown(route);
       const requiredLabel = breakdown.requiredTotal
         ? `${breakdown.requiredDone}/${breakdown.requiredTotal} ${kidMode ? 'big steps' : 'required'}`
@@ -10071,12 +10284,19 @@
         : `<p class="route-suggestion-detail__reason">${escapeHTML(kidMode ? 'Balanced for your crew.' : 'Balanced recommendation tailored to your context.')}</p>`;
       const focusStep = entry.nextStepId || (findFirstIncompleteStepForRoute(route, { includeOptional: true })?.id || '');
       const roleLabel = route.progression_role ? capitalize(route.progression_role) : capitalize(route.category || 'route');
+      const typeLabel = art.label || '';
       const stepButton = focusStep
         ? `<button type="button" class="btn" data-step-focus="${escapeHTML(focusStep)}">${escapeHTML(kidMode ? 'Jump to this step' : 'Jump to this step')}</button>`
         : '';
+      const queueButton = isRouteActive(route.id)
+        ? `<button type="button" class="btn" data-action="deactivateRoute" data-route-id="${escapeHTML(route.id)}">${escapeHTML(kidMode ? 'Remove from queue' : 'Remove from active')}</button>`
+        : `<button type="button" class="btn" data-action="activateRoute" data-route-id="${escapeHTML(route.id)}">${escapeHTML(kidMode ? 'Add to queue' : 'Add to active')}</button>`;
       detail.innerHTML = `
         <div class="route-suggestion-detail__hero">
-          <div class="route-suggestion-detail__badge">${escapeHTML(roleLabel)}</div>
+          <div class="route-suggestion-detail__badges">
+            <span class="route-suggestion-detail__badge">${escapeHTML(roleLabel)}</span>
+            ${typeLabel ? `<span class="route-suggestion-detail__badge route-suggestion-detail__badge--accent">${escapeHTML(typeLabel)}</span>` : ''}
+          </div>
           <h4 class="route-suggestion-detail__title">${escapeHTML(route.title)}</h4>
           ${metaLine ? `<p class="route-suggestion-detail__meta">${escapeHTML(metaLine)}</p>` : ''}
           <div class="route-suggestion-detail__progress">
@@ -10085,6 +10305,7 @@
           </div>
           ${reasonsHtml}
           <div class="route-suggestion-detail__actions">
+            ${queueButton}
             <button type="button" class="btn" data-route-focus="${escapeHTML(route.id)}">${escapeHTML(kidMode ? 'Open full guide' : 'Open full guide')}</button>
             ${stepButton}
           </div>
@@ -10113,8 +10334,12 @@
       const reasonHighlight = Array.isArray(entry.reasons) && entry.reasons.length
         ? entry.reasons[0]
         : (kidMode ? 'Balanced for your crew.' : 'Balanced recommendation tailored to your context.');
-      const style = `--route-suggestion-image: url('${art.image}'); --route-suggestion-overlay: ${art.overlay}; --route-suggestion-accent: ${art.accent}; --route-suggestion-position: ${art.position};`;
+      const markerCss = art.marker
+        ? ` --route-suggestion-marker-left: ${art.marker.left}%; --route-suggestion-marker-top: ${art.marker.top}%; --route-suggestion-marker-opacity: 1;`
+        : ' --route-suggestion-marker-opacity: 0;';
+      const style = `--route-suggestion-image: url('${art.image}'); --route-suggestion-overlay: ${art.overlay}; --route-suggestion-accent: ${art.accent}; --route-suggestion-position: ${art.position};${markerCss}`;
       const scoreLabel = typeof entry.score === 'number' ? entry.score.toFixed(1) : '';
+      const queued = isRouteActive(route.id);
       return `
         <button type="button" class="route-suggestion-card${active ? ' route-suggestion-card--active' : ''}" data-suggestion-route="${escapeHTML(route.id)}" aria-pressed="${active ? 'true' : 'false'}" style="${escapeHTML(style)}">
           <div class="route-suggestion-card__body">
@@ -10123,6 +10348,7 @@
               <div class="route-suggestion-card__text">
                 <h4 class="route-suggestion-card__title">${escapeHTML(route.title)}</h4>
                 ${metaLine ? `<p class="route-suggestion-card__meta">${escapeHTML(metaLine)}</p>` : ''}
+                ${queued ? `<span class="route-suggestion-card__status">${escapeHTML(kidMode ? 'In your queue' : 'In queue')}</span>` : ''}
               </div>
               ${scoreLabel ? `<span class="route-suggestion-card__score">${escapeHTML(scoreLabel)}</span>` : ''}
             </div>
@@ -10133,6 +10359,106 @@
             <p class="route-suggestion-card__reason">${escapeHTML(reasonHighlight)}</p>
           </div>
         </button>
+      `;
+    }
+
+    function renderActiveRoutesList(){
+      const wrap = document.getElementById('routeChapters');
+      if(!wrap) return;
+      if(!routeGuideData || !Array.isArray(routeGuideData.routes)){
+        wrap.innerHTML = `<p class="route-active__empty">${escapeHTML(kidMode ? 'Guides are still loading…' : 'Guide data is still loading.')}</p>`;
+        return;
+      }
+      const activeIds = Array.from(activeRouteIds);
+      wrap.innerHTML = '';
+      if(!activeIds.length){
+        wrap.innerHTML = `<p class="route-active__empty">${escapeHTML(kidMode
+          ? 'Tap an adventure above to add it to your queue.'
+          : 'Choose a guide from the suggestions above to add it to your queue.')}</p>`;
+        return;
+      }
+      activeIds.forEach((routeId, index) => {
+        const route = routeGuideData.routeLookup?.[routeId];
+        if(!route) return;
+        wrap.appendChild(renderChapterCard(route.chapter, index === 0, route));
+      });
+    }
+
+    function renderRouteLibraryList(){
+      const list = document.getElementById('routeLibraryList');
+      const countNode = document.querySelector('[data-route-role="library-count"]');
+      if(!list){
+        return;
+      }
+      if(!routeGuideData || !Array.isArray(routeGuideData.routes) || !routeGuideData.routes.length){
+        list.innerHTML = `<p class="route-library__empty">${escapeHTML(kidMode ? 'Guides are still loading…' : 'Guide library is still loading.')}</p>`;
+        if(countNode) countNode.textContent = '';
+        return;
+      }
+      const active = new Set(activeRouteIds);
+      const query = (routeLibrarySearchTerm || '').trim().toLowerCase();
+      const availableRoutes = routeGuideData.routes.filter(route => {
+        if(!route || !route.id || active.has(route.id)) return false;
+        if(!query) return true;
+        const haystack = [
+          route.title,
+          route.category,
+          ...(Array.isArray(route.tags) ? route.tags : []),
+          ...(Array.isArray(route.objectives) ? route.objectives : [])
+        ].filter(Boolean).join(' ').toLowerCase();
+        return haystack.includes(query);
+      });
+      if(countNode){
+        const remaining = routeGuideData.routes.filter(route => route && route.id && !active.has(route.id)).length;
+        const label = remaining > 0
+          ? `${remaining} ${remaining === 1 ? (kidMode ? 'guide available' : 'guide available') : (kidMode ? 'guides available' : 'guides available')}`
+          : (kidMode ? 'All guides active' : 'All guides active');
+        countNode.textContent = label;
+      }
+      if(!availableRoutes.length){
+        list.innerHTML = `<p class="route-library__empty">${escapeHTML(query
+          ? (kidMode ? 'No guides match that search.' : 'No guides match your search.')
+          : (kidMode ? 'Everything up here is in your queue.' : 'Every remaining guide is already active.'))}</p>`;
+        return;
+      }
+      list.innerHTML = availableRoutes.map(route => renderRouteLibraryCard(route)).join('');
+    }
+
+    function renderRouteLibraryCard(route){
+      const art = routeArtFor(route);
+      const metaBits = [];
+      const level = route?.recommended_level || {};
+      if(level.min != null || level.max != null){
+        metaBits.push(`Lv ${level.min != null ? level.min : '?'}-${level.max != null ? level.max : '?'}`);
+      }
+      if(route?.risk_profile){
+        metaBits.push(`${capitalize(route.risk_profile)} risk`);
+      }
+      const timeLabel = formatTimeLabel(route?.estimated_time_minutes);
+      if(timeLabel){
+        metaBits.push(timeLabel);
+      }
+      const metaLine = metaBits.length ? metaBits.join(' • ') : '';
+      const tags = Array.isArray(route?.tags) && route.tags.length
+        ? `<div class="route-library-card__tags">${route.tags.slice(0, 4).map(tag => `<span class="chip route-library-card__tag">${escapeHTML(tag)}</span>`).join('')}</div>`
+        : '';
+      const complete = isRouteComplete(route);
+      const markerStyle = art.marker ? `style="left:${art.marker.left}%;top:${art.marker.top}%"` : '';
+      return `
+        <article class="route-library-card${complete ? ' route-library-card--complete' : ''}" data-route-id="${escapeHTML(route.id)}">
+          <div class="route-library-card__media" style="--route-visual-image: url('${art.image}'); --route-visual-overlay: ${art.overlay}; --route-visual-accent: ${art.accent};">
+            ${art.marker ? `<span class="route-visual__marker" ${markerStyle}></span>` : ''}
+          </div>
+          <div class="route-library-card__body">
+            <h4>${escapeHTML(route.title)}</h4>
+            ${metaLine ? `<p class="route-library-card__meta">${escapeHTML(metaLine)}</p>` : ''}
+            ${tags}
+          </div>
+          <div class="route-library-card__actions">
+            ${complete ? `<span class="route-library-card__status">${escapeHTML(kidMode ? 'Complete' : 'Complete')}</span>` : ''}
+            <button type="button" class="chip route-library-card__activate" data-action="activateRoute" data-route-id="${escapeHTML(route.id)}">${escapeHTML(kidMode ? 'Add to queue' : 'Add to active')}</button>
+          </div>
+        </article>
       `;
     }
 
@@ -10245,25 +10571,63 @@
           <header class="page-header">
             <h2>${escapeHTML(heading)}</h2>
           </header>
-          <section class="card route-context" id="routeContextCard">
-            ${renderRouteContextOverview(routeContext, levelEstimate, summary)}
-            ${renderRouteContextControls(routeGuideData, routeContext)}
+          <div class="route-layout">
+            <section class="card route-context" id="routeContextCard">
+              ${renderRouteContextOverview(routeContext, levelEstimate, summary)}
+              ${renderRouteContextControls(routeGuideData, routeContext)}
+            </section>
+            <section class="card route-suggestions-card" id="routeSuggestionsCard">
+              <div class="route-suggestions__header">
+                <h3>${kidMode ? 'Tonight’s Adventure Paths' : 'Suggested Adventure Paths'}</h3>
+                <p class="route-suggestions__intro">${escapeHTML(suggestionsLead)}</p>
+              </div>
+              <div class="route-suggestions__list" id="routeSuggestionsList">
+                <p class="route-suggestions__empty">${escapeHTML(kidMode
+                  ? 'Adjust the context above to unlock personalised picks.'
+                  : 'Fine-tune the context above to surface tailored paths.')}</p>
+              </div>
+              <div class="route-suggestions__detail" id="routeSuggestionDetail">
+                <p class="route-suggestions__placeholder">${escapeHTML(kidMode
+                  ? 'Highlight a suggestion to preview the guide here.'
+                  : 'Highlight a suggestion to preview the full walkthrough here.')}</p>
+              </div>
+            </section>
+          </div>
+          <section class="card route-active-card" id="routeActiveCard">
+            <div class="route-active__header">
+              <div class="route-active__title">
+                <h3>${escapeHTML(kidMode ? 'Your adventure queue' : 'Active guides')}</h3>
+                <p class="route-active__intro">${escapeHTML(kidMode
+                  ? 'Pick guides from the suggestions above. Only your chosen adventures stay visible here until you finish them.'
+                  : 'Pick guides from the suggestions above. Only the adventures you select stay visible here until they are complete.')}</p>
+              </div>
+              <div class="route-active__actions">
+                <button type="button" class="btn" data-route-action="toggle-optional">${routeOptionalToggleLabel(routeHideOptional)}</button>
+                <button type="button" class="btn" data-route-action="jump-next" data-step-id="">${kidMode ? 'Jump to next step' : 'Jump to next required'}</button>
+              </div>
+            </div>
+            <div class="route-active__filters" data-route-role="filters" aria-label="Filter steps by category"></div>
+            <div class="route-active__list" id="routeChapters"></div>
           </section>
-          <section class="card route-suggestions-card" id="routeSuggestionsCard">
-            <div class="route-suggestions__header">
-              <h3>${kidMode ? 'Tonight’s Adventure Paths' : 'Suggested Adventure Paths'}</h3>
-              <p class="route-suggestions__intro">${escapeHTML(suggestionsLead)}</p>
-            </div>
-            <div class="route-suggestions__list" id="routeSuggestionsList">
-              <p class="route-suggestions__empty">${escapeHTML(kidMode
-                ? 'Adjust the context above to unlock personalised picks.'
-                : 'Fine-tune the context above to surface tailored paths.')}</p>
-            </div>
-            <div class="route-suggestions__detail" id="routeSuggestionDetail">
-              <p class="route-suggestions__placeholder">${escapeHTML(kidMode
-                ? 'Highlight a suggestion to preview the guide here.'
-                : 'Highlight a suggestion to preview the full walkthrough here.')}</p>
-            </div>
+          <section class="card route-library" id="routeLibraryCard">
+            <details class="route-library__details">
+              <summary class="route-library__summary">
+                <div class="route-library__summary-text">
+                  <h3>${escapeHTML(kidMode ? 'Browse every guide' : 'Browse the full library')}</h3>
+                  <p>${escapeHTML(kidMode
+                    ? 'Open this drawer when you want to look up older or completed guides.'
+                    : 'Open the drawer to search the full guide library, including completed runs.')}</p>
+                </div>
+                <span class="route-library__count" data-route-role="library-count"></span>
+              </summary>
+              <div class="route-library__body">
+                <label class="route-library__search">
+                  <span class="route-library__search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                  <input type="search" id="routeLibrarySearch" placeholder="${escapeHTML(kidMode ? 'Search guides' : 'Search guides')}" aria-label="${escapeHTML(kidMode ? 'Search guides' : 'Search guides')}" />
+                </label>
+                <div class="route-library__list" id="routeLibraryList"></div>
+              </div>
+            </details>
           </section>
           <section class="card route-recommendations-card" id="routeRecommendationsCard">
             <div class="route-recommendations__header">
@@ -10272,22 +10636,21 @@
             </div>
             <div id="routeRecommendationsList" class="route-recommendations__list"></div>
           </section>
-          <section class="card route-controls">
-            <p class="route-controls__lead">${escapeHTML(kidMode
-              ? 'Check off each friendly step together. Hide bonus chores, focus categories, or jump straight to the next task.'
-              : 'Track every objective across Palworld. Hide optional steps, filter by category, or jump straight to your next move.')}</p>
-            <div class="route-controls__actions">
-              <button type="button" class="btn" data-route-action="toggle-optional">${routeOptionalToggleLabel(routeHideOptional)}</button>
-              <button type="button" class="btn" data-route-action="jump-next" data-step-id="">${kidMode ? 'Jump to next step' : 'Jump to next required'}</button>
-            </div>
-            <div class="route-controls__filters" data-route-role="filters" aria-label="Filter steps by category"></div>
-          </section>
-          <div id="routeChapters"></div>
         `;
           const wrap = node.querySelector('#routeChapters');
-          routes.forEach((route, idx) => {
-            wrap.appendChild(renderChapterCard(route.chapter, idx === 0, route));
-          });
+          syncActiveRouteIds();
+          pruneCompletedActiveRoutes();
+          renderActiveRoutesList();
+          renderRouteLibraryList();
+          const librarySearch = node.querySelector('#routeLibrarySearch');
+          if(librarySearch && !librarySearch.dataset.bound){
+            librarySearch.value = routeLibrarySearchTerm;
+            librarySearch.dataset.bound = 'true';
+            librarySearch.addEventListener('input', () => {
+              routeLibrarySearchTerm = librarySearch.value || '';
+              renderRouteLibraryList();
+            });
+          }
           wrap.addEventListener('change', handleRouteCheckboxChange);
           wrap.addEventListener('click', handleRouteClick);
           bindRouteActionButtons();
@@ -11157,22 +11520,38 @@
       const completeLabel = progress.requiredDone
         ? `<span class="route-card__complete">✅ ${escapeHTML(kidMode ? 'Route complete' : 'Chapter complete')}</span>`
         : '';
+      const art = routeArtFor(route);
+      const routeId = route?.id || chapter.id;
+      const markerAttr = art.marker ? ` style="left:${art.marker.left}%;top:${art.marker.top}%"` : '';
+      const label = art.label && art.label !== routeChapterTitle(chapter) ? art.label : '';
+      const queueButton = isRouteActive(routeId)
+        ? `<button type="button" class="chip route-card__queue" data-action="deactivateRoute" data-route-id="${escapeHTML(routeId)}">${escapeHTML(kidMode ? 'Remove from queue' : 'Remove from queue')}</button>`
+        : '';
       return `
         <div class="route-card__header">
-          <div class="route-card__title">
-            <h3>${escapeHTML(routeChapterTitle(chapter))}</h3>
-            ${why ? `<p class="route-card__why">${escapeHTML(why)}</p>` : ''}
-            ${meta}
+          <div class="route-card__info">
+            <div class="route-card__thumb" style="--route-visual-image: url('${art.image}'); --route-visual-overlay: ${art.overlay}; --route-visual-accent: ${art.accent}; --route-visual-position: ${art.position};">
+              ${art.marker ? `<span class="route-visual__marker"${markerAttr}></span>` : ''}
+            </div>
+            <div class="route-card__title">
+              <h3>${escapeHTML(routeChapterTitle(chapter))}</h3>
+              ${label ? `<span class="route-card__label">${escapeHTML(label)}</span>` : ''}
+              ${why ? `<p class="route-card__why">${escapeHTML(why)}</p>` : ''}
+              ${meta}
+            </div>
           </div>
-          <div class="route-card__progress">${renderProgress(progress)}</div>
+          <div class="route-card__toolbar">
+            ${completeLabel}
+            ${queueButton}
+          </div>
         </div>
+        <div class="route-card__progress">${renderProgress(progress)}</div>
         <details class="route-card__details"${openByDefault ? ' open' : ''}>
           <summary class="btn route-card__toggle">${escapeHTML(kidMode ? 'Show steps' : 'Open steps')}</summary>
           ${renderSteps(chapter, route)}
           <div class="route-card__actions">
             <button class="btn" data-action="markRequired" data-ch="${chapter.id}">${escapeHTML(kidMode ? 'Mark big steps complete' : 'Mark Required Complete')}</button>
             <button class="btn" data-action="resetChapter" data-ch="${chapter.id}">${escapeHTML(kidMode ? 'Reset route' : 'Reset Chapter')}</button>
-            ${completeLabel}
           </div>
         </details>
       `;
@@ -11389,10 +11768,29 @@
       }
       const btn = event.target.closest('button[data-action]');
       if(!btn) return;
+      const action = btn.dataset.action;
+      if(action === 'activateRoute'){
+        const routeId = btn.dataset.routeId || btn.dataset.route;
+        if(routeId){
+          addActiveRoute(routeId);
+          playSound(clickSound);
+        }
+        event.preventDefault();
+        return;
+      }
+      if(action === 'deactivateRoute'){
+        const routeId = btn.dataset.routeId || btn.dataset.route;
+        if(routeId){
+          removeActiveRoute(routeId);
+          playSound(clickSound);
+        }
+        event.preventDefault();
+        return;
+      }
       const chapterId = btn.dataset.ch;
       const chapter = (routeGuideData?.chapters || []).find(ch => ch.id === chapterId);
       if(!chapter) return;
-      if(btn.dataset.action === 'markRequired'){
+      if(action === 'markRequired'){
         chapter.steps.filter(step => !step.optional).forEach(step => {
           routeState[step.id] = true;
           const options = buildStepProgressOptions(step);
@@ -11405,7 +11803,7 @@
         rerenderChapter(chapter);
         refreshRouteIntelligenceUI();
         updateProgressUI();
-      } else if(btn.dataset.action === 'resetChapter'){
+      } else if(action === 'resetChapter'){
         chapter.steps.forEach(step => {
           delete routeState[step.id];
         });
