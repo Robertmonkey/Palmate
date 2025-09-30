@@ -9374,6 +9374,32 @@
       { overlay: 'rgba(92, 225, 230, 0.52)', accent: '#bde7f8', icon: 'fa-compass', position: 'center 28%' },
       { overlay: 'rgba(255, 196, 77, 0.5)', accent: '#ffd6a5', icon: 'fa-sun', position: 'center 52%' }
     ];
+    const ROUTE_GOAL_ICON_MAP = {
+      'base-building': { icon: 'fa-house-flag' },
+      'capture': { icon: 'fa-paw' },
+      'resource-gathering': { icon: 'fa-seedling' },
+      'boss': { icon: 'fa-chess-rook' },
+      'tower': { icon: 'fa-chess-rook' },
+      'exploration': { icon: 'fa-compass' },
+      'travel': { icon: 'fa-road' },
+      'crafting': { icon: 'fa-hammer' },
+      'tech': { icon: 'fa-gears' },
+      'combat': { icon: 'fa-swords' },
+      'mount': { icon: 'fa-horse' }
+    };
+    const ROUTE_DEFAULT_GOAL_ICON = 'fa-route';
+    const ROUTE_PLAYSTYLE_LABELS = {
+      boss: { kid: 'Boss battles', grown: 'Boss hunts' },
+      tower: { kid: 'Boss battles', grown: 'Boss hunts' },
+      resource: { kid: 'Resource runs', grown: 'Resource farming' },
+      capture: { kid: 'Capture pals', grown: 'Capture & taming' },
+      base: { kid: 'Build the base', grown: 'Base building' },
+      craft: { kid: 'Crafting time', grown: 'Crafting & tech' },
+      explore: { kid: 'Explore & travel', grown: 'Exploration' },
+      support: { kid: 'Support prep', grown: 'Support route' },
+      core: { kid: 'Main adventure', grown: 'Core progression' },
+      adventure: { kid: 'Adventure mix', grown: 'Balanced adventure' }
+    };
     const DEFAULT_RECOMMENDER_WEIGHTS = {
       prerequisites_met: 6,
       level_fit: 5,
@@ -9394,13 +9420,17 @@
       synergy_next_routes: 2,
       resource_urgency: 2.5,
       returning_focus: 2.5,
-      tower_alignment: 3
+      tower_alignment: 3,
+      pal_gap: 3,
+      tech_gap: 3
     };
     let currentRouteSuggestionEntries = [];
     let activeSuggestedRouteId = null;
     let routeSuggestionsAbort = null;
     let activeRouteIds = new Set();
     let routeLibrarySearchTerm = '';
+    let routeLibraryFilter = 'incomplete';
+    let routeLibraryMatchContext = false;
 
     function loadActiveRouteIdsFromState(state){
       const meta = state && typeof state.__meta === 'object' ? state.__meta : null;
@@ -9673,6 +9703,8 @@
       const steps = Array.isArray(route?.steps) ? route.steps.slice() : [];
       const chapter = convertRouteToChapter(route, { index, role: normalizedRole });
       const resourceOutputs = collectRouteResourceOutputs(route);
+      const highlights = collectRouteHighlights(route);
+      const playstyleKey = deriveRoutePlaystyleKey(route);
       return {
         id,
         index,
@@ -9700,7 +9732,11 @@
         next_routes: Array.isArray(route?.next_routes) ? route.next_routes.slice() : [],
         raw: route,
         chapter,
-        resourceOutputs
+        resourceOutputs,
+        highlightPals: highlights.pals,
+        highlightItems: highlights.items,
+        highlightTech: highlights.tech,
+        playstyleKey
       };
     }
 
@@ -9827,6 +9863,106 @@
         }
       });
       return Array.from(items);
+    }
+
+    function collectRouteHighlights(route){
+      const pals = new Set();
+      const items = new Set();
+      const tech = new Set();
+      const addPal = value => {
+        if(!value) return;
+        const slug = slugifyForPalworld(String(value));
+        if(slug) pals.add(slug);
+      };
+      const addItem = value => {
+        if(!value) return;
+        const slug = slugifyForPalworld(String(value));
+        if(slug) items.add(slug);
+      };
+      const addTech = value => {
+        if(!value) return;
+        const slug = slugifyForPalworld(String(value));
+        if(slug) tech.add(slug);
+      };
+      const steps = Array.isArray(route?.steps) ? route.steps : [];
+      steps.forEach(step => {
+        const targets = Array.isArray(step?.targets) ? step.targets : [];
+        targets.forEach(target => {
+          if(!target || !target.kind) return;
+          if(target.kind === 'pal'){ addPal(target.id || target.slug || target.name); }
+          if(target.kind === 'item'){ addItem(target.id); }
+          if(target.kind === 'tech' || target.kind === 'station'){ addTech(target.id); }
+        });
+        const outputs = step?.outputs || {};
+        if(Array.isArray(outputs.pals)){
+          outputs.pals.forEach(addPal);
+        }
+        if(Array.isArray(outputs.items)){
+          outputs.items.forEach(entry => addItem(entry?.item_id || entry?.itemId || entry));
+        }
+        if(outputs.unlocks){
+          if(Array.isArray(outputs.unlocks.tech)) outputs.unlocks.tech.forEach(addTech);
+          if(Array.isArray(outputs.unlocks.stations)) outputs.unlocks.stations.forEach(addTech);
+        }
+        const links = Array.isArray(step?.links) ? step.links : [];
+        links.forEach(link => {
+          if(!link || !link.type) return;
+          if(link.type === 'pal'){ addPal(link.id || link.slug || link.name); }
+          if(link.type === 'item'){ addItem(link.id); }
+          if(link.type === 'tech'){ addTech(link.id || link.slug || link.name); }
+        });
+      });
+      const yields = route?.yields || {};
+      if(Array.isArray(yields.pals)) yields.pals.forEach(addPal);
+      if(Array.isArray(yields.items)) yields.items.forEach(entry => addItem(entry?.item_id || entry));
+      if(Array.isArray(yields.key_unlocks)) yields.key_unlocks.forEach(addTech);
+      const prereq = route?.prerequisites || {};
+      if(Array.isArray(prereq.pals)) prereq.pals.forEach(addPal);
+      if(Array.isArray(prereq.items)) prereq.items.forEach(entry => addItem(entry?.item_id || entry));
+      if(Array.isArray(prereq.tech)) prereq.tech.forEach(addTech);
+      const criteria = Array.isArray(route?.completion_criteria) ? route.completion_criteria : [];
+      criteria.forEach(entry => {
+        if(!entry || !entry.type) return;
+        if(entry.type.startsWith('have-pal')) addPal(entry.pal_id || entry.id);
+        if(entry.type.startsWith('have-item')) addItem(entry.item_id || entry.id);
+        if(entry.type.startsWith('unlock-tech')) addTech(entry.tech_id || entry.id);
+      });
+      route.resourceOutputs.forEach(addItem);
+      return {
+        pals: Array.from(pals),
+        items: Array.from(items),
+        tech: Array.from(tech)
+      };
+    }
+
+    function deriveRoutePlaystyleKey(route){
+      const tags = new Set((Array.isArray(route?.tags) ? route.tags : []).map(tag => String(tag || '').toLowerCase()));
+      const category = String(route?.category || '').toLowerCase();
+      if(tags.has('boss') || tags.has('tower') || category.includes('boss') || category.includes('tower')){
+        return 'boss';
+      }
+      if(tags.has('resource-gathering') || tags.has('farming') || category.includes('resource') || category.includes('farm')){
+        return 'resource';
+      }
+      if(tags.has('capture') || tags.has('taming')){
+        return 'capture';
+      }
+      if(tags.has('base-building') || category.includes('base')){
+        return 'base';
+      }
+      if(tags.has('crafting') || tags.has('tech') || category.includes('craft')){
+        return 'craft';
+      }
+      if(tags.has('exploration') || tags.has('travel') || category.includes('explore')){
+        return 'explore';
+      }
+      if(route?.progression_role === 'core'){
+        return 'core';
+      }
+      if(route?.progression_role === 'support'){
+        return 'support';
+      }
+      return 'adventure';
     }
 
     function routeChapterTitle(chapter){
@@ -10078,6 +10214,121 @@
       };
     }
 
+    function isRemoteAsset(url){
+      return /^https?:/i.test(String(url || ''));
+    }
+
+    function routePlaystyleKey(route){
+      if(route && route.playstyleKey) return route.playstyleKey;
+      return deriveRoutePlaystyleKey(route);
+    }
+
+    function routePlaystyleLabel(route){
+      const key = routePlaystyleKey(route);
+      const mapping = ROUTE_PLAYSTYLE_LABELS[key] || ROUTE_PLAYSTYLE_LABELS.adventure;
+      return kidMode ? mapping.kid : mapping.grown;
+    }
+
+    function routeGoalIcon(tag){
+      const iconEntry = ROUTE_GOAL_ICON_MAP[tag];
+      return iconEntry && iconEntry.icon ? iconEntry.icon : ROUTE_DEFAULT_GOAL_ICON;
+    }
+
+    function lookupTechBySlug(slug){
+      if(!slug) return null;
+      const direct = TECH_LOOKUP?.[slug];
+      if(direct) return direct;
+      if(slug.startsWith('tech-')){
+        const trimmed = slug.slice(5);
+        if(TECH_LOOKUP?.[trimmed]) return TECH_LOOKUP[trimmed];
+      }
+      return null;
+    }
+
+    function routeHighlightMedia(route, { limit = 3 } = {}){
+      if(!route) return [];
+      const entries = [];
+      const seen = new Set();
+      const typeOrder = ['pal', 'tech', 'item'];
+      const register = (entry) => {
+        if(!entry || !entry.image) return;
+        if(seen.has(entry.key)) return;
+        seen.add(entry.key);
+        entries.push(entry);
+      };
+      const palIds = Array.isArray(route?.highlightPals) ? route.highlightPals : [];
+      palIds.forEach(slug => {
+        if(!slug) return;
+        const link = { id: slug, slug };
+        const palId = resolvePalIdFromLink(link);
+        const pal = palId != null ? PALS?.[palId] : null;
+        const label = pal?.name || niceName(slug);
+        let image = null;
+        if(pal){
+          image = getPalArtSource(pal) || getPalOnlineArtSource(pal) || getPalIconSource(pal);
+        }
+        if(!image) return;
+        const obtained = palId != null ? !!caught[palId] : false;
+        register({
+          type: 'pal',
+          key: `pal:${palId != null ? palId : slug}`,
+          label,
+          image,
+          obtained
+        });
+      });
+      const techIds = Array.isArray(route?.highlightTech) ? route.highlightTech : [];
+      techIds.forEach(id => {
+        if(!id) return;
+        const slug = slugifyForPalworld(String(id));
+        const entry = lookupTechBySlug(slug);
+        const item = entry?.item;
+        if(!item || !item.name) return;
+        const image = item.image || item.icon || null;
+        if(!image) return;
+        const obtained = isTechUnlocked(item.name);
+        register({
+          type: 'tech',
+          key: `tech:${slug}`,
+          label: item.name,
+          image,
+          obtained
+        });
+      });
+      const itemIds = Array.isArray(route?.highlightItems) ? route.highlightItems : [];
+      itemIds.forEach(id => {
+        if(!id) return;
+        const detail = resolveItemDetail(id);
+        const image = detail?.image || null;
+        if(!image) return;
+        register({
+          type: 'item',
+          key: `item:${id}`,
+          label: detail?.name || niceName(id),
+          image,
+          obtained: false
+        });
+      });
+      const missing = entries.filter(entry => !entry.obtained);
+      const owned = entries.filter(entry => entry.obtained);
+      const sortByType = list => list.sort((a, b) => typeOrder.indexOf(a.type) - typeOrder.indexOf(b.type));
+      const ordered = [...sortByType(missing), ...sortByType(owned)];
+      return limit && limit > 0 ? ordered.slice(0, limit) : ordered;
+    }
+
+    function renderRouteHighlight(entry, { showLabel = false, size = 'default' } = {}){
+      if(!entry || !entry.image) return '';
+      const classes = ['route-highlight', `route-highlight--${entry.type}`];
+      if(entry.obtained) classes.push('route-highlight--obtained');
+      if(size === 'small') classes.push('route-highlight--small');
+      const label = entry.label || '';
+      const titleAttr = label ? ` title="${escapeHTML(label)}"` : '';
+      const referrer = isRemoteAsset(entry.image) ? ' referrerpolicy="no-referrer"' : '';
+      const img = `<img src="${escapeHTML(entry.image)}" alt="" loading="lazy" decoding="async"${referrer}>`;
+      const caption = showLabel && label ? `<span class="route-highlight__label">${escapeHTML(label)}</span>` : '';
+      return `<span class="${classes.join(' ')}"${titleAttr}>${img}${caption}</span>`;
+    }
+
     function routeProgressBreakdown(route){
       const chapter = route?.chapter;
       const steps = Array.isArray(chapter?.steps) ? chapter.steps : [];
@@ -10122,6 +10373,43 @@
       renderRouteLibraryList();
     }
 
+    function selectRouteSuggestions(recommendations, { min = 3, max = 4 } = {}){
+      if(!Array.isArray(recommendations) || !recommendations.length) return [];
+      const pool = recommendations.filter(entry => entry && entry.route && !isRouteComplete(entry.route));
+      if(!pool.length) return [];
+      const buckets = new Map();
+      pool.forEach(entry => {
+        const key = routePlaystyleKey(entry.route);
+        if(!buckets.has(key)) buckets.set(key, []);
+        buckets.get(key).push(entry);
+      });
+      buckets.forEach(list => list.sort((a, b) => (b.score || 0) - (a.score || 0)));
+      const sortedStyles = Array.from(buckets.entries())
+        .sort((a, b) => (b[1][0]?.score || 0) - (a[1][0]?.score || 0));
+      const maxAvailable = Math.min(max, pool.length);
+      const baseline = Math.min(min, maxAvailable);
+      const target = Math.max(Math.min(sortedStyles.length, maxAvailable), baseline);
+      const picks = [];
+      sortedStyles.forEach(([, list]) => {
+        if(picks.length >= target) return;
+        if(list.length){
+          picks.push(list.shift());
+        }
+      });
+      const ensureCount = desired => {
+        if(picks.length >= desired) return;
+        const remaining = pool
+          .filter(entry => !picks.includes(entry))
+          .sort((a, b) => (b.score || 0) - (a.score || 0));
+        while(picks.length < desired && remaining.length){
+          picks.push(remaining.shift());
+        }
+      };
+      ensureCount(baseline);
+      ensureCount(target);
+      return picks;
+    }
+
     function renderRouteSuggestions(recommendations){
       const card = document.getElementById('routeSuggestionsCard');
       const list = card ? card.querySelector('#routeSuggestionsList') : null;
@@ -10129,7 +10417,7 @@
       if(routeSuggestionsAbort){
         routeSuggestionsAbort.abort();
       }
-      const entries = Array.isArray(recommendations) ? recommendations.slice(0, 3) : [];
+      const entries = selectRouteSuggestions(recommendations);
       currentRouteSuggestionEntries = entries;
       if(!entries.length){
         activeSuggestedRouteId = null;
@@ -10204,7 +10492,6 @@
           handleRouteClick(event);
         };
         detail.addEventListener('click', detailHandler, { signal });
-        detail.addEventListener('change', handleRouteCheckboxChange, { signal });
       }
       setActiveRouteSuggestion(activeSuggestedRouteId, entries.find(entry => entry.route.id === activeSuggestedRouteId));
       return entries.length;
@@ -10283,14 +10570,21 @@
         ? `<ul class="route-suggestion-detail__reasons">${reasons}</ul>`
         : `<p class="route-suggestion-detail__reason">${escapeHTML(kidMode ? 'Balanced for your crew.' : 'Balanced recommendation tailored to your context.')}</p>`;
       const focusStep = entry.nextStepId || (findFirstIncompleteStepForRoute(route, { includeOptional: true })?.id || '');
-      const roleLabel = route.progression_role ? capitalize(route.progression_role) : capitalize(route.category || 'route');
+      const roleLabel = routePlaystyleLabel(route);
       const typeLabel = art.label || '';
+      const highlights = routeHighlightMedia(route, { limit: 5 });
+      const highlightsHtml = highlights.length
+        ? `<div class="route-suggestion-detail__highlights">${highlights.map(entry => renderRouteHighlight(entry, { showLabel: true })).join('')}</div>`
+        : '';
       const stepButton = focusStep
         ? `<button type="button" class="btn" data-step-focus="${escapeHTML(focusStep)}">${escapeHTML(kidMode ? 'Jump to this step' : 'Jump to this step')}</button>`
         : '';
       const queueButton = isRouteActive(route.id)
         ? `<button type="button" class="btn" data-action="deactivateRoute" data-route-id="${escapeHTML(route.id)}">${escapeHTML(kidMode ? 'Remove from queue' : 'Remove from active')}</button>`
         : `<button type="button" class="btn" data-action="activateRoute" data-route-id="${escapeHTML(route.id)}">${escapeHTML(kidMode ? 'Add to queue' : 'Add to active')}</button>`;
+      const objectives = Array.isArray(route?.objectives) && route.objectives.length
+        ? `<ul class="route-suggestion-detail__objectives">${route.objectives.slice(0, 4).map(obj => `<li>${escapeHTML(obj)}</li>`).join('')}</ul>`
+        : '';
       detail.innerHTML = `
         <div class="route-suggestion-detail__hero">
           <div class="route-suggestion-detail__badges">
@@ -10303,15 +10597,16 @@
             <div class="route-suggestion-detail__progress-bar"><span style="width:${overallPct}%"></span></div>
             <span class="route-suggestion-detail__progress-label">${escapeHTML(progressLabel)}</span>
           </div>
+          ${highlightsHtml}
+        </div>
+        <div class="route-suggestion-detail__body">
           ${reasonsHtml}
+          ${objectives}
           <div class="route-suggestion-detail__actions">
             ${queueButton}
             <button type="button" class="btn" data-route-focus="${escapeHTML(route.id)}">${escapeHTML(kidMode ? 'Open full guide' : 'Open full guide')}</button>
             ${stepButton}
           </div>
-        </div>
-        <div class="route-suggestion-detail__body" data-chapter-id="${escapeHTML(route.chapter?.id || '')}">
-          ${renderSteps(route.chapter, route)}
         </div>
       `;
     }
@@ -10340,6 +10635,10 @@
       const style = `--route-suggestion-image: url('${art.image}'); --route-suggestion-overlay: ${art.overlay}; --route-suggestion-accent: ${art.accent}; --route-suggestion-position: ${art.position};${markerCss}`;
       const scoreLabel = typeof entry.score === 'number' ? entry.score.toFixed(1) : '';
       const queued = isRouteActive(route.id);
+      const highlights = routeHighlightMedia(route, { limit: 3 });
+      const highlightsHtml = highlights.length
+        ? `<div class="route-suggestion-card__highlights">${highlights.map(item => renderRouteHighlight(item, { size: 'small' })).join('')}</div>`
+        : '';
       return `
         <button type="button" class="route-suggestion-card${active ? ' route-suggestion-card--active' : ''}" data-suggestion-route="${escapeHTML(route.id)}" aria-pressed="${active ? 'true' : 'false'}" style="${escapeHTML(style)}">
           <div class="route-suggestion-card__body">
@@ -10356,6 +10655,7 @@
               <div class="route-suggestion-card__progress-bar"><span style="width:${overallPct}%"></span></div>
               <span class="route-suggestion-card__progress-label">${escapeHTML(kidMode ? `${overallPct}% ready` : `${overallPct}% complete`)}</span>
             </div>
+            ${highlightsHtml}
             <p class="route-suggestion-card__reason">${escapeHTML(reasonHighlight)}</p>
           </div>
         </button>
@@ -10397,22 +10697,50 @@
       }
       const active = new Set(activeRouteIds);
       const query = (routeLibrarySearchTerm || '').trim().toLowerCase();
-      const availableRoutes = routeGuideData.routes.filter(route => {
-        if(!route || !route.id || active.has(route.id)) return false;
-        if(!query) return true;
-        const haystack = [
-          route.title,
-          route.category,
-          ...(Array.isArray(route.tags) ? route.tags : []),
-          ...(Array.isArray(route.objectives) ? route.objectives : [])
-        ].filter(Boolean).join(' ').toLowerCase();
-        return haystack.includes(query);
+      const statusFilter = routeLibraryFilter || 'incomplete';
+      const shouldMatchContext = routeLibraryMatchContext && Array.isArray(routeContext?.goals) && routeContext.goals.length;
+      const goalSet = shouldMatchContext
+        ? new Set(routeContext.goals.map(goal => String(goal || '').toLowerCase()))
+        : new Set();
+      const matchesContext = route => {
+        if(!shouldMatchContext) return true;
+        const normalizedTags = Array.isArray(route?.tags) ? route.tags.map(tag => String(tag || '').toLowerCase()) : [];
+        if(normalizedTags.some(tag => goalSet.has(tag))) return true;
+        const title = String(route?.title || '').toLowerCase();
+        if(Array.from(goalSet).some(goal => title.includes(goal))) return true;
+        const objectives = Array.isArray(route?.objectives) ? route.objectives : [];
+        if(objectives.some(obj => {
+          const text = String(obj || '').toLowerCase();
+          return Array.from(goalSet).some(goal => text.includes(goal));
+        })){
+          return true;
+        }
+        return false;
+      };
+      const availableRoutes = [];
+      routeGuideData.routes.forEach(route => {
+        if(!route || !route.id || active.has(route.id)) return;
+        const complete = isRouteComplete(route);
+        if(statusFilter === 'incomplete' && complete) return;
+        if(statusFilter === 'complete' && !complete) return;
+        const contextMatch = matchesContext(route);
+        if(!contextMatch) return;
+        if(query){
+          const haystack = [
+            route.title,
+            route.category,
+            ...(Array.isArray(route.tags) ? route.tags : []),
+            ...(Array.isArray(route.objectives) ? route.objectives : [])
+          ].filter(Boolean).join(' ').toLowerCase();
+          if(!haystack.includes(query)) return;
+        }
+        availableRoutes.push({ route, contextMatch });
       });
       if(countNode){
-        const remaining = routeGuideData.routes.filter(route => route && route.id && !active.has(route.id)).length;
+        const remaining = availableRoutes.length;
         const label = remaining > 0
-          ? `${remaining} ${remaining === 1 ? (kidMode ? 'guide available' : 'guide available') : (kidMode ? 'guides available' : 'guides available')}`
-          : (kidMode ? 'All guides active' : 'All guides active');
+          ? `${remaining} ${remaining === 1 ? (kidMode ? 'guide ready' : 'guide available') : (kidMode ? 'guides ready' : 'guides available')}`
+          : (kidMode ? 'No matches' : 'No matches');
         countNode.textContent = label;
       }
       if(!availableRoutes.length){
@@ -10421,10 +10749,26 @@
           : (kidMode ? 'Everything up here is in your queue.' : 'Every remaining guide is already active.'))}</p>`;
         return;
       }
-      list.innerHTML = availableRoutes.map(route => renderRouteLibraryCard(route)).join('');
+      list.innerHTML = availableRoutes
+        .map(entry => renderRouteLibraryCard(entry.route, { matchContext: shouldMatchContext && entry.contextMatch }))
+        .join('');
+      document.querySelectorAll('[data-route-library-filter]').forEach(btn => {
+        const key = btn.dataset.routeLibraryFilter || '';
+        const activeState = key === routeLibraryFilter;
+        btn.classList.toggle('route-library__filter-btn--active', activeState);
+        btn.setAttribute('aria-pressed', activeState ? 'true' : 'false');
+      });
+      const matchBtn = document.querySelector('[data-route-library-match]');
+      if(matchBtn){
+        const disabled = !Array.isArray(routeContext?.goals) || routeContext.goals.length === 0;
+        matchBtn.disabled = disabled;
+        const pressed = !disabled && routeLibraryMatchContext;
+        matchBtn.classList.toggle('route-library__match--active', pressed);
+        matchBtn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+      }
     }
 
-    function renderRouteLibraryCard(route){
+    function renderRouteLibraryCard(route, { matchContext = false } = {}){
       const art = routeArtFor(route);
       const metaBits = [];
       const level = route?.recommended_level || {};
@@ -10444,8 +10788,15 @@
         : '';
       const complete = isRouteComplete(route);
       const markerStyle = art.marker ? `style="left:${art.marker.left}%;top:${art.marker.top}%"` : '';
+      const highlight = routeHighlightMedia(route, { limit: 3 });
+      const highlightHtml = highlight.length
+        ? `<div class="route-library-card__highlights">${highlight.map(entry => renderRouteHighlight(entry, { size: 'small' })).join('')}</div>`
+        : '';
+      const cardClasses = ['route-library-card'];
+      if(complete) cardClasses.push('route-library-card--complete');
+      if(matchContext) cardClasses.push('route-library-card--context');
       return `
-        <article class="route-library-card${complete ? ' route-library-card--complete' : ''}" data-route-id="${escapeHTML(route.id)}">
+        <article class="${cardClasses.join(' ')}" data-route-id="${escapeHTML(route.id)}">
           <div class="route-library-card__media" style="--route-visual-image: url('${art.image}'); --route-visual-overlay: ${art.overlay}; --route-visual-accent: ${art.accent};">
             ${art.marker ? `<span class="route-visual__marker" ${markerStyle}></span>` : ''}
           </div>
@@ -10453,6 +10804,7 @@
             <h4>${escapeHTML(route.title)}</h4>
             ${metaLine ? `<p class="route-library-card__meta">${escapeHTML(metaLine)}</p>` : ''}
             ${tags}
+            ${highlightHtml}
           </div>
           <div class="route-library-card__actions">
             ${complete ? `<span class="route-library-card__status">${escapeHTML(kidMode ? 'Complete' : 'Complete')}</span>` : ''}
@@ -10576,15 +10928,15 @@
               ${renderRouteContextOverview(routeContext, levelEstimate, summary)}
               ${renderRouteContextControls(routeGuideData, routeContext)}
             </section>
-            <section class="card route-suggestions-card" id="routeSuggestionsCard">
+            <section class="card route-suggestions-card route-tonight-card" id="routeSuggestionsCard">
               <div class="route-suggestions__header">
                 <h3>${kidMode ? 'Tonight’s Adventure Paths' : 'Suggested Adventure Paths'}</h3>
                 <p class="route-suggestions__intro">${escapeHTML(suggestionsLead)}</p>
               </div>
               <div class="route-suggestions__list" id="routeSuggestionsList">
                 <p class="route-suggestions__empty">${escapeHTML(kidMode
-                  ? 'Adjust the context above to unlock personalised picks.'
-                  : 'Fine-tune the context above to surface tailored paths.')}</p>
+                  ? 'Adjust the options above to unlock personalised picks.'
+                  : 'Tune the planner above to surface tailored paths.')}</p>
               </div>
               <div class="route-suggestions__detail" id="routeSuggestionDetail">
                 <p class="route-suggestions__placeholder">${escapeHTML(kidMode
@@ -10621,6 +10973,14 @@
                 <span class="route-library__count" data-route-role="library-count"></span>
               </summary>
               <div class="route-library__body">
+                <div class="route-library__filters" data-route-library-controls>
+                  <div class="route-library__filter-group" role="group" aria-label="${escapeHTML(kidMode ? 'Filter guides' : 'Filter guides by status')}">
+                    <button type="button" class="chip route-library__filter-btn${routeLibraryFilter === 'incomplete' ? ' route-library__filter-btn--active' : ''}" data-route-library-filter="incomplete">${escapeHTML(kidMode ? 'In progress' : 'In progress')}</button>
+                    <button type="button" class="chip route-library__filter-btn${routeLibraryFilter === 'complete' ? ' route-library__filter-btn--active' : ''}" data-route-library-filter="complete">${escapeHTML(kidMode ? 'Completed' : 'Completed')}</button>
+                    <button type="button" class="chip route-library__filter-btn${routeLibraryFilter === 'all' ? ' route-library__filter-btn--active' : ''}" data-route-library-filter="all">${escapeHTML(kidMode ? 'All guides' : 'All guides')}</button>
+                  </div>
+                  <button type="button" class="chip route-library__match${routeLibraryMatchContext && routeContext.goals.length ? ' route-library__match--active' : ''}" data-route-library-match="toggle" ${routeContext.goals.length ? '' : 'disabled'}>${escapeHTML(kidMode ? 'Match tonight’s goals' : 'Match tonight’s goals')}</button>
+                </div>
                 <label class="route-library__search">
                   <span class="route-library__search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
                   <input type="search" id="routeLibrarySearch" placeholder="${escapeHTML(kidMode ? 'Search guides' : 'Search guides')}" aria-label="${escapeHTML(kidMode ? 'Search guides' : 'Search guides')}" />
@@ -10651,6 +11011,7 @@
               renderRouteLibraryList();
             });
           }
+          bindRouteLibraryControls(node);
           wrap.addEventListener('change', handleRouteCheckboxChange);
           wrap.addEventListener('click', handleRouteClick);
           bindRouteActionButtons();
@@ -10730,6 +11091,20 @@
         }
         return dateLabel ? `Last cleared: ${title} — ${dateLabel}` : `Last cleared: ${title}`;
       })();
+      const totalPals = Object.keys(PALS || {}).length;
+      const caughtCount = Object.keys(caught || {}).filter(key => caught[key]).length;
+      const palPct = totalPals ? Math.round((caughtCount / totalPals) * 100) : 0;
+      let totalTech = 0;
+      (Array.isArray(TECH) ? TECH : []).forEach(level => {
+        if(level && Array.isArray(level.items)){
+          totalTech += level.items.length;
+        }
+      });
+      const unlockedCount = Object.keys(unlocked || {}).filter(key => unlocked[key]).length;
+      const techPct = totalTech ? Math.round((unlockedCount / totalTech) * 100) : 0;
+      const totalRoutesCount = (summary.routes?.core?.total || 0) + (summary.routes?.support?.total || 0) + (summary.routes?.optional?.total || 0);
+      const completedRoutesCount = (summary.routes?.core?.complete || 0) + (summary.routes?.support?.complete || 0) + (summary.routes?.optional?.complete || 0);
+      const completedLabel = totalRoutesCount ? `${completedRoutesCount}/${totalRoutesCount}` : String(completedRoutesCount);
       const requiredValue = summary.requiredTotal ? `${summary.requiredComplete}/${summary.requiredTotal}` : '0/0';
       const optionalValue = summary.optionalTotal ? `${summary.optionalComplete}/${summary.optionalTotal}` : '0/0';
       const towerValue = summary.towersTotal ? `${summary.towersComplete}/${summary.towersTotal}` : '0/0';
@@ -10788,6 +11163,36 @@
               <p class="route-overview__stat-sub" data-route-role="tower-note">${escapeHTML(towerNote)}</p>
             </article>
           </div>
+          <div class="route-overview__insights">
+            <article class="route-overview__insight">
+              <span class="route-overview__insight-icon"><i class="fa-solid fa-paw"></i></span>
+              <div>
+                <p class="route-overview__insight-title">${escapeHTML(kidMode ? 'Pals caught' : 'Pals captured')}</p>
+                <p class="route-overview__insight-value">${escapeHTML(totalPals ? `${caughtCount}/${totalPals}` : '—')}</p>
+              </div>
+              <div class="route-overview__insight-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${palPct}">
+                <span style="width:${palPct}%"></span>
+              </div>
+            </article>
+            <article class="route-overview__insight">
+              <span class="route-overview__insight-icon"><i class="fa-solid fa-microchip"></i></span>
+              <div>
+                <p class="route-overview__insight-title">${escapeHTML(kidMode ? 'Tech unlocked' : 'Tech unlocks')}</p>
+                <p class="route-overview__insight-value">${escapeHTML(totalTech ? `${unlockedCount}/${totalTech}` : '—')}</p>
+              </div>
+              <div class="route-overview__insight-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${techPct}">
+                <span style="width:${techPct}%"></span>
+              </div>
+            </article>
+            <article class="route-overview__insight">
+              <span class="route-overview__insight-icon"><i class="fa-solid fa-list-check"></i></span>
+              <div>
+                <p class="route-overview__insight-title">${escapeHTML(kidMode ? 'Guides complete' : 'Routes complete')}</p>
+                <p class="route-overview__insight-value">${escapeHTML(completedLabel)}</p>
+              </div>
+              <p class="route-overview__insight-note">${escapeHTML(lastLabel)}</p>
+            </article>
+          </div>
           <div class="route-overview__controls">
             <p class="route-overview__next" data-route-role="next-callout"></p>
             <p class="route-overview__history" data-route-role="last-completed">${escapeHTML(lastLabel)}</p>
@@ -10801,13 +11206,14 @@
       const timeValue = context?.availableTimeMinutes != null ? Number(context.availableTimeMinutes) : '';
       const tags = Array.isArray(guide?.tags) ? guide.tags : [];
       const resourceOptions = Array.isArray(guide?.keyResources) ? guide.keyResources : [];
-      const goalChips = tags.length
-        ? tags.map(tag => {
+      const goalTiles = tags.length
+        ? `<div class="route-goal-board">${tags.map(tag => {
             const active = context.goals.includes(tag);
-            const classes = ['route-goal-chip', 'chip'];
-            if(active) classes.push('route-goal-chip--active');
-            return `<button type="button" class="${classes.join(' ')}" data-context-goal="${escapeHTML(tag)}">${escapeHTML(capitalize(tag))}</button>`;
-          }).join('')
+            const classes = ['route-goal-tile'];
+            if(active) classes.push('route-goal-tile--active');
+            const icon = routeGoalIcon(tag);
+            return `<button type="button" class="${classes.join(' ')}" data-context-goal="${escapeHTML(tag)}"><span class="route-goal-tile__icon"><i class="fa-solid ${escapeHTML(icon)}"></i></span><span class="route-goal-tile__label">${escapeHTML(capitalize(tag))}</span></button>`;
+          }).join('')}</div>`
         : `<p class="route-context__empty">${escapeHTML(kidMode ? 'Goals load soon.' : 'No goals available yet.')}</p>`;
       const resourceChips = context.resourceGaps.length
         ? context.resourceGaps.map(entry => renderResourceGapChip(entry)).join('')
@@ -10840,7 +11246,7 @@
             </div>
             <div class="route-context__field">
               <label class="route-context__label">${escapeHTML(kidMode ? 'Goals' : 'Focus goals')}</label>
-              <div class="route-context__goals">${goalChips}</div>
+              <div class="route-context__goals">${goalTiles}</div>
             </div>
             <div class="route-context__field">
               <label class="route-context__label">${escapeHTML(kidMode ? 'Resource gaps' : 'Resource shortages')}</label>
@@ -10950,6 +11356,7 @@
     }
 
     let routeContextControlAbort = null;
+    let routeLibraryControlsAbort = null;
 
     function bindRouteContextControls(root, { guide } = {}){
       if(!root) return;
@@ -11034,6 +11441,32 @@
           updateRouteContextState({ resourceGaps: next });
         }, { signal });
       }
+    }
+
+    function bindRouteLibraryControls(root){
+      if(!root) return;
+      if(routeLibraryControlsAbort){
+        routeLibraryControlsAbort.abort();
+      }
+      routeLibraryControlsAbort = new AbortController();
+      const { signal } = routeLibraryControlsAbort;
+      const controls = root.querySelector('[data-route-library-controls]');
+      if(!controls) return;
+      controls.addEventListener('click', event => {
+        const filterBtn = event.target.closest('[data-route-library-filter]');
+        if(filterBtn){
+          const next = filterBtn.dataset.routeLibraryFilter || 'all';
+          routeLibraryFilter = next;
+          renderRouteLibraryList();
+          return;
+        }
+        const matchBtn = event.target.closest('[data-route-library-match]');
+        if(matchBtn){
+          if(matchBtn.disabled) return;
+          routeLibraryMatchContext = !routeLibraryMatchContext;
+          renderRouteLibraryList();
+        }
+      }, { signal });
     }
 
     function updateRouteContextState(updates){
@@ -11146,6 +11579,39 @@
           score += (weights.progression_role || 0) * (route.progression_role === 'core' ? 1 : 0.5);
           if(templates.progression_role){
             reasons.push(formatRecommendationText(templates.progression_role, { role: capitalize(route.progression_role) }));
+          }
+        }
+        const highlightPals = Array.isArray(route?.highlightPals) ? route.highlightPals : [];
+        const missingPalEntries = highlightPals.map(slug => {
+          const link = { id: slug, slug };
+          const palId = resolvePalIdFromLink(link);
+          if(palId == null) return null;
+          return caught[palId] ? null : (PALS?.[palId]?.name || niceName(slug));
+        }).filter(Boolean);
+        if(highlightPals.length && weights.pal_gap){
+          if(missingPalEntries.length){
+            score += weights.pal_gap;
+            const sample = missingPalEntries.slice(0, 2).join(', ');
+            reasons.push(kidMode ? `Adds new pals like ${sample}.` : `Uncaught pals: ${sample}.`);
+          } else {
+            score -= (weights.pal_gap || 0) / 2;
+          }
+        }
+        const highlightTech = Array.isArray(route?.highlightTech) ? route.highlightTech : [];
+        const missingTechEntries = highlightTech.map(id => {
+          const slug = slugifyForPalworld(String(id));
+          const techEntry = lookupTechBySlug(slug);
+          const name = techEntry?.item?.name;
+          if(!name) return null;
+          return isTechUnlocked(name) ? null : name;
+        }).filter(Boolean);
+        if(highlightTech.length && weights.tech_gap){
+          if(missingTechEntries.length){
+            score += weights.tech_gap;
+            const sample = missingTechEntries.slice(0, 2).join(', ');
+            reasons.push(kidMode ? `Unlocks tech like ${sample}.` : `Fills tech gaps: ${sample}.`);
+          } else {
+            score -= (weights.tech_gap || 0) / 2;
           }
         }
         if(context.coop && route?.modes?.coop){
