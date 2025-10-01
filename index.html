@@ -10054,6 +10054,7 @@
       exploration: { ...ROUTE_VISUAL_THEMES.map },
       progression: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(118, 206, 255, 0.58)', accent: '#8dd9ff', icon: 'fa-compass', position: 'center 44%' },
       core: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(118, 206, 255, 0.58)', accent: '#8dd9ff', icon: 'fa-compass', position: 'center 44%' },
+      campaign: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(118, 206, 255, 0.58)', accent: '#8dd9ff', icon: 'fa-map-signs', position: 'center 44%' },
       support: { ...ROUTE_VISUAL_THEMES.tech, overlay: 'rgba(120, 180, 255, 0.55)', accent: '#a7c5ff', icon: 'fa-toolbox', position: 'center 52%' },
       starter: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(148, 210, 189, 0.55)', accent: '#a5f2d5', icon: 'fa-seedling', position: 'center 46%' },
       'early-game': { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(148, 210, 189, 0.55)', accent: '#a5f2d5', icon: 'fa-seedling', position: 'center 46%' },
@@ -10076,7 +10077,41 @@
       medicine: { ...ROUTE_VISUAL_THEMES.tech, overlay: 'rgba(72, 187, 255, 0.55)', accent: '#8edbff', icon: 'fa-kit-medical', position: 'center 52%' },
       healing: { ...ROUTE_VISUAL_THEMES.tech, overlay: 'rgba(72, 187, 255, 0.55)', accent: '#8edbff', icon: 'fa-kit-medical', position: 'center 52%' },
       technology: { ...ROUTE_VISUAL_THEMES.tech },
-      research: { ...ROUTE_VISUAL_THEMES.tech }
+      research: { ...ROUTE_VISUAL_THEMES.tech },
+      automation: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(90, 126, 255, 0.52)', accent: '#b8c3ff', icon: 'fa-gears', position: 'center 56%' },
+      misc: { ...ROUTE_VISUAL_THEMES.generic }
+    };
+    const ROUTE_ART_ALIASES = {
+      automation: 'automation',
+      'base-management': 'base-management',
+      'base-building': 'base',
+      base: 'base',
+      campaign: 'campaign',
+      capture: 'capture',
+      'capture-index': 'capture',
+      capturing: 'capture',
+      tame: 'capture',
+      taming: 'capture',
+      craft: 'craft',
+      crafting: 'craft',
+      gather: 'gather',
+      gathering: 'gather',
+      resource: 'resource',
+      resources: 'resource',
+      progression: 'progression',
+      core: 'core',
+      campaignmain: 'campaign',
+      mounts: 'mount',
+      mount: 'mount',
+      saddle: 'saddle',
+      tech: 'technology',
+      technology: 'technology',
+      support: 'support',
+      misc: 'misc',
+      general: 'misc',
+      utility: 'support',
+      boss: 'boss',
+      bosses: 'boss'
     };
     const ROUTE_ART_VARIANTS = [
       { image: ROUTE_THEME_ART_SOURCES.generic, overlay: 'rgba(148, 187, 233, 0.55)', accent: '#9bd4ff', icon: 'fa-route', position: 'center 40%' },
@@ -12142,14 +12177,43 @@
       }
       for(const key of keys){
         if(!key) continue;
-        if(ROUTE_ART_LIBRARY[key]){
-          return { ...ROUTE_ART_LIBRARY[key], type: key };
+        const directKey = ROUTE_ART_LIBRARY[key] ? key : null;
+        if(directKey){
+          return { ...ROUTE_ART_LIBRARY[directKey], type: directKey };
+        }
+        const aliasKey = ROUTE_ART_ALIASES[key];
+        if(aliasKey && ROUTE_ART_LIBRARY[aliasKey]){
+          return { ...ROUTE_ART_LIBRARY[aliasKey], type: aliasKey };
         }
         if(key.includes('tower') || key.includes('boss')){
           return { ...ROUTE_VISUAL_THEMES.boss, type: 'boss' };
         }
         if(key.includes('farm') || key.includes('gather')){
           return { ...ROUTE_VISUAL_THEMES.item, icon: 'fa-seedling', type: 'item' };
+        }
+        if(key.includes('resource')){
+          const art = ROUTE_ART_LIBRARY.resource || ROUTE_VISUAL_THEMES.item;
+          return { ...art, type: 'resource' };
+        }
+        if(key.includes('mount')){
+          const art = ROUTE_ART_LIBRARY.mount || ROUTE_VISUAL_THEMES.map;
+          return { ...art, type: 'mount' };
+        }
+        if(key.includes('capture') || key.includes('tame')){
+          const art = ROUTE_ART_LIBRARY.capture || ROUTE_VISUAL_THEMES.pal;
+          return { ...art, type: 'capture' };
+        }
+        if(key.includes('tech') || key.includes('craft') || key.includes('build')){
+          const art = ROUTE_ART_LIBRARY.craft || ROUTE_VISUAL_THEMES.tech;
+          return { ...art, type: 'craft' };
+        }
+        if(key.includes('base') || key.includes('automation')){
+          const art = ROUTE_ART_LIBRARY.base || ROUTE_VISUAL_THEMES.item;
+          return { ...art, type: 'base' };
+        }
+        if(key.includes('campaign') || key.includes('story')){
+          const art = ROUTE_ART_LIBRARY.campaign || ROUTE_VISUAL_THEMES.map;
+          return { ...art, type: 'campaign' };
         }
       }
       return {};
@@ -15473,6 +15537,10 @@
       const wasOpen = details ? details.open : false;
       const route = routeGuideData?.routeLookup?.[chapter.id] || null;
       node.innerHTML = buildRouteCardInnerHTML(chapter, wasOpen, route);
+      if(wasOpen){
+        const nextDetails = node.querySelector('.route-card__details');
+        if(nextDetails) nextDetails.open = true;
+      }
     }
 
 

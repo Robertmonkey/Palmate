@@ -238,6 +238,10 @@ function rerenderChapter(ch, state, node, hideOptional){
   const wasOpen = details ? details.open : false;
   const index = Number(sec.dataset.index) || 0;
   sec.innerHTML = renderChapterInner(ch, index, state, hideOptional, wasOpen);
+  if(wasOpen){
+    const nextDetails = sec.querySelector('.route-chapter__details');
+    if(nextDetails) nextDetails.open = true;
+  }
 }
 
 function renderSteps(ch, state, hideOptional){
