@@ -10483,6 +10483,13 @@
       }
     }
 
+    function ensurePurposefulGuideFiltersValid(){
+      // Legacy builds exposed dedicated Purposeful Arc toggles.  Modern
+      // releases collapsed those controls, but stale preferences may still
+      // exist in localStorage.  Guard the hook so the dataset loader remains
+      // resilient when those keys are absent.
+    }
+
     function augmentRoute(route, index){
       const id = route?.route_id || `route-${index + 1}`;
       const tags = Array.isArray(route?.tags) ? route.tags.slice() : [];
@@ -12748,6 +12755,206 @@
       }
     }
 
+    function bindRouteLibraryControls(root){
+      if(!root) return;
+      if(routeLibraryControlsAbort){
+        routeLibraryControlsAbort.abort();
+      }
+      routeLibraryControlsAbort = new AbortController();
+      const { signal } = routeLibraryControlsAbort;
+      const controls = root.querySelector('[data-route-library-controls]');
+      if(!controls) return;
+      controls.querySelectorAll('[data-route-library-filter]').forEach(btn => {
+        btn.addEventListener('click', event => {
+          const key = event.currentTarget?.dataset?.routeLibraryFilter;
+          if(!key) return;
+          if(routeLibraryFilter === key) return;
+          routeLibraryFilter = key;
+          renderRouteLibraryList();
+        }, { signal });
+      });
+      const matchToggle = controls.querySelector('[data-route-library-match]');
+      if(matchToggle){
+        matchToggle.addEventListener('click', () => {
+          if(matchToggle.disabled) return;
+          routeLibraryMatchContext = !routeLibraryMatchContext;
+          renderRouteLibraryList();
+        }, { signal });
+      }
+    }
+
+    function bindRouteContextControls(root){
+      if(!root) return;
+      if(routeContextControlAbort){
+        routeContextControlAbort.abort();
+      }
+      routeContextControlAbort = new AbortController();
+      const { signal } = routeContextControlAbort;
+      const card = root.querySelector('#routeContextCard');
+      if(!card) return;
+
+      const levelSlider = card.querySelector('#routeLevelRange');
+      const levelInput = card.querySelector('#routeLevelInput');
+      const syncLevelInputs = value => {
+        if(levelSlider){
+          if(value == null){
+            levelSlider.setAttribute('data-empty', 'true');
+          } else {
+            levelSlider.value = String(value);
+            levelSlider.removeAttribute('data-empty');
+          }
+        }
+        if(levelInput){
+          levelInput.value = value == null ? '' : String(value);
+        }
+      };
+      if(levelSlider){
+        levelSlider.addEventListener('input', () => {
+          if(levelInput){
+            levelInput.value = levelSlider.value;
+          }
+          levelSlider.removeAttribute('data-empty');
+        }, { signal });
+        levelSlider.addEventListener('change', () => {
+          const num = clampNumber(levelSlider.value, 1, 50);
+          syncLevelInputs(num);
+          updateRouteContextState({ declaredLevel: num });
+        }, { signal });
+      }
+      if(levelInput){
+        levelInput.addEventListener('input', () => {
+          const raw = levelInput.value.trim();
+          if(!raw){
+            if(levelSlider){
+              levelSlider.setAttribute('data-empty', 'true');
+            }
+          } else {
+            const num = clampNumber(raw, 1, 50);
+            if(num != null && levelSlider){
+              levelSlider.value = String(num);
+              levelSlider.removeAttribute('data-empty');
+            }
+          }
+        }, { signal });
+        levelInput.addEventListener('change', () => {
+          const raw = levelInput.value.trim();
+          if(!raw){
+            syncLevelInputs(null);
+            updateRouteContextState({ declaredLevel: null });
+            return;
+          }
+          const num = clampNumber(raw, 1, 50);
+          if(num == null){
+            syncLevelInputs(null);
+            updateRouteContextState({ declaredLevel: null });
+            return;
+          }
+          syncLevelInputs(num);
+          updateRouteContextState({ declaredLevel: num });
+        }, { signal });
+      }
+
+      const timeInput = card.querySelector('#routeTimeInput');
+      if(timeInput){
+        timeInput.addEventListener('change', () => {
+          const raw = timeInput.value.trim();
+          if(!raw){
+            updateRouteContextState({ availableTimeMinutes: null });
+            return;
+          }
+          const num = clampNumber(raw, 5, 480);
+          if(num == null){
+            timeInput.value = '';
+            updateRouteContextState({ availableTimeMinutes: null });
+            return;
+          }
+          timeInput.value = String(num);
+          updateRouteContextState({ availableTimeMinutes: num });
+        }, { signal });
+      }
+
+      card.querySelectorAll('[data-context-toggle]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.contextToggle;
+          if(!key) return;
+          const nextValue = !routeContext?.[key];
+          updateRouteContextState({ [key]: nextValue });
+        }, { signal });
+      });
+
+      const goalPicker = card.querySelector('[data-goal-picker]');
+      if(goalPicker){
+        const toggle = goalPicker.querySelector('[data-goal-toggle]');
+        const panel = goalPicker.querySelector('.route-goal-drawer__panel');
+        const applyDrawerState = () => {
+          goalPicker.classList.toggle('route-goal-drawer--open', routeGoalDrawerOpen);
+          if(panel){
+            if(routeGoalDrawerOpen){
+              panel.removeAttribute('hidden');
+            } else {
+              panel.setAttribute('hidden', '');
+            }
+          }
+          if(toggle){
+            toggle.setAttribute('aria-expanded', routeGoalDrawerOpen ? 'true' : 'false');
+          }
+        };
+        if(toggle){
+          toggle.addEventListener('click', () => {
+            routeGoalDrawerOpen = !routeGoalDrawerOpen;
+            applyDrawerState();
+          }, { signal });
+        }
+        const closeBtn = goalPicker.querySelector('[data-goal-close]');
+        if(closeBtn){
+          closeBtn.addEventListener('click', () => {
+            routeGoalDrawerOpen = false;
+            applyDrawerState();
+          }, { signal });
+        }
+        goalPicker.querySelectorAll('[data-context-goal]').forEach(box => {
+          box.addEventListener('change', () => {
+            const selected = Array.from(goalPicker.querySelectorAll('[data-context-goal]:checked'))
+              .map(el => el.value)
+              .filter(Boolean);
+            updateRouteContextState({ goals: selected });
+          }, { signal });
+        });
+        applyDrawerState();
+      }
+
+      const resourceSelect = card.querySelector('#routeResourceSelect');
+      const resourceQty = card.querySelector('#routeResourceQty');
+      const resourceList = card.querySelector('#routeResourceList');
+      const addButton = card.querySelector('[data-action="add-resource-gap"]');
+      if(addButton && resourceSelect){
+        addButton.addEventListener('click', () => {
+          const itemId = resourceSelect.value;
+          if(!itemId) return;
+          const qtyRaw = resourceQty ? resourceQty.value.trim() : '';
+          const qty = qtyRaw ? clampNumber(qtyRaw, 1, 999) : null;
+          const existing = Array.isArray(routeContext?.resourceGaps) ? routeContext.resourceGaps : [];
+          const filtered = existing.filter(entry => (entry?.item_id || entry?.itemId) !== itemId);
+          filtered.push({ item_id: itemId, qty });
+          if(resourceQty) resourceQty.value = '';
+          resourceSelect.value = '';
+          updateRouteContextState({ resourceGaps: filtered });
+        }, { signal });
+      }
+      if(resourceList){
+        resourceList.addEventListener('click', event => {
+          const chip = event.target.closest('[data-resource-id]');
+          if(!chip) return;
+          const id = chip.dataset.resourceId;
+          if(!id) return;
+          const next = Array.isArray(routeContext?.resourceGaps)
+            ? routeContext.resourceGaps.filter(entry => (entry?.item_id || entry?.itemId) !== id)
+            : [];
+          updateRouteContextState({ resourceGaps: next });
+        }, { signal });
+      }
+    }
+
     function updateRouteContextState(updates){
       routeContext = normalizeRouteContext({ ...routeContext, ...(updates || {}) });
       saveRouteContext(routeContext);
@@ -13131,8 +13338,8 @@
             contextSignals += clusterRegions.length;
           }
         }
-        const isBossRoute = playstyleKey === 'boss';
-        if(isBossRoute){
+        const isBossPlaystyle = playstyleKey === 'boss';
+        if(isBossPlaystyle){
           if(stageDistance != null){
             if(stageDistance <= 0){
               score += weights.boss_prep || 0;
