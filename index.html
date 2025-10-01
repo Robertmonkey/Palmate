@@ -9,6 +9,7 @@
   <!-- Font Awesome for interface icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/guide-bundle.js"></script>
   <!-- Core styles: cosmic blue theme with smooth scrollbars -->
   <style>
     /*
@@ -10163,21 +10164,62 @@
     }
 
     async function loadBundledGuideData(){
+      const preloaded = await loadPreloadedGuideBundle();
+      if(preloaded) return preloaded;
       try {
         const res = await fetch('data/guides.bundle.json');
         if(!res.ok){
           throw new Error(`HTTP ${res.status}`);
         }
         const payload = await res.json();
-        if(payload && typeof payload === 'object'){
-          if(!Array.isArray(payload.routes)) payload.routes = [];
-          if(!Array.isArray(payload.extras)) payload.extras = [];
-          return payload;
-        }
+        return normalizeGuideBundle(payload);
       } catch(err){
         console.warn('Failed to load bundled guide data', err);
       }
       return null;
+    }
+
+    async function loadPreloadedGuideBundle(){
+      try {
+        if(window.__GUIDE_BUNDLE_PROMISE__ instanceof Promise){
+          const payload = await window.__GUIDE_BUNDLE_PROMISE__;
+          const normalized = normalizeGuideBundle(payload);
+          if(normalized) return normalized;
+        }
+        if(window.__GUIDE_BUNDLE__){
+          const normalized = normalizeGuideBundle(window.__GUIDE_BUNDLE__);
+          if(normalized) return normalized;
+        }
+      } catch(err){
+        console.warn('Failed to use preloaded guide bundle', err);
+      }
+      return null;
+    }
+
+    function normalizeGuideBundle(payload){
+      const clone = cloneGuidePayload(payload);
+      if(!clone || typeof clone !== 'object') return null;
+      if(!Array.isArray(clone.routes)) clone.routes = [];
+      if(!Array.isArray(clone.extras)) clone.extras = [];
+      if(clone.metadata === undefined) clone.metadata = null;
+      return clone;
+    }
+
+    function cloneGuidePayload(payload){
+      if(!payload || typeof payload !== 'object') return null;
+      if(typeof structuredClone === 'function'){
+        try {
+          return structuredClone(payload);
+        } catch(err){
+          console.warn('Structured clone failed for guide payload, using JSON fallback.', err);
+        }
+      }
+      try {
+        return JSON.parse(JSON.stringify(payload));
+      } catch(err){
+        console.warn('JSON clone failed for guide payload; returning shallow copy.', err);
+        return { ...payload };
+      }
     }
 
     function parseGuideMarkdown(markdown){
@@ -12134,13 +12176,37 @@
     }
 
     function renderRouteGuide(){
+      const node = document.getElementById('routePage');
+      if(!node) return;
+      if(!routeGuideData){
+        node.innerHTML = `
+          <section class="card route-loading" data-route-loading>
+            <div class="route-loading__spinner" aria-hidden="true"></div>
+            <p class="route-loading__label">Loading adaptive routes…</p>
+            <p class="route-loading__hint">Palmate is syncing the latest guide catalog.</p>
+          </section>
+        `;
+      }
       ensureRouteGuide().then(guide => {
-        const node = document.getElementById('routePage');
-        if(!node) return;
         const routes = Array.isArray(guide?.routes) ? guide.routes : [];
         const chapters = Array.isArray(guide?.chapters) ? guide.chapters : [];
         if(!routes.length || !chapters.length){
-          node.innerHTML = '<section class="card"><h2>Adaptive Route Planner</h2><p>Route data unavailable.</p></section>';}
+          node.innerHTML = `
+            <section class="card route-error" role="alert">
+              <h2>Adaptive Route Planner</h2>
+              <p>We couldn’t load the adaptive guide library. Check your connection and try again.</p>
+              <button type="button" class="btn btn--ghost route-error__retry">Retry loading guides</button>
+            </section>
+          `;
+          const retry = node.querySelector('.route-error__retry');
+          if(retry && !retry.dataset.bound){
+            retry.dataset.bound = 'true';
+            retry.addEventListener('click', () => {
+              routeGuideData = null;
+              renderRouteGuide();
+            });
+          }
+        }
         else {
           routeGuideData = guide;
           routeState = loadRouteState();
@@ -12315,6 +12381,23 @@
           refreshRouteIntelligenceUI({ summary, levelEstimate, recommendations });
           updateProgressUI();
           bindRouteContextControls(node, { guide, summary, levelEstimate, recommendations });
+        }
+      }).catch(err => {
+        console.error('Failed to render adaptive guide UI', err);
+        node.innerHTML = `
+          <section class="card route-error" role="alert">
+            <h2>Adaptive Route Planner</h2>
+            <p>Something went wrong while building the route interface. Try refreshing the page.</p>
+            <button type="button" class="btn btn--ghost route-error__retry">Reload routes</button>
+          </section>
+        `;
+        const retry = node.querySelector('.route-error__retry');
+        if(retry && !retry.dataset.bound){
+          retry.dataset.bound = 'true';
+          retry.addEventListener('click', () => {
+            routeGuideData = null;
+            renderRouteGuide();
+          });
         }
       });
     }
