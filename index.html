@@ -9863,9 +9863,6 @@
     let guideCatalogSearchTerm = '';
     let guideCatalogGroupFilter = 'all';
     let guideCatalogCategoryFilter = 'all';
-    let purposefulGuidesSearchTerm = '';
-    let purposefulGuidesSectionFilter = 'all';
-    let purposefulGuidesSubsectionFilter = 'all';
     let pendingRouteFocus = null;
     let pendingTechFocus = null;
     const ROUTE_ART_IMAGE = 'assets/images/palworld-full-map-2.webp';
@@ -10250,7 +10247,6 @@
         catalogData = await loadGuideCatalog(catalogMeta);
       }
       const preparedCatalog = prepareGuideCatalog(catalogData, catalogMeta);
-      const purposefulGuides = await loadPurposefulGuides();
       return {
         metadata: parsed?.metadata || null,
         xp: parsed?.xp || null,
@@ -10263,8 +10259,7 @@
         keyResources: sortedResources.slice(0, 24),
         extras: parsed?.extras || [],
         errors: parsed?.errors || [],
-        guideCatalog: preparedCatalog,
-        purposefulGuides
+        guideCatalog: preparedCatalog
       };
     }
 
@@ -10350,293 +10345,6 @@
       return { entries, groups, meta: meta || null, count: entries.length };
     }
 
-    async function loadPurposefulGuides(){
-      try {
-        const res = await fetch('palworld_purposeful_guides.md');
-        if(!res.ok){
-          throw new Error(`HTTP ${res.status}`);
-        }
-        const text = await res.text();
-        const parsed = parsePurposefulGuideMarkdown(text || '');
-        return preparePurposefulGuideData(parsed);
-      } catch(err){
-        console.warn('Failed to load purposeful guides', err);
-      }
-      return null;
-    }
-
-    function parsePurposefulGuideMarkdown(markdown){
-      if(typeof markdown !== 'string' || !markdown.trim()){
-        return { sections: [] };
-      }
-      const lines = markdown.split(/\r?\n/);
-      const sections = [];
-      let currentSection = null;
-      let currentSubsection = null;
-      let currentEntry = null;
-      let seenPrimarySection = false;
-
-      const headingRegex = /^##\s+(.*)$/;
-      const subheadingRegex = /^###\s+(.*)$/;
-      const missionEntryRegex = /^\*\*(.+?)\*\*\s*[\u2013-]\s*(.+)$/;
-      const purposeRegex = /^\*Purpose:\*\s*(.*)$/i;
-      const relatedRegex = /^\*Related quick guides:\*\s*(.*)$/i;
-      const nextRegex = /^\*\*Next step:\*\*\s*(.*)$/i;
-      const stepRegex = /^(\d+)\.\s+(.*)$/;
-
-      function pushCurrentSection(){
-        finalizeEntry();
-        finalizeSubsection();
-        if(currentSection && Array.isArray(currentSection.subsections) && currentSection.subsections.length){
-          sections.push(currentSection);
-        }
-        currentSection = null;
-      }
-
-      function startSection(title){
-        finalizeEntry();
-        finalizeSubsection();
-        if(currentSection){
-          pushCurrentSection();
-        }
-        currentSection = { title: normalizeHeadingText(title), subsections: [] };
-        seenPrimarySection = true;
-      }
-
-      function startSubsection(title){
-        finalizeEntry();
-        if(currentSubsection && currentSection){
-          if(currentSubsection.entries.length){
-            currentSection.subsections.push(currentSubsection);
-          }
-        }
-        currentSubsection = { title: normalizeHeadingText(title), entries: [] };
-        currentEntry = null;
-      }
-
-      function startEntry(title, subtitle){
-        finalizeEntry();
-        if(!currentSection){
-          startSection(title || 'Progression');
-        }
-        if(!currentSubsection){
-          startSubsection(title || currentSection.title || 'Objectives');
-        }
-        currentEntry = {
-          title: normalizeHeadingText(title),
-          subtitle: stripMarkdownFormatting(subtitle),
-          purpose: '',
-          steps: [],
-          related: [],
-          nextStep: ''
-        };
-      }
-
-      function ensureEntry(){
-        if(!currentEntry){
-          const fallback = currentSubsection ? currentSubsection.title : (currentSection ? currentSection.title : 'Guide');
-          startEntry(fallback, '');
-        }
-      }
-
-      function finalizeEntry(){
-        if(currentEntry && currentSubsection){
-          currentEntry.steps = currentEntry.steps.filter(step => step && step.text);
-          currentEntry.related = currentEntry.related.filter(Boolean);
-          if(
-            currentEntry.title ||
-            currentEntry.subtitle ||
-            currentEntry.purpose ||
-            currentEntry.steps.length ||
-            currentEntry.nextStep
-          ){
-            currentSubsection.entries.push(currentEntry);
-          }
-        }
-        currentEntry = null;
-      }
-
-      function finalizeSubsection(){
-        finalizeEntry();
-        if(currentSubsection && currentSection){
-          if(currentSubsection.entries.length){
-            currentSection.subsections.push(currentSubsection);
-          }
-        }
-        currentSubsection = null;
-      }
-
-      for(const rawLine of lines){
-        const line = rawLine.trim();
-        if(!line) continue;
-        const headingMatch = line.match(headingRegex);
-        if(headingMatch){
-          startSection(headingMatch[1]);
-          continue;
-        }
-        const subheadingMatch = line.match(subheadingRegex);
-        if(subheadingMatch){
-          if(!currentSection){
-            startSection(subheadingMatch[1]);
-          }
-          startSubsection(subheadingMatch[1]);
-          continue;
-        }
-        if(!seenPrimarySection){
-          continue;
-        }
-        const missionMatch = line.match(missionEntryRegex);
-        if(missionMatch){
-          if(!currentSection){
-            startSection(missionMatch[1]);
-          }
-          if(!currentSubsection){
-            startSubsection(currentSection.title || missionMatch[1]);
-          }
-          startEntry(missionMatch[1], missionMatch[2]);
-          continue;
-        }
-        const purposeMatch = line.match(purposeRegex);
-        if(purposeMatch){
-          ensureEntry();
-          if(currentEntry){
-            currentEntry.purpose = purposeMatch[1].trim();
-          }
-          continue;
-        }
-        const relatedMatch = line.match(relatedRegex);
-        if(relatedMatch){
-          ensureEntry();
-          if(currentEntry){
-            currentEntry.related = parseRelatedGuideList(relatedMatch[1]);
-          }
-          continue;
-        }
-        const nextMatch = line.match(nextRegex);
-        if(nextMatch){
-          ensureEntry();
-          if(currentEntry){
-            currentEntry.nextStep = nextMatch[1].trim();
-          }
-          continue;
-        }
-        const stepMatch = line.match(stepRegex);
-        if(stepMatch){
-          ensureEntry();
-          if(currentEntry){
-            const order = Number(stepMatch[1]);
-            const text = stepMatch[2].trim();
-            currentEntry.steps.push({ order: Number.isFinite(order) ? order : currentEntry.steps.length + 1, text });
-          }
-          continue;
-        }
-        ensureEntry();
-        if(currentEntry){
-          if(currentEntry.steps.length){
-            const last = currentEntry.steps[currentEntry.steps.length - 1];
-            last.text = `${last.text} ${line}`.trim();
-          } else if(currentEntry.purpose){
-            currentEntry.purpose = `${currentEntry.purpose} ${line}`.trim();
-          } else if(!currentEntry.title){
-            currentEntry.title = normalizeHeadingText(line);
-          } else {
-            currentEntry.steps.push({ order: currentEntry.steps.length + 1, text: line });
-          }
-        }
-      }
-
-      pushCurrentSection();
-      return { sections };
-    }
-
-    function preparePurposefulGuideData(parsed){
-      if(!parsed || !Array.isArray(parsed.sections)){
-        return null;
-      }
-      const sections = [];
-      const entries = [];
-      parsed.sections.forEach((section, sectionIndex) => {
-        if(!section || !Array.isArray(section.subsections) || !section.subsections.length) return;
-        const sectionTitle = section.title || `Section ${sectionIndex + 1}`;
-        const sectionId = slugifyForPalworld(sectionTitle) || `purposeful-section-${sectionIndex + 1}`;
-        const preparedSubsections = [];
-        section.subsections.forEach((subsection, subsectionIndex) => {
-          if(!subsection || !Array.isArray(subsection.entries) || !subsection.entries.length) return;
-          const subsectionTitle = subsection.title || `Objective ${subsectionIndex + 1}`;
-          const subsectionId = slugifyForPalworld(`${sectionId}-${subsectionTitle}`) || `${sectionId}-objective-${subsectionIndex + 1}`;
-          const preparedEntries = [];
-          subsection.entries.forEach((entry, entryIndex) => {
-            if(!entry) return;
-            const entryTitle = entry.title || subsectionTitle;
-            const entryId = slugifyForPalworld(`${subsectionId}-${entryTitle}`) || `${subsectionId}-entry-${entryIndex + 1}`;
-            const steps = Array.isArray(entry.steps)
-              ? entry.steps.map((step, stepIndex) => ({
-                  order: Number.isFinite(Number(step?.order)) ? Number(step.order) : stepIndex + 1,
-                  text: step?.text ? String(step.text).trim() : ''
-                })).filter(step => step.text)
-              : [];
-            steps.sort((a, b) => (a.order || 0) - (b.order || 0));
-            const related = Array.isArray(entry.related)
-              ? entry.related.map(value => stripMarkdownFormatting(String(value))).filter(Boolean)
-              : [];
-            const purpose = entry.purpose ? String(entry.purpose).trim() : '';
-            const nextStep = entry.nextStep ? String(entry.nextStep).trim() : '';
-            const subtitle = entry.subtitle ? String(entry.subtitle).trim() : '';
-            const searchParts = [
-              sectionTitle,
-              subsectionTitle,
-              entryTitle,
-              subtitle,
-              purpose,
-              nextStep,
-              related.join(' '),
-              steps.map(step => step.text).join(' ')
-            ];
-            const searchText = searchParts.join(' ').toLowerCase();
-            const preparedEntry = {
-              id: entryId,
-              title: entryTitle,
-              subtitle,
-              purpose,
-              steps,
-              related,
-              nextStep,
-              sectionId,
-              sectionTitle,
-              subsectionId,
-              subsectionTitle,
-              searchText
-            };
-            preparedEntries.push(preparedEntry);
-            entries.push(preparedEntry);
-          });
-          if(preparedEntries.length){
-            preparedSubsections.push({
-              id: subsectionId,
-              title: subsectionTitle,
-              entries: preparedEntries
-            });
-          }
-        });
-        if(preparedSubsections.length){
-          sections.push({
-            id: sectionId,
-            title: sectionTitle,
-            subsections: preparedSubsections
-          });
-        }
-      });
-      if(!sections.length || !entries.length){
-        return null;
-      }
-      return {
-        sections,
-        entries,
-        count: entries.length,
-        source: 'palworld_purposeful_guides.md'
-      };
-    }
-
     function normalizeHeadingText(text){
       const stripped = stripMarkdownFormatting(text);
       return stripped.replace(/^\d+\.\s*/, '').trim();
@@ -10683,30 +10391,6 @@
       }
       if(guideCatalogCategoryFilter !== 'all' && !categorySet.has(guideCatalogCategoryFilter)){
         guideCatalogCategoryFilter = 'all';
-      }
-    }
-
-    function ensurePurposefulGuideFiltersValid(){
-      const purposeful = routeGuideData?.purposefulGuides;
-      if(!purposeful || !Array.isArray(purposeful.sections) || !purposeful.sections.length){
-        purposefulGuidesSectionFilter = 'all';
-        purposefulGuidesSubsectionFilter = 'all';
-        return;
-      }
-      if(purposefulGuidesSectionFilter !== 'all' && !purposeful.sections.some(section => section.id === purposefulGuidesSectionFilter)){
-        purposefulGuidesSectionFilter = 'all';
-      }
-      if(purposefulGuidesSectionFilter === 'all'){
-        purposefulGuidesSubsectionFilter = 'all';
-        return;
-      }
-      const section = purposeful.sections.find(entry => entry.id === purposefulGuidesSectionFilter);
-      if(!section || !Array.isArray(section.subsections) || !section.subsections.length){
-        purposefulGuidesSubsectionFilter = 'all';
-        return;
-      }
-      if(purposefulGuidesSubsectionFilter !== 'all' && !section.subsections.some(sub => sub.id === purposefulGuidesSubsectionFilter)){
-        purposefulGuidesSubsectionFilter = 'all';
       }
     }
 
@@ -12208,127 +11892,6 @@
       `;
     }
 
-    function renderPurposefulSectionOptions(data){
-      const labelAll = kidMode ? 'All arcs' : 'All stages';
-      const options = [`<option value="all"${purposefulGuidesSectionFilter === 'all' ? ' selected' : ''}>${escapeHTML(labelAll)}</option>`];
-      if(!data || !Array.isArray(data.sections)){
-        return options.join('');
-      }
-      data.sections.forEach(section => {
-        if(!section) return;
-        const value = section.id || slugifyForPalworld(section.title);
-        const selected = value === purposefulGuidesSectionFilter ? ' selected' : '';
-        const label = section.title || 'Stage';
-        options.push(`<option value="${escapeHTML(value)}"${selected}>${escapeHTML(label)}</option>`);
-      });
-      return options.join('');
-    }
-
-    function renderPurposefulSubsectionOptions(data){
-      const labelAll = kidMode ? 'All objectives' : 'All objectives';
-      const options = [`<option value="all"${purposefulGuidesSubsectionFilter === 'all' ? ' selected' : ''}>${escapeHTML(labelAll)}</option>`];
-      if(!data || !Array.isArray(data.sections)){
-        return options.join('');
-      }
-      if(purposefulGuidesSectionFilter === 'all'){
-        return options.join('');
-      }
-      const section = data.sections.find(entry => entry && entry.id === purposefulGuidesSectionFilter);
-      if(!section || !Array.isArray(section.subsections)){
-        return options.join('');
-      }
-      section.subsections.forEach(sub => {
-        if(!sub) return;
-        const value = sub.id || slugifyForPalworld(sub.title);
-        const selected = value === purposefulGuidesSubsectionFilter ? ' selected' : '';
-        const label = sub.title || 'Objective';
-        options.push(`<option value="${escapeHTML(value)}"${selected}>${escapeHTML(label)}</option>`);
-      });
-      return options.join('');
-    }
-
-    function renderPurposefulGuideList(){
-      const card = document.getElementById('purposefulGuidesCard');
-      if(!card) return;
-      const list = card.querySelector('#purposefulGuidesList');
-      if(!list) return;
-      const countEl = card.querySelector('[data-purposeful-count]');
-      const data = routeGuideData?.purposefulGuides;
-      if(!data || !Array.isArray(data.entries) || !data.entries.length){
-        if(countEl) countEl.textContent = '';
-        if(list) list.innerHTML = `<p class="purposeful-guides__empty">${escapeHTML(kidMode ? 'Purposeful guides will appear here once loaded.' : 'Purposeful guides are not available yet.')}</p>`;
-        return;
-      }
-      let entries = data.entries.slice();
-      if(purposefulGuidesSectionFilter !== 'all'){
-        entries = entries.filter(entry => entry.sectionId === purposefulGuidesSectionFilter);
-      }
-      if(purposefulGuidesSubsectionFilter !== 'all'){
-        entries = entries.filter(entry => entry.subsectionId === purposefulGuidesSubsectionFilter);
-      }
-      const query = (purposefulGuidesSearchTerm || '').trim().toLowerCase();
-      if(query){
-        entries = entries.filter(entry => entry.searchText.includes(query));
-      }
-      if(countEl){
-        if(entries.length){
-          const singular = kidMode ? 'playbook' : 'guide';
-          const plural = kidMode ? 'playbooks' : 'guides';
-          const noun = entries.length === 1 ? singular : plural;
-          countEl.textContent = `${entries.length} ${noun}`;
-        } else {
-          countEl.textContent = '';
-        }
-      }
-      if(!entries.length){
-        list.innerHTML = `<p class="purposeful-guides__empty">${escapeHTML(kidMode ? 'No arcs match your filters yet.' : 'No guides match those filters yet.')}</p>`;
-        return;
-      }
-      list.innerHTML = entries.map(entry => renderPurposefulGuideEntry(entry)).join('');
-    }
-
-    function renderPurposefulGuideEntry(entry){
-      if(!entry) return '';
-      const sectionLabel = entry.sectionTitle || '';
-      const subsectionLabel = entry.subsectionTitle || '';
-      const subtitleHtml = entry.subtitle
-        ? `<p class="purposeful-guide__subtitle">${renderSimpleMarkdown(entry.subtitle)}</p>`
-        : '';
-      const purposeHtml = entry.purpose
-        ? `<p class="purposeful-guide__purpose">${renderSimpleMarkdown(entry.purpose)}</p>`
-        : '';
-      const steps = Array.isArray(entry.steps) ? entry.steps.filter(step => step && step.text) : [];
-      const firstOrder = steps.length ? steps[0].order : 1;
-      const startAttr = steps.length && Number.isFinite(firstOrder) && firstOrder !== 1 ? ` start="${firstOrder}"` : '';
-      const stepsHtml = steps.length
-        ? `<ol class="purposeful-guide__steps"${startAttr}>${steps.map(step => `<li>${renderSimpleMarkdown(step.text)}</li>`).join('')}</ol>`
-        : '';
-      const relatedHtml = entry.related && entry.related.length
-        ? `<div class="purposeful-guide__related"><h5>${escapeHTML(kidMode ? 'Quick guide helpers' : 'Related quick guides')}</h5><div class="purposeful-guide__related-chips">${entry.related.map(label => `<span class="purposeful-guide__related-chip">${escapeHTML(label)}</span>`).join('')}</div></div>`
-        : '';
-      const nextHtml = entry.nextStep
-        ? `<p class="purposeful-guide__next"><strong>${escapeHTML(kidMode ? 'Next step:' : 'Next step:')}</strong> ${renderSimpleMarkdown(entry.nextStep)}</p>`
-        : '';
-      return `
-        <article class="purposeful-guide__item">
-          <header class="purposeful-guide__header">
-            <div class="purposeful-guide__title-block">
-              <h4 class="purposeful-guide__title">${escapeHTML(entry.title || subsectionLabel || sectionLabel || 'Guide')}</h4>
-              ${subtitleHtml}
-            </div>
-            <div class="purposeful-guide__labels">
-              ${sectionLabel ? `<span class="purposeful-guide__badge purposeful-guide__badge--section">${escapeHTML(sectionLabel)}</span>` : ''}
-              ${subsectionLabel ? `<span class="purposeful-guide__badge purposeful-guide__badge--sub">${escapeHTML(subsectionLabel)}</span>` : ''}
-            </div>
-          </header>
-          ${purposeHtml}
-          ${stepsHtml}
-          ${relatedHtml}
-          ${nextHtml}
-        </article>
-      `;
-    }
-
     function renderSimpleMarkdown(text){
       if(text == null) return '';
       let html = String(text);
@@ -12338,7 +11901,6 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
-      html = html.replace(/\[\[([^\]]+)\]\]/g, '<span class="purposeful-guide__reference">$1</span>');
       html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
       html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
       html = html.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, (match, prefix, content) => `${prefix}<em>${content}</em>`);
@@ -12512,19 +12074,6 @@
               : 'Browse the complete guide catalog as soon as it loads.');
           const groupOptions = renderGuideCatalogGroupOptions(catalog);
           const categoryOptions = renderGuideCatalogCategoryOptions(catalog);
-          const purposeful = routeGuideData?.purposefulGuides;
-          const purposefulCount = purposeful?.count != null
-            ? purposeful.count
-            : (Array.isArray(purposeful?.entries) ? purposeful.entries.length : 0);
-          const purposefulLead = purposefulCount
-            ? (kidMode
-              ? `Follow ${purposefulCount} story arcs from your first base to the toughest raids.`
-              : `Explore ${purposefulCount} purposeful playbooks from fresh spawns to end-game raids.`)
-            : (kidMode
-              ? 'Load the purposeful playbooks once data finishes downloading.'
-              : 'Load the purposeful playbooks after the data finishes downloading.');
-          const purposefulSectionOptions = renderPurposefulSectionOptions(purposeful);
-          const purposefulSubsectionOptions = renderPurposefulSubsectionOptions(purposeful);
           const plannerLead = kidMode
             ? 'Tell Palmate what you need tonight and we’ll build the perfect plan.'
             : 'Dial in your context and Palmate will surface the routes that matter most.';
@@ -12618,30 +12167,6 @@
               </section>
             </div>
             <div class="route-grid route-grid--secondary">
-              <section class="card purposeful-guides" id="purposefulGuidesCard">
-                <div class="purposeful-guides__header">
-                  <h3>${escapeHTML(kidMode ? 'Purposeful playbooks' : 'Purposeful progression guides')}</h3>
-                  <p>${escapeHTML(purposefulLead)}</p>
-                  <span class="purposeful-guides__count" data-purposeful-count></span>
-                </div>
-                <div class="purposeful-guides__controls">
-                  <label class="purposeful-guides__search">
-                    <span class="sr-only">${escapeHTML(kidMode ? 'Search playbooks' : 'Search purposeful guides')}</span>
-                    <input type="search" id="purposefulGuidesSearch" placeholder="${escapeHTML(kidMode ? 'Search story arcs' : 'Search playbooks')}" value="${escapeHTML(purposefulGuidesSearchTerm)}" />
-                  </label>
-                  <div class="purposeful-guides__filters">
-                    <label>
-                      <span>${escapeHTML(kidMode ? 'Game stage' : 'Game stage')}</span>
-                      <select id="purposefulGuidesSection">${purposefulSectionOptions}</select>
-                    </label>
-                    <label>
-                      <span>${escapeHTML(kidMode ? 'Focus route' : 'Focus route')}</span>
-                      <select id="purposefulGuidesSubsection" ${purposefulGuidesSectionFilter === 'all' ? 'disabled' : ''}>${purposefulSubsectionOptions}</select>
-                    </label>
-                  </div>
-                </div>
-                <div class="purposeful-guides__list" id="purposefulGuidesList"></div>
-              </section>
               <section class="card guide-catalog" id="guideCatalogCard">
                 <div class="guide-catalog__header">
                   <h3>${escapeHTML(kidMode ? 'Guide encyclopedia' : 'Complete guide index')}</h3>
@@ -12674,7 +12199,6 @@
           pruneCompletedActiveRoutes();
           renderActiveRoutesList();
           renderRouteLibraryList();
-          renderPurposefulGuideList();
           renderGuideCatalogList();
           const librarySearch = node.querySelector('#routeLibrarySearch');
           if(librarySearch && !librarySearch.dataset.bound){
@@ -12686,7 +12210,6 @@
             });
           }
           bindRouteLibraryControls(node);
-          bindPurposefulGuideControls(node);
           bindGuideCatalogControls(node);
           wrap.addEventListener('change', handleRouteCheckboxChange);
           wrap.addEventListener('click', handleRouteClick);
@@ -13069,212 +12592,6 @@
     let routeContextControlAbort = null;
     let routeLibraryControlsAbort = null;
     let guideCatalogControlsAbort = null;
-    let purposefulGuideControlsAbort = null;
-
-    function bindRouteContextControls(root, { guide } = {}){
-      if(!root) return;
-      if(routeContextControlAbort){
-        routeContextControlAbort.abort();
-      }
-      routeContextControlAbort = new AbortController();
-      const { signal } = routeContextControlAbort;
-      const levelRange = root.querySelector('#routeLevelRange');
-      const levelInput = root.querySelector('#routeLevelInput');
-      const timeInput = root.querySelector('#routeTimeInput');
-      const goalWrap = root.querySelector('.route-context__goals');
-      const toggleButtons = root.querySelectorAll('.route-context__toggle');
-      const resourceSelect = root.querySelector('#routeResourceSelect');
-      const resourceQty = root.querySelector('#routeResourceQty');
-      const resourceAdd = root.querySelector('[data-action="add-resource-gap"]');
-      const resourceList = root.querySelector('#routeResourceList');
-
-      if(levelRange){
-        if(levelRange.dataset.empty === 'true'){ levelRange.value = '1'; }
-        levelRange.addEventListener('input', () => {
-          if(levelInput){
-            levelInput.value = levelRange.dataset.empty === 'true' ? '' : levelRange.value;
-          }
-        }, { signal });
-        levelRange.addEventListener('change', () => {
-          levelRange.dataset.empty = 'false';
-          updateRouteContextState({ declaredLevel: Number(levelRange.value) });
-        }, { signal });
-      }
-      if(levelInput){
-        levelInput.addEventListener('change', () => {
-          const raw = levelInput.value;
-          updateRouteContextState({ declaredLevel: raw === '' ? null : Number(raw) });
-        }, { signal });
-      }
-      toggleButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const key = btn.dataset.contextToggle;
-          if(!key) return;
-          const updated = { ...routeContext, [key]: !routeContext[key] };
-          updateRouteContextState(updated);
-        }, { signal });
-      });
-      if(timeInput){
-        timeInput.addEventListener('change', () => {
-          const raw = timeInput.value;
-          updateRouteContextState({ availableTimeMinutes: raw === '' ? null : Number(raw) });
-        }, { signal });
-      }
-      if(goalWrap){
-        const goalDrawer = goalWrap.querySelector('[data-goal-picker]');
-        const panel = goalDrawer ? goalDrawer.querySelector('.route-goal-drawer__panel') : null;
-        const toggle = goalDrawer ? goalDrawer.querySelector('[data-goal-toggle]') : null;
-        const closeBtn = goalDrawer ? goalDrawer.querySelector('[data-goal-close]') : null;
-        const setDrawerOpen = open => {
-          routeGoalDrawerOpen = !!open;
-          if(goalDrawer){
-            goalDrawer.classList.toggle('route-goal-drawer--open', routeGoalDrawerOpen);
-          }
-          if(panel){
-            panel.hidden = !routeGoalDrawerOpen;
-          }
-          if(toggle){
-            toggle.setAttribute('aria-expanded', routeGoalDrawerOpen ? 'true' : 'false');
-          }
-        };
-        setDrawerOpen(routeGoalDrawerOpen);
-        if(toggle){
-          toggle.addEventListener('click', () => {
-            setDrawerOpen(!routeGoalDrawerOpen);
-          }, { signal });
-        }
-        if(closeBtn){
-          closeBtn.addEventListener('click', () => {
-            setDrawerOpen(false);
-            if(toggle) toggle.focus();
-          }, { signal });
-        }
-        const handleOutsideClick = event => {
-          if(!routeGoalDrawerOpen) return;
-          if(goalDrawer && goalDrawer.contains(event.target)) return;
-          setDrawerOpen(false);
-        };
-        document.addEventListener('click', handleOutsideClick, { signal });
-        goalWrap.addEventListener('change', event => {
-          const input = event.target.closest('input[type=checkbox][data-context-goal]');
-          if(!input) return;
-          const goal = input.value;
-          const next = new Set(routeContext.goals);
-          if(input.checked){
-            next.add(goal);
-          } else {
-            next.delete(goal);
-          }
-          updateRouteContextState({ goals: Array.from(next) });
-        }, { signal });
-        goalWrap.addEventListener('keydown', event => {
-          if(event.key === 'Escape' && routeGoalDrawerOpen){
-            event.preventDefault();
-            setDrawerOpen(false);
-            if(toggle) toggle.focus();
-          }
-        }, { signal });
-      }
-      if(resourceAdd){
-        resourceAdd.addEventListener('click', () => {
-          const itemId = resourceSelect ? resourceSelect.value : '';
-          if(!itemId) return;
-          const qty = resourceQty && resourceQty.value !== '' ? Number(resourceQty.value) : null;
-          const next = routeContext.resourceGaps.slice();
-          const existing = next.find(entry => entry.item_id === itemId);
-          if(existing){
-            existing.qty = qty;
-          } else {
-            next.push({ item_id: itemId, qty });
-          }
-          updateRouteContextState({ resourceGaps: next });
-        }, { signal });
-      }
-      if(resourceList){
-        resourceList.addEventListener('click', event => {
-          const chip = event.target.closest('.route-resource-chip');
-          if(!chip) return;
-          const itemId = chip.dataset.resourceId;
-          const next = routeContext.resourceGaps.filter(entry => entry.item_id !== itemId);
-          updateRouteContextState({ resourceGaps: next });
-        }, { signal });
-      }
-    }
-
-    function bindRouteLibraryControls(root){
-      if(!root) return;
-      if(routeLibraryControlsAbort){
-        routeLibraryControlsAbort.abort();
-      }
-      routeLibraryControlsAbort = new AbortController();
-      const { signal } = routeLibraryControlsAbort;
-      const controls = root.querySelector('[data-route-library-controls]');
-      if(!controls) return;
-      controls.addEventListener('click', event => {
-        const filterBtn = event.target.closest('[data-route-library-filter]');
-        if(filterBtn){
-          const next = filterBtn.dataset.routeLibraryFilter || 'all';
-          routeLibraryFilter = next;
-          renderRouteLibraryList();
-          return;
-        }
-        const matchBtn = event.target.closest('[data-route-library-match]');
-        if(matchBtn){
-          if(matchBtn.disabled) return;
-          routeLibraryMatchContext = !routeLibraryMatchContext;
-          renderRouteLibraryList();
-        }
-      }, { signal });
-    }
-
-    function bindPurposefulGuideControls(root){
-      if(!root) return;
-      const card = root.querySelector('#purposefulGuidesCard');
-      if(!card) return;
-      if(purposefulGuideControlsAbort){
-        purposefulGuideControlsAbort.abort();
-      }
-      purposefulGuideControlsAbort = new AbortController();
-      const { signal } = purposefulGuideControlsAbort;
-      const searchInput = card.querySelector('#purposefulGuidesSearch');
-      const sectionSelect = card.querySelector('#purposefulGuidesSection');
-      const subsectionSelect = card.querySelector('#purposefulGuidesSubsection');
-
-      if(searchInput){
-        searchInput.value = purposefulGuidesSearchTerm;
-        searchInput.addEventListener('input', () => {
-          purposefulGuidesSearchTerm = searchInput.value || '';
-          renderPurposefulGuideList();
-        }, { signal });
-      }
-
-      function refreshSubsectionOptions(){
-        if(!subsectionSelect) return;
-        subsectionSelect.innerHTML = renderPurposefulSubsectionOptions(routeGuideData?.purposefulGuides);
-        subsectionSelect.value = purposefulGuidesSubsectionFilter;
-        subsectionSelect.disabled = purposefulGuidesSectionFilter === 'all';
-      }
-
-      if(sectionSelect){
-        sectionSelect.value = purposefulGuidesSectionFilter;
-        sectionSelect.addEventListener('change', () => {
-          purposefulGuidesSectionFilter = sectionSelect.value || 'all';
-          purposefulGuidesSubsectionFilter = 'all';
-          ensurePurposefulGuideFiltersValid();
-          refreshSubsectionOptions();
-          renderPurposefulGuideList();
-        }, { signal });
-      }
-
-      if(subsectionSelect){
-        refreshSubsectionOptions();
-        subsectionSelect.addEventListener('change', () => {
-          purposefulGuidesSubsectionFilter = subsectionSelect.value || 'all';
-          renderPurposefulGuideList();
-        }, { signal });
-      }
-    }
-
     function bindGuideCatalogControls(root){
       if(!root) return;
       if(guideCatalogControlsAbort){

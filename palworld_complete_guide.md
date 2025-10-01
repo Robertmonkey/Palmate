@@ -2,7 +2,7 @@
 
 This comprehensive guide consolidates the catalogue of over 100 Palworld guides, their metadata (categories, trigger phrases and keywords) and detailed step‑by‑step instructions for accomplishing each task.  Citations from reliable sources are included to support key mechanics and features.  Use this document to develop or integrate a complete knowledge base for Palworld.
 
-> **Guide suite context:** This catalogue focuses on granular how‑to entries.  For a narrative, goal‑driven route that strings these tasks together, see **`palworld_purposeful_guides.md`**.  For a checkbox-style family playthrough of the Normal difficulty towers, refer to **`palworld_full_route_normal_coop_optional.md`**.  The three guides share terminology so you can move between them without re-learning concepts.
+> **Guide suite context:** This catalogue focuses on granular how‑to entries.  For a narrative, goal‑driven route that strings these tasks together, queue the **Purposeful Arc** campaigns inside `guides.md`.  For a checkbox-style family playthrough of the Normal difficulty towers, refer to **`palworld_full_route_normal_coop_optional.md`**.  The suites share terminology so you can move between them without re-learning concepts.
 
 ## Guide Catalogue and Metadata
 

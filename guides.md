@@ -2460,6 +2460,358 @@ This advanced route details how to capture Jetragon, a level 50 legendary Pal f
 }
 ```
 
+### Route: Purposeful Arc — Early Foundation
+
+Players who prefer a guided progression can follow this purposeful arc to
+chain the early-game routes automatically.  It bundles the starter base
+plan, resource farming and first mount unlocks so Palmate can recommend the
+entire flow as a single experience.
+
+```json
+{
+  "route_id": "purposeful-arc-early-foundation",
+  "title": "Purposeful Arc — Early Foundation",
+  "category": "campaign",
+  "tags": [ "purposeful", "campaign", "early-game", "base-building", "mounts" ],
+  "progression_role": "core",
+  "recommended_level": { "min": 1, "max": 12 },
+  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
+  "prerequisites": { "routes": [], "tech": [], "items": [], "pals": [] },
+  "objectives": [
+    "Complete the starter playlist that unlocks automation and key work pals",
+    "Craft Foxparks and Eikthyrdeer gear to add furnace automation and traversal"
+  ],
+  "estimated_time_minutes": { "solo": 110, "coop": 80 },
+  "estimated_xp_gain": { "min": 1400, "max": 2300 },
+  "risk_profile": "medium",
+  "failure_penalties": { "normal": "Failed captures cost spheres and time", "hardcore": "Deaths during mount hunts jeopardise the save" },
+  "adaptive_guidance": {
+    "underleveled": "If you are level 3 or lower, run Starter Base and Capture twice before moving on to the mount steps.",
+    "overleveled": "Players above level 12 can move straight from Foxparks harness into the Eikthyrdeer saddle without repeating the leather loop.",
+    "resource_shortages": [
+      { "item_id": "leather", "solution": "Repeat the leather loop in step :002 until at least 20 Leather are banked." },
+      { "item_id": "paldium-fragment", "solution": "Trigger the resource-paldium subroute between steps :002 and :003 if you drop below 15 fragments." }
+    ],
+    "time_limited": "When you have under an hour, complete steps :001 and :003, then bookmark the saddle run in :004 for another session.",
+    "dynamic_rules": [
+      {
+        "signal": "goal:automation",
+        "condition": "goals includes automation",
+        "adjustment": "Prioritise the Foxparks harness immediately after the starter base route to ignite furnaces and campfires without manual tending.",
+        "priority": 2,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["purposeful-arc-early-foundation:003"],
+        "follow_up_routes": ["mount-foxparks-harness"]
+      }
+    ]
+  },
+  "checkpoints": [
+    { "id": "purposeful-early:checkpoint-base", "summary": "Starter base secured", "benefits": [ "Workbench unlocked", "Pal automation online" ], "related_steps": [ "purposeful-arc-early-foundation:001" ] },
+    { "id": "purposeful-early:checkpoint-mounts", "summary": "Foxparks and Eikthyrdeer saddles crafted", "benefits": [ "Rapid travel", "Automated smelting" ], "related_steps": [ "purposeful-arc-early-foundation:004" ] }
+  ],
+  "supporting_routes": { "recommended": [ "resource-leather-early", "resource-paldium" ], "optional": [ "capture-base-merchant" ] },
+  "failure_recovery": { "normal": "Recraft Pal Spheres and repeat failed captures; regroup at your base to restock.", "hardcore": "Abort the hunt if HP drops below 40%—Hardcore saves should never risk a wipe over a mount." },
+  "steps": [
+    {
+      "step_id": "purposeful-arc-early-foundation:001",
+      "type": "plan",
+      "summary": "Run Starter Base and Capture",
+      "detail": "Queue the Starter Base and Capture route to gather tools, craft Pal Spheres and recruit Lamball-class workers. The remaining steps assume those outputs are ready.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 300, "max": 600 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "starter-base-capture" } ],
+      "citations": []
+    },
+    {
+      "step_id": "purposeful-arc-early-foundation:002",
+      "type": "plan",
+      "summary": "Stockpile Leather",
+      "detail": "Follow the Leather Farming Loop to harvest enough hides for both upcoming harnesses before you begin crafting.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 250, "max": 450 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "resource-leather-early" } ],
+      "citations": []
+    },
+    {
+      "step_id": "purposeful-arc-early-foundation:003",
+      "type": "plan",
+      "summary": "Unlock Foxparks harness",
+      "detail": "Execute the Foxparks harness route to light furnaces automatically and add early combat firepower.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 400, "max": 600 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "mount-foxparks-harness" } ],
+      "citations": []
+    },
+    {
+      "step_id": "purposeful-arc-early-foundation:004",
+      "type": "plan",
+      "summary": "Secure an Eikthyrdeer saddle",
+      "detail": "Finish the Eikthyrdeer saddle route to add double-jump traversal and heavy logging support.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 450, "max": 650 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "mount-eikthyrdeer-saddle" } ],
+      "citations": []
+    }
+  ],
+  "completion_criteria": [
+    { "type": "have-item", "item_id": "foxparks-harness", "qty": 1 },
+    { "type": "have-item", "item_id": "eikthyrdeer-saddle", "qty": 1 }
+  ],
+  "yields": { "levels_estimate": "+2 to +4", "key_unlocks": [ "tech-foxparks-harness", "tech-eikthyrdeer-saddle" ] },
+  "metrics": {
+    "xp_per_minute": { "solo": 14.0, "coop": 20.0 },
+    "travel_distance_m": 1600,
+    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 12 } ]
+  },
+  "next_routes": [ { "route_id": "purposeful-arc-mid-expansion", "reason": "Continue the purposeful campaign into mounts, merchants and the first tower" } ]
+}
+```
+
+### Route: Purposeful Arc — Mid Expansion
+
+This arc transitions players into mid-game systems.  It bundles the base
+merchant capture, faster mounts, a flying saddle, the first tower boss and
+the Grappling Gun tech so the recommender can surface them together when a
+player asks for a directed progression path.
+
+```json
+{
+  "route_id": "purposeful-arc-mid-expansion",
+  "title": "Purposeful Arc — Mid Expansion",
+  "category": "campaign",
+  "tags": [ "purposeful", "campaign", "mid-game", "merchant", "mounts" ],
+  "progression_role": "core",
+  "recommended_level": { "min": 12, "max": 28 },
+  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
+  "prerequisites": { "routes": [ "purposeful-arc-early-foundation" ], "tech": [], "items": [], "pals": [] },
+  "objectives": [
+    "Bring a merchant home, then upgrade to Direhowl and Nitewing mobility",
+    "Defeat Zoe & Grizzbolt and invest the Ancient Technology Point in the Grappling Gun"
+  ],
+  "estimated_time_minutes": { "solo": 150, "coop": 110 },
+  "estimated_xp_gain": { "min": 2200, "max": 3400 },
+  "risk_profile": "high",
+  "failure_penalties": { "normal": "Tower wipes and failed captures cost valuable gear", "hardcore": "Tower defeats delete the run" },
+  "adaptive_guidance": {
+    "underleveled": "If you enter below level 15, capture Direhowl before attempting the tower to boost combat stats.",
+    "overleveled": "Players above level 25 can swap steps :002 and :004 to unlock the tower first, then finish Direhowl on the way out.",
+    "resource_shortages": [
+      { "item_id": "pal-sphere", "solution": "Craft Great Spheres between steps :001 and :002 so human captures do not deplete your supply." },
+      { "item_id": "cloth", "solution": "Queue cloth crafting before the flying saddle in step :003." }
+    ],
+    "time_limited": "With limited time, focus on the merchant capture and Nitewing saddle; bookmark the tower run for later.",
+    "dynamic_rules": [
+      {
+        "signal": "goal:boss",
+        "condition": "goals includes boss",
+        "adjustment": "Move the tower encounter to the top of the list so you secure Ancient Technology Points before other errands.",
+        "priority": 3,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["purposeful-arc-mid-expansion:004"],
+        "follow_up_routes": ["tower-rayne-syndicate"]
+      }
+    ]
+  },
+  "checkpoints": [
+    { "id": "purposeful-mid:checkpoint-merchant", "summary": "Base merchant recruited", "benefits": [ "Permanent vendor access" ], "related_steps": [ "purposeful-arc-mid-expansion:001" ] },
+    { "id": "purposeful-mid:checkpoint-tower", "summary": "Zoe & Grizzbolt defeated", "benefits": [ "Ancient Technology Point", "Tower fast travel" ], "related_steps": [ "purposeful-arc-mid-expansion:004" ] }
+  ],
+  "supporting_routes": { "recommended": [ "resource-paldium", "resource-leather-early" ], "optional": [ "mount-eikthyrdeer-saddle" ] },
+  "failure_recovery": { "normal": "Restock spheres and medicine after each major attempt; re-run leather or paldium farms if supplies run low.", "hardcore": "Bail from tower fights when shields break—preserving the save is more important than the Ancient Point." },
+  "steps": [
+    {
+      "step_id": "purposeful-arc-mid-expansion:001",
+      "type": "plan",
+      "summary": "Capture a merchant for your base",
+      "detail": "Run the base merchant capture route so you can trade from home between the remaining steps.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 350, "max": 550 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "capture-base-merchant" } ],
+      "citations": []
+    },
+    {
+      "step_id": "purposeful-arc-mid-expansion:002",
+      "type": "plan",
+      "summary": "Unlock Direhowl mobility",
+      "detail": "Complete the Direhowl harness route to gain a sprinting mount for desert travel and raids.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 450, "max": 650 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "mount-direhowl-harness" } ],
+      "citations": []
+    },
+    {
+      "step_id": "purposeful-arc-mid-expansion:003",
+      "type": "plan",
+      "summary": "Earn the Nitewing saddle",
+      "detail": "Follow the Nitewing saddle guide to secure flying travel for tower assaults and long-range exploration.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 500, "max": 700 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "mount-nitewing-saddle" } ],
+      "citations": []
+    },
+    {
+      "step_id": "purposeful-arc-mid-expansion:004",
+      "type": "plan",
+      "summary": "Defeat Zoe & Grizzbolt",
+      "detail": "Run the Rayne Syndicate tower route to earn Ancient Technology Points and unlock late-game tech.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 600, "max": 900 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "tower-rayne-syndicate" } ],
+      "citations": []
+    },
+    {
+      "step_id": "purposeful-arc-mid-expansion:005",
+      "type": "plan",
+      "summary": "Craft the Grappling Gun",
+      "detail": "Spend the Ancient Technology Point from the tower on the Grappling Gun route to finish your mobility toolkit.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 300, "max": 600 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "tech-grappling-gun" } ],
+      "citations": []
+    }
+  ],
+  "completion_criteria": [
+    { "type": "have-item", "item_id": "nitewing-saddle", "qty": 1 },
+    { "type": "have-tech", "tech_id": "tech-grappling-gun" }
+  ],
+  "yields": { "levels_estimate": "+3 to +5", "key_unlocks": [ "tech-grappling-gun", "base-merchant-vendor" ] },
+  "metrics": {
+    "xp_per_minute": { "solo": 16.0, "coop": 22.0 },
+    "travel_distance_m": 2400,
+    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 18 }, { "item_id": "healing-potion", "qty": 6 } ]
+  },
+  "next_routes": [ { "route_id": "purposeful-arc-legendary-push", "reason": "Cap the purposeful run with a legendary capture" } ]
+}
+```
+
+### Route: Purposeful Arc — Legendary Push
+
+The final purposeful arc pairs Grappling Gun mobility with the legendary
+Jetragon capture.  Queue it when you want a single campaign task that
+carries you from late-game prep into the flagship legendary mount.
+
+```json
+{
+  "route_id": "purposeful-arc-legendary-push",
+  "title": "Purposeful Arc — Legendary Push",
+  "category": "campaign",
+  "tags": [ "purposeful", "campaign", "late-game", "legendary", "raid-prep" ],
+  "progression_role": "core",
+  "recommended_level": { "min": 35, "max": 50 },
+  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
+  "prerequisites": { "routes": [ "purposeful-arc-mid-expansion" ], "tech": [], "items": [], "pals": [] },
+  "objectives": [
+    "Refresh Grappling Gun supplies and craft endgame gear",
+    "Capture the legendary Jetragon to finish the purposeful campaign"
+  ],
+  "estimated_time_minutes": { "solo": 120, "coop": 95 },
+  "estimated_xp_gain": { "min": 2600, "max": 4200 },
+  "risk_profile": "high",
+  "failure_penalties": { "normal": "Legendary attempts consume expensive spheres", "hardcore": "Heat damage and boss wipes can end the save" },
+  "adaptive_guidance": {
+    "underleveled": "If you are under level 40, loop tower and dungeon routes for XP before tackling Jetragon.",
+    "overleveled": "Players with legendary gear can skip the Grappling Gun refresh and go straight to the capture attempt.",
+    "resource_shortages": [
+      { "item_id": "ultra-pal-sphere", "solution": "Farm Ancient Parts via tower re-clears before committing to the capture." }
+    ],
+    "time_limited": "With limited time, scout Mount Obsidian and craft Ultra Spheres now, then schedule the capture for later.",
+    "dynamic_rules": [
+      {
+        "signal": "goal:legendary",
+        "condition": "goals includes legendary",
+        "adjustment": "Surface the Jetragon capture immediately and keep it pinned in the active queue until it is completed.",
+        "priority": 3,
+        "mode_scope": ["normal", "hardcore", "solo", "coop"],
+        "related_steps": ["purposeful-arc-legendary-push:002"],
+        "follow_up_routes": ["capture-jetragon"]
+      }
+    ]
+  },
+  "checkpoints": [
+    { "id": "purposeful-legendary:checkpoint-prep", "summary": "Grappling Gun refitted", "benefits": [ "Mobility confirmed" ], "related_steps": [ "purposeful-arc-legendary-push:001" ] },
+    { "id": "purposeful-legendary:checkpoint-capture", "summary": "Jetragon secured", "benefits": [ "Legendary flying mount unlocked" ], "related_steps": [ "purposeful-arc-legendary-push:002" ] }
+  ],
+  "supporting_routes": { "recommended": [ "tower-rayne-syndicate", "tech-grappling-gun" ], "optional": [ "resource-leather-early" ] },
+  "failure_recovery": { "normal": "Refill Ultra Spheres and cooling gear after a failed attempt before re-engaging.", "hardcore": "Exit the volcano if armour drops into the red; Hardcore survival outweighs the legendary reward." },
+  "steps": [
+    {
+      "step_id": "purposeful-arc-legendary-push:001",
+      "type": "plan",
+      "summary": "Refresh Grappling Gun logistics",
+      "detail": "Re-run the Grappling Gun route if you still need Ancient Parts or crafted charges before travelling to Mount Obsidian.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 400, "max": 600 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "tech-grappling-gun" } ],
+      "citations": []
+    },
+    {
+      "step_id": "purposeful-arc-legendary-push:002",
+      "type": "plan",
+      "summary": "Capture Jetragon",
+      "detail": "Execute the Jetragon capture route to claim the fastest legendary mount and finish the purposeful campaign.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
+      "xp_award_estimate": { "min": 2200, "max": 3600 },
+      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "capture-jetragon" } ],
+      "citations": []
+    }
+  ],
+  "completion_criteria": [
+    { "type": "have-pal", "pal_id": "jetragon", "qty": 1 }
+  ],
+  "yields": { "levels_estimate": "+4 to +6", "key_unlocks": [ "pal-jetragon" ] },
+  "metrics": {
+    "xp_per_minute": { "solo": 19.5, "coop": 26.0 },
+    "travel_distance_m": 3600,
+    "consumable_cost": [ { "item_id": "ultra-pal-sphere", "qty": 6 }, { "item_id": "heat-resistant-armor", "qty": 1 } ]
+  },
+  "next_routes": []
+}
+```
+
 Palmate estimates the player’s level by summing XP from completed steps,
 adding bonuses and converting the total into a level using the XP table.
 The following block describes the algorithm and provides an example.

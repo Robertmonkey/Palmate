@@ -18,7 +18,7 @@ Routes are adaptive in three ways:
 | --- | --- | --- |
 | `guides.md` | Palmate runtime & integrators | Master data file with schema, ontologies, XP tables and machine-readable routes. |
 | `palworld_complete_guide.md` | Researchers, tool builders | Encyclopedic catalogue of every quick guide plus detailed step-by-step instructions, now aligned with the other documents. |
-| `palworld_purposeful_guides.md` | Players seeking a directed campaign | Goal-driven progression playbooks that link out to the relevant quick guides and missions. |
+| Purposeful Arc campaigns (`guides.md`) | Players seeking a directed campaign | Goal-driven progression playlists built from the adaptive route library. |
 | `palworld_full_route_normal_coop_optional.md` | Families and co-op duos on Normal | Checkbox-focused story route covering all towers with optional co-op chores and kid-friendly wording. |
 
 ## Data Layout
