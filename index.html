@@ -10517,23 +10517,71 @@
       };
     }
 
-    async function loadGuideCatalog(meta){
-      if(!meta || !meta.path){
+    function cloneGuideCatalog(value){
+      if(!value || typeof value !== 'object') return null;
+      if(typeof structuredClone === 'function'){
+        try {
+          return structuredClone(value);
+        } catch(err){
+          console.warn('structuredClone failed for guide catalog; using JSON fallback.', err);
+        }
+      }
+      try {
+        return JSON.parse(JSON.stringify(value));
+      } catch(err){
+        console.warn('JSON clone failed for guide catalog fallback.', err);
         return null;
       }
-      const source = meta.path;
-      try {
-        const res = await fetch(source);
-        if(!res.ok){
-          throw new Error(`HTTP ${res.status}`);
+    }
+
+    async function loadGuideCatalog(meta){
+      const inlineData = meta && typeof meta === 'object'
+        ? (meta.inline ?? meta.data ?? null)
+        : null;
+      if(inlineData){
+        const clonedInline = cloneGuideCatalog(inlineData);
+        if(clonedInline){
+          return clonedInline;
         }
-        const payload = await res.json();
-        if(payload && typeof payload === 'object'){
-          return payload;
-        }
-      } catch(err){
-        console.warn('Failed to load guide catalog', err);
       }
+
+      const source = meta?.path;
+      if(source){
+        try {
+          const res = await fetch(source);
+          if(!res.ok){
+            throw new Error(`HTTP ${res.status}`);
+          }
+          const payload = await res.json();
+          if(payload && typeof payload === 'object'){
+            return payload;
+          }
+        } catch(err){
+          console.warn('Failed to load guide catalog', err);
+        }
+      }
+
+      const fallbackPromise = window.__GUIDE_CATALOG_FALLBACK_PROMISE__;
+      if(fallbackPromise && typeof fallbackPromise.then === 'function'){
+        try {
+          const fallback = await fallbackPromise;
+          const clonedFallback = cloneGuideCatalog(fallback);
+          if(clonedFallback){
+            return clonedFallback;
+          }
+        } catch(err){
+          console.warn('Guide catalog fallback promise rejected', err);
+        }
+      }
+
+      const fallback = window.__GUIDE_CATALOG_FALLBACK__;
+      if(fallback){
+        const cloned = cloneGuideCatalog(fallback);
+        if(cloned){
+          return cloned;
+        }
+      }
+
       return null;
     }
 
