@@ -12821,17 +12821,6 @@
           const recommendationLead = kidMode
             ? 'Need other ideas? These extra adventures re-rank when your context changes.'
             : 'Want alternatives? The rest of the ranked library updates whenever your context shifts.';
-          const catalog = routeGuideData?.guideCatalog;
-          const catalogCount = catalog?.count != null ? catalog.count : (Array.isArray(catalog?.entries) ? catalog.entries.length : 0);
-          const catalogLead = catalogCount
-            ? (kidMode
-              ? `Browse ${catalogCount} quick guides covering Palworld adventures.`
-              : `Browse ${catalogCount} structured guides across Palworld systems.`)
-            : (kidMode
-              ? 'Browse the full guide index once data loads.'
-              : 'Browse the complete guide catalog as soon as it loads.');
-          const groupOptions = renderGuideCatalogGroupOptions(catalog);
-          const categoryOptions = renderGuideCatalogCategoryOptions(catalog);
           const plannerLead = kidMode
             ? 'Tell Palmate what you need tonight and we’ll build the perfect plan.'
             : 'Dial in your context and Palmate will surface the routes that matter most.';
@@ -12967,32 +12956,6 @@
                 </details>
               </section>
             </div>
-            <div class="route-grid route-grid--secondary">
-              <section class="card guide-catalog" id="guideCatalogCard">
-                <div class="guide-catalog__header">
-                  <h3>${escapeHTML(kidMode ? 'Guide encyclopedia' : 'Complete guide index')}</h3>
-                  <p>${escapeHTML(catalogLead)}</p>
-                  <span class="guide-catalog__count" data-guide-catalog-count></span>
-                </div>
-                <div class="guide-catalog__controls">
-                  <label class="guide-catalog__search">
-                    <span class="sr-only">${escapeHTML(kidMode ? 'Search guides' : 'Search guide catalog')}</span>
-                    <input type="search" id="guideCatalogSearch" placeholder="${escapeHTML(kidMode ? 'Search all guides' : 'Search the catalog')}" value="${escapeHTML(guideCatalogSearchTerm)}" />
-                  </label>
-                  <div class="guide-catalog__filters">
-                    <label>
-                      <span>${escapeHTML(kidMode ? 'Category group' : 'Category group')}</span>
-                      <select id="guideCatalogGroup">${groupOptions}</select>
-                    </label>
-                    <label>
-                      <span>${escapeHTML(kidMode ? 'Focus' : 'Focus')}</span>
-                      <select id="guideCatalogCategory">${categoryOptions}</select>
-                    </label>
-                  </div>
-                </div>
-                <div class="guide-catalog__list" id="guideCatalogList"></div>
-              </section>
-            </div>
           </div>
         `;
           const wrap = node.querySelector('#routeChapters');
@@ -13000,7 +12963,6 @@
           pruneCompletedActiveRoutes();
           renderActiveRoutesList();
           renderRouteLibraryList();
-          renderGuideCatalogList();
           const librarySearch = node.querySelector('#routeLibrarySearch');
           if(librarySearch && !librarySearch.dataset.bound){
             librarySearch.value = routeLibrarySearchTerm;
@@ -13011,7 +12973,6 @@
             });
           }
           bindRouteLibraryControls(node);
-          bindGuideCatalogControls(node);
           wrap.addEventListener('change', handleRouteCheckboxChange);
           wrap.addEventListener('click', handleRouteClick);
           bindRouteActionButtons();
@@ -13476,13 +13437,31 @@
     function renderRouteRecommendationsList(recommendations, { offset = 0 } = {}){
       const list = document.getElementById('routeRecommendationsList');
       if(!list) return;
-      if(!Array.isArray(recommendations) || recommendations.length <= offset){
-        list.innerHTML = `<p class="route-recommendations__empty">${escapeHTML(kidMode ? 'Set your level or add goals to see suggestions.' : 'Adjust your context to surface tailored recommendations.')}</p>`;
+      const pool = Array.isArray(recommendations)
+        ? recommendations.filter(entry => entry && entry.route)
+        : [];
+      if(!pool.length){
+        list.innerHTML = `<p class="route-recommendations__empty">${escapeHTML(kidMode ? 'Add goals or mark progress to unlock fresh adventures.' : 'Adjust your goals or progress to unlock new recommendations.')}</p>`;
+        updateRouteRecommendationBackdrop([]);
       } else {
-        const cards = recommendations.slice(offset, offset + 5).map(renderRouteRecommendation).join('');
-        list.innerHTML = cards;
+        const suggestionIds = new Set(
+          Array.isArray(currentRouteSuggestionEntries)
+            ? currentRouteSuggestionEntries
+                .map(entry => entry && entry.route ? entry.route.id : null)
+                .filter(Boolean)
+            : []
+        );
+        let extras = pool.filter(entry => entry && entry.route && !suggestionIds.has(entry.route.id));
+        if(offset > 0 && extras.length > offset){
+          extras = extras.slice(offset);
+        }
+        if(!extras.length){
+          extras = pool.slice();
+        }
+        const visible = extras.slice(0, 5);
+        list.innerHTML = visible.map(renderRouteRecommendation).join('');
+        updateRouteRecommendationBackdrop(visible);
       }
-      updateRouteRecommendationBackdrop(recommendations, offset);
       if(routeRecommendationsAbort){
         routeRecommendationsAbort.abort();
       }
