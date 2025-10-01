@@ -7899,6 +7899,1149 @@
       ]
     },
     {
+      "route_id": "quest-main-story-early",
+      "title": "Main Story Progression: Palbox to Feybreak",
+      "category": "progression",
+      "tags": [
+        "main-story",
+        "missions",
+        "tower",
+        "completion"
+      ],
+      "progression_role": "core",
+      "recommended_level": {
+        "min": 1,
+        "max": 60
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Finish the tutorial missions and establish a resilient starter base",
+        "Hunt Alpha bosses and clear every tower from Zoe through Bjorn",
+        "Maintain food, gear and stat growth to survive Hardcore scaling"
+      ],
+      "estimated_time_minutes": {
+        "solo": 1080,
+        "coop": 840
+      },
+      "estimated_xp_gain": {
+        "min": 15000,
+        "max": 260000
+      },
+      "risk_profile": "high",
+      "failure_penalties": {
+        "normal": "Mission resets can cost consumables and travel time.",
+        "hardcore": "Deaths delete characters; abort tower runs before wipes."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Prioritise capture XP loops between steps :006 and :009 before attempting tower bosses.",
+        "overleveled": "Skip optional capture padding and sprint to tower encounters; convert extra mats into ammo and medkits.",
+        "resource_shortages": [
+          {
+            "item_id": "paldium-fragment",
+            "solution": "Farm riverside ore after step :007 or trigger resource-paldium subroute."
+          },
+          {
+            "item_id": "fiber",
+            "solution": "Clear Windswept Hills bushes at dusk or assign Lamballs to gathering posts."
+          }
+        ],
+        "time_limited": "Complete checkpoints one at a time; wrap after step :010 if you only have a short session.",
+        "dynamic_rules": [
+          {
+            "signal": "mode_state",
+            "condition": "hardcore and player.hp_potions < 5",
+            "adjustment": "Delay tower attempts and loop crafting of Large Recovery Meds before engaging bosses.",
+            "priority": 1,
+            "mode_scope": [
+              "hardcore"
+            ],
+            "related_steps": [
+              "quest-main-story-early:011",
+              "quest-main-story-early:012",
+              "quest-main-story-early:013",
+              "quest-main-story-early:019"
+            ],
+            "follow_up_routes": [
+              "tech-grappling-gun"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "quest-main-story-early:tutorial",
+          "summary": "Tutorial missions complete and base automation online",
+          "benefits": [
+            "Unlocks base chores",
+            "Opens access to gliding and shields"
+          ],
+          "related_steps": [
+            "quest-main-story-early:001",
+            "quest-main-story-early:006"
+          ]
+        },
+        {
+          "id": "quest-main-story-early:alpha-chillet",
+          "summary": "Alpha Chillet defeated or captured",
+          "benefits": [
+            "Large EXP spike",
+            "Ancient parts for advanced tech"
+          ],
+          "related_steps": [
+            "quest-main-story-early:010"
+          ]
+        },
+        {
+          "id": "quest-main-story-early:all-towers",
+          "summary": "All syndicate towers cleared including Feybreak",
+          "benefits": [
+            "Ancient Technology Point income",
+            "Unlocks Investigator finale"
+          ],
+          "related_steps": [
+            "quest-main-story-early:013",
+            "quest-main-story-early:019"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-paldium",
+          "mount-direhowl-harness",
+          "mount-nitewing-saddle"
+        ],
+        "optional": [
+          "mount-eikthyrdeer-saddle",
+          "tower-rayne-syndicate"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "Use fast-travel statues to recover lost gear and restock before reattempting objectives.",
+        "hardcore": "Retreat via glider or mount when HP drops below 40%; preserve character by abandoning failed tower runs early."
+      },
+      "steps": [
+        {
+          "step_id": "quest-main-story-early:001",
+          "type": "build",
+          "summary": "Establish the first Palbox base",
+          "detail": "Select a flat Windswept Hills clearing, place the Palbox and mark the base boundary so chores unlock immediately.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                80,
+                -420
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Scout the area first to avoid syndicate raids during setup.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "wood",
+                  "qty": 10
+                },
+                {
+                  "item_id": "stone",
+                  "qty": 10
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "builder",
+                  "tasks": "Place Palbox and essential stations"
+                },
+                {
+                  "role": "lookout",
+                  "tasks": "Keep mobs away while base radius activates"
+                }
+              ],
+              "loot_rules": "Shared base unlock"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 20,
+            "max": 20
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:002",
+          "type": "quest",
+          "summary": "Assign a Pal to base work",
+          "detail": "Open the Palbox management screen and deploy your first worker Pal to automate gathering and crafting jobs.",
+          "targets": [
+            {
+              "kind": "pal",
+              "id": "lamball",
+              "qty": 1
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                80,
+                -420
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "manager",
+                  "tasks": "Handle Pal assignments"
+                },
+                {
+                  "role": "scout",
+                  "tasks": "Capture extra workers if needed"
+                }
+              ],
+              "loot_rules": "Share early captures"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 20,
+            "max": 20
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:003",
+          "type": "gather",
+          "summary": "Secure early food stores",
+          "detail": "Harvest berry bushes and cook simple meals so everyone can eat to clear the hunger tutorial objective.",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "fiber",
+              "qty": 5
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                60,
+                -400
+              ],
+              "time": "day",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Keep at least two cooked meals on the hotbar to offset faster hunger drain.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "fiber",
+                  "qty": 10
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 20,
+            "max": 20
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:004",
+          "type": "craft",
+          "summary": "Prepare protective clothing",
+          "detail": "Unlock basic armor and craft traveler clothes using fiber and leather to survive incoming raids and cold nights.",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "fiber",
+              "qty": 20
+            },
+            {
+              "kind": "item",
+              "id": "leather",
+              "qty": 10
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                85,
+                -430
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Craft a spare armor set and stash it before traveling at night.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "leather",
+                  "qty": 5
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 30,
+            "max": 30
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:005",
+          "type": "prepare",
+          "summary": "Allocate stat points",
+          "detail": "Level up through early chores and invest stat points into health, stamina and weight to unlock the Enhance Stats mission.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Prioritise HP and stamina to reduce one-shot risk during raids."
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 5,
+            "max": 5
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:006",
+          "type": "capture",
+          "summary": "Capture five Lamballs",
+          "detail": "Hunt the docile Lamballs near spawn, weaken them and throw Pal Spheres until five are secured for wool and chores.",
+          "targets": [
+            {
+              "kind": "pal",
+              "id": "lamball",
+              "qty": 5
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                120,
+                -360
+              ],
+              "time": "day",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "trapper",
+                  "tasks": "Weaken Lamballs"
+                },
+                {
+                  "role": "catcher",
+                  "tasks": "Throw spheres at low HP"
+                }
+              ],
+              "loot_rules": "Alternate catches"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 35,
+            "max": 35
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "fiber",
+                "qty": 10
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:007",
+          "type": "gather",
+          "summary": "Mine Paldium and craft a shield",
+          "detail": "Farm glowing blue ore by rivers, craft the Paldium Shield at a workbench and equip it for incoming fights.",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "paldium-fragment",
+              "qty": 20
+            },
+            {
+              "kind": "item",
+              "id": "wood",
+              "qty": 10
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                140,
+                -390
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Craft extra shields to replace durability loss mid-run.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "paldium-fragment",
+                  "qty": 10
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 50,
+            "max": 50
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:008",
+          "type": "craft",
+          "summary": "Unlock gliding for mobility",
+          "detail": "Spend a tech point on the Glider blueprint, craft it and practice takeoffs to enable safer travel and escapes.",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "paldium-fragment",
+              "qty": 10
+            },
+            {
+              "kind": "item",
+              "id": "fiber",
+              "qty": 10
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                90,
+                -440
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "crafter",
+                  "tasks": "Assemble glider"
+                },
+                {
+                  "role": "tester",
+                  "tasks": "Scout glide paths"
+                }
+              ],
+              "loot_rules": "Each player crafts their own"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 100,
+            "max": 100
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:009",
+          "type": "capture",
+          "summary": "Expand the Palpedia to thirty species",
+          "detail": "Tour nearby biomes and capture unique species until the roster hits thirty, diversifying work skills and XP gains.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                50,
+                -380
+              ],
+              "time": "any",
+              "weather": "any"
+            },
+            {
+              "region_id": "sea-breeze-archipelago",
+              "coords": [
+                -320,
+                -420
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "scout",
+                  "tasks": "Locate unique species"
+                },
+                {
+                  "role": "catcher",
+                  "tasks": "Secure captures"
+                }
+              ],
+              "loot_rules": "Assign captures based on needed work skills"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 400,
+            "max": 600
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:010",
+          "type": "fight",
+          "summary": "Defeat the Alpha Chillet",
+          "detail": "Travel to the Steppe and battle the Alpha Chillet known as Dancer on the Steppe, leveraging fire damage for a quick kill or capture.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                174,
+                -419
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Bring a fire Pal to stagger the Alpha quickly and avoid extended melee trades."
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "tank",
+                  "tasks": "Hold aggro"
+                },
+                {
+                  "role": "breaker",
+                  "tasks": "Apply fire damage"
+                }
+              ],
+              "loot_rules": "All players tag for drops"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 500,
+            "max": 500
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "fiber",
+                "qty": 20
+              },
+              {
+                "item_id": "paldium-fragment",
+                "qty": 20
+              },
+              {
+                "item_id": "leather",
+                "qty": 10
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:011",
+          "type": "craft",
+          "summary": "Upgrade cooking and ration planning",
+          "detail": "Build a Cooking Pot, prepare portable meals and stock lunchboxes so hunger never interrupts long expeditions.",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "ingot",
+              "qty": 10
+            },
+            {
+              "kind": "item",
+              "id": "wood",
+              "qty": 15
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                82,
+                -412
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Keep emergency bentos ready to counter increased hunger drain.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "ingot",
+                  "qty": 5
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 150,
+            "max": 150
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:012",
+          "type": "fight",
+          "summary": "Clear the Rayne Syndicate Tower",
+          "detail": "Approach Zoe & Grizzbolt, counter with ground damage and finish within the time limit to secure the first tower clear.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                113,
+                -431
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Carry shock resist potions and stay behind pillars to avoid lethal bursts."
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "kiter",
+                  "tasks": "Hold Zoe"
+                },
+                {
+                  "role": "breaker",
+                  "tasks": "Focus Grizzbolt"
+                }
+              ],
+              "loot_rules": "Ensure everyone tags the boss"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 2000,
+            "max": 2200
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:013",
+          "type": "fight",
+          "summary": "Defeat Lily & Lyleen at Free Pal Alliance Tower",
+          "detail": "Travel to the snowy Free Pal Alliance tower and melt Lyleen with fire Pals while dodging Lily\u2019s ranged shots.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "verdant-brook",
+              "coords": [
+                181,
+                29
+              ],
+              "time": "any",
+              "weather": "snow"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Use heat-resistant armor and rotate aggro to survive extended fights."
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "burn",
+                  "tasks": "Maintain fire DoTs on Lyleen"
+                },
+                {
+                  "role": "suppression",
+                  "tasks": "Keep Lily busy"
+                }
+              ],
+              "loot_rules": "Split cosmetics if they drop"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 2600,
+            "max": 2800
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:014",
+          "type": "fight",
+          "summary": "Overcome Axel & Orserk at Eternal Pyre Tower",
+          "detail": "Scale Mount Obsidian, exploit Orserk\u2019s weakness to ice and manage Axel\u2019s melee assaults to take the volcanic tower.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "mount-obsidian",
+              "coords": [
+                -587,
+                -517
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Rotate shields and maintain chill effects to suppress Orserk."
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "kiter",
+                  "tasks": "Lead Axel away"
+                },
+                {
+                  "role": "breaker",
+                  "tasks": "Burst Orserk with ice"
+                }
+              ],
+              "loot_rules": "Share heat cores"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 3200,
+            "max": 3400
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:015",
+          "type": "fight",
+          "summary": "Break Marcus & Faleris at PIDF Tower",
+          "detail": "Storm the desert tower, drench Faleris with water attacks and outmaneuver Marcus\u2019s explosives for the fourth clear.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "twilight-dunes",
+              "coords": [
+                556,
+                336
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Carry high-tier water ammo and dodge splash damage aggressively."
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "hose",
+                  "tasks": "Keep Faleris soaked"
+                },
+                {
+                  "role": "sapper",
+                  "tasks": "Disable Marcus"
+                }
+              ],
+              "loot_rules": "Distribute cosmetics"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 3600,
+            "max": 3800
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:016",
+          "type": "fight",
+          "summary": "Topple Victor & Shadowbeak at PAL Research",
+          "detail": "Climb the frozen tower, deploy dragon Pals against Shadowbeak and suppress Victor\u2019s gadgets to secure Ancient tech.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "ice-wind-island",
+              "coords": [
+                -146,
+                448
+              ],
+              "time": "any",
+              "weather": "snow"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Cycle dragon shields and use cover to avoid laser volleys."
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "dragon-handler",
+                  "tasks": "Focus Shadowbeak"
+                },
+                {
+                  "role": "suppression",
+                  "tasks": "Interrupt Victor"
+                }
+              ],
+              "loot_rules": "Coordinate Ancient part drops"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 4000,
+            "max": 4200
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:017",
+          "type": "fight",
+          "summary": "Win the Moonlit Duel against Saya & Selyne",
+          "detail": "Sail to Sakurajima, overpower Selyne with dragon Pals and keep Saya at range to liberate the Moonflower tower.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "sakurajima-island",
+              "coords": [
+                -597,
+                203
+              ],
+              "time": "night",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Chain crowd control on Saya to prevent lethal melee combos."
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "dragon",
+                  "tasks": "Burst Selyne"
+                },
+                {
+                  "role": "marksman",
+                  "tasks": "Suppress Saya"
+                }
+              ],
+              "loot_rules": "Distribute cosmetics"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 4200,
+            "max": 4500
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story-early:018",
+          "type": "fight",
+          "summary": "Seize the Feybreak Tower",
+          "detail": "Assault Bjorn & Bastigor, stacking firepower to melt the dragon and closing in to finish the final syndicate leader.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "feybreak",
+              "coords": [
+                -1294,
+                -1669
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Stack fire resist and rotate turret mounts to keep pressure on Bastigor."
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "turret",
+                  "tasks": "Man base defenses"
+                },
+                {
+                  "role": "striker",
+                  "tasks": "Focus Bjorn"
+                }
+              ],
+              "loot_rules": "Split final rewards"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 5000,
+            "max": 5200
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "quest-chain",
+          "quest_id": "main-story-feybreak"
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+20 to +25",
+        "key_unlocks": [
+          "ancient-technology-points",
+          "main-story-clear"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 6,
+        "boss_targets": 6,
+        "quest_nodes": 13
+      },
+      "next_routes": [
+        {
+          "route_id": "quest-main-story",
+          "reason": "Log the Investigator board epilogue after finishing Feybreak"
+        }
+      ]
+    },
+    {
       "route_id": "quest-main-story",
       "title": "Investigator Main Story Wrap-Up",
       "category": "progression",
@@ -9749,6 +10892,40 @@
           "fast_travel_nodes": [
             "obsidian-fort"
           ]
+        },
+        {
+          "id": "sakurajima-island",
+          "name": "Sakurajima Island",
+          "level_hint_min": 50,
+          "level_hint_max": 60,
+          "climate": "volcanic archipelago",
+          "hazards": "constant night, elite syndicate patrols",
+          "coordinates_bbox": [
+            -700,
+            0,
+            -400,
+            400
+          ],
+          "fast_travel_nodes": [
+            "moonflower-tower-entrance"
+          ]
+        },
+        {
+          "id": "feybreak",
+          "name": "Feybreak Expanse",
+          "level_hint_min": 55,
+          "level_hint_max": 60,
+          "climate": "cursed wasteland",
+          "hazards": "poison mists, relentless raids",
+          "coordinates_bbox": [
+            -1500,
+            -1900,
+            -1100,
+            -1400
+          ],
+          "fast_travel_nodes": [
+            "feybreak-tower-entrance"
+          ]
         }
       ]
     },
@@ -9840,6 +11017,126 @@
           ],
           "repeatable": false,
           "reset_rule": "Cannot be repeated until after next major patch"
+        },
+        {
+          "id": "free-pal-alliance-tower",
+          "name": "Free Pal Alliance Tower (Lily & Lyleen)",
+          "type": "tower",
+          "region_id": "verdant-brook",
+          "coords": [
+            181,
+            29
+          ],
+          "recommended_level": 25,
+          "mechanics": "Grass boss that summons roots; fire attacks melt Lyleen quickly.",
+          "rewards": [
+            {
+              "item_id": "ancient-technology-points",
+              "qty": 5
+            }
+          ],
+          "repeatable": false,
+          "reset_rule": "Weekly respawn timer"
+        },
+        {
+          "id": "eternal-pyre-tower",
+          "name": "Eternal Pyre Tower (Axel & Orserk)",
+          "type": "tower",
+          "region_id": "mount-obsidian",
+          "coords": [
+            -587,
+            -517
+          ],
+          "recommended_level": 40,
+          "mechanics": "Fire boss with lava hazards; ice damage staggers Orserk.",
+          "rewards": [
+            {
+              "item_id": "ancient-technology-points",
+              "qty": 5
+            }
+          ],
+          "repeatable": false,
+          "reset_rule": "Weekly respawn timer"
+        },
+        {
+          "id": "pidf-tower",
+          "name": "PIDF Tower (Marcus & Faleris)",
+          "type": "tower",
+          "region_id": "twilight-dunes",
+          "coords": [
+            556,
+            336
+          ],
+          "recommended_level": 45,
+          "mechanics": "Fire/Dragon boss with explosives; water suppression keeps Faleris controlled.",
+          "rewards": [
+            {
+              "item_id": "ancient-technology-points",
+              "qty": 5
+            }
+          ],
+          "repeatable": false,
+          "reset_rule": "Weekly respawn timer"
+        },
+        {
+          "id": "pal-research-tower",
+          "name": "PAL Research Tower (Victor & Shadowbeak)",
+          "type": "tower",
+          "region_id": "ice-wind-island",
+          "coords": [
+            -146,
+            448
+          ],
+          "recommended_level": 50,
+          "mechanics": "Dark/Ice boss supported by drones; dragon damage breaks shields.",
+          "rewards": [
+            {
+              "item_id": "ancient-technology-points",
+              "qty": 5
+            }
+          ],
+          "repeatable": false,
+          "reset_rule": "Weekly respawn timer"
+        },
+        {
+          "id": "moonflower-tower",
+          "name": "Moonflower Tower (Saya & Selyne)",
+          "type": "tower",
+          "region_id": "sakurajima-island",
+          "coords": [
+            -597,
+            203
+          ],
+          "recommended_level": 55,
+          "mechanics": "Dark phoenix boss fought at night; dragon bursts and ranged DPS shine.",
+          "rewards": [
+            {
+              "item_id": "ancient-technology-points",
+              "qty": 5
+            }
+          ],
+          "repeatable": false,
+          "reset_rule": "Weekly respawn timer"
+        },
+        {
+          "id": "feybreak-tower",
+          "name": "Feybreak Tower (Bjorn & Bastigor)",
+          "type": "tower",
+          "region_id": "feybreak",
+          "coords": [
+            -1294,
+            -1669
+          ],
+          "recommended_level": 60,
+          "mechanics": "Dragon/Ice boss with toxic fields; fire payloads end the fight quickly.",
+          "rewards": [
+            {
+              "item_id": "ancient-technology-points",
+              "qty": 5
+            }
+          ],
+          "repeatable": false,
+          "reset_rule": "Weekly respawn timer"
         }
       ]
     },
