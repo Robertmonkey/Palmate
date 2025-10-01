@@ -7,6 +7,7 @@
 > - Each bullet with `- [ ]` is a **checkbox step**. Your app can persist completion state so you and your son can pick up where you left off.  
 > - Steps marked **(Optional)** are non-blocking. Steps marked **(Co‑op Optional)** are designed for two players and should appear as separate, non-required checkboxes.  
 > - Keep the **“Chapter Checklist”** visible and collapse the **“Why / Tips”** section by default for a simpler kid UI.
+> - Need extra context?  Pair this route with the granular catalogue in **`palworld_complete_guide.md`** or the progression overview in **`palworld_purposeful_guides.md`**.
 
 ---
 

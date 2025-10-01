@@ -2,6 +2,8 @@
 
 This comprehensive guide consolidates the catalogue of over 100 Palworld guides, their metadata (categories, trigger phrases and keywords) and detailed step‑by‑step instructions for accomplishing each task.  Citations from reliable sources are included to support key mechanics and features.  Use this document to develop or integrate a complete knowledge base for Palworld.
 
+> **Guide suite context:** This catalogue focuses on granular how‑to entries.  For a narrative, goal‑driven route that strings these tasks together, see **`palworld_purposeful_guides.md`**.  For a checkbox-style family playthrough of the Normal difficulty towers, refer to **`palworld_full_route_normal_coop_optional.md`**.  The three guides share terminology so you can move between them without re-learning concepts.
+
 ## Guide Catalogue and Metadata
 
 ### Getting Started & Core Missions
@@ -12,16 +14,14 @@ This comprehensive guide consolidates the catalogue of over 100 Palworld guides,
 | First Gathering Run | Missions | New players learning how to gather basic materials | early game, gather wood, branches |
 | Build a Workbench | Missions | When players need to craft more complex items | workbench, crafting bench, base setup |
 | Unlock Technology | Missions | Player wants to access the technology tree | tech tree, unlock tech |
-| Find Paldium & Craft Pal Spheres | Resources | When players ask about obtaining Paldium fragments or making capture devices | Paldium, capture device, Pal sphere |
+| Find Paldium & Craft Pal Spheres (Capturing Device) | Resources | When players ask about obtaining Paldium fragments or making capture devices | Paldium, capture device, Pal sphere |
 | Catch Your First Pal | Capturing | Triggered when players ask how to catch a Pal or about Pal spheres | capture Pal, first Pal |
 | Build a Palbox | Base Building | Player asks about storing or healing Pals | Palbox, storage, healing |
 | Establish a Starting Base | Base Building | When players want tips on their first base location | first base, starting base, base location |
-| Assign Pals to Work | Base Management | Player wants to automate tasks or assign Pals | assign Pals, base work, management |
+| Assign Pals to Work | Base Management | Players need to automate tasks and understand base assignments | assign Pals, base work, automation |
 | Gathering Food & Red Berries | Resources | When players ask how to feed themselves or Pals | food, hunger, red berries |
 | Craft Protective Clothing | Crafting | Player encounters extreme weather (cold/heat) | clothing, cold resistant, armor |
 | Increase Character Stats | Mechanics | When players inquire about leveling up or improving stats | level up, enhance stats |
-| Build the Capturing Device | Crafting | Questions about crafting Pal spheres | Pal spheres, crafting device |
-| Put Pals to Work | Base Management | Triggered when players need to understand base automation | base work, assignments |
 | Stay Alive & Survival Options | Survival | Player asks about survival basics | survival tips, health, hunger |
 | First Combat Tips | Combat | When players ask how to fight or defend early on | combat basics, fighting |
 
@@ -291,10 +291,11 @@ Each guide listed above has accompanying step‑by‑step instructions to help u
 2. Spend your accumulated **technology points** to unlock a new item or structure (e.g., Palbox or Pal Sphere blueprint).
 3. **Confirm the unlock**, then gather resources to craft the newly unlocked item.
 
-**Find Paldium & Craft Pal Spheres**
+**Find Paldium & Craft Pal Spheres (Capturing Device)**
 1. **Search near riversides and wetlands** for glowing blue rocks (Paldium nodes)【354485449518951†L225-L231】.
-2. **Mine Paldium fragments** with a pickaxe until you have enough pieces.
-3. **Combine Paldium fragments with wood and stone** at a workbench to craft Pal Spheres【354485449518951†L224-L252】.
+2. **Mine Paldium fragments** with a pickaxe until you have enough pieces for multiple captures.
+3. **Open the technology tree** to unlock the **Capturing Device** blueprint if it is not already unlocked, then gather the required wood and stone.
+4. **Combine the materials at a workbench** to craft Pal Spheres, stocking at least five so you can capture several new Pals without returning to base【354485449518951†L224-L252】.
 
 **Catch Your First Pal**
 1. **Craft several Pal Spheres** using the method above.
@@ -313,8 +314,9 @@ Each guide listed above has accompanying step‑by‑step instructions to help u
 
 **Assign Pals to Work**
 1. **Open the base management menu** via the Palbox【354485449518951†L329-L332】.
-2. Select a Pal with relevant work suitability (e.g., transport, kindling) and **assign it to a task**.
-3. Ensure Pals have access to required stations (e.g., furnace, farm) and monitor their SAN to avoid overwork.
+2. Select a Pal with relevant work suitability (e.g., Transporting, Kindling) and **assign it to the base roster** so it automatically picks up nearby jobs.
+3. **Guide the Pal toward the intended structure**—such as a furnace, farm plot or logging site—so it links with the workstation and begins performing the task.
+4. **Monitor SAN and workload** by checking the management screen; rotate duties or provide food and rest if morale drops to keep automation efficient.
 
 **Gathering Food & Red Berries**
 1. **Search for bushes** bearing red berries in the starting area.
@@ -330,16 +332,6 @@ Each guide listed above has accompanying step‑by‑step instructions to help u
 1. **Gain experience** by completing missions, defeating enemies and gathering resources.
 2. When you level up, open your **inventory/stats screen**【354485449518951†L382-L386】.
 3. Allocate the available stat points to Health, Stamina, Weight or other desired attributes.
-
-**Build the Capturing Device**
-1. Unlock the **Capturing Device** (Pal Sphere) blueprint from the tech tree.
-2. **Collect Paldium fragments, wood and stones**.
-3. Use the workbench to **craft Pal Spheres** for capturing Pals.
-
-**Put Pals to Work**
-1. **Assign a Pal** to the base using the management menu.
-2. Place the Pal near the desired production structure (e.g., farm, furnace).
-3. **Monitor the Pal’s SAN and efficiency**; provide food and rest as needed.
 
 **Stay Alive & Survival Options**
 1. **Keep your hunger bar filled** by eating berries, cooked meat or dishes.
