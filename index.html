@@ -9904,7 +9904,8 @@
     let pendingRouteFocus = null;
     let pendingTechFocus = null;
     const ROUTE_ART_IMAGE = 'assets/images/palworld-full-map-2.webp';
-    const ROUTE_LIBRARY_DEFAULT_LIMIT = 12;
+    const ROUTE_LIBRARY_DEFAULT_LIMIT = Number.POSITIVE_INFINITY;
+    const ROUTE_PREVIEW_STEP_LIMIT = 8;
     const ROUTE_THEME_ART_SOURCES = {
       generic: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/058bd87dc17a7179e07c446aa64d0574ca43ab9d/header.jpg?t=1759163961',
       pal: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_f81b7c4f20be3b99f76a1415c4cdb9b444c99b97.1920x1080.jpg?t=1759163961',
@@ -10125,6 +10126,7 @@
       boss_requirement_alignment: 3.8
     };
     let currentRouteSuggestionEntries = [];
+    let currentRouteRecommendationEntries = [];
     let activeSuggestedRouteId = null;
     let routeSuggestionsAbort = null;
     let activeRouteIds = new Set();
@@ -12292,12 +12294,12 @@
         <button type="button" class="route-suggestion-card${active ? ' route-suggestion-card--active' : ''}" ${dataAttributes.join(' ')}>
           <div class="route-suggestion-card__media">
             <div class="route-suggestion-card__avatar" aria-hidden="true"></div>
-            ${typeLabel ? `<span class="route-suggestion-card__tag">${escapeHTML(typeLabel)}</span>` : ''}
           </div>
           <div class="route-suggestion-card__body">
-            <div class="route-suggestion-card__top">
+            <div class="route-suggestion-card__header">
               <span class="route-suggestion-card__icon"><i class="fa-solid ${escapeHTML(art.icon)}"></i></span>
-              <div class="route-suggestion-card__text">
+              <div class="route-suggestion-card__headline">
+                ${typeLabel ? `<span class="route-suggestion-card__tag">${escapeHTML(typeLabel)}</span>` : ''}
                 <h4 class="route-suggestion-card__title">${escapeHTML(route.title)}</h4>
                 ${metaLine ? `<p class="route-suggestion-card__meta">${escapeHTML(metaLine)}</p>` : ''}
                 ${queued ? `<span class="route-suggestion-card__status">${escapeHTML(kidMode ? 'In your queue' : 'In queue')}</span>` : ''}
@@ -13514,6 +13516,7 @@
       if(!pool.length){
         list.innerHTML = `<p class="route-recommendations__empty">${escapeHTML(kidMode ? 'Add goals or mark progress to unlock fresh adventures.' : 'Adjust your goals or progress to unlock new recommendations.')}</p>`;
         updateRouteRecommendationBackdrop([]);
+        currentRouteRecommendationEntries = [];
       } else {
         const suggestionIds = new Set(
           Array.isArray(currentRouteSuggestionEntries)
@@ -13531,6 +13534,7 @@
         }
         const visible = extras.slice(0, 5);
         list.innerHTML = visible.map(renderRouteRecommendation).join('');
+        currentRouteRecommendationEntries = visible.map(entry => ({ ...entry }));
         updateRouteRecommendationBackdrop(visible);
       }
       if(routeRecommendationsAbort){
@@ -13539,6 +13543,17 @@
       routeRecommendationsAbort = new AbortController();
       const { signal } = routeRecommendationsAbort;
       list.addEventListener('click', event => {
+        const previewBtn = event.target.closest('[data-route-preview]');
+        if(previewBtn){
+          const routeId = previewBtn.dataset.routePreview;
+          if(routeId){
+            const entry = currentRouteRecommendationEntries.find(item => item && item.route && item.route.id === routeId);
+            const stepId = previewBtn.dataset.routeStep;
+            openRoutePreviewById(routeId, { entry, stepId });
+          }
+          event.preventDefault();
+          return;
+        }
         const btn = event.target.closest('[data-route-focus]');
         if(!btn) return;
         const routeId = btn.dataset.routeFocus;
@@ -13577,11 +13592,14 @@
         ? `<ul class="route-recommendation__reasons">${entry.reasons.map(reason => `<li>${escapeHTML(reason)}</li>`).join('')}</ul>`
         : `<p class="route-recommendation__fallback">${escapeHTML(kidMode ? 'Palmate picked this route for balanced fun and progress.' : 'Palmate selected this route based on your context.')}</p>`;
       const focusStep = entry.nextStepId || route?.chapter?.steps?.[0]?.id || '';
+      const stepAttr = focusStep ? ` data-route-step="${escapeHTML(focusStep)}"` : '';
       const roleLabel = routePlaystyleLabel(route);
       const attributes = [`data-route-id="${escapeHTML(route.id)}"`];
       if(styleAttr){
         attributes.push(styleAttr);
       }
+      const previewLabel = kidMode ? 'Show steps' : 'Show steps';
+      const plannerLabel = kidMode ? 'Open planner' : 'Open in planner';
       return `
         <article class="guide-card route-recommendation" ${attributes.join(' ')}>
           <div class="guide-card__header">
@@ -13599,11 +13617,113 @@
           <div class="guide-card__footer">
             ${tags}
             <div class="guide-card__actions">
-              <button type="button" class="btn" data-route-focus="${escapeHTML(route.id)}" data-route-step="${escapeHTML(focusStep)}">${escapeHTML(kidMode ? 'View steps' : 'Open route')}</button>
+              <button type="button" class="btn" data-route-preview="${escapeHTML(route.id)}"${stepAttr}>${escapeHTML(previewLabel)}</button>
+              <button type="button" class="btn btn--ghost" data-route-focus="${escapeHTML(route.id)}"${stepAttr}>${escapeHTML(plannerLabel)}</button>
             </div>
           </div>
         </article>
       `;
+    }
+
+    function openRoutePreviewById(routeId, { entry = null, stepId } = {}){
+      if(!routeId) return;
+      const route = routeGuideData?.routeLookup?.[routeId];
+      if(!route) return;
+      openRoutePreviewModal(route, { entry, stepId });
+    }
+
+    function buildRoutePreviewSteps(chapter, { limit = ROUTE_PREVIEW_STEP_LIMIT } = {}){
+      if(!chapter) return '';
+      const steps = Array.isArray(chapter.steps) ? chapter.steps : [];
+      if(!steps.length){
+        return `<p class="route-preview__empty">${escapeHTML(kidMode ? 'Step list coming soon.' : 'Step list coming soon.')}</p>`;
+      }
+      const bounded = limit > 0 ? steps.slice(0, limit) : steps.slice();
+      const items = bounded.map((step, index) => {
+        const text = routeStepText(step) || cleanGuideText(step?.raw?.summary || step?.raw?.detail || '') || `Step ${index + 1}`;
+        const category = step.category ? escapeHTML(step.category) : escapeHTML(kidMode ? 'Step' : 'Step');
+        const optional = step.optional ? `<span class="route-preview__step-optional">${escapeHTML(kidMode ? 'Bonus' : 'Optional')}</span>` : '';
+        return `
+          <li>
+            <div class="route-preview__step-meta">
+              <span class="route-preview__step-index">${index + 1}</span>
+              <span class="route-preview__step-tag">${category}</span>
+              ${optional}
+            </div>
+            <p class="route-preview__step-text">${escapeHTML(text)}</p>
+          </li>
+        `;
+      }).join('');
+      const remainder = steps.length - bounded.length;
+      const more = remainder > 0
+        ? `<li class="route-preview__more">${escapeHTML(kidMode ? `+${remainder} more step${remainder === 1 ? '' : 's'}` : `+${remainder} additional step${remainder === 1 ? '' : 's'}`)}</li>`
+        : '';
+      return `<ol class="route-preview__steps-list">${items}${more}</ol>`;
+    }
+
+    function openRoutePreviewModal(route, { entry = null, stepId } = {}){
+      if(!route) return;
+      const chapter = route?.chapter;
+      if(!chapter) return;
+      const art = routeArtFor(route);
+      const reasons = Array.isArray(entry?.reasons) ? entry.reasons.filter(Boolean) : [];
+      const reasonsHtml = reasons.length
+        ? `<div class="route-preview__reasons-wrap"><h4>${escapeHTML(kidMode ? 'Why try it' : 'Why this route')}</h4><ul class="route-preview__reasons">${reasons.map(reason => `<li>${escapeHTML(reason)}</li>`).join('')}</ul></div>`
+        : '';
+      const highlights = routeHighlightMedia(route, { limit: 4 });
+      const highlightsHtml = highlights.length
+        ? `<div class="route-preview__highlights">${highlights.map(item => renderRouteHighlight(item, { showLabel: true, size: 'small' })).join('')}</div>`
+        : '';
+      const stepList = buildRoutePreviewSteps(chapter);
+      const meta = renderRouteMeta(route);
+      const targetStep = stepId
+        || entry?.nextStepId
+        || (findFirstIncompleteStepForRoute(route, { includeOptional: true })?.id || '')
+        || (chapter.steps && chapter.steps[0] ? chapter.steps[0].id : '');
+      const previewMarkup = `
+        <article class="route-preview" style="--route-preview-image: url('${sanitizeImageUrl(art.image)}'); --route-preview-overlay: ${art.overlay}; --route-preview-accent: ${art.accent}; --route-preview-position: ${art.position};">
+          <header class="route-preview__header">
+            <div class="route-preview__avatar" aria-hidden="true"></div>
+            <div class="route-preview__heading">
+              <h3>${escapeHTML(route.title)}</h3>
+              ${meta || ''}
+              ${reasonsHtml}
+            </div>
+          </header>
+          ${highlightsHtml}
+          <div class="route-preview__steps">
+            <h4>${escapeHTML(kidMode ? 'Step preview' : 'Step preview')}</h4>
+            ${stepList}
+          </div>
+          <footer class="route-preview__actions">
+            <button type="button" class="btn" data-preview-focus="${escapeHTML(route.id)}" data-preview-step="${escapeHTML(targetStep || '')}">${escapeHTML(kidMode ? 'Open in planner' : 'Open in planner')}</button>
+            <button type="button" class="btn btn--ghost" data-preview-activate="${escapeHTML(route.id)}">${escapeHTML(kidMode ? 'Add to queue' : 'Add to active')}</button>
+          </footer>
+        </article>
+      `;
+      modalBody.innerHTML = previewMarkup;
+      openModal();
+      const focusBtn = modalBody.querySelector('[data-preview-focus]');
+      if(focusBtn){
+        focusBtn.addEventListener('click', () => {
+          const focusStepId = focusBtn.dataset.previewStep;
+          if(focusStepId){
+            queueRouteFocus(focusStepId);
+          }
+          switchPage('route');
+          closeModal();
+          playSound(clickSound);
+        });
+      }
+      const activateBtn = modalBody.querySelector('[data-preview-activate]');
+      if(activateBtn){
+        activateBtn.addEventListener('click', () => {
+          addActiveRoute(route.id);
+          activateBtn.disabled = true;
+          activateBtn.textContent = kidMode ? 'Added to queue' : 'Added to active';
+          playSound(clickSound);
+        });
+      }
     }
 
     let routeContextControlAbort = null;
