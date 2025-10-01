@@ -11998,13 +11998,38 @@
       if(!list){
         return;
       }
+      const updateControlState = () => {
+        document.querySelectorAll('[data-route-library-filter]').forEach(btn => {
+          const key = btn.dataset.routeLibraryFilter || '';
+          const activeState = key === routeLibraryFilter;
+          btn.classList.toggle('route-library__filter-btn--active', activeState);
+          btn.setAttribute('aria-pressed', activeState ? 'true' : 'false');
+        });
+        const matchBtn = document.querySelector('[data-route-library-match]');
+        if(matchBtn){
+          const disabled = !Array.isArray(routeContext?.goals) || routeContext.goals.length === 0;
+          matchBtn.disabled = disabled;
+          const pressed = !disabled && routeLibraryMatchContext;
+          matchBtn.classList.toggle('route-library__match--active', pressed);
+          matchBtn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+        }
+      };
       if(!routeGuideData || !Array.isArray(routeGuideData.routes) || !routeGuideData.routes.length){
         list.innerHTML = `<p class="route-library__empty">${escapeHTML(kidMode ? 'Guides are still loading…' : 'Guide library is still loading.')}</p>`;
         if(countNode) countNode.textContent = '';
+        updateControlState();
+        return;
+      }
+      const query = (routeLibrarySearchTerm || '').trim().toLowerCase();
+      if(!query){
+        list.innerHTML = `<p class="route-library__empty">${escapeHTML(kidMode
+          ? 'Use the search box above to find a guide.'
+          : 'Search above to load specific guides.')}</p>`;
+        if(countNode) countNode.textContent = kidMode ? 'Search guides' : 'Search guides';
+        updateControlState();
         return;
       }
       const active = new Set(activeRouteIds);
-      const query = (routeLibrarySearchTerm || '').trim().toLowerCase();
       const statusFilter = routeLibraryFilter || 'incomplete';
       const shouldMatchContext = routeLibraryMatchContext && Array.isArray(routeContext?.goals) && routeContext.goals.length;
       const goalSet = shouldMatchContext
@@ -12033,15 +12058,13 @@
         if(statusFilter === 'complete' && !complete) return;
         const contextMatch = matchesContext(route);
         if(!contextMatch) return;
-        if(query){
-          const haystack = [
-            route.title,
-            route.category,
-            ...(Array.isArray(route.tags) ? route.tags : []),
-            ...(Array.isArray(route.objectives) ? route.objectives : [])
-          ].filter(Boolean).join(' ').toLowerCase();
-          if(!haystack.includes(query)) return;
-        }
+        const haystack = [
+          route.title,
+          route.category,
+          ...(Array.isArray(route.tags) ? route.tags : []),
+          ...(Array.isArray(route.objectives) ? route.objectives : [])
+        ].filter(Boolean).join(' ').toLowerCase();
+        if(!haystack.includes(query)) return;
         availableRoutes.push({ route, contextMatch });
       });
       if(countNode){
@@ -12052,28 +12075,14 @@
         countNode.textContent = label;
       }
       if(!availableRoutes.length){
-        list.innerHTML = `<p class="route-library__empty">${escapeHTML(query
-          ? (kidMode ? 'No guides match that search.' : 'No guides match your search.')
-          : (kidMode ? 'Everything up here is in your queue.' : 'Every remaining guide is already active.'))}</p>`;
+        list.innerHTML = `<p class="route-library__empty">${escapeHTML(kidMode ? 'No guides match that search.' : 'No guides match your search.')}</p>`;
+        updateControlState();
         return;
       }
       list.innerHTML = availableRoutes
         .map(entry => renderRouteLibraryCard(entry.route, { matchContext: shouldMatchContext && entry.contextMatch }))
         .join('');
-      document.querySelectorAll('[data-route-library-filter]').forEach(btn => {
-        const key = btn.dataset.routeLibraryFilter || '';
-        const activeState = key === routeLibraryFilter;
-        btn.classList.toggle('route-library__filter-btn--active', activeState);
-        btn.setAttribute('aria-pressed', activeState ? 'true' : 'false');
-      });
-      const matchBtn = document.querySelector('[data-route-library-match]');
-      if(matchBtn){
-        const disabled = !Array.isArray(routeContext?.goals) || routeContext.goals.length === 0;
-        matchBtn.disabled = disabled;
-        const pressed = !disabled && routeLibraryMatchContext;
-        matchBtn.classList.toggle('route-library__match--active', pressed);
-        matchBtn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
-      }
+      updateControlState();
     }
 
     function renderRouteLibraryCard(route, { matchContext = false } = {}){
@@ -12358,6 +12367,14 @@
         entries = entries.filter(entry => entry.categoryId === guideCatalogCategoryFilter);
       }
       const query = (guideCatalogSearchTerm || '').trim().toLowerCase();
+      const usingFilters = guideCatalogGroupFilter !== 'all' || guideCatalogCategoryFilter !== 'all';
+      if(!query && !usingFilters){
+        list.innerHTML = `<p class="guide-catalog__empty">${escapeHTML(kidMode
+          ? 'Search to open the encyclopedia.'
+          : 'Search above to browse the full index.')}</p>`;
+        if(countNode) countNode.textContent = kidMode ? 'Search guides' : 'Search guides';
+        return;
+      }
       if(query){
         entries = entries.filter(entry => entry.searchText.includes(query));
       }
@@ -12369,7 +12386,10 @@
         countNode.textContent = countLabel;
       }
       if(!entries.length){
-        list.innerHTML = `<p class="guide-catalog__empty">${escapeHTML(kidMode ? 'No guides match those filters yet.' : 'No guides match your filters yet.')}</p>`;
+        const emptyMessage = query
+          ? (kidMode ? 'No guides match that search yet.' : 'No guides match your search yet.')
+          : (kidMode ? 'No guides match those filters yet.' : 'No guides match your filters yet.');
+        list.innerHTML = `<p class="guide-catalog__empty">${escapeHTML(emptyMessage)}</p>`;
         return;
       }
       list.innerHTML = entries.map(renderGuideCatalogCard).join('');
