@@ -774,6 +774,41 @@
           },
           "branching": [],
           "citations": []
+        },
+        {
+          "step_id": "starter-base-capture:006",
+          "type": "quest",
+          "summary": "Register your starter base with the Investigator board",
+          "detail": "Visit the Investigator board in the Small Settlement to hand in the \"First Settlement\" request. This unlocks the story tracker and marks your base as recognised.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                116,
+                -398
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 180,
+            "max": 260
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
         }
       ],
       "completion_criteria": [
@@ -795,17 +830,9 @@
         ]
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 12.5,
-          "coop": 18.0
-        },
-        "travel_distance_m": 420,
-        "consumable_cost": [
-          {
-            "item_id": "pal-sphere",
-            "qty": 5
-          }
-        ]
+        "progress_segments": 6,
+        "boss_targets": 0,
+        "quest_nodes": 1
       },
       "next_routes": [
         {
@@ -1161,21 +1188,9 @@
         "key_unlocks": []
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 14.0,
-          "coop": 20.0
-        },
-        "travel_distance_m": 1200,
-        "consumable_cost": [
-          {
-            "item_id": "pal-sphere",
-            "qty": 3
-          },
-          {
-            "item_id": "gold",
-            "qty": 150
-          }
-        ]
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
       },
       "next_routes": [
         {
@@ -1525,17 +1540,9 @@
         "key_unlocks": []
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 15.0,
-          "coop": 22.0
-        },
-        "travel_distance_m": 900,
-        "consumable_cost": [
-          {
-            "item_id": "stone-pickaxe",
-            "qty": 1
-          }
-        ]
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
       },
       "next_routes": [
         {
@@ -1925,17 +1932,9 @@
         ]
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 16.0,
-          "coop": 22.0
-        },
-        "travel_distance_m": 1500,
-        "consumable_cost": [
-          {
-            "item_id": "pal-sphere",
-            "qty": 6
-          }
-        ]
+        "progress_segments": 4,
+        "boss_targets": 0,
+        "quest_nodes": 0
       },
       "next_routes": []
     },
@@ -2414,25 +2413,9 @@
         "key_unlocks": []
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 18.0,
-          "coop": 24.0
-        },
-        "travel_distance_m": 900,
-        "consumable_cost": [
-          {
-            "item_id": "pal-sphere",
-            "qty": 3
-          },
-          {
-            "item_id": "flame-organ",
-            "qty": 5
-          },
-          {
-            "item_id": "paldium-fragment",
-            "qty": 5
-          }
-        ]
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
       },
       "next_routes": [
         {
@@ -2940,37 +2923,9 @@
         ]
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 16.0,
-          "coop": 21.0
-        },
-        "travel_distance_m": 1800,
-        "consumable_cost": [
-          {
-            "item_id": "pal-sphere",
-            "qty": 6
-          },
-          {
-            "item_id": "leather",
-            "qty": 5
-          },
-          {
-            "item_id": "fiber",
-            "qty": 20
-          },
-          {
-            "item_id": "ingot",
-            "qty": 10
-          },
-          {
-            "item_id": "horn",
-            "qty": 3
-          },
-          {
-            "item_id": "paldium-fragment",
-            "qty": 15
-          }
-        ]
+        "progress_segments": 4,
+        "boss_targets": 0,
+        "quest_nodes": 0
       },
       "next_routes": [
         {
@@ -3460,33 +3415,9 @@
         ]
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 17.0,
-          "coop": 22.0
-        },
-        "travel_distance_m": 1600,
-        "consumable_cost": [
-          {
-            "item_id": "pal-sphere",
-            "qty": 6
-          },
-          {
-            "item_id": "leather",
-            "qty": 10
-          },
-          {
-            "item_id": "wood",
-            "qty": 20
-          },
-          {
-            "item_id": "fiber",
-            "qty": 15
-          },
-          {
-            "item_id": "paldium-fragment",
-            "qty": 10
-          }
-        ]
+        "progress_segments": 4,
+        "boss_targets": 0,
+        "quest_nodes": 0
       },
       "next_routes": [
         {
@@ -3984,37 +3915,9 @@
         ]
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 15.5,
-          "coop": 20.5
-        },
-        "travel_distance_m": 2400,
-        "consumable_cost": [
-          {
-            "item_id": "pal-sphere",
-            "qty": 6
-          },
-          {
-            "item_id": "leather",
-            "qty": 20
-          },
-          {
-            "item_id": "cloth",
-            "qty": 10
-          },
-          {
-            "item_id": "ingot",
-            "qty": 15
-          },
-          {
-            "item_id": "fiber",
-            "qty": 20
-          },
-          {
-            "item_id": "paldium-fragment",
-            "qty": 20
-          }
-        ]
+        "progress_segments": 4,
+        "boss_targets": 0,
+        "quest_nodes": 0
       },
       "next_routes": [
         {
@@ -4462,29 +4365,9 @@
         ]
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 17.5,
-          "coop": 22.5
-        },
-        "travel_distance_m": 600,
-        "consumable_cost": [
-          {
-            "item_id": "ancient-civilization-part",
-            "qty": 1
-          },
-          {
-            "item_id": "paldium-fragment",
-            "qty": 10
-          },
-          {
-            "item_id": "fiber",
-            "qty": 30
-          },
-          {
-            "item_id": "ingot",
-            "qty": 10
-          }
-        ]
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
       },
       "next_routes": [
         {
@@ -4795,6 +4678,43 @@
           "citations": [
             "pcgamesn-bosses"
           ]
+        },
+        {
+          "step_id": "tower-rayne-syndicate:004",
+          "type": "quest",
+          "summary": "Log the Rayne Syndicate defeat with the guild investigators",
+          "detail": "After the tower clears, interact with any Investigator board to record Zoe & Grizzbolt's defeat. This advances the main story requests and unlocks fresh bounties.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                116,
+                -398
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 250,
+            "max": 400
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
         }
       ],
       "completion_criteria": [
@@ -4810,21 +4730,9 @@
         ]
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 110.0,
-          "coop": 160.0
-        },
-        "travel_distance_m": 1500,
-        "consumable_cost": [
-          {
-            "item_id": "healing-potion",
-            "qty": 5
-          },
-          {
-            "item_id": "shield",
-            "qty": 1
-          }
-        ]
+        "progress_segments": 3,
+        "boss_targets": 1,
+        "quest_nodes": 1
       },
       "next_routes": [
         {
@@ -4834,6 +4742,10 @@
         {
           "route_id": "capture-jetragon",
           "reason": "Gives experience and resources to attempt the legendary Pal"
+        },
+        {
+          "route_id": "tower-free-pal-alliance",
+          "reason": "Next tower in the Investigator storyline"
         }
       ]
     },
@@ -5199,25 +5111,9 @@
         ]
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 45.0,
-          "coop": 60.0
-        },
-        "travel_distance_m": 3200,
-        "consumable_cost": [
-          {
-            "item_id": "ultra-pal-sphere",
-            "qty": 6
-          },
-          {
-            "item_id": "heat-resistant-armor",
-            "qty": 1
-          },
-          {
-            "item_id": "healing-potion",
-            "qty": 8
-          }
-        ]
+        "progress_segments": 3,
+        "boss_targets": 1,
+        "quest_nodes": 0
       },
       "next_routes": []
     },
@@ -5484,17 +5380,9 @@
         ]
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 14.0,
-          "coop": 20.0
-        },
-        "travel_distance_m": 1600,
-        "consumable_cost": [
-          {
-            "item_id": "pal-sphere",
-            "qty": 12
-          }
-        ]
+        "progress_segments": 8,
+        "boss_targets": 0,
+        "quest_nodes": 2
       },
       "next_routes": [
         {
@@ -5797,21 +5685,9 @@
         ]
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 16.0,
-          "coop": 22.0
-        },
-        "travel_distance_m": 2400,
-        "consumable_cost": [
-          {
-            "item_id": "pal-sphere",
-            "qty": 18
-          },
-          {
-            "item_id": "healing-potion",
-            "qty": 6
-          }
-        ]
+        "progress_segments": 8,
+        "boss_targets": 1,
+        "quest_nodes": 2
       },
       "next_routes": [
         {
@@ -6011,23 +5887,2236 @@
         ]
       },
       "metrics": {
-        "xp_per_minute": {
-          "solo": 19.5,
-          "coop": 26.0
-        },
-        "travel_distance_m": 3600,
-        "consumable_cost": [
+        "progress_segments": 10,
+        "boss_targets": 2,
+        "quest_nodes": 3
+      },
+      "next_routes": []
+    },
+    {
+      "route_id": "tower-free-pal-alliance",
+      "title": "Free Pal Alliance Tower: Lily & Lyleen",
+      "category": "bosses",
+      "tags": [
+        "tower",
+        "boss",
+        "ancient-points",
+        "combat"
+      ],
+      "progression_role": "core",
+      "recommended_level": {
+        "min": 24,
+        "max": 30
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "tower-rayne-syndicate",
+          "mount-nitewing-saddle"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Ride north to the Free Pal Alliance Tower",
+        "Prepare a counter team",
+        "Defeat Lily & Lyleen",
+        "Report the victory to the Investigator board"
+      ],
+      "estimated_time_minutes": {
+        "solo": 18,
+        "coop": 14
+      },
+      "estimated_xp_gain": {
+        "min": 2200,
+        "max": 3200
+      },
+      "risk_profile": "high",
+      "failure_penalties": {
+        "normal": "Loss of consumables and time",
+        "hardcore": "Death results in character deletion and loss of Pals"
+      },
+      "adaptive_guidance": {
+        "underleveled": "Delay until level 24+ or bring a co-op ally who can tank Lyleen's bursts.",
+        "overleveled": "Focus on chaining burn procs to melt Lyleen before she starts healing pulses.",
+        "resource_shortages": [
           {
-            "item_id": "ultra-pal-sphere",
-            "qty": 6
+            "item_id": "tundra-outfit",
+            "solution": "Craft the Tundra Outfit before marching through the snow to prevent chip damage."
+          }
+        ],
+        "time_limited": "Skip optional brawls with Free Pal guards and rush the elevator straight to Lily if you are on a timer.",
+        "dynamic_rules": [
+          {
+            "signal": "resource_gap:tundra-outfit",
+            "condition": "resource_gaps includes tundra-outfit",
+            "adjustment": "Slot a cold-resistance gear craft before :001 so you do not freeze en route to Lily.",
+            "priority": 1,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "tower-free-pal-alliance:001",
+              "tower-free-pal-alliance:002"
+            ]
           },
           {
-            "item_id": "heat-resistant-armor",
-            "qty": 1
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Assign one player to stagger Lyleen with Fire shots while the other clears summoned adds.",
+            "priority": 2,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "tower-free-pal-alliance:003"
+            ]
           }
         ]
       },
-      "next_routes": []
+      "checkpoints": [
+        {
+          "id": "tower-free-pal-alliance:checkpoint-arrival",
+          "summary": "Tower approach secured",
+          "benefits": [
+            "Unlocks fast travel statue"
+          ],
+          "related_steps": [
+            "tower-free-pal-alliance:001"
+          ]
+        },
+        {
+          "id": "tower-free-pal-alliance:checkpoint-victory",
+          "summary": "Lily & Lyleen defeated",
+          "benefits": [
+            "Awards Ancient Technology Points",
+            "Advances Investigator quests"
+          ],
+          "related_steps": [
+            "tower-free-pal-alliance:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "mount-nitewing-saddle",
+          "tech-grappling-gun"
+        ],
+        "optional": [
+          "resource-paldium"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
+        "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
+      },
+      "steps": [
+        {
+          "step_id": "tower-free-pal-alliance:001",
+          "type": "travel",
+          "summary": "Ride north to the Free Pal Alliance Tower",
+          "detail": "Travel to the Free Pal Alliance Tower near (185, 28) through the frozen pass. Equip cold gear for the approach.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "free-pal-alliance",
+              "coords": [
+                185,
+                28
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-free-pal-alliance:002",
+          "type": "prepare",
+          "summary": "Prepare a counter team",
+          "detail": "Field Fire attackers such as Ragnahawk, Wixen, or Kitsun to punish Lyleen. Carry cold protection armor and plenty of heat sources for the snowfield run.",
+          "targets": [],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Carry extra shields and keep distance to avoid burst phases.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "large-med-kit",
+                  "qty": 2
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "support",
+                  "tasks": "Keep heals and revives ready"
+                },
+                {
+                  "role": "damage",
+                  "tasks": "Maintain boss aggro and burst windows"
+                }
+              ],
+              "loot_rules": "Share Ancient Technology Points equally"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "ragnahawk",
+              "wixen",
+              "kitsun"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 150,
+            "max": 260
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-free-pal-alliance:003",
+          "type": "fight",
+          "summary": "Defeat Lily & Lyleen",
+          "detail": "Burn down Lily & Lyleen. Stay close to avoid her ranged pollen blasts and roll through the vine wave. Fire damage quickly staggers the duo.",
+          "targets": [
+            {
+              "kind": "boss",
+              "id": "tower-free-pal-alliance",
+              "qty": 1
+            }
+          ],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Rotate shields and disengage during enraged phases to avoid permadeath wipes.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "ancient-technology-point",
+                  "qty": 1
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "breaker",
+                  "tasks": "Stagger the boss with elemental counters"
+                },
+                {
+                  "role": "finisher",
+                  "tasks": "Push damage once shields fall"
+                }
+              ],
+              "loot_rules": "Ensure everyone tags the boss before the final blow"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "ragnahawk",
+              "wixen"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 1600,
+            "max": 2800
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "ancient-technology-point",
+                "qty": 5
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-free-pal-alliance:004",
+          "type": "quest",
+          "summary": "Report the victory",
+          "detail": "Check in with an Investigator board to log the Free Pal Alliance victory and unlock the next stretch of story requests.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                116,
+                -398
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 280,
+            "max": 420
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "boss-cleared",
+          "boss_id": "tower-free-pal-alliance"
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+3 to +4",
+        "key_unlocks": [
+          "ancient-technology-points"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 1,
+        "quest_nodes": 1
+      },
+      "next_routes": [
+        {
+          "route_id": "tower-pidf-axel-orserk",
+          "reason": "Push the Investigator story into the desert front"
+        }
+      ]
+    },
+    {
+      "route_id": "tower-pidf-axel-orserk",
+      "title": "PIDF Tower: Axel & Orserk",
+      "category": "bosses",
+      "tags": [
+        "tower",
+        "boss",
+        "ancient-points",
+        "combat"
+      ],
+      "progression_role": "core",
+      "recommended_level": {
+        "min": 34,
+        "max": 42
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "tower-free-pal-alliance",
+          "tech-grappling-gun"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Enter the PIDF desert headquarters",
+        "Prepare a counter team",
+        "Defeat Axel & Orserk",
+        "Report the victory to the Investigator board"
+      ],
+      "estimated_time_minutes": {
+        "solo": 17,
+        "coop": 13
+      },
+      "estimated_xp_gain": {
+        "min": 2600,
+        "max": 3400
+      },
+      "risk_profile": "high",
+      "failure_penalties": {
+        "normal": "Loss of consumables and time",
+        "hardcore": "Death results in character deletion and loss of Pals"
+      },
+      "adaptive_guidance": {
+        "underleveled": "Run additional base defense missions or craft higher-tier rifles before challenging Axel.",
+        "overleveled": "Lean on burst Dragon damage to end Orserk quickly and skip the longer beam patterns.",
+        "resource_shortages": [
+          {
+            "item_id": "heat-resistant-undershirt",
+            "solution": "Craft heat gear at base to avoid attrition in the PIDF desert approach."
+          }
+        ],
+        "time_limited": "Sprint past patrols and head straight to the lift; the tower queue is short once inside.",
+        "dynamic_rules": [
+          {
+            "signal": "resource_gap:heat-resistant-undershirt",
+            "condition": "resource_gaps includes heat-resistant-undershirt",
+            "adjustment": "Queue a quick heat gear craft before :001 so the desert march does not chip away your HP.",
+            "priority": 1,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "tower-pidf-axel-orserk:001",
+              "tower-pidf-axel-orserk:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "tower-pidf-axel-orserk:checkpoint-arrival",
+          "summary": "PIDF gate breached",
+          "benefits": [
+            "Unlocks PIDF fast travel"
+          ],
+          "related_steps": [
+            "tower-pidf-axel-orserk:001"
+          ]
+        },
+        {
+          "id": "tower-pidf-axel-orserk:checkpoint-victory",
+          "summary": "Axel & Orserk defeated",
+          "benefits": [
+            "Grants Ancient Technology Points",
+            "Opens desert mission board upgrades"
+          ],
+          "related_steps": [
+            "tower-pidf-axel-orserk:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "tech-grappling-gun",
+          "mount-direhowl-harness"
+        ],
+        "optional": [
+          "resource-paldium"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
+        "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
+      },
+      "steps": [
+        {
+          "step_id": "tower-pidf-axel-orserk:001",
+          "type": "travel",
+          "summary": "Enter the PIDF desert headquarters",
+          "detail": "Glide into the PIDF headquarters courtyard at (350, -200). Bring heat protection; the desert sun and lasers hit hard.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "pidf-hq",
+              "coords": [
+                350,
+                -200
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-pidf-axel-orserk:002",
+          "type": "prepare",
+          "summary": "Prepare a counter team",
+          "detail": "Prioritise high-mobility Electric or Dragon pals like Astegon, Rayhound, or Beakon to interrupt Orserk. Pack both heat and cold resistance for Axel's elemental swaps.",
+          "targets": [],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Carry extra shields and keep distance to avoid burst phases.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "large-med-kit",
+                  "qty": 2
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "support",
+                  "tasks": "Keep heals and revives ready"
+                },
+                {
+                  "role": "damage",
+                  "tasks": "Maintain boss aggro and burst windows"
+                }
+              ],
+              "loot_rules": "Share Ancient Technology Points equally"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "astegon",
+              "rayhound",
+              "beakon"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 150,
+            "max": 260
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-pidf-axel-orserk:003",
+          "type": "fight",
+          "summary": "Defeat Axel & Orserk",
+          "detail": "Axel deploys Orserk's lightning charges. Time dodges between beam sweeps and punish after slam combos. Keep stamina for sudden teleports.",
+          "targets": [
+            {
+              "kind": "boss",
+              "id": "tower-pidf-axel-orserk",
+              "qty": 1
+            }
+          ],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Rotate shields and disengage during enraged phases to avoid permadeath wipes.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "ancient-technology-point",
+                  "qty": 1
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "breaker",
+                  "tasks": "Stagger the boss with elemental counters"
+                },
+                {
+                  "role": "finisher",
+                  "tasks": "Push damage once shields fall"
+                }
+              ],
+              "loot_rules": "Ensure everyone tags the boss before the final blow"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "astegon",
+              "rayhound"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 2000,
+            "max": 3000
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "ancient-technology-point",
+                "qty": 5
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-pidf-axel-orserk:004",
+          "type": "quest",
+          "summary": "Report the victory",
+          "detail": "File the PIDF takedown at an Investigator board to unlock the next chain of priority alerts.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                116,
+                -398
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 280,
+            "max": 420
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "boss-cleared",
+          "boss_id": "tower-pidf-axel-orserk"
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+3 to +4",
+        "key_unlocks": [
+          "ancient-technology-points"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 1,
+        "quest_nodes": 1
+      },
+      "next_routes": [
+        {
+          "route_id": "tower-brothers-eternal-pyre",
+          "reason": "Carry momentum into the Mount Obsidian assault"
+        }
+      ]
+    },
+    {
+      "route_id": "tower-brothers-eternal-pyre",
+      "title": "Brothers of the Eternal Pyre Tower: Marcus & Faleris",
+      "category": "bosses",
+      "tags": [
+        "tower",
+        "boss",
+        "ancient-points",
+        "combat"
+      ],
+      "progression_role": "core",
+      "recommended_level": {
+        "min": 40,
+        "max": 48
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "tower-pidf-axel-orserk"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Scale Mount Obsidian to the Eternal Pyre",
+        "Prepare a counter team",
+        "Defeat Marcus & Faleris",
+        "Report the victory to the Investigator board"
+      ],
+      "estimated_time_minutes": {
+        "solo": 19,
+        "coop": 14
+      },
+      "estimated_xp_gain": {
+        "min": 3000,
+        "max": 3800
+      },
+      "risk_profile": "high",
+      "failure_penalties": {
+        "normal": "Loss of consumables and time",
+        "hardcore": "Death results in character deletion and loss of Pals"
+      },
+      "adaptive_guidance": {
+        "underleveled": "Farm volcanic alpha pals or clear high-tier raids to hit level 40 before challenging Marcus.",
+        "overleveled": "Use Water turrets or dual Surfents to stagger Faleris and shorten the encounter.",
+        "resource_shortages": [
+          {
+            "item_id": "cooler-box",
+            "solution": "Build a Cooler Box and craft heat-resistant meals before entering the lava zone."
+          }
+        ],
+        "time_limited": "Teleport directly to the Mount Obsidian statue and race up the cliff, ignoring side fights.",
+        "dynamic_rules": [
+          {
+            "signal": "resource_gap:cooler-box",
+            "condition": "resource_gaps includes cooler-box",
+            "adjustment": "Add a quick cooler-box craft to keep heat buffs ready for :001.",
+            "priority": 2,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "tower-brothers-eternal-pyre:001",
+              "tower-brothers-eternal-pyre:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "tower-brothers-eternal-pyre:checkpoint-arrival",
+          "summary": "Volcano ascent complete",
+          "benefits": [
+            "Unlocks Mount Obsidian fast travel"
+          ],
+          "related_steps": [
+            "tower-brothers-eternal-pyre:001"
+          ]
+        },
+        {
+          "id": "tower-brothers-eternal-pyre:checkpoint-victory",
+          "summary": "Marcus & Faleris defeated",
+          "benefits": [
+            "Awards Ancient Technology Points",
+            "Unlocks late-game heat gear"
+          ],
+          "related_steps": [
+            "tower-brothers-eternal-pyre:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "capture-jetragon",
+          "tech-grappling-gun"
+        ],
+        "optional": [
+          "mount-direhowl-harness"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
+        "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
+      },
+      "steps": [
+        {
+          "step_id": "tower-brothers-eternal-pyre:001",
+          "type": "travel",
+          "summary": "Scale Mount Obsidian to the Eternal Pyre",
+          "detail": "Climb the lava plateau on Mount Obsidian to reach the Brothers of the Eternal Pyre tower at (-560, -518).",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "mount-obsidian",
+              "coords": [
+                -560,
+                -518
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-brothers-eternal-pyre:002",
+          "type": "prepare",
+          "summary": "Prepare a counter team",
+          "detail": "Assemble Water and Ice pals like Surfent, Suzaku Aqua, or Jolthog Cryst to douse Faleris. Pack cooling drinks and heatproof armor.",
+          "targets": [],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Carry extra shields and keep distance to avoid burst phases.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "large-med-kit",
+                  "qty": 2
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "support",
+                  "tasks": "Keep heals and revives ready"
+                },
+                {
+                  "role": "damage",
+                  "tasks": "Maintain boss aggro and burst windows"
+                }
+              ],
+              "loot_rules": "Share Ancient Technology Points equally"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "surfent",
+              "suzaku-aqua",
+              "jolthog-cryst"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 150,
+            "max": 260
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-brothers-eternal-pyre:003",
+          "type": "fight",
+          "summary": "Defeat Marcus & Faleris",
+          "detail": "Marcus fights alongside Faleris' firestorms. Quench flame orbs, avoid lava pools, and punish when Faleris dives.",
+          "targets": [
+            {
+              "kind": "boss",
+              "id": "tower-brothers-eternal-pyre",
+              "qty": 1
+            }
+          ],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Rotate shields and disengage during enraged phases to avoid permadeath wipes.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "ancient-technology-point",
+                  "qty": 1
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "breaker",
+                  "tasks": "Stagger the boss with elemental counters"
+                },
+                {
+                  "role": "finisher",
+                  "tasks": "Push damage once shields fall"
+                }
+              ],
+              "loot_rules": "Ensure everyone tags the boss before the final blow"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "surfent",
+              "suzaku-aqua"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 2400,
+            "max": 3400
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "ancient-technology-point",
+                "qty": 5
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-brothers-eternal-pyre:004",
+          "type": "quest",
+          "summary": "Report the victory",
+          "detail": "Log the Eternal Pyre clear with the Investigator board to unlock the high-heat emergency quests.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                116,
+                -398
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 280,
+            "max": 420
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "boss-cleared",
+          "boss_id": "tower-brothers-eternal-pyre"
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+3 to +4",
+        "key_unlocks": [
+          "ancient-technology-points"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 1,
+        "quest_nodes": 1
+      },
+      "next_routes": [
+        {
+          "route_id": "tower-pal-genetics",
+          "reason": "Advance to the PAL Genetic Research Unit finale"
+        }
+      ]
+    },
+    {
+      "route_id": "tower-pal-genetics",
+      "title": "PAL Genetic Research Unit: Victor & Shadowbeak",
+      "category": "bosses",
+      "tags": [
+        "tower",
+        "boss",
+        "ancient-points",
+        "combat"
+      ],
+      "progression_role": "core",
+      "recommended_level": {
+        "min": 46,
+        "max": 54
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "tower-brothers-eternal-pyre",
+          "capture-jetragon"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Storm the PAL Genetic Research Unit",
+        "Prepare a counter team",
+        "Defeat Victor & Shadowbeak",
+        "Report the victory to the Investigator board"
+      ],
+      "estimated_time_minutes": {
+        "solo": 20,
+        "coop": 15
+      },
+      "estimated_xp_gain": {
+        "min": 3600,
+        "max": 4400
+      },
+      "risk_profile": "high",
+      "failure_penalties": {
+        "normal": "Loss of consumables and time",
+        "hardcore": "Death results in character deletion and loss of Pals"
+      },
+      "adaptive_guidance": {
+        "underleveled": "Complete legendary capture routes or high-tier raids to gear up before fighting Victor.",
+        "overleveled": "Chain Dragon burst windows to phase Shadowbeak quickly and skip the late enrage.",
+        "resource_shortages": [
+          {
+            "item_id": "ancient-technology-point",
+            "solution": "Farm earlier towers or raids to stock Ancient Technology Points for emergency revives."
+          }
+        ],
+        "time_limited": "Rush the lab lobby and ignore optional console rooms; the arena is near the entrance elevator.",
+        "dynamic_rules": [
+          {
+            "signal": "goal:legendary-captures",
+            "condition": "goals includes legendary-captures",
+            "adjustment": "Surface capture-jetragon immediately after Victor falls to capitalise on the unlocked skies.",
+            "priority": 2,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "tower-pal-genetics:003"
+            ],
+            "follow_up_routes": [
+              "capture-jetragon"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "tower-pal-genetics:checkpoint-arrival",
+          "summary": "Research unit breached",
+          "benefits": [
+            "Unlocks PAL Genetic fast travel"
+          ],
+          "related_steps": [
+            "tower-pal-genetics:001"
+          ]
+        },
+        {
+          "id": "tower-pal-genetics:checkpoint-victory",
+          "summary": "Victor & Shadowbeak defeated",
+          "benefits": [
+            "Awards Ancient Technology Points",
+            "Opens late-game raid rotation"
+          ],
+          "related_steps": [
+            "tower-pal-genetics:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "capture-jetragon",
+          "purposeful-arc-legendary-push"
+        ],
+        "optional": [
+          "tech-grappling-gun"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
+        "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
+      },
+      "steps": [
+        {
+          "step_id": "tower-pal-genetics:001",
+          "type": "travel",
+          "summary": "Storm the PAL Genetic Research Unit",
+          "detail": "Fly to the snowbound PAL Genetic Research Unit around (558, 340). Expect elite automatons on the approach.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "pal-genetic-research-unit",
+              "coords": [
+                558,
+                340
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-pal-genetics:002",
+          "type": "prepare",
+          "summary": "Prepare a counter team",
+          "detail": "Bring legendary Dragons such as Jetragon, Frostallion, or Shadowbeak Noct to counter Victor. Carry plenty of shields for the beam spam.",
+          "targets": [],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Carry extra shields and keep distance to avoid burst phases.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "large-med-kit",
+                  "qty": 2
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "support",
+                  "tasks": "Keep heals and revives ready"
+                },
+                {
+                  "role": "damage",
+                  "tasks": "Maintain boss aggro and burst windows"
+                }
+              ],
+              "loot_rules": "Share Ancient Technology Points equally"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "jetragon",
+              "frostallion",
+              "shadowbeak"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 150,
+            "max": 260
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-pal-genetics:003",
+          "type": "fight",
+          "summary": "Defeat Victor & Shadowbeak",
+          "detail": "Victor summons Shadowbeak's void beams. Circle the arena, burst during cooldown windows, and avoid stacked lasers.",
+          "targets": [
+            {
+              "kind": "boss",
+              "id": "tower-pal-genetics",
+              "qty": 1
+            }
+          ],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Rotate shields and disengage during enraged phases to avoid permadeath wipes.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "ancient-technology-point",
+                  "qty": 1
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "breaker",
+                  "tasks": "Stagger the boss with elemental counters"
+                },
+                {
+                  "role": "finisher",
+                  "tasks": "Push damage once shields fall"
+                }
+              ],
+              "loot_rules": "Ensure everyone tags the boss before the final blow"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "jetragon",
+              "frostallion"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 3000,
+            "max": 4000
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "ancient-technology-point",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-pal-genetics:004",
+          "type": "quest",
+          "summary": "Report the victory",
+          "detail": "Submit the PAL Genetic Research Unit defeat to the Investigator board to unlock endgame raids and Sakurajima intel.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                116,
+                -398
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 280,
+            "max": 420
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "boss-cleared",
+          "boss_id": "tower-pal-genetics"
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+3 to +4",
+        "key_unlocks": [
+          "ancient-technology-points"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 1,
+        "quest_nodes": 1
+      },
+      "next_routes": [
+        {
+          "route_id": "tower-sakurajima",
+          "reason": "Travel to Sakurajima for the Moonflower offensive"
+        },
+        {
+          "route_id": "purposeful-arc-legendary-push",
+          "reason": "Leverage new tech and raids unlocked by Victor's defeat"
+        }
+      ]
+    },
+    {
+      "route_id": "tower-sakurajima",
+      "title": "Moonflower Tower: Saya & Selyne",
+      "category": "bosses",
+      "tags": [
+        "tower",
+        "boss",
+        "ancient-points",
+        "combat"
+      ],
+      "progression_role": "core",
+      "recommended_level": {
+        "min": 50,
+        "max": 58
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "tower-pal-genetics"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Sail to Sakurajima and reach Moonflower Tower",
+        "Prepare a counter team",
+        "Defeat Saya & Selyne",
+        "Report the victory to the Investigator board"
+      ],
+      "estimated_time_minutes": {
+        "solo": 21,
+        "coop": 16
+      },
+      "estimated_xp_gain": {
+        "min": 3800,
+        "max": 4700
+      },
+      "risk_profile": "high",
+      "failure_penalties": {
+        "normal": "Loss of consumables and time",
+        "hardcore": "Death results in character deletion and loss of Pals"
+      },
+      "adaptive_guidance": {
+        "underleveled": "Complete Sakurajima world quests and raid bosses to push into the low 50s before challenging Saya.",
+        "overleveled": "Leverage dual Fire legendary pals to collapse Selyne's shield phases rapidly.",
+        "resource_shortages": [
+          {
+            "item_id": "antidote",
+            "solution": "Craft Antidotes and anti-toxin meals to survive Selyne's poison mist."
+          }
+        ],
+        "time_limited": "Teleport to the island statue and head straight to the blossom platform without clearing optional camps.",
+        "dynamic_rules": [
+          {
+            "signal": "resource_gap:antidote",
+            "condition": "resource_gaps includes antidote",
+            "adjustment": "Queue a quick antidote craft before :002 so you can cleanse Selyne's poison mist.",
+            "priority": 1,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "tower-sakurajima:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "tower-sakurajima:checkpoint-arrival",
+          "summary": "Moonflower Tower reached",
+          "benefits": [
+            "Unlocks Sakurajima fast travel"
+          ],
+          "related_steps": [
+            "tower-sakurajima:001"
+          ]
+        },
+        {
+          "id": "tower-sakurajima:checkpoint-victory",
+          "summary": "Saya & Selyne defeated",
+          "benefits": [
+            "Awards Ancient Technology Points",
+            "Unlocks Feybreak chain"
+          ],
+          "related_steps": [
+            "tower-sakurajima:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "capture-jetragon",
+          "purposeful-arc-legendary-push"
+        ],
+        "optional": [
+          "mount-nitewing-saddle"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
+        "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
+      },
+      "steps": [
+        {
+          "step_id": "tower-sakurajima:001",
+          "type": "travel",
+          "summary": "Sail to Sakurajima and reach Moonflower Tower",
+          "detail": "Glide onto the blossom platform at (640, 120) on Sakurajima Island to enter Moonflower Tower.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "sakurajima-island",
+              "coords": [
+                640,
+                120
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-sakurajima:002",
+          "type": "prepare",
+          "summary": "Prepare a counter team",
+          "detail": "Mix Fire and Dark pals such as Faleris, Blazamut Ryu, or Helzephyr to counter Selyne's Ice and Toxic phases. Carry antidotes for poison fog.",
+          "targets": [],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Carry extra shields and keep distance to avoid burst phases.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "large-med-kit",
+                  "qty": 2
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "support",
+                  "tasks": "Keep heals and revives ready"
+                },
+                {
+                  "role": "damage",
+                  "tasks": "Maintain boss aggro and burst windows"
+                }
+              ],
+              "loot_rules": "Share Ancient Technology Points equally"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "faleris",
+              "blazamut-ryu",
+              "helzephyr"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 150,
+            "max": 260
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-sakurajima:003",
+          "type": "fight",
+          "summary": "Defeat Saya & Selyne",
+          "detail": "Saya & Selyne rotate toxic storms and Ice barrages. Cleanse poison quickly, dodge crescent slashes, and retaliate with Fire bursts.",
+          "targets": [
+            {
+              "kind": "boss",
+              "id": "tower-sakurajima",
+              "qty": 1
+            }
+          ],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Rotate shields and disengage during enraged phases to avoid permadeath wipes.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "ancient-technology-point",
+                  "qty": 1
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "breaker",
+                  "tasks": "Stagger the boss with elemental counters"
+                },
+                {
+                  "role": "finisher",
+                  "tasks": "Push damage once shields fall"
+                }
+              ],
+              "loot_rules": "Ensure everyone tags the boss before the final blow"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "faleris",
+              "blazamut-ryu"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 3200,
+            "max": 4300
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "ancient-technology-point",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-sakurajima:004",
+          "type": "quest",
+          "summary": "Report the victory",
+          "detail": "Report the Moonflower victory to queue Feybreak missions on the Investigator board.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                116,
+                -398
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 280,
+            "max": 420
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "boss-cleared",
+          "boss_id": "tower-sakurajima"
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+3 to +4",
+        "key_unlocks": [
+          "ancient-technology-points"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 1,
+        "quest_nodes": 1
+      },
+      "next_routes": [
+        {
+          "route_id": "tower-feybreak",
+          "reason": "Advance to the Feybreak finale"
+        }
+      ]
+    },
+    {
+      "route_id": "tower-feybreak",
+      "title": "Feybreak Tower: Bjorn & Bastigor",
+      "category": "bosses",
+      "tags": [
+        "tower",
+        "boss",
+        "ancient-points",
+        "combat"
+      ],
+      "progression_role": "core",
+      "recommended_level": {
+        "min": 54,
+        "max": 60
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "tower-sakurajima"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Fly to the Feybreak Tower summit",
+        "Prepare a counter team",
+        "Defeat Bjorn & Bastigor",
+        "Report the victory to the Investigator board"
+      ],
+      "estimated_time_minutes": {
+        "solo": 22,
+        "coop": 17
+      },
+      "estimated_xp_gain": {
+        "min": 4200,
+        "max": 5200
+      },
+      "risk_profile": "high",
+      "failure_penalties": {
+        "normal": "Loss of consumables and time",
+        "hardcore": "Death results in character deletion and loss of Pals"
+      },
+      "adaptive_guidance": {
+        "underleveled": "Complete Sakurajima dungeons and late-game raids to polish gear before fighting Bjorn.",
+        "overleveled": "Use legendary Fire pal synergy to burst Bastigor before the heavy enrage.",
+        "resource_shortages": [
+          {
+            "item_id": "hot-curry",
+            "solution": "Cook heat buffs before the flight so the cold winds do not drain stamina."
+          }
+        ],
+        "time_limited": "Teleport to Feybreak Outpost and ride a flyer straight to the summit, ignoring chilling patrols.",
+        "dynamic_rules": [
+          {
+            "signal": "resource_gap:hot-curry",
+            "condition": "resource_gaps includes hot-curry",
+            "adjustment": "Queue warming meals before :001 to resist Feybreak chill.",
+            "priority": 1,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "tower-feybreak:001"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "tower-feybreak:checkpoint-arrival",
+          "summary": "Feybreak summit secured",
+          "benefits": [
+            "Unlocks Feybreak fast travel"
+          ],
+          "related_steps": [
+            "tower-feybreak:001"
+          ]
+        },
+        {
+          "id": "tower-feybreak:checkpoint-victory",
+          "summary": "Bjorn & Bastigor defeated",
+          "benefits": [
+            "Awards Ancient Technology Points",
+            "Completes Investigator storyline"
+          ],
+          "related_steps": [
+            "tower-feybreak:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "purposeful-arc-legendary-push",
+          "capture-jetragon"
+        ],
+        "optional": [
+          "tech-grappling-gun"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
+        "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
+      },
+      "steps": [
+        {
+          "step_id": "tower-feybreak:001",
+          "type": "travel",
+          "summary": "Fly to the Feybreak Tower summit",
+          "detail": "Soar to the peak of Feybreak Island at (512, -662). Strong winds and ice bombardments guard the tower entrance.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "feybreak-island",
+              "coords": [
+                512,
+                -662
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-feybreak:002",
+          "type": "prepare",
+          "summary": "Prepare a counter team",
+          "detail": "Deploy elite Fire and Dragon pals such as Blazamut, Jetragon, or Ignis Ravager to crack Bastigor's armor. Stockpile warming meals.",
+          "targets": [],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Carry extra shields and keep distance to avoid burst phases.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "large-med-kit",
+                  "qty": 2
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "support",
+                  "tasks": "Keep heals and revives ready"
+                },
+                {
+                  "role": "damage",
+                  "tasks": "Maintain boss aggro and burst windows"
+                }
+              ],
+              "loot_rules": "Share Ancient Technology Points equally"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "blazamut",
+              "jetragon",
+              "ignis-ravager"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 150,
+            "max": 260
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-feybreak:003",
+          "type": "fight",
+          "summary": "Defeat Bjorn & Bastigor",
+          "detail": "Bjorn commands Bastigor's crushing strikes. Watch for icy ground spikes, maintain fire damage uptime, and save stamina for aerial dives.",
+          "targets": [
+            {
+              "kind": "boss",
+              "id": "tower-feybreak",
+              "qty": 1
+            }
+          ],
+          "locations": [],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Rotate shields and disengage during enraged phases to avoid permadeath wipes.",
+              "safety_buffer_items": [
+                {
+                  "item_id": "ancient-technology-point",
+                  "qty": 1
+                }
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "breaker",
+                  "tasks": "Stagger the boss with elemental counters"
+                },
+                {
+                  "role": "finisher",
+                  "tasks": "Push damage once shields fall"
+                }
+              ],
+              "loot_rules": "Ensure everyone tags the boss before the final blow"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "blazamut",
+              "jetragon"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 3600,
+            "max": 4800
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "ancient-technology-point",
+                "qty": 8
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "tower-feybreak:004",
+          "type": "quest",
+          "summary": "Report the victory",
+          "detail": "Turn the Feybreak victory into the Investigator board to complete the adaptive story arc and unlock the final question set.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                116,
+                -398
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 280,
+            "max": 420
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "boss-cleared",
+          "boss_id": "tower-feybreak"
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+3 to +4",
+        "key_unlocks": [
+          "ancient-technology-points"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 1,
+        "quest_nodes": 1
+      },
+      "next_routes": [
+        {
+          "route_id": "quest-main-story",
+          "reason": "Wrap the Investigator campaign and review completed questions"
+        }
+      ]
+    },
+    {
+      "route_id": "quest-main-story",
+      "title": "Investigator Main Story Wrap-Up",
+      "category": "progression",
+      "tags": [
+        "story",
+        "quest",
+        "boss"
+      ],
+      "progression_role": "core",
+      "recommended_level": {
+        "min": 1,
+        "max": 60
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "tower-feybreak"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Check off every Investigator board request",
+        "Track tower victories and update the adaptive question set",
+        "Celebrate finishing the campaign with bonus quests"
+      ],
+      "estimated_time_minutes": {
+        "solo": 60,
+        "coop": 45
+      },
+      "estimated_xp_gain": {
+        "min": 2000,
+        "max": 3500
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Missing a board hand-in only costs time; re-open the log to resubmit.",
+        "hardcore": "Hardcore players should turn in quests before logging off to avoid progress loss."
+      },
+      "adaptive_guidance": {
+        "underleveled": "If the final requests feel rough, re-run earlier towers or legendary captures for XP boosts.",
+        "overleveled": "Speed through the board and mop up any missed optional questions to unlock cosmetics.",
+        "resource_shortages": [
+          {
+            "item_id": "ancient-technology-point",
+            "solution": "Re-clear earlier towers or raid bosses to refill Ancient Technology Points before answering the final prompts."
+          }
+        ],
+        "time_limited": "Focus on the mandatory board turn-ins first; optional question prompts can wait for a longer session.",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Split the board checklist between players so everyone hands in different regions simultaneously.",
+            "priority": 2,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "quest-main-story:002",
+              "quest-main-story:003"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "quest-main-story:checkpoint-first",
+          "summary": "Investigator board synced",
+          "benefits": [
+            "Displays completed question sets"
+          ],
+          "related_steps": [
+            "quest-main-story:001"
+          ]
+        },
+        {
+          "id": "quest-main-story:checkpoint-final",
+          "summary": "Campaign epilogue viewed",
+          "benefits": [
+            "Unlocks repeatable expert questions"
+          ],
+          "related_steps": [
+            "quest-main-story:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "purposeful-arc-legendary-push",
+          "tower-feybreak"
+        ],
+        "optional": [
+          "capture-jetragon"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "Reopen the Investigator board to re-accept any missed requests; progress is saved per question.",
+        "hardcore": "Log board completions immediately to avoid losing them to Hardcore wipes."
+      },
+      "steps": [
+        {
+          "step_id": "quest-main-story:001",
+          "type": "quest",
+          "summary": "Sync with the Investigator board",
+          "detail": "Open an Investigator board and review completed tower records. Accept any lingering story requests tied to previous bosses.",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                116,
+                -398
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 300,
+            "max": 420
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        },
+        {
+          "step_id": "quest-main-story:002",
+          "type": "quest",
+          "summary": "Hand in tower clear evidence",
+          "detail": "Submit proof of each tower victory (Rayne, Free Pal, PIDF, Eternal Pyre, PAL Genetic, Moonflower, Feybreak) to finish the Investigator campaign log.",
+          "targets": [],
+          "locations": [],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 600,
+            "max": 900
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "quest-main-story:003",
+          "type": "quest",
+          "summary": "Complete the adaptive question set",
+          "detail": "Answer every remaining Investigator question to unlock the adaptive guide epilogue and celebratory cosmetics.",
+          "targets": [],
+          "locations": [],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 700,
+            "max": 1100
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": []
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "quest-chain",
+          "quest_id": "investigator-mainline"
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+2 to +3",
+        "key_unlocks": [
+          "investigator-epilogue"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 6,
+        "boss_targets": 0,
+        "quest_nodes": 8
+      },
+      "next_routes": [
+        {
+          "route_id": "purposeful-arc-legendary-push",
+          "reason": "Replay legendary hunts with full adaptive context"
+        }
+      ]
     }
   ],
   "routeSchema": {
@@ -6143,7 +8232,7 @@
     "steps": [
       {
         "step_id": "route-id:001",
-        "type": "travel|gather|farm|capture|fight|craft|build|unlock-tech|breed|deliver|talk|explore|prepare",
+        "type": "travel|gather|farm|capture|fight|craft|build|unlock-tech|breed|deliver|talk|explore|prepare|quest",
         "summary": "short sentence",
         "detail": "clear, actionable instruction",
         "targets": [
@@ -6252,6 +8341,10 @@
       {
         "type": "boss-cleared",
         "boss_id": "..."
+      },
+      {
+        "type": "quest-chain",
+        "quest_id": "..."
       }
     ],
     "yields": {
@@ -6262,17 +8355,9 @@
       ]
     },
     "metrics": {
-      "xp_per_minute": {
-        "solo": "float",
-        "coop": "float"
-      },
-      "travel_distance_m": "int",
-      "consumable_cost": [
-        {
-          "item_id": "...",
-          "qty": "int"
-        }
-      ]
+      "progress_segments": "int",
+      "boss_targets": "int",
+      "quest_nodes": "int"
     },
     "next_routes": [
       {
@@ -6319,15 +8404,19 @@
       "explore": {
         "min": 30,
         "max": 70
+      },
+      "quest": {
+        "min": 150,
+        "max": 400
       }
     },
     "metric_usage": {
-      "xp_per_minute_weight": 0.25,
-      "travel_distance_weight": -0.1,
-      "consumable_cost_weight": -0.05,
-      "description": "Route-level metrics adjust projections: higher XP/min slightly boosts expected level gain, while long travel or expensive consumables reduce the effective XP value."
+      "progress_segment_value": 40,
+      "boss_clear_value": 520,
+      "quest_node_value": 320,
+      "description": "Route-level metrics reflect adaptive momentum: progress segments reward checklist depth, boss clears add large boosts, and quest nodes track story completions."
     },
-    "estimation_method": "\n1. For each completed step, take the median of its XP estimate range (or the per\u2011step range if no estimate is provided).  Sum these medians to compute the base XP.\n2. Apply route-level adjustments using metrics: multiply xp_per_minute by the average of the route\u2019s solo/coop time (in minutes) and the weight to reward efficient grinds, subtract travel_distance_m \u00d7 travel_distance_weight \u00f7 1000, and subtract consumable_cost totals \u00d7 consumable_cost_weight.\n3. Add bonuses: +500 XP for each boss clear and +10\u00a0% for completing a route without deaths in Hardcore mode.  In Co\u2011Op, divide XP evenly among players.\n4. Convert the cumulative XP to a player level by finding the highest level where cumulative_xp \u2264 total XP in the xp_thresholds array.\n5. Compute a confidence score between 0 and 1 equal to the fraction of steps with explicit XP estimates plus 0.1 if route metrics were provided.  Cap the score at 1.0.\n",
+    "estimation_method": "\n1. For each completed step, take the median of its XP estimate range (or the per-step range if no estimate is provided).  Sum these medians to compute the base XP.\n2. Add adaptive bonuses: progress_segments \u00d7 progress_segment_value, boss_targets \u00d7 boss_clear_value, and quest_nodes \u00d7 quest_node_value.\n3. Add +500 XP for each boss clear marked directly on a step and +10% for finishing the route deathless in Hardcore.  In Co-Op, divide XP evenly among players.\n4. Convert cumulative XP to a player level by finding the highest level where cumulative_xp \u2264 total XP in the xp_thresholds array.\n5. Compute confidence as the fraction of steps with explicit XP estimates plus 0.1 if route metrics are provided (cap at 1.0).",
     "example": "Suppose a player completed the Starter Base route in solo normal mode.  The median XP for its steps sums to ~370 XP.  No bonuses apply.  According to the XP table, 370 XP corresponds to level\u00a05.  Because all steps have explicit XP estimates, the confidence score is 1.0."
   },
   "recommender": {
@@ -6368,17 +8457,17 @@
       "dynamic_alignment": 3
     },
     "metric_normalization": {
-      "xp_per_minute": {
-        "target": 15,
+      "progress_segments": {
+        "target": 4,
+        "score_per_sigma": 1.2
+      },
+      "boss_targets": {
+        "target": 1,
         "score_per_sigma": 1.5
       },
-      "travel_distance_m": {
-        "target": 1200,
-        "score_per_sigma": -1.0
-      },
-      "consumable_cost": {
-        "target": 5,
-        "score_per_sigma": -0.5
+      "quest_nodes": {
+        "target": 1,
+        "score_per_sigma": 1.1
       }
     },
     "decision_flow": [
@@ -6399,7 +8488,7 @@
       "unlock_value": "Completing this route unlocks {unlocks}.",
       "resource_need": "You need {item} for upcoming routes.",
       "progression_role": "This is a {role} route that keeps your progression on track.",
-      "metric_efficiency": "Its projected {xp_per_minute} XP/min and short travel time make it efficient right now.",
+      "metric_efficiency": "Covers {progress_segments} major steps with {boss_targets} boss clear(s) and {quest_nodes} story objective(s) tracked.",
       "adaptive_guidance": "Adaptive guidance suggests {recommendation} based on your situation.",
       "dynamic_alignment": "Dynamic rule triggered: {rule_adjustment}."
     },

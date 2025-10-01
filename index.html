@@ -4313,7 +4313,7 @@
               <div class="progress-card__icon"><i class="fa-solid fa-book-open-reader"></i></div>
               <div>
                 <h3>Adaptive guide completion</h3>
-                <p>Track required steps and tower clears from your curated route.</p>
+                <p>Track required steps, boss victories, and story questions from your curated route.</p>
               </div>
             </div>
             <div class="progress-meter" id="guideProgressMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -4322,7 +4322,7 @@
             <div class="progress-card__footer" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
               <div style="flex:1;display:flex;flex-direction:column;gap:4px">
                 <span id="guideProgressText" class="progress-text"></span>
-                <span id="towersClearedBadge" class="progress-badge"></span>
+                <span id="bossQuestBadge" class="progress-badge"></span>
               </div>
               <button class="btn" id="resetRouteProgress" type="button">Reset Guide Progress</button>
             </div>
@@ -4363,7 +4363,7 @@
             <div class="progress-route__intro">
               <span class="progress-route__eyebrow"><i class="fa-solid fa-route"></i> Adaptive tracker</span>
               <h3>Route intelligence &amp; boss timeline</h3>
-              <p id="progressRouteLead">Review tower victories, upcoming milestones, and tune your adaptive filters without leaving this dashboard.</p>
+              <p id="progressRouteLead">Review boss victories, story milestones, and tune your adaptive filters without leaving this dashboard.</p>
             </div>
             <div class="progress-route__actions">
               <button type="button" class="btn" data-route-action="toggle-optional">Hide Optional</button>
@@ -4399,16 +4399,29 @@
             </article>
             <article class="route-overview__stat">
               <div class="route-overview__stat-header">
-                <span class="route-overview__stat-icon"><i class="fa-solid fa-tower-broadcast"></i></span>
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-chess-king"></i></span>
                 <div>
-                  <p class="route-overview__stat-title" data-route-role="tower-title">Towers cleared</p>
-                  <p class="route-overview__stat-value" data-route-role="tower-count">0/0</p>
+                  <p class="route-overview__stat-title" data-route-role="boss-title">Bosses defeated</p>
+                  <p class="route-overview__stat-value" data-route-role="boss-count">0/0</p>
                 </div>
               </div>
-              <div class="route-overview__meter" data-route-role="tower-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div class="fill" data-route-role="tower-fill"></div>
+              <div class="route-overview__meter" data-route-role="boss-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="fill" data-route-role="boss-fill"></div>
               </div>
-              <p class="route-overview__stat-sub" data-route-role="tower-note">Tower bosses defeated so far</p>
+              <p class="route-overview__stat-sub" data-route-role="boss-note">Campaign bosses defeated so far</p>
+            </article>
+            <article class="route-overview__stat">
+              <div class="route-overview__stat-header">
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-scroll"></i></span>
+                <div>
+                  <p class="route-overview__stat-title" data-route-role="quest-title">Story questions</p>
+                  <p class="route-overview__stat-value" data-route-role="quest-count">0/0</p>
+                </div>
+              </div>
+              <div class="route-overview__meter" data-route-role="quest-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="fill" data-route-role="quest-fill"></div>
+              </div>
+              <p class="route-overview__stat-sub" data-route-role="quest-note">Investigator questions completed</p>
             </article>
           </div>
           <p class="progress-route__next" data-route-role="next-callout"></p>
@@ -9566,8 +9579,8 @@
           icon.className = 'fa-solid fa-map-location-dot';
           title.textContent = kidMode ? 'Adaptive Route Guide' : 'Adaptive Route Guide';
           subtitle.textContent = kidMode
-            ? 'Track main chapters, towers, and adaptive checkpoints together.'
-            : 'Monitor required steps before the system lines up your next boss.';
+            ? 'Track main chapters, boss wins, and story questions together.'
+            : 'Monitor required steps, boss clears, and story questions before the system lines up your next priority.';
           meter.id = 'homeRouteProgressMeter';
           meter.setAttribute('aria-label', 'Route guide progress');
           fill.id = 'homeRouteProgressBar';
@@ -9971,6 +9984,7 @@
       synergy_next_routes: 2.5,
       resource_urgency: 3,
       returning_focus: 3,
+      boss_alignment: 3.5,
       tower_alignment: 3.5,
       pal_gap: 3.5,
       tech_gap: 3.5,
@@ -12306,7 +12320,8 @@
       const confidence = levelEstimate?.confidence != null ? Math.round(levelEstimate.confidence * 100) : null;
       const requiredPct = summary.requiredTotal ? Math.round((summary.requiredComplete / summary.requiredTotal) * 100) : 0;
       const optionalPct = summary.optionalTotal ? Math.round((summary.optionalComplete / summary.optionalTotal) * 100) : 0;
-      const towersPct = summary.towersTotal ? Math.round((summary.towersComplete / summary.towersTotal) * 100) : 0;
+      const bossesPct = summary.bossesTotal ? Math.round((summary.bossesComplete / summary.bossesTotal) * 100) : 0;
+      const questsPct = summary.questsTotal ? Math.round((summary.questsComplete / summary.questsTotal) * 100) : 0;
       const declaredLabel = declared != null ? String(declared) : (kidMode ? 'Not set' : 'Not set');
       const estimatedLabel = estimatedLevel != null ? String(estimatedLevel) : '—';
       const xpLabel = xpTotal != null ? xpTotal.toLocaleString() : '';
@@ -12342,18 +12357,31 @@
       } else {
         optionalNote = kidMode ? 'Extra fun chores' : 'Bonus cleanup and prep';
       }
-      let towerNote;
-      if(summary.towersTotal){
-        const remainingTowers = summary.towersTotal - summary.towersComplete;
-        if(remainingTowers === 0){
-          towerNote = kidMode ? 'Every tower champion beaten!' : 'All tower bosses defeated.';
+      let bossNote;
+      if(summary.bossesTotal){
+        const remainingBosses = summary.bossesTotal - summary.bossesComplete;
+        if(remainingBosses === 0){
+          bossNote = kidMode ? 'Every boss champion beaten!' : 'All campaign bosses defeated.';
         } else {
-          towerNote = kidMode
-            ? `${remainingTowers} tower${remainingTowers === 1 ? '' : 's'} left`
-            : `${remainingTowers} tower boss${remainingTowers === 1 ? '' : 'es'} remaining`;
+          bossNote = kidMode
+            ? `${remainingBosses} boss${remainingBosses === 1 ? '' : 'es'} left`
+            : `${remainingBosses} boss${remainingBosses === 1 ? '' : 'es'} remaining`;
         }
       } else {
-        towerNote = kidMode ? 'Defeat bosses together' : 'Tower bosses defeated so far';
+        bossNote = kidMode ? 'Defeat bosses together' : 'Boss progress will appear here';
+      }
+      let questNote;
+      if(summary.questsTotal){
+        const remainingQuestions = summary.questsTotal - summary.questsComplete;
+        if(remainingQuestions === 0){
+          questNote = kidMode ? 'Every story question answered!' : 'All Investigator questions completed.';
+        } else {
+          questNote = kidMode
+            ? `${remainingQuestions} question${remainingQuestions === 1 ? '' : 's'} left`
+            : `${remainingQuestions} story question${remainingQuestions === 1 ? '' : 's'} remaining`;
+        }
+      } else {
+        questNote = kidMode ? 'Story questions show here' : 'Story question progress appears here';
       }
       const lastCompleted = getLastCompletedRouteMeta();
       const lastLabel = (() => {
@@ -12372,7 +12400,8 @@
       const historyCaption = kidMode ? 'Latest finish' : 'Latest completion';
       const requiredValue = summary.requiredTotal ? `${summary.requiredComplete}/${summary.requiredTotal}` : '0/0';
       const optionalValue = summary.optionalTotal ? `${summary.optionalComplete}/${summary.optionalTotal}` : '0/0';
-      const towerValue = summary.towersTotal ? `${summary.towersComplete}/${summary.towersTotal}` : '0/0';
+      const bossValue = summary.bossesTotal ? `${summary.bossesComplete}/${summary.bossesTotal}` : '0/0';
+      const questValue = summary.questsTotal ? `${summary.questsComplete}/${summary.questsTotal}` : '0/0';
       return `
         <div class="route-overview">
           <div class="route-overview__lead">
@@ -12422,14 +12451,25 @@
             </article>
             <article class="route-overview__stat">
               <div class="route-overview__stat-header">
-                <span class="route-overview__stat-icon"><i class="fa-solid fa-tower-broadcast"></i></span>
-                <p class="route-overview__stat-title" data-route-role="tower-title">${kidMode ? 'Tower wins' : 'Towers cleared'}</p>
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-chess-king"></i></span>
+                <p class="route-overview__stat-title" data-route-role="boss-title">${kidMode ? 'Boss wins' : 'Bosses defeated'}</p>
               </div>
-              <p class="route-overview__stat-value" data-route-role="tower-count">${escapeHTML(towerValue)}</p>
-              <div class="route-overview__meter" data-route-role="tower-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${towersPct}">
-                <span class="fill" data-route-role="tower-fill" style="width:${towersPct}%"></span>
+              <p class="route-overview__stat-value" data-route-role="boss-count">${escapeHTML(bossValue)}</p>
+              <div class="route-overview__meter" data-route-role="boss-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${bossesPct}">
+                <span class="fill" data-route-role="boss-fill" style="width:${bossesPct}%"></span>
               </div>
-              <p class="route-overview__stat-sub" data-route-role="tower-note">${escapeHTML(towerNote)}</p>
+              <p class="route-overview__stat-sub" data-route-role="boss-note">${escapeHTML(bossNote)}</p>
+            </article>
+            <article class="route-overview__stat">
+              <div class="route-overview__stat-header">
+                <span class="route-overview__stat-icon"><i class="fa-solid fa-scroll"></i></span>
+                <p class="route-overview__stat-title" data-route-role="quest-title">${kidMode ? 'Story questions' : 'Story questions'}</p>
+              </div>
+              <p class="route-overview__stat-value" data-route-role="quest-count">${escapeHTML(questValue)}</p>
+              <div class="route-overview__meter" data-route-role="quest-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${questsPct}">
+                <span class="fill" data-route-role="quest-fill" style="width:${questsPct}%"></span>
+              </div>
+              <p class="route-overview__stat-sub" data-route-role="quest-note">${escapeHTML(questNote)}</p>
             </article>
           </div>
           <div class="route-overview__controls route-overview__controls--compact">
@@ -13264,11 +13304,12 @@
             contextSignals += 1;
           }
         }
-        const isTowerRoute = normalizedCategory.includes('tower') || normalizedCategory.includes('boss') || normalizedTags.some(tag => tag.includes('tower') || tag.includes('boss'));
-        const towerGoal = goalSet.has('tower') || goalSet.has('boss');
-        if(isTowerRoute && towerGoal){
-          score += weights.tower_alignment || 0;
-          reasons.push(kidMode ? 'Perfect for tower showdowns.' : 'Aligns with your tower/boss focus.');
+        const isBossRoute = normalizedCategory.includes('tower') || normalizedCategory.includes('boss') || normalizedTags.some(tag => tag.includes('tower') || tag.includes('boss'));
+        const bossGoal = goalSet.has('tower') || goalSet.has('boss');
+        if(isBossRoute && bossGoal){
+          const bossAlignmentWeight = weights.boss_alignment ?? weights.tower_alignment ?? 0;
+          score += bossAlignmentWeight;
+          reasons.push(kidMode ? 'Perfect for boss showdowns.' : 'Aligns with your boss/story focus.');
           contextSignals += 1;
         }
         if(!routeComplete){
@@ -13291,21 +13332,33 @@
           contextSignals += 1;
         }
         const metrics = route?.metrics || {};
-        const xpPerMinute = metrics.xp_per_minute;
-        if(xpPerMinute && (xpPerMinute.solo || xpPerMinute.coop)){
-          const values = [];
-          if(xpPerMinute.solo) values.push(Number(xpPerMinute.solo));
-          if(xpPerMinute.coop) values.push(Number(xpPerMinute.coop));
-          const avg = values.length ? values.reduce((sum, val) => sum + (Number.isNaN(val) ? 0 : val), 0) / values.length : null;
-          if(avg != null){
-            score += weights.metric_efficiency || 0;
-            if(templates.metric_efficiency){
-              reasons.push(formatRecommendationText(templates.metric_efficiency, { xp_per_minute: avg.toFixed(1) }));
-            } else {
-              reasons.push(kidMode ? `Great XP: ${avg.toFixed(1)}/m.` : `XP efficiency: ${avg.toFixed(1)} per minute.`);
+        const progressSegments = Number(metrics.progress_segments || 0);
+        const bossTargets = Number(metrics.boss_targets || 0);
+        const questNodes = Number(metrics.quest_nodes || 0);
+        if(progressSegments || bossTargets || questNodes){
+          score += weights.metric_efficiency || 0;
+          if(templates.metric_efficiency){
+            reasons.push(formatRecommendationText(templates.metric_efficiency, {
+              progress_segments: progressSegments,
+              boss_targets: bossTargets,
+              quest_nodes: questNodes
+            }));
+          } else {
+            const parts = [];
+            if(progressSegments){
+              parts.push(`${progressSegments} major ${progressSegments === 1 ? 'segment' : 'segments'}`);
             }
-            contextSignals += 1;
+            if(bossTargets){
+              parts.push(`${bossTargets} boss ${bossTargets === 1 ? 'clear' : 'clears'}`);
+            }
+            if(questNodes){
+              parts.push(`${questNodes} story ${questNodes === 1 ? 'question' : 'questions'}`);
+            }
+            const detail = parts.length > 1 ? parts.slice(0, -1).join(', ') + ' and ' + parts.slice(-1) : (parts[0] || 'key steps');
+            reasons.push(kidMode ? `Covers ${detail}.` : `Guides through ${detail}.`);
           }
+          const signalWeight = progressSegments + bossTargets + questNodes;
+          contextSignals += Math.max(1, signalWeight);
         }
         const resourceMatches = [];
         resourceMap.forEach((qty, itemId) => {
@@ -13492,30 +13545,17 @@
           totalXp += routeXp * 0.1;
         }
         const metrics = route?.metrics || {};
-        const xpPerMinute = metrics.xp_per_minute;
-        if(xpPerMinute && (xpPerMinute.solo || xpPerMinute.coop)){
-          const values = [];
-          if(xpPerMinute.solo) values.push(Number(xpPerMinute.solo));
-          if(xpPerMinute.coop) values.push(Number(xpPerMinute.coop));
-          const avg = values.length ? values.reduce((sum, val) => sum + (Number.isNaN(val) ? 0 : val), 0) / values.length : null;
-          if(avg != null){
-            totalXp += avg * (metricUsage.xp_per_minute_weight || 0);
-          }
+        const progressSegments = Number(metrics.progress_segments || 0);
+        if(progressSegments){
+          totalXp += progressSegments * (metricUsage.progress_segment_value || 0);
         }
-        if(metrics.travel_distance_m){
-          const travel = Number(metrics.travel_distance_m);
-          if(!Number.isNaN(travel)){
-            totalXp += travel * (metricUsage.travel_distance_weight || 0);
-          }
+        const bossTargets = Number(metrics.boss_targets || 0);
+        if(bossTargets){
+          totalXp += bossTargets * (metricUsage.boss_clear_value || 0);
         }
-        if(Array.isArray(metrics.consumable_cost)){
-          const consumableTotal = metrics.consumable_cost.reduce((sum, entry) => {
-            const qty = Number(entry?.qty);
-            return sum + (Number.isNaN(qty) ? 0 : qty);
-          }, 0);
-          if(consumableTotal){
-            totalXp += consumableTotal * (metricUsage.consumable_cost_weight || 0);
-          }
+        const questNodes = Number(metrics.quest_nodes || 0);
+        if(questNodes){
+          totalXp += questNodes * (metricUsage.quest_node_value || 0);
         }
       });
       let level = null;
@@ -14494,8 +14534,10 @@
       let requiredComplete = 0;
       let optionalTotal = 0;
       let optionalComplete = 0;
-      let towersTotal = 0;
-      let towersComplete = 0;
+      let bossesTotal = 0;
+      let bossesComplete = 0;
+      let questsTotal = 0;
+      let questsComplete = 0;
       const routesByRole = {
         core: { total: 0, complete: 0 },
         support: { total: 0, complete: 0 },
@@ -14543,8 +14585,12 @@
             }
           }
           if(step.category === 'Boss'){
-            towersTotal += 1;
-            if(routeState[step.id]) towersComplete += 1;
+            bossesTotal += 1;
+            if(routeState[step.id]) bossesComplete += 1;
+          }
+          if(step.category === 'Quest'){
+            questsTotal += 1;
+            if(routeState[step.id]) questsComplete += 1;
           }
         });
       });
@@ -14556,8 +14602,10 @@
         requiredComplete,
         optionalTotal,
         optionalComplete,
-        towersTotal,
-        towersComplete,
+        bossesTotal,
+        bossesComplete,
+        questsTotal,
+        questsComplete,
         percent,
         categories,
         routes: routesByRole
@@ -14572,8 +14620,11 @@
       const optionalPct = summary.optionalTotal
         ? Math.round((summary.optionalComplete / summary.optionalTotal) * 100)
         : 0;
-      const towersPct = summary.towersTotal
-        ? Math.round((summary.towersComplete / summary.towersTotal) * 100)
+      const bossesPct = summary.bossesTotal
+        ? Math.round((summary.bossesComplete / summary.bossesTotal) * 100)
+        : 0;
+      const questsPct = summary.questsTotal
+        ? Math.round((summary.questsComplete / summary.questsTotal) * 100)
         : 0;
 
       document.querySelectorAll('[data-route-role="required-title"]').forEach(el => {
@@ -14582,8 +14633,11 @@
       document.querySelectorAll('[data-route-role="optional-title"]').forEach(el => {
         el.textContent = kidMode ? 'Bonus ideas' : 'Optional tasks';
       });
-      document.querySelectorAll('[data-route-role="tower-title"]').forEach(el => {
-        el.textContent = kidMode ? 'Tower wins' : 'Towers cleared';
+      document.querySelectorAll('[data-route-role="boss-title"]').forEach(el => {
+        el.textContent = kidMode ? 'Boss wins' : 'Bosses defeated';
+      });
+      document.querySelectorAll('[data-route-role="quest-title"]').forEach(el => {
+        el.textContent = kidMode ? 'Story questions' : 'Story questions';
       });
 
       document.querySelectorAll('[data-route-role="required-count"]').forEach(el => {
@@ -14659,31 +14713,58 @@
         }
       });
 
-      document.querySelectorAll('[data-route-role="tower-count"]').forEach(el => {
-        el.textContent = summary.towersTotal
-          ? `${summary.towersComplete}/${summary.towersTotal}`
+      document.querySelectorAll('[data-route-role="boss-count"]').forEach(el => {
+        el.textContent = summary.bossesTotal
+          ? `${summary.bossesComplete}/${summary.bossesTotal}`
           : '0/0';
       });
-      document.querySelectorAll('[data-route-role="tower-meter"]').forEach(el => {
-        el.setAttribute('aria-valuenow', String(towersPct));
+      document.querySelectorAll('[data-route-role="boss-meter"]').forEach(el => {
+        el.setAttribute('aria-valuenow', String(bossesPct));
       });
-      document.querySelectorAll('[data-route-role="tower-fill"]').forEach(el => {
-        el.style.width = `${towersPct}%`;
+      document.querySelectorAll('[data-route-role="boss-fill"]').forEach(el => {
+        el.style.width = `${bossesPct}%`;
       });
-      document.querySelectorAll('[data-route-role="tower-note"]').forEach(el => {
-        if(summary.towersTotal){
-          const remainingTowers = summary.towersTotal - summary.towersComplete;
-          if(remainingTowers === 0){
+      document.querySelectorAll('[data-route-role="boss-note"]').forEach(el => {
+        if(summary.bossesTotal){
+          const remainingBosses = summary.bossesTotal - summary.bossesComplete;
+          if(remainingBosses === 0){
             el.textContent = kidMode
-              ? 'Every tower champion beaten!'
-              : 'All tower bosses defeated.';
+              ? 'Every boss champion beaten!'
+              : 'All campaign bosses defeated.';
           } else {
             el.textContent = kidMode
-              ? `${remainingTowers} tower${remainingTowers === 1 ? '' : 's'} left`
-              : `${remainingTowers} tower boss${remainingTowers === 1 ? '' : 'es'} remaining`;
+              ? `${remainingBosses} boss${remainingBosses === 1 ? '' : 'es'} left`
+              : `${remainingBosses} boss${remainingBosses === 1 ? '' : 'es'} remaining`;
           }
         } else {
-          el.textContent = kidMode ? 'Defeat bosses together' : 'Tower bosses defeated so far';
+          el.textContent = kidMode ? 'Defeat bosses together' : 'Boss progress will appear here';
+        }
+      });
+      document.querySelectorAll('[data-route-role="quest-count"]').forEach(el => {
+        el.textContent = summary.questsTotal
+          ? `${summary.questsComplete}/${summary.questsTotal}`
+          : '0/0';
+      });
+      document.querySelectorAll('[data-route-role="quest-meter"]').forEach(el => {
+        el.setAttribute('aria-valuenow', String(questsPct));
+      });
+      document.querySelectorAll('[data-route-role="quest-fill"]').forEach(el => {
+        el.style.width = `${questsPct}%`;
+      });
+      document.querySelectorAll('[data-route-role="quest-note"]').forEach(el => {
+        if(summary.questsTotal){
+          const remainingQuestions = summary.questsTotal - summary.questsComplete;
+          if(remainingQuestions === 0){
+            el.textContent = kidMode
+              ? 'Every story question answered!'
+              : 'All Investigator questions completed.';
+          } else {
+            el.textContent = kidMode
+              ? `${remainingQuestions} question${remainingQuestions === 1 ? '' : 's'} left`
+              : `${remainingQuestions} story question${remainingQuestions === 1 ? '' : 's'} remaining`;
+          }
+        } else {
+          el.textContent = kidMode ? 'Story questions show here' : 'Story question progress appears here';
         }
       });
 
@@ -14707,7 +14788,7 @@
         } else {
           el.innerHTML = kidMode
             ? '<strong>Guide complete!</strong> Revisit bonus adventures anytime.'
-            : '<strong>Guide complete!</strong> Re-run towers or tidy up optional chores.';
+            : '<strong>Guide complete!</strong> Re-run boss fights or tidy up optional chores.';
         }
       });
 
@@ -16230,7 +16311,7 @@
       const categories = [
         { name: 'Pals', desc: 'See spawn locations on the external map', url: 'https://palworld.gg/map' },
         { name: 'Alpha Pals', desc: 'Locate strong alpha variants', url: 'https://palworld.gg/map' },
-        { name: 'Towers', desc: 'Find tower bosses and fast travel points', url: 'https://palworld.gg/map' },
+        { name: 'Boss Arenas', desc: 'Find boss arenas and fast travel points', url: 'https://palworld.gg/map' },
         { name: 'Dungeons', desc: 'Open map to see dungeon entrances', url: 'https://palworld.gg/map' },
         { name: 'Effigies', desc: 'Locate Lifmunk Effigies for free levels', url: 'https://palworld.gg/map' },
         { name: 'Skill Fruit Trees', desc: 'Find Skill Fruit trees to learn moves', url: 'https://palworld.gg/map' },
@@ -16251,12 +16332,12 @@
       const guideText = document.getElementById('guideProgressText');
       if (guideText) {
         guideText.textContent = kidMode
-          ? 'Check off story steps to power up this bar!'
-          : 'Check off route steps to track your run.';
+          ? 'Check off story steps and boss wins to power up this bar!'
+          : 'Check off route steps, boss clears, and story questions to track your run.';
       }
-      const towersBadge = document.getElementById('towersClearedBadge');
-      if (towersBadge) {
-        towersBadge.textContent = 'Towers cleared: 0/0';
+      const bossQuestBadge = document.getElementById('bossQuestBadge');
+      if (bossQuestBadge) {
+        bossQuestBadge.textContent = 'Bosses: 0/0 • Questions: 0/0';
       }
       const palsText = document.getElementById('palsProgressText');
       if (palsText) {
@@ -16330,8 +16411,8 @@
       const routeLead = document.getElementById('progressRouteLead');
       if (routeLead) {
         routeLead.textContent = kidMode
-          ? 'See tower wins, upcoming big steps, and tweak filters without leaving this dashboard.'
-          : 'Review tower progress, upcoming priorities, and adjust filters directly from the adaptive dashboard.';
+          ? 'See boss wins, story questions, and upcoming big steps without leaving this dashboard.'
+          : 'Review boss victories, story question progress, and upcoming priorities directly from the adaptive dashboard.';
       }
       document.querySelectorAll('[data-route-action="toggle-optional"]').forEach(btn => {
         btn.textContent = routeOptionalToggleLabel(routeHideOptional);
@@ -16524,7 +16605,7 @@
         } else {
           homeRouteNext.textContent = kidMode
             ? 'Guide complete! Revisit bonus adventures anytime.'
-            : 'Guide complete! Revisit optional chores or rerun towers.';
+            : 'Guide complete! Revisit optional chores or rerun boss fights.';
           homeRouteNext.dataset.stepId = '';
           homeRouteNext.disabled = true;
         }
@@ -16761,11 +16842,15 @@
       };
       renderAdaptiveQueue('homeActiveQueue', { limit: 3 });
       renderAdaptiveQueue('progressActiveQueue');
-      const towersBadge = document.getElementById('towersClearedBadge');
-      if (towersBadge) {
-        towersBadge.textContent = guideSummary.towersTotal
-          ? `Towers cleared: ${guideSummary.towersComplete}/${guideSummary.towersTotal}`
-          : 'Towers cleared: 0/0';
+      const bossQuestBadgeLive = document.getElementById('bossQuestBadge');
+      if (bossQuestBadgeLive) {
+        const bossesLine = guideSummary.bossesTotal
+          ? `${guideSummary.bossesComplete}/${guideSummary.bossesTotal}`
+          : '0/0';
+        const questsLine = guideSummary.questsTotal
+          ? `${guideSummary.questsComplete}/${guideSummary.questsTotal}`
+          : '0/0';
+        bossQuestBadgeLive.textContent = `Bosses: ${bossesLine} • Questions: ${questsLine}`;
       }
 
       const spotlightBtn = document.getElementById('homePalSpotlight');

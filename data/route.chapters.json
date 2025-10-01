@@ -3,8 +3,8 @@
     "chapters": [
         {
             "id": "ch0",
-            "title": "Chapter 0 \u2014 Quick Setup & Kid-Friendly UI (10\u201315 min)",
-            "titleKid": "Chapter 0 \u2014 Quick Start",
+            "title": "Chapter 0 — Quick Setup & Kid-Friendly UI (10–15 min)",
+            "titleKid": "Chapter 0 — Quick Start",
             "why": "Set the world rules and helper UI so young players feel safe before the real route begins.",
             "whyKid": "Make the world comfy and easy before big jobs.",
             "steps": [
@@ -200,13 +200,19 @@
                     "text": "Remind your kid that catching up to 10 of a pal grants bonus EXP and keep repeating the challenge whenever you enter a new biome.",
                     "textKid": "Tell your kid to catch ten of a pal in every new area for big EXP.",
                     "optional": true
+                },
+                {
+                    "id": "ch0-quest-register",
+                    "category": "Quest",
+                    "text": "Register Base #1 with the Investigator board in the Small Settlement to unlock story requests.",
+                    "textKid": "Tell the Investigator board about your home so new jobs show up."
                 }
             ]
         },
         {
             "id": "ch1",
-            "title": "Chapter 1 \u2014 First Tower Prep (Lv 6\u201312) \u2192 Zoe & Grizzbolt",
-            "titleKid": "Chapter 1 \u2014 Get Ready for Zoe",
+            "title": "Chapter 1 — First Tower Prep (Lv 6–12) → Zoe & Grizzbolt",
+            "titleKid": "Chapter 1 — Get Ready for Zoe",
             "why": "Build early automation and Ground counters so the first tower feels fair and fun.",
             "whyKid": "Build more stuff and grab Ground pals before the lightning boss.",
             "steps": [
@@ -364,7 +370,7 @@
                 {
                     "id": "ch1-boss-zoe",
                     "category": "Boss",
-                    "text": "Clear Rayne Syndicate Tower \u2014 Zoe & Grizzbolt (weak to Ground) for +5 Ancient Tech Points.",
+                    "text": "Clear Rayne Syndicate Tower — Zoe & Grizzbolt (weak to Ground) for +5 Ancient Tech Points.",
                     "textKid": "Beat Zoe & Grizzbolt at the lightning tower to earn Ancient points.",
                     "links": [
                         {
@@ -393,7 +399,7 @@
                                 ],
                                 "grown": [
                                     "The Rayne Syndicate Tower stands around (112, -434) in the Windswept Hills.",
-                                    "Ground pals shred Grizzbolt\u2014keep poison bolts handy for chip damage."
+                                    "Ground pals shred Grizzbolt—keep poison bolts handy for chip damage."
                                 ]
                             }
                         }
@@ -422,13 +428,19 @@
                             "id": "cloth"
                         }
                     ]
+                },
+                {
+                    "id": "ch1-quest-board",
+                    "category": "Quest",
+                    "text": "Report Zoe & Grizzbolt's defeat at an Investigator board to advance the campaign.",
+                    "textKid": "Tell the board that you beat Zoe so the story keeps going."
                 }
             ]
         },
         {
             "id": "ch2",
-            "title": "Chapter 2 \u2014 First Flyer & Base #2 (Lv 12\u201320) \u2192 Farming & Cake",
-            "titleKid": "Chapter 2 \u2014 Fly and Bake Cake",
+            "title": "Chapter 2 — First Flyer & Base #2 (Lv 12–20) → Farming & Cake",
+            "titleKid": "Chapter 2 — Fly and Bake Cake",
             "why": "Unlock mobility and early automation so ore, crops, and breeding all come online fast.",
             "whyKid": "Learn to fly, cook cake, and build a new ore base.",
             "steps": [
@@ -588,7 +600,7 @@
                 {
                     "id": "roster-transport",
                     "category": "Base",
-                    "text": "Maintain two Transporting pals\u2014fliers like Vixy or Pengullet keep crafting lines unclogged.",
+                    "text": "Maintain two Transporting pals—fliers like Vixy or Pengullet keep crafting lines unclogged.",
                     "textKid": "Keep 2 hauling pals like Vixy or Pengullet so goods move fast.",
                     "links": [
                         {
@@ -605,7 +617,7 @@
                 {
                     "id": "roster-kindling",
                     "category": "Base",
-                    "text": "Keep two Kindling pals\u2014Foxparks early and Ragnahawk later cover ovens and furnaces.",
+                    "text": "Keep two Kindling pals—Foxparks early and Ragnahawk later cover ovens and furnaces.",
                     "textKid": "Use 2 fire pals like Foxparks or Ragnahawk to heat ovens and furnaces.",
                     "links": [
                         {
@@ -762,8 +774,8 @@
         },
         {
             "id": "ch3",
-            "title": "Chapter 3 \u2014 Second Tower (Lv ~18\u201328) \u2192 Lily & Lyleen",
-            "titleKid": "Chapter 3 \u2014 Fire Beats Grass",
+            "title": "Chapter 3 — Second Tower (Lv ~18–28) → Lily & Lyleen",
+            "titleKid": "Chapter 3 — Fire Beats Grass",
             "why": "Gear up for the frozen march north and kick off the automation spike after Lily falls.",
             "whyKid": "Make warm clothes and fire pals to win in the snow.",
             "steps": [
@@ -863,7 +875,7 @@
                 {
                     "id": "ch3-boss-lily",
                     "category": "Boss",
-                    "text": "Clear Free Pal Alliance Tower \u2014 Lily & Lyleen (weak to Fire) for +5 Ancient Tech Points.",
+                    "text": "Clear Free Pal Alliance Tower — Lily & Lyleen (weak to Fire) for +5 Ancient Tech Points.",
                     "textKid": "Beat Lily & Lyleen in the snowy tower with your Fire pals.",
                     "links": [
                         {
@@ -953,13 +965,19 @@
                             "id": "carbon_fiber"
                         }
                     ]
+                },
+                {
+                    "id": "ch3-quest-board",
+                    "category": "Quest",
+                    "text": "Hand in the Free Pal Alliance victory to queue the next Investigator alerts.",
+                    "textKid": "Let the board know Lily is down to unlock the next missions."
                 }
             ]
         },
         {
             "id": "ch4",
-            "title": "Chapter 4 \u2014 Ultra Spheres & Mobility (Lv 28\u201336)",
-            "titleKid": "Chapter 4 \u2014 Better Balls and Travel",
+            "title": "Chapter 4 — Ultra Spheres & Mobility (Lv 28–36)",
+            "titleKid": "Chapter 4 — Better Balls and Travel",
             "why": "Upgrade capture rates, escapes, and mounts before heading into harder biomes.",
             "whyKid": "Make strong spheres and faster travel so the world feels easy.",
             "steps": [
@@ -1071,8 +1089,8 @@
         },
         {
             "id": "ch5",
-            "title": "Chapter 5 \u2014 Third Tower (Lv 36\u201342) \u2192 Axel & Orserk",
-            "titleKid": "Chapter 5 \u2014 Beat Axel in the Volcano",
+            "title": "Chapter 5 — Third Tower (Lv 36–42) → Axel & Orserk",
+            "titleKid": "Chapter 5 — Beat Axel in the Volcano",
             "why": "Prep for Mount Obsidian with heat gear, Ground/Ice counters, and better capture tools.",
             "whyKid": "Pack heat suits and Ground/Ice pals for the lava fight.",
             "steps": [
@@ -1156,7 +1174,7 @@
                 {
                     "id": "ch5-boss-axel",
                     "category": "Boss",
-                    "text": "Clear Eternal Pyre Tower \u2014 Axel & Orserk (weak to Ground and Ice) for +5 Ancient Tech Points.",
+                    "text": "Clear Eternal Pyre Tower — Axel & Orserk (weak to Ground and Ice) for +5 Ancient Tech Points.",
                     "textKid": "Beat Axel & Orserk at the lava tower with Ground and Ice pals.",
                     "links": [
                         {
@@ -1214,13 +1232,19 @@
                             "id": "sulfur"
                         }
                     ]
+                },
+                {
+                    "id": "ch5-quest-board",
+                    "category": "Quest",
+                    "text": "Update the Investigator board after Axel & Orserk fall to unlock desert follow-ups.",
+                    "textKid": "Tell the board Axel lost so new desert quests pop up."
                 }
             ]
         },
         {
             "id": "ch6",
-            "title": "Chapter 6 \u2014 Fourth Tower (Lv 42\u201346) \u2192 Marcus & Faleris",
-            "titleKid": "Chapter 6 \u2014 Water Beats Fire",
+            "title": "Chapter 6 — Fourth Tower (Lv 42–46) → Marcus & Faleris",
+            "titleKid": "Chapter 6 — Water Beats Fire",
             "why": "Unlock higher-tier weapons and polish Water teams before the desert tower.",
             "whyKid": "Get strong water pals and gear for the hot desert boss.",
             "steps": [
@@ -1286,7 +1310,7 @@
                 {
                     "id": "ch6-boss-marcus",
                     "category": "Boss",
-                    "text": "Clear PIDF Tower \u2014 Marcus & Faleris (weak to Water) for +5 Ancient Tech Points.",
+                    "text": "Clear PIDF Tower — Marcus & Faleris (weak to Water) for +5 Ancient Tech Points.",
                     "textKid": "Beat Marcus & Faleris in the desert tower with your Water pals.",
                     "links": [
                         {
@@ -1365,13 +1389,19 @@
                             "id": "carbon_fiber"
                         }
                     ]
+                },
+                {
+                    "id": "ch6-quest-board",
+                    "category": "Quest",
+                    "text": "Log the Brothers of the Eternal Pyre defeat to unlock late-game heat requests.",
+                    "textKid": "Tell the board Marcus is finished so volcano missions appear."
                 }
             ]
         },
         {
             "id": "ch7",
-            "title": "Chapter 7 \u2014 Fifth Tower (Lv 46\u201350) \u2192 Victor & Shadowbeak",
-            "titleKid": "Chapter 7 \u2014 Dragons vs Shadowbeak",
+            "title": "Chapter 7 — Fifth Tower (Lv 46–50) → Victor & Shadowbeak",
+            "titleKid": "Chapter 7 — Dragons vs Shadowbeak",
             "why": "Shift into Pal Metal production and firearm support before the late-game tower.",
             "whyKid": "Make shiny metal gear and gather dragon pals for Shadowbeak.",
             "steps": [
@@ -1459,7 +1489,7 @@
                 {
                     "id": "ch7-boss-victor",
                     "category": "Boss",
-                    "text": "Clear PAL Genetic Research Unit \u2014 Victor & Shadowbeak (weak to Dragon) for +5 Ancient Tech Points.",
+                    "text": "Clear PAL Genetic Research Unit — Victor & Shadowbeak (weak to Dragon) for +5 Ancient Tech Points.",
                     "textKid": "Beat Victor & Shadowbeak in the snowy lab with your Dragon pals.",
                     "links": [
                         {
@@ -1513,13 +1543,19 @@
                             "id": "polymer"
                         }
                     ]
+                },
+                {
+                    "id": "ch7-quest-board",
+                    "category": "Quest",
+                    "text": "File the PAL Genetic Research Unit victory so Sakurajima intel unlocks.",
+                    "textKid": "Tell the board Victor is gone so the pink island opens up."
                 }
             ]
         },
         {
             "id": "ch8",
-            "title": "Chapter 8 \u2014 Sakurajima (Lv 50\u201356) \u2192 Saya & Selyne",
-            "titleKid": "Chapter 8 \u2014 Moonflower Fight",
+            "title": "Chapter 8 — Sakurajima (Lv 50–56) → Saya & Selyne",
+            "titleKid": "Chapter 8 — Moonflower Fight",
             "why": "Prep dragons with Ice answers and explore Sakurajima for late-game schematics.",
             "whyKid": "Fly dragons to the pink island and watch for cold attacks.",
             "steps": [
@@ -1566,7 +1602,7 @@
                 {
                     "id": "ch8-boss-saya",
                     "category": "Boss",
-                    "text": "Clear Moonflower Tower \u2014 Saya & Selyne (Dark with heavy Ice) for +5 Ancient Tech Points.",
+                    "text": "Clear Moonflower Tower — Saya & Selyne (Dark with heavy Ice) for +5 Ancient Tech Points.",
                     "textKid": "Beat Saya & Selyne at the pink tower with your dragons.",
                     "links": [
                         {
@@ -1620,13 +1656,19 @@
                             "id": "legendary_sphere"
                         }
                     ]
+                },
+                {
+                    "id": "ch8-quest-board",
+                    "category": "Quest",
+                    "text": "Report Saya & Selyne's defeat to surface Feybreak tower missions.",
+                    "textKid": "Tell the board Saya is beaten so the snow island mission lights up."
                 }
             ]
         },
         {
             "id": "ch9",
-            "title": "Chapter 9 \u2014 Feybreak (Lv 56\u201360) \u2192 Bjorn & Bastigor",
-            "titleKid": "Chapter 9 \u2014 Final Fire Finish",
+            "title": "Chapter 9 — Feybreak (Lv 56–60) → Bjorn & Bastigor",
+            "titleKid": "Chapter 9 — Final Fire Finish",
             "why": "Clear the nocturnal field bosses, prep Fire teams, and finish with a co-op celebration.",
             "whyKid": "Beat the night bosses for keys, use fire pals, then celebrate the win.",
             "steps": [
@@ -1702,7 +1744,7 @@
                 {
                     "id": "ch9-boss-bjorn",
                     "category": "Boss",
-                    "text": "Clear Feybreak Tower \u2014 Bjorn & Bastigor (weak to Fire) and celebrate the victory.",
+                    "text": "Clear Feybreak Tower — Bjorn & Bastigor (weak to Fire) and celebrate the victory.",
                     "textKid": "Beat Bjorn & Bastigor at the ice tower with your Fire pals and cheer!",
                     "links": [
                         {
@@ -1740,9 +1782,15 @@
                 {
                     "id": "ch9-celebrate",
                     "category": "Explore",
-                    "text": "Optional: Take a victory lap\u2014decorate bases, pick a favorite mount, or start shiny hunts together.",
+                    "text": "Optional: Take a victory lap—decorate bases, pick a favorite mount, or start shiny hunts together.",
                     "textKid": "Optional: Celebrate by decorating, picking a favorite mount, or hunting shinies together.",
                     "optional": true
+                },
+                {
+                    "id": "ch9-quest-board",
+                    "category": "Quest",
+                    "text": "Celebrate with the Investigator board after Bjorn & Bastigor fall to complete the story.",
+                    "textKid": "Tell the board the finale is done so everyone cheers!"
                 }
             ]
         }

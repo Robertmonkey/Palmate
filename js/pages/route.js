@@ -19,7 +19,7 @@ export function renderRoute(node){
     }
     return 0;
   })();
-  const heroTitle = kidMode ? 'Family Boss Route' : 'Boss Route Command Center';
+  const heroTitle = kidMode ? 'Family Adventure Route' : 'Adaptive Boss & Story Command Center';
   const heroLead = kidMode
     ? 'Track every big step together, highlight bonus adventures, and jump straight to the next win.'
     : 'Monitor chapter momentum, surface optional clean-up, and hop directly to the next required task.';
@@ -29,7 +29,7 @@ export function renderRoute(node){
       <section class="card route-dashboard" id="routeDashboard">
         <div class="route-dashboard__header">
           <div class="route-dashboard__titles">
-            <span class="route-dashboard__eyebrow">${escapeHTML(kidMode ? 'Tower campaign' : 'Boss route')}</span>
+            <span class="route-dashboard__eyebrow">${escapeHTML(kidMode ? 'Adventure campaign' : 'Boss & story route')}</span>
             <h2>${escapeHTML(heroTitle)}</h2>
             <p class="route-dashboard__lead">${escapeHTML(heroLead)}</p>
           </div>
