@@ -399,6 +399,7 @@ gba(119,141,169,0.45)}
 .route-library__list::-webkit-scrollbar{width:8px}
 .route-library__list::-webkit-scrollbar-thumb{background:rgba(119,141,169,0.35);border-radius:999px}
 .route-library__empty{margin:0;font-size:.95rem;color:var(--muted,rgba(224,225,221,0.72));text-align:center;padding:18px 0}
+.route-library__hint,.guide-catalog__hint{margin:0;font-size:.85rem;color:rgba(224,225,221,0.65);text-align:center;padding:8px 0 0}
 .route-library-card{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;padding:16px;border-radius:18px;background:rgba(12,24,40,0.74);border:1px solid rgba(119,141,169,0.26);box-shadow:0 18px 36px rgba(0,0,0,0.45);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
 .route-library-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,0.24);box-shadow:0 24px 42px rgba(0,0,0,0.5)}
 .route-library-card__media{position:relative;width:88px;height:88px;border-radius:20px;overflow:hidden;flex:0 0 auto;background:rgba(8,16,32,0.86);box-shadow:0 18px 34px rgba(0,0,0,0.46)}

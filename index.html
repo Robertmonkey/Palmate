@@ -9905,6 +9905,8 @@
     let pendingRouteFocus = null;
     let pendingTechFocus = null;
     const ROUTE_ART_IMAGE = 'assets/images/palworld-full-map-2.webp';
+    const ROUTE_LIBRARY_DEFAULT_LIMIT = 12;
+    const GUIDE_CATALOG_DEFAULT_LIMIT = 24;
     const ROUTE_VISUAL_THEMES = {
       pal: { overlay: 'rgba(119, 141, 169, 0.58)', accent: '#9bd4ff', icon: 'fa-paw', position: 'center 40%' },
       tech: { overlay: 'rgba(42, 157, 143, 0.58)', accent: '#72e5c4', icon: 'fa-microchip', position: 'center 48%' },
@@ -10724,6 +10726,14 @@
       return Array.from(items);
     }
 
+    function normalizeTechSlug(value){
+      if(!value) return '';
+      const slug = slugifyForPalworld(String(value));
+      if(!slug) return '';
+      const trimmed = slug.replace(/^(tech-|station-)/, '');
+      return trimmed || slug;
+    }
+
     function collectRouteHighlights(route, resourceOutputs = []){
       const pals = new Set();
       const items = new Set();
@@ -10740,7 +10750,7 @@
       };
       const addTech = value => {
         if(!value) return;
-        const slug = slugifyForPalworld(String(value));
+        const slug = normalizeTechSlug(value);
         if(slug) tech.add(slug);
       };
       const steps = Array.isArray(route?.steps) ? route.steps : [];
@@ -11306,8 +11316,8 @@
       if(!slug) return null;
       const direct = TECH_LOOKUP?.[slug];
       if(direct) return direct;
-      if(slug.startsWith('tech-')){
-        const trimmed = slug.slice(5);
+      if(slug.startsWith('tech-') || slug.startsWith('station-')){
+        const trimmed = slug.replace(/^(tech-|station-)/, '');
         if(TECH_LOOKUP?.[trimmed]) return TECH_LOOKUP[trimmed];
       }
       return null;
@@ -11316,12 +11326,17 @@
     function routeHighlightMedia(route, { limit = 3 } = {}){
       if(!route) return [];
       const entries = [];
-      const seen = new Set();
+      const seenKeys = new Set();
+      const seenSlugs = new Set();
       const typeOrder = ['pal', 'tech', 'item'];
       const register = (entry) => {
         if(!entry || !entry.image) return;
-        if(seen.has(entry.key)) return;
-        seen.add(entry.key);
+        const key = entry.key || '';
+        const slugKey = entry.slug ? String(entry.slug).toLowerCase() : '';
+        if(key && seenKeys.has(key)) return;
+        if(slugKey && seenSlugs.has(slugKey)) return;
+        if(key) seenKeys.add(key);
+        if(slugKey) seenSlugs.add(slugKey);
         entries.push(entry);
       };
       const palIds = Array.isArray(route?.highlightPals) ? route.highlightPals : [];
@@ -11340,6 +11355,7 @@
         register({
           type: 'pal',
           key: `pal:${palId != null ? palId : slug}`,
+          slug: palId != null ? String(palId) : slug,
           label,
           image,
           obtained
@@ -11348,8 +11364,8 @@
       const techIds = Array.isArray(route?.highlightTech) ? route.highlightTech : [];
       techIds.forEach(id => {
         if(!id) return;
-        const slug = slugifyForPalworld(String(id));
-        const entry = lookupTechBySlug(slug);
+        const normalized = normalizeTechSlug(id);
+        const entry = lookupTechBySlug(normalized);
         const item = entry?.item;
         if(!item || !item.name) return;
         const image = item.image || item.icon || null;
@@ -11357,7 +11373,8 @@
         const obtained = isTechUnlocked(item.name);
         register({
           type: 'tech',
-          key: `tech:${slug}`,
+          key: `tech:${normalized}`,
+          slug: normalized,
           label: item.name,
           image,
           obtained
@@ -11369,9 +11386,11 @@
         const detail = resolveItemDetail(id);
         const image = detail?.image || null;
         if(!image) return;
+        const slugValue = slugifyForPalworld(String(id)) || String(id);
         register({
           type: 'item',
           key: `item:${id}`,
+          slug: slugValue,
           label: detail?.name || niceName(id),
           image,
           obtained: false
@@ -11853,24 +11872,31 @@
           matchBtn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
         }
       };
-      if(!routeGuideData || !Array.isArray(routeGuideData.routes) || !routeGuideData.routes.length){
+      if(!routeGuideData || !Array.isArray(routeGuideData.routes)){
         list.innerHTML = `<p class="route-library__empty">${escapeHTML(kidMode ? 'Guides are still loading…' : 'Guide library is still loading.')}</p>`;
         if(countNode) countNode.textContent = '';
         updateControlState();
         return;
       }
-      const query = (routeLibrarySearchTerm || '').trim().toLowerCase();
-      if(!query){
-        list.innerHTML = `<p class="route-library__empty">${escapeHTML(kidMode
-          ? 'Use the search box above to find a guide.'
-          : 'Search above to load specific guides.')}</p>`;
-        if(countNode) countNode.textContent = kidMode ? 'Search guides' : 'Search guides';
+      if(!routeGuideData.routes.length){
+        const emptyMessage = kidMode
+          ? 'No guides available yet. Check back soon!'
+          : 'No guides available yet. Check back soon.';
+        list.innerHTML = `<p class="route-library__empty">${escapeHTML(emptyMessage)}</p>`;
+        if(countNode) countNode.textContent = kidMode ? 'No guides yet' : 'No guides yet';
         updateControlState();
         return;
       }
+      const query = (routeLibrarySearchTerm || '').trim().toLowerCase();
+      const hasQuery = query.length > 0;
       const active = new Set(activeRouteIds);
       const statusFilter = routeLibraryFilter || 'incomplete';
       const shouldMatchContext = routeLibraryMatchContext && Array.isArray(routeContext?.goals) && routeContext.goals.length;
+      const usingStatusFilter = statusFilter !== 'incomplete';
+      const usingContextFilter = !!shouldMatchContext;
+      const baseRoutes = routeGuideData.routes.filter(route => route && route.id && !active.has(route.id));
+      const completedTotal = baseRoutes.filter(route => isRouteComplete(route)).length;
+      const incompleteTotal = baseRoutes.length - completedTotal;
       const goalSet = shouldMatchContext
         ? new Set(routeContext.goals.map(goal => String(goal || '').toLowerCase()))
         : new Set();
@@ -11890,37 +11916,100 @@
         return false;
       };
       const availableRoutes = [];
-      routeGuideData.routes.forEach(route => {
-        if(!route || !route.id || active.has(route.id)) return;
+      baseRoutes.forEach(route => {
         const complete = isRouteComplete(route);
         if(statusFilter === 'incomplete' && complete) return;
         if(statusFilter === 'complete' && !complete) return;
         const contextMatch = matchesContext(route);
         if(!contextMatch) return;
-        const haystack = [
-          route.title,
-          route.category,
-          ...(Array.isArray(route.tags) ? route.tags : []),
-          ...(Array.isArray(route.objectives) ? route.objectives : [])
-        ].filter(Boolean).join(' ').toLowerCase();
-        if(!haystack.includes(query)) return;
+        if(hasQuery){
+          const haystack = [
+            route.title,
+            route.category,
+            ...(Array.isArray(route.tags) ? route.tags : []),
+            ...(Array.isArray(route.objectives) ? route.objectives : [])
+          ].filter(Boolean).join(' ').toLowerCase();
+          if(!haystack.includes(query)) return;
+        }
         availableRoutes.push({ route, contextMatch });
       });
-      if(countNode){
-        const remaining = availableRoutes.length;
-        const label = remaining > 0
-          ? `${remaining} ${remaining === 1 ? (kidMode ? 'guide ready' : 'guide available') : (kidMode ? 'guides ready' : 'guides available')}`
-          : (kidMode ? 'No matches' : 'No matches');
-        countNode.textContent = label;
-      }
-      if(!availableRoutes.length){
-        list.innerHTML = `<p class="route-library__empty">${escapeHTML(kidMode ? 'No guides match that search.' : 'No guides match your search.')}</p>`;
+      const totalMatches = availableRoutes.length;
+      const usingAnyFilter = hasQuery || usingStatusFilter || usingContextFilter;
+      if(!totalMatches){
+        if(countNode){
+          let countLabel;
+          if(baseRoutes.length === 0){
+            countLabel = kidMode ? 'No guides yet' : 'No guides yet';
+          } else if(incompleteTotal === 0 && completedTotal > 0){
+            countLabel = kidMode ? 'All caught up' : 'All guides complete';
+          } else {
+            countLabel = kidMode ? 'No matches' : 'No matches';
+          }
+          countNode.textContent = countLabel;
+        }
+        let emptyMessage;
+        if(hasQuery){
+          emptyMessage = kidMode ? 'No guides match that search.' : 'No guides match your search.';
+        } else if(usingStatusFilter || usingContextFilter){
+          emptyMessage = kidMode ? 'No guides fit these filters yet.' : 'No guides fit these filters yet.';
+        } else if(baseRoutes.length === 0){
+          emptyMessage = kidMode ? 'No guides available yet. Check back soon!' : 'No guides available yet. Check back soon.';
+        } else if(incompleteTotal === 0 && completedTotal > 0){
+          emptyMessage = kidMode
+            ? 'You finished every guide! Switch to Completed to revisit the adventures.'
+            : 'All routes are complete. Switch to the Completed filter to review finished guides.';
+        } else {
+          emptyMessage = kidMode ? 'No guides fit these filters yet.' : 'No guides fit these filters yet.';
+        }
+        list.innerHTML = `<p class="route-library__empty">${escapeHTML(emptyMessage)}</p>`;
         updateControlState();
         return;
       }
-      list.innerHTML = availableRoutes
+
+      availableRoutes.sort((a, b) => a.route.title.localeCompare(b.route.title, undefined, { sensitivity: 'base' }));
+
+      const limit = usingAnyFilter ? totalMatches : Math.min(ROUTE_LIBRARY_DEFAULT_LIMIT, totalMatches);
+      if(countNode){
+        let label;
+        const plural = totalMatches === 1 ? '' : 's';
+        if(!usingAnyFilter && totalMatches > limit){
+          label = kidMode
+            ? `Showing ${limit}/${totalMatches} guides`
+            : `Showing ${limit} of ${totalMatches} guides`;
+        } else if(hasQuery){
+          label = kidMode
+            ? `${totalMatches} guide${plural} found`
+            : `${totalMatches} guide${plural} found`;
+        } else if(usingContextFilter){
+          label = kidMode
+            ? `${totalMatches} guide${plural} match the goals`
+            : `${totalMatches} guide${plural} match tonight's goals`;
+        } else if(usingStatusFilter && statusFilter === 'complete'){
+          label = kidMode
+            ? `${totalMatches} completed guide${plural}`
+            : `${totalMatches} completed guide${plural}`;
+        } else if(usingStatusFilter && statusFilter === 'all'){
+          label = kidMode
+            ? `${totalMatches} guide${plural} available`
+            : `${totalMatches} total guide${plural}`;
+        } else {
+          label = kidMode
+            ? `${totalMatches} guide${totalMatches === 1 ? '' : 's'} ready`
+            : `${totalMatches} guide${totalMatches === 1 ? '' : 's'} available`;
+        }
+        countNode.textContent = label;
+      }
+
+      const displayRoutes = availableRoutes.slice(0, limit);
+      list.innerHTML = displayRoutes
         .map(entry => renderRouteLibraryCard(entry.route, { matchContext: shouldMatchContext && entry.contextMatch }))
         .join('');
+      if(!usingAnyFilter && totalMatches > limit){
+        const hint = kidMode
+          ? 'Refine your search or filters to see more guides.'
+          : 'Use search or filters to explore the full guide catalog.';
+        list.insertAdjacentHTML('beforeend', `<p class="route-library__hint">${escapeHTML(hint)}</p>`);
+      }
       updateControlState();
     }
 
@@ -12071,9 +12160,17 @@
       const countNode = card.querySelector('[data-guide-catalog-count]');
       if(!list) return;
       const catalog = routeGuideData?.guideCatalog;
-      if(!catalog || !Array.isArray(catalog.entries) || !catalog.entries.length){
+      if(!catalog || !Array.isArray(catalog.entries)){
         list.innerHTML = `<p class="guide-catalog__empty">${escapeHTML(kidMode ? 'Guide index loading…' : 'Guide catalog loading…')}</p>`;
         if(countNode) countNode.textContent = '';
+        return;
+      }
+      if(!catalog.entries.length){
+        const emptyMessage = kidMode
+          ? 'No guides available yet. Check back soon!'
+          : 'No guides available yet. Check back soon.';
+        list.innerHTML = `<p class="guide-catalog__empty">${escapeHTML(emptyMessage)}</p>`;
+        if(countNode) countNode.textContent = kidMode ? '0 guides' : '0 guides';
         return;
       }
       let entries = catalog.entries.slice();
@@ -12084,32 +12181,52 @@
         entries = entries.filter(entry => entry.categoryId === guideCatalogCategoryFilter);
       }
       const query = (guideCatalogSearchTerm || '').trim().toLowerCase();
+      const hasQuery = query.length > 0;
       const usingFilters = guideCatalogGroupFilter !== 'all' || guideCatalogCategoryFilter !== 'all';
-      if(!query && !usingFilters){
-        list.innerHTML = `<p class="guide-catalog__empty">${escapeHTML(kidMode
-          ? 'Search to open the encyclopedia.'
-          : 'Search above to browse the full index.')}</p>`;
-        if(countNode) countNode.textContent = kidMode ? 'Search guides' : 'Search guides';
-        return;
-      }
-      if(query){
+      if(hasQuery){
         entries = entries.filter(entry => entry.searchText.includes(query));
       }
-      const total = catalog.entries.length;
-      const countLabel = entries.length === total
-        ? `${total} ${total === 1 ? 'guide' : 'guides'}`
-        : `${entries.length} of ${total} guides`;
-      if(countNode){
-        countNode.textContent = countLabel;
-      }
-      if(!entries.length){
-        const emptyMessage = query
+      const totalEntries = catalog.entries.length;
+      const totalFiltered = entries.length;
+      if(!totalFiltered){
+        if(countNode) countNode.textContent = kidMode ? 'No matches' : 'No matches';
+        const emptyMessage = hasQuery
           ? (kidMode ? 'No guides match that search yet.' : 'No guides match your search yet.')
-          : (kidMode ? 'No guides match those filters yet.' : 'No guides match your filters yet.');
+          : (usingFilters
+            ? (kidMode ? 'No guides match those filters yet.' : 'No guides match your filters yet.')
+            : (kidMode ? 'Guides will appear here soon.' : 'Guides will appear here soon.'));
         list.innerHTML = `<p class="guide-catalog__empty">${escapeHTML(emptyMessage)}</p>`;
         return;
       }
-      list.innerHTML = entries.map(renderGuideCatalogCard).join('');
+
+      const limit = (!hasQuery && !usingFilters)
+        ? Math.min(GUIDE_CATALOG_DEFAULT_LIMIT, totalFiltered)
+        : totalFiltered;
+      const displayEntries = entries.slice(0, limit);
+      list.innerHTML = displayEntries.map(renderGuideCatalogCard).join('');
+      if(!hasQuery && !usingFilters && totalFiltered > limit){
+        const hint = kidMode
+          ? 'Use search or filters to open the full encyclopedia.'
+          : 'Use search or filters to browse the full encyclopedia.';
+        list.insertAdjacentHTML('beforeend', `<p class="guide-catalog__hint">${escapeHTML(hint)}</p>`);
+      }
+      if(countNode){
+        let label;
+        if(!hasQuery && !usingFilters){
+          if(totalFiltered > limit){
+            label = kidMode
+              ? `Showing ${limit}/${totalEntries} guides`
+              : `Showing ${limit} of ${totalEntries} guides`;
+          } else {
+            label = `${totalEntries} ${totalEntries === 1 ? 'guide' : 'guides'}`;
+          }
+        } else if(totalFiltered === totalEntries){
+          label = `${totalFiltered} ${totalFiltered === 1 ? 'guide' : 'guides'}`;
+        } else {
+          label = `${totalFiltered} of ${totalEntries} guides`;
+        }
+        countNode.textContent = label;
+      }
     }
 
     function hashString(value){
