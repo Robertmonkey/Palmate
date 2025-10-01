@@ -1,7 +1,7 @@
 
 # Palworld Purposeful Progression Guides (2025)
 
-These guides are designed to replace the generic tips from earlier versions with **purpose‑driven, progression‑oriented routes**.  Each section lays out *what* you need to do, *why* it matters, and *where* to go (with coordinates) so you can chart a clear path from your first base to the end‑game.  After each objective you'll find a suggested **Next step** to help you chain tasks together naturally.
+These guides are designed to replace the generic tips from earlier versions with **purpose‑driven, progression‑oriented routes**.  Each section lays out *what* you need to do, *why* it matters, and *where* to go (with coordinates) so you can chart a clear path from your first base to the end‑game.  After each objective you'll find a suggested **Next step** to help you chain tasks together naturally.  Pair this document with the granular reference material in **`palworld_complete_guide.md`** and the family-friendly checklist route in **`palworld_full_route_normal_coop_optional.md`** to cover every playstyle.
 
 ## Early Game (Levels 1–10)
 
@@ -14,6 +14,8 @@ These guides are designed to replace the generic tips from earlier versions with
 4. **Craft basic tools:** Create a stone axe and pickaxe at the workbench and use them to harvest wood and stone more efficiently.  Save extra wood for Pal Spheres and campfires.
 5. **Unlock key tech:** Spend early technology points on the Palbox, Primitive Furnace, and Pal Sphere upgrades.  Ancient tech items (like the Grappling Gun) require ancient points from bosses【440006372449663†L112-L117】.
 
+*Related quick guides:* Establish a Starting Base; Build a Palbox; Assign Pals to Work.
+
 **Next step:** With your base established, craft 5–10 Pal Spheres and head out to capture your first Pals.
 
 ### 2. Capture Your First Working Pals
@@ -23,6 +25,8 @@ These guides are designed to replace the generic tips from earlier versions with
 2. **Capture Foxparks for Kindling:** Travel east to **(171, −473)**, near a river and waterfall, to find Fire‑type **Foxparks**【225842761179926†L61-L78】.  Bring a water‑type Pal like Pengullet.  Weaken Foxparks with water attacks and capture it with Pal Spheres【225842761179926†L82-L88】.  Assign it to kindling tasks at your campfire or furnace; it also drops Flame Organs and Leather【225842761179926†L98-L106】.
 3. **Assign Pals to work:** Use the Palbox to designate Lamball for Wool production, Tanzee for Lumbering, and Foxparks for Kindling.  This early automation speeds up resource collection.
 
+*Related quick guides:* Find Paldium & Craft Pal Spheres (Capturing Device); Catch Your First Pal; Assigning Work Pals (Transport, Kindling).
+
 **Next step:** Begin gathering rare materials like Leather and Paldium to unlock mounts and advanced crafting.
 
 ### 3. Harvest Leather and Paldium
@@ -30,6 +34,8 @@ These guides are designed to replace the generic tips from earlier versions with
 
 1. **Leather hunting:** Venture to areas north of the Plateau and hunt **Rushoars** and **Fuacks** for Leather.  Each Leather costs 150 Gold if purchased from merchants, but farming it yourself saves money.
 2. **Mine Paldium:** Search riverbeds and glowing blue rocks near your base to mine **Paldium fragments**【354485449518951†L225-L231】.  Gather at least 15 fragments to craft multiple Pal Spheres and prepare for mount harnesses.
+
+*Related quick guides:* Hunting for Leather & Wool; Gathering Paldium Fragments.
 
 **Next step:** With Leather and Paldium in hand, unlock your first mount.
 
@@ -39,6 +45,8 @@ These guides are designed to replace the generic tips from earlier versions with
 1. **Capture Eikthyrdeer Terra:** Travel to the **No. 1 Wildlife Sanctuary** at **(95, −729)**【376067536546693†L142-L145】.  Avoid PIDF guards or fight them if necessary【376067536546693†L146-L146】.  Bring high‑tier Pal Spheres and weaken the ground‑type Pal before capturing.
 2. **Unlock the saddle:** Reach **Level 12**, then spend two technology points to unlock the **Eikthyrdeer Saddle**【960495633276618†L192-L203】.  Gather **5 Leather, 20 Fiber, 10 Ingots, 3 Horns, and 15 Paldium fragments** to craft the saddle【960495633276618†L179-L191】.
 3. **Craft and equip:** Use the Pal Gear Workbench to craft the saddle.  Equip it in the Pal Gear menu and mount Eikthyrdeer to enjoy faster travel and increased logging efficiency【960495633276618†L206-L213】.
+
+*Related quick guides:* Capturing Specific Legendary Pals; Crafting Pal Gear & Saddles.
 
 **Next step:** Use your mount to explore mid‑game regions like **Cinnamoth Forest** (−77, −310) for sulfur and ore【715083186508802†L142-L148】.
 
@@ -51,6 +59,8 @@ These guides are designed to replace the generic tips from earlier versions with
 2. **Sealed Realm of the Guardian:** For coal farming, set up a satellite base near **(180, −39)**; this area has plentiful coal and is ideal for powering furnaces【715083186508802†L150-L155】.
 3. **Upgrade base level:** Build additional structures (e.g., Primitive Furnace, Ranch, Crusher) and assign Pals to them.  Completing more structures raises your base level, allowing you to employ more Pals simultaneously.
 
+*Related quick guides:* Base Location: Cinnamoth Forest; Base Location: Sealed Realm of the Guardian; Managing Base Sanity & Pal Morale.
+
 **Next step:** With resource production automated, prepare to challenge your first tower boss.
 
 ### 6. Confront the First Tower Boss (Zoe & Grizzbolt)
@@ -59,6 +69,8 @@ These guides are designed to replace the generic tips from earlier versions with
 1. **Gather a balanced team:** Assemble Pals with **Ground‑type** moves (e.g., Rushoar or Grizzbolt) to counter the boss’s **Electric** element【243842513808367†L60-L67】.  Reach at least Level 20 and craft firearms or crossbows.
 2. **Reach Rayne Syndicate Tower:** Travel west of your starting area to **(110, −431)**【243842513808367†L60-L67】.  Activate the fast travel point outside for quick access.
 3. **Prep and fight:** Equip healing items and ranged weapons.  During the fight, focus on dodging Grizzbolt’s electric attacks and exploit its weakness with Ground moves.  You must deal ~30k damage within 10 minutes.  Upon victory you receive several Ancient Technology Points.
+
+*Related quick guides:* Tower Boss: Zoe & Grizzbolt; First Combat Tips; Crafting Weapons: Crossbows, Bows & Guns.
 
 **Next step:** Spend your Ancient Technology Points on the **Grappling Gun** or **Egg Incubator**, then plan your next tower assault.
 
@@ -69,6 +81,8 @@ These guides are designed to replace the generic tips from earlier versions with
 2. **Duneshelter:** Travel to the Dessicated Desert at **(356, 346)**.  Bring heat protection for daytime and cold protection for night【751885980579990†L281-L286】.  Trade with merchants for weapons and ammo; be aware of NPCs glitching underground (reload the game to fix). 
 3. **Fisherman’s Point:** Visit **(−479, −745)** near Mount Obsidian【751885980579990†L298-L303】.  Buy seafood, fish Pals and other supplies.  Watch out for volcanic hazards if you venture inland.
 4. **Wandering merchant camps:** Look for merchants at **Marsh Island (432, −272)**, **Sea Breeze Archipelago (−189, −601)** and **Forgotten Island (−397, 17)**【751885980579990†L315-L337】.  Note the items each merchant specializes in (red vs. green)【751885980579990†L358-L379】.
+
+*Related quick guides:* Refreshing Vendor Stock; Selling & Trading Items; Vendor & Merchant Mechanics.
 
 **Next step:** Save up gold by selling extra Pals or resources to merchants; you’ll need funds for legendary spheres later.
 
@@ -81,6 +95,8 @@ These guides are designed to replace the generic tips from earlier versions with
 2. **Firearms:** Unlock **Musket** and **Handgun** technologies.  Craft **Gunpowder** by combining **Sulfur** and **Charcoal** in the Furnace, then craft bullets at the Weapon Workbench.
 3. **Lockpicking Tools v1–v3:** Craft lockpicks at the Workbench using **Ingot, Paldium** and **Fiber**.  Use them to open locked chests found in dungeons and supply drops.  Higher tiers open more complex locks.
 
+*Related quick guides:* Unlocking the Technology Tree; Crafting Weapons: Crossbows, Bows & Guns; Crafting Lockpicking Tools (v1‑v3).
+
 **Next step:** Continue leveling and collecting sulfur, coal and oil to prepare for later raids and bosses.
 
 ### 9. Challenge Subsequent Towers
@@ -90,6 +106,8 @@ These guides are designed to replace the generic tips from earlier versions with
 2. **Eternal Pyre Tower (Axel & Orserk):** Head to **(−584, −514)** in the southwestern volcanic region【243842513808367†L60-L67】.  Use **Ice** and **Ground** attacks against their Dragon/Electric elements.  Equip heat‑resistant armour.
 3. **Tower of the PIDF (Marcus & Faleris):** Located at **(558, 338)**【243842513808367†L60-L67】, this fight requires **Water‑type** Pals to exploit Faleris’ Fire weakness.  Craft extra cooling gear for the desert climate.
 4. **Pal Genetic Research Unit (Victor & Shadowbeak):** The final tower at **(−150, 440)** pits you against Dark/Dragon types【243842513808367†L60-L67】.  Bring **Dragon‑ and Ice‑type** Pals and the best weapons you have.
+
+*Related quick guides:* Tower Boss: Lily & Lyleen; Tower Boss: Axel & Orserk; Tower Boss: Victor & Shadowbeak.
 
 **Next step:** After clearing all towers, you’ll have ample Ancient Tech Points.  Invest in Electric Incubators, advanced saddles and end‑game weapons.
 
@@ -102,6 +120,8 @@ These guides are designed to replace the generic tips from earlier versions with
 2. **Frostallion (Ice Mount):** Seek out Frostallion in the snowy regions (coordinate details vary).  Use **Fire‑type** attacks and heavy armour.  The mount provides a fast ground‑and‑air hybrid ride and high damage.  
 3. **Other legendaries:** Hunt **Necromus, Paladius** and **Jormuntide Ignis** in high‑level regions; each requires specialised Pals and legendary spheres.  Consult updated patch notes for spawn coordinates and strategies.
 
+*Related quick guides:* Capturing Specific Legendary Pals; Pal Sphere Tiers & Catch Rates; Best Pals for Combat.
+
 **Next step:** With multiple legendary mounts, you can tackle world events, raids and co‑op challenges with ease.
 
 ### 11. Complete Raids and Seasonal Events
@@ -111,6 +131,8 @@ These guides are designed to replace the generic tips from earlier versions with
 2. **Stock supplies:** Craft hundreds of bullets, rockets, potions and food.  Bring backup weapons and armour sets tailored to the raid’s element.
 3. **Learn mechanics:** Pay attention to raid cues (e.g., telegraphed AoE attacks) and prioritise adds (minions) when they spawn.  Use terrain to your advantage.
 4. **Claim rewards:** Defeating a raid boss yields powerful gear, rare Pals and cosmetic items.  Repeat raids for better rolls.
+
+*Related quick guides:* Raids: Xenolord & Blazamut Ryu; Raid: Bellanoir & Bellanoir Libero; Boss: Moon Lord Raid.
 
 **Next step:** Participate in limited‑time events (e.g., **Terraria** crossover) to obtain unique Pals and skins.
 

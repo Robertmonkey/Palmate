@@ -12,6 +12,15 @@ Routes are adaptive in three ways:
 2. **Resource dependencies** – When a route requires materials (e.g. a saddle needing Leather), it either contains steps to gather those materials or branches to a **resource subroute**.  The amount of material required is calculated from the current recipe (plus a buffer for Hardcore).  This ensures players never get stuck because they are missing ingredients.
 3. **Dynamic rules** – Each route now ships with machine-readable triggers (level gaps, time budgets, resource shortages, party composition, player goals) that tell the recommender how to pivot the route.  When the player’s context matches a rule, Palmate explains the adjustment (e.g. “Skip the capture step and craft now”) and boosts that route’s score.
 
+## Guide Suite
+
+| File | Audience | Purpose |
+| --- | --- | --- |
+| `guides.md` | Palmate runtime & integrators | Master data file with schema, ontologies, XP tables and machine-readable routes. |
+| `palworld_complete_guide.md` | Researchers, tool builders | Encyclopedic catalogue of every quick guide plus detailed step-by-step instructions, now aligned with the other documents. |
+| `palworld_purposeful_guides.md` | Players seeking a directed campaign | Goal-driven progression playbooks that link out to the relevant quick guides and missions. |
+| `palworld_full_route_normal_coop_optional.md` | Families and co-op duos on Normal | Checkbox-focused story route covering all towers with optional co-op chores and kid-friendly wording. |
+
 ## Data Layout
 
 All game data lives in **guides.md**.  The file is organised into human‑readable sections followed by machine‑readable JSON blocks.  The main sections are:
