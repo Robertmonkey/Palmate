@@ -1,7 +1,10 @@
 import guide from '../../data/route.chapters.json' assert { type: 'json' };
+import dataset from '../../data/palworld_complete_data_final.json' assert { type: 'json' };
+import itemDetails from '../../data/item_details.json' assert { type: 'json' };
 
 const STORAGE_KEY = 'palmarathon:route:v1';
 const PREFERENCES_KEY = 'palmarathon:route:prefs:v1';
+const LINK_IMAGE_INDEX = buildLinkImageIndex(dataset, itemDetails);
 
 export function renderRoute(node){
   const kidMode = isKidMode();
@@ -504,7 +507,13 @@ function renderLinks(links){
     const typeToken = linkTypeToken(l?.type);
     const typeAttr = typeToken ? ` data-link-type="${typeToken}"` : '';
     const titleAttr = label ? ` title="${safeLabel}"` : '';
-    return `<a href="#" class="chip link" data-link="${payload}"${typeAttr}${titleAttr} role="button">${safeLabel}</a>`;
+    const image = findLinkImage(l);
+    const classes = ['chip', 'link'];
+    if(image) classes.push('link--with-thumb');
+    const thumb = image
+      ? `<span class="chip__thumb"><img src="${escapeHTML(image)}" alt="${safeLabel}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>`
+      : '';
+    return `<a href="#" class="${classes.join(' ')}" data-link="${payload}"${typeAttr}${titleAttr} role="button">${thumb}<span class="chip__label">${safeLabel}</span></a>`;
   }).join('')}</div>`;
 }
 
@@ -557,6 +566,88 @@ function linkLabel(l){
   }
   if(id) return niceName(id);
   return 'Open';
+}
+
+function findLinkImage(link){
+  if(!link) return null;
+  if(link.image && typeof link.image === 'string') return link.image;
+  const candidates = [];
+  if(link.id != null) candidates.push(link.id);
+  if(link.slug != null) candidates.push(link.slug);
+  if(link.name) candidates.push(link.name);
+  if(link.label) candidates.push(link.label);
+  if(link.type === 'pal' && link.key) candidates.push(link.key);
+  const seen = new Set();
+  for(const candidate of candidates){
+    if(candidate == null) continue;
+    const raw = String(candidate);
+    if(!raw) continue;
+    if(!seen.has(raw)){
+      seen.add(raw);
+      const direct = LINK_IMAGE_INDEX.get(raw);
+      if(direct) return direct;
+    }
+    const normalized = normalizeLinkKey(raw);
+    if(normalized && !seen.has(normalized)){
+      seen.add(normalized);
+      const mapped = LINK_IMAGE_INDEX.get(normalized);
+      if(mapped) return mapped;
+    }
+  }
+  return null;
+}
+
+function normalizeLinkKey(value){
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+function buildLinkImageIndex(primaryDataset, detailDataset){
+  const map = new Map();
+  const register = (key, url) => {
+    if(!key || !url) return;
+    const raw = String(key);
+    if(raw && !map.has(raw)){
+      map.set(raw, url);
+    }
+    const normalized = normalizeLinkKey(raw);
+    if(normalized && !map.has(normalized)){
+      map.set(normalized, url);
+    }
+  };
+  const stack = [];
+  if(primaryDataset) stack.push(primaryDataset);
+  if(detailDataset) stack.push(detailDataset);
+  while(stack.length){
+    const current = stack.pop();
+    if(!current) continue;
+    if(Array.isArray(current)){
+      for(let i = 0; i < current.length; i += 1){
+        stack.push(current[i]);
+      }
+      continue;
+    }
+    if(typeof current === 'object'){
+      const image = typeof current.image === 'string' && current.image
+        ? current.image
+        : (typeof current.icon === 'string' ? current.icon : null);
+      if(image){
+        if(current.id != null) register(current.id, image);
+        if(current.key != null) register(current.key, image);
+        if(current.slug) register(current.slug, image);
+        if(current.name) register(current.name, image);
+      }
+      for(const key of Object.keys(current)){
+        const child = current[key];
+        if(child && typeof child === 'object'){
+          stack.push(child);
+        }
+      }
+    }
+  }
+  return map;
 }
 
 // --- Navigation glue to existing pages/modals ---
