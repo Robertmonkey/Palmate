@@ -1041,11 +1041,15 @@
       padding: clamp(32px, 4.2vw, 52px);
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      grid-template-areas:
+        "intro intro"
+        "mode focus";
       gap: clamp(28px, 5vw, 56px);
       background: radial-gradient(circle at top left, rgba(119, 141, 169, 0.55), transparent 55%),
         linear-gradient(135deg, rgba(31, 52, 78, 0.95), rgba(13, 27, 42, 0.85));
       border: 1px solid rgba(148, 210, 189, 0.32);
       overflow: visible;
+      align-items: start;
     }
 
     .home-hero::after {
@@ -1061,6 +1065,7 @@
     }
 
     .home-hero__intro {
+      grid-area: intro;
       position: relative;
       z-index: 1;
       display: grid;
@@ -1108,6 +1113,7 @@
     }
 
     .home-hero__mode {
+      grid-area: mode;
       display: flex;
       gap: 10px;
       align-items: center;
@@ -1116,6 +1122,7 @@
       background: rgba(13, 27, 42, 0.65);
       border: 1px solid rgba(119, 141, 169, 0.25);
       flex-wrap: wrap;
+      align-self: stretch;
     }
 
     .home-hero__mode-label {
@@ -1195,6 +1202,7 @@
     }
 
     .home-hero__panel {
+      grid-area: focus;
       position: relative;
       z-index: 1;
       display: grid;
@@ -1553,9 +1561,10 @@
     @media (max-width: 900px) {
       .home-hero {
         grid-template-columns: 1fr;
-      }
-      .home-hero__panel {
-        order: -1;
+        grid-template-areas:
+          "intro"
+          "mode"
+          "focus";
       }
       .home-spotlight {
         grid-template-columns: 1fr;
@@ -9726,6 +9735,7 @@
       actions.appendChild(plannerBtn);
       actions.appendChild(progressBtn);
       intro.appendChild(actions);
+      hero.appendChild(intro);
       const modeWrap = document.createElement('div');
       modeWrap.className = 'home-hero__mode';
       const modeLabel = document.createElement('span');
@@ -9739,8 +9749,7 @@
       modeToggle.appendChild(createModeCard('grown'));
       modeWrap.appendChild(modeLabel);
       modeWrap.appendChild(modeToggle);
-      intro.appendChild(modeWrap);
-      hero.appendChild(intro);
+      hero.appendChild(modeWrap);
 
       const panel = document.createElement('div');
       panel.className = 'home-hero__panel';
@@ -10065,30 +10074,96 @@
       });
     }
 
-    function ensureRouteGuide(){
+    async function ensureRouteGuide(){
       if(routeGuideData){
-        return Promise.resolve(routeGuideData);
+        return routeGuideData;
       }
-      return fetch('guides.md')
-        .then(res => {
-          if(!res.ok){ throw new Error(`HTTP ${res.status}`); }
-          return res.text();
-        })
-        .then(text => {
-          const parsed = parseGuideMarkdown(text || '');
-          return augmentGuideData(parsed);
-        })
-        .then(guide => {
-          routeGuideData = guide;
-          ensureGuideCatalogFiltersValid();
-          ensurePurposefulGuideFiltersValid();
-          return routeGuideData;
-        })
-        .catch(err => {
-          console.error('Failed to load adaptive guide', err);
-          routeGuideData = { routes: [], chapters: [], tags: [], routeLookup: {}, metadata: null, recommender: null, guideCatalog: null };
-          return routeGuideData;
-        });
+      try {
+        const guide = await loadGuideDataset();
+        routeGuideData = guide;
+        ensureGuideCatalogFiltersValid();
+        ensurePurposefulGuideFiltersValid();
+        return routeGuideData;
+      } catch (err) {
+        console.error('Failed to load adaptive guide', err);
+        routeGuideData = createEmptyGuideData();
+        return routeGuideData;
+      }
+    }
+
+    async function loadGuideDataset(){
+      const markdown = await loadGuideFromMarkdown();
+      if(markdown && Array.isArray(markdown.routes) && markdown.routes.length){
+        try {
+          return await augmentGuideData(markdown);
+        } catch(err){
+          console.warn('Failed to augment guide markdown', err);
+        }
+      }
+      const bundled = await loadBundledGuideData();
+      if(bundled && Array.isArray(bundled.routes) && bundled.routes.length){
+        try {
+          return await augmentGuideData(bundled);
+        } catch(err){
+          console.warn('Failed to augment bundled guide data', err);
+        }
+      }
+      throw new Error('Guide datasets unavailable');
+    }
+
+    function createEmptyGuideData(){
+      return {
+        routes: [],
+        chapters: [],
+        tags: [],
+        routeLookup: {},
+        metadata: null,
+        xp: null,
+        levelEstimator: null,
+        recommender: null,
+        guideCatalog: null,
+        extras: [],
+        errors: []
+      };
+    }
+
+    async function loadGuideFromMarkdown(){
+      try {
+        const res = await fetch('guides.md');
+        if(!res.ok){
+          throw new Error(`HTTP ${res.status}`);
+        }
+        const text = await res.text();
+        if(!text){
+          return null;
+        }
+        const parsed = parseGuideMarkdown(text || '');
+        if(!Array.isArray(parsed.routes) || !parsed.routes.length){
+          console.warn('Guide markdown parsed without routes; attempting bundled fallback.');
+        }
+        return parsed;
+      } catch(err){
+        console.warn('Failed to fetch guide markdown', err);
+        return null;
+      }
+    }
+
+    async function loadBundledGuideData(){
+      try {
+        const res = await fetch('data/guides.bundle.json');
+        if(!res.ok){
+          throw new Error(`HTTP ${res.status}`);
+        }
+        const payload = await res.json();
+        if(payload && typeof payload === 'object'){
+          if(!Array.isArray(payload.routes)) payload.routes = [];
+          if(!Array.isArray(payload.extras)) payload.extras = [];
+          return payload;
+        }
+      } catch(err){
+        console.warn('Failed to load bundled guide data', err);
+      }
+      return null;
     }
 
     function parseGuideMarkdown(markdown){
