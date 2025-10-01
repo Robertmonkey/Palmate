@@ -9906,7 +9906,6 @@
     let pendingTechFocus = null;
     const ROUTE_ART_IMAGE = 'assets/images/palworld-full-map-2.webp';
     const ROUTE_LIBRARY_DEFAULT_LIMIT = 12;
-    const GUIDE_CATALOG_DEFAULT_LIMIT = 24;
     const ROUTE_THEME_ART_SOURCES = {
       generic: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/058bd87dc17a7179e07c446aa64d0574ca43ab9d/header.jpg?t=1759163961',
       pal: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_f81b7c4f20be3b99f76a1415c4cdb9b444c99b97.1920x1080.jpg?t=1759163961',
@@ -12659,27 +12658,13 @@
         return;
       }
 
-      const limit = (!hasQuery && !usingFilters)
-        ? Math.min(GUIDE_CATALOG_DEFAULT_LIMIT, totalFiltered)
-        : totalFiltered;
+      const limit = totalFiltered;
       const displayEntries = entries.slice(0, limit);
       list.innerHTML = displayEntries.map(renderGuideCatalogCard).join('');
-      if(!hasQuery && !usingFilters && totalFiltered > limit){
-        const hint = kidMode
-          ? 'Use search or filters to open the full encyclopedia.'
-          : 'Use search or filters to browse the full encyclopedia.';
-        list.insertAdjacentHTML('beforeend', `<p class="guide-catalog__hint">${escapeHTML(hint)}</p>`);
-      }
       if(countNode){
         let label;
         if(!hasQuery && !usingFilters){
-          if(totalFiltered > limit){
-            label = kidMode
-              ? `Showing ${limit}/${totalEntries} guides`
-              : `Showing ${limit} of ${totalEntries} guides`;
-          } else {
-            label = `${totalEntries} ${totalEntries === 1 ? 'guide' : 'guides'}`;
-          }
+          label = `${totalEntries} ${totalEntries === 1 ? 'guide' : 'guides'}`;
         } else if(totalFiltered === totalEntries){
           label = `${totalFiltered} ${totalFiltered === 1 ? 'guide' : 'guides'}`;
         } else {
