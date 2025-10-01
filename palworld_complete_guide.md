@@ -1,1295 +1,726 @@
-# Complete Palworld Guide Catalogue with Step‑by‑Step Instructions (2025)
-
-This comprehensive guide consolidates the catalogue of over 100 Palworld guides, their metadata (categories, trigger phrases and keywords) and detailed step‑by‑step instructions for accomplishing each task.  Citations from reliable sources are included to support key mechanics and features.  Use this document to develop or integrate a complete knowledge base for Palworld.
-
-> **Guide suite context:** This catalogue focuses on granular how‑to entries.  For a narrative, goal‑driven route that strings these tasks together, queue the **Purposeful Arc** campaigns inside `guides.md`.  For a checkbox-style family playthrough of the Normal difficulty towers, refer to **`palworld_full_route_normal_coop_optional.md`**.  The suites share terminology so you can move between them without re-learning concepts.
-
-## Guide Catalogue and Metadata
-
-### Getting Started & Core Missions
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| Activate Great Eagle Statues | Missions | Player asks about fast‑travel or Great Eagle statues | fast travel, eagle statue, teleport |
-| First Gathering Run | Missions | New players learning how to gather basic materials | early game, gather wood, branches |
-| Build a Workbench | Missions | When players need to craft more complex items | workbench, crafting bench, base setup |
-| Unlock Technology | Missions | Player wants to access the technology tree | tech tree, unlock tech |
-| Find Paldium & Craft Pal Spheres (Capturing Device) | Resources | When players ask about obtaining Paldium fragments or making capture devices | Paldium, capture device, Pal sphere |
-| Catch Your First Pal | Capturing | Triggered when players ask how to catch a Pal or about Pal spheres | capture Pal, first Pal |
-| Build a Palbox | Base Building | Player asks about storing or healing Pals | Palbox, storage, healing |
-| Establish a Starting Base | Base Building | When players want tips on their first base location | first base, starting base, base location |
-| Assign Pals to Work | Base Management | Players need to automate tasks and understand base assignments | assign Pals, base work, automation |
-| Gathering Food & Red Berries | Resources | When players ask how to feed themselves or Pals | food, hunger, red berries |
-| Craft Protective Clothing | Crafting | Player encounters extreme weather (cold/heat) | clothing, cold resistant, armor |
-| Increase Character Stats | Mechanics | When players inquire about leveling up or improving stats | level up, enhance stats |
-| Stay Alive & Survival Options | Survival | Player asks about survival basics | survival tips, health, hunger |
-| First Combat Tips | Combat | When players ask how to fight or defend early on | combat basics, fighting |
-
-### Base Building & Management
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| Choosing a Base Location (Plateau of Beginnings) | Base Building | Player asks about ideal base sites in early game | base location, plateau of beginnings |
-| Base Location: Small Settlement | Base Building | Player looking for abundant ore & wood | base location, small settlement |
-| Base Location: Cinnamoth Forest | Base Building | Mid‑game players seeking ore and sulfur | base location, Cinnamoth forest |
-| Base Location: Sealed Realm of the Guardian | Base Building | When players need coal for tech upgrades | base location, coal farming |
-| Base Location: Sakurajima Island | Base Building | Late‑game players farming crude oil | base location, crude oil |
-| Setting Up Your First Base | Base Building | Player asks how to place Palbox and structures | base setup, Palbox |
-| Upgrading Base Level | Base Building | Triggered when players ask about increasing base size | base level, upgrade |
-| Base Layout & Design Ideas | Base Building | Player wants inspiration for efficient or aesthetic bases | base design, layout |
-| Defensive Structures & Fortifications | Base Building | Player asks how to defend against raids | defenses, walls, turret |
-| Managing Base Sanity & Pal Morale | Base Management | Questions about Pal sanity or overwork | SAN, morale, rest |
-| Assigning Work Pals (Transport, Kindling) | Base Management | Player wants best Pals for tasks like carrying or kindling | work Pals, transport, kindling |
-| Assigning Work Pals (Handiwork, Mining) | Base Management | Player asks about craft or mining Pals | handiwork, mining |
-| Assigning Work Pals (Watering, Lumbering) | Base Management | Players need watering or wood‑cutting Pals | watering, lumbering |
-| Assigning Work Pals (Medicine & Planting) | Base Management | Player asks about medicine or planting tasks | medicine production, planting |
-| Automating Resource Production Lines | Base Management | When players ask about continuous production | automation, production lines |
-| Using Power Generators & Batteries | Base Management | Players wonder how to generate electricity | electricity, generator |
-| Managing Farming Plots & Gardens | Base Management | Player asks about growing crops | farming, gardens |
-| Handling Weather & Environmental Hazards | Survival | Questions about storms, heat, cold at base | weather, hazards |
-| Palbase Upkeep & Repairs | Base Management | Triggered when structures are damaged | repairs, maintenance |
-
-### Resources & Crafting
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| Gathering Wood & Stone | Resources | Player asks about collecting basic building materials | wood, stone, gathering |
-| Mining Ore & Coal | Resources | When players need ore for crafting or coal for tech | ore, coal mining |
-| Harvesting Sulfur | Resources | Player seeks sulfur for gunpowder | sulfur, explosive materials |
-| Farming Crude Oil & Dog Coins | Resources | Triggered by questions about late‑game fuel or currency | crude oil, dog coins |
-| Collecting Fiber & Cloth | Resources | Players need cloth for clothing | fiber, cloth |
-| Gathering Paldium Fragments | Resources | Player asks how to get Paldium for spheres | Paldium, pal spheres |
-| Hunting for Leather & Wool | Resources | When players need hides for armor or gear | leather, wool, fur |
-| Fishing & Catching Water Pals | Resources | Questions about fishing mechanics or aquatic Pals | fishing, water Pals |
-| Farming Red Berries & Crops | Resources | Player wants to plant food or feed Pals | farming, crops |
-| Mining Chromite & Precious Metals | Resources | When players need rare metals for late‑game gear | chromite, precious metals |
-| Farming Life Fruit & Skill Fruits | Resources | Player asks about healing items or skill fruit | life fruit, skill fruit |
-| Harvesting Nightstar Sand | Resources | Questions about special glowing sand for crafting | nightstar sand, glowing sand |
-| Locating Meteorite & Supply Drops | Resources | Player wants to find rare drops from events | meteorite, supply drop |
-| Collecting Eggs & Incubation | Breeding | When players ask about finding eggs and hatching | eggs, incubator |
-| Refreshing Vendor Stock | Economy | Player asks how to refresh merchant inventory | vendor stock, merchants |
-| Selling & Trading Items | Economy | Players want to trade items or Pals for gold | trade, sell, economy |
-
-### Technology & Crafting Tools
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| Unlocking the Technology Tree | Technology | Player asks how to spend technology points | tech tree, unlock technology |
-| Crafting Pal Gear & Saddles | Crafting | When players need gear specific to each Pal | pal gear, saddles |
-| Crafting Weapons: Crossbows, Bows & Guns | Crafting | Player asks about available weapons and recipes | guns, bows, crossbows |
-| Crafting Heavy Weapons: Rocket Launcher, Minigun | Crafting | When players want high‑damage weapons | rocket launcher, minigun |
-| Building a Glider & Upgrades | Technology | Player wants to glide or travel faster | glider, travel |
-| Crafting Lockpicking Tools (v1‑v3) | Crafting | Player needs to open locked chests | lockpicking tool, chest |
-| Creating Armor: Cold/Heat‑Resistant, Refinement | Crafting | Questions about protective armor sets | armor, cold resistant, heat resistant |
-| Making Accessory Slots & Accessories | Technology | Player wants extra accessory slots or rings | accessories, slots |
-| Building Explosives: Bombs & Grenades | Crafting | When players ask about demolitions or combat bombs | explosives, grenades |
-| Crafting Medicine & Recovery Items | Crafting | Player asks how to cure sickness or injuries | medicine, recovery |
-| Cooking & Food Recipes | Crafting | When players need better healing food for themselves or Pals | cooking, recipes |
-| Building Transport: Airships & Boats | Technology | If players ask about large mounts or vehicles | airship, boat, transport |
-| Crafting Taming Devices & Traps | Crafting | Player asks about taming rare Pals | trap, taming device |
-| Creating Electric Incubators | Breeding | Player wants to speed up egg hatching | electric incubator, egg |
-| Building Fences & Pens | Base Building | When players need to separate Pals or livestock | fence, pen |
-| Installing Lighting & Heating | Base Building | Player asks about base environment comfort | lighting, heating, comfort |
-| Building Battery Stations & Power Infrastructure | Technology | When players want to store electricity | battery, power grid |
-
-### Combat & Boss Guides
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| Combat Basics & Controls | Combat | Player asks how to fight or dodge | combat basics, dodge, attack |
-| Element Types & STAB Explained | Combat | When players need to understand element matchups | element types, STAB |
-| Status Conditions & Cures | Combat | Player asks about burns, freezes, poison etc. | status effects, cure |
-| How to Use Melee Weapons | Combat | When players ask about swords, spears and clubs | melee weapons, sword |
-| How to Use Ranged Weapons | Combat | Player asks about firearms or bows | ranged weapons, guns |
-| Tower Boss: Zoe & Grizzbolt | Boss | When players need strategy for first tower | tower boss, Zoe, Grizzbolt |
-| Tower Boss: Lily & Lyleen | Boss | Player asks about second tower fight | tower boss, Lily, Lyleen |
-| Tower Boss: Axel & Orserk | Boss | Triggered when facing third tower | tower boss, Axel, Orserk |
-| Tower Boss: Victor & Shadowbeak | Boss | Player wants to defeat final tower boss | tower boss, Victor, Shadowbeak |
-| Raids: Xenolord & Blazamut Ryu | Boss | Player asks about raid strategies | raid boss, Xenolord, Blazamut Ryu |
-| Raid: Bellanoir & Bellanoir Libero | Boss | When players join seasonal raids | raid boss, Bellanoir |
-| Boss: Bjorn & Bastigor (Feybreak) | Boss | Player needs to defeat Bjorn/Bastigor | Bjorn, Bastigor, Feybreak |
-| Boss: Eye of Cthulu (Terraria) | Boss | Triggered by Terraria crossover event | Eye of Cthulu, Terraria event |
-| Boss: Moon Lord Raid | Boss | When players ask about Moon Lord fight | Moon Lord, Terraria raid |
-| Predator Pal Locations & Tactics | Combat | Questions about strong wandering Pals | predator Pals, location |
-| Fighting Alpha Pals | Combat | Player asks how to defeat alpha versions | alpha Pals, fight |
-| PVP Combat & Arena | PVP | Questions about PVP arenas and rules | PVP, arena, duel |
-| Best Pals for Combat | Combat | Player wants recommended combat Pals | combat Pals, tier list |
-| Best Weapons & Loadouts | Combat | When players ask about the strongest weapons | weapons, loadout |
-| Managing Stamina & Dodging | Combat | Player complains about low stamina in battle | stamina, dodging |
-| Breaking Enemy Shields & Armor | Combat | Questions about dealing with armored foes | shield, armor break |
-| Crowd Control & AoE Strategies | Combat | When facing multiple enemies | AoE, crowd control |
-| Base Defense Against Raids | Base Defense | Player asks how to protect base during raids | base defense, raid |
-
-### Pals & Capture
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| How to Capture Pals | Capturing | Player asks general question about capturing | capture Pal, how to capture |
-| Pal Sphere Tiers & Catch Rates | Capturing | Player needs to know differences between spheres | Pal sphere, catch rate |
-| Sneaking & Back‑Attack Captures | Capturing | When players ask about stealth capture techniques | sneak, back attack |
-| Capturing Alpha Pals | Capturing | Triggered when facing alpha versions in the wild | alpha capture, boss capture |
-| Capturing Specific Legendary Pals | Capturing | Player names a specific Pal (e.g., Jetragon) | legendary Pal capture |
-| All Pal Locations by Region | Capturing | Player wants to know where to find each Pal | location, region, map |
-| Pals by Element (Fire, Water, etc.) | Palpedia | Player asks about element‑based Pals | element Pal list |
-| Pals for Base Work (Transport & Kindling) | Palpedia | When players ask which Pals help around the base | work Pals, base |
-| Pals for Crafting & Handiwork | Palpedia | Player wants to know which Pals craft items faster | craft Pals, handiwork |
-| Pals for Mining & Lumbering | Palpedia | Player asks which Pals mine ore or chop wood | mining Pals, lumbering |
-| Pals for Farming & Planting | Palpedia | When players need help planting crops | farming Pals, planting |
-| Pals for Cooling & Heating | Palpedia | Player wants Pals to regulate base temperature | cooling Pals, heat |
-| Pals for Electricity Generation | Palpedia | Player needs power generation | electricity Pals, power |
-| Passive Skills Explained | Palpedia | Player asks about passive skill categories | passive skills, categories |
-| Active & Partner Skills Explained | Palpedia | When players want to understand Pal skills | active skills, partner skill |
-| How to Increase Pal Affinity & Trust | Pal Care | Player asks how to improve bond with Pals | affinity, trust |
-| Pal Morale & Sanity | Pal Care | Player wants to prevent overwork or insanity | SAN, morale |
-| Pal Skins & Cosmetics | Pal Customization | Questions about different skins and how to unlock them | Pal skins, cosmetics |
-| Pal Gear & Equipment | Pal Customization | Player needs to equip harnesses or saddles | gear, saddle |
-| Element Swap & Subspecies | Palpedia | When players ask about changing element or obtaining subspecies | element swap, subspecies |
-| Evolving & Leveling Up Pals | Pal Progression | Player wants to improve Pal stats quickly | leveling Pals, evolution |
-| Pal Stat Distribution & IVs | Mechanics | Questions about IVs and how to check them | IV, stats |
-| Capturing Pals Without Damage | Capturing | Player wants non‑lethal capture methods | non lethal, capture |
-
-### Breeding & Eggs
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| Unlocking the Breeding Farm | Breeding | Player asks how to start breeding | breeding farm, tech level 19 |
-| Making Cake & Feeding Pals | Breeding | Player needs to craft cake to breed Pals | cake recipe, breeding fuel |
-| Basic Breeding Mechanics | Breeding | Player asks how breeding works or stat inheritance | breeding mechanics, inheritance |
-| Breeding for Passive Skills | Breeding | Triggered when players want to pass Legend or Lucky skills | passive skills, chain breeding |
-| Best Breeding Combos for Top Pals | Breeding | Player needs combinations for strong offspring | breeding combos, top Pals |
-| Early‑Game Breeding Combos | Breeding | Player seeks combos using common Pals | early breeding, beginner |
-| Breeding Combos by Role: Work Pals | Breeding | When players ask for base‑worker combos | work breeding, artisan |
-| Breeding Combos by Role: Combat DPS Pals | Breeding | Player wants to breed DPS Pals | combat breeding, DPS |
-| Breeding Combos by Role: Defense/Tank Pals | Breeding | When players need tanks or defenders | tank breeding, defense |
-| Breeding Combos by Role: Mobility/Utility Pals | Breeding | Player asks for mounts or utility Pals | mobility breeding, mount |
-| Breeding Combos by Role: Support/Healing Pals | Breeding | When players want healers or support Pals | support breeding, healing |
-| Hatching Eggs & Using Incubators | Breeding | Player asks about egg incubation times | egg hatching, incubator |
-| Obtaining Alpha Eggs & Huge Eggs | Breeding | When players want Alpha or subspecies eggs | Alpha egg, huge egg |
-| Breeding Cross‑Species & Subspecies | Breeding | Questions about cross‑breeding for special Pals | cross breed, subspecies |
-| Passive Skill Probability & Inheritance | Breeding | Player asks about the chances of passives transferring | passive probability, inheritance |
-| Breeding Farm Efficiency Tips | Breeding | When players want to speed up breeding or reduce wait time | efficiency, breeding tips |
-
-### Exploration, Maps & Dungeons
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| Interactive Map Overview | Exploration | Player wants to see map or markers for chests/effigies | map, interactive map |
-| All Alpha Pal Locations | Exploration | When players ask where to find Alpha Pals | alpha locations, world boss |
-| Dungeon Guide: Hillside Cavern | Dungeon | Player wants to clear Hillside Cavern | dungeon guide, hillside |
-| Dungeon Guide: Mountain Stream Grotto | Dungeon | Questions about low‑level dungeon | mountain stream, grotto |
-| Dungeon Guide: Isolated Island Cavern | Dungeon | Player needs to explore island cave | isolated island, cavern |
-| Dungeon Guide: Ravine Grotto | Dungeon | When players ask about ravine dungeon | ravine, dungeon |
-| Dungeon Guide: Cavern of the Dunes | Dungeon | Exploring desert dungeon | dunes, cavern |
-| Dungeon Guide: Frozen Abyss | Dungeon | Player asks about tundra/ice dungeon | frozen abyss, ice dungeon |
-| Dungeon Guide: Astral Mountain Ruins | Dungeon | When players explore the Astral Mountains | astral mountain, ruins |
-| Dungeon Guide: Ocean Depths | Dungeon | Player wants underwater dungeon tips | ocean, underwater |
-| Map: Effigies & Totems Locations | Exploration | Player asks about upgrading skill points | effigy, totem location |
-| Map: Treasure Chests & Lockboxes | Exploration | When players ask for chest locations | treasure chest, lockbox |
-| Map: Egg & Breeding Locations | Exploration | Player asks where to find eggs | egg location, egg map |
-| Map: Meteorite & Supply Drop Locations | Exploration | When players want to farm event items | meteorite map, supply drop |
-| Weather & Biomes Explained | Exploration | Player asks how weather affects exploration | biome, weather |
-| Traversal Tips: Climbing, Gliding, Swimming | Exploration | Questions about mobility skills | traversal, climbing, swimming |
-| Secrets & Hidden Areas | Exploration | Player wants to find hidden caves or easter eggs | secret area, hidden |
-| Sanctuary & Wildlife Reserve Guide | Exploration | When players ask about wildlife sanctuaries or safe zones | sanctuary, wildlife |
-| Fast Travel Network Guide | Exploration | Player needs to use or unlock fast travel points | fast travel, network |
-| Collecting Journals & Lore Entries | Exploration | Questions about story or lore items | journals, lore |
-
-### Special Updates & Events
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| Tides of Terraria Content Overview | Update | Player asks what’s included in the Terraria collaboration | Terraria update, new island |
-| Tides of Terraria: New Pals | Update | Questions about Herbil, Icelyn, Frostplume and other new Pals | Terraria pals, new pals |
-| Tides of Terraria: How to Get Terraria Items | Update | Player wants to obtain Terraria crossover items | Terraria items, crossover |
-| How to Recruit Zoe (Terraria NPC) | Update | When players ask about recruiting the NPC Zoe | recruit Zoe, Terraria NPC |
-| Tides of Terraria Dungeon Guide | Update | Player seeks info on Terraria dungeons | Terraria dungeon, Moon Lord |
-| Feybreak Update Overview & Release Date | Update | Player wants details on Feybreak update | Feybreak update, new content |
-| Feybreak Oil Rig Guide | Update | When players ask about oil rig stronghold | oil rig, Feybreak |
-| Messenger of Love Locations | Update | Player asks about special messenger event | messenger of love, event |
-| Level 30 Oil Rig Strategy | Update | When players tackle the Level 30 oil rig | level 30, oil rig |
-| All Predator Pal Locations | Update | Players ask where predator Pals appear | predator Pals, location |
-| Sakurajima Summer Update Features | Update | Questions about new content from summer update | Sakurajima update, features |
-| PVP Arena Guide | Update | Player asks about PVP arena and how to start | PVP arena, new feature |
-| Meteorite Event Guide | Event | When players want to find meteor events | meteorite event, meteor |
-| Dog Coin Farming Guide | Event | Player asks how to farm Dog Coins | dog coins, currency |
-| Supply Drop Guide & Items | Event | Questions about supply drop mechanics | supply drop, items |
-| Halloween Skins & How to Change Pal Skins | Event | When players ask about seasonal skins | Halloween skins, Pal skins |
-| Seasonal Festival Events & Rewards | Event | Player needs info on limited‑time events | seasonal event, festival |
-
-### Multiplayer & PVP
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| Setting Up Multiplayer & Co‑op | Multiplayer | Player asks how to play with friends | multiplayer, co‑op |
-| Running a Dedicated Server | Multiplayer | Questions about hosting private servers | dedicated server, hosting |
-| Trading Pals & Items with Others | Multiplayer | When players ask about trades and exchanges | trading, exchange |
-| Joining the PVP Arena | PVP | Player wants to battle others | PVP, arena |
-| PVP Etiquette & Rules | PVP | Questions about PVP rules and sportsmanship | PVP rules, etiquette |
-| Clan & Guild System | Multiplayer | If players ask about joining or creating guilds | guild, clan |
-| Raid Party Coordination | Multiplayer | Player needs tips for organizing raid parties | raid coordination, group |
-| Cross‑Platform Play & Compatibility | Multiplayer | Questions about playing across platforms | crossplay, compatibility |
-| Voice & Chat Communication Tips | Multiplayer | When players ask about communicating in‑game | voice chat, communication |
-
-### Stats & Mechanics
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| Understanding HP, ATK & DEF | Mechanics | Player asks about basic stats | HP, ATK, DEF |
-| Work Speed Explained | Mechanics | Questions about work speed and productivity | work speed, productivity |
-| Stamina & Weight Systems | Mechanics | Player asks why they can’t run or carry more | stamina, weight |
-| Rarity & Pal Star Ratings | Mechanics | When players ask about pal rarity tiers | rarity, star rating |
-| Sicknesses & Injuries | Mechanics | Questions about illness and how to cure Pals | sickness, injury |
-| SAN (Sanity) System | Mechanics | Player asks about Pal mental health | SAN, sanity |
-| Weather Effects on Players & Pals | Mechanics | When players want to know how weather affects them | weather effects, cold, heat |
-| Passive Skill Ranks & Categories | Mechanics | Player needs to understand Legend, Lucky, etc. | passive ranks, categories |
-| Damage Types & Resistances | Mechanics | Questions about physical vs elemental damage | damage types, resistance |
-| Experience & Leveling Mechanics | Mechanics | Player asks how EXP works for players or Pals | experience, leveling |
-| Resource Respawn & Timers | Mechanics | When players wonder when resources respawn | respawn timer, resources |
-| Vendor & Merchant Mechanics | Economy | Questions about how vendor stock refreshes | vendor, merchant |
-| Crafting Queue & Work Prioritization | Mechanics | Player wants to know how tasks are prioritized | queue, work priority |
-| Achievement & Trophy Guide | Mechanics | Player asks how to unlock achievements | achievement, trophy |
-| Settings & Accessibility Options | Mechanics | When players need help adjusting settings | options, settings |
-| Saving & Auto‑Save System | Mechanics | Player asks how saving works | save system, autosave |
-
-### Social & Community
-
-| Guide Title | Category | When to Show / Trigger | Keywords |
-|---|---|---|---|
-| Joining Events & Festivals | Social | Player asks about community events | events, festival |
-| Participating in Community Challenges | Social | When players want to join special challenges | community challenge, contest |
-| Reporting Bugs & Feedback | Social | Player needs to report a bug or provide feedback | report bug, support |
-| Modding & Custom Content | Social | Questions about mods or custom assets | modding, custom content |
-| Content Creators & Streaming | Social | When players want tips for streaming Palworld | streaming, content creator |
-| Role‑Playing & Storytelling | Social | Player asks about role‑play opportunities | role‑play, storytelling |
-| Sharing Builds & Base Tours | Social | When players want to showcase their bases | base tour, sharing |
-| Accessibility: Colorblind & Control Options | Accessibility | Questions about accessible features | accessibility, colorblind |
-| Parental Controls & Safe Play | Social | Player asks about safe play for kids | parental control, safety |
-
-## Step‑by‑Step Requirements
-
-Each guide listed above has accompanying step‑by‑step instructions to help users complete the task.  This section provides those instructions grouped by category.
-
-### Getting Started & Core Missions
-
-**Activate Great Eagle Statues**
-1. **Locate a Great Eagle Statue** in the region you’re exploring.  These large statues emit a faint glow【354485449518951†L124-L131】.
-2. **Interact with the statue** (press the interact key) to activate it.  Your character will touch the statue.
-3. Once activated, **open your fast‑travel map** and select any previously activated statue to teleport.
-
-**First Gathering Run**
-1. Explore the starting area and **collect fallen branches or strike trees** to gather wood【354485449518951†L166-L169】.
-2. Pick up **stones and fiber** from the ground; these materials are needed for early tools.
-3. Keep gathering until you have enough wood to craft your first **axe and pickaxe**.
-
-**Build a Workbench**
-1. **Open the build menu** and select the basic workbench.
-2. **Place the workbench** near your Palbox or base location【354485449518951†L188-L191】.
-3. Gather the required materials (wood and stone) and **confirm construction**.  Use the bench to craft weapons and tools.
-
-**Unlock Technology**
-1. **Open the technology tree** from the menu【354485449518951†L207-L209】.
-2. Spend your accumulated **technology points** to unlock a new item or structure (e.g., Palbox or Pal Sphere blueprint).
-3. **Confirm the unlock**, then gather resources to craft the newly unlocked item.
-
-**Find Paldium & Craft Pal Spheres (Capturing Device)**
-1. **Search near riversides and wetlands** for glowing blue rocks (Paldium nodes)【354485449518951†L225-L231】.
-2. **Mine Paldium fragments** with a pickaxe until you have enough pieces for multiple captures.
-3. **Open the technology tree** to unlock the **Capturing Device** blueprint if it is not already unlocked, then gather the required wood and stone.
-4. **Combine the materials at a workbench** to craft Pal Spheres, stocking at least five so you can capture several new Pals without returning to base【354485449518951†L224-L252】.
-
-**Catch Your First Pal**
-1. **Craft several Pal Spheres** using the method above.
-2. **Weaken a wild Pal** by reducing its HP with non‑fatal attacks【354485449518951†L272-L274】.
-3. Aim and **throw a Pal Sphere** at the weakened Pal.  Repeat until capture is successful.
-
-**Build a Palbox**
-1. **Unlock the Palbox technology** in the tech tree.
-2. Gather resources (Paldium fragments, wood, stone) and **build the Palbox**.
-3. **Place the Palbox** at your base.  It can heal injured Pals and store extras【354485449518951†L288-L296】.
-
-**Establish a Starting Base**
-1. **Choose an open area** near resources or at a recommended location.
-2. **Place your Palbox** to claim the base and unlock construction options【354485449518951†L310-L314】.
-3. Build essential structures: **workbench, campfire, storage** and assign Pals to work.
-
-**Assign Pals to Work**
-1. **Open the base management menu** via the Palbox【354485449518951†L329-L332】.
-2. Select a Pal with relevant work suitability (e.g., Transporting, Kindling) and **assign it to the base roster** so it automatically picks up nearby jobs.
-3. **Guide the Pal toward the intended structure**—such as a furnace, farm plot or logging site—so it links with the workstation and begins performing the task.
-4. **Monitor SAN and workload** by checking the management screen; rotate duties or provide food and rest if morale drops to keep automation efficient.
-
-**Gathering Food & Red Berries**
-1. **Search for bushes** bearing red berries in the starting area.
-2. **Harvest berries** by pressing the interact key【354485449518951†L347-L349】.
-3. Consume berries from your inventory to restore hunger or feed them to Pals.
-
-**Craft Protective Clothing**
-1. **Unlock the Cold‑Resistant or Heat‑Resistant armor** technology in the tech tree.
-2. **Collect materials** such as fiber, wool and leather from Pals or plants【354485449518951†L367-L370】.
-3. Craft the armor at your workbench and **equip it** before entering extreme climates.
-
-**Increase Character Stats**
-1. **Gain experience** by completing missions, defeating enemies and gathering resources.
-2. When you level up, open your **inventory/stats screen**【354485449518951†L382-L386】.
-3. Allocate the available stat points to Health, Stamina, Weight or other desired attributes.
-
-**Stay Alive & Survival Options**
-1. **Keep your hunger bar filled** by eating berries, cooked meat or dishes.
-2. **Wear weather‑appropriate armor** to avoid cold or heat damage【354485449518951†L367-L370】.
-3. Carry recovery items (medicine) and avoid dangerous regions until stronger.
-
-**First Combat Tips**
-1. **Lock onto enemies** and learn their attack patterns.
-2. **Dodge roll** to avoid incoming attacks and strike when the enemy is vulnerable.
-3. Use your Pal’s partner skill and **swap Pals** to exploit elemental weaknesses.
-
-### Base Building & Management Steps
-
-**Choosing a Base Location (Plateau of Beginnings)**
-1. Travel to coordinates **(264, –548)** on the southern coast【633260338298658†L112-L118】.
-2. **Clear the area** of enemies and resources.
-3. Place your **Palbox** and start constructing structures to take advantage of nearby Paldium nodes.
-
-**Base Location: Small Settlement**
-1. Fast‑travel to **Small Settlement** coordinates (8, –528)【633260338298658†L120-L126】.
-2. **Collect ore and wood** from abundant nodes around the site.
-3. Set up your base near the fast‑travel point for convenience.
-
-**Base Location: Cinnamoth Forest**
-1. Journey to **–77, –310** and head south into Cinnamoth Forest【633260338298658†L128-L134】.
-2. Build your base there to take advantage of large ore nodes and nearby sulfur for gunpowder.
-3. Protect the base from mid‑game enemies.
-
-**Base Location: Sealed Realm of the Guardian**
-1. Travel to **180, –39**【633260338298658†L136-L141】.
-2. Mine **coal** nodes around the Sealed Realm for tech progression.
-3. Construct your base with an emphasis on processing coal into refined materials.
-
-**Base Location: Sakurajima Island**
-1. Reach **–646, 270** on Sakurajima Island【633260338298658†L143-L149】.
-2. Establish a base to farm **crude oil** and craft fuels for advanced weaponry.
-3. Defend against strong late‑game enemies and environmental hazards.
-
-**Setting Up Your First Base**
-1. **Place your Palbox** in a flat area to define the base.
-2. **Build basic structures**: campfire, workbench, bed, storage chest.
-3. Surround the base with fences or walls for safety.
-
-**Upgrading Base Level**
-1. Complete **base missions**, such as increasing build points or crafting specific items.
-2. Accumulate enough **structures, furniture and decorations** to reach the build point requirement.
-3. **Interact with the Palbox** to upgrade the base level and unlock more structures.
-
-**Base Layout & Design Ideas**
-1. **Plan distinct zones** for crafting, storage, Pals and farming.
-2. Use vertical space by adding **floors or platforms**.
-3. Connect work stations with **pathways and fences** to improve Pal efficiency.
-
-**Defensive Structures & Fortifications**
-1. Unlock and craft **walls, gates and guard towers**.
-2. Place **turrets** or traps at chokepoints to deter raiders.
-3. Ensure your Pals are assigned to guard duty when expecting raids.
-
-**Managing Base Sanity & Pal Morale**
-1. Monitor each Pal’s **SAN meter**; high workloads reduce morale.
-2. **Provide beds and rest time** for Pals to recover SAN.
-3. Offer varied tasks and feeding to prevent mental breakdowns.
-
-**Assigning Work Pals (Transport, Kindling)**
-1. Capture Pals with **Transporting** or **Kindling** suitability (e.g., Wumpo, Jormuntide Ignis)【633260338298658†L161-L166】.
-2. **Assign them to storage chests or campfires** to haul items or light furnaces.
-3. Monitor their work and replace them if SAN drops too low.
-
-**Assigning Work Pals (Handiwork, Mining)**
-1. Obtain Pals like **Anubis** or **Astegon** for handiwork/mining【633260338298658†L166-L172】.
-2. Assign them to crafting benches or mining nodes at your base.
-3. Provide appropriate gear (e.g., gloves, pickaxes) if available.
-
-**Assigning Work Pals (Watering, Lumbering)**
-1. Capture Pals such as **Jormuntide**, **Broncherry Aqua** or **Wumpo Botan** for watering or lumbering【633260338298658†L161-L169】.
-2. Assign them to crop plots or logging sites.
-3. Ensure water access by building wells or placing water tanks.
-
-**Assigning Work Pals (Medicine & Planting)**
-1. Use Pals with **Medicine Production** or **Planting** suitability (e.g., **Bellanoir**, **Lyleen**)【633260338298658†L174-L177】.
-2. Assign them to medicine benches or farm plots.
-3. Gather ingredients (herbs, berries) for medicine production.
-
-**Automating Resource Production Lines**
-1. **Place conveyor belts** or item transfer stations if available (future updates may add automation).
-2. Assign Pals to pick up produced items and deposit them into storage.
-3. Monitor output to ensure the line does not clog or overflow.
-
-**Using Power Generators & Batteries**
-1. Unlock generator technology (wind, coal or electric).
-2. **Build generators** and connect them to machines that require power.
-3. Craft **batteries** to store excess electricity and place them near production stations.
-
-**Managing Farming Plots & Gardens**
-1. Build **farm plots** on fertile ground.
-2. Plant seeds such as berries, wheat or medicinal herbs.
-3. Assign watering Pals to maintain soil moisture and harvest when ready.
-
-**Handling Weather & Environmental Hazards**
-1. **Equip appropriate clothing** for cold or hot biomes.
-2. Provide **heaters or coolers** within your base for Pals.
-3. Relocate your base or avoid extreme areas during harsh weather.
-
-**Palbase Upkeep & Repairs**
-1. Regularly inspect structures for **damage or decay**.
-2. Use a hammer or repair tool to **fix damaged walls and structures**.
-3. Rebuild destroyed items promptly to maintain base efficiency.
-
-### Resources & Crafting Steps
-
-**Gathering Wood & Stone**
-1. Craft a **stone axe** and **pickaxe** using wood and stone.
-2. Chop down trees to gather wood; mine boulders for stone.
-3. Store gathered resources in chests for later use.
-
-**Mining Ore & Coal**
-1. Locate **ore deposits** (grey rocks with metallic veins).
-2. Use a pickaxe to mine ore until nodes deplete.
-3. Travel to coal‑rich regions (e.g., Sealed Realm) and mine coal for advanced tech【633260338298658†L136-L141】.
-
-**Harvesting Sulfur**
-1. Find sulfur deposits near volcanoes or **Cinnamoth Forest**【633260338298658†L128-L134】.
-2. Mine sulfur with a pickaxe.
-3. Use sulfur to craft gunpowder and explosives.
-
-**Farming Crude Oil & Dog Coins**
-1. Travel to **Sakurajima Island** to find crude oil nodes【633260338298658†L143-L149】.
-2. Mine crude oil using specialized equipment (oil extractor) and refine it into fuel.
-3. Defeat enemies or participate in events to earn **Dog Coins**, then farm additional coins by completing Dog Coin challenges.
-
-**Collecting Fiber & Cloth**
-1. Gather **plant fibers** from bushes or grasses using a sickle.
-2. Craft cloth at a loom or workbench by combining fibers.
-3. Use cloth for clothing and furniture.
-
-**Gathering Paldium Fragments**
-1. Search near water for glowing blue rocks (Paldium)【354485449518951†L225-L231】.
-2. Mine them with a pickaxe to collect fragments.
-3. Combine with wood and stone to craft Pal spheres.
-
-**Hunting for Leather & Wool**
-1. Hunt fluffy Pals (e.g., Lamball) for **wool and leather**【354485449518951†L367-L370】.
-2. Use a skinning knife or harvesting tool after defeating the Pal.
-3. Process materials at a tanning rack or loom for use in armor.
-
-**Fishing & Catching Water Pals**
-1. Craft a **fishing rod** or net once unlocked.
-2. Locate water bodies and cast your line.
-3. Reel in fish or aquatic Pals; watch for splashes indicating a catch.
-
-**Farming Red Berries & Crops**
-1. Till soil using a hoe and place farm plots.
-2. Plant red berry seeds or other crop seeds.
-3. Assign watering Pals to maintain the crops until harvest.
-
-**Mining Chromite & Precious Metals**
-1. Travel to late‑game regions with chromite deposits (e.g., Astral Mountains).
-2. Mine deposits with an upgraded pickaxe.
-3. Use chromite for high‑level gear and technology.
-
-**Farming Life Fruit & Skill Fruits**
-1. Search dungeons and chests for **Life Fruits** and **Skill Fruits**.
-2. Harvest them from special plants in rare biomes.
-3. Use Life Fruit to heal and Skill Fruit to teach Pals new abilities.
-
-**Harvesting Nightstar Sand**
-1. Visit desert regions at night when **Nightstar Sand** glows【92541297987896†L117-L118】.
-2. Scoop up sand from sparkling patches.
-3. Use it for crafting luminous items or decorations.
-
-**Locating Meteorite & Supply Drops**
-1. Watch the sky for streaking meteorites or airborne supply crates.
-2. Head to the marked landing spot quickly; meteorites contain rare ores and supply drops hold valuable items.
-3. Fight off enemies attracted to the drop and collect the loot.
-
-**Collecting Eggs & Incubation**
-1. **Find eggs** in nests, dungeons or by defeating Alpha Pals.
-2. Place eggs in an **incubator** (or Electric Incubator for faster hatching).
-3. Wait for the required time; monitor temperature to ensure proper incubation.
-
-**Refreshing Vendor Stock**
-1. Visit a Pal Merchant or Black Marketeer.
-2. Purchase items or sell loot.
-3. **Leave the area**, wait for a short period, and return to refresh their stock (may also refresh after daily resets).
-
-**Selling & Trading Items**
-1. Collect valuable items (ores, crafted gear, rare drops).
-2. Visit merchants or interact with other players in multiplayer.
-3. Offer items for sale or trade in exchange for gold or other goods.
-
-### Technology & Crafting Tools Steps
-
-**Unlocking the Technology Tree**
-1. Gain **technology points** by leveling up and completing missions.
-2. Open the **technology menu**.
-3. Spend points to unlock desired items; ensure you meet any level requirements.
-
-**Crafting Pal Gear & Saddles**
-1. Unlock the specific **Pal gear** (e.g., Jetragon saddle) in the tech tree.
-2. Collect required materials (leather, ingots, cloth).
-3. Craft the gear at a **Pal gear station** and equip your Pal to use it.
-
-**Crafting Weapons: Crossbows, Bows & Guns**
-1. Unlock the appropriate weapon blueprint.
-2. Collect materials (wood, ingots, sulfur, polymer).
-3. Craft the weapon at a workbench or weapon station and equip it.
-
-**Crafting Heavy Weapons: Rocket Launcher, Minigun**
-1. Reach the required tech level and unlock the heavy weapon blueprint.
-2. Gather advanced materials (refined metal, high‑quality oil, electronics).
-3. Craft at an advanced weapon bench and stock up on ammunition.
-
-**Building a Glider & Upgrades**
-1. Unlock glider technology in the tech tree.
-2. Collect cloth, leather and Paldium.
-3. Craft the glider at a workbench and equip it; upgrade with better materials for improved flight.
-
-**Crafting Lockpicking Tools (v1‑v3)**
-1. Unlock the **Lockpicking tool** technology (requires progression in Sakurajima update).
-2. Gather Pal Metal Ingots, Paldium Fragments and Nails【285876925291367†L189-L203】.
-3. Craft the tool at a workbench; use it to open locked treasure chests.
-
-**Creating Armor: Cold/Heat‑Resistant & Refinement**
-1. Unlock the desired armor blueprint.
-2. Collect hide, fur, cloth and metal plates.
-3. Craft at the armor workbench and equip before entering extreme environments.
-
-**Making Accessory Slots & Accessories**
-1. Unlock accessory slot upgrades via technology.
-2. Craft the **slot expansion** using metals and Paldium.
-3. Craft rings or trinkets and equip them to benefit from extra bonuses.
-
-**Building Explosives: Bombs & Grenades**
-1. Unlock explosive weapons in the tech tree.
-2. Gather sulfur, charcoal (for gunpowder) and metal casings.
-3. Craft bombs at the workbench; equip them to use in combat or mining.
-
-**Crafting Medicine & Recovery Items**
-1. Unlock medicine production in the technology tree.
-2. Gather herbs, berries and other ingredients.
-3. Craft recovery potions or bandages at a medicine station; carry them for healing.
-
-**Cooking & Food Recipes**
-1. Build a **cooking station** or campfire.
-2. Unlock recipes using the technology tree or by experimenting with ingredients.
-3. Combine ingredients (meat, vegetables, spices) to cook nutritious meals for you and your Pals.
-
-**Building Transport: Airships & Boats**
-1. Reach high tech levels to unlock airship or boat blueprints.
-2. Gather large amounts of metal, wood and fuel.
-3. Build at a specialized station; pilot to explore inaccessible areas.
-
-**Crafting Taming Devices & Traps**
-1. Unlock nets, traps or tranquilizer darts in the tech tree.
-2. Gather materials (fiber, rope, tranquilizer chemicals).
-3. Craft and place traps near rare Pals; lure them in to capture without combat.
-
-**Creating Electric Incubators**
-1. Unlock **Electric Incubator** technology.
-2. Collect electronics, Paldium fragments and refined metals.
-3. Build the incubator and place eggs inside to cut hatching time in half【612653128208765†L79-L83】.
-
-**Building Fences & Pens**
-1. Unlock fence and pen structures in the build menu.
-2. Gather wood or metal to craft them.
-3. Place fences to enclose animals or Pals and prevent them from wandering.
-
-**Installing Lighting & Heating**
-1. Unlock torches, lanterns, heaters and air conditioners.
-2. Gather fuel or electricity sources.
-3. Place lights and heaters in key areas of your base to improve comfort and SAN.
-
-**Building Battery Stations & Power Infrastructure**
-1. Unlock battery technology.
-2. Collect Paldium, metals and wiring.
-3. Build batteries near generators; connect them to store energy for night or heavy use.
-
-### Combat & Boss Guides Steps
-
-**Combat Basics & Controls**
-1. Familiarize yourself with **attack, block and dodge** buttons.
-2. Lock onto enemies to maintain focus.
-3. Practice timing dodges to avoid damage and counterattack.
-
-**Element Types & STAB Explained**
-1. Learn each Pal’s **element type** (Fire, Water, Grass, Electric, etc.).
-2. Use element advantages (Water vs Fire, etc.) to deal extra damage.
-3. Equip Pals with moves matching their element to gain **STAB** (Same Type Attack Bonus).
-
-**Status Conditions & Cures**
-1. Understand status effects: Burn, Freeze, Poison, Sleep and Stun.
-2. Carry **antidotes or status‑removing items** crafted at medicine stations.
-3. Swap Pals or retreat if status effects accumulate.
-
-**How to Use Melee Weapons**
-1. Equip a melee weapon such as a sword or spear.
-2. Use **heavy and light attacks** to chain combos.
-3. Block or dodge before counter‑attacking to avoid damage.
-
-**How to Use Ranged Weapons**
-1. Equip a bow, crossbow or firearm.
-2. Use **aim mode** to line up your shot; account for projectile drop.
-3. Reload when safe and switch to melee if enemies get too close.
-
-**Tower Boss: Zoe & Grizzbolt**
-1. Prepare by leveling your character and capturing strong Fire/Electric Pals.
-2. Enter the first tower and fight through waves of minions.
-3. Focus on Grizzbolt’s weak points, dodge its attacks and use Water‑type moves to win.
-
-**Tower Boss: Lily & Lyleen**
-1. Train Pals with high Defense and Fire moves.
-2. Progress through the second tower and avoid environmental hazards.
-3. Burn down Lyleen’s plant‑type minions and stagger the boss to defeat it.
-
-**Tower Boss: Axel & Orserk**
-1. Capture Ice or Grass Pals to counter Orserk’s Dragon/Electric typing.
-2. Dodge Axel’s long‑range attacks and close the distance quickly.
-3. Focus your Pals’ partner skills and heal frequently.
-
-**Tower Boss: Victor & Shadowbeak**
-1. Assemble a team of Dark and Ice Pals to exploit weaknesses.
-2. Avoid Victor’s high‑damage projectiles and stay mobile.
-3. Burst Shadowbeak down during openings and use healing items.
-
-**Raids: Xenolord & Blazamut Ryu**
-1. Gather a group of friends or NPC Pals; raids require multiple participants.
-2. Equip top‑tier gear and potions.
-3. Focus on raid mechanics (e.g., avoid AoE attacks) and coordinate to stagger the boss.
-
-**Raid: Bellanoir & Bellanoir Libero**
-1. Capture Pals with strong Electric or Ice attacks.
-2. Break Bellanoir’s shields by focusing your attacks.
-3. Avoid the Libero variant’s rapid strikes and maintain healing.
-
-**Boss: Bjorn & Bastigor (Feybreak)**
-1. Build fire‑resistant armor and high DPS Pals.
-2. Dodge Bjorn’s area attacks; avoid standing in burning pools.
-3. Switch to Water Pals to extinguish fires and finish off Bastigor.
-
-**Boss: Eye of Cthulu (Terraria)**
-1. Summon the boss by interacting with the event item or finding its spawn location.
-2. Equip ranged weapons to hit the flying boss.
-3. Focus on dodging sweeping laser beams; attack during its vulnerability phase.
-
-**Boss: Moon Lord Raid**
-1. Prepare by equipping the best gear and assembling a full party.
-2. Target the Moon Lord’s hands and core; destroy each part in sequence.
-3. Keep moving to avoid large AoE attacks; coordinate healing and damage phases.
-
-**Predator Pal Locations & Tactics**
-1. Use the interactive map to locate predator Pals (e.g., Warsect, Necromus).
-2. Approach cautiously; predator Pals have high damage and health.
-3. Weaken them and capture or defeat them for rare drops.
-
-**Fighting Alpha Pals**
-1. Observe Alpha Pals roaming the world; they are larger and more aggressive.
-2. Bring a team of complementary Pals to exploit their weaknesses.
-3. Use traps or stun items to make capturing easier.
-
-**PVP Combat & Arena**
-1. Visit the **PVP Arena** and register for a match.
-2. Equip balanced gear and select Pals suited to player vs player combat.
-3. Learn opponent patterns and adapt; remember that some moves have long wind‑ups.
-
-**Best Pals for Combat**
-1. Refer to the Best Pals Tier List; top combat Pals include **Jormuntide Ignis**, **Jetragon** and **Frostallion**【213589709604736†L156-L160】.
-2. Capture or breed these Pals; level them and teach powerful skills.
-3. Equip them with appropriate gear and upgrade passive skills via breeding.
-
-**Best Weapons & Loadouts**
-1. Craft or obtain top‑tier weapons (e.g., rocket launcher, AK‑like rifles).
-2. Combine weapons with gear that enhances attack power or stamina.
-3. Keep a melee back‑up weapon for enemies resistant to bullets.
-
-**Managing Stamina & Dodging**
-1. Increase your **Stamina stat** when leveling up.
-2. Use stamina‑conserving movement (sprinting only when necessary).
-3. Roll or dodge at the last moment to avoid attacks without wasting stamina.
-
-**Breaking Enemy Shields & Armor**
-1. Use **heavy attacks** or explosive weapons to break shields quickly.
-2. Focus attacks on shield emitters or armored plates.
-3. Switch to fast weapons once the shield is broken to maximize damage.
-
-**Crowd Control & AoE Strategies**
-1. Equip Pals or weapons with **area‑of‑effect** skills (e.g., Tri‑Lightning or Fireball).
-2. Lure groups of enemies together and unleash AoE attacks.
-3. Control the battlefield by slowing or stunning large groups.
-
-**Base Defense Against Raids**
-1. Build walls, turrets and traps around your base.
-2. Assign combat‑capable Pals to guard duty.
-3. When a raid starts, lure enemies into chokepoints and defeat them with traps and Pals.
-
-### Pals & Capture Steps
-
-**How to Capture Pals**
-1. Craft **Pal Spheres** and track down the desired Pal.
-2. Reduce the Pal’s health without defeating it.
-3. Throw the Pal Sphere and repeat until capture succeeds.
-
-**Pal Sphere Tiers & Catch Rates**
-1. Unlock higher‑tier spheres (e.g., Giga Sphere, Ultra Sphere) via technology.
-2. Gather rarer materials (chromite, polymer) to craft them.
-3. Use higher‑tier spheres on strong or Alpha Pals for better catch rates.
-
-**Sneaking & Back‑Attack Captures**
-1. Approach a Pal from behind while crouched.
-2. Throw a Pal Sphere for a **back‑attack bonus** that increases capture chance.
-3. Avoid making noise or startling the Pal.
-
-**Capturing Alpha Pals**
-1. Bring high‑tier Pal Spheres and healing items.
-2. Weaken the Alpha Pal and avoid its high‑damage moves.
-3. Use traps or stun items to temporarily immobilize; throw spheres until captured.
-
-**Capturing Specific Legendary Pals**
-1. Learn the spawn location and conditions for the specific Legendary Pal (e.g., Jetragon spawns in late‑game islands).
-2. Prepare an element‑appropriate team and high‑tier spheres.
-3. Engage the legendary Pal, reduce its HP and capture it.
-
-**All Pal Locations by Region**
-1. Consult the interactive map or Palpedia for each Pal’s coordinates.
-2. Travel to the specified region and look for the Pal during the correct time of day/weather.
-3. Capture or defeat the Pal as needed.
-
-**Pals by Element (Fire, Water, etc.)**
-1. Determine which element type you need (e.g., Water for Fire bosses).
-2. Check the Palpedia or map for Pals of that element.
-3. Capture multiple Pals to have backups for breeding and combat.
-
-**Pals for Base Work (Transport & Kindling)**
-1. Identify Pals with **Transporting** or **Kindling** work suitability【633260338298658†L161-L166】.
-2. Capture or breed these Pals.
-3. Assign them to base tasks (hauling materials, lighting furnaces).
-
-**Pals for Crafting & Handiwork**
-1. Capture Pals like **Anubis** or **Lunaris** that excel at handiwork【633260338298658†L166-L167】.
-2. Assign them to the workbench or crafting stations.
-3. Provide necessary materials and monitor production.
-
-**Pals for Mining & Lumbering**
-1. Capture Pals such as **Blazamut**, **Astegon** or **Reptyro**【633260338298658†L170-L172】.
-2. Assign them to mine ore nodes or chop trees.
-3. Build storage near the worksite for efficient resource collection.
-
-**Pals for Farming & Planting**
-1. Acquire Pals with **Planting** suitability (e.g., **Lyleen**)【633260338298658†L174-L177】.
-2. Place them near farming plots.
-3. Provide seeds and fertilizer; harvest crops regularly.
-
-**Pals for Cooling & Heating**
-1. Capture **Frostallion**, **Cryolinx** or **Reptyro Cyst** for cooling duties【633260338298658†L178-L179】.
-2. Assign them to cooling stations or base areas that overheat.
-3. Use heat‑producing Pals (like **Blazamut**) in cold areas for warmth.
-
-**Pals for Electricity Generation**
-1. Capture **Orserk**, **Relaxaurus Lux** or **Grizzbolt**【633260338298658†L168-L169】.
-2. Assign them to generators or electric equipment.
-3. Manage their energy output and provide rest breaks.
-
-**Passive Skills Explained**
-1. Each Pal has up to four passive skills, such as **Legend**, **Lucky** or **Artisan**.
-2. Passive skills enhance stats or provide unique benefits (e.g., increasing work speed).
-3. Breed or catch Pals to obtain desirable passives; combine them through chain breeding.
-
-**Active & Partner Skills Explained**
-1. **Active skills** are combat moves used when Pals are in battle.
-2. **Partner skills** are triggered when Pals accompany you in the overworld (e.g., Jetragon’s fast flight).
-3. Switch Pals to access different partner skills based on the situation.
-
-**How to Increase Pal Affinity & Trust**
-1. Feed your Pals regularly and ensure they are rested.
-2. Avoid overworking them or letting their SAN drop.
-3. Interact with them (petting) and fight alongside them to build trust.
-
-**Pal Morale & Sanity**
-1. Monitor each Pal’s SAN bar; low SAN results in reduced efficiency or refusal to work.
-2. Provide **beds and play items** to restore SAN.
-3. Rotate tasks and avoid leaving Pals unattended for too long.
-
-**Pal Skins & Cosmetics**
-1. Obtain skins through events, raids or the item shop.
-2. Access your Pal’s **appearance menu** via the Palbox or inventory.
-3. Apply the skin to change your Pal’s appearance.
-
-**Pal Gear & Equipment**
-1. Unlock Pal gear such as saddles or harnesses in the tech tree.
-2. Craft the gear with required materials.
-3. Equip your Pal to enable riding, gliding or enhanced abilities.
-
-**Element Swap & Subspecies**
-1. Collect special items (Element Swap Stone) from raids or missions.
-2. Use the item on a Pal to change its element.
-3. Breed specific pairs to obtain subspecies with alternate typings.
-
-**Evolving & Leveling Up Pals**
-1. Gain experience for Pals by defeating enemies or completing tasks.
-2. Use **experience candies or books** to speed up leveling.
-3. While Palworld does not have Pokémon‑style evolutions, some Pals have **subspecies** accessible via breeding.
-
-**Pal Stat Distribution & IVs**
-1. Use an **IV checker** or the Pal IV Stat Calculator to view hidden stats.
-2. Breed Pals with high IVs to produce stronger offspring.
-3. Focus on HP, ATK and DEF for combat Pals; Work Speed for base Pals.
-
-**Capturing Pals Without Damage**
-1. Use **nets or traps** to capture weaker Pals without injuring them.
-2. Toss a Pal Sphere from stealth for a higher success rate.
-3. Avoid attacking the Pal; patience may be necessary.
-
-### Breeding & Eggs Steps
-
-**Unlocking the Breeding Farm**
-1. Reach **technology level 19** and unlock the Breeding Farm【612653128208765†L51-L55】.
-2. Collect wood, stone and Paldium fragments to build the farm.
-3. Place the farm within your base.
-
-**Making Cake & Feeding Pals**
-1. Gather **flour, berries, milk, eggs and honey**【612653128208765†L53-L55】.
-2. Combine the ingredients at a cooking station to bake **cake**.
-3. Place cake in the Breeding Farm’s inventory to encourage Pals to mate.
-
-**Basic Breeding Mechanics**
-1. Place one **male** and one **female** Pal in the Breeding Farm【612653128208765†L53-L55】.
-2. Provide cake and wait about **five minutes** for an egg to appear.
-3. Eggs inherit the average breeding power of the parents【612653128208765†L56-L58】.
-
-**Breeding for Passive Skills**
-1. Capture or breed Pals with rare passives (Legend, Lucky, Artisan).
-2. Pair Pals so that desirable passives are present in both parents.
-3. Hatch eggs; check offspring for inherited passives and repeat if necessary.
-
-**Best Breeding Combos for Top Pals**
-1. Use recommended combinations like **Relaxaurus + Sparkit → Relaxaurus Lux** or **Lyleen + Menasting → Lyleen Noct**【612653128208765†L64-L77】.
-2. Breed the specified pairs and incubate the resulting eggs.
-3. Raise the offspring; assign them to combat or support roles.
-
-**Early‑Game Breeding Combos**
-1. Combine **Penking + Bushi** to produce **Anubis** for early DPS【612653128208765†L87-L100】.
-2. Use **Rushoar + Surfent** or **Swee + Sweepa** to get **Digtoise**【612653128208765†L87-L105】.
-3. Breed **Nitewing + Cinnamoth** to obtain **Sibelyx**【612653128208765†L87-L111】.
-
-**Breeding Combos by Role: Work Pals**
-1. Breed **Penking + Penking** for Penking with the **Artisan** passive【612653128208765†L120-L124】.
-2. Breed **Penking + Wumpo Botan** for random work passives【612653128208765†L120-L127】.
-3. Repeat until you get desired passives and assign the offspring to your base.
-
-**Breeding Combos by Role: Combat DPS**
-1. Breed **Relaxaurus + Sparkit** for **Relaxaurus Lux**【612653128208765†L132-L134】.
-2. Breed **Incineram + Maraith** for **Incineram Noct**【612653128208765†L132-L135】.
-3. Breed **Frostallion + Anubis** for **Bastigor**【612653128208765†L132-L136】.
-
-**Breeding Combos by Role: Defense/Tank**
-1. Combine **Lamball + Fielfox** to create **Digtoise Terra**【612653128208765†L141-L144】.
-2. Breed **Mammorest + Wumpo** for **Mammorest Cryst**【612653128208765†L141-L145】.
-3. Pair **Lyleen + Menasting** for **Lyleen Noct** as a healer‑tank hybrid【612653128208765†L141-L146】.
-
-**Breeding Combos by Role: Mobility/Utility**
-1. Breed **Elphidran + Surfent Aqua** for **Elphidran Aqua** (flying water mount)【612653128208765†L149-L154】.
-2. Pair **Eikthyrdeer + Hangyu** for **Eikthyrdeer Terra**【612653128208765†L151-L154】.
-3. Combine **Surfent + Dumud** for **Surfent Terra**【612653128208765†L149-L154】.
-
-**Breeding Combos by Role: Support/Healing**
-1. Breed **Lyleen + Menasting** again for **Lyleen Noct** (healer/support)【612653128208765†L160-L166】.
-2. Pair **Mau + Pengullet** for **Mau Cryst** (budget healer)【612653128208765†L160-L166】.
-3. Breed **Dinossom + Rayhound** for **Dinossom Lux** (speed buff support)【612653128208765†L160-L166】.
-
-**Hatching Eggs & Using Incubators**
-1. Collect eggs from the Breeding Farm or in the wild.
-2. Place them in a standard incubator or **Electric Incubator** to reduce hatching time【612653128208765†L79-L83】.
-3. Monitor temperature and wait for the incubation timer to finish.
-
-**Obtaining Alpha Eggs & Huge Eggs**
-1. Breed high‑level Pals; there is about a **5 % chance** to produce a Huge/Alpha Egg【612653128208765†L60-L62】.
-2. Collect eggs from raid bosses or treasure chests for guaranteed Alpha eggs.
-3. Use an Electric Incubator for efficient hatching.
-
-**Breeding Cross‑Species & Subspecies**
-1. Pair two Pals from different species as outlined in breeding charts.
-2. Provide cake and wait for the resulting hybrid egg.
-3. Hatch the egg to obtain a subspecies with mixed elements or unique traits.
-
-**Passive Skill Probability & Inheritance**
-1. Understand that 40 % of offspring get one passive, 30 % get two, 20 % get three and 10 % get four【612653128208765†L56-L59】.
-2. Breed Pals with multiple passives to increase the number of inherited skills.
-3. Repeat breeding cycles until you obtain the desired combination.
-
-**Breeding Farm Efficiency Tips**
-1. Use **Electric Incubators** to reduce wait time by 1.5×【612653128208765†L79-L83】.
-2. Always supply cake to keep Pals breeding continuously.
-3. Maintain multiple breeding farms for parallel breeding projects.
-
-### Exploration, Maps & Dungeons Steps
-
-**Interactive Map Overview**
-1. Access the official or community‑made interactive map through a browser.
-2. Enable or disable markers for Pals, effigies, chests and dungeons.
-3. Plan your route by setting waypoints and referencing coordinates.
-
-**All Alpha Pal Locations**
-1. Select the **Alpha Pals** filter on the interactive map.
-2. Travel to the indicated coordinates with an experienced team.
-3. Defeat or capture the Alpha Pals using high‑tier spheres.
-
-**Dungeon Guide: Hillside Cavern**
-1. Locate the entrance in a low‑level region.
-2. Bring a torch or light source; the cavern is dark.
-3. Defeat mobs inside and loot the final chest at the deepest chamber.
-
-**Dungeon Guide: Mountain Stream Grotto**
-1. Travel to the grotto entrance near a river.
-2. Prepare for water‑type enemies.
-3. Explore the winding tunnels and defeat the final mini‑boss for loot.
-
-**Dungeon Guide: Isolated Island Cavern**
-1. Reach the island via glider or boat.
-2. Enter the cavern; expect stronger enemies than on the mainland.
-3. Collect unique materials and a treasure chest at the end.
-
-**Dungeon Guide: Ravine Grotto**
-1. Find the ravine entrance in mountainous terrain.
-2. Use grappling hooks or gliders to traverse vertical passages.
-3. Defeat the Alpha Pal inside and claim the rare items.
-
-**Dungeon Guide: Cavern of the Dunes**
-1. Travel to the desert region; locate the cavern entrance.
-2. Equip heat‑resistant gear and bring water.
-3. Defeat sand‑type monsters and avoid traps.
-
-**Dungeon Guide: Frozen Abyss**
-1. Wear warm clothing to resist cold.
-2. Navigate icy platforms and slippery slopes.
-3. Defeat the Ice‑type boss and loot its chest for Frost items.
-
-**Dungeon Guide: Astral Mountain Ruins**
-1. Ascend the Astral Mountains to reach ancient ruins.
-2. Fight celestial‑type enemies and solve simple puzzles.
-3. Open the final chest containing high‑level schematics.
-
-**Dungeon Guide: Ocean Depths**
-1. Craft an underwater breathing device or ride an aquatic Pal.
-2. Dive into the depths to find the dungeon entrance.
-3. Defeat aquatic monsters and harvest unique materials.
-
-**Map: Effigies & Totems Locations**
-1. Use the interactive map to find all **effigies**.
-2. Collect them to increase your maximum skill points.
-3. Activate totems to gain buffs or unlock hidden areas.
-
-**Map: Treasure Chests & Lockboxes**
-1. Enable chest markers on the interactive map.
-2. Use lockpicking tools to open locked chests.
-3. Collect schematics, materials and coins from each chest.
-
-**Map: Egg & Breeding Locations**
-1. Search for egg markers on the interactive map.
-2. Visit nests or cave locations to collect eggs.
-3. Some eggs only appear during specific weather or times; be patient.
-
-**Map: Meteorite & Supply Drop Locations**
-1. Monitor notifications for falling meteorites or supply drops.
-2. Check the map for their landing sites.
-3. Rush to the spot, defeat surrounding mobs and collect the loot.
-
-**Weather & Biomes Explained**
-1. Understand that different biomes (desert, tundra, volcanic, forest) have unique temperatures and hazards.
-2. Equip appropriate gear before entering a biome.
-3. Adjust your base’s position or use Pals to mitigate weather effects.
-
-**Traversal Tips: Climbing, Gliding, Swimming**
-1. Use the glider to cross gaps or descend safely.
-2. Climb vines or rocky surfaces with the jump and grab controls.
-3. Ride aquatic Pals to swim quickly across water bodies.
-
-**Secrets & Hidden Areas**
-1. Explore corners of the map often; look for unusual rock formations or structures.
-2. Use bombs or explosives to blow open cracked walls.
-3. Keep note of suspicious locations and return after gaining new abilities.
-
-**Sanctuary & Wildlife Reserve Guide**
-1. Travel to wildlife sanctuaries marked on the map.
-2. Capture or observe rare Pals in a non‑hostile environment.
-3. Respect sanctuary rules; some areas restrict combat or capture.
-
-**Fast Travel Network Guide**
-1. Activate every Great Eagle Statue you encounter.
-2. Use fast travel to move quickly across the map.
-3. Build small outposts near statues for convenience.
-
-**Collecting Journals & Lore Entries**
-1. Search abandoned camps and ruins for glowing books or tablets.
-2. Interact with them to collect the journal entry.
-3. Read entries in your log to learn more about Palworld’s story.
-
-### Special Updates & Events Steps
-
-**Tides of Terraria Content Overview**
-1. Update your game to the **Tides of Terraria** version.
-2. Access new islands and dungeons introduced in the collaboration.
-3. Hunt Terraria‑themed Pals and items (Herbil, Icelyn, etc.).
-
-**Tides of Terraria: New Pals**
-1. Travel to the Tides of Terraria islands.
-2. Capture or breed new Pals such as **Herbil** and **Icelyn**.
-3. Study their work suitability and incorporate them into your base.
-
-**Tides of Terraria: How to Get Terraria Items**
-1. Defeat Terraria bosses or complete missions on the new islands.
-2. Collect drops that reference Terraria items (swords, wings, etc.).
-3. Use or equip these items to gain unique abilities.
-
-**How to Recruit Zoe (Terraria NPC)**
-1. Locate Zoe on the Tides of Terraria island.
-2. Complete her quests or meet her requirements.
-3. Recruit her to unlock new services or items.
-
-**Tides of Terraria Dungeon Guide**
-1. Enter the Terraria dungeon and fight through themed enemies.
-2. Avoid traps unique to Terraria (e.g., spike balls).
-3. Defeat **Moon Lord** at the end and collect loot.
-
-**Feybreak Update Overview & Release Date**
-1. Ensure you have downloaded the **Feybreak** update.
-2. Read patch notes to learn about new features and Pals (e.g., Xenolord Raid).
-3. Visit new locations such as the Oil Rig stronghold.
-
-**Feybreak Oil Rig Guide**
-1. Travel to the oil rig’s coordinates.
-2. Defeat guards and navigate the multi‑level platform.
-3. Secure the rig and collect resources or kill the raid boss.
-
-**Messenger of Love Locations**
-1. Receive the mission to find the Messenger of Love NPC.
-2. Travel to the indicated coordinates; the messenger may move between locations.
-3. Complete tasks given by the messenger to receive rewards.
-
-**Level 30 Oil Rig Strategy**
-1. Ensure your team is at least level 30.
-2. Equip high‑tier weapons and armor.
-3. Coordinate with a group to clear out waves of enemies and defeat the boss.
-
-**All Predator Pal Locations**
-1. Identify predator Pals like **Warsect** or **Necromus**.
-2. Use the map to locate their roaming zones.
-3. Approach carefully; capture or defeat them for unique rewards.
-
-**Sakurajima Summer Update Features**
-1. Read the patch notes to understand new features: PVP arena, Lockpicking Tool v3, dog coins and more【285876925291367†L181-L184】.
-2. Explore Sakurajima island to discover new dungeons and Pals.
-3. Participate in new events to earn exclusive skins and items.
-
-**PVP Arena Guide**
-1. Travel to the PVP arena on Sakurajima island【675291985780246†L470-L474】.
-2. Register for matches and choose your ruleset.
-3. Fight other players; adapt strategies based on their Pals and playstyles.
-
-**Meteorite Event Guide**
-1. Watch for meteor showers; they occur randomly after the update.
-2. Follow the event marker to the crash site.
-3. Defeat enemies around the meteor and mine the ore inside.
-
-**Dog Coin Farming Guide**
-1. Complete Sakurajima side quests that reward Dog Coins.
-2. Defeat special enemies or open dog coin chests.
-3. Spend Dog Coins on unique items or save them for later updates.
-
-**Supply Drop Guide & Items**
-1. Locate the falling supply crate via map markers.
-2. Clear out surrounding enemies and open the crate.
-3. Collect items such as ammo, tech manuals and rare resources.
-
-**Halloween Skins & How to Change Pal Skins**
-1. Participate in Halloween events to earn limited skins.
-2. Access the skin menu for your Pal via the Palbox.
-3. Apply the new skin; some skins may also change partner skills.
-
-**Seasonal Festival Events & Rewards**
-1. Check event schedules from official announcements.
-2. Participate in time‑limited quests or mini‑games.
-3. Earn event currencies and trade them for festive items.
-
-### Multiplayer & PVP Steps
-
-**Setting Up Multiplayer & Co‑op**
-1. From the main menu, select **multiplayer** and choose to host or join a world.
-2. Share your world code with friends or input theirs.
-3. Collaborate on building, exploring and fighting bosses.
-
-**Running a Dedicated Server**
-1. Install the dedicated server software from the official site or Steam.
-2. Configure server settings (player cap, difficulty, world seed).
-3. Launch the server and invite players to join via IP address.
-
-**Trading Pals & Items with Others**
-1. Approach another player and open the trade interface.
-2. Select Pals or items to offer; confirm trade terms.
-3. Complete the trade; transferred Pals retain their levels and passives.
-
-**Joining the PVP Arena**
-1. Travel to a PVP arena location and speak with the arena NPC.
-2. Choose a match type (1v1, 3v3, etc.).
-3. Equip your Pals and gear; fight until one team is defeated.
-
-**PVP Etiquette & Rules**
-1. Respect match rules (no healing items if prohibited).
-2. Avoid exploiting glitches or unfair mechanics.
-3. Congratulate opponents and maintain sportsmanship.
-
-**Clan & Guild System**
-1. Create a guild via the guild board at a major settlement.
-2. Invite friends or players to join.
-3. Complete guild quests to earn shared resources and perks.
-
-**Raid Party Coordination**
-1. Form a group of players with complementary Pals and roles.
-2. Designate a leader to call out mechanics and phases.
-3. Distribute loot fairly after defeating the raid boss.
-
-**Cross‑Platform Play & Compatibility**
-1. Check whether your version supports cross‑play.
-2. Add friends via cross‑platform friend codes.
-3. Join each other’s games by inputting the provided codes.
-
-**Voice & Chat Communication Tips**
-1. Use an external voice chat program (e.g., Discord) or the in‑game voice chat.
-2. Communicate boss mechanics and resource needs clearly.
-3. Respect other players’ privacy and follow community guidelines.
-
-### Stats & Mechanics Steps
-
-**Understanding HP, ATK & DEF**
-1. **HP** determines how much damage you or your Pal can take before fainting.
-2. **ATK** affects physical and elemental damage output.
-3. **DEF** reduces incoming damage; increase via leveling, gear and passives.
-
-**Work Speed Explained**
-1. Work Speed influences how quickly a Pal completes assigned tasks【633260338298658†L160-L170】.
-2. High Work Speed Pals (e.g., Penking) finish jobs faster.
-3. Breed or capture Pals with the **Artisan** passive to boost work speed.
-
-**Stamina & Weight Systems**
-1. **Stamina** governs sprinting, dodging and climbing; increase it when leveling up.
-2. **Weight** is the amount of gear and materials you can carry; upgrade the stat or use Pals to transport goods.
-3. Overloading weight slows movement; drop items or use storage.
-
-**Rarity & Pal Star Ratings**
-1. Pals have rarity levels (common to legendary) indicated by stars.
-2. Higher rarity Pals often have better base stats and unique passives.
-3. Capture rare Pals in difficult regions or via breeding subspecies.
-
-**Sicknesses & Injuries**
-1. Pals can become sick or injured if overworked, starved or damaged.
-2. Craft medicine or visit a healer NPC to cure them.
-3. Provide rest and food to prevent illness.
-
-**SAN (Sanity) System**
-1. Each Pal has a SAN (sanity) meter; low SAN leads to tantrums or refusal to work.
-2. Keep Pals happy with rest, varied tasks and comfortable base conditions.
-3. Use special items or activities to restore SAN.
-
-**Weather Effects on Players & Pals**
-1. Extreme cold causes frostbite; extreme heat causes heatstroke.
-2. Wear appropriate armor and bring temperature‑regulating Pals to mitigate effects.
-3. Build shelters in hazardous biomes to protect Pals.
-
-**Passive Skill Ranks & Categories**
-1. Passives range from common to **Legend** (highest tier).
-2. Each passive affects specific stats or work efficiency (e.g., **Lucky** increases drop rates).
-3. Breed Pals or use skill fruits to obtain high‑rank passives.
-
-**Damage Types & Resistances**
-1. Physical and elemental damage types interact with Pal resistances.
-2. Match your attacks to enemy weaknesses (e.g., Water vs Fire).
-3. Equip gear that reduces damage from the enemy’s dominant element.
-
-**Experience & Leveling Mechanics**
-1. Gain experience by defeating enemies, completing missions and crafting items.
-2. Pals gain experience even when assigned to base tasks.
-3. When leveling up, allocate stat points to suit your playstyle.
-
-**Resource Respawn & Timers**
-1. Trees, ore nodes and berry bushes respawn after an in‑game day or more.
-2. Rare resources take longer to respawn; plan resource runs accordingly.
-3. Dungeons reset after a set period, allowing you to re‑farm them.
-
-**Vendor & Merchant Mechanics**
-1. Vendors restock their inventory after a daily reset or when you leave the area.
-2. Black Marketeers sell rare items but may charge more.
-3. Buying and selling prices vary depending on your negotiation skill or passives.
-
-**Crafting Queue & Work Prioritization**
-1. Pals will tackle the top item in a crafting queue first.
-2. Assign high Work Speed Pals to time‑sensitive tasks.
-3. Reorder tasks manually if certain items are needed urgently.
-
-**Achievement & Trophy Guide**
-1. View achievements in your profile menu.
-2. Complete specific tasks (e.g., capture 50 Pals, defeat all tower bosses).
-3. Collect rewards or recognition for 100 % completion.
-
-**Settings & Accessibility Options**
-1. Navigate to the options menu from the pause screen.
-2. Adjust controls, sound, display and accessibility features (colorblind modes, subtitles).
-3. Save settings to apply changes.
-
-**Saving & Auto‑Save System**
-1. The game auto‑saves at regular intervals and after key events.
-2. Manually save by interacting with your bed or Palbox.
-3. Back up save files to avoid data loss.
-
-### Social & Community Steps
-
-**Joining Events & Festivals**
-1. Monitor in‑game announcements and social channels for event schedules.
-2. Travel to the event location or speak with the event NPC.
-3. Participate in mini‑games and complete tasks to earn rewards.
-
-**Participating in Community Challenges**
-1. Join official or fan‑run challenges through forums or social media.
-2. Complete the specified goals (e.g., build a castle, breed a rare Pal).
-3. Submit proof to organizers and earn recognition or prizes.
-
-**Reporting Bugs & Feedback**
-1. Collect screenshots or videos of the issue.
-2. Visit the official support site or email the developers.
-3. Describe the bug with steps to reproduce and your system information.
-
-**Modding & Custom Content**
-1. Check the game’s terms of service to ensure modding is allowed.
-2. Download mods from trusted sources.
-3. Install according to instructions; backup files beforehand.
-
-**Content Creators & Streaming**
-1. Use streaming software (OBS, Streamlabs) to capture your gameplay.
-2. Engage your audience by explaining mechanics and sharing tips.
-3. Follow platform guidelines for monetization and community behavior.
-
-**Role‑Playing & Storytelling**
-1. Create a backstory for your character and Pals.
-2. Build themed bases and set personal goals (e.g., conservationist, trader).
-3. Join RP communities to share stories.
-
-**Sharing Builds & Base Tours**
-1. Capture screenshots or record video of your base.
-2. Upload to social media or community forums.
-3. Provide build details, resources used and design inspiration.
-
-**Accessibility: Colorblind & Control Options**
-1. Open the settings menu and enable **colorblind mode** if needed.
-2. Remap control inputs to suit your playstyle or hardware.
-3. Adjust font sizes and contrast for easier reading.
-
-**Parental Controls & Safe Play**
-1. Use console or PC parental controls to limit play time.
-2. Disable multiplayer features if necessary.
-3. Monitor younger players’ interactions and ensure they play in safe environments.
-
-## Sources
-
-The guide content is drawn from publicly available sources and official patch notes.  Early missions provide instructions on activating fast‑travel statues and gathering resources【354485449518951†L124-L131】【354485449518951†L166-L190】.  Base location recommendations and work Pals come from a detailed base building guide【633260338298658†L112-L134】【633260338298658†L160-L178】.  Breeding mechanics and combinations originate from an updated 2025 breeding article【612653128208765†L51-L62】【612653128208765†L64-L77】.  The Best Pals Tier List identifies top combat Pals such as Jormuntide Ignis and Jetragon【213589709604736†L156-L160】.  Technology updates like the Lockpicking Tool v3 are described in patch notes【285876925291367†L155-L177】.
+Comprehensive Adaptive Guide System for Palworld
+Palworld 100% Completion Guide System
+M01: Starting Base (Main Mission)
+Game Phase: Early Game (Tutorial)
+Mode Considerations: No differences between Normal/Hardcore (solo or co-op).
+Prerequisites: None – beginning of the game.
+Step-by-Step Walkthrough:
+Establish a Base: Open the Build menu and place a Palbox on open land. This defines your first base area. Choose a flat, resource-rich spot (e.g. near trees and rocks) for an optimal start.
+Secure the Base Location: Ensure the base site has natural defenses (cliffs or water) if possible, to help with later raids. Avoid areas too close to enemy spawns.
+Confirm Base Setup: After placing the Palbox, your Base Level 1 is established. You can now deploy Pals inside and begin base missions.
+Unlocks and Rewards: 20 EXP reward. Unlocks Base Level 1 (allows up to 2 Pals in base) and access to base management.
+M02: Put Pals to Work (Main Mission)
+Game Phase: Early Game (Tutorial)
+Mode Considerations: No differences for difficulty or co-op.
+Prerequisites: Completion of “Starting Base” (Base established).
+Step-by-Step Walkthrough:
+Open Base Management: Interact with the Palbox at your base and open the Management menu.
+Assign a Pal: Select one of your captured Pals and assign it to the base. (If you have no Pal yet, go catch a basic Pal like a Lamball first.) The assigned Pal will now perform base tasks.
+Verify Assignment: Ensure the Pal appears in your base (roaming inside the base circle). This indicates success.
+Unlocks and Rewards: 20 EXP reward. Base operations begin (Pals will help automate tasks like gathering resources). This mission unlocks higher base level missions.
+M03: Fill Your Belly (Main Mission)
+Game Phase: Early Game (Tutorial)
+Mode Considerations: No differences in Normal vs Hardcore.
+Prerequisites: None (available from start; survival tutorial).
+Step-by-Step Walkthrough:
+Find Food: Look for berry bushes (e.g. Red Berries) or other edible plants in the starting area. Common locations include grassy fields near your spawn.
+Gather 5 Red Berries: Collect at least five berries by interacting with plants or shaking trees with fruit.
+Eat to Sate Hunger: Open your inventory and Use the berries to restore your hunger meter. On controller/keyboard, select the food item and consume it.
+Maintain Nutrition: Going forward, always keep some food on hand. If playing co-op, teammates can share food. In Hardcore, hunger drains faster, so plan accordingly.
+Unlocks and Rewards: 20 EXP and 5 Red Berries as reward (immediate, effectively replacing what you ate). Confirms the Hunger mechanic is managed.
+M04: Protect Yourself (Main Mission)
+Game Phase: Early Game
+Mode Considerations: No major differences; in Hardcore, take extra care as damage is higher.
+Prerequisites: Basic resources (fiber and leather) available; recommended Level ~2–3.
+Step-by-Step Walkthrough:
+Unlock Clothing Tech: Open the Technology menu and unlock “Leather Armor” (or equivalent basic clothes)
+paldb.cc
+. This costs 1 Ancient Technology Point (earned by leveling up or quests).
+Craft Clothes: Use a Primitive Workbench to craft the unlocked Traveler’s Clothes set (requires fibers and leathers). Fibers come from plants (e.g. cut tall grass) and leathers from small fluffy Pals (e.g. Lamballs drop Wool or leather-like materials).
+Equip Armor: Open inventory and equip the crafted clothing (torso, legs, etc.). This provides basic defense and cold protection
+paldb.cc
+. In co-op, ensure each player crafts their own set.
+Survive the Elements: If in a cold area at night, the clothes prevent freezing. This mission prepares you for environmental hazards.
+Unlocks and Rewards: 30 EXP
+paldb.cc
+. Unlocks ability to survive cold environments better and proceed to more dangerous zones safely. Crafting armor is a prerequisite for tougher missions.
+M05: Enhance Your Stats (Main Mission)
+Game Phase: Early Game
+Mode Considerations: No differences by mode; Hardcore players should prioritize health stat.
+Prerequisites: Reach Player Level 2 (earn EXP from earlier missions or catching Pals).
+Step-by-Step Walkthrough:
+Level Up: Gain experience by completing missions or capturing Pals. Upon reaching the next level, you’ll get stat points.
+Open Character Menu: Go to your Inventory/Status screen and find the Stats or Enhance option.
+Allocate Stat Point: Choose a stat to increase (Health for survivability, Stamina for longer running, Attack for damage, etc.). Confirm the allocation. In co-op, each player should assign stats to complement roles (e.g. one focuses on defense, another on offense).
+Flexible Respec: Remember you can later use certain items (like Mind Evolution berries if available) to reset stats, so don’t worry too much – just don’t neglect Health on Hardcore.
+Unlocks and Rewards: 5 EXP. Increases your chosen stat, making your character stronger. This is required to survive increasingly tough encounters.
+M06: The Weakest Pal (Main Mission)
+Game Phase: Early Game
+Mode Considerations: No differences; co-op teams can split up to capture Pals faster.
+Prerequisites: Basic capture tools (Pal Spheres). By now you should have some standard Pal Spheres from starter supplies or craft them with fiber and ore if needed.
+Step-by-Step Walkthrough:
+Locate Lamballs: Lamballs (small sheep-like Pals) are common in the starter grasslands. They have low combat ability and thus are safe targets.
+Capture 5 Lamballs: Weaken each Lamball (a few hits or use a low-level Pal to knock it out) and throw a Pal Sphere to capture. Lamballs drop Wool and Mutton – collect these when you capture or defeat them. Repeat until you have 5 Lamballs in your Paldeck. (Tip: Use the environment or a blunt weapon to weaken without killing.)
+Utilize Lamballs: Assign some Lamballs to your base. They can perform basic tasks (Wool can be used for crafting warm clothes, Mutton for food). Lamballs are weak in combat but very useful for early base work.
+Unlocks and Rewards: 35 EXP, plus 10 Wool and 5 Lamball Mutton as rewards. This provides materials for crafting (wool for beds or clothes) and food. More importantly, you now have multiple Pals to help around the base.
+M07: Mining Paldium (Main Mission)
+Game Phase: Early Game
+Mode Considerations: In Hardcore, enemies near ore might hit harder, so clear area first.
+Prerequisites: Craft a Stone Pickaxe (unlocked by default or via tech if needed) using wood and stone. Also unlock the Shield technology (requires level 4 and uses 1 tech point).
+Step-by-Step Walkthrough:
+Find Paldium Ore: Look near water sources (rivers, ponds) for glowing blue ore nodes. Early on, check streams in Windswept Hills or caves around coordinates (approx. 100,-300 range). Paldium ore veins have a blue shine.
+Mine the Ore: Equip the Stone Pickaxe and hit the Paldium node until it breaks. Gather the Paldium Fragments. You need enough fragments to craft a Paldium Shield.
+Craft the Shield: At your Primitive Workbench, craft the Shield (requires Paldium Fragments and wood). This is a handheld shield to block attacks.
+Equip Shield: Put the shield in your off-hand slot. Practice blocking attacks from wild Pals – it will significantly reduce damage taken.
+Unlocks and Rewards: 50 EXP. You now have a Shield for defense. Blocking enables you to survive tougher fights, a crucial ability especially in Hardcore mode.
+M08: Safety Measures (Main Mission)
+Game Phase: Early Game
+Mode Considerations: No differences; a glider is useful in all modes for travel and escape.
+Prerequisites: Reach player level ~5 and unlock Glider technology (costs 1 tech point). Also craft a Primitive Furnace to smelt ore if needed to craft glider parts (glider uses basic materials like fiber and Paldium).
+Step-by-Step Walkthrough:
+Unlock the Glider: In Technology tree, under Tools or Movement, unlock the Grappling Glider (or simply Glider).
+Craft a Glider: Use a Workbench or Production facility to craft the Glider. It requires Paldium (from ore) and perhaps fabric (fiber). The Primitive Furnace can smelt Paldium Fragments into ingots if required.
+Equip the Glider: It will occupy a tool slot. Climb a hill or your base rooftop, jump, and press the Glider activation key to glide. Practice controlling descent and distance.
+Use for Safety: The glider prevents fall damage and allows quick travel from high points. If cornered by enemies, you can often glide away. In co-op, group gliding from a tower can be a fun escape tactic.
+Unlocks and Rewards: 100 EXP. You now have far greater mobility; also a Fast Travel point unlocks at each tower you clear (glider from tower top is useful)
+game8.co
+. This mission completes the core survival toolkit.
+M09: Palpedia Expansion (Capture 30 Pals) (Main Mission)
+Game Phase: Early/Mid Game Transition
+Mode Considerations: No differences; co-op teams can divide biomes to cover more species.
+Prerequisites: A supply of Pal Spheres (craft Normal Spheres from fiber and stone, or buy from Red Coat Merchants). You should have explored beyond the immediate base area.
+Step-by-Step Walkthrough:
+Explore Various Biomes: Visit different regions of the map to find a variety of Pal species. Focus on capturing new species (each unique Pal counts toward the 30). Use the map to locate distinct areas: grasslands (Lamball, Tanzee), forest (Direhowl, Foxparks), desert (Cactiflar, Kingpaca), snow (Chillet, Reindrix), etc.
+Weaken and Capture: For each new Pal, weaken it to low HP and throw a Pal Sphere. If your Palpedia shows you already caught 12 of a species, move on – you gain bonus EXP for the first 10 captures of each species
+game8.co
+. Targeting unique ones maximizes both count and EXP.
+Utilize Passive Bonus: Remember, catching a Pal gives a big one-time EXP bonus up to the 10th catch of that species. This helps you level up quickly while fulfilling the mission.
+Coordinate Co-op: In co-op, players can trade Pals – if one catches a Pal another hasn't, trading can help both progress their count. Also, splitting up to different biomes speeds up finding 30 species.
+Unlocks and Rewards: 400 EXP and 10 Pal Spheres. This greatly boosts your level. With a broad Pal roster, you unlock more Partner Skills and have versatile options for base work and combat.
+M10: Partner Skills and Pal Gear (Main Mission)
+Game Phase: Mid Game
+Mode Considerations: No differences; in co-op each player can equip different Pal Gear to diversify mounts and weapons.
+Prerequisites: Several different Pal species captured (especially one that can be mounted or used as a weapon). Unlock Pal Gear Workbench technology (costs 1 tech point) and Foxparks’s Harness tech. Materials: likely wood, fiber, and a drop from a Foxparks (e.g. Foxfur).
+Step-by-Step Walkthrough:
+Build a Pal Gear Workbench: Craft and place the Pal Gear Workbench at your base. This special workbench allows creation of Pal-specific gear (saddles, harnesses, weapons).
+Craft Foxparks’s Harness: Using the workbench, craft the harness for Foxparks (a canine Pal). It requires Foxparks-related materials – if you haven’t got a Foxparks, capture one in the forest first. Craft the harness (it will be a Key Item rather than a normal item).
+Equip Partner Skill: Summon your Foxparks and equip it with the harness via the Pal’s equipment menu. Now you can ride the Foxparks as a mount or use its Partner Skill ability directly (Foxparks might have a dash attack).
+Test Pal Gear: Try riding or fighting with Foxparks. Partner Skills vary: some Pals become weapons (e.g. ranged attack when equipped), some are mounts. Ensure you understand how to activate these skills (usually assigned to a hotkey when the Pal is in your active party).
+Unlocks and Rewards: 450 EXP. Unlocks Pal Gear usage, enabling mounts and Pal-based weapons. This significantly expands traversal and combat options. (Reward is effectively the ability to use Partner Skills; no item reward besides the harness crafted.)
+M11: First Boss Battle (Main Mission)
+Game Phase: Mid Game
+Mode Considerations: On Hardcore, boss hits much harder – dodge carefully. In co-op, you can fight together (up to 4 players can enter a boss fight).
+Prerequisites: Party of Pals around level 10–15 and at least one ranged weapon (e.g. a Musket or Crossbow). Ideally have a shield and a couple of healing items. Suggested to complete earlier missions for gear.
+Step-by-Step Walkthrough:
+Find the Target Alpha Pal: This mission directs you to a powerful Alpha Pal named “Dancer on the Steppe” Chillet at coordinates (174, -419). This is an Alpha Chillet (a large rabbit-like Pal) roaming the steppe area. Use a fast mount or glider to reach the location.
+Engage the Alpha: Approach the Alpha Chillet and initiate combat. Use pillars, rocks, or terrain for cover if needed. Chillet will have higher HP and damage than normal ones. Keep your distance and use your best weapon or Pals. Weakness: Chillet is Ice-type; it’s weak to Fire attacks – if you have any fire elemental Pal or weapon, use it.
+Defeat or Capture: You have two options – defeat it for EXP and loot, or capture it to gain a strong Pal ally. Capturing is tough: whittle its HP very low, then throw a Mega Sphere or better (Alpha Pals are hard to catch). If co-op, coordinate one player to tank and others to throw spheres.
+Claim Rewards: Upon victory, loot drops include Fiber, Paldium Fragments, and Leather. Also, completing the mission yields a big EXP reward. If you captured the Alpha Chillet, you now have a powerful Pal for base defense or combat.
+Unlocks and Rewards: 500 EXP and loot (Fiber x20, Paldium Fragment x20, Leather x10 from the mission reward). This also unlocks the concept of field bosses, preparing you for tower guardians. Additionally, defeating your first Alpha grants Ancient Civilization Parts sometimes, which are needed for advanced tech.
+M12: Hunger is the Greatest Foe (Main Mission)
+Game Phase: Mid Game
+Mode Considerations: Hunger drains faster on Hardcore, so this mission is even more critical there.
+Prerequisites: A Cooking Pot and some ingredients. Unlock the Cooking Pot technology (requires tech points, unlocked around Base Level 10 when Wheat Plantation is introduced). Have access to recipes or at least raw foods like meat and vegetables.
+Step-by-Step Walkthrough:
+Craft a Cooking Pot: Using a Workbench, craft a Cooking Pot (needs iron ingots and stone). Place it at your base. This allows cooking advanced food.
+Prepare Travel Rations: Use the Cooking Pot to make portable meals. For example, cook Mozzarina Cheeseburgers or Stews if you have recipes (these give better hunger restoration). If you lack recipes, cook basic Meat Skewers using Pal meat + mushrooms.
+Use Lunchboxes (Bento): The mission hint suggests using items like Portable Rations or Lunchboxes so you can eat on the move. Craft or obtain a Pal Pack (basically a lunchbox item) that allows quick consumption. These might be unlocked via a tech or bought from merchants. Equip it to your hotbar for easy access.
+Never Starve: Going forward, always carry food on expeditions. In raids or dungeons, hunger can drop unexpectedly – eat periodically. In co-op, designate someone to carry extra food to share in emergencies.
+Unlocks and Rewards: (Likely EXP reward, amount not listed here). Unlocks improved survival ability – from now on, your character can maintain stamina in long fights and travel. This mission emphasizes the importance of cooking and prepared meals to mitigate the constant hunger threat.
+M13: The Girl and the Tower – Zoe & Grizzbolt (Main Story Tower)
+Game Phase: Mid Game (Tower Boss 1)
+Mode Considerations: Normal Mode: Boss is level 10
+game8.co
+. Hard Mode: Boss gains more HP and damage; beating on Hard grants a cosmetic Zoe’s Hat. In co-op, up to 4 players can join the fight.
+Prerequisites: Recommended player level ~10+, a team of Pals around level 10, and a firearm (Musket) or strong bow. Also have Ground-type Pals or weapons, as Grizzbolt is Electric-type and weak to Ground.
+Step-by-Step Walkthrough:
+Reach Rayne Syndicate Tower: Head to coordinates (113, -431) in the forest near the start. Use the Rayne Syndicate Tower Entrance fast-travel if unlocked.
+Prepare for Battle: Equip the Musket or best ranged weapon; bring healing items. Summon a Ground-element Pal (e.g. Univolt or Mammorest) since Zoe’s Pal Grizzbolt (Electric) is weak to Ground. If co-op, assign one player to draw Zoe’s fire while others target Grizzbolt.
+Defeat Zoe and Grizzbolt: Enter the tower arena. Use the pillars for cover and focus on dodging Grizzbolt’s lightning attacks. Target Grizzbolt first – as an Electric bear-like Pal, Ground attacks from Pals or a Clay Grenade can deal heavy damage. Zoe will shoot firearms; block with your shield or line-of-sight behind pillars. Keep moving, as you must win within 10 minutes or the fight resets.
+Tower Cleared: Once Grizzbolt’s HP is down, capture it if you wish (though tower bosses normally cannot be captured since a past glitch was patched). Defeating Zoe completes the mission. Use the newly unlocked tower top fast-travel point to glide or teleport out
+game8.co
+.
+Unlocks and Rewards: Ancient Technology Points x5 (first-time clear reward), unlocks Forest Tower Fast Travel
+game8.co
+, and progresses main story. In Hard mode, you receive the Zoe Hat cosmetic. EXP gained helps level significantly. Tower defeat is needed to unlock later tech tiers and the next bosses.
+M14: Frostbite Faith – Lily & Lyleen (Main Story Tower)
+Game Phase: Mid Game (Tower Boss 2)
+Mode Considerations: Normal: Boss Pal level 25. Hard: Much tougher, rewards Lily’s Hat cosmetic. Solo should be level ~20+; co-op is recommended if underleveled.
+Prerequisites: Defeat Zoe’s Tower (unlocks other towers). Recommended to have Fire-element capabilities, as Lyleen is Grass-type and weak to Fire. Craft flamethrower fuel or bring Fire Pals like Incineram if possible. Warm clothes or a Hot Spring buff help mitigate cold if the arena has snow effects.
+Step-by-Step Walkthrough:
+Travel to Free Pal Alliance Tower: Go to (181, 29) in the snowy forest region near the map’s center. Use the Free Pal Alliance Tower Entrance teleport if available. Expect cold weather – equip any Cold-Resistant armor you have.
+Battle Lily and Lyleen: Lyleen is a large Grass-type Pal. Use Fire weapons: a Flamethrower or molotovs work well, as do Fire Pals (e.g. Pyrin or Fire Foxparks). Lily herself may use sniper or bow attacks; strafe constantly to avoid getting hit. If co-op, one player engage Lily at range while others burn down Lyleen. Be cautious of Lyleen’s area vine attacks.
+Exploit Weakness: Fire damage will significantly increase DPS on Lyleen. Tossing an Ignition Grenade or using a Fire Partner Skill can halve the difficulty. Meanwhile, keep moving to avoid Lily’s shots. Use pillars or terrain in the tower arena to break line of sight. Heal as needed – Lily’s hits can be strong on Hardcore, so a shield or taking cover is vital.
+Secure Victory: Defeat Lyleen first to weaken Lily’s offense (her Partner Pal gone). Then close in on Lily – she has lower HP. Once defeated, claim the loot and the tower is cleared. Don’t forget to activate the fast-travel at tower top.
+Unlocks and Rewards: Ancient Technology Points x5 (first clear), Snowy Tower Fast Travel point, and possibly unique drops (rumors of a Free Pal Alliance banner tech unlock). Hard mode yields Lily’s Hat cosmetic. You also gain access to higher-level tech and the next region’s quests.
+M15: Trial by Fire – Axel & Orserk (Main Story Tower)
+Game Phase: Mid Game (Tower Boss 3)
+Mode Considerations: Normal boss Pal level 40. Hardcore significantly increases damage – bring extra healing. Co-op strongly advised at this stage due to high boss HP.
+Prerequisites: Defeat Lily’s Tower. Prepare Ice and Ground attacks, as Orserk (Fire Pal) is weak to Ice, and also somewhat to Ground. Ensure you have upgraded weapons (e.g. an Assault Rifle or at least a Crossbow) and some elemental grenades. Fire-resistant gear (Heat Resistant armor) helps if available.
+Step-by-Step Walkthrough:
+Reach Eternal Pyre Tower: Head to the volcanic region at (-587, -517). This is near Mount Obsidian. Use the Eternal Pyre Tower Entrance teleport if unlocked. The area is hot; equip Heat-Resistant Plasteel Armor if you have it, or consume a cooling drink to avoid damage over time.
+Engage Axel and Orserk: Orserk is a massive Fire-element Pal. Use Ice Pals or Weapons – for example, Chillet Ignis or Frost Grenades – to exploit its weakness. Ground attacks (earthquakes from a Pal like Mammorest) also work well. Axel will wade into melee combat with heavy hits. Keep distance and do not get cornered – Orserk has area flame attacks, and Axel can one-shot lower HP players on Hardcore.
+Hit and Run Tactics: Utilize the arena’s layout; there may be lava pools or pillars. Lure Orserk away from Axel and focus it down first (since Orserk’s fire attacks can pressure you constantly). Continuously move to avoid being caught in Orserk’s flame breaths. If in co-op, have one team member kite Axel around while others concentrate on Orserk. Once Orserk falls, the fight becomes easier.
+Axel’s Last Stand: Now fight Axel directly. He has strong melee damage. Use ranged fire if possible, or have a sturdy Pal tank him (e.g. a high-Defense Pal like Xenogard). Circle him and attack from behind or use Partner Skills at range. Block or dodge his charge attacks. After defeating Axel, claim victory and activate the tower’s travel point.
+Unlocks and Rewards: Ancient Technology Points x5, Desert/Volcano Tower Fast Travel unlocked, and potential loot like Eternal Pyre faction schematics. Hard mode grants Axel’s Hat cosmetic. Clearing this tower is pivotal; it likely unlocks Tier 2 weapons (e.g. overheat firearms) in your tech tree.
+M16: Sands of Despair – Marcus & Faleris (Main Story Tower)
+Game Phase: Late Mid Game (Tower Boss 4)
+Mode Considerations: Normal boss Pal level 45
+game8.co
+. In Hardcore, extremely high damage from boss – bring top-tier armor. Co-op recommended to split aggro.
+Prerequisites: Defeat Axel’s Tower. Water-element preparation is key since Faleris is Fire/Dragon-type weak to Water
+game8.co
+. Acquire a Water Pal (e.g. Wazurex or Surfent) or craft a Water weapon (like a Water Blaster or water grenades). Also, sandstorms in the area can reduce visibility – goggles or appropriate gear help.
+Step-by-Step Walkthrough:
+Arrive at PIDF Tower: Travel to (556, 336) in the desert region
+game8.co
+. This is the Palpagos Islands Defense Force tower in the Desiccated Dunes. Use the PIDF Tower Entrance teleport if available. Expect hot and arid conditions – have some Stamina Elixirs to counter heat exhaustion.
+Battle Marcus and Faleris: Faleris is a fearsome Fire/Dragon Pal. Immediately apply Water attacks – for instance, deploy a Surfent Terra Pal whose water sprays can douse Faleris, or use Water-element bullets if you unlocked them. Marcus will use heavy weapons (possibly rockets or grenades as he is a military man). Keep moving to avoid explosive splash damage. If playing co-op, coordinate: one player focuses on hosing Faleris down with water while another deals with Marcus or keeps him occupied.
+Stay Out of Fire: Faleris unleashes fireballs and possibly a flamethrower-like breath. Use cover or strafe widely to avoid these. Utilize any Water Bodies in arena – sometimes, towers have environmental props; if there’s water, lure Faleris there. Continue to pound it with Water until it falls.
+Suppress Marcus: With Faleris gone, Marcus himself is vulnerable. He might throw grenades; use a long-range weapon to pick him off while dodging. Alternatively, rush him after he finishes a reload cycle – but be cautious on Hardcore, as one rocket can be fatal. Once Marcus is down, secure the tower.
+Unlocks and Rewards: Ancient Technology Points x5, Desert Tower Fast Travel unlocked. Hard mode gives Marcus’s Hat. You also gain access to PIDF faction tech (e.g. banners, possibly advanced firearms) and can progress to the next tower in the storyline.
+M17: Frozen Shadow – Victor & Shadowbeak (Main Story Tower)
+Game Phase: Late Game (Tower Boss 5)
+Mode Considerations: Normal boss Pal level 50. On Hardcore, boss’s hits are devastating – max out your gear. Co-op strongly encouraged; team of level 50+ players ideal.
+Prerequisites: Defeat Marcus’s Tower. Dragon-element preparation is key as Shadowbeak (Dark type Pal) is weak to Dragon. By now you should have access to at least one Dragon Pal (e.g. Jetragon or Wyvern). If not, use Light-element weapons because Dark types are also countered by strong raw damage or light. Ensure you have the highest-tier weapons crafted (legendary if possible).
+Step-by-Step Walkthrough:
+Ascend PAL Research Tower: Go to the snowy mountains at (-146, 448), near the PAL Genetic Research Unit Tower. Use the tower entrance teleport. It’s extremely cold; wear Cold-Resistant Plasteel Armor or use a Hot Spring buff to avoid frostbite.
+Confront Victor and Shadowbeak: Shadowbeak is a giant Dark/Ice bird Pal. Immediately deploy Dragon Pals or weapons – for instance, Jormungandr (Dragon) or use a crafted Dragon Blade if you unlocked one. These will deal bonus damage. Victor, being a high-ranking researcher, may use energy weapons with homing properties. Keep an eye out for laser sights or drones.
+Battle Strategy: Focus fire on Shadowbeak while avoiding its swooping attacks. A Dragon Pal like Paladius or Necromus can tank some hits and retaliate effectively. Use cover because Victor might call in Defense Force adds or shoot from afar. If co-op, split roles: two handle Shadowbeak, others interrupt Victor. Utilize Dragon-type Partner Skills for massive bursts. For example, Jetragon’s breath or Necromus’s dark wave can hurt Shadowbeak significantly.
+Finish Off Victor: With Shadowbeak defeated, turn to Victor. He might retreat or use a shield gadget. Overwhelm him with your team – stun lock if possible (flashbang grenades work even on humans). Once he’s down, the tower is liberated. Activate the fast-travel at top.
+Unlocks and Rewards: Ancient Technology Points x5, Mountain Tower Fast Travel unlocked. Hard mode yields Victor’s Hat. This victory opens up endgame tech (Genetic Research techs) and paves the way to the final towers (Sakurajima and Feybreak).
+M18: Moonlit Duel – Saya & Selyne (Main Story Tower)
+Game Phase: Endgame (Tower Boss 6)
+Mode Considerations: Normal boss Pal level 55. Hardcore is extremely challenging – consider only with max gear and possibly co-op backup.
+Prerequisites: Defeat Victor’s Tower. Dragon-element is again advantageous, as Selyne (Dark-type Pal) is weak to Dragon. Ensure you have one of the Legendary Dragon Pals (Jetragon or Paladius) leveled up. Have Legendary weapons crafted (e.g. Legendary Terra Blade or guns) and plenty of healing elixirs.
+Step-by-Step Walkthrough:
+Journey to Sakurajima (Moonflower Tower): Head to (-597, 203) on Sakurajima Island – this is a late-game island unlocked by the Feybreak update. Use the Moonflower Tower entrance teleport. Sakurajima might have unique mechanics (like constant night or cherry blossom fields). Be prepared for limited visibility if at night.
+Battle Saya and Selyne: Selyne is a powerful Dark phoenix-like Pal. Unleash Dragon attacks – a Pal like Bastigor (Dragon/Fire) or Jormuntide Ignis will do great damage. Saya herself is agile, possibly using dual blades or a katana (as a lore character, she’s known as the “Blade of the Crescent Moon”). Keep moving to avoid her melee strikes, which can cause bleeding. On Hardcore, do not engage Saya in close quarters without a shield.
+Use Dragon’s Might: Deploy your strongest moves on Selyne from the start to eliminate it – for example, Necromus’s dark blast combined with another Pal’s Dragon breath. Two Dragon Pals tagging Selyne can stagger it. Meanwhile, if co-op, one player keep Saya busy at range (she can be distracted with decoys or by one player kiting).
+Defeat Saya: Once Selyne is down, focus on Saya. As a skilled fighter, she may parry or dodge attacks. Gunfire is effective – she can’t deflect bullets easily. Alternatively, overwhelm her with multiple Pals using Partner Skills simultaneously (stagger locking her). Use healing when needed; her damage is high but if you have multiple players or Pals, she can be cornered. Victory will free the Moonflower Tower.
+Unlocks and Rewards: Ancient Technology Points x5, Sakurajima Tower Fast Travel unlocked. Hard mode grants Saya’s Hat cosmetic. Clearing this tower gives access to any remaining late-game content (e.g. legendary Pal spawns on Sakurajima, and sets the stage for the final showdown in Feybreak).
+M19: Fate of Feybreak – Bjorn & Bastigor (Main Story Tower)
+Game Phase: Endgame (Final Tower Boss)
+Mode Considerations: Normal boss Pal level 60. In Hardcore, this fight is extremely difficult – full team of players with endgame gear recommended.
+Prerequisites: Defeat all other tower bosses (Zoe, Lily, Axel, Marcus, Victor, Saya). By now you should be max level (60) or close. Fire-element is effective, as Bastigor (Dragon/Ice) is weak to Fire. Bring Legendary Fire weapons (e.g. Legendary Energy Shotgun with fire ammo) and top-tier Fire Pals (e.g. Incineram Noct or Bellanoir Libero which has fire skills).
+Step-by-Step Walkthrough:
+Enter the Feybreak Tower: Go to (-1294, -1669) in the Feybreak region – a cursed land introduced in a major update. Use the Feybreak Tower Entrance teleport. Feybreak might have its own hazards (possibly toxic mist or constant raids). Ensure you have buff items (Defense elixirs, etc.) active before entering.
+Confront Bjorn and Bastigor: Bastigor is a colossal Dragon Pal (likely Ice/Dragon). Immediately strike with Fire attacks. For example, have a Pal with Flamethrower Partner Skill or throw Thermite Grenades. Bjorn himself is heavily armored and might use a massive hammer or heavy gun. He can stun players if he hits – avoid direct melee confrontation. On Hardcore, one hit can KO a poorly geared player.
+Maximize Firepower: Use everything you have – this is the final battle. Deploy turret mounts if possible (the game allows mounting Pals on Anti-Air Turrets – if you unlocked defensive structures, place them beforehand to shoot Bastigor). If co-op, coordinate ultimates: one player triggers a Dragon whistle buff (if you have support whistles), others launch rocket salvos or Partner Skill barrages. Aim to drop Bastigor’s health quickly to reduce the threat (its ice breath can freeze/slow you, so dodging that is crucial). Bastigor has massive HP; expect a long fight even with Legendary weapons.
+Bjorn’s Assault: While managing Bastigor, keep moving to avoid Bjorn’s attacks. He may call minions or utilize Fey energy – if he summons adds (e.g. cursed Pals), try to ignore them and focus Bastigor, as killing the boss Pal will significantly reduce incoming damage. Once Bastigor falls, all players converge on Bjorn. Use hit-and-run tactics: shoot Bjorn from afar, then retreat when he charges. A continuous DPS from all sides will prevent him from focusing one target. After a grueling battle, Bjorn will fall, completing the final tower.
+Unlocks and Rewards: Ancient Technology Points x5 (from first clear), Feybreak Tower Fast Travel unlocked. You also receive the Bjorn’s Hat cosmetic on Hard mode (likely) and possibly unique drops like Moonflower Standard decorations (Feybreak-themed rewards). Most importantly, 100% Main Story Completion – you have defeated all tower bosses, lifting the curse of Feybreak and “beating” the core game story.
+S01: Hungry for Recruits (Side Mission)
+Game Phase: Early Game
+Mode Considerations: In Hardcore, ensure you have a Pal with the trait before approaching NPC to avoid unnecessary combat. Solo players can do this easily; co-op players each get credit when one turns it in.
+Prerequisites: Find the NPC Recruiter at coordinates (12, -447) (likely in a small camp in Windswept Hills). Have any Pal with the “Glutton” Passive Skill in your party or Palbox. (Glutton passive often appears on Pals like Pigros or Munchill – basically big eaters.)
+Step-by-Step Instructions:
+Locate the Recruiter NPC: Travel to the coordinates given (near a road or campfire at 12, -447). Look for an NPC asking for help recruiting a Pal.
+Show a Glutton Pal: Open your Pal menu and ensure a Pal with Glutton passive is selected. Talk to the NPC; the mission prompt will detect the Pal. If you don’t have a Glutton Pal, catch a Pigros (pig-like Pal) or feed a Pal until it develops Glutton. Alternatively, breed for the Glutton passive if available.
+Complete Mission: Once the NPC sees the Glutton Pal, the task is complete. There’s no item to deliver, just the demonstration.
+Unlocks and Rewards: 500 EXP, Cake x3, Power Fruit x1. (Cake restores hunger; Power Fruit permanently increases a Pal’s HP). This mission helps you notice the importance of Pal passives.
+S02: Pal’s Blessing (Side Mission)
+Game Phase: Early Game
+Mode Considerations: No difference by mode. Solo players must have a Pal with the Work Suitability; in co-op, anyone can show the Pal to complete for all.
+Prerequisites: Find the NPC at (85, -485) (likely near a water source or farm). Have a Pal with Watering Work Suitability (a Pal good at watering crops). Common Pals with this trait include Tanzee or Aquar (check Pal details for “Watering Lv. …”).
+Step-by-Step Instructions:
+Meet the Farmer NPC: At the given coordinates, you’ll find an NPC farmer who wants to see a Pal that can water fields. Ensure it’s daytime so the NPC is active.
+Show Watering Pal: Have a Pal in your active party or following you that has Watering as a work skill. For example, Depresso (an elephant-like Pal) often has Watering Lv2. Talk to the NPC with that Pal out. The NPC will recognize the Pal’s capability.
+Mission Completion: The NPC is satisfied once they see the Pal’s suitability. You don’t need to perform watering, just showing is enough.
+Unlocks and Rewards: 500 EXP, Stout Fruit x1, Mega Sphere x5, Gold Coin x2000. (Stout Fruit permanently boosts defense of a Pal; Mega Spheres help in capturing tougher Pals). This side quest teaches about Pal work skills and encourages you to leverage specialized Pals for farming.
+S03: A Special Dish (Side Mission)
+Game Phase: Early Game
+Mode Considerations: No difference. Ensure you can survive a trip carrying items – in Hardcore, avoid combat while delivering the dish. In co-op, one can carry the dish while others provide escort.
+Prerequisites: Obtain Farmer’s Special Dish item. The NPC at (80, -486) (a farmer in the same settlement as S02 likely) gives you this dish and asks you to deliver it. The recipient is a PIDF officer located elsewhere (possibly a small Defense Force outpost). Be prepared for a journey possibly to a different biome (coordinate suggests near the farmer, but context implies delivery).
+Step-by-Step Instructions:
+Talk to the Farmer: At (80, -486), receive the Special Dish from the farmer NPC. They’ll direct you to deliver it to a “reliable-looking PIDF officer.” Check your map for any PIDF NPC markers – often found at roadside checkpoints or near towers.
+Find the PIDF Officer: Search around nearby settlements or fast-travel points for a PIDF officer NPC. (If none obvious, try the nearest city like Duneshelter, or the PIDF Tower base if accessible, but likely it’s a minor NPC at a local camp). The quest text implies it might be close by.
+Deliver the Dish: Approach the officer NPC with the dish in your inventory. Initiate dialogue; the officer will take the dish. In Hardcore, ensure you weren’t attacked on the way – the dish can’t “break” in-game, but dying would reset the mission. In co-op, guard the dish-carrier from wild Pal attacks.
+Confirm Delivery: Once handed over, the mission completes. The officer thanks you for the meal delivery.
+Unlocks and Rewards: 250 EXP, Mozzarina Cheeseburger x5, Gold Coin x2500. The burgers are high-quality food items for healing hunger and HP. This mission fosters trust with the PIDF faction and hints at cooperation between civilians and the defense force.
+S04: Medical Bills (Side Mission)
+Game Phase: Early Game
+Mode Considerations: No difference except managing money is harder early on. In Hardcore, money drops are same as Normal. Solo players might need to farm coins; co-op teams can pool money.
+Prerequisites: Speak to the Farmer NPC at (100, -364). You must have 5,000 Gold Coins on hand. (If you’re short on coins, sell surplus materials or complete other quests first. 5k is a hefty sum early, so likely you’ll do this after a few towers or side quests.)
+Step-by-Step Instructions:
+Hear the Farmer’s Plea: At (100, -364) a farmer NPC mentions steep medical bills (perhaps for treating injured Pals or villagers). They ask for a donation of 5,000 Gold.
+Raise Funds if Needed: If you don’t have 5k, do the following: sell rare materials (e.g. spare Applied Technique books or extra Paldium), catch Pals to sell to Pal Merchants (Blue coat merchants buy Pals at varying prices), or farm a dungeon for coin drops. In co-op, share money – one player can contribute all if the mission completes for everyone.
+Give 5,000 Gold Coins: When ready, talk to the farmer and select the option to pay the 5,000 Gold. Your currency will decrease accordingly.
+Mission Completion: The farmer will express immense gratitude and likely mention how the funds will help heal someone (flavor text).
+Unlocks and Rewards: 500 EXP, Life Fruit x1, Mega Sphere x5. (Life Fruit permanently increases your HP by a small amount; Mega Spheres help capture high-level Pals). This quest is costly but the Life Fruit reward is valuable for long-term stat growth.
+S05: Prove the Legend! (Side Mission)
+Game Phase: Mid Game
+Mode Considerations: No difference in requirements; just need the specific Pal passive. In co-op, any player can show a Legendary Pal and all get credit.
+Prerequisites: Have a Pal with the Legend Passive Skill. Legendary Pals (Paladius, Necromus, etc.) inherently have the Legend passive, or you might obtain it via breeding. By mid game, you might have caught a Legendary Pal or be able to trade for one. If not, this mission might wait until late game when you can catch legendary bosses. The NPC is at (60, -324), likely a seasoned trainer in a settlement.
+Step-by-Step Instructions:
+Find the Legendary Enthusiast: At (60, -324), look for an NPC (perhaps an older researcher) who’s excited about the “Legend” skill.
+Show a Legend Pal: If you have a Legendary Pal (No.108 Paladius, No.109 Necromus, etc.), simply summon it or have it in your party and talk to the NPC. Alternatively, any Pal that somehow has the passive “Legend” will count. (Legend Passive Skill typically only on legendary-tier Pals by default.)
+Complete the Proof: The NPC inspects your Pal and confirms it carries the Legend aura. Mission completes immediately after dialog.
+Unlocks and Rewards: 300,000 EXP (!), Applied Handiwork Technique I x1. The EXP is massive – this can boost you several levels (be mindful to do this when you can maximize the gain, since leveling beyond 50 requires a lot of EXP). The Applied Handiwork Technique is a tech book to boost base Pal work efficiency. This mission essentially propels you toward endgame levels and acknowledges you’ve obtained a legendary Pal.
+S06: Lock In (Side Mission)
+Game Phase: Mid/Late Game
+Mode Considerations: No difference. Requires a specific Pal with specific passive, which is a fixed condition.
+Prerequisites: Capture a Cryolinx (an Ice-type feline Pal found in cold regions) that has the Motivational Leader Passive Skill. Motivational Leader is a rare passive; Cryolinx spawns in Sakurajima or snowy biomes often as an Alpha or high-level spawn. You may need to catch multiple Cryolinx or breed to get this passive. The NPC is at (-45, 88), possibly a Free Pal Alliance officer or wanderer in a temperate area.
+Step-by-Step Instructions:
+Meet the NPC: At (-45, 88), find the person interested in leadership traits. Possibly near a crossroads or fast-travel statue.
+Present Cryolinx with Leader Passive: Have the specific Cryolinx in your active party. Talk to the NPC. They will “see” the passive on the Pal. (If you don’t yet have it, try resetting dungeon Alphas until a Cryolinx with this passive appears – the passive is indicated in Pal details. Alternatively, use breeding to pass Motivational Leader from one Pal species to Cryolinx if breeding allows cross-species passive transfer.)
+Get Acknowledgment: Once shown, the NPC is impressed with your Pal’s leadership aura. Mission completes.
+Unlocks and Rewards: 50,000 EXP, Applied Cooling Technique I x1. (Cooling Technique book improves base Pals working in refrigeration/cooling tasks). The EXP is substantial, helping push into late-game levels. You also gain insight that certain passives are highly prized.
+S07: Give a Fuack (Side Mission)
+Game Phase: Mid Game
+Mode Considerations: No difference. Just be careful in Hardcore when transporting a Pal in inventory (though Pals in Palbox cannot die).
+Prerequisites: A Fuack Pal (duck-like Pal) in your Palbox. Fuack can be found near water (they resemble platypus or duck). Catch one. The NPC at (233, -324) (likely a collector or someone by a lake) requests a Fuack.
+Step-by-Step Instructions:
+Talk to the NPC: At (233, -324), you’ll find someone who explicitly asks for a Fuack Pal. Make sure you have a spare Fuack you’re willing to give up (not your only mount or something!).
+Hand Over Fuack: In the dialogue, choose to give a Fuack (pun intended by the devs). The NPC will take the Pal from you. Note: This removes the Fuack from your Paldeck permanently, so ensure it’s not one with unique stats you need.
+Mission Completion: The NPC thanks you for the new Pal companion. (This likely helps them with eggs or something story-wise.)
+Unlocks and Rewards: 500 EXP, Applied Gathering Technique I x1, Homeward Thundercloud x3, Gold Coin x3500. The Applied Gathering Technique book boosts base resource collection by Pals. Homeward Thunderclouds are items that teleport you to base or safe location (very handy if you get stuck or need quick return). A straightforward quest with humor, and you help an NPC get a pet.
+S08: Metal on Your Mind (Side Mission)
+Game Phase: Late Game
+Mode Considerations: No difference. The key is having the resources. In Hardcore, resource farming is the same as Normal, just be cautious of enemies while mining.
+Prerequisites: Collect 5 Chromite. Chromite Ore is a high-level metal found in specific late-game areas (possibly Feybreak or deep caves). It may require an Improved Furnace to smelt Chromite Ingot from Chromite Ore, but the quest likely wants raw ore pieces. The NPC Researcher is at (-1396, 1052), which is far east on the map – possibly Feybreak region or near a volcano. You likely unlocked this area after main story.
+Step-by-Step Instructions:
+Mine Chromite: Chromite nodes are usually black or dark grey with a shine, found in tough areas (e.g., near Feybreak curses or in mineshaft dungeons). Use a high-grade pickaxe (Plasteel Pickaxe or better) to mine them. Gather at least 5 pieces of Chromite.
+Visit the Researcher: Travel to (-1396, 1052) – potentially a remote lab or mineshaft entrance. The researcher NPC there is researching advanced metals. They ask for 5 Chromite samples.
+Deliver Chromite: Talk to the researcher and hand over the 5 Chromite. They will be delighted to have such rare metal for study.
+Unlocks and Rewards: 300,000 EXP, Applied Mining Technique I x1. The huge EXP will likely propel you to max level if you aren’t already. The Applied Mining Technique book increases efficiency of Pals mining at your base. This mission underlines endgame resource acquisition and rewards you for venturing into the hardest mining zones.
+S09: Breeding Basics (Side Mission)
+Game Phase: Mid Game
+Mode Considerations: No differences. In co-op, all players can benefit from the breeding system once unlocked.
+Prerequisites: Cakes x5 in your inventory. Cakes are a food item – you can cook them using Wheat (from plantations) and Berries via a Cooking Pot, or sometimes purchase from Green Coat merchants. The Breeder NPC is at (-110, -473), likely at a breeding farm or ranch in a grassy area. Make sure you’ve unlocked the Breeding facility (Incubator) via tech to fully take advantage of breeding after this quest.
+Step-by-Step Instructions:
+Find the Breeder NPC: At (-110, -473), meet the Pal Breeder who is probably near some Pal pens. They mention needing Cakes – likely to encourage Pal breeding mood.
+Give 5 Cakes: Hand over five Cakes to the Breeder NPC. (Ensure they are the specific “Cake” item, not cheeseburgers or other food.) The NPC will feed these to Pals to get them in the breeding spirit.
+Complete the Task: The NPC thanks you for the treats. They might hint at how breeding works (like feeding certain items influences offspring skills).
+Unlocks and Rewards: 1,750 EXP, All-Purpose Pal Extract (Level 1) x1, Medical Supplies x5. The Pal Extract is used to instantly grow Pal eggs or as a breeding boost. Medical Supplies (medkits) help heal you or Pals. After this, the Breeder likely offers breeding services – you can start pairing Pals to pass down traits, an essential system for endgame optimization.
+S10: Farewell Under the Sakura Tree (Side Mission)
+Game Phase: Late Game
+Mode Considerations: No difference. It’s a delivery quest; in Hardcore just avoid dying on the way.
+Prerequisites: An Advanced Recovery Meds item. These are high-tier healing items (likely craftable at a Medieval Medicine Workbench or purchasable from a Medic NPC). The Breeder NPC (same or another one) is at (-640, 239), possibly on Sakurajima (the Sakura tree hint). You likely gained Advanced Recovery Meds formula by mid/late game through tech or quests.
+Step-by-Step Instructions:
+Obtain Advanced Recovery Meds: Craft one if you haven’t – requires ingredients like Medical Herbs, Pal Oil, etc., at a high-level medicine bench. Or check a hospital NPC/medic merchant for one.
+Visit the Breeder at Sakura Tree: Go to (-640, 239). Perhaps a beautiful cherry blossom area; an NPC Breeder is there perhaps saying goodbye to something or someone (“Farewell” hints at a sentimental scene). They request the Advanced Recovery Meds, possibly to ease a Pal’s passing or to help them recover.
+Give the Meds: Hand over the Advanced Recovery Meds x1 to the NPC. They will use it (maybe on an old Pal under the Sakura tree).
+Unlocks and Rewards: 300,000 EXP, All-Purpose Pal Extract (Level 3) x1. The massive EXP and a top-tier Pal Extract (used to boost breeding of very high-level Pals or instantly mature an egg to adult) are your rewards. This likely concludes a mini storyline with the Breeder, demonstrating compassion in the Pal world.
+S11: No Mercy for Pal Thieves (Side Mission)
+Game Phase: Mid Game
+Mode Considerations: Combat-heavy. In Hardcore, enemy hits are brutal; bring backup or strong Pals. In co-op, friends can assist in the battle and capturing.
+Prerequisites: A “Syndicate Crusher” enemy is loose with a stolen Pal. This mission begins at (284, 165), given by a Breeder NPC (or perhaps a Pal owner) who asks you to retrieve a precious Pal. You must capture or defeat the Syndicate Crusher – a specific hostile NPC from the Rayne Syndicate faction – and return the Pal. The Crusher likely roams near that location or a specific hideout. Recommended level ~30-40 with good gear.
+Step-by-Step Instructions:
+Accept the Mission: Talk to the worried Breeder at 284, 165. They explain a Syndicate thug stole their Pal. You are tasked to either capture that thug (kill/capture, presumably kill since you can’t really capture human NPCs normally, but maybe defeat is enough) and get the Pal back.
+Track the Syndicate Crusher: Look around the coordinate area for a Rayne Syndicate NPC named “Crusher.” They might be near a road or an abandoned camp. He will likely attack on sight (be ready for a fight against a human with a weapon).
+Defeat the Crusher: Engage in combat. The Crusher may use melee or a gun. Use cover and fight as you would a tower grunt. If you have a Wanted Level mechanic in play, defeating him might raise alarms, so be quick. Once he’s defeated, you will “recover the precious Pal” automatically (perhaps a cutscene of the Pal being freed). Note: If capture is literal, you might throw a Pal Sphere at the human – but normally only Pals can be captured, so assume defeat him is the goal.
+Return to Breeder: Go back to the NPC with news (the stolen Pal likely is considered returned in the mission script). Talk to complete the quest.
+Unlocks and Rewards: 50,000 EXP, All-Purpose Pal Extract (Level 2) x1, High Quality Recovery Meds x10. The Pal Extract 2 helps in breeding mid-level Pals with traits, and the HQ Recovery Meds are excellent healing items for you or Pals. The Breeder is overjoyed, and you’ve dealt a blow to Pal thieves – tying into the game’s theme of Pal protection vs. exploitation.
+S12: Operation: Splatterina Spree (Side Mission)
+Game Phase: Late Game
+Mode Considerations: No difference by mode except the difficulty of obtaining many Pals. In co-op, players can pool their catches to meet the quota.
+Prerequisites: 10 Splatterina Pals to give to the Breeder at (-1047, 1249). Splatterina are a specific Pal species (sounds like a jellyfish or slime Pal introduced perhaps in Sakurajima or Feybreak). You need ten of them, which implies either farming their spawns or breeding them. Likely easiest in a late-game dungeon or specific biome where they spawn frequently. Ensure you have enough Pal Spheres (preferably Giga or Ultra Spheres to catch high-level ones easily).
+Step-by-Step Instructions:
+Catch 10 Splatterinas: Identify where Splatterina appear. Possibly in the Feybreak region or a dungeon like the Wildlife Sanctuary. They might be small gooey Pals. Catch as many as possible – note you can carry more than one of a species (the Palbox can hold multiples up to 12 of one species). Use Large Spheres if they are big Pals. If they are rare spawns, use the trick of resetting dungeon rooms to farm them.
+Go to the Breeder: At (-1047, 1249), find the NPC who requested this unusual order. Ten Pals is a lot – maybe they need them for a breeding program or a festival (the name “Spree” suggests maybe a paint or color festival, since Splatterina could be paint-themed).
+Hand Over 10 Pals: Through dialogue, give the 10 Splatterina. They will be removed from your Paldeck. (Ensure none were particularly special to you; maybe catch extras beyond 10 to keep one.)
+Complete Mission: The NPC acknowledges receiving all 10 Pals. Quest complete.
+Unlocks and Rewards: 300,000 EXP, Mind Control Meds x3. (Mind Control Meds possibly allow you to reset a Pal’s traits or temporarily control wild Pals). The EXP will likely max your level if not already. Handing over many Pals might tug at your heartstrings, but it’s for the quest – and you can always catch more!
+S13: Hunting Essentials (Side Mission)
+Game Phase: Late Game
+Mode Considerations: No difference; just need the specific Pal with passive.
+Prerequisites: A Surfent Terra Pal that has the Serenity Passive Skill. Surfent Terra is a variant of Surfent (perhaps Water-type Terra variant) likely found in late-game water areas or bred. Serenity passive might increase calm or accuracy and is relatively uncommon. The NPC is at (540, 333), possibly a hunter in the desert or plains.
+Step-by-Step Instructions:
+Approach the Hunter NPC: At 540, 333, you might find a camp with a hunter who’s interested in calm Pals (Serenity).
+Show Surfent Terra with Serenity: Have the specific Pal in your party and speak to the NPC. If you don’t have one: Surfent Terra might be gotten by evolving a Surfent in a Terra environment or capturing it as an Alpha. Ensure it has the Serenity passive (if not, you could breed Surfent Terra with another Pal that has Serenity, using breeding mechanics to pass the passive). This is a complex requirement, so likely you’d tackle it in the endgame when you have many Pals.
+Mission Completion: The hunter evaluates the Pal’s demeanor and is impressed by its serenity.
+Unlocks and Rewards: 50,000 EXP, Speed Elixir x1, Legendary Sphere x5. The Speed Elixir increases your movement or attack speed temporarily, useful for tough fights. Legendary Spheres are top-tier capture devices for level 50+ Pals. You’ve demonstrated breeding and capturing prowess by having such a specific Pal.
+S14: The Fugitive (Side Mission)
+Game Phase: Late Game
+Mode Considerations: Combat-oriented. In Hardcore, the enemy hits harder – possibly one of the toughest human fights. In co-op, coordinate to take him down quickly.
+Prerequisites: Defeat the Syndicate Cleaner at (-477, -539). A “Cleaner” is likely an elite assassin from the Rayne Syndicate faction. You likely got this quest from an NPC in Feybreak or later region (maybe a PIDF officer asking for help bringing a criminal to justice). Prepare for a fight with a high-level human wielding flamethrowers or poison (Cleaners “clean up” evidence, possibly with fire). Level 50+ recommended.
+Step-by-Step Instructions:
+Locate the Cleaner: Go to the coordinates in a remote area (maybe an island or cave). The Cleaner might be hiding out, so search thoroughly. You may trigger an ambush – be on guard when near the spot.
+Engage the Cleaner: This is a human mini-boss. He could have a flamethrower (close range AoE fire) or chemical weapon. Wear Heat-resistant gear in case, and bring a strong Pal or two to distract him (Pals can tank some hits from guns). Attack from range if possible, circling him. If he uses cloak or gadgets, use area attacks to flush him out.
+Defeat Without Mercy: Make sure he’s fully defeated (watch out for any second phase or escape attempt – Cleaners might run after dropping to low HP). There’s no capture – you’re likely meant to eliminate him, given the quest name.
+Confirm Kill: Once down, loot anything he drops (maybe some Syndicate Intel or unique weapon). The quest likely auto-completes when he dies. If it requires returning to quest-giver, do so, but many of these kill quests complete immediately.
+Unlocks and Rewards: 50,000 EXP, Vital Elixir x1, Legendary Sphere x5. The Vital Elixir boosts your max health or heals fully in combat (valuable for final battles). Legendary Spheres for more captures of endgame Pals. With the Cleaner gone, one of the Syndicate’s hitmen is off the streets – a safer Pal world.
+S15: Gargantuan Tarantriss (Side Mission)
+Game Phase: Endgame
+Mode Considerations: This is essentially a boss fight. In Hardcore, extremely deadly – bring your strongest team. Co-op highly recommended for Alpha capture.
+Prerequisites: Find and capture or defeat the Alpha Tarantriss at (-1341, -1429). Tarantriss is presumably a giant spider-like Pal (Tarantula + arachnid vibes). Alpha Tarantriss is likely a world boss in Feybreak or a special dungeon. You likely got this quest from an NPC (maybe the Wildlife Sanctuary ranger or a scared villager). Level 60 and top gear suggested. Also bring Ultimate Spheres to capture, or be ready for a long fight to kill it.
+Step-by-Step Instructions:
+Hunt Down Tarantriss: Go to the coordinates, possibly deep in Feybreak’s jungles or an abandoned cave. You might see webs around. The Alpha Tarantriss could spawn at night or require clearing some mobs to appear. Once it spawns, prepare for a fight.
+Boss Fight Strategy: Tarantriss likely has venom attacks and summons smaller spiders. Use area-of-effect weapons (flamethrower is great against spiders, if it’s not fire-resistant). Keep moving to avoid being webbed (which could immobilize you). If capturing, you need to lower its health significantly without killing – consider using a Pal with False Swipe-like skill (if any exist) or just be very careful with damage.
+Capture or Kill: For capture, once its HP is critical (just a sliver left), throw an Ultimate Sphere (highest tier). You may need multiple tries even at low HP. Having the Kinship Peach item (if available, increases catch rate) could help. If you choose to defeat instead (maybe it’s too risky to catch), finish it off with your strongest combos. In co-op, have everyone stop attacking once HP is low so one can attempt capture. The others should eliminate any minion adds to not interfere.
+Return Proof: If captured, you likely automatically complete the quest (the NPC wanted it dealt with). If defeated, loot its Might Elixir drop or whatever unique mat it has. Talk to the quest giver if required to finalize.
+Unlocks and Rewards: 300,000 EXP, Might Elixir x1, Ultimate Sphere x5. The Might Elixir boosts attack power significantly. Ultimate Spheres replenished (spent one, get five – nice). And you have either a new powerful Pal (if captured) or rare materials from its defeat. The region is safer with the gargantuan spider vanquished.
+S16: A Sweet Deal (Side Mission)
+Game Phase: Mid Game
+Mode Considerations: No differences. It’s a collection quest; just be mindful of inventory space in Hardcore (dying doesn’t drop items in Palworld typically, so that’s fine).
+Prerequisites: Gather 3 Beegarde or Elizabee Pals (the quest likely allows either species). These sound like bee-like Pals. Beegarde and Elizabee are probably mid-level insect Pals found in Verdant or flower fields. The NPC is at (173, -126), possibly a honey merchant or gourmand. You might have to catch the bees and hand them over (similar to Splatterina quest but only 3 needed).
+Step-by-Step Instructions:
+Catch Bees: Find Beegarde (maybe a large bee Pal) and Elizabee (queen bee Pal?) in areas like Flowery fields or near hives. Catch a total of 3 (could be any combination, e.g. 2 Beegardes + 1 Elizabee). They may be around level 20–30. Use caution as insect Pals can inflict poison.
+Bring to NPC: At 173, -126, meet an NPC who possibly wants to start an apiary or harvest Pal honey. They will accept the Pals from you. Like other “give Pal” quests, ensure these aren’t ones you want to keep.
+Hand Over 3 Pals: Through the dialogue, give the 3 bee Pals. They’ll leave your Paldeck and be transferred to the NPC.
+Mission Complete: The NPC is pleased to have these honey-producing Pals. Maybe hints that now they can make sweet treats (hence “Sweet Deal”).
+Unlocks and Rewards: 1,750 EXP, Stamina Elixir x1, Giga Sphere x5. The Stamina Elixir increases max stamina (longer sprinting and melee combos). Giga Spheres are excellent for capturing level ~40 Pals. You’ve effectively set up a bee farm for the NPC, sweetening the economy.
+S17: A True Ascent Ends in Descent (Side Mission)
+Game Phase: Late Game
+Mode Considerations: No differences. Just an item delivery, but the item is a specific Pal.
+Prerequisites: Provide 1 Wumpo Pal. Wumpo is likely a high-level flying or gliding Pal (maybe an owl or glider type) found in upper areas (name suggests a goofy heavy Pal, actually Wumpo might be a large humpbacked creature – possibly ground type in mountains). The NPC is at (-139, 464), which could be on a mountain (perhaps referring to an ascent/descent – likely a mountain climber NPC who needs a Pal to carry them down). You’ll need to capture a Wumpo, often found in rocky highlands or in the Sacred Mountain Cavern (notably Wumpo appears as a dungeon Pal).
+Step-by-Step Instructions:
+Climb for Wumpo: Look around the high elevation biomes for Wumpo. They might resemble a yeti or mountain goat Pal. Alternatively, run Sacred Mountain Cavern dungeon to encounter one. Capture one using a strong Sphere. They might be around level 35–40.
+Meet the NPC: At (-139, 464), likely atop or near a cliff, find an NPC (perhaps injured or stuck) who says something like “I need a way down… I heard Wumpo can cushion any fall” or similar.
+Give 1 Wumpo: Hand the Wumpo Pal to the NPC. (This implies the NPC will use the Wumpo to safely descend the mountain – a cute story touch.) The Pal leaves your Paldeck.
+Complete Quest: The NPC thanks you profoundly, saying this is the only way they could ever get down alive. Mission completes as you’ve essentially provided a living glider.
+Unlocks and Rewards: 100,000 EXP, Grenade Launcher Schematic 2 x1, Plasteel Helmet Schematic 2 x1. These schematics allow crafting advanced gear: Grenade Launcher II (improved version) and Plasteel Helmet II (an upgraded durable helmet). Getting schematics as rewards indicates you’re unlocking late-game crafting without spending tech points. The NPC’s life is saved thanks to you (and Wumpo).
+S18: Sparkly and Smooth (Side Mission)
+Game Phase: Late Game
+Mode Considerations: No differences by mode. Collecting resources is identical, just watch for enemy encounters while gathering.
+Prerequisites: Collect 10 Nightstar Sands and give them to the Wanderer at (-826, -844). Nightstar Sand sounds like a special glittering sand, perhaps found on beaches at night or in a particular desert (maybe Feybreak desert under starlight). It could also be a drop from certain Pals (like ground Pals in a specific region). You likely have access to all map areas by now. Bring a light source or do it during in-game night if needed.
+Step-by-Step Instructions:
+Gather Nightstar Sand: Search desert or beach areas for shimmering sand piles. Possibly the Desiccated Dunes or a newly unlocked beach in Feybreak. You might only be able to collect at night (name suggests starlight causes it to sparkle). Use a shovel if the game has one (or just press interact). Alternatively, defeat certain sand-themed Pals (like Stardune or Galewing?) that might drop the sand. Collect 10 units.
+Find the Wanderer: At (-826, -844), likely a remote dune or cliff, a Wanderer NPC awaits with a quest for shiny sand for maybe glassmaking or ritual.
+Hand Over Sand x10: Give the 10 Nightstar Sands. The Wanderer examines the quality and is pleased.
+Mission Complete: They remark how smooth and sparkling it is – perfect for their needs (maybe making a telescope or potion).
+Unlocks and Rewards: 50,000 EXP, Flamethrower Schematic 2 x1, Pal Metal Helm Schematic 2 x1. These are advanced schematics for a second-tier Flamethrower and an improved Pal Metal Helmet. That means you can craft better flamethrowers (useful for raids) and better Pal armor for your companions. The quest essentially trades rare sand for high-end tech knowledge.
+S19: Dungeon Hunt (Side Mission)
+Game Phase: Late Game
+Mode Considerations: No difference. If anything, Hardcore might have tougher dungeon spawns, but here it’s a collection quest.
+Prerequisites: Deliver either 1 Leezpunk or Leezpunk Ignis to the NPC at (-646, -518). Leezpunk is presumably a Pal (maybe a lizard/punk?). Leezpunk Ignis suggests a fire variant. These could be dungeon-exclusive Pals. In fact, the Isolated Island Cavern or Volcanic Cavern lists Leezpunk. So likely you need to catch one from a dungeon. If you already have one, great. If not, run a dungeon where they spawn until you catch one. The NPC might be a collector or researcher near a dungeon entrance.
+Step-by-Step Instructions:
+Obtain Leezpunk: Go into Volcanic Cavern or a known spawn area and catch a Leezpunk. They might be a Fire lizard type around level 40. Leezpunk Ignis would be a rare subspecies (Ignis indicates Fire variant). Either is acceptable. Use Fire-resistant gear while hunting it.
+Locate the NPC: At (-646, -518) – possibly near the entrance to a cave or on an island. The quest name “Dungeon Hunt” and that coordinate suggests maybe near a dungeon on an island or coastal cave. The NPC likely says they need a creature from deep within a dungeon.
+Give the Pal: Hand over the Leezpunk or its Ignis form. The NPC takes it, thrilled to have a Pal from the dangerous depths.
+Complete Mission: They likely plan to study it or use it for protection in further dungeon dives.
+Unlocks and Rewards: 300,000 EXP, Semi-Auto Shotgun Schematic 2 x1, Rocket Launcher Schematic 2 x1. Two powerful weapon schematics unlocked (Tier 2 versions of the Semi-Auto Shotgun and Rocket Launcher). These rewards significantly boost your firepower potential. The huge EXP is a final push to max level if not there yet. Dungeon hunting pays off with advanced tech for warfare.
+S20: Easygoing Adventures (Side Mission)
+Game Phase: Late Game
+Mode Considerations: No difference. This is a simple handover quest thematically.
+Prerequisites: Deliver 1 Yakumo Pal to the NPC at (-631, 226). Yakumo is likely a yak-type Pal (perhaps a gentle beast of burden). Found in Sakurajima or grassy highlands. The name suggests a yoked cow/buffalo Pal good for carrying loads. If you don’t have one, capture a Yakumo in a mountain or plains region. They might be around level 30.
+Step-by-Step Instructions:
+Catch a Yakumo: Look in areas with farmsteads or mountains (Sakurajima might have Yakumo Terra maybe). They could be common spawns. Use a strong sphere if it’s stubborn.
+Visit the Wanderer (or Merchant): At (-631, 226), find an NPC maybe with a caravan or camp. Possibly they want Yakumo to accompany them on easygoing travels (the title implies the NPC wants a relaxed journey Pal).
+Give Yakumo: Hand over the Pal. Yakumo will leave your Paldeck and become the NPC’s pack Pal.
+Mission Completion: The NPC thanks you, noting their adventures will be much easier with such a sturdy, easygoing Pal carrying their gear.
+Unlocks and Rewards: 50,000 EXP, Semi-Auto Shotgun Schematic 2 x1, Rocket Launcher Schematic 2 x1. (It appears the reward text for S19 and S20 are identical in the source snippet, which might be an error. Possibly S20 was meant to have different schematics, but given the data shows the same items, we’ll follow it.) These schematics (if not a duplicate mistake) confirm you definitely unlock those two weapon recipes by completing these quests, ensuring you didn’t miss them. With Yakumo delivered, the NPC can roam safely, and you walk away with both new tech and a hefty EXP chunk.
+(With all main story missions and side missions completed, you have essentially achieved 100% of quest content in Palworld. The following guides cover additional completion aspects like technology, mounts, alphas, base building, etc., to round out every facet of the game.)
+T01: Technology Unlock Guide – Early Game
+Game Phase: Early Game
+Mode Considerations: No differences; tech tree costs are the same. In Hardcore, prioritize survival tech first (e.g. armor, cooking) due to higher difficulty. Solo players should unlock base defenses sooner; co-op teams can distribute tech focus (each unlock different branches to share crafted goods).
+Prerequisites: None beyond completing tutorial missions for basics. You start gaining Ancient Technology Points from leveling up (1 point per level) and first-time boss kills (5 points each). Don’t waste points; plan a route.
+Step-by-Step Unlock Path:
+Workbench and Campfire: These basics are often unlocked automatically or cost very few points. Primitive Workbench (to craft tools/weapons) and Campfire (cook food) should be available at start. If not, unlock them immediately – they cost 0 or 1 point.
+Basic Tools & Weapons: Unlock Stone Pickaxe and Stone Axe (if not default). Next, unlock Bow and Arrow for ranged capability if you haven’t (low-level tech). Also unlock Primitive Furnace (smelt ore to ingots). These require minimal tech points and basic materials.
+Base Essentials: Spend points on Palbox Upgrade (to allow more Pals at base as you advance base level), Wooden Chest (storage), and Straw Bed (for sleeping to recover HP). Also unlock Feed Box so base Pals eat automatically. These appear as part of base missions progression, but having them unlocked means you can build as soon as base level demands it.
+Survival Gear: Prioritize Leather Armor (clothing tech) – already covered in mission M04 – to unlock at least one set of armor
+paldb.cc
+. Also unlock Glider (Grappling Glider) early (M08) to traverse safely. Shield tech was unlocked in M07. These ensure you can handle early enemies and terrain.
+Mount and Partner Tech: Unlock Pal Gear Workbench and the first mount Harness (Foxparks) via mission M10. Also consider unlocking Saddle for any early mount Pal you find (e.g. Direhowl Saddle comes early at Tech Lv 9 – Direhowl is a fast wolf mount available in early game). Having a mount significantly speeds up exploration, so spend a point on an early mount saddle from the Pal Gear tech sub-tree when available.
+Agriculture & Cooking: Unlock Berry Plantation and Wheat Plantation around Base Level 4–10 (they become available as you raise base level). These cost a few tech points but allow sustainable food. Also unlock Cooking Pot (for better recipes) once you have plantations. Medieval Medicine Workbench (for crafting medkits) is another mid-level tech to aim for after initial combat needs are met.
+Storage & Utility: Unlock Sphere Workbench (to craft better Pal Spheres for capturing stronger Pals) by base level 9. Also invest a point in Large Storage Box or Refined Chest when they appear (Base Level ~17 unlocks Refined Metal Chest). Inventory gets cluttered; better storage helps.
+Prerequisite Chains: Many techs have prerequisites. For example, Refined Metal Ingot tech is needed before advanced armor. Early on, follow the chain: Wooden → Stone → Plasteel → etc. Specifically, unlock Improved Furnace (Base Lv 15) to smelt higher ores before you can craft Plasteel armor. Also, Power Generator (Base Lv 13 unlock) is needed before you can run assembly lines, but that’s mid-game. Early game, focus on unlocking prerequisites for guns: e.g., Gunpowder tech leads to Musket tech (Musket is first firearm at Tech Lv 21, requiring prior unlock of Black Powder and Iron Ingot creation). Plan to unlock Musket by the time you’re level ~15-20, since having a gun trivializes early bosses. To do so, ensure you unlocked Primitive Furnace → Ironworking → Musket in sequence.
+Unlocks and Rewards: By following this early path, you’ll unlock critical early-game tech without running out of points. You’ll have a fortified base (workbench, farms, storage), personal protection (armor, shield), mobility (glider, early mount), and basic firepower (bows, possibly musket). The “reward” is a smoother progression – for instance, unlocking Arrow crafting and spamming arrow production at a workbench lets base Pals gain passive EXP, leveling you even when idle. In summary, spend points on anything that improves survival and resource acquisition first; decorative tech can wait.
+T02: Technology Unlock Guide – Mid Game
+Game Phase: Mid Game
+Mode Considerations: In Hardcore, focus even more on combat tech (weapons, ammo, Pal combat gear) to offset difficulty. In co-op, coordinate tech unlocks: one player unlocks Assembly Line while another unlocks Generator, etc., so you can trade crafted components.
+Prerequisites: You should be around player level 20-40, have defeated a couple of tower bosses (each gave 5 tech points), and have base level ~10-15. You likely have accumulated 20+ tech points from leveling and bosses. Mid game is about industrialization and better weaponry.
+Step-by-Step Unlock Path:
+Industrial Tech: Unlock High Quality Workbench and Weapon Workbench as they become available (Base Level 8 and 11 respectively). These let you craft improved tools and advanced weapons. Next, invest in Production Assembly Line I (Base Level 18 mission unlock) and Power Generator (Base Level 13). Together, they automate crafting. The Assembly Line tech might be gated behind unlocking various workbenches first, so ensure you’ve unlocked all preceding tech in that branch.
+Advanced Weaponry: Aim for firearms and explosives. After Musket (if not already unlocked), unlock Grenade Launcher and Shotgun techs. These often require prior unlock of Steel Ingot or Refined Metal tech. For instance, Semi-Auto Rifle tech might come at a higher tech tier; plan to unlock Improved Gunpowder and Refined Ingot leading up to it. Check tech tree for prerequisites: often, Musket → Flintlock Pistol → Revolver → Rifles chain, and Grenades → Launcher chain. Given you got Grenade Launcher Schematic II from a quest, make sure to unlock the base Grenade Launcher I in tech tree so you can actually craft it. Also unlock Crossbow and later Repeating Crossbow if firearms branch is still out of reach, as those are effective mid-game weapons.
+Armor and Clothes: Unlock Plasteel Armor set around level 30. This requires unlocking Steel/Refined Metal Armor first. Your progression: Leather → Copper → Iron → Pal Metal → Plasteel. Invest points as each tier becomes available. Specifically, Pal Metal Armor (Palium alloy) unlock is key mid-game; Pal Metal is crafted using Palium (a resource from certain mid-tier bosses or mines). Then Plasteel, which is even stronger. Also unlock element-resistant armor (Cold Resistant, Heat Resistant variants) once base tech provides them, as you’ll need those in extreme biomes and raids.
+Pal Utilities: Unlock Pal Incubator (for breeding eggs faster) and Pal Healing Station if available. These are often techs tied to base structures or advanced breeding. By mid-game, breeding becomes important for getting strong Pals with good passives, so tech like Large Incubator (noted in updates
+game8.co
+) can be pursued. Also consider unlocking Pal Storage Expansion (to hold more Pals in Palbox).
+Electrical & Automation: If you have a Power Generator unlocked, also unlock Electricity-related tech: Lights, Electric Traps, Cooling Box (fridge) etc. They make base life easier. Importantly, Elevator or Conveyor tech might be there to move items – can be useful in big bases. If you see Transporting Technique in tech tree, that may unlock conveyor belts or similar (the update lists “Applied Transporting Technique” as rewards but actual tech might allow Pal-driven minecarts). These can streamline resource movement in your base.
+Base Defense Tech: Mid-game raids start to be frequent. Unlock Turret Mounts or Watchtower if the tech exists. For example, there is mention of an Anti-Air Turret icon in map legend
+game8.co
+, which implies you can build Pal-manned turrets later. If such tech is in tree, start unlocking pre-reqs (likely requires Power Generator and advanced crafting stations). Also unlock Gate and Fortified Walls tech to strengthen your base perimeter. Wooden walls were basic; mid-game should see Stone Walls or Metal Fences tech—get those for better defense.
+Prerequisite Chains: Mid-tier techs often require multiple prior unlocks. For example: to unlock Assembly Line II, you might need Assembly Line I and Advanced Civilization tech from bosses (the Tides of Terraria update added an Advanced Civilization Workshop
+game8.co
+ which suggests a top-tier crafting station requiring boss drops). Similarly, unlocking Legendary Weapons requires you unlock all prior weapon tiers and often find or earn schematics (you got some from quests S17–S20). Use the schematics at the relevant workbench once the base tech is unlocked; sometimes having a schematic doesn’t bypass needing the tech unlocked, but it might allow crafting at a lower tech level. For example, Legendary Terra Blade schematic means you can craft it, but you likely still need Swordsmith tech unlocked. So ensure to unlock the general category (e.g. “All Swords” tech) for any legendary gear schematics you plan to use.
+Unlocks and Rewards: By end of mid-game, you should have: High-tier weapons (guns, explosives), sturdy armor, production lines making ammo and materials automatically, and power generation enabling things like electric fences or lights. Your base becomes semi-automated: e.g., a Logging Site + Crusher feeding logs and stone to an Assembly Line that produces Arrows continuously (granting passive EXP). The mid-game tech investments reward you with exponential growth: you can craft in minutes what used to take hours. You’ll notice jumps in combat ability too – e.g., unlocking Overheat Rifle or Charge Rifle from the Terraria update weapons will make tower boss fights much easier. Essentially, mid-game tech unlocks set the stage for you to tackle endgame content confidently.
+T03: Technology Unlock Guide – Late Game
+Game Phase: Late Game
+Mode Considerations: In Hardcore late game, tech is your lifeline; unlock everything that boosts survivability (legendary gear, elixirs, etc.). Co-op teams should ensure all techs are covered among members so you can share the crafting load (one unlocks Legendary Weapons, another Legendary Armor, etc., if tech points are limited).
+Prerequisites: By late game, you have max or near-max level (50–60), cleared all towers (earning a bunch of tech points), and completed many side quests (some giving tech items/books). Likely Base Level 19 (max), which means all base structures unlocked. At this point, aim to unlock every remaining tech for 100% completion. Each tech costs points; you should have enough if you did every mission and leveled fully, but prioritize as needed below.
+Step-by-Step Unlock Path:
+Legendary Gear: Unlock the ability to craft all Legendary Weapons and Armor. Check your tech tree for entries like “Legendary Weapon Crafting” or specific items (some games list them individually). For example, if there’s a tech for Legendary Energy Weapons, unlock it, which might then list Legendary Energy Shotgun, etc. Given you have schematics from quests, ensure you unlock any parent tech needed to utilize them (e.g., Legendary Firearms Tech for guns, Legendary Armor Tech for armors). Crafting Legendary gear often also requires an Advanced Civilization Workshop
+game8.co
+ tech – unlock that if not already. That workshop allows building high-tech items and may be required for legendary schematics crafting.
+Ultimate Tech Tree Completion: Late game likely has a few unique nodes left, such as Pal Surgery Table (for Dr. Brawn’s operations), Large Incubator, and Implants (Terraria update mentioned “How to Get Implants” – possibly tech to augment Pals). Unlock Pal Surgery Table to recruit the Surgeon NPC (Dr. Brawn) more effectively. Implants might refer to cybernetic enhancements for Pals or yourself – if it’s a tech, get it so you can craft and use implants (makes Pals stronger with embedded devices). Also, Trust Mechanic was mentioned – if there’s tech related to Pal trust (maybe devices to increase Pal affinity or reduce rampage), unlock those as well. Essentially, if any feature is still greyed out in your menu (breeding chain, surgery, etc.), find and unlock the tech associated.
+Automation Maxed: Unlock Assembly Line II (Production Assembly Line II at Base Lv 18 should be done by now). Also unlock any remaining Storage improvements (e.g., Refined Metal Chest tech at Base Lv 17 if not done, and maybe Infinite Storage if such exists). Additionally, if there is tech for Teleporters or Portal (some games allow building teleport pads), unlock that for instant travel between base locations. Late game updates sometimes add such conveniences. For example, Terraprisma and Ultra Grappling Gun exist – ensure tech for those is unlocked if not inherent.
+Final Base Structures: Make sure you’ve unlocked Everything in Base category: Large Pal Bed (Base Lv 16), High Quality Hot Spring (Base Lv 14), Observation Tower (if any, for raids), Pal Bank (if a thing for coin storage), etc. By Base Level 19, you have one base maxed – also unlock Additional Base Slots if available (some tech might let you build more bases beyond the default 3 allowed at level 15 base, but text says max 3 bases at base level 15+, so probably that’s the limit). If any decorative tech remains (flags, statues from factions), unlock them for completion’s sake (e.g., Rayne Syndicate Banners were listed in new tech – spend points to unlock those purely for collection).
+Elixirs and Misc Items: Unlock crafting for all Applied Technique Books and Elixirs. You got some from quests; to craft more, see if there’s tech: for instance, Applied Handiwork Technique II might require unlocking after unlocking Tier I. Similarly, Might Elixir, Vital Elixir, Speed Elixir crafting might be under Alchemy tech – if there’s a Med Lab or Alchemy Station tech, unlock it. This ensures you can produce stat-boosting consumables at will, cementing 100% self-sufficiency.
+Prerequisite Chains: The final techs might require special materials or achievements. For example, the Moonlord (Terraria boss) tech: possibly you need to defeat the Moon Lord raid and use a drop to unlock something (like Celestial Sigil was listed, perhaps used to craft unique items). Ensure you complete raids and dungeons if any tech is locked behind those (some tech trees remain locked until a certain item is obtained). If a tech node is still locked even with points available, check if you need a specific item in inventory (e.g., “Ancient Civilization Parts” or a “Slab Fragment” for ancient tech). The Statue of Power was a tech item around Base Lv 5 – if you haven’t, craft that; it might buff Pals. Some hidden tech might unlock when you collect all lore items, but since this is a guide, focus on ones shown in tree. By now, you should also have unlocked PvP Arena if you’re completionist (maybe a tech to build a sparring arena? The menu shows PvP Tier list link, implying some PvP mechanic – possibly not a tech but an option).
+Unlocks and Rewards: Completing the tech tree unlocks literally everything craftable in Palworld. You can now build ultimate bases, craft every weapon (including all Legendary tier ones like the 1610 attack Semi-Auto Rifle with enough materials), every armor (Legendary armor requires many Ancient Parts and rare ingots – but you have them from all the bosses and exploration), and every utility item. With all tech unlocked, you earn the satisfaction of 100% tech completion (and likely an achievement or title in-game acknowledging that). Practically, your reward is the ability to dominate: e.g., craft Pal Recovery Grenades to heal your Pals in battle, build Support Whistles of every element to buff Pals, and even quirky things like Japanese-Style Hot Spring for aesthetics (was listed in tech updates
+game8.co
+). Nothing is out of reach. Your next step will be using this tech to tackle raids, legendary Pals, and any DLC content at maximum efficiency.
+MT01: Mount Pals Guide – Early Game
+Game Phase: Early Game
+Mode Considerations: In Hardcore, getting a mount early is even more vital to outrun danger. Solo players should tame a mount ASAP for mobility; co-op teams can have one player focus on flying scouting while others use ground mounts to carry loot.
+Prerequisites: Unlock the Pal Gear Workbench and a basic Saddle tech (Foxparks’s Harness was done in M10). Alternatively, some early mounts can be ridden bareback after certain story points, but generally you need the Pal’s specific saddle item. Acquire a few Normal Spheres for capturing potential mounts.
+Top Early Game Mounts (Land/Air/Sea):
+Direhowl (Ground Mount): A wolf-like Pal found in starter forests at modest levels (5-10). It’s one of the fastest early ground mounts. Direhowl’s saddle unlocks at Tech Level 9 – you can reach that by base level ups and tech points from quests. Capture a Direhowl, craft its saddle at the Pal Gear Workbench, and equip it. Exact Spawn: Around coordinates (50, -400) in Windswept Hills forests (look for howling at night). This mount drastically cuts travel time early on.
+Univolt (Ground Mount): A unicorn-like Pal (electric type) also available early (level ~10). Saddle unlocks at Tech Level 14 but noted as an early game mount in tier list. It’s slightly slower than Direhowl, but has a useful electric dash attack. Spawn: Plains around (120, -350). If Direhowl saddle tech is still locked, go for Univolt when you hit tech 14. Its speed is decent and it’s combat-capable (electric horn attack).
+Winged Mount (Glider type) – Kitsun (Flying Squirrel Pal): True flight may not be available in early game, but you can get a glider Pal. Kitsun (a small fox with gliding membrane) or Pajar (bird) might spawn in early biomes. You can’t fully fly yet, but if you find Wingfrog or similar glider Pal, capturing it allows you to glide longer than the Grappling Glider. No saddle needed – they function as partner skill gliders (equip as Pal gear and jump to glide). If you see one (often at high perches like trees around (80,-420)), snag it. It’s a niche mount but helpful to cross gaps early.
+Swimming Mount – Squaduck: Swimming isn’t crucial early, but if you want water mobility, catch a Squaduck or Chillipse in rivers. Squaduck (looks like a duck) can be ridden in water without drowning you. Spawn: River near (30,-460). No explicit saddle needed; just hop on in water. It’s slow on land, but if your base is near water, it helps gather river resources safely (no piranha Pals biting you).
+Using Early Mounts: Once you have your mount, register it to a hotkey via Pal menu. On PC, press the Partner Skill key to mount/unmount when the saddle is equipped. On controller, use d-pad or assigned button. Practice mounting quickly to escape danger (e.g., surprise predator Pal attack – jump on Direhowl and sprint away). Also note mount stamina; Direhowl can sprint a few seconds before tiring. Use it in bursts. If playing co-op, one can ride and the other can shoot from behind on the same mount (Palworld allows passenger shooting if mount is multi-seat, e.g., large mounts). Early mounts usually one-seat only, but something like a Kingpaca (giant alpaca) unlocked slightly later can carry two.
+Phase-Appropriate Advice: Early game, avoid fighting while mounted except against very weak mobs – your mount might take damage. Instead, use it mainly for travel and scouting. If you see an Alpha Pal far off, you can observe safely from mount and then decide to engage or flee.
+Exact Coordinates Example: Direhowl pack commonly at (45, -410) in the forest – they howl at night which you can hear. Univolt often seen grazing around (100, -380) near rocks (it looks like a blue-white unicorn). Mark these on your map. Also, check which hints Direhowl has “one of earliest saddles” and is very fast – evidence of its priority as an early mount.
+Unlocks and Rewards: Obtaining an early mount unlocks efficient exploration. You’ll cover distances to quest locations much faster, effectively cutting downtime. It also unlocks mount-specific Partner Skills – e.g., Direhowl might have a howl debuff skill you can use while riding. By phase’s end, you should comfortably roam starting biomes, collect resources quicker (carry capacity still limited by yourself, but mount speed means multiple trips are fine), and you’ll be positioned to pursue mid-game mounts (like faster mounts or first flyers). The “reward” is qualitative – having a mount early is a game-changer for 100% completion pace.
+MT02: Mount Pals Guide – Mid Game
+Game Phase: Mid Game
+Mode Considerations: Hardcore – focus on mounts that give combat advantage (e.g., those with offensive skills or tankiness, since running isn’t always enough). In co-op, you can diversify: one player on a fast land mount, another on a flying mount for air support.
+Prerequisites: Tech unlock of Mid-tier saddles (usually become available as you level up and defeat a few bosses). For example, at Tech Level 26, Fenglope (ground deer Pal) Saddle unlocks. At Tech ~30, Rayhound and Pyrin saddles unlock
+game8.co
+. You should also have High Quality Workbench to craft these saddles. Gather materials like leather, iron, and any Pal-specific drops (e.g., Pyrin might need Ember Horn from its drops for saddle).
+Top Mid Game Mounts:
+Fenglope (Ground Mount): A swift antelope-like Pal. Pal Gear Unlock at Lv 26. Fenglope is likely found in grassy high-level areas or the desert edge. It’s noted as a great mid-game ground mount (fast and decent stamina). Spawn: Around (300, 200) in savannah region. Once unlocked, craft its saddle and enjoy a top-tier land speed boost. It’s also agile to dodge attacks if raiders chase you.
+Rayhound (Ground Mount): A lightning-fast hound with possibly electric element. Unlock at Lv 26 (Tech Level 26 according to list)
+game8.co
+. Rayhound is probably a rare spawn in stormy plains (maybe around where the PIDF base is, coordinates ~ (500, 300)). It’s slightly more advanced than Fenglope – if you have both, compare their speeds. Rayhound likely has a sprint burst skill that’s unmatched. Capture it (could be tricky due to speed; use traps or tranquilizer darts if available). With a Rayhound, outrunning patrols or quickly traversing safe zones becomes trivial.
+Pyrin & Pyrin Noct (Ground/Fire Mounts): Pyrin is a fire elemental feline, Pyrin Noct is its dark variant. Unlock at Lv 30 & 33. These mounts are notable because they may have fire attacks while mounted. Good for raids – you can literally ride and breathe fire at attackers. Spawn: Volcanic region around (-600, -500) for Pyrin, and noct variant possibly at night in same area. They are also among faster mounts but with slightly less stamina than Fenglope. If you’re in a dangerous zone, a fire-breathing mount both transports you and fights back.
+Paladius (Dragon Mount): By late-mid-game (after a few towers), you might get access to Paladius, one of the Legendary Pal (No.108) that doubles as a flying mount. Paladius’s saddle might only come late (Tech ~49), but mention in tier list suggests by late mid-game you could ride it. If you managed to capture Paladius in a Legendary Pal quest, definitely leverage it. It’s a flying mount (true flight). Spawn/Capture: Paladius is actually one of the Legendary Pals that spawn as Alpha bosses, likely after beating certain towers. If you have it, use it. Flying freely trivializes travel – though be careful, you may attract high-level sky enemies (like Xenolord raid boss won’t just let a dragon fly around).
+Glider Upgrade – Jetragon: Mid game introduces some glider/flying Pals. Jetragon (a smaller dragon, not the legendary) might appear in Sakurajima. It’s likely categorized as flying mount (with a saddle unlock around Tech ~40). If Paladius is out of reach, aim for Jetragon as a flyer. Spawn: Sakurajima Island peaks (like around (-550, 200)). Jetragon is also strong in combat.
+Water Mount – Warsect Terra: If you are exploring water dungeons or islands, Warsect Terra (giant insect/boat Pal) unlocked at Tech Lv 30 is handy. It’s amphibious. Found in swamps (maybe (250, -50)). It’s not fast but can carry you and maybe a friend across water safely (no stamina drowning). Consider if needed for aquatic content.
+Using Mid Game Mounts: Now you can outrun almost everything. For ground mounts like Fenglope/Rayhound, you can literally race from one end of a region to the other in a minute or two. Use that to do farming loops quickly: e.g., wood loop – mount, sprint through forest chopping, hop back on, deposit at base, repeat. For flying mounts, be mindful of altitude – Palworld likely has some fall damage if dismounted mid-air (unless you have a glider or parachute). Always carry a glider as backup when using a flying mount; if something knocks you off (some flying predators might), you can save yourself. Co-op: One player on Paladius can scout for resources or targets from the sky and mark them for the ground team. Also, mid-game mounts often have combat abilities: e.g., Pyrin’s fire stream, Paladius’s dragon breath. Use these in tower defense: position your mount near base wall and when raids come, breathe fire from atop the wall. It adds DPS while keeping you mobile. In Hardcore, kiting enemies with a mount’s speed plus ranged attacks is a viable strategy.
+Exact Coordinates Example: Pyrin common at (-590, -520) near lava pools, Rayhound packs near (480, 320) where lightning strikes in storms, Fenglope herd at (350, 210) grazing. Logging these coordinates in your interactive map or notes helps you quickly find and tame them. Mounts Tier list confirms these choices: Direhowl was early king, mid game highlights Rayhound, Pyrin Noct, etc., culminating in Paladius (the tier list snippet in Tower guide shows Paladius, Necromus as top tier mounts).
+Unlocks and Rewards: With mid-game mounts, the world is effectively smaller and safer for you. You unlock the ability to do content out of order if desired (fly to late-game island early if you dare), collect scattered collectibles easily (like journals, effigies, eggs as referenced in map icons
+game8.co
+game8.co
+). Also, having these mounts contributes to 100% completion (since you need to capture and register every Pal, including mounts). As a reward, mid-game mount mastery means you’re nearly unstoppable in exploration: few places are unreachable either by high jump, flight, or speed. This positions you perfectly to tackle endgame tasks like chasing down Legendary Pals or timed challenges (some quests might have timers – with a good mount, no sweat).
+MT03: Mount Pals Guide – Late Game
+Game Phase: Late Game
+Mode Considerations: By now, whether Normal or Hardcore, you likely have the best mounts. Hardcore’s extra damage doesn’t matter if you’re flying beyond reach or running everything in circles. Co-op teams might each ride a Legendary Pal into battle – quite a sight!
+Prerequisites: Defeat all towers and perhaps raids to access the ultimate mounts. You should have Legendary Pal capture spheres (Ultimate Spheres) from side quests and know spawn locations for rare Pals (some only spawn after main story). Tech-wise, Legendary Mount Saddles unlock around Tech Level 49 (Paladius/Necromus saddle) and above. Also, Ignis variant saddles (special elemental variants from Tides of Terraria update, e.g., Whalaska Ignis Saddle) become craftable after you obtain those Pals. Ensure you built the Advanced Civilization Workshop to craft these high-tech saddles (like Pal Genetic Unit stuff).
+Top Endgame Mounts:
+Necromus (Dragon Mount): Legendary dark dragon Pal (No.109). Equally as capable as Paladius, perhaps slightly different element (Dark vs Neutral). If you caught Necromus at the Legendary Pal locations (it co-spawns with Paladius at one spot), you now have a flying mount with Dark aura. Its saddle unlocks with Paladius’s (both around Tech 49). Riding Necromus not only allows flight, but it likely has a powerful Partner Skill (maybe life-drain breath). Use: Fly over raid battlefields and rain down dark energy; Necromus can probably tank hits from lesser Pals easily.
+Jormuntide & Jormuntide Ignis (Ground/Sea Dragon): Jormuntide is a massive sea-serpent/dragon Pal (perhaps water element), Ignis variant is fire. Tier list ranked Jormuntide Ignis as SS-tier combat Pal – as a mount, it might not fly but can traverse water and land at huge speed. If saddles exist for it (maybe not needed; might be ridden by default if large enough), this is the ultimate amphibious mount. Spawn: Possibly a raid boss or dungeon boss Pal; if acquired via breeding or catch (maybe chain breeding as hints from breeding calc updates), use it to patrol coasts and take shortcuts across oceans. It can fight off other aquatic Pals easily, ensuring safe passage.
+Xenolord (Flying Mount / Raid Pal): Xenolord is a raid boss Pal (post-game) – essentially a cosmic dragon perhaps. If the game allows capturing raid bosses (maybe only via special means), Xenolord would be the absolute pinnacle mount: presumably very fast flying, maybe even teleportation ability. Realistically, you might not capture Xenolord (raids are usually kill-only), but if you could, that’s 100% completion indeed. Barring that, Bellanoir Libero (another raid Pal, a free-flying phoenix) is obtainable from raid rewards or egg hatches. It’s S-tier flying mount as noted. Use Bellanoir Libero as your everyday flyer if you have it – extremely fast and likely doesn’t even require saddle (libero might mean free).
+Whalaska Ignis (Special Mount): Whalaska Ignis is a large whale Pal introduced in Terraria update. Possibly it acts as a floating platform mount (flying whale?). If so, its saddle is listed. That could serve as a multi-person airship! If playing with friends, all can perhaps ride on Whalaska’s back – useful for group exploration. It might be slower than dragons but can carry more weight. Spawn: Perhaps in an event or after Moon Lord raid. If acquired, definitely showcase it – flying whale mount is the definition of having “seen it all” in Palworld.
+Bastigor (Dragon Mount): Bastigor was Bjorn’s Pal (final boss), a massive dragon/monster. The game doesn’t let you catch tower boss Pals normally (glitch patched), but after beating Bjorn, maybe a wild Bastigor spawns in Feybreak that you can catch. If so, that’s a top-tier mount: Level 60 Fire/Dragon with presumably great stats. Use it as an alternative to Paladius/Necromus for variety.
+Using Endgame Mounts: At this point, travel is trivial. You can cross the entire map in less than a minute on a legendary flying Pal. This is great for mop-up: if you’re hunting last collectibles (e.g., that one Lifemunk Effigy statue at some obscure corner), hop on Paladius and fly there directly, ignoring all terrain. For combat, endgame mounts can actually fight in lieu of you. For example, Paladius can likely solo a group of enemies while you focus on an objective. In base defense, station Necromus at one gate and Paladius at the other; when raid triggers, mount one to assist, while the other acts as autonomous defender (if set to aggressive, perhaps). Essentially, your mounts are as strong as bosses now. Note: Be cautious of any mounted combat limitations – some games restrict using certain weapons while mounted. Check Palworld’s mechanics – if you can use guns on a flying mount, you can literally strafe ground targets easily. If not, rely on the Pal’s own attacks. Either way, endgame mounts make you an army of one.
+Exact Coordinates Example: Legendary Pals spawn: Paladius/Necromus around (-200, 500) (just hypothetical example from map cluster showing them together). Endgame unique Pals like Whalaska Ignis might require special summon – e.g., craft a Celestial Sigil to spawn it in ocean. If so, you likely did that in the course of collab content. Always refer to in-game Bestiary (Paldeck) for hints on where remaining Pals are located; often legendary entries have clues. Use your mounts to then reach those spots effortlessly.
+Unlocks and Rewards: Achieving all endgame mounts is a reward in itself – you’ve collected the apex creatures of Palworld. This usually nets an achievement for capturing all Pal species. Practically, the reward is ultimate convenience and power. For fun, you can now run Palworld “dungeons” by simply bulldozing through on a mount (imagine riding Necromus into a dungeon, breathing dark fire and clearing it in seconds). Another fun reward: style points. Wear the hat cosmetics from tower bosses (Zoe/Lily/etc hats) and ride a legendary Pal – you’re flexing full completion. Finally, these mounts allow you to tackle any future DLC content that might add new areas – you’re prepared to travel far and fight hard with them. Enjoy the culmination of your mount collection: from a humble Lamball to a world-eating dragon, truly a journey.
+A01: Alpha Pal Locations & Capture Guide – Early/Mid Game
+Game Phase: Early to Mid Game
+Mode Considerations: Alphas are tough fights solo; in Hardcore, even a low-level Alpha can one-shot you if unprepared. Co-op helps: multiple players/Pals can surround an Alpha. Also note, Hard mode doesn't increase wild Pal stats, only world difficulty might spawn higher-level Alphas sooner. So strategies largely similar across modes, but be more cautious on Hardcore.
+Prerequisites: Unlock the Palworld Interactive Map or at least the legend to track boss icons. Early on, alpha “Field Bosses” spawn in each biome marked by a red boss icon. Have a team of Pals trained to around the Alpha’s level (e.g., for a level 11 alpha, have a team of ~Lv 10 Pals). Carry plenty of Pal Spheres (preferably Giga or Mega for mid-level alphas) and healing items. Possibly craft some traps or bombs to soften them.
+Key Early Alpha Pals (Locations & Tips):
+Chillet (Lv 11 Alpha) – “Dancer on the Steppe” (as in M11) at (174, -419). Location: Windswept Hills plateau. Strategy: Weaken with Fire (Chillet is Ice). Use cover to avoid its ice projectiles. At low HP, throw Mega Sphere. Early game, this might be your first Alpha – capturing it gives a strong Ice Pal and counts toward Palpedia.
+Sweepa (Lv 11 Alpha) – A wind-type bird at (160, -400) (approx; likely near Chillet’s area at night). Strategy: Use ranged attacks; Sweepa flies low swooping. Electric or Fire Pals work well. Be careful – it’s fast. If you fail to catch by 10th try, consider defeating and re-encountering (spawn resets after some time).
+Gumoss (Lv 11 Alpha) – A plant Pal, possibly Special Flower Gumoss variant exists. Location: Forest around (130, -440). Strategy: Bring Fire or Ice. Gumoss is slow, so kite it. If it’s the special variant, it may be rarer (spawn infrequently; might need leaving area and returning). Capturing yields a unique entry.
+Dumud (Lv 14 Alpha) – A ground/rock Pal. Location: Possibly near caves at (-50, -350). Strategy: Use Water or just brute force physical. Dumud hits hard melee; use Pals to tank while you throw spheres. It’s relatively slow.
+(By mid-game, more appear:)
+Penking (Lv 15 Alpha) – A penguin Pal in cold area (maybe mid-game when you reach Snowy mountains). Coords: around (180, 30) near Lily’s tower base. Strategy: Weak to Electric/Fighting. Watch out for its sliding charge. Catching Penking gives you a strong ice attacker early mid-game.
+Katress (Lv 23 Alpha) – A feline Pal in jungle (Sakurajima unlocked around mid-game). Coords: maybe (-550, 180). Strategy: Quick and stealthy; use area attacks to reveal if it hides. Fire or Electric to counter. It likely has a bleed attack, so bring bandages (Medical Supplies).
+(List continues in game8 source but focusing early-mid ones above).
+General Alpha Capture Tips:
+Preparation: Lower world difficulty in settings if purely hunting Alphas for capture (exp bonus unaffected by difficulty
+game8.co
+, but catch difficulty might feel easier on Casual). Use Stealth Spray (if available) to approach without aggro, allowing a first hit advantage.
+Weakening: Aim to drop Alphas to ~10% HP. Some players like to use a low-damage DoT (poison) and wait, as it can slowly chip without killing. Alternatively, use a Pal with False Swipe-like skill if any (some games have a skill that leaves target at 1 HP; check Pal skills list if one exists).
+Status Effects: If there are stun or freeze grenades, use them. A stunned Alpha is much easier to capture. E.g., toss a Flashbang to daze it, then immediately throw Sphere.
+Reroll Spawns: If a certain Alpha isn’t spawning or you want multiple of one species, try the dungeon reroll trick: some Alphas appear at dungeon ends. E.g., Direhowl or Lifmunk Alphas in Cavern. Leave and re-enter boss room to reroll species. Use that to farm differences (also yields EXP). For field Alphas, leaving area (fast travel far, then return) can force respawn. Also, many Alphas respawn eventually (some nightly).
+Capture Bonus: Remember, capturing each new Pal (Alpha or not) yields big EXP first 10 times
+game8.co
+. So catching Alphas is doubly useful: you get a strong Pal AND a huge EXP chunk. For example, capturing that Alpha Gumoss might jump you a level or two at mid levels.
+Exact Coordinates to Note: Game8’s “All Alpha Bosses” list for field Alphas enumerates a lot. For early-mid focus on first two dozen in that list (Chillet through Ice Kingpaca around Lv 43). Possibly highlight ones near your progression path: e.g., Kingpaca (Lv 23) at desert oasis (320, 250) – easy to snag when going to Marcus’s tower, giving you a great cargo mount and wool producer.
+Unlocks and Rewards: Capturing early/mid Alphas fills your Paldeck significantly (some Alphas are unique subspecies not found as regular spawns). You also get materials (Alpha drops often include rarer items: e.g., Alpha Tarantriss gave Might Elixir, smaller Alphas might drop Applied Technique manuals or extra ores). Also, many side missions required Alpha captures (like Gargantuan Tarantriss, Splatterina spree, etc., which you’ll be doing). By mid-game, you should have captured enough Alphas to possibly unlock the Wildlife Sanctuary (if there’s a quest requiring a number of Alphas for it). Notably, some Legendary Pals are counted as Alphas (they spawn as Alpha bosses with unique names). Capturing those is endgame though. But overall, systematically hunting early-mid Alphas sets you up with a diverse, powerful Pal roster for the late game. Continue this in late game with next guide focusing high-level Alpha and Legendary locations.
+A02: Alpha Pal Locations & Capture Guide – Late Game
+Game Phase: Late Game (Post-tower, including Legendary Alphas and Dungeon/Raid Alphas)
+Mode Considerations: By now you can handle Alphas with your strong team. In Hardcore, an Alpha at level 60 is still lethal – treat it like a boss (bring max potions, perhaps go in with Hard mode off if just capturing for completion and not for challenge). Co-op is ideal: one distracts, others throw spheres from behind.
+Prerequisites: Completed main story (so all regions unlocked: Sakurajima, Feybreak). Possibly cleared Wildlife Sanctuary (which might have exclusive Alpha spawns). You should have Ultimate Spheres crafted (needs Ancient Parts and lots of mats) for the toughest captures. Also, have passive bonuses like Kinship Peach (increases capture rate) ready – these come from high-level content or crafting. If you followed breeding guides, you might also have Pals with Capture Assist passive (if exists) to improve chances.
+Key Late Game Alphas & Legendary Pals:
+Faleris Aqua (Lv 56 Alpha) – A Water/Dragon variant of Faleris (Marcus’s Pal). Location: Feybreak (perhaps near a water area around (-1000,-1500)). Listed among Feybreak Alphas. Strategy: Use Electric or Grass attacks to weaken. It’s high level, so bring Pal levels ~55+. Good news: you faced it as tower boss, so you know its moves. Capture gives you a pseudo-legendary mount with Water Dragon power.
+Kitsun Noct (Lv 57 Alpha) – A Dark fox Pal. Location: Feybreak night-time forest. Could be around (-1200,-1600). Strategy: Kitsun Noct can cloak or confuse; use area damage or set traps. It's valued for its rarity and possibly exclusive passive. Try capturing at night with night vision (some gear or Pal skill).
+Tarantriss (Lv 57 Alpha) – Already tackled in S15. Spawns in Feybreak caves at (-1341,-1429). If you didn’t capture then, you can respawn and try again. Use same method: Fire, careful HP management. This one was needed for quest, but if you killed it, it may respawn after some in-game days. Capturing now yields its Pal entry.
+Paladius & Necromus (Lv 50 Legendary Alphas) – Not traditional “Alpha” but spawn as bosses with no human trainer. Location: Both at (-320, 640) roughly, in an open plain. Actually, Game8 says they are grouped at the same location. Approach there and you might see an event: Paladius and Necromus appear fighting each other or guarding a spot. Strategy: This is the big capture challenge. Ideally, weaken one at a time. Lure one away (shoot it to aggro, run until the other loses interest). Then fight like a tower boss: dodge big attacks, use your strongest Pal(s) of opposing type (Paladius neutral, Necromus dark). Once one is down, either capture or defeat – capturing both solo is extremely hard because while catching one, the other could interfere if it wanders back. In co-op, split tasks: each player focus on capturing a different one simultaneously (dramatic but could work). Use Ultimate Spheres and peaches. Expect low catch rates; be persistent. Capturing yields two Legendary Pals – likely needed for 100% Pal collection.
+Saya’s Selyne (Lv 55 Legendary Pal) – After defeating Saya, perhaps an Alpha Selyne wanders Sakurajima (( -600, 200)). If so, you can attempt capture (though one might argue Selyne died with Saya, but games sometimes respawn boss Pals as wild after story). If present, treat it like Paladius situation: major boss-level Pal, use Dragon Pals to counter (Selyne is Dark element).
+Alpha Raid Pals: Some raid bosses have lesser Alpha forms in wild. E.g., Bellanoir Libero (maybe appears as Alpha in Wildlife Sanctuary post-raid at some coordinates). Also Xenogard (Lv ~57) from list– possibly a lesser version of Xenolord (or maybe just a big lizard Pal) around Feybreak edges. Collecting these fills out Paldeck too. Use typical elemental counters and Ultimate Spheres.
+Wildlife Sanctuary Exclusives: In Sanctuary, all Pals spawn and some unique ones (like Golden Candram or Lifmunk Effigy?) might appear as special Alphas. If Sanctuary is an area (maybe coordinates around (0,0) or a special portal), go there with a team and systematically search. The Sanctuary likely allows catching Pals that were otherwise one-off (like maybe there’s a clone of tower bosses roaming – speculation). If so, you can catch, say, Grizzbolt or Shadowbeak there. Check Game8’s “All Wildlife Sanctuary Pals” for clues. If any target remains only available there, do it.
+General Late Alpha Tips:
+Maximize Catch Rate: Use all boosting items: Kinship Peach (makes Pal more friendly so easier catch), Paralyze or Sleep the target (if any Pal has a sleep ability – maybe Depresso could lullaby?), and always use highest tier sphere (Ultimate). The cost is high (ancient parts etc.), but by late game you can farm Ancient Parts from dungeon resets or raids. A tip: Lucky Pals (rare spawns like shiny variants) drop ancient parts – if you see one, capture or kill for parts to craft more spheres.
+Save Before Attempt: If the game allows manual save (or exit to menu), do so before engaging a Legendary Pal. That way, if you accidentally KO it (and it’s one-time spawn), you can retry. Palworld might auto-save though; if so, mitigate by not using high-DPS near end.
+Journal and Effigies: Some Alphas guard collectibles (the map legend shows Effigy icons and Journal icons on map
+game8.co
+). E.g., an Effigy might be in a cave behind an Alpha predator. So when hunting Alphas, keep an eye out for hidden items in the area after you remove them. That knocks out two birds with one stone for completion.
+Exact Coordinates Recap: Summaries from game8 for high-level: Many Feybreak Alphas cluster around (-1000,-1500) region for variety, Sakurajima Alphas around (-500, 250). Use the Enemy Faction Base map (like Effigies map) to also note where certain powerful NPCs are – sometimes capturing an NPC yields unique Pal? (Probably not, but just in case, like capturing a Pal Geneticist might drop an experimental Pal egg – speculation).
+Unlocks and Rewards: Capturing all these late-game Alphas and Legendaries means complete Paldex. You likely unlock an in-game reward for catching all Pals (maybe a special cosmetic or item). For example, Pokemon gives a diploma – Palworld might give something like “Pal Master” title or special Pal egg. Also, you now have an army of the strongest Pals: multiples of Legendaries if you were crazy enough to reset dungeon Alphas (game8 said you can farm up to 18 species from dungeon rerolls – potentially to get multiple Legendaries from eggs). This means you could even experiment: e.g., have Necromus and Paladius breed via Chain Breeding to pass on insane passive skills across species (if allowed). The reward is essentially you breaking the game’s difficulty – nothing will stand in your way. With 100% Pal collection, you have bragging rights and the personal satisfaction of seeing every creature Palworld offers, from tiny Lamball to godlike Xenolord. Congratulations, you truly “got ’em all.”
+B01: Base Building & Automation Guide – Early Game
+Game Phase: Early Game
+Mode Considerations: In Hardcore, base layout should prioritize defense early (to survive surprise raids and tough wild Pals wandering in). In co-op, you can assign roles: one player expands base and builds while others gather materials and defend. Early game solo, make a compact, defensible base; co-op, you can go slightly bigger since multiple hands build faster.
+Prerequisites: Completed Base Missions Level 1-5 (these guide initial builds). You should have placed a Palbox (base core), a few chests, primitive workbench, campfire, etc. Have at least 2-3 Pals assigned to base for gathering and handiwork tasks. Unlocked basic building tech (wood walls, floors, etc.).
+Optimal Early Base Layout:
+Location Choice: As detailed in the base location step, you ideally picked a spot near resources (trees/rocks) with natural barriers. For example, a base backed against a cliff and flanked by water on one side, leaving one approach (easy to defend). Early on, the Plateau of Blessings (if known location) or a waterfall base in starter area works well. If not ideal, you can relocate base later (base level carries over to new Palbox), but it's costly to move; try to start well.
+Layout Planning: Keep it small and efficient. Early base radius is small, so multi-story building can maximize space (though note Pals have trouble pathing upstairs as per community notes). It might be easiest to build a single-storey compound initially:
+Central Palbox with a Light source (campfire) near it (for visibility at night).
+Workbenches and furnace adjacent to Palbox (Pals deposit materials into Palbox by default; keep production near storage).
+One corner as Sleeping area: place straw beds for yourself and some Pal straw beds (Pals regain stamina faster with beds).
+Opposite corner as Crafting area: Primitive Workbench, later Pal Gear bench, etc. Keep chest storage next to them (easy access to mats).
+Crop plots (Berry Plantation) just outside or along the inside of perimeter wall for food supply.
+If possible, build near a Fast Travel statue (there's one in starter zone) to link base to travel network. If not, no worry; you can relocate base later when you unlock multiple bases.
+Defense Early: Surround base with a simple Wooden Fence or Palisade as soon as you can. Wooden walls can burn, but early on you may not face fire attacks. Still, if you have a Water Pal, station it to put out fires as advised. Build a single gate at the chokepoint. Use terrain to your advantage: e.g., base against cliff means you only fence the exposed sides.
+Also, dig trenches or use spiked barricades if available (not sure Palworld has terrain deformation, likely not – but you could place obstacles outside walls to slow raiders).
+As soon as you unlock turret or guard tower tech (maybe not until mid game), plan where to put them (overlooking gate).
+Keep base somewhat small such that if an enemy breaches, they’re always in range of you/Pals – no far corner that’s undefended.
+Automation Beginnings: Early game “automation” is manual Pals doing tasks:
+Set up a Logging Site (Base Mission Level 6 requires one)
+twinfinite.net
+ just outside or within base if room. Assign a Pal with Lumbering skill; it will auto-chop trees and deposit wood. Same with Crusher (for stone) at Base Lv 6.
+Use a Feed Box and Water Trough if tech unlocked to keep Pals fed so they work nonstop. Place them centrally so Pals easily access.
+Arrow Production Trick: Even early, you can get a Pal to craft infinite arrows for slow but steady EXP. Set a Pal with Handiwork at a Workbench, queue arrow crafting using wood/stone which your logging/crushing Pals supply. This effectively automates converting base resources into EXP (which levels your base Pals and even you slightly if near base).
+Observation: Watch how Pals move. If one has to carry logs from far outside walls to Palbox, consider a small gate near resource area to shorten path (but be wary: gates are raid entry points). Or better, periodically open gate for Pal then close (micro-manage until you get conveyors).
+Expansion Plan: Early base will level up quick via missions. Each level grants more Pals allowed and eventually an extra base:
+Base Lv 2-3: got a Workbench and bed inside.
+Base Lv 4: unlocked Berry Plantation; integrate small farm patch.
+Base Lv 5: Statue of Power (place it – it buffs Pal outputs) in center as decoration buff.
+Don’t expand area unnecessarily yet; finish missions to increase allowed Pals first (Quality over size). A compact base is easier to defend and manage. You can always expand perimeter once you upgrade walls to stone.
+Short-term Goals by end of Early Phase: Have a self-sustaining mini-base: You have consistent wood/stone coming in (via Pals at Logging/Crusher), food via Berry plot + maybe a Hot Spring for buff (Base Lv 7 gives Hot Spring tech, which heals and boosts Pal morale). You should be able to craft ammo, basic guns by time raids start increasing. The base likely experienced maybe a minor raid (some Lovander fangirls or Pal poachers). If your wall funnel worked, you repelled them with minimal damage.
+Example Layout Dimensions: Suppose Palbox radius ~20m. Place Palbox slightly off-center toward back cliff. Surround with ~30 wooden fence pieces making roughly a 10m x 10m square interior. Not huge, but fits essentials. Use gates on two opposite sides for convenience (but block one with something when not needed). Interiors: cluster crafting in one 4m x 4m area, farming in 4m strip, rest open for Pal movement. Pals don’t collide much, but don’t overcrowd with objects – leave clear path to Palbox since they deposit there often.
+Citations & Advice Connection: We applied site advice: location considerations, building walls but leaving funnel opening (funnel method effective as outof.games suggests funneling enemies to killzone). Also, we considered base mission structure from Twinfinite to ensure we built what was needed for leveling base.
+Unlocks and Rewards: A solid early base yields faster progression. By early-mid, your base might hit Level ~10 easily, unlocking second base – you could then set up an outpost at a mine or near a boss area. But even with one base, you'll notice efficiency: You spend more time adventuring and less time grinding basics because Pals are automating wood, stone, food. Also, early base building correctly saves resources: you didn’t waste mats on unnecessary decor or extra walls you’ll later replace – everything built had purpose. This efficient start means by mid-game, you can focus on advanced automation (assembly lines, electricity) rather than fixing early mistakes. Essentially, the reward is a sturdy foundation (literally) for everything to come.
+B02: Base Building & Automation Guide – Mid Game
+Game Phase: Mid Game
+Mode Considerations: Raids ramp up now (more frequent, stronger factions). On Hardcore, you must have upgraded defenses by this point to avoid base wipe (which can happen if raiders kill all Pals and destroy Palbox). In co-op, coordinate base roles: one monitors defense during raids while others keep production going. Possibly have multiple smaller bases specialized (one player’s base for farming, another’s for industrial, etc., since base level applies to all bases in world).
+Prerequisites: Base Level ~10-15 achieved. You likely unlocked Stone Walls, Improved Gates, maybe Observation Tower blueprint (if such tech exists for defense management). You should have built: Crusher, Logging, Primitive Furnace, High Quality Workbench, etc., and probably started assembling Assembly Line I (via Base Level 18 mission). Power generation tech (Windmill or Generator at Base 13) might be available; if so, gather components to build a Power Generator.
+Mid Game Base Expansion:
+Upgrade Structures: Replace wooden walls with Stone walls as soon as you have enough stone and Crusher Pal (stone walls won’t burn). Also double-layer the walls if resources allow: an outer stone fence and inner one, creating a kill-zone gap (raiders break outer, get stuck in gap under fire from you/Pals before inner wall). Ensure to also upgrade foundations if you used any wooden floors that carry weight (stone foundations handle explosions better).
+Dedicated Zones: Now that base radius is larger (Base Lv 9+ gave radius increase around time you could have second base), reorganize:
+Production Wing: Place Assembly Line, Generator, Weapon Workbench, etc., in one area. You might create a Workshop building. Consider flooring to increase Pal speed (if pathing on floors is faster than terrain – some games do that, unclear in Palworld). Put storage (Refined Chests) along the walls of workshop for raw mats and outputs.
+Power Grid: Set up the Power Generator outside (they might be noisy or fuel-consuming – maybe design a small fenced sub-section for it, to keep Pals from getting too close if it has hazards). Run Power Lines (if required) to Assembly Line, Electric Furnace, etc. If Palworld uses wireless range for power (some games do), just keep powered machines near the generator.
+Farm & Food Wing: Expand your farming. By Base Lv 10, you had Wheat, Mill, Cooking Pot missions. Create a Crop field for Wheat (maybe 3x Berry Plantation size). Use fences to protect it from wild Pal grazing. Place a Mill and Cooking Pot adjacent to farm. Assign a Pal with Planting/Watering to maintain (if you unlocked Sprinkler, install it). Now you can produce advanced food (like bread for better hunger or ingredients for stat-boost meals).
+Pal Housing & Breeding: Base Lv 12 gave Fluffy Pal Beds mission – build a Pal Dormitory: a small stable with those beds. More beds = Pals rest faster (and if a raid happens at night, well-rested Pals can fight). If you start breeding, set up Incubators in a quiet corner (maybe near farm, away from noisy smithy). Pen off some area if necessary for raising baby Pals safely.
+Storage and Logistics: By now, you might craft Plasteel Chest or larger storages. Consolidate your storage – maybe build a dedicated Storehouse building. Ideally centrally located so Pals from all tasks have roughly equal distance to drop off items. One strategy: Put Palbox in center of base (if not already) and surround it with storage crates for different categories (metals, wood, crops, etc.). Pals dump in Palbox by default though, so maybe use Palbox as primary catch-all, and manually sort occasionally (or later use conveyors to sort).
+Defense Augmentation: Place Observation Tower (if any tech or literally high platform to stand on) near the entrance funnel so you can shoot down at raiders. If available, set up Turret Platforms: e.g., craft a Ballista or Mounted MG and place on wall. Assign a Pal with combat skill to man it (the game may allow Pals to use fixed guns). Also craft some Traps (spike traps, mines) and place outside walls in likely approach paths. Outof.games suggests funnel method and not sealing all routes; do that – leave one obvious gate open, heavily trapped and in turret line-of-sight, while barricading others.
+Automation Implementation: Mid game is where real automation begins.
+Production Assembly Line I: Use it to automate a tedious craft. E.g., set it to automatically craft Pal Spheres or Ammo continuously. To do so effectively, set up conveyors: e.g., connect a Chest with fiber and a Chest with ore to the Assembly Line input; output to a chest. If conveyors unlocked (maybe around base tech ~15), rig them. If not, manual load assembly line but it's still faster bulk crafting.
+Electric Generator Use: Hook it to Lighting inside base (if you can craft electric lamps, string them so night raids aren’t fought in dark). Use it to power any advanced traps (maybe there are Tesla coils or electric fences – implement them at chokepoint).
+Pal Automation Roles: You likely unlocked Applied Technique Books I from quests (like Applied Lumbering I, etc.). Use them on your working Pals to increase output. You can have specialized Pals: one Pal is always at the High Quality Furnace smelting (with Handiwork++ skill), another always smithing weapons, etc. The Statue of Power (if built at base 5) improves Pal work rates already, but you can further optimize by equipment (e.g., equip Pals with Work Suit gear like mining hats or aprons if you have any).
+Transport Automation: If base big, consider Pal Transporters. E.g., assign a Lifmunk (Transporting Lv2) to haul items between distant points (like farm yield to cooking area). Not direct automation, but ensures materials flow. There’s mention of "Applied Transporting Technique I" – that likely improves Pals' efficiency in moving goods.
+If tech allowed, set up an Ore Auto-Processing loop: Logging site -> logs to Generator fuel; Mining -> ore to Furnace -> ingots to Assembly line -> final products. Achieve this by conveyors or by closely placing structures so Pals naturally move output to next input (like put Furnace adjacent to Mining output, and Assembly next to Furnace).
+Multi-Base Setup: By mid game, you unlocked ability to build a second base (Base Lv 9 gave 2 bases). Use this strategically:
+Perhaps establish a Mining Outpost near a rich ore vein far away. Fill it with Crusher, Furnace, have a couple Pals live there to mine and pre-smelt ore, then you transport ingots to main base occasionally (or later use portals/travelers).
+Or a Breeding Ranch base in a safe zone, away from raids (since raids target active base primarily). There you can raise fragile baby Pals without risk of crossfire.
+Remember all bases share base level cap and Pal cap total, so distribute workforce wisely. You might keep main base staffed with combat Pals, outpost with just a couple specialists.
+Phase Outcome: By end of mid-game, your base is a fortress-factory hybrid. You produce your own ammo, weapons, food, medicine (Medieval Medicine bench gave ability to craft medkits). Raids still come, but you likely laugh as your turrets and traps shred a wave of Brothers of Pyre before they touch your inner wall. Your Pals are busy but safe, pathing efficiently thanks to your layout. You as player now spend more time guiding production goals than doing every craft by hand. Perhaps you queue a batch of 100 refined ingots and go on an adventure while the assembly line + Pals handle it – returning to find it done (or partially done).
+Citing Advice: We followed tips like multi-level if needed but avoided complexity for Pal pathfinding, created funnels for raids, used natural barriers, and prioritized stone over wood to avoid fire issues. We utilized base mission structure to ensure build order (which inherently trains you in optimizing base).
+Unlocks and Rewards: A mid-game optimized base basically unlocks time. You free up hours by automating menial tasks, letting you pursue endgame quests, breeding super Pals, or building cool stuff instead of chopping wood. It also unlocks higher tech because with efficient production, you can afford to experiment with expensive tech (e.g., building decorative but tech-heavy structures like Hot Springs for buff, or Japanese Hot Spring decor tech just for aesthetics with minimal worry about resource costs). Additionally, a well-defended base preserves your progress – in Palworld, if base got wrecked you might lose stored loot. By preventing that, you keep all accumulated wealth to push into endgame (like crafting Legendary gear requiring tons of mats). Essentially, the reward is turning your base into a self-sufficient fortress that sets the stage for final upgrades (Legendary Workshop, full automation with Assembly II, etc.) in the endgame.
+B03: Base Building & Automation Guide – Late Game
+Game Phase: Late Game (Endgame and post-story expansions)
+Mode Considerations: On Hardcore, raids can reach maximum intensity – possibly multiple faction raids at once. But by now, you have the ultimate base tech to handle it (e.g., automated turrets, possibly Pal clones on defense). In co-op, a late-game base can be so large and advanced that delegating tasks to different players (one monitors breeding lab, one runs weapons factory, etc.) is like running a small city. Make sure everyone's efforts integrate (e.g., one’s production feeds another's research).
+Prerequisites: Base Level 20 (max) achieved. That means all base missions done and you can have 15 Pals in base and up to 3 bases simultaneously. You should have unlocked Production Assembly Line II, Electric Furnace (maybe Induction smelter), Advanced Civilization Workshop (for legendary gear)
+game8.co
+, and Pal Surgery Table (for modifying Pals). Likely also Teleporters or Portal tech from Terraria update (since travel was teased). A late-game base can incorporate Terraria crossover items like Vortex Beater turret or Energy Shield (if those exist, speculation from item names). You have abundant resources: hundreds of ingots, etc., thanks to mid-game automation.
+Ultimate Base Layout & Features:
+Fortress Perimeter: Upgrade to Plasteel Walls or whatever highest tier (maybe concrete or energy shields). If available, line walls with Auto-Turrets that target hostiles. Place Anti-Air turrets specifically to shoot down any flying raiders (some factions might come in gyrocopters or Pal air raids by late game). Use Gatehouses: double gate with killzone in between, each gate powered to open/close remotely or on timer. The outof.games article suggests leaving controlled funnel – you can actually create an airlock: Outer gate opens to let raiders in a courtyard, then outer closes, they're trapped, then your turrets & Pals fire from murder holes before you open inner gate to clean up survivors. For truly final defense, consider moats (if you can’t dig, you can place water blocks or use terrain with water). Also consider Drone patrols if tech allows (maybe craft small guard Pals or automated drones to circle base).
+Centralized Control: At this stage, implement a control room. Perhaps using the Observation Tower concept, but more advanced: a building with monitors (if game has camera system), or simply a vantage with all needed stations (Palbox access, console to trigger alarms, etc.). In co-op, one player can man this control room during a raid to coordinate. If single-player, design base where you can quickly get to control vantage and have quick access to each zone via perhaps jump pads or shortcuts (some games have teleporter pads within base; if so, set one in each major section to teleport around quickly).
+Fully Automated Production Chains: Connect everything with Conveyor Belts (if introduced in tech list after mid game) or use Pals on schedule:
+Example: Ore to Weapon Chain – Mineshaft Pal brings ore to Electric Furnace chest -> Electric Furnace auto-smelts (with power) -> output via conveyor to Assembly Line II input -> Assembly II blueprint set to craft firearms (needing ingots, wood stock, etc.) -> conveyors from Logging site feed wood to assembly too -> final guns output to Armory chest. Now you have an auto weapons factory pumping out, say, Assault Rifles or Advanced Ammo constantly. Perhaps tie it to a lever so you can turn production on/off to conserve resources when stock is full (OpenAI control is beyond in-game, but maybe via powering assembly line on/off).
+Food/Medicine Chain: Farms produce wheat/veggies -> automatic harvesters (maybe Pals with new farming machines or Implants that auto-collect) -> to Cooking Station -> pre-set to cook XP-boost meals or mass produce Healing Potions which drop into a Medical storage. If tech, you might have Hydroponics or Greenhouse building with climate control (ensures year-round fast growth).
+Energy Management: With multiple machines, consider extra generators or Renewable power (maybe solar panels from tech updates). Possibly craft multiple Power Nodes to segment grid so if one area overloads, others stay on (again, depends on game complexity).
+Applied Technique II Books: These from quests (maybe Sanctuary or raids gave Tier II skill books). Use them to max out Pal efficiency: e.g., Applied Mining II on your main miner Pal makes them maybe 50% faster. Combine with giving that Pal a Legendary pickaxe (if craftable) – your resource income skyrockets without needing extra Pals.
+Special Facilities: Endgame base includes:
+Pal Breeding Lab: A building with many Incubators (Large ones unlocked with tech). Possibly Gene Splicer (Pal Surgery Table) inside. Here you perform advanced breeding to get perfect stat Pals or weird fusions. Secure this lab – maybe keep it separate in case an experiment Pal goes berserk (in lore, maybe possible). Possibly incorporate holding cells (metal fences with a gate) to contain any aggressive Pals (like if you purposely let a Predator Pal roam to defend base at night, but pen it daytime).
+Armory & Garage: Display Legendary Weapons/Armor you crafted on racks. Park your Mount Pals or vehicles (if any – maybe a future update has mech suits or something). Essentially a trophy room + quick deployment site if a raid happens (grab top gear and jump on mount to charge out).
+Portal Room: If the game gave you a Portal (Teleporter) to travel across world or to raid areas (Terraria content teased something like Meowmere which is a sword, but "How to Get Terraria Items" suggests maybe a portal to Terraria world). Build that portal in base, maybe near control room or a ritual site. Could double as decor.
+NPC Quarters & Services: You might have recruited NPCs like Merchant and Dr. Brawn by capturing them. Set aside a nice Merchant Stall in your base for your captured Wandering Merchant to sell you rare items (maybe hooking them near Palbox so their stock refresh uses your base inventory?), and a Clinic for Dr. Brawn to perform daily Pal surgeries conveniently. This effectively means your base has all facilities: you don't need to travel to towns; town services are home.
+Aesthetics & Achievements: By 100% completion, you have various Banners (Rayne, PIDF, etc.). Display them on outer walls proudly. Place the Palworld Trophy (if any from devs for finishing all missions). Possibly build some fun stuff like a Pal playground (because why not reward your little workers).
+Multi-Base Network: All 3 max bases can serve specialized roles:
+Main HQ – fully built as above.
+Resource Extraction Base – e.g., near an Ancient Ruins that respawns Ancient Parts (if any spawn mechanic exists). Staff it lightly, mostly automated via machines, and use Teleporter to send mats to HQ.
+Forward Operating Base – near a raid/dungeon heavy zone. Minimal production, mainly a fortified rest stop with backup gear, maybe an extra Pal squad stationed to help when you do high-level raids. If multiplayer, each friend might maintain one base but link them via alliance so you share goods (assuming game allows visiting each other's bases which likely it does).
+Final Defense Scenario: If a massive raid hits (maybe final post-game raid: multiple factions together), your base should almost defend itself: Outer turrets soften them, electric fences stall them, inner bots/Pals finish them. You maybe just supervise or tackle the raid boss if one appears, while base handles the grunts. This is ultimate automation: war factory that fights for you.
+Unlocks and Rewards: At this stage, your base is effectively the endgame content itself. You have the satisfaction of turning a patch of wilderness into a high-tech self-sufficient settlement. Likely you'll unlock any remaining achievements: e.g., "Fort Knox – base reached max level and repelled level 5 raid without player damage". There's also intangible reward: your base can now continuously produce anything you might want (legendary weapons to sell, etc.), making tasks like completing Palpedia (breeding rare Pals) easier because you can instantly prepare needed resources (like 100 Kinship Peaches for breeding marathons). Essentially, the game becomes sandbox now – build ridiculous things (maybe a giant pixel art using colored lights or towers as you have surplus). Your reward is freedom to be creative, knowing that functional needs are all solved by your ultimate base. You’ve mastered Palworld’s survival and automation aspects – sit back in your Japanese Hot Spring with your favorite Pal and enjoy prosperity in the Pal world you tamed.
+R01: Resource Farming Guide – Early Game Essentials
+Game Phase: Early Game
+Resources Covered: Wood, Stone, Fiber, Food (Berries/Meat), Basic Ore (Copper/Iron), Leather, Bone.
+Mode Considerations: On Hardcore, resource nodes yield same but threats are greater – prioritize safe routes and stealth when farming. Solo players should farm systematically to avoid repeat trips; co-op can assign each person a resource to gather concurrently.
+Prerequisites: Stone Pickaxe, Stone Axe crafted (or Primitive Multi-tool). A mount like Direhowl can help carry and move faster, but if not, ensure you aren’t exceeding weight (carry capacity increases with Pals carrying if they have transport skill or using Carry Capacity+ Pals). Possibly unlocked small backpack upgrades via tech if any exist.
+Early Farming Routes & Coordinates:
+Wood Farming (Lvl 1+): Start around your base location. Target: Trees in Windswept Hills or forest by Rayne Syndicate tower (113,-431) – those respawn fairly fast. Use your Stone Axe; later assign a Lamball or similar to Logging Site. Route: Make a loop from base -> through nearby grove (e.g., around 50,-400 multiple trees) -> back to base. Each loop yields ~50 Wood in 5 minutes. Co-op: one chops, another collects behind to maximize speed. Use a mount or glider to cover distance quickly if spread out.
+Stone & Ore (Lvl 1-5): Hit loose rocks for stone; for ore, look for darker rocks with metallic veins (copper early, looks greenish; iron later, reddish-brown). Good spots: Riverbank rocks (30,-460) often yield Copper. Also small cave at (10,-410) has 2-3 copper nodes. Stone can be found basically everywhere; clear field boulders like at (70,-430). Route: Start at cave or rock cluster -> mine -> use base or campfire to smelt if needed -> stash and repeat. Early on, you'll mostly get Copper; Iron nodes appear slightly deeper (maybe at hillside near Zoe’s tower base or edges of desert once you reach ~level 10 areas). For now, stockpile Copper for crafting simple gadgets and tech unlock tasks.
+Fiber & Berries (Lvl 1+): Grass and berry bushes. Best area: Plains around (90,-390) are full of tall grass (fiber) and red berry bushes. Route: Walk zigzag to cut grass (hand or sickle if had) and pick berries. Each bush yields a few berries – gather lots because they're your food and later tame bait. Co-op: one focuses on cutting grass (getting fiber for ropes/spheres), the other picks berries for food. They often appear together in fields.
+Leather & Meat (Lvl 3-8): Hunt weak Pals like Lamballs, Tanzees, Perytons. Location: Lamballs at start area (they drop Wool and Mutton). Also Peryton (small deer) around (120,-370) drop Leather. Method: Use a bow or spear to kill quickly; Lamballs won't fight back, Tanzees run (chase with mount or corner against terrain). Also kill wild Pigros (pig Pals) around streams; they drop Pork (meat) and possibly hide. A cluster of Pigros often near (40,-445) by water. If you have Glutton Pal mission (S01), you likely encountered them. So kill a few extra for meat/leather. Note: Save some hides to craft Leather Armor via mission M04
+paldb.cc
+.
+Bone & Monster Parts: Not huge in early craft except arrows (bone arrowheads possibly). If needed, bones drop from Wolves (Direhowl) near forest (55,-415). But be careful – wolves can be tough in packs early. Alternatively, bones from Chillet’s minions (Chillet spawns with Chillies maybe). Early on, you can get by without specifically farming bone – you’ll gather some as byproduct of hunting meat.
+Ancient Parts (N/A early): Not available until you face Alphas or dungeons (Alpha drop Ancient Civilization Parts). So skip for now; it's late game resource.
+Efficient Strategies:
+Don’t Overfarm One Spot: Resources respawn on a timer (maybe a few in-game days). Instead of camping one tree spawn, circuit multiple zones so by the time you return, first is back. E.g., chop forest near base, then go mine some ore, then back to forest. As Game8 mentions, items do respawn with time.
+Use Pals for Passive Gains: Even early, a Pal in base with Gathering skill can slowly accumulate basic materials (maybe picking sticks or mushrooms). Also, if you get a Lifmunk Effigy from a chest (those might be static items that boost resource spawns), place it – not sure if it’s collectible or functional, but possibly it could boost something. There’s map icons for Effigies implying they’re collectible rather than functional.
+Manage Weight: In Palworld, you might craft a Cart or use a Pal with Transport to carry extra. If you caught a Kingpaca or use Yakumo at mid-game, it increases carry capacity. In early game, just don’t hoard unnecessary heavy stuff when going out (store stone before wood run, etc.).
+Food While Farming: Keep those berries or cook them into simple meals (like berry jam at campfire) to sustain you while out. Also, don’t starve Pals: feed your logging Pal or it will stop working (hence fill Feed Box).
+Notable Early Resource Uses: Wood/stone for building base and arrows, fiber for Pal Spheres and cloth, copper for primitive tech upgrades (like generator parts), leather for armor, berries for taming small Pals and personal food. Keep a stash of each: recommendation by end of early phase – ~200 wood, 150 stone, 100 fiber, 50 copper ore, 20 leather, 30 meat. That will cover quests and initial tech unlocks nicely.
+Exact Spots Summary: (Coordinates approximate)
+Wood: (50,-400), (60,-420), also (30,-380) near starting shrine.
+Stone: scattered boulders at (75,-405), (20,-390).
+Copper: small cave (10,-410), creek rocks (30,-460).
+Fiber/Berries: (90,-380) fields, (110,-400) open plain has many.
+Meat/Leather: Lamball herd (start area 0,-450 close to base spawn), Pigro mud (45,-445), Peryton grove (130,-370).
+Unlocks and Rewards: Efficient early farming accelerates everything: you finish base missions faster (had wood/stone ready), craft needed gear with no delay, and you can trade excess to merchants for gold (if you meet one – maybe around Duneshelter there's merchants as per NPC guide
+bisecthosting.com
+bisecthosting.com
+, selling logs or ore can net coins to buy missing stuff). Also, by exploring these resource areas, you likely encountered and caught new Pals (e.g., picking berries you saw a Tanzee Pal, you captured it – adding to Paldeck and maybe fulfilling a mission like Prove the Legend needed a Pal with watering skill Tanzee had). So resource runs double as exploration and expansion of your capabilities. This solid foundation of resources ensures by mid-game you won't be in a pinch for basics and can focus on rarer resources then.
+R02: Resource Farming Guide – Mid Game Needs
+Game Phase: Mid Game
+Resources Covered: Iron & Refined Metals (Chromite, etc.), Sulfur & Niter (for gunpowder), Precious Metals (Gold/Silver), Pal Oil & Chemicals, Advanced Wood (Hardwood), Monster Drops (e.g. Fur, Fangs) for mid-tier gear, Ancient Parts farming introduction.
+Mode Considerations: Hardcore adds risk in dangerous areas (volcano, desert). Use your mid-game mounts to avoid combat when farming (e.g., outrun guardians of ore nodes). Co-op can tackle high-yield areas together (one draws aggro of guardian mobs, others mine). Efficiency matters: on Hardcore you don’t want to linger in lethal zones – plan quick in-and-out runs.
+Prerequisites: Access to new biomes: Desert (Marcus tower region), Volcano (Axel region), Snow Mountain (Victor region), Sakura Island (new island with unique flora), maybe underwater (if you have diving gear or aquatic Pal). Tools: Iron Pickaxe (unlocked around base 11 or when you got iron tech), possibly Palwing Glider or better for vertical spots. Tech to refine raw mats like Sulfur Refinery or Oil Press might exist (if not, do manually at workbench). Ancient Parts become relevant, accessible via Alphas or Dungeons now that you fight them.
+Mid-game Resource Hotspots & Methods:
+Iron Ore & Coal: Location: Desiccated Dunes mines around (500, 350) near Marcus’s tower, and Mount Obsidian region (-580, -520 near Axel’s tower) has iron-laden rocks. Iron often looks dark grey with orange streaks. Method: Use Iron Pickaxe; consider bringing a Pal with Mining Lv2 (like a Palamole) to speed. Also coal (for steel) might drop from black rocks in volcanic region. Grab both. If accessible, use Mineshaft structure: mid-game tech has a Mineshaft that spawns an “Alpha ore boss” in it as per Pal list (e.g., Mineshaft Field Boss listing) – might not be available until advanced tech. If not, just mine manually. Aim for ~100 iron ore per run.
+Chromite & Rare Ore: Location: Possibly edges of Feybreak (if accessible mid-game) or deep desert. Twinfinite mentioned Chromite specifically at (-1396,1052) quest. That’s far east likely beyond main map – maybe reachable via boat or late biome. It suggests Chromite is rare, used for high-tier upgrades (like refined metal chest or advanced furnace). For now, focus on finishing mission that gave Chromite – use quest location as mining spot after turning in (since you know spawn). Bring highest pickaxe (steel maybe). Chromite is heavy – plan mount or multiple trips.
+Sulfur & Saltpeter (Niter): Essential for gunpowder. Location: Sulfur found near volcano (yellow crystal outcrops). At Mount Obsidian (-600,-500) scour for yellow rocks – careful of toxic gas possibly. Niter typically in caves (maybe acid caves on Sakurajima?). Also check desert caves for white crystalline deposits. Method: Wear Gas Mask if craftable (not sure if needed, but nice detail if devs added). Use pickaxe, gather a bunch. Combine at Chemistry bench to make gunpowder. You’ll likely need continuous supply for ammo, so consider setting up a small outpost near volcano with a Pal mining these (with Applied Mining II for yield).
+Gold & Silver: Less needed for tech, more for trade or certain gear (like electronics?). Location: Possibly in Sakurajima (where magical energy = precious metals). Maybe around (-500, 200) on Sakurajima island find shiny nodes. Also possibly small chance in deep desert mines. Method: Use high-tier pick and Luck boosting if possible (maybe a Passive "Prospector" on a Pal increases drop). Gold used for high-end gadgets (maybe Legendary gear or coins) – gather but not priority over functional ores.
+Pal Oil & Chemicals: Pal Oil likely from fat of certain Pals or fruit? Actually, update lists "High Quality Pal Oil" as crafting component for Legendary guns – likely obtained from refining fish or plant Pals. Possibly you need to process Goo Pals (like Slimes). Location: There’s mention of Jell creatures (Jellroy) drop oil or slime. If you have Oil Press tech, use fish (e.g., press an Eel Pal's fat). Or kill mechanical Pals – maybe robots drop "Pal Oil". A sure way: Wildlife Sanctuary might give Pal Oil as reward for clearing floors. If not, focus on capturing Pals that mention oil in Paldeck (maybe some oily penguin?). Chemicals: likely Life Crystal, Celestial Sigil appear mid-late game as special loot. Not farmable en masse (boss-only). Acquire via raids (Moon Lord drop Celestial Sigil, etc.) – more endgame.
+Hardwood & Special Wood: Perhaps needed for advanced furniture or crossbow. Possibly Moonlit Trees on Sakurajima provide “Enchanted Wood”. Or Feybreak cursed wood for certain tech (like building advanced bows). Strategy: bring a Pal with Lumbering II, harvest those rarer trees – either yield better wood or unique crafting mats. E.g., Red Forest in Feybreak might drop “Blood Timber” for unique weapons. Not confirmed but keep eye out.
+Monster Drops (Mid-tier): This includes Alpha Pal materials: e.g., Alpha beasts drop Applied Tech manuals (like in quests) or unique parts: e.g., Alpha Chillies drop Frost Plume used for ice weapon. Also faction humans drop guns or ammo – not “resource” but helpful. Plan runs: e.g., do an Alpha boss loop – hit 3 different Alphas (they respawn daily) for their loot and EXP
+game8.co
+. Some yields:
+Fur (Thick Fur): from high-level cold Pals (e.g., Felbat or Ice Kingpaca). Use for cold-resistant gear. If you need, hunt those specifically around (-150, 450) where Felbats spawn at night.
+Poison Glands: from swamp Pals or Ribbunys (Feybreak amphibians). Might be needed for advanced medicine (antidotes). If running new content dungeons, kill a few extra to stock up.
+Effigy Shards: Possibly puzzle items not needed for craft (collectible).
+Life Fruit & Power Fruit: Rare, but you might farm them via missions or sanctuary (these permanently boost Pal stats or player HP/Stam). Not exactly resource, but if possible, do runs of Wildlife Sanctuary chests (if they respawn or multiple floors). Those fruits extremely valuable.
+Efficient Strategies Mid-game:
+Automate with Assembly Line: Use assembly line to mass-craft Gunpowder from sulfur & niter. Also mass-produce Steel: feed Iron + Coal -> furnace -> assembly for steel ingots if game requires assembly to alloy. That frees you from manual tedium of doing dozens of crafts.
+Resource Respawn Tricks: Some mid-level areas might need leaving and re-entering region via fast travel to refresh nodes. E.g., after mining volcano area, port to base, then back – nodes might respawn (especially if day turned to night). As Game8 asked "When do resources respawn?" suggests they do after some time. Manage a rotation: Volcano -> Snow mountain -> Desert -> back to Volcano. So you gather variety while waiting for each area to repopulate.
+Raid Exploits: Certain raids, like Brothers of Pyre, come with trucks or crates that drop resources when defeated. E.g., kill a flamethrower NPC might drop 5 Sulfur. Encourage raids if you can handle – free mats delivered to your doorstep.
+Buy from Merchants: By mid-game, money’s easier (sold excess weapons etc.). Some merchants (Green Coat) sell advanced mats (maybe coal, fiber in bulk)
+bisecthosting.com
+. Use gold to save time: e.g., buy a stack of leather instead of hunting dozens of Pals. You may have a Pal Merchant in base now to buy Pals off you and sell materials. Exploit rotating stock: one day maybe he sells Chromite part – snag it.
+Coordinates Recap:
+Iron: (520, 340 desert mine), (-590, -510 volcano).
+Sulfur: (-610, -540 around lava pools).
+Niter: (480, 330 desert canyon walls, looks whitish).
+Gold: (areas in Sakurajima – try cave at (-500, 150)).
+Chromite: (as per quest, -1396, 1052 east beyond map border – maybe an island? likely unlocked by main quest).
+Rare logs: (Sakurajima cherry trees at (-550, 220) might give special wood).
+Unlocks and Rewards: Efficient mid-game farming means you can craft all those new toys: guns, bombs, generators, vehicles. It accelerates leveling too, because plenty of mats means building more stuff (crafting yields EXP sometimes). Additionally, with ample resources, you can partake in economy: trade a lot for gold coins, then use gold to gamble at black market for rare Pals or items (if exists). Also prepping now simplifies late-game: you might accumulate a big store of ammo and healing ready for final towers and raids, making them much easier. In short, you are stockpiling for war and wonder – which late-game will certainly demand. Your future self (in final battles or building legendary gear) will thank your mid-game self for gathering 200 sulfur and 50 ancient parts, etc., so they can focus on epic fights and not material grind.
+R03: Resource Farming Guide – Late Game & Endgame
+Game Phase: Endgame (Post-story, 100% completion tasks)
+Resources Covered: Ancient Civilization Parts (farming efficiently), Legendary Crafting Mats (e.g., Life Crystal, Celestial Sigil), Implants & Rare Components (Terraria crossover items), Ultimate Spheres components (e.g., Pal Reverser, if needed), Seasonal/Special resources (if events like Christmas Pal items), huge quantities of base mats for mega-projects.
+Mode Considerations: Hardcore at this point – difficulty doesn’t impact resource yield but enemy density can be high in endgame zones. Use your top-tier Pals to guard you while farming. Co-op synergy: run high-level raids together not just for victory but specifically targeting resource drops (like farming Bellanoir raid repeatedly for Training Crystals and high-tier mats). Endgame also often means repetitive runs – coordinate to rotate who gets rare drop if not instanced.
+Prerequisites: Completed all raids unlocked (Bellanoir, Xenolord etc.), access to Wildlife Sanctuary full depths (maybe a 100-floor dungeon?), and likely a stash of baseline materials from mid-game. Possibly have built advanced resource converters (like a Distillation Pod to refine Pal Oil – Palworld had a mention “Pal Distillation Pod: How to rank up Pal” in search snippet, perhaps an item that yields high-tier outputs or XP). Ensure you have best tools (maybe a Legendary Pickaxe from legendary tech, giving +% yield).
+Endgame Resource Strategies:
+Ancient Civilization Parts (ACP) Farming: These are critical for legendary gear (Legendary shotgun needed 45 of them!). Methods:
+Dungeon Alpha Loop: The recommended method by players and game8 is to defeat dungeon bosses and Lucky Pals repeatedly. For example, Hillside Cavern final room – leave/enter to spawn one of 18 different Alphas. Each kill or capture yields 1-2 ACP. With high DPS you can farm dozens per hour. Use Necromus or Paladius to clear quickly. Prioritize fast kill vs capture since you want drops (though capture yields parts too possibly).
+Wildlife Sanctuary runs: If Sanctuary is a rogue-like dungeon with floors (just speculation from list mention), deeper floors likely drop ACPs in chests. Running it fully (if repeatable) might net 5-10 ACP per full clear. Use Teleporters to exit after clearing, re-enter.
+Trade with Merchant: The Black Marketeer sometimes sells ACP for gold (since he deals rare items). If you captured one, have him in base and check daily. You have tons of gold now from selling legendary drops, so buy out any ACP stock.
+Raids: Some raid bosses drop ACP directly. E.g., Bellanoir raid might drop 3 ACP each kill (just a guess). If so, run raids with friends purely for mats once gear is done – meltdown duplicates.
+Ultimately, aim for maybe 100+ ACP to craft all legendary weapons/armor you want.
+Life Crystals & Training Manuals (XL): These raise Pal stats or give EXP lumps. Methods: Defeat raid boss Bellanoir (it specifically drops Training Crystals that raise Pal level by 1 and XL Manuals). With max gear, you can farm Bellanoir in under a minute perhaps (especially co-op). Collect dozens, then you can insta-level any new Pal to 60 or max out a Pal’s hidden potential. Also Life Crystals (for Implants maybe) might drop from Moon Lord or final sanctuary chest. Those are less farmable; likely fixed reward. So plan carefully usage or see if co-op repeating final boss yields multiple.
+Implants & Rare Collab Items: Terraria collab introduced Meowmere (sword), Terraprisma, etc., and Implants tech. Possibly these are unique picks or craftables requiring special mats:
+Celestial Sigil: likely drop from Moon Lord raid boss or craft from fragments from that fight. If craftable, will need assorted boss drops. So farm Moon Lord multiple times. Usually 1 Sigil per kill used to summon next phase – if Palworld follows Terraria, you might get components to craft but not more usage in Palworld context. If needed, do that raid until you have enough Sigils for all usage (maybe to craft some legendary gear).
+Other Cross-over mats: E.g., Coralum Ore/Ingot presumably found in new islands or from new Pals (maybe from killing Ghangler in water). If you have quest "How to Get Terraria Items", follow that – likely leading to spots to mine Coralum (like underwater cave near new island – bring diving Pal). Collect plenty if needed for specialized collab gear (like Terra Blade requires coralum?).
+Pal Reverser & Kinship Peach: these mentioned in new items. Possibly craftable at Advanced Workshop. Pal Reverser might require rare drop (maybe from Dr. Brawn quest). If you want spares, check if Dr. Brawn sells them after recruitment or if any raid drops. If not, you might be limited. Manage carefully.
+Seasonal/One-time Resources: If events exist (like Halloween event from patch notes gave skins), ensure to farm event currencies or items when active – they often are limited. E.g., "Pumpkin Skin" needed pumpkins – if so, plant large patch or repeatedly do event quests to stock up. Even though not needed for progression, 100% means collecting those special items.
+Huge Bulk Materials for Mega Projects: If you want to build something enormous (like a sky castle from Plasteel), you'll need thousands of stone/ingots. At this point, lean on fully automated Pals: multiple Mining Pals out in shifts, assembly lines pumping bricks, etc. Or take advantage of your nearly infinite finances: maybe buy out merchants daily – e.g., every merchant on map sells 50 stone, with 4 merchants you get 200 stone a day by gold, trivial for you financially. Over a week, 1400 stone with zero effort.
+Efficient Strategies Endgame:
+One-hit Mining: With Legendary Pickaxe + high Strength stat + mining skill, you might one-tap ore nodes. Do that on world tour: mount Paladius, fly node to node, smack, instant break, move on. Efficiency skyrockets.
+Infinite Loop Exploits: If any – e.g., if dungeon boss yields an item that can be sold for gold and used to craft something that summons it again cheaply, maybe abuse that. Or if trading Pals yields gold (like selling breeding output Pals to Pal Merchant for coins in endless loop with two high-breeding Pals and chain breeding baby Pals), effectively turning base into coin mint. Use such exploits lightly or you'll trivialize game – but at endgame, trivializing is fine if chasing last few materials.
+Backup Stocks: Possibly store a cache of critical resources at a secondary base or chest outside main just in case of catastrophe (though unlikely if base is fortress). But e.g., keep half of ACP in a chest off-site – so if something glitch wipes inventory, you have backup. Paranoia maybe, but for 100% no harm.
+Coordinates & Target Recap:
+ACP: repeat dungeons (Hillside Cavern at (?? – near spawn?), Volcanic Cavern at (?), etc.), Alpha spawns (Tarantriss etc.), raid bosses areas (Feybreak towers drop some).
+Life Crystal: Possibly at top of Moonflower Tower after final boss (-597,203, maybe hidden chest).
+Celestial Fragment: at site of Terraria dungeon (quest "Find Terraria Dungeon" coordinates possibly).
+Coralum: new water island (like [-1200, -100] in new archipelago).
+Moon Lord Summon mats: scattered as you defeat mini-bosses or found via treasure maps (quest "Treasure Maps" suggests items hidden around – do those for goodies).
+Unlocks and Rewards: With all endgame resources at your fingertips, you craft the Legendary arsenal: all Legendary guns, Terra Blade, full Legendary Hallowed Armor set, etc. Achievements likely pop for "all legendary equipment crafted". You can gene-mod every Pal with best implants (speed, power – turning even a Lamball into a killing machine). Essentially, you become an in-game legend: any remaining challenge becomes trivial or purely for show. The final reward might be intangible: satisfaction of truly breaking the game's resource dependency – infinite power. Perhaps the devs include a secret reward for having, say, 999 of every resource: maybe a dev room or cosmetic. But if not, the personal accomplishment is enough: you have literally everything. Now you can build insane creative structures with no grind (the Minecraft/creative mode aspect unlocked via your prep). 100% completion is secure – you can face any content on hardest settings and dominate, or just relax and enjoy your well-earned utopia in Palworld.
+All guides above are modular and labeled by phase, so depending on whether you are early game struggling for wood and stone, mid game mass-producing gunpowder, or late game farming Ancient Parts, the appropriate guide (R01, R02, R03) can be followed independently. The ID and structure ensure each can be fetched as needed for the player’s context.
