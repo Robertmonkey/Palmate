@@ -112,15 +112,18 @@ gba(119,141,169,0.45)}
 .route-dashboard__progress-fill{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent,#778da9),rgba(148,210,189,0.9));transition:width .3s ease}
 .route-dashboard__progress-fill--optional{background:linear-gradient(90deg,rgba(255,196,77,0.85),rgba(231,111,81,0.9))}
 .route-dashboard__next{border-top:1px solid rgba(119,141,169,0.28);padding-top:14px;font-size:1rem;font-weight:600;color:var(--light,#e0e1dd)}
-.route-workspace{display:grid;gap:24px}
-.route-workspace__sidebar,.route-workspace__content{display:grid;gap:24px}
-@media (min-width:1024px){.route-workspace{grid-template-columns:minmax(0,0.36fr) minmax(0,0.64fr);align-items:start}}
-@media (min-width:1100px){.route-workspace__sidebar{position:sticky;top:clamp(16px,4vw,36px)}}
-.route-timeline{display:grid;gap:16px;padding:clamp(20px,2.5vw,26px);border-radius:24px;background:linear-gradient(150deg,rgba(13,27,42,0.92),rgba(8,18,34,0.92));border:1px solid rgba(119,141,169,0.32);box-shadow:0 30px 58px rgba(0,0,0,0.52)}
-.route-timeline__header h3{margin:0}
-.route-timeline__header p{margin:0;font-size:.9rem;color:var(--muted,rgba(224,225,221,0.72))}
-.route-timeline__list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.route-timeline__item{border:1px solid rgba(119,141,169,0.24);border-radius:16px;background:rgba(8,16,32,0.65);transition:border-color .25s ease,box-shadow .25s ease,transform .2s ease}
+.route-layout{display:grid;gap:clamp(26px,3vw,36px)}
+.route-layout>*{min-width:0}
+.route-chapter-stack{display:grid;gap:clamp(24px,3vw,34px)}
+.route-timeline{position:relative;overflow:hidden;display:grid;gap:clamp(20px,2.4vw,28px);padding:clamp(24px,3vw,32px);border-radius:28px;background:linear-gradient(150deg,rgba(13,27,42,0.92),rgba(8,18,34,0.9));border:1px solid rgba(119,141,169,0.3);box-shadow:0 30px 58px rgba(0,0,0,0.52)}
+.route-timeline::after{content:"";position:absolute;inset:auto -160px -200px auto;width:320px;height:320px;background:radial-gradient(circle at center,rgba(148,210,189,0.25),transparent 70%);opacity:.4;pointer-events:none}
+.route-timeline__header{display:flex;flex-direction:column;gap:8px}
+.route-timeline__header h3{margin:0;font-size:1.2rem}
+.route-timeline__header p{margin:0;font-size:.92rem;color:var(--muted,rgba(224,225,221,0.72))}
+.route-timeline__list{list-style:none;margin:0;padding:4px 0 0;display:flex;gap:clamp(14px,2vw,20px);overflow-x:auto;scroll-snap-type:x mandatory}
+.route-timeline__list::-webkit-scrollbar{height:6px}
+.route-timeline__list::-webkit-scrollbar-thumb{background:rgba(119,141,169,0.32);border-radius:999px}
+.route-timeline__item{border:1px solid rgba(119,141,169,0.24);border-radius:18px;background:rgba(8,16,32,0.65);transition:border-color .25s ease,box-shadow .25s ease,transform .2s ease;min-width:clamp(220px,28vw,300px);scroll-snap-align:start;display:flex}
 .route-timeline__item--active{border-color:rgba(148,210,189,0.65);box-shadow:0 20px 36px rgba(148,210,189,0.18)}
 .route-timeline__item--complete{border-color:rgba(119,141,169,0.32);background:rgba(8,16,32,0.72)}
 .route-timeline__anchor{width:100%;display:grid;gap:4px;padding:14px 16px;background:none;border:none;color:inherit;text-align:left;cursor:pointer;border-radius:inherit;position:relative;isolation:isolate}
@@ -203,12 +206,7 @@ gba(119,141,169,0.45)}
 .route-meta-chip--tag{background:rgba(91,146,255,0.22);border-color:rgba(91,146,255,0.42)}
 
 @media (max-width: 900px){
-  .route-workspace{grid-template-columns:1fr}
-  .route-workspace__sidebar{position:static}
-  .route-timeline__list{grid-auto-flow:column;grid-auto-columns:minmax(210px,1fr);overflow-x:auto;padding-bottom:8px;margin-bottom:-8px}
-  .route-timeline__list::-webkit-scrollbar{height:6px}
-  .route-timeline__list::-webkit-scrollbar-thumb{background:rgba(119,141,169,0.4);border-radius:999px}
-  .route-timeline__item{min-width:210px}
+  .route-timeline__list{gap:16px}
   .route-chapter{padding:24px 18px}
   .route-chapter__header{flex-direction:column;align-items:stretch}
   .route-chapter__progress{min-width:0}

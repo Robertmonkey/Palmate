@@ -1020,30 +1020,40 @@
     }
 
     #homeCards {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+      display: grid;
+      gap: clamp(28px, 4vw, 44px);
+    }
+
+    .home-section {
+      position: relative;
+      display: grid;
+      gap: clamp(20px, 2.6vw, 28px);
+      padding: clamp(28px, 3.4vw, 44px);
+      border-radius: 30px;
+      border: 1px solid rgba(119, 141, 169, 0.3);
+      background: linear-gradient(155deg, rgba(16, 33, 54, 0.9), rgba(9, 20, 36, 0.88));
+      box-shadow: 0 32px 62px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
     }
 
     .home-hero {
       position: relative;
-      overflow: hidden;
-      border-radius: 22px;
-      padding: clamp(24px, 4vw, 48px);
+      padding: clamp(32px, 4.2vw, 52px);
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
-      gap: clamp(24px, 5vw, 48px);
-      border: 1px solid rgba(119, 141, 169, 0.4);
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: clamp(28px, 5vw, 56px);
       background: radial-gradient(circle at top left, rgba(119, 141, 169, 0.55), transparent 55%),
-        linear-gradient(135deg, rgba(27, 38, 59, 0.92), rgba(13, 27, 42, 0.82));
+        linear-gradient(135deg, rgba(31, 52, 78, 0.95), rgba(13, 27, 42, 0.85));
+      border: 1px solid rgba(148, 210, 189, 0.32);
+      overflow: visible;
     }
 
     .home-hero::after {
       content: '';
       position: absolute;
-      inset: auto -120px -160px auto;
-      width: clamp(240px, 35vw, 420px);
-      height: clamp(240px, 35vw, 420px);
+      inset: auto -140px -180px auto;
+      width: clamp(260px, 38vw, 440px);
+      height: clamp(260px, 38vw, 440px);
       background: radial-gradient(circle at center, rgba(224, 225, 221, 0.28), transparent 70%);
       opacity: 0.9;
       pointer-events: none;
@@ -1189,15 +1199,16 @@
       z-index: 1;
       display: grid;
       align-content: start;
+      gap: clamp(18px, 2.4vw, 26px);
     }
 
     .home-focus-card {
       background: rgba(13, 27, 42, 0.82);
       border: 1px solid rgba(119, 141, 169, 0.3);
-      border-radius: 18px;
-      padding: clamp(18px, 3vw, 28px);
+      border-radius: 22px;
+      padding: clamp(20px, 2.8vw, 30px);
       display: grid;
-      gap: 16px;
+      gap: 18px;
       box-shadow: 0 16px 36px rgba(8, 16, 32, 0.45);
     }
 
@@ -1258,44 +1269,41 @@
     }
 
     .home-progress {
-      background: var(--primary);
-      border-radius: 16px;
-      padding: 24px;
-      display: grid;
-      gap: 20px;
-      border: 1px solid rgba(119, 141, 169, 0.2);
+      gap: clamp(18px, 2.6vw, 26px);
     }
 
     .home-progress-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: clamp(18px, 2.4vw, 26px);
     }
 
     .home-progress-card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      background: linear-gradient(160deg, rgba(10, 21, 36, 0.94), rgba(18, 34, 56, 0.92));
+      border-radius: 24px;
+      padding: clamp(20px, 2.6vw, 28px);
+      display: grid;
+      gap: 14px;
       position: relative;
       overflow: hidden;
+      min-height: 240px;
+      border: 1px solid rgba(119, 141, 169, 0.26);
+      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45);
     }
 
     .home-progress-card__header {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
+      gap: 14px;
     }
 
     .home-progress-card__icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      background: rgba(119, 141, 169, 0.18);
+      background: rgba(119, 141, 169, 0.2);
       color: var(--accent);
       font-size: 1.4rem;
       flex-shrink: 0;
@@ -1314,40 +1322,42 @@
 
     .home-progress-meter {
       width: 100%;
-      height: 10px;
+      height: 12px;
       border-radius: 999px;
-      background: rgba(119, 141, 169, 0.25);
+      background: rgba(119, 141, 169, 0.28);
       overflow: hidden;
     }
 
     .home-progress-meter .fill {
       width: 0;
       height: 100%;
-      background: linear-gradient(90deg, var(--accent), rgba(42, 157, 143, 0.8));
+      background: linear-gradient(90deg, var(--accent), rgba(42, 157, 143, 0.9));
       transition: width 0.4s ease;
     }
 
     .home-progress-text {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
     }
 
     .home-progress-next {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--muted);
       text-align: left;
+      line-height: 1.5;
     }
 
     .home-progress-link {
       background: none;
       border: none;
       color: var(--accent);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       padding: 0;
       text-align: left;
       cursor: pointer;
       text-decoration: underline;
       align-self: flex-start;
+      font-weight: 600;
     }
 
     .home-progress-link:disabled {
@@ -1360,17 +1370,17 @@
       margin-top: auto;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
     .home-progress-actions .btn {
       flex: 1 1 auto;
-      min-width: 160px;
+      min-width: 180px;
     }
 
     .home-progress-card--queue {
       display: grid;
-      gap: 16px;
+      gap: 18px;
     }
 
     .home-progress-card--queue .home-progress-card__header {
@@ -1387,13 +1397,14 @@
 
     .adaptive-queue__item {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       justify-content: space-between;
       align-items: flex-start;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: rgba(13, 27, 42, 0.7);
-      border: 1px solid rgba(119, 141, 169, 0.25);
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(13, 27, 42, 0.78);
+      border: 1px solid rgba(119, 141, 169, 0.28);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     }
 
     .adaptive-queue__meta {
@@ -1425,12 +1436,12 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(119, 141, 169, 0.3);
-      background: rgba(27, 38, 59, 0.65);
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      background: rgba(27, 38, 59, 0.72);
       color: var(--light);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       cursor: pointer;
       transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
@@ -1448,31 +1459,35 @@
     }
 
     .home-spotlight {
-      background: rgba(14, 29, 48, 0.85);
-      border-radius: 16px;
-      padding: 24px;
-      border: 1px solid rgba(119, 141, 169, 0.25);
-      display: grid;
-      gap: 18px;
+      gap: clamp(20px, 3vw, 32px);
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+      align-items: center;
+    }
+
+    .home-spotlight .home-section-header {
+      grid-column: 1 / -1;
     }
 
     .home-spotlight-card {
       display: flex;
       align-items: center;
-      gap: 18px;
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 16px;
-      border: none;
+      justify-content: space-between;
+      gap: clamp(18px, 3vw, 28px);
+      background: linear-gradient(160deg, rgba(10, 21, 36, 0.92), rgba(18, 34, 56, 0.9));
+      border-radius: 24px;
+      padding: clamp(20px, 3vw, 30px);
+      border: 1px solid rgba(119, 141, 169, 0.26);
       color: inherit;
       text-align: left;
       cursor: pointer;
-      transition: background 0.2s ease, transform 0.2s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
     }
 
     .home-spotlight-card:hover:not(:disabled) {
-      background: var(--card-hover);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      border-color: rgba(148, 210, 189, 0.45);
+      box-shadow: 0 26px 52px rgba(0, 0, 0, 0.55);
     }
 
     .home-spotlight-card:disabled {
@@ -1486,31 +1501,37 @@
     }
 
     .home-spotlight-card img {
-      width: 96px;
-      height: 96px;
+      width: 108px;
+      height: 108px;
       object-fit: contain;
-      border-radius: 12px;
-      background: rgba(13, 27, 42, 0.8);
+      border-radius: 18px;
+      background: rgba(13, 27, 42, 0.82);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
     }
 
     .home-spotlight-card__text {
       display: grid;
-      gap: 6px;
+      gap: 8px;
     }
 
     .home-spotlight-card__title {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       font-weight: 600;
     }
 
     .home-spotlight-card__meta {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--muted);
+      line-height: 1.5;
     }
 
     .home-spotlight-card__types {
       font-size: 0.85rem;
-      color: var(--light);
+      color: var(--accent);
+      font-weight: 600;
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
     }
 
     body.kid-mode .home-hero__intro h3 {
@@ -1536,11 +1557,18 @@
       .home-hero__panel {
         order: -1;
       }
+      .home-spotlight {
+        grid-template-columns: 1fr;
+      }
+      .home-spotlight-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     @media (max-width: 768px) {
       .home-progress-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       }
       .home-hero__mode {
         flex-direction: column;
@@ -9660,7 +9688,7 @@
       }
 
       const hero = document.createElement('section');
-      hero.className = 'home-hero';
+      hero.className = 'home-section home-hero';
       const intro = document.createElement('div');
       intro.className = 'home-hero__intro';
       const eyebrow = document.createElement('span');
@@ -9767,7 +9795,7 @@
       home.appendChild(hero);
 
       const progressSection = document.createElement('section');
-      progressSection.className = 'home-progress';
+      progressSection.className = 'home-section home-progress';
       const progressHeader = document.createElement('div');
       progressHeader.className = 'home-section-header';
       progressHeader.innerHTML = kidMode
@@ -9783,7 +9811,7 @@
       home.appendChild(progressSection);
 
       const spotlight = document.createElement('section');
-      spotlight.className = 'home-spotlight';
+      spotlight.className = 'home-section home-spotlight';
       const spotlightHeader = document.createElement('div');
       spotlightHeader.className = 'home-section-header';
       spotlightHeader.innerHTML = kidMode
