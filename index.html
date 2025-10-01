@@ -5863,6 +5863,16 @@
           playSound(clickSound);
         });
       });
+      document.querySelectorAll('[data-route-action="toggle-suggestions"]').forEach(btn => {
+        if(btn.dataset.boundSuggestions) return;
+        btn.dataset.boundSuggestions = 'true';
+        btn.addEventListener('click', () => {
+          routeSuggestionsCollapsed = !routeSuggestionsCollapsed;
+          applyRouteSuggestionsCollapseState();
+          persistRoutePreferences();
+          playSound(clickSound);
+        });
+      });
       document.querySelectorAll('[data-route-action="jump-next"]').forEach(btn => {
         if(btn.dataset.boundJump) return;
         btn.dataset.boundJump = 'true';
@@ -9883,6 +9893,12 @@
       : []);
     let routeContext = loadRouteContext();
     let routeGoalDrawerOpen = false;
+    let routeOverviewCollapsed = initialRoutePrefs.overviewCollapsed != null
+      ? !!initialRoutePrefs.overviewCollapsed
+      : true;
+    let routeSuggestionsCollapsed = initialRoutePrefs.suggestionsCollapsed != null
+      ? !!initialRoutePrefs.suggestionsCollapsed
+      : true;
     let guideCatalogSearchTerm = '';
     let guideCatalogGroupFilter = 'all';
     let guideCatalogCategoryFilter = 'all';
@@ -11548,6 +11564,7 @@
         detail.addEventListener('click', detailHandler, { signal });
       }
       setActiveRouteSuggestion(activeSuggestedRouteId, entries.find(entry => entry.route.id === activeSuggestedRouteId));
+      applyRouteSuggestionsCollapseState();
       return entries.length;
     }
 
@@ -12239,6 +12256,12 @@
           const plannerLead = kidMode
             ? 'Tell Palmate what you need tonight and we’ll build the perfect plan.'
             : 'Dial in your context and Palmate will surface the routes that matter most.';
+          const suggestionsToggleLabel = routeSuggestionsCollapsed
+            ? (kidMode ? 'Show preview' : 'Show preview')
+            : (kidMode ? 'Hide preview' : 'Hide preview');
+          const suggestionsToggleTitle = routeSuggestionsCollapsed
+            ? (kidMode ? 'Expand suggestion preview' : 'Show suggestion preview panel')
+            : (kidMode ? 'Collapse suggestion preview' : 'Hide suggestion preview panel');
           node.innerHTML = `
           <header class="page-header route-page-header">
             <div class="route-page-header__title">
@@ -12258,22 +12281,6 @@
               </div>
             </section>
             <div class="route-grid route-grid--primary">
-              <section class="card route-suggestions-card route-tonight-card" id="routeSuggestionsCard">
-                <div class="route-suggestions__header">
-                  <h3>${kidMode ? 'Tonight’s Adventure Paths' : 'Suggested Adventure Paths'}</h3>
-                  <p class="route-suggestions__intro">${escapeHTML(suggestionsLead)}</p>
-                </div>
-                <div class="route-suggestions__list" id="routeSuggestionsList">
-                  <p class="route-suggestions__empty">${escapeHTML(kidMode
-                    ? 'Adjust the options above to unlock personalised picks.'
-                    : 'Tune the planner above to surface tailored paths.')}</p>
-                </div>
-                <div class="route-suggestions__detail" id="routeSuggestionDetail">
-                  <p class="route-suggestions__placeholder">${escapeHTML(kidMode
-                    ? 'Highlight a suggestion to preview the guide here.'
-                    : 'Highlight a suggestion to preview the full walkthrough here.')}</p>
-                </div>
-              </section>
               <section class="card route-active-card" id="routeActiveCard">
                 <div class="route-active__header">
                   <div class="route-active__title">
@@ -12289,6 +12296,28 @@
                 </div>
                 <div class="route-active__filters" data-route-role="filters" aria-label="Filter steps by category"></div>
                 <div class="route-active__list" id="routeChapters"></div>
+              </section>
+              <section class="card route-suggestions-card route-suggestions-card--slim route-tonight-card${routeSuggestionsCollapsed ? ' route-suggestions-card--collapsed' : ''}" id="routeSuggestionsCard">
+                <div class="route-suggestions__header">
+                  <div class="route-suggestions__title">
+                    <h3>${kidMode ? 'Tonight’s Adventure Paths' : 'Suggested Adventure Paths'}</h3>
+                    <p class="route-suggestions__intro">${escapeHTML(suggestionsLead)}</p>
+                  </div>
+                  <button type="button" class="route-suggestions__toggle" data-route-action="toggle-suggestions" aria-expanded="${routeSuggestionsCollapsed ? 'false' : 'true'}" aria-label="${escapeHTML(suggestionsToggleTitle)}">
+                    <span data-route-suggestions-toggle-label>${escapeHTML(suggestionsToggleLabel)}</span>
+                    <i class="fa-solid ${routeSuggestionsCollapsed ? 'fa-chevron-down' : 'fa-chevron-up'}" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="route-suggestions__list" id="routeSuggestionsList">
+                  <p class="route-suggestions__empty">${escapeHTML(kidMode
+                    ? 'Adjust the options above to unlock personalised picks.'
+                    : 'Tune the planner above to surface tailored paths.')}</p>
+                </div>
+                <div class="route-suggestions__detail" id="routeSuggestionDetail">
+                  <p class="route-suggestions__placeholder">${escapeHTML(kidMode
+                    ? 'Highlight a suggestion to preview the guide here.'
+                    : 'Highlight a suggestion to preview the full walkthrough here.')}</p>
+                </div>
               </section>
             </div>
             <div class="route-grid route-grid--secondary">
@@ -12381,6 +12410,8 @@
           refreshRouteIntelligenceUI({ summary, levelEstimate, recommendations });
           updateProgressUI();
           bindRouteContextControls(node, { guide, summary, levelEstimate, recommendations });
+          applyRouteOverviewCollapseState(node);
+          applyRouteSuggestionsCollapseState(node);
         }
       }).catch(err => {
         console.error('Failed to render adaptive guide UI', err);
@@ -12492,81 +12523,130 @@
       const optionalValue = summary.optionalTotal ? `${summary.optionalComplete}/${summary.optionalTotal}` : '0/0';
       const bossValue = summary.bossesTotal ? `${summary.bossesComplete}/${summary.bossesTotal}` : '0/0';
       const questValue = summary.questsTotal ? `${summary.questsComplete}/${summary.questsTotal}` : '0/0';
+      const collapsedClass = routeOverviewCollapsed ? ' route-overview--collapsed' : '';
+      const toggleLabel = routeOverviewCollapsed
+        ? (kidMode ? 'Show snapshot' : 'Show snapshot')
+        : (kidMode ? 'Hide snapshot' : 'Hide snapshot');
+      const toggleTitle = routeOverviewCollapsed
+        ? (kidMode ? 'Expand session snapshot' : 'Show session snapshot details')
+        : (kidMode ? 'Collapse session snapshot' : 'Hide session snapshot details');
+      const condensedProgress = summary.requiredTotal
+        ? `${summary.requiredComplete}/${summary.requiredTotal} ${kidMode ? 'big steps done' : 'required complete'}`
+        : (kidMode ? 'No adventures tracked yet' : 'No routes tracked yet');
+      const nextRequired = findNextRouteStep();
+      const nextAny = nextRequired || findNextRouteStep({ includeOptional: true });
+      const nextCalloutHtml = (() => {
+        if(nextAny && nextAny.step){
+          const isOptional = nextAny.step.optional && !nextRequired;
+          const prefix = isOptional
+            ? (kidMode ? 'Bonus idea:' : 'Optional focus:')
+            : (kidMode ? 'Next big step:' : 'Next priority:');
+          const chapterTitle = routeChapterTitle(nextAny.chapter);
+          const stepCopyRaw = kidMode
+            ? (nextAny.step.textKid || nextAny.step.text || '')
+            : (nextAny.step.text || nextAny.step.textKid || '');
+          const chapterHtml = chapterTitle ? ` <span class="route-overview__next-chapter">(${escapeHTML(chapterTitle)})</span>` : '';
+          const stepCopy = stepCopyRaw ? escapeHTML(stepCopyRaw) : '';
+          return `<strong>${escapeHTML(prefix)}</strong> ${stepCopy}${chapterHtml}`;
+        }
+        return kidMode
+          ? '<strong>Guide complete!</strong> Revisit bonus adventures anytime.'
+          : '<strong>Guide complete!</strong> Re-run boss fights or tidy up optional chores.';
+      })();
       return `
-        <div class="route-overview">
+        <div class="route-overview${collapsedClass}" data-route-role="overview">
           <div class="route-overview__lead">
-            <span class="route-overview__badge">${escapeHTML(badgeLabel)}</span>
-            <p class="route-overview__lead-copy">${escapeHTML(leadCopy)}</p>
+            <div class="route-overview__lead-text">
+              <span class="route-overview__badge">${escapeHTML(badgeLabel)}</span>
+              <p class="route-overview__lead-copy">${escapeHTML(leadCopy)}</p>
+            </div>
+            <button type="button" class="route-overview__toggle" data-route-action="toggle-overview" aria-expanded="${routeOverviewCollapsed ? 'false' : 'true'}" aria-label="${escapeHTML(toggleTitle)}">
+              <span data-route-overview-toggle-label>${escapeHTML(toggleLabel)}</span>
+              <i class="fa-solid ${routeOverviewCollapsed ? 'fa-chevron-down' : 'fa-chevron-up'}" aria-hidden="true"></i>
+            </button>
           </div>
-          <div class="route-overview__stats">
-            <article class="route-overview__stat">
-              <div class="route-overview__stat-header">
-                <span class="route-overview__stat-icon"><i class="fa-solid fa-signal"></i></span>
-                <p class="route-overview__stat-title">${kidMode ? 'Declared level' : 'Declared level'}</p>
-              </div>
-              <p class="route-overview__stat-value">${escapeHTML(declaredLabel)}</p>
-              <p class="route-overview__stat-sub">${escapeHTML(kidMode ? 'Use the slider below to tell Palmate your level.' : 'Override the estimated level with your own.')}</p>
-            </article>
-            <article class="route-overview__stat">
-              <div class="route-overview__stat-header">
-                <span class="route-overview__stat-icon"><i class="fa-solid fa-chart-line"></i></span>
-                <p class="route-overview__stat-title">${kidMode ? 'Estimated level' : 'Estimated level'}</p>
-              </div>
-              <p class="route-overview__stat-value">${escapeHTML(estimatedLabel)}</p>
-              <p class="route-overview__stat-sub">${xpLabel
-                ? `${escapeHTML(xpLabel)} XP${confidenceLabel ? ` • ${escapeHTML(confidenceLabel)} confidence` : ''}`
-                : escapeHTML(kidMode ? 'Complete steps to power up this estimate.' : 'Finish more steps to refine this estimate.')}</p>
-            </article>
-            <article class="route-overview__stat">
-              <div class="route-overview__stat-header">
-                <span class="route-overview__stat-icon"><i class="fa-solid fa-list-check"></i></span>
-                <p class="route-overview__stat-title" data-route-role="required-title">${kidMode ? 'Big steps' : 'Required steps'}</p>
-              </div>
-              <p class="route-overview__stat-value" data-route-role="required-count">${escapeHTML(requiredValue)}</p>
-              <div class="route-overview__meter" data-route-role="required-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${requiredPct}">
-                <span class="fill" data-route-role="required-fill" style="width:${requiredPct}%"></span>
-              </div>
-              <p class="route-overview__stat-sub" data-route-role="required-note">${escapeHTML(progressNote)}</p>
-            </article>
-            <article class="route-overview__stat">
-              <div class="route-overview__stat-header">
-                <span class="route-overview__stat-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
-                <p class="route-overview__stat-title" data-route-role="optional-title">${kidMode ? 'Bonus ideas' : 'Optional tasks'}</p>
-              </div>
-              <p class="route-overview__stat-value" data-route-role="optional-count">${escapeHTML(optionalValue)}</p>
-              <div class="route-overview__meter" data-route-role="optional-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${optionalPct}">
-                <span class="fill" data-route-role="optional-fill" style="width:${optionalPct}%"></span>
-              </div>
-              <p class="route-overview__stat-sub" data-route-role="optional-note">${escapeHTML(optionalNote)}</p>
-            </article>
-            <article class="route-overview__stat">
-              <div class="route-overview__stat-header">
-                <span class="route-overview__stat-icon"><i class="fa-solid fa-chess-king"></i></span>
-                <p class="route-overview__stat-title" data-route-role="boss-title">${kidMode ? 'Boss wins' : 'Bosses defeated'}</p>
-              </div>
-              <p class="route-overview__stat-value" data-route-role="boss-count">${escapeHTML(bossValue)}</p>
-              <div class="route-overview__meter" data-route-role="boss-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${bossesPct}">
-                <span class="fill" data-route-role="boss-fill" style="width:${bossesPct}%"></span>
-              </div>
-              <p class="route-overview__stat-sub" data-route-role="boss-note">${escapeHTML(bossNote)}</p>
-            </article>
-            <article class="route-overview__stat">
-              <div class="route-overview__stat-header">
-                <span class="route-overview__stat-icon"><i class="fa-solid fa-scroll"></i></span>
-                <p class="route-overview__stat-title" data-route-role="quest-title">${kidMode ? 'Story questions' : 'Story questions'}</p>
-              </div>
-              <p class="route-overview__stat-value" data-route-role="quest-count">${escapeHTML(questValue)}</p>
-              <div class="route-overview__meter" data-route-role="quest-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${questsPct}">
-                <span class="fill" data-route-role="quest-fill" style="width:${questsPct}%"></span>
-              </div>
-              <p class="route-overview__stat-sub" data-route-role="quest-note">${escapeHTML(questNote)}</p>
-            </article>
+          <div class="route-overview__condensed">
+            <div class="route-overview__condensed-row">
+              <span class="route-overview__condensed-label">${escapeHTML(kidMode ? 'Progress' : 'Progress')}</span>
+              <span class="route-overview__condensed-value" data-route-role="snapshot-progress">${escapeHTML(condensedProgress)}</span>
+            </div>
+            <p class="route-overview__condensed-next" data-route-role="next-callout">${nextCalloutHtml}</p>
+            <p class="route-overview__condensed-history">
+              <span class="route-overview__condensed-label">${escapeHTML(historyCaption)}</span>
+              <span data-route-role="last-completed">${escapeHTML(lastLabel)}</span>
+            </p>
           </div>
-          <div class="route-overview__controls route-overview__controls--compact">
-            <p class="route-overview__next" data-route-role="next-callout"></p>
-            <div class="route-overview__history-block">
-              <span class="route-overview__history-label">${escapeHTML(historyCaption)}</span>
-              <p class="route-overview__history" data-route-role="last-completed">${escapeHTML(lastLabel)}</p>
+          <div class="route-overview__body" id="routeOverviewDetail">
+            <div class="route-overview__stats">
+              <article class="route-overview__stat">
+                <div class="route-overview__stat-header">
+                  <span class="route-overview__stat-icon"><i class="fa-solid fa-signal"></i></span>
+                  <p class="route-overview__stat-title">${kidMode ? 'Declared level' : 'Declared level'}</p>
+                </div>
+                <p class="route-overview__stat-value">${escapeHTML(declaredLabel)}</p>
+                <p class="route-overview__stat-sub">${escapeHTML(kidMode ? 'Use the slider below to tell Palmate your level.' : 'Override the estimated level with your own.')}</p>
+              </article>
+              <article class="route-overview__stat">
+                <div class="route-overview__stat-header">
+                  <span class="route-overview__stat-icon"><i class="fa-solid fa-user-astronaut"></i></span>
+                  <p class="route-overview__stat-title">${kidMode ? 'Estimated level' : 'Estimated level'}</p>
+                </div>
+                <p class="route-overview__stat-value">${escapeHTML(estimatedLabel)}</p>
+                <p class="route-overview__stat-sub">${xpLabel
+                  ? `${escapeHTML(xpLabel)} XP${confidenceLabel ? ` • ${escapeHTML(confidenceLabel)} confidence` : ''}`
+                  : escapeHTML(kidMode ? 'Complete steps to power up this estimate.' : 'Finish more steps to refine this estimate.')}</p>
+              </article>
+              <article class="route-overview__stat">
+                <div class="route-overview__stat-header">
+                  <span class="route-overview__stat-icon"><i class="fa-solid fa-list-check"></i></span>
+                  <p class="route-overview__stat-title" data-route-role="required-title">${kidMode ? 'Big steps' : 'Required steps'}</p>
+                </div>
+                <p class="route-overview__stat-value" data-route-role="required-count">${escapeHTML(requiredValue)}</p>
+                <div class="route-overview__meter" data-route-role="required-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${requiredPct}">
+                  <span class="fill" data-route-role="required-fill" style="width:${requiredPct}%"></span>
+                </div>
+                <p class="route-overview__stat-sub" data-route-role="required-note">${escapeHTML(progressNote)}</p>
+              </article>
+              <article class="route-overview__stat">
+                <div class="route-overview__stat-header">
+                  <span class="route-overview__stat-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                  <p class="route-overview__stat-title" data-route-role="optional-title">${kidMode ? 'Bonus ideas' : 'Optional tasks'}</p>
+                </div>
+                <p class="route-overview__stat-value" data-route-role="optional-count">${escapeHTML(optionalValue)}</p>
+                <div class="route-overview__meter" data-route-role="optional-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${optionalPct}">
+                  <span class="fill" data-route-role="optional-fill" style="width:${optionalPct}%"></span>
+                </div>
+                <p class="route-overview__stat-sub" data-route-role="optional-note">${escapeHTML(optionalNote)}</p>
+              </article>
+              <article class="route-overview__stat">
+                <div class="route-overview__stat-header">
+                  <span class="route-overview__stat-icon"><i class="fa-solid fa-chess-king"></i></span>
+                  <p class="route-overview__stat-title" data-route-role="boss-title">${kidMode ? 'Boss wins' : 'Bosses defeated'}</p>
+                </div>
+                <p class="route-overview__stat-value" data-route-role="boss-count">${escapeHTML(bossValue)}</p>
+                <div class="route-overview__meter" data-route-role="boss-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${bossesPct}">
+                  <span class="fill" data-route-role="boss-fill" style="width:${bossesPct}%"></span>
+                </div>
+                <p class="route-overview__stat-sub" data-route-role="boss-note">${escapeHTML(bossNote)}</p>
+              </article>
+              <article class="route-overview__stat">
+                <div class="route-overview__stat-header">
+                  <span class="route-overview__stat-icon"><i class="fa-solid fa-scroll"></i></span>
+                  <p class="route-overview__stat-title" data-route-role="quest-title">${kidMode ? 'Story questions' : 'Story questions'}</p>
+                </div>
+                <p class="route-overview__stat-value" data-route-role="quest-count">${escapeHTML(questValue)}</p>
+                <div class="route-overview__meter" data-route-role="quest-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${questsPct}">
+                  <span class="fill" data-route-role="quest-fill" style="width:${questsPct}%"></span>
+                </div>
+                <p class="route-overview__stat-sub" data-route-role="quest-note">${escapeHTML(questNote)}</p>
+              </article>
+            </div>
+            <div class="route-overview__controls route-overview__controls--compact">
+              <p class="route-overview__next" data-route-role="next-callout">${nextCalloutHtml}</p>
+              <div class="route-overview__history-block">
+                <span class="route-overview__history-label">${escapeHTML(historyCaption)}</span>
+                <p class="route-overview__history" data-route-role="last-completed">${escapeHTML(lastLabel)}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -12634,6 +12714,60 @@
           </div>
         </div>
       `;
+    }
+
+    function applyRouteOverviewCollapseState(scope = document){
+      const root = scope || document;
+      const container = root.querySelector('[data-route-role="overview"]');
+      if(container){
+        container.classList.toggle('route-overview--collapsed', !!routeOverviewCollapsed);
+      }
+      const toggle = root.querySelector('[data-route-action="toggle-overview"]');
+      if(toggle){
+        const expanded = !routeOverviewCollapsed;
+        toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggle.setAttribute('aria-label', expanded
+          ? (kidMode ? 'Collapse session snapshot' : 'Hide session snapshot details')
+          : (kidMode ? 'Expand session snapshot' : 'Show session snapshot details'));
+        const label = toggle.querySelector('[data-route-overview-toggle-label]');
+        if(label){
+          label.textContent = routeOverviewCollapsed
+            ? (kidMode ? 'Show snapshot' : 'Show snapshot')
+            : (kidMode ? 'Hide snapshot' : 'Hide snapshot');
+        }
+        const icon = toggle.querySelector('i');
+        if(icon){
+          icon.classList.toggle('fa-chevron-down', !!routeOverviewCollapsed);
+          icon.classList.toggle('fa-chevron-up', !routeOverviewCollapsed);
+        }
+      }
+    }
+
+    function applyRouteSuggestionsCollapseState(scope = document){
+      const root = scope || document;
+      const card = root.querySelector('#routeSuggestionsCard');
+      if(card){
+        card.classList.toggle('route-suggestions-card--collapsed', !!routeSuggestionsCollapsed);
+      }
+      const toggle = root.querySelector('[data-route-action="toggle-suggestions"]');
+      if(toggle){
+        const expanded = !routeSuggestionsCollapsed;
+        toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggle.setAttribute('aria-label', expanded
+          ? (kidMode ? 'Collapse suggestion preview' : 'Hide suggestion preview panel')
+          : (kidMode ? 'Expand suggestion preview' : 'Show suggestion preview panel'));
+        const label = toggle.querySelector('[data-route-suggestions-toggle-label]');
+        if(label){
+          label.textContent = routeSuggestionsCollapsed
+            ? (kidMode ? 'Show preview' : 'Show preview')
+            : (kidMode ? 'Hide preview' : 'Hide preview');
+        }
+        const icon = toggle.querySelector('i');
+        if(icon){
+          icon.classList.toggle('fa-chevron-down', !!routeSuggestionsCollapsed);
+          icon.classList.toggle('fa-chevron-up', !routeSuggestionsCollapsed);
+        }
+      }
     }
 
     function formatGoalSummary(goals){
@@ -12875,6 +13009,17 @@
       const { signal } = routeContextControlAbort;
       const card = root.querySelector('#routeContextCard');
       if(!card) return;
+      applyRouteOverviewCollapseState(card);
+
+      const overviewToggle = card.querySelector('[data-route-action="toggle-overview"]');
+      if(overviewToggle){
+        overviewToggle.addEventListener('click', () => {
+          routeOverviewCollapsed = !routeOverviewCollapsed;
+          applyRouteOverviewCollapseState(card);
+          persistRoutePreferences();
+          playSound(clickSound);
+        }, { signal });
+      }
 
       const levelSlider = card.querySelector('#routeLevelRange');
       const levelInput = card.querySelector('#routeLevelInput');
@@ -14916,6 +15061,13 @@
       const questsPct = summary.questsTotal
         ? Math.round((summary.questsComplete / summary.questsTotal) * 100)
         : 0;
+      const condensedProgress = summary.requiredTotal
+        ? `${summary.requiredComplete}/${summary.requiredTotal} ${kidMode ? 'big steps done' : 'required complete'}`
+        : (kidMode ? 'No adventures tracked yet' : 'No routes tracked yet');
+
+      document.querySelectorAll('[data-route-role="snapshot-progress"]').forEach(el => {
+        el.textContent = condensedProgress;
+      });
 
       document.querySelectorAll('[data-route-role="required-title"]').forEach(el => {
         el.textContent = kidMode ? 'Big steps' : 'Required steps';
@@ -15122,6 +15274,7 @@
       }
       renderRouteFiltersUI(summary.categories);
       renderBossRouteTimeline();
+      applyRouteOverviewCollapseState();
     }
 
     function findNextRouteStep(options = {}){
@@ -15393,7 +15546,9 @@
     function persistRoutePreferences(){
       const payload = {
         hideOptional: !!routeHideOptional,
-        hiddenCategories: Array.from(routeHiddenCategories)
+        hiddenCategories: Array.from(routeHiddenCategories),
+        overviewCollapsed: !!routeOverviewCollapsed,
+        suggestionsCollapsed: !!routeSuggestionsCollapsed
       };
       try {
         localStorage.setItem(ROUTE_PREFS_KEY, JSON.stringify(payload));
