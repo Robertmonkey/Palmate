@@ -13306,6 +13306,10 @@
         : root.querySelector ? root.querySelector('#routeContextCard') : null;
       if(contextCard){
         contextCard.classList.toggle('route-context--collapsed', !!routeOverviewCollapsed);
+        const controlsRegion = contextCard.querySelector('.route-hero__controls');
+        if(controlsRegion){
+          controlsRegion.hidden = !!routeOverviewCollapsed;
+        }
       }
       const container = root.querySelector('[data-route-role="overview"]');
       if(container){
@@ -13398,6 +13402,8 @@
         const icon = routeGoalIcon(normalized);
         return `<label class="${optionClasses.join(' ')}"><input type="checkbox" data-context-goal value="${escapeHTML(normalized)}" ${active ? 'checked' : ''} /><span class="route-goal-option__icon"><i class="fa-solid ${escapeHTML(icon)}"></i></span><span class="route-goal-option__label">${escapeHTML(capitalize(normalized))}</span></label>`;
       }).join('');
+      const selectAllLabel = kidMode ? 'Select all goals' : 'Select all goals';
+      const clearAllLabel = kidMode ? 'Clear goals' : 'Deselect all goals';
       return `
         <div class="${classes.join(' ')}" data-goal-picker>
           <button type="button" class="route-goal-drawer__toggle" data-goal-toggle aria-expanded="${routeGoalDrawerOpen ? 'true' : 'false'}" aria-label="${escapeHTML(`${toggleLabel}: ${summary}`)}" title="${escapeHTML(summary)}">
@@ -13409,6 +13415,10 @@
               ${options}
             </div>
             <div class="route-goal-drawer__footer">
+              <div class="route-goal-drawer__bulk">
+                <button type="button" class="chip route-goal-drawer__bulk-btn" data-goal-bulk="select-all">${escapeHTML(selectAllLabel)}</button>
+                <button type="button" class="chip route-goal-drawer__bulk-btn" data-goal-bulk="clear">${escapeHTML(clearAllLabel)}</button>
+              </div>
               <button type="button" class="chip route-goal-drawer__close" data-goal-close>${escapeHTML(kidMode ? 'Done picking' : 'Lock selections')}</button>
             </div>
           </div>
@@ -13736,6 +13746,21 @@
               .map(el => el.value)
               .filter(Boolean);
             updateRouteContextState({ goals: selected });
+          }, { signal });
+        });
+        goalPicker.querySelectorAll('[data-goal-bulk]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const action = btn.dataset.goalBulk;
+            const boxes = Array.from(goalPicker.querySelectorAll('[data-context-goal]'));
+            if(!boxes.length) return;
+            if(action === 'select-all'){
+              boxes.forEach(box => { box.checked = true; });
+              const selected = boxes.map(box => box.value).filter(Boolean);
+              updateRouteContextState({ goals: selected });
+            } else if(action === 'clear'){
+              boxes.forEach(box => { box.checked = false; });
+              updateRouteContextState({ goals: [] });
+            }
           }, { signal });
         });
         applyDrawerState();
