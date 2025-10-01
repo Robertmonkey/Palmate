@@ -10564,6 +10564,34 @@
         .trim();
     }
 
+    function stripGuideCitations(value){
+      if(value == null) return '';
+      return String(value).replace(/\u3010[\s\S]*?\u3011/g, '');
+    }
+
+    function cleanGuideText(value){
+      if(value == null) return '';
+      const stripped = stripGuideCitations(value);
+      const normalized = stripped
+        .replace(/\s+([,.;!?])/g, '$1')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+      const fallback = typeof value === 'string' ? value.trim() : '';
+      return normalized || stripped.trim() || fallback;
+    }
+
+    function cleanGuideTextList(list){
+      if(!Array.isArray(list)) return [];
+      return list
+        .map(entry => {
+          const cleaned = cleanGuideText(entry);
+          if(cleaned) return cleaned;
+          if(typeof entry === 'string') return entry.trim();
+          return '';
+        })
+        .filter(Boolean);
+    }
+
     function parseRelatedGuideList(text){
       if(!text) return [];
       return text
@@ -10608,7 +10636,7 @@
     function augmentRoute(route, index){
       const id = route?.route_id || `route-${index + 1}`;
       const tags = Array.isArray(route?.tags) ? route.tags.slice() : [];
-      const objectives = Array.isArray(route?.objectives) ? route.objectives.slice() : [];
+      const objectives = cleanGuideTextList(route?.objectives);
       const level = route?.recommended_level || {};
       const time = route?.estimated_time_minutes || {};
       const xpGain = route?.estimated_xp_gain || {};
@@ -10623,7 +10651,7 @@
       return {
         id,
         index,
-        title: route?.title || 'Route',
+        title: cleanGuideText(route?.title || 'Route') || 'Route',
         category: route?.category || 'progression',
         tags,
         progression_role: normalizedRole,
@@ -10659,13 +10687,13 @@
     function convertRouteToChapter(route, { index = 0, role } = {}){
       const id = route?.route_id || `route-${index + 1}`;
       const steps = Array.isArray(route?.steps) ? route.steps : [];
-      const title = route?.title || 'Route';
+      const title = cleanGuideText(route?.title || 'Route') || 'Route';
       const level = route?.recommended_level || {};
       const levelLabel = level && (level.min != null || level.max != null)
         ? `Lv ${level.min != null ? level.min : '?'}-${level.max != null ? level.max : '?'}`
         : '';
       const composedTitle = levelLabel ? `${title} — ${levelLabel}` : title;
-      const objectives = Array.isArray(route?.objectives) ? route.objectives : [];
+      const objectives = cleanGuideTextList(route?.objectives);
       const whyParts = [];
       if(objectives.length){
         whyParts.push(objectives.join('; '));
@@ -10699,8 +10727,8 @@
       const id = step?.step_id || `${route?.route_id || 'route'}:${String(index + 1).padStart(3, '0')}`;
       const type = step?.type || 'task';
       const categoryLabel = stepCategoryLabel(type);
-      const detail = step?.detail || '';
-      const summary = step?.summary || '';
+      const detail = cleanGuideText(step?.detail);
+      const summary = cleanGuideText(step?.summary);
       const text = detail || summary;
       const textKid = summary || detail || '';
       const routeRole = routeRoleOverride || normalizeRouteRole(route?.progression_role);
@@ -14824,7 +14852,8 @@
       const raw = step?.raw || findRawStep(route, step.id);
       if(!raw) return '';
       const blocks = [];
-      const description = raw.detail && raw.detail !== raw.summary ? raw.detail : (raw.detail || raw.summary || '');
+      const descriptionSource = raw.detail && raw.detail !== raw.summary ? raw.detail : (raw.detail || raw.summary || '');
+      const description = cleanGuideText(descriptionSource);
       if(description){
         blocks.push(`<p class="step-extra__text">${escapeHTML(description)}</p>`);
       }
@@ -14842,13 +14871,24 @@
         if(outputBlock) blocks.push(outputBlock);
       }
       if(Array.isArray(raw.branching) && raw.branching.length){
-        const branchList = raw.branching.map(entry => {
-          const condition = entry?.condition ? entry.condition : '';
-          const action = entry?.action ? ` → ${entry.action}` : '';
-          const subroute = entry?.subroute_ref ? ` (${entry.subroute_ref})` : '';
-          return `<li>${escapeHTML(condition)}${escapeHTML(action)}${escapeHTML(subroute)}</li>`;
-        }).join('');
-        blocks.push(`<div class="step-extra__section"><h5>${escapeHTML(kidMode ? 'If you need' : 'Branching')}</h5><ul class="step-extra__list">${branchList}</ul></div>`);
+        const branchItems = raw.branching
+          .map(entry => {
+            const condition = cleanGuideText(entry?.condition);
+            const action = cleanGuideText(entry?.action);
+            const subroute = cleanGuideText(entry?.subroute_ref);
+            const parts = [];
+            if(condition) parts.push(condition);
+            if(action) parts.push(`→ ${action}`);
+            if(subroute) parts.push(`(${subroute})`);
+            const content = parts.join(' ');
+            if(!content) return '';
+            return `<li>${escapeHTML(content)}</li>`;
+          })
+          .filter(Boolean)
+          .join('');
+        if(branchItems){
+          blocks.push(`<div class="step-extra__section"><h5>${escapeHTML(kidMode ? 'If you need' : 'Branching')}</h5><ul class="step-extra__list">${branchItems}</ul></div>`);
+        }
       }
       if(raw.xp_award_estimate && (raw.xp_award_estimate.min != null || raw.xp_award_estimate.max != null)){
         blocks.push(`<p class="step-extra__xp">${escapeHTML(`XP estimate: ${raw.xp_award_estimate.min != null ? raw.xp_award_estimate.min : '?'}-${raw.xp_award_estimate.max != null ? raw.xp_award_estimate.max : '?'}`)}</p>`);
@@ -14889,7 +14929,8 @@
     function renderStepModeAdjustments(adjustments){
       const sections = [];
       if(adjustments.hardcore){
-        const tactics = adjustments.hardcore.tactics ? `<p>${escapeHTML(adjustments.hardcore.tactics)}</p>` : '';
+        const tacticsText = cleanGuideText(adjustments.hardcore.tactics);
+        const tactics = tacticsText ? `<p>${escapeHTML(tacticsText)}</p>` : '';
         const items = Array.isArray(adjustments.hardcore.safety_buffer_items) && adjustments.hardcore.safety_buffer_items.length
           ? `<ul class="step-extra__list">${adjustments.hardcore.safety_buffer_items.map(item => `<li>${escapeHTML(`${item.qty != null ? `${item.qty}× ` : ''}${niceName(item.item_id || item.itemId || '')}`)}</li>`).join('')}</ul>`
           : '';
@@ -14897,9 +14938,14 @@
       }
       if(adjustments.coop){
         const roles = Array.isArray(adjustments.coop.role_splits) && adjustments.coop.role_splits.length
-          ? `<ul class="step-extra__list">${adjustments.coop.role_splits.map(role => `<li><strong>${escapeHTML(capitalize(role.role || 'Role'))}:</strong> ${escapeHTML(role.tasks || '')}</li>`).join('')}</ul>`
+          ? `<ul class="step-extra__list">${adjustments.coop.role_splits.map(role => {
+              const label = capitalize(role.role || 'Role');
+              const tasks = cleanGuideText(role.tasks);
+              return `<li><strong>${escapeHTML(label)}:</strong> ${escapeHTML(tasks)}</li>`;
+            }).join('')}</ul>`
           : '';
-        const loot = adjustments.coop.loot_rules ? `<p>${escapeHTML(adjustments.coop.loot_rules)}</p>` : '';
+        const lootRules = cleanGuideText(adjustments.coop.loot_rules);
+        const loot = lootRules ? `<p>${escapeHTML(lootRules)}</p>` : '';
         sections.push(`<div class="step-mode__entry"><h6>${escapeHTML(kidMode ? 'Play together' : 'Co-Op')}</h6>${roles}${loot}</div>`);
       }
       if(!sections.length) return '';
