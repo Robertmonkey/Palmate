@@ -9951,19 +9951,54 @@
     const ROUTE_ART_LIBRARY = {
       boss: { ...ROUTE_VISUAL_THEMES.boss },
       tower: { ...ROUTE_VISUAL_THEMES.boss },
+      'tower-boss': { ...ROUTE_VISUAL_THEMES.boss, overlay: 'rgba(155, 107, 255, 0.6)', icon: 'fa-chess-knight', position: 'center 28%' },
+      dungeon: { ...ROUTE_VISUAL_THEMES.boss, overlay: 'rgba(148, 87, 235, 0.62)', icon: 'fa-skull', position: 'center 32%' },
+      raid: { ...ROUTE_VISUAL_THEMES.boss, overlay: 'rgba(236, 72, 153, 0.6)', accent: '#f9a8d4', icon: 'fa-users', position: 'center 40%' },
       farming: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(42, 157, 143, 0.6)', accent: '#8ff0b5', icon: 'fa-seedling', position: 'center 62%' },
       gather: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(42, 157, 143, 0.6)', accent: '#8ff0b5', icon: 'fa-seedling', position: 'center 62%' },
+      'resource-gathering': { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(74, 201, 155, 0.55)', accent: '#9ff2c5', icon: 'fa-seedling', position: 'center 60%' },
+      resource: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(74, 201, 155, 0.55)', accent: '#9ff2c5', icon: 'fa-seedling', position: 'center 60%' },
       capture: { ...ROUTE_VISUAL_THEMES.pal, overlay: 'rgba(255, 170, 102, 0.6)', accent: '#ffd6a5', icon: 'fa-paw', position: 'center 58%' },
+      breeding: { ...ROUTE_VISUAL_THEMES.pal, overlay: 'rgba(249, 168, 212, 0.55)', accent: '#ffbde6', icon: 'fa-egg', position: 'center 56%' },
+      egg: { ...ROUTE_VISUAL_THEMES.pal, overlay: 'rgba(249, 168, 212, 0.55)', accent: '#ffbde6', icon: 'fa-egg', position: 'center 56%' },
+      hatch: { ...ROUTE_VISUAL_THEMES.pal, overlay: 'rgba(249, 168, 212, 0.55)', accent: '#ffbde6', icon: 'fa-egg', position: 'center 56%' },
+      combat: { ...ROUTE_VISUAL_THEMES.boss, overlay: 'rgba(255, 107, 107, 0.58)', accent: '#ffb4b4', icon: 'fa-crosshairs', position: 'center 34%' },
       exploration: { ...ROUTE_VISUAL_THEMES.map },
+      progression: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(118, 206, 255, 0.58)', accent: '#8dd9ff', icon: 'fa-compass', position: 'center 44%' },
+      core: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(118, 206, 255, 0.58)', accent: '#8dd9ff', icon: 'fa-compass', position: 'center 44%' },
+      support: { ...ROUTE_VISUAL_THEMES.tech, overlay: 'rgba(120, 180, 255, 0.55)', accent: '#a7c5ff', icon: 'fa-toolbox', position: 'center 52%' },
+      starter: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(148, 210, 189, 0.55)', accent: '#a5f2d5', icon: 'fa-seedling', position: 'center 46%' },
+      'early-game': { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(148, 210, 189, 0.55)', accent: '#a5f2d5', icon: 'fa-seedling', position: 'center 46%' },
+      'mid-game': { ...ROUTE_VISUAL_THEMES.tech, overlay: 'rgba(255, 196, 77, 0.55)', accent: '#ffd166', icon: 'fa-chart-line', position: 'center 48%' },
+      'late-game': { ...ROUTE_VISUAL_THEMES.boss, overlay: 'rgba(185, 109, 255, 0.6)', accent: '#deb7ff', icon: 'fa-trophy', position: 'center 30%' },
       travel: { ...ROUTE_VISUAL_THEMES.map, image: ROUTE_THEME_ART_SOURCES.travel },
+      'fast-travel': { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(123, 201, 255, 0.55)', accent: '#9fd8ff', icon: 'fa-location-arrow', position: 'center 48%' },
       craft: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(255, 214, 102, 0.58)', accent: '#ffe599', icon: 'fa-hammer', position: 'center 44%' },
-      base: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(90, 126, 255, 0.58)', accent: '#b8c3ff', icon: 'fa-house-flag', position: 'center 66%' }
+      base: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(90, 126, 255, 0.58)', accent: '#b8c3ff', icon: 'fa-house-flag', position: 'center 66%' },
+      'base-building': { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(90, 126, 255, 0.58)', accent: '#b8c3ff', icon: 'fa-house-flag', position: 'center 66%' },
+      'base-management': { ...ROUTE_VISUAL_THEMES.tech, overlay: 'rgba(90, 126, 255, 0.5)', accent: '#b8c3ff', icon: 'fa-gears', position: 'center 52%' },
+      mount: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(255, 196, 77, 0.55)', accent: '#ffd166', icon: 'fa-horse', position: 'center 58%' },
+      saddle: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(255, 196, 77, 0.55)', accent: '#ffd166', icon: 'fa-horse', position: 'center 58%' },
+      ore: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(147, 197, 253, 0.55)', accent: '#b4d7ff', icon: 'fa-gem', position: 'center 62%' },
+      ingot: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(255, 214, 102, 0.52)', accent: '#ffe59f', icon: 'fa-cubes', position: 'center 60%' },
+      quartz: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(185, 220, 255, 0.58)', accent: '#e0f0ff', icon: 'fa-gem', position: 'center 62%' },
+      paldium: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(120, 180, 255, 0.58)', accent: '#9ed0ff', icon: 'fa-bolt', position: 'center 58%' },
+      coal: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(255, 138, 101, 0.55)', accent: '#ffb199', icon: 'fa-fire', position: 'center 60%' },
+      lumber: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(148, 210, 189, 0.6)', accent: '#a5f2d5', icon: 'fa-tree', position: 'center 62%' },
+      medicine: { ...ROUTE_VISUAL_THEMES.tech, overlay: 'rgba(72, 187, 255, 0.55)', accent: '#8edbff', icon: 'fa-kit-medical', position: 'center 52%' },
+      healing: { ...ROUTE_VISUAL_THEMES.tech, overlay: 'rgba(72, 187, 255, 0.55)', accent: '#8edbff', icon: 'fa-kit-medical', position: 'center 52%' },
+      technology: { ...ROUTE_VISUAL_THEMES.tech },
+      research: { ...ROUTE_VISUAL_THEMES.tech }
     };
     const ROUTE_ART_VARIANTS = [
       { image: ROUTE_THEME_ART_SOURCES.generic, overlay: 'rgba(148, 187, 233, 0.55)', accent: '#9bd4ff', icon: 'fa-route', position: 'center 40%' },
       { image: ROUTE_THEME_ART_SOURCES.item, overlay: 'rgba(255, 123, 123, 0.52)', accent: '#ffb3c1', icon: 'fa-fire', position: 'center 64%' },
       { image: ROUTE_THEME_ART_SOURCES.pal, overlay: 'rgba(92, 225, 230, 0.52)', accent: '#bde7f8', icon: 'fa-compass', position: 'center 28%' },
-      { image: ROUTE_THEME_ART_SOURCES.tech, overlay: 'rgba(255, 196, 77, 0.5)', accent: '#ffd6a5', icon: 'fa-sun', position: 'center 52%' }
+      { image: ROUTE_THEME_ART_SOURCES.tech, overlay: 'rgba(255, 196, 77, 0.5)', accent: '#ffd6a5', icon: 'fa-sun', position: 'center 52%' },
+      { image: ROUTE_THEME_ART_SOURCES.map, overlay: 'rgba(118, 206, 255, 0.5)', accent: '#8dd9ff', icon: 'fa-compass', position: 'center 42%' },
+      { image: ROUTE_THEME_ART_SOURCES.boss, overlay: 'rgba(185, 109, 255, 0.58)', accent: '#deb7ff', icon: 'fa-chess-knight', position: 'center 32%' },
+      { image: ROUTE_THEME_ART_SOURCES.npc, overlay: 'rgba(249, 168, 212, 0.5)', accent: '#f9a8d4', icon: 'fa-user-astronaut', position: 'center 46%' },
+      { image: ROUTE_THEME_ART_SOURCES.travel, overlay: 'rgba(255, 196, 77, 0.5)', accent: '#ffd166', icon: 'fa-map-location-dot', position: 'center 52%' }
     ];
     const NPC_ART_LIBRARY = {
       zoe: ROUTE_THEME_ART_SOURCES.npc,
@@ -11605,6 +11640,14 @@
     function routeVisualFromTags(route){
       if(!route) return {};
       const keys = [];
+      if(route.progression_role) keys.push(String(route.progression_role).toLowerCase());
+      if(route.route_id){
+        String(route.route_id)
+          .toLowerCase()
+          .split(/[^a-z0-9]+/)
+          .filter(Boolean)
+          .forEach(part => keys.push(part));
+      }
       if(route.category) keys.push(String(route.category).toLowerCase());
       if(Array.isArray(route.tags)){
         route.tags.forEach(tag => keys.push(String(tag).toLowerCase()));
