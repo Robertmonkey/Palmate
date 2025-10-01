@@ -14738,7 +14738,7 @@
 
     function renderChapterCard(chapter, openByDefault, route){
       const section = document.createElement('section');
-      section.className = 'card route-card';
+      section.className = 'card route-card route-card--stacked';
       section.id = `chapter-${chapter.id}`;
       section.dataset.chapterId = chapter.id;
       section.innerHTML = buildRouteCardInnerHTML(chapter, openByDefault, route);
