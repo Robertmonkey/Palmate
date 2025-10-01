@@ -755,25 +755,66 @@ section for actual route data.
     "route_id": "string-kebab",
     "title": "string",
     "category": "progression|mounts|resources|bosses|breeding|tech|automation|capture-index|misc",
-    "tags": ["string", "..."],
+    "tags": [
+      "string",
+      "..."
+    ],
     "progression_role": "core|optional|support",
-    "recommended_level": { "min": "int", "max": "int" },
-    "modes": { "normal": "boolean", "hardcore": "boolean", "solo": "boolean", "coop": "boolean" },
-    "prerequisites": {
-      "routes": ["route-id", "..."],
-      "tech": ["tech-id", "..."],
-      "items": [ { "item_id": "...", "qty": "int" } ],
-      "pals": ["pal-id", "..."]
+    "recommended_level": {
+      "min": "int",
+      "max": "int"
     },
-    "objectives": ["high-level objective sentences"],
-    "estimated_time_minutes": { "solo": "int", "coop": "int" },
-    "estimated_xp_gain": { "min": "int", "max": "int" },
+    "modes": {
+      "normal": "boolean",
+      "hardcore": "boolean",
+      "solo": "boolean",
+      "coop": "boolean"
+    },
+    "prerequisites": {
+      "routes": [
+        "route-id",
+        "..."
+      ],
+      "tech": [
+        "tech-id",
+        "..."
+      ],
+      "items": [
+        {
+          "item_id": "...",
+          "qty": "int"
+        }
+      ],
+      "pals": [
+        "pal-id",
+        "..."
+      ]
+    },
+    "objectives": [
+      "high-level objective sentences"
+    ],
+    "estimated_time_minutes": {
+      "solo": "int",
+      "coop": "int"
+    },
+    "estimated_xp_gain": {
+      "min": "int",
+      "max": "int"
+    },
     "risk_profile": "low|medium|high",
-    "failure_penalties": { "normal": "text", "hardcore": "text" },
+    "failure_penalties": {
+      "normal": "text",
+      "hardcore": "text"
+    },
     "adaptive_guidance": {
       "underleveled": "text",
       "overleveled": "text",
-      "resource_shortages": [ { "item_id": "...", "solution": "include_subroute or explain alternative" } ],
+      "resource_shortages": [
+        {
+          "item_id": "...",
+          "solution": "include_subroute or explain alternative"
+        }
+      ],
       "time_limited": "text",
       "dynamic_rules": [
         {
@@ -781,58 +822,181 @@ section for actual route data.
           "condition": "human-readable expression describing when to trigger the adjustment",
           "adjustment": "specific instruction to modify the route",
           "priority": "int (1=highest urgency)",
-          "mode_scope": ["normal", "hardcore", "solo", "coop"],
-          "related_steps": ["route-id:001"],
-          "follow_up_routes": ["route-id"]
+          "mode_scope": [
+            "normal",
+            "hardcore",
+            "solo",
+            "coop"
+          ],
+          "related_steps": [
+            "route-id:001"
+          ],
+          "follow_up_routes": [
+            "route-id"
+          ]
         }
       ]
     },
     "checkpoints": [
-      { "id": "route-id:checkpoint-1", "summary": "text", "benefits": ["string"], "related_steps": ["route-id:001"] }
+      {
+        "id": "route-id:checkpoint-1",
+        "summary": "text",
+        "benefits": [
+          "string"
+        ],
+        "related_steps": [
+          "route-id:001"
+        ]
+      }
     ],
-    "supporting_routes": { "recommended": ["route-id"], "optional": ["route-id"] },
-    "failure_recovery": { "normal": "text", "hardcore": "text" },
+    "supporting_routes": {
+      "recommended": [
+        "route-id"
+      ],
+      "optional": [
+        "route-id"
+      ]
+    },
+    "failure_recovery": {
+      "normal": "text",
+      "hardcore": "text"
+    },
     "steps": [
       {
         "step_id": "route-id:001",
-        "type": "travel|gather|farm|capture|fight|craft|build|unlock-tech|breed|deliver|talk|explore|prepare",
+        "type": "travel|gather|farm|capture|fight|craft|build|unlock-tech|breed|deliver|talk|explore|prepare|quest",
         "summary": "short sentence",
         "detail": "clear, actionable instruction",
-        "targets": [ { "kind": "item|pal|boss|station|tech", "id": "...", "qty": "int?" } ],
-        "locations": [ { "region_id": "...", "coords": ["x", "y"], "time": "day|night|any", "weather": "any|condition" } ],
+        "targets": [
+          {
+            "kind": "item|pal|boss|station|tech",
+            "id": "...",
+            "qty": "int?"
+          }
+        ],
+        "locations": [
+          {
+            "region_id": "...",
+            "coords": [
+              "x",
+              "y"
+            ],
+            "time": "day|night|any",
+            "weather": "any|condition"
+          }
+        ],
         "mode_adjustments": {
-          "hardcore": { "tactics": "text", "safety_buffer_items": [ { "item_id": "...", "qty": "int" } ] },
-          "coop": { "role_splits": [ { "role": "puller", "tasks": "..." }, { "role": "farmer", "tasks": "..." } ], "loot_rules": "text" }
+          "hardcore": {
+            "tactics": "text",
+            "safety_buffer_items": [
+              {
+                "item_id": "...",
+                "qty": "int"
+              }
+            ]
+          },
+          "coop": {
+            "role_splits": [
+              {
+                "role": "puller",
+                "tasks": "..."
+              },
+              {
+                "role": "farmer",
+                "tasks": "..."
+              }
+            ],
+            "loot_rules": "text"
+          }
         },
         "recommended_loadout": {
-          "gear": ["item-id"],
-          "pals": ["pal-id"],
-          "consumables": [ { "item_id": "...", "qty": "int" } ]
+          "gear": [
+            "item-id"
+          ],
+          "pals": [
+            "pal-id"
+          ],
+          "consumables": [
+            {
+              "item_id": "...",
+              "qty": "int"
+            }
+          ]
         },
-        "xp_award_estimate": { "min": "int", "max": "int" },
+        "xp_award_estimate": {
+          "min": "int",
+          "max": "int"
+        },
         "outputs": {
-          "items": [ { "item_id": "...", "qty": "int" } ],
-          "pals": ["pal-id", "..."],
-          "unlocks": { "tech": ["tech-id"], "stations": ["station-id"] }
+          "items": [
+            {
+              "item_id": "...",
+              "qty": "int"
+            }
+          ],
+          "pals": [
+            "pal-id",
+            "..."
+          ],
+          "unlocks": {
+            "tech": [
+              "tech-id"
+            ],
+            "stations": [
+              "station-id"
+            ]
+          }
         },
         "branching": [
-          { "condition": "player lacks item/leather >= N", "action": "jump_to_step_id or include_subroute", "subroute_ref": "route-id" }
+          {
+            "condition": "player lacks item/leather >= N",
+            "action": "jump_to_step_id or include_subroute",
+            "subroute_ref": "route-id"
+          }
         ],
-        "citations": ["short-source-key-1", "short-source-key-2"]
+        "citations": [
+          "short-source-key-1",
+          "short-source-key-2"
+        ]
       }
     ],
     "completion_criteria": [
-      { "type": "have-item", "item_id": "...", "qty": "int" },
-      { "type": "tech-unlocked", "tech_id": "..." },
-      { "type": "boss-cleared", "boss_id": "..." }
+      {
+        "type": "have-item",
+        "item_id": "...",
+        "qty": "int"
+      },
+      {
+        "type": "tech-unlocked",
+        "tech_id": "..."
+      },
+      {
+        "type": "boss-cleared",
+        "boss_id": "..."
+      },
+      {
+        "type": "quest-chain",
+        "quest_id": "..."
+      }
     ],
-    "yields": { "levels_estimate": "+X to +Y", "key_unlocks": ["tech-id", "..."] },
-    "metrics": {
-      "xp_per_minute": { "solo": "float", "coop": "float" },
-      "travel_distance_m": "int",
-      "consumable_cost": [ { "item_id": "...", "qty": "int" } ]
+    "yields": {
+      "levels_estimate": "+X to +Y",
+      "key_unlocks": [
+        "tech-id",
+        "..."
+      ]
     },
-    "next_routes": [ { "route_id": "...", "reason": "what unlocks it" } ]
+    "metrics": {
+      "progress_segments": "int",
+      "boss_targets": "int",
+      "quest_nodes": "int"
+    },
+    "next_routes": [
+      {
+        "route_id": "...",
+        "reason": "what unlocks it"
+      }
+    ]
   }
 }
 ```
@@ -888,26 +1052,59 @@ basic stations, create Pal Spheres and capture their first companions.
   "route_id": "starter-base-capture",
   "title": "Starter Base and Capture",
   "category": "progression",
-  "tags": [ "early-game", "base-building", "capture", "resource-gathering" ],
+  "tags": [
+    "early-game",
+    "base-building",
+    "capture",
+    "resource-gathering"
+  ],
   "progression_role": "core",
-  "recommended_level": { "min": 1, "max": 5 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [], "tech": [], "items": [], "pals": [] },
+  "recommended_level": {
+    "min": 1,
+    "max": 5
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
   "objectives": [
     "Gather basic resources and build a Primitive Workbench",
     "Craft Pal Spheres and capture three different Pals",
     "Establish a small shelter"
   ],
-  "estimated_time_minutes": { "solo": 30, "coop": 20 },
-  "estimated_xp_gain": { "min": 300, "max": 600 },
+  "estimated_time_minutes": {
+    "solo": 30,
+    "coop": 20
+  },
+  "estimated_xp_gain": {
+    "min": 300,
+    "max": 600
+  },
   "risk_profile": "low",
-  "failure_penalties": { "normal": "Loss of gathered materials", "hardcore": "Death results in character deletion" },
+  "failure_penalties": {
+    "normal": "Loss of gathered materials",
+    "hardcore": "Death results in character deletion"
+  },
   "adaptive_guidance": {
     "underleveled": "Loop step :001 twice and capture Lamball first; their low aggression keeps risk minimal while still granting capture XP.",
     "overleveled": "If you arrive above level 6, prioritize step :003 and transition directly into harness crafting to avoid redundant farming.",
     "resource_shortages": [
-      { "item_id": "paldium-fragment", "solution": "Trigger the resource-paldium subroute from step :003 or mine blue ore veins along the riverbank." },
-      { "item_id": "fiber", "solution": "Clear Windswept Hills bushes after step :001; each bush yields 2-3 Fiber quickly." }
+      {
+        "item_id": "paldium-fragment",
+        "solution": "Trigger the resource-paldium subroute from step :003 or mine blue ore veins along the riverbank."
+      },
+      {
+        "item_id": "fiber",
+        "solution": "Clear Windswept Hills bushes after step :001; each bush yields 2-3 Fiber quickly."
+      }
     ],
     "time_limited": "Complete steps :001 through :003 only; capture a single Lamball to unlock base chores and return later for the full roster.",
     "dynamic_rules": [
@@ -916,34 +1113,86 @@ basic stations, create Pal Spheres and capture their first companions.
         "condition": "player.estimated_level >= recommended_level.max + 2",
         "adjustment": "Treat step :001 as maintenance only, finish :003 to restock spheres, then pivot into mount-foxparks-harness without repeating :004.",
         "priority": 2,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["starter-base-capture:003"],
-        "follow_up_routes": ["mount-foxparks-harness"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "starter-base-capture:003"
+        ],
+        "follow_up_routes": [
+          "mount-foxparks-harness"
+        ]
       },
       {
         "signal": "time_budget_short",
         "condition": "available_time_minutes && available_time_minutes < 20",
         "adjustment": "Execute steps :001 through :003 only and bank captured materials; postpone the third capture in :004 until more time is available.",
         "priority": 3,
-        "mode_scope": ["solo", "coop"],
-        "related_steps": ["starter-base-capture:001", "starter-base-capture:002", "starter-base-capture:003"]
+        "mode_scope": [
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "starter-base-capture:001",
+          "starter-base-capture:002",
+          "starter-base-capture:003"
+        ]
       },
       {
         "signal": "resource_gap:paldium-fragment",
         "condition": "resource_gaps contains paldium-fragment >= 5",
         "adjustment": "Loop the river rocks north of the spawn before step :003 or trigger the resource-paldium subroute immediately.",
         "priority": 1,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["starter-base-capture:003"],
-        "follow_up_routes": ["resource-paldium"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "starter-base-capture:003"
+        ],
+        "follow_up_routes": [
+          "resource-paldium"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "starter-base-capture:checkpoint-setup", "summary": "Primitive Workbench placed", "benefits": [ "Workbench crafting unlocked", "Establishes respawn anchor" ], "related_steps": [ "starter-base-capture:002" ] },
-    { "id": "starter-base-capture:checkpoint-team", "summary": "Three work-ready Pals captured", "benefits": [ "Unlocks base chores", "Meets early tech prerequisites" ], "related_steps": [ "starter-base-capture:004" ] }
+    {
+      "id": "starter-base-capture:checkpoint-setup",
+      "summary": "Primitive Workbench placed",
+      "benefits": [
+        "Workbench crafting unlocked",
+        "Establishes respawn anchor"
+      ],
+      "related_steps": [
+        "starter-base-capture:002"
+      ]
+    },
+    {
+      "id": "starter-base-capture:checkpoint-team",
+      "summary": "Three work-ready Pals captured",
+      "benefits": [
+        "Unlocks base chores",
+        "Meets early tech prerequisites"
+      ],
+      "related_steps": [
+        "starter-base-capture:004"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "resource-paldium" ], "optional": [ "resource-leather-early" ] },
+  "supporting_routes": {
+    "recommended": [
+      "resource-paldium"
+    ],
+    "optional": [
+      "resource-leather-early"
+    ]
+  },
   "failure_recovery": {
     "normal": "If you faint, recover your dropped pouch before it despawns and resume at the nearest Fast Travel statue.",
     "hardcore": "Retreat before HP reaches 25%; if a death is imminent, abandon the route and reset from the title to preserve the Hardcore save."
@@ -954,15 +1203,80 @@ basic stations, create Pal Spheres and capture their first companions.
       "type": "gather",
       "summary": "Collect Wood and Stone",
       "detail": "Harvest at least 20 Wood from trees and 15 Stone from boulders in the Windswept Hills.  Trees and stone nodes respawn quickly; use a primitive tool or your Pals to speed up collection.",
-      "targets": [ { "kind": "item", "id": "wood", "qty": 20 }, { "kind": "item", "id": "stone", "qty": 15 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [0, 0], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "wood",
+          "qty": 20
+        },
+        {
+          "kind": "item",
+          "id": "stone",
+          "qty": 15
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Avoid engaging hostile Pals while gathering; keep your HP above 50 % and carry extra berries.", "safety_buffer_items": [ { "item_id": "wood", "qty": 10 }, { "item_id": "stone", "qty": 10 } ] },
-        "coop": { "role_splits": [ { "role": "gatherer", "tasks": "Chop trees and mine stone" }, { "role": "scout", "tasks": "Watch for aggressive Pals and keep area clear" } ], "loot_rules": "Share resources evenly" }
+        "hardcore": {
+          "tactics": "Avoid engaging hostile Pals while gathering; keep your HP above 50 % and carry extra berries.",
+          "safety_buffer_items": [
+            {
+              "item_id": "wood",
+              "qty": 10
+            },
+            {
+              "item_id": "stone",
+              "qty": 10
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "gatherer",
+              "tasks": "Chop trees and mine stone"
+            },
+            {
+              "role": "scout",
+              "tasks": "Watch for aggressive Pals and keep area clear"
+            }
+          ],
+          "loot_rules": "Share resources evenly"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 20, "max": 40 },
-      "outputs": { "items": [ { "item_id": "wood", "qty": 20 }, { "item_id": "stone", "qty": 15 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 20,
+        "max": 40
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "wood",
+            "qty": 20
+          },
+          {
+            "item_id": "stone",
+            "qty": 15
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
       "citations": []
     },
@@ -971,27 +1285,97 @@ basic stations, create Pal Spheres and capture their first companions.
       "type": "build",
       "summary": "Construct a Primitive Workbench",
       "detail": "Open the construction menu and build a Primitive Workbench using 2 Wood【907636800064548†screenshot】.  Place it near your gathering area.",
-      "targets": [ { "kind": "station", "id": "primitive-workbench" } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [0, 0], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "station",
+          "id": "primitive-workbench"
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 30, "max": 50 },
-      "outputs": { "items": [], "pals": [], "unlocks": { "stations": [ "primitive-workbench" ] } },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 30,
+        "max": 50
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "stations": [
+            "primitive-workbench"
+          ]
+        }
+      },
       "branching": [],
-      "citations": [ "paldb-primitive-workbench" ]
+      "citations": [
+        "paldb-primitive-workbench"
+      ]
     },
     {
       "step_id": "starter-base-capture:003",
       "type": "craft",
       "summary": "Craft Pal Spheres",
       "detail": "Use the Primitive Workbench to craft at least five Pal Spheres.  Each sphere requires Paldium Fragments (gathered from blue ore) and a small amount of Wood and Stone.  If you lack fragments, mine Paldium nodes along the river.",
-      "targets": [ { "kind": "item", "id": "pal-sphere", "qty": 5 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [0, 0], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "pal-sphere",
+          "qty": 5
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 50, "max": 70 },
-      "outputs": { "items": [ { "item_id": "pal-sphere", "qty": 5 } ], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "player lacks paldium-fragment >= 5", "action": "include_subroute", "subroute_ref": "resource-paldium" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 50,
+        "max": 70
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 5
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks paldium-fragment >= 5",
+          "action": "include_subroute",
+          "subroute_ref": "resource-paldium"
+        }
+      ],
       "citations": []
     },
     {
@@ -999,17 +1383,95 @@ basic stations, create Pal Spheres and capture their first companions.
       "type": "capture",
       "summary": "Capture three early Pals",
       "detail": "Throw Pal Spheres at Lamball, Cattiva, Chikipi, Lifmunk or Foxparks in the Windswept Hills【956200907149478†L146-L169】.  Approach from behind to improve your catch rate.  Capturing new species grants more XP than defeating them【116860197722081†L96-L128】.",
-      "targets": [ { "kind": "pal", "id": "lamball", "qty": 1 }, { "kind": "pal", "id": "cattiva", "qty": 1 }, { "kind": "pal", "id": "foxparks", "qty": 1 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [189, -478], "time": "day", "weather": "any" }, { "region_id": "windswept-hills", "coords": [144, -583], "time": "day", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "lamball",
+          "qty": 1
+        },
+        {
+          "kind": "pal",
+          "id": "cattiva",
+          "qty": 1
+        },
+        {
+          "kind": "pal",
+          "id": "foxparks",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            189,
+            -478
+          ],
+          "time": "day",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            144,
+            -583
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Avoid aggroing the nearby Mammorest boss while hunting【956200907149478†L146-L169】.  Always keep a healing item ready.", "safety_buffer_items": [ { "item_id": "leather", "qty": 2 } ] },
-        "coop": { "role_splits": [ { "role": "puller", "tasks": "Aggro the Pal and kite it" }, { "role": "catcher", "tasks": "Throw Pal Spheres from behind" } ], "loot_rules": "Each player keeps one captured Pal" }
+        "hardcore": {
+          "tactics": "Avoid aggroing the nearby Mammorest boss while hunting【956200907149478†L146-L169】.  Always keep a healing item ready.",
+          "safety_buffer_items": [
+            {
+              "item_id": "leather",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "puller",
+              "tasks": "Aggro the Pal and kite it"
+            },
+            {
+              "role": "catcher",
+              "tasks": "Throw Pal Spheres from behind"
+            }
+          ],
+          "loot_rules": "Each player keeps one captured Pal"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [ { "item_id": "pal-sphere", "qty": 5 } ] },
-      "xp_award_estimate": { "min": 100, "max": 200 },
-      "outputs": { "items": [], "pals": [ "lamball", "cattiva", "foxparks" ], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 5
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 100,
+        "max": 200
+      },
+      "outputs": {
+        "items": [],
+        "pals": [
+          "lamball",
+          "cattiva",
+          "foxparks"
+        ],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "thegamer-foxparks-spawn", "namehero-xp-capture" ]
+      "citations": [
+        "thegamer-foxparks-spawn",
+        "namehero-xp-capture"
+      ]
     },
     {
       "step_id": "starter-base-capture:005",
@@ -1017,23 +1479,104 @@ basic stations, create Pal Spheres and capture their first companions.
       "summary": "Construct a shelter",
       "detail": "Gather extra Wood and build a basic shelter to protect yourself and your newly captured Pals.  A roof prevents rain damage and increases comfort.",
       "targets": [],
-      "locations": [ { "region_id": "windswept-hills", "coords": [0, 0], "time": "any", "weather": "any" } ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 30, "max": 50 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 30,
+        "max": 50
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "starter-base-capture:006",
+      "type": "quest",
+      "summary": "Register your starter base with the Investigator board",
+      "detail": "Visit the Investigator board in the Small Settlement to hand in the \"First Settlement\" request. This unlocks the story tracker and marks your base as recognised.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            116,
+            -398
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 180,
+        "max": 260
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
       "citations": []
     }
   ],
-  "completion_criteria": [ { "type": "have-item", "item_id": "primitive-workbench", "qty": 1 }, { "type": "have-item", "item_id": "pal-sphere", "qty": 5 } ],
-  "yields": { "levels_estimate": "+1 to +2", "key_unlocks": [ "tech-primitive-workbench" ] },
-  "metrics": {
-    "xp_per_minute": { "solo": 12.5, "coop": 18.0 },
-    "travel_distance_m": 420,
-    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 5 } ]
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "primitive-workbench",
+      "qty": 1
+    },
+    {
+      "type": "have-item",
+      "item_id": "pal-sphere",
+      "qty": 5
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1 to +2",
+    "key_unlocks": [
+      "tech-primitive-workbench"
+    ]
   },
-  "next_routes": [ { "route_id": "resource-leather-early", "reason": "Gather materials for future gear" }, { "route_id": "mount-foxparks-harness", "reason": "You captured Foxparks and can now craft its harness" } ]
+  "metrics": {
+    "progress_segments": 6,
+    "boss_targets": 0,
+    "quest_nodes": 1
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-leather-early",
+      "reason": "Gather materials for future gear"
+    },
+    {
+      "route_id": "mount-foxparks-harness",
+      "reason": "You captured Foxparks and can now craft its harness"
+    }
+  ]
 }
 ```
 
@@ -1049,22 +1592,59 @@ Wandering Merchants sell Leather for 150 gold each【840767909995613†L78-L100
   "route_id": "resource-leather-early",
   "title": "Leather Farming Loop (Early)",
   "category": "resources",
-  "tags": [ "resource-farm", "leather", "early-game", "combat-loop" ],
+  "tags": [
+    "resource-farm",
+    "leather",
+    "early-game",
+    "combat-loop"
+  ],
   "progression_role": "support",
-  "recommended_level": { "min": 4, "max": 10 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [ "starter-base-capture" ], "tech": [], "items": [], "pals": [] },
-  "objectives": [ "Acquire the required quantity of Leather" ],
-  "estimated_time_minutes": { "solo": 15, "coop": 10 },
-  "estimated_xp_gain": { "min": 200, "max": 400 },
+  "recommended_level": {
+    "min": 4,
+    "max": 10
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Acquire the required quantity of Leather"
+  ],
+  "estimated_time_minutes": {
+    "solo": 15,
+    "coop": 10
+  },
+  "estimated_xp_gain": {
+    "min": 200,
+    "max": 400
+  },
   "risk_profile": "medium",
-  "failure_penalties": { "normal": "Lost time if defeated", "hardcore": "Death results in permaloss of captured Pals" },
+  "failure_penalties": {
+    "normal": "Lost time if defeated",
+    "hardcore": "Death results in permaloss of captured Pals"
+  },
   "adaptive_guidance": {
     "underleveled": "Target Lamball and Vixy groups on the outskirts of Windswept Hills until level 6 before rotating to Sea Breeze.",
     "overleveled": "Hunt Direhowl packs in the ravine for faster drops; their higher HP scales with your damage output.",
     "resource_shortages": [
-      { "item_id": "pal-sphere", "solution": "Craft a fresh batch at your Primitive Workbench before departing." },
-      { "item_id": "gold", "solution": "Sell spare ores or berries at the Archipelago merchant to fund purchases." }
+      {
+        "item_id": "pal-sphere",
+        "solution": "Craft a fresh batch at your Primitive Workbench before departing."
+      },
+      {
+        "item_id": "gold",
+        "solution": "Sell spare ores or berries at the Archipelago merchant to fund purchases."
+      }
     ],
     "time_limited": "Clear step :001 then buy the remainder from the merchant in step :003 to finish within five minutes.",
     "dynamic_rules": [
@@ -1073,33 +1653,80 @@ Wandering Merchants sell Leather for 150 gold each【840767909995613†L78-L100
         "condition": "mode.hardcore === true",
         "adjustment": "Prioritise the merchant purchase in step :003 before engaging the densest spawn clusters in :002 to minimise death risk.",
         "priority": 1,
-        "mode_scope": ["hardcore"],
-        "related_steps": ["resource-leather-early:003"]
+        "mode_scope": [
+          "hardcore"
+        ],
+        "related_steps": [
+          "resource-leather-early:003"
+        ]
       },
       {
         "signal": "resource_gap:leather_high",
         "condition": "resource_gaps contains leather >= 20",
         "adjustment": "Run the Sea Breeze loop in :002 twice—first clockwise around the Church, then along the Bridge of the Twin Knights—to stock 20+ Leather in one outing.",
         "priority": 2,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["resource-leather-early:002"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-leather-early:002"
+        ]
       },
       {
         "signal": "goal:mounts",
         "condition": "goals includes mounts",
         "adjustment": "Stay until you bank at least 15 Leather so upcoming saddle routes such as mount-eikthyrdeer-saddle do not immediately reinsert this farm.",
         "priority": 3,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["resource-leather-early:002"],
-        "follow_up_routes": ["mount-eikthyrdeer-saddle", "mount-direhowl-harness"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-leather-early:002"
+        ],
+        "follow_up_routes": [
+          "mount-eikthyrdeer-saddle",
+          "mount-direhowl-harness"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "resource-leather-early:checkpoint-arrival", "summary": "Reached farming zone", "benefits": [ "Unlocks fast travel point if activated", "Spawns leather-dropping Pals" ], "related_steps": [ "resource-leather-early:001" ] },
-    { "id": "resource-leather-early:checkpoint-quota", "summary": "First 10 Leather collected", "benefits": [ "Meets most early saddle requirements" ], "related_steps": [ "resource-leather-early:002" ] }
+    {
+      "id": "resource-leather-early:checkpoint-arrival",
+      "summary": "Reached farming zone",
+      "benefits": [
+        "Unlocks fast travel point if activated",
+        "Spawns leather-dropping Pals"
+      ],
+      "related_steps": [
+        "resource-leather-early:001"
+      ]
+    },
+    {
+      "id": "resource-leather-early:checkpoint-quota",
+      "summary": "First 10 Leather collected",
+      "benefits": [
+        "Meets most early saddle requirements"
+      ],
+      "related_steps": [
+        "resource-leather-early:002"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "starter-base-capture" ], "optional": [ "resource-paldium" ] },
+  "supporting_routes": {
+    "recommended": [
+      "starter-base-capture"
+    ],
+    "optional": [
+      "resource-paldium"
+    ]
+  },
   "failure_recovery": {
     "normal": "If downed, respawn at the nearest statue and retrieve your pouch; mobs here do not despawn quickly.",
     "hardcore": "Disengage if two hostile spawns overlap; kite towards coastlines where line-of-sight breaks make escapes safer."
@@ -1111,54 +1738,217 @@ Wandering Merchants sell Leather for 150 gold each【840767909995613†L78-L100
       "summary": "Travel to leather hotspots",
       "detail": "Head to the Sea Breeze Archipelago Church or the Bridge of the Twin Knights.  These areas host large numbers of Foxparks, Rushoars and Fuacks, which all drop Leather【840767909995613†L78-L100】【840767909995613†L106-L135】.",
       "targets": [],
-      "locations": [ { "region_id": "sea-breeze-archipelago", "coords": [-650, -650], "time": "any", "weather": "any" }, { "region_id": "windswept-hills", "coords": [200, -300], "time": "any", "weather": "any" } ],
+      "locations": [
+        {
+          "region_id": "sea-breeze-archipelago",
+          "coords": [
+            -650,
+            -650
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            200,
+            -300
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [ "foxparks", "lifmunk" ], "consumables": [] },
-      "xp_award_estimate": { "min": 20, "max": 40 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "foxparks",
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 20,
+        "max": 40
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "shockbyte-leather-sources" ]
+      "citations": [
+        "shockbyte-leather-sources"
+      ]
     },
     {
       "step_id": "resource-leather-early:002",
       "type": "farm",
       "summary": "Hunt leather‑dropping Pals",
       "detail": "Defeat or capture Foxparks, Fuack, Rushoar, Melpaca, Vixy, Eikthyrdeer and Direhowl.  Each drop guarantees 1–3 Leather【142053078936299†L295-L311】【840767909995613†L49-L103】.  Use water Pals against fire types and electric Pals against water types.  Expect roughly 10–20 Leather/hour when solo and 20–30 Leather/hour in Co‑Op.",
-      "targets": [ { "kind": "item", "id": "leather", "qty": 10 } ],
-      "locations": [ { "region_id": "sea-breeze-archipelago", "coords": [-650, -650], "time": "any", "weather": "any" }, { "region_id": "windswept-hills", "coords": [189, -478], "time": "day", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "leather",
+          "qty": 10
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "sea-breeze-archipelago",
+          "coords": [
+            -650,
+            -650
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            189,
+            -478
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Pull one Pal at a time and use ranged attacks to minimise damage", "safety_buffer_items": [ { "item_id": "leather", "qty": 3 } ] },
-        "coop": { "role_splits": [ { "role": "hunter", "tasks": "Engage and defeat Pals" }, { "role": "looter", "tasks": "Collect drops and watch for respawns" } ], "loot_rules": "Divide Leather evenly" }
+        "hardcore": {
+          "tactics": "Pull one Pal at a time and use ranged attacks to minimise damage",
+          "safety_buffer_items": [
+            {
+              "item_id": "leather",
+              "qty": 3
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "hunter",
+              "tasks": "Engage and defeat Pals"
+            },
+            {
+              "role": "looter",
+              "tasks": "Collect drops and watch for respawns"
+            }
+          ],
+          "loot_rules": "Divide Leather evenly"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "lifmunk" ], "consumables": [] },
-      "xp_award_estimate": { "min": 150, "max": 300 },
-      "outputs": { "items": [ { "item_id": "leather", "qty": 10 } ], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "player lacks leather >= required", "action": "repeat", "subroute_ref": "resource-leather-early" } ],
-      "citations": [ "shockbyte-leather-sources", "eikthyrdeer-drops" ]
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 150,
+        "max": 300
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "leather",
+            "qty": 10
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks leather >= required",
+          "action": "repeat",
+          "subroute_ref": "resource-leather-early"
+        }
+      ],
+      "citations": [
+        "shockbyte-leather-sources",
+        "eikthyrdeer-drops"
+      ]
     },
     {
       "step_id": "resource-leather-early:003",
       "type": "deliver",
       "summary": "Optionally buy Leather from merchants",
       "detail": "If hunting is too risky, purchase Leather from a Wandering Merchant for approximately 150 gold each【840767909995613†L78-L100】.",
-      "targets": [ { "kind": "item", "id": "leather", "qty": 1 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [50, 50], "time": "day", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "leather",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            50,
+            50
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 5, "max": 10 },
-      "outputs": { "items": [ { "item_id": "leather", "qty": 1 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 5,
+        "max": 10
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "leather",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "shockbyte-leather-merchant" ]
+      "citations": [
+        "shockbyte-leather-merchant"
+      ]
     }
   ],
-  "completion_criteria": [ { "type": "have-item", "item_id": "leather", "qty": 10 } ],
-  "yields": { "levels_estimate": "+0 to +1", "key_unlocks": [] },
-  "metrics": {
-    "xp_per_minute": { "solo": 14.0, "coop": 20.0 },
-    "travel_distance_m": 1200,
-    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 3 }, { "item_id": "gold", "qty": 150 } ]
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "leather",
+      "qty": 10
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": []
   },
-  "next_routes": [ { "route_id": "mount-foxparks-harness", "reason": "Provides Leather needed for Foxparks Harness" }, { "route_id": "mount-direhowl-harness", "reason": "Provides Leather for Direhowl Harness" }, { "route_id": "mount-eikthyrdeer-saddle", "reason": "Provides Leather for Eikthyrdeer Saddle" } ]
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "mount-foxparks-harness",
+      "reason": "Provides Leather needed for Foxparks Harness"
+    },
+    {
+      "route_id": "mount-direhowl-harness",
+      "reason": "Provides Leather for Direhowl Harness"
+    },
+    {
+      "route_id": "mount-eikthyrdeer-saddle",
+      "reason": "Provides Leather for Eikthyrdeer Saddle"
+    }
+  ]
 }
 ```
 
@@ -1173,22 +1963,61 @@ options to convert Ore into fragments when nodes are depleted.
   "route_id": "resource-paldium",
   "title": "Paldium Fragment Mining Loop",
   "category": "resources",
-  "tags": [ "resource-farm", "paldium", "early-game", "mining" ],
+  "tags": [
+    "resource-farm",
+    "paldium",
+    "early-game",
+    "mining"
+  ],
   "progression_role": "support",
-  "recommended_level": { "min": 3, "max": 12 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [ "starter-base-capture" ], "tech": [], "items": [], "pals": [] },
-  "objectives": [ "Visit clustered Paldium nodes", "Mine fragments efficiently", "Convert spare Ore into fragments if needed" ],
-  "estimated_time_minutes": { "solo": 12, "coop": 8 },
-  "estimated_xp_gain": { "min": 180, "max": 320 },
+  "recommended_level": {
+    "min": 3,
+    "max": 12
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Visit clustered Paldium nodes",
+    "Mine fragments efficiently",
+    "Convert spare Ore into fragments if needed"
+  ],
+  "estimated_time_minutes": {
+    "solo": 12,
+    "coop": 8
+  },
+  "estimated_xp_gain": {
+    "min": 180,
+    "max": 320
+  },
   "risk_profile": "low",
-  "failure_penalties": { "normal": "Minimal—only time spent", "hardcore": "Potential durability loss on tools" },
+  "failure_penalties": {
+    "normal": "Minimal—only time spent",
+    "hardcore": "Potential durability loss on tools"
+  },
   "adaptive_guidance": {
     "underleveled": "Equip a Stone Pickaxe and avoid Alpha spawns near the river; capture a Lifmunk to assist with mining.",
     "overleveled": "Route through the Desiccated Desert outcrops for higher-density nodes to refill faster.",
     "resource_shortages": [
-      { "item_id": "stone-pickaxe", "solution": "Craft a backup Stone Pickaxe at the Workbench before leaving base." },
-      { "item_id": "paldium-fragment", "solution": "Crush Ore at the Primitive Furnace for 2 fragments per ingot batch." }
+      {
+        "item_id": "stone-pickaxe",
+        "solution": "Craft a backup Stone Pickaxe at the Workbench before leaving base."
+      },
+      {
+        "item_id": "paldium-fragment",
+        "solution": "Crush Ore at the Primitive Furnace for 2 fragments per ingot batch."
+      }
     ],
     "time_limited": "Mine the waterfall circuit (step :001) once, then smelt spare Ore into fragments back at base.",
     "dynamic_rules": [
@@ -1197,32 +2026,77 @@ options to convert Ore into fragments when nodes are depleted.
         "condition": "available_time_minutes && available_time_minutes <= 10",
         "adjustment": "Run only step :001 and convert any Ore you already own via :003 on return to base for a quick 30+ fragment top-up.",
         "priority": 2,
-        "mode_scope": ["solo", "coop"],
-        "related_steps": ["resource-paldium:001", "resource-paldium:003"]
+        "mode_scope": [
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-paldium:001",
+          "resource-paldium:003"
+        ]
       },
       {
         "signal": "resource_gap:paldium_high",
         "condition": "resource_gaps contains paldium-fragment >= 60",
         "adjustment": "Chain steps :001 and :002 without travel breaks, then immediately queue Ore smelting in :003 to push past 60 fragments before leaving the valley.",
         "priority": 1,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["resource-paldium:001", "resource-paldium:002", "resource-paldium:003"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-paldium:001",
+          "resource-paldium:002",
+          "resource-paldium:003"
+        ]
       },
       {
         "signal": "mode:coop",
         "condition": "mode.coop === true",
         "adjustment": "Assign one player to ferry Ore back to the furnace after step :002 while the miner keeps nodes cycling, preventing respawn downtime.",
         "priority": 3,
-        "mode_scope": ["coop"],
-        "related_steps": ["resource-paldium:002", "resource-paldium:003"]
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-paldium:002",
+          "resource-paldium:003"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "resource-paldium:checkpoint-river", "summary": "River nodes cleared", "benefits": [ "50+ fragments gathered" ], "related_steps": [ "resource-paldium:001" ] },
-    { "id": "resource-paldium:checkpoint-furnace", "summary": "Fragments smelted", "benefits": [ "Ensures crafting stockpile" ], "related_steps": [ "resource-paldium:003" ] }
+    {
+      "id": "resource-paldium:checkpoint-river",
+      "summary": "River nodes cleared",
+      "benefits": [
+        "50+ fragments gathered"
+      ],
+      "related_steps": [
+        "resource-paldium:001"
+      ]
+    },
+    {
+      "id": "resource-paldium:checkpoint-furnace",
+      "summary": "Fragments smelted",
+      "benefits": [
+        "Ensures crafting stockpile"
+      ],
+      "related_steps": [
+        "resource-paldium:003"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "starter-base-capture" ], "optional": [ "resource-leather-early" ] },
+  "supporting_routes": {
+    "recommended": [
+      "starter-base-capture"
+    ],
+    "optional": [
+      "resource-leather-early"
+    ]
+  },
   "failure_recovery": {
     "normal": "If your tool breaks, fast travel home, craft a replacement and resume from the last checkpoint.",
     "hardcore": "Avoid fighting while encumbered; drop excess stone before sprinting back to safety."
@@ -1233,55 +2107,205 @@ options to convert Ore into fragments when nodes are depleted.
       "type": "gather",
       "summary": "Mine riverbed nodes",
       "detail": "Follow the river south of the Windswept Hills fast travel statue.  Blue crystalline nodes respawn every few minutes and yield 2–4 fragments each【palwiki-paldium†L42-L71】.",
-      "targets": [ { "kind": "item", "id": "paldium-fragment", "qty": 20 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ 80, -150 ], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "paldium-fragment",
+          "qty": 20
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            80,
+            -150
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Keep stamina above 50 % to dodge hostile Lamballs", "safety_buffer_items": [ { "item_id": "berry", "qty": 5 } ] },
-        "coop": { "role_splits": [ { "role": "miner", "tasks": "Break nodes" }, { "role": "hauler", "tasks": "Collect drops and scout" } ], "loot_rules": "Split fragments evenly" }
+        "hardcore": {
+          "tactics": "Keep stamina above 50 % to dodge hostile Lamballs",
+          "safety_buffer_items": [
+            {
+              "item_id": "berry",
+              "qty": 5
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "miner",
+              "tasks": "Break nodes"
+            },
+            {
+              "role": "hauler",
+              "tasks": "Collect drops and scout"
+            }
+          ],
+          "loot_rules": "Split fragments evenly"
+        }
       },
-      "recommended_loadout": { "gear": [ "stone-pickaxe" ], "pals": [ "lifmunk" ], "consumables": [] },
-      "xp_award_estimate": { "min": 60, "max": 100 },
-      "outputs": { "items": [ { "item_id": "paldium-fragment", "qty": 20 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "stone-pickaxe"
+        ],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 100
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "paldium-fragment",
+            "qty": 20
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "palwiki-paldium" ]
+      "citations": [
+        "palwiki-paldium"
+      ]
     },
     {
       "step_id": "resource-paldium:002",
       "type": "explore",
       "summary": "Hit cliffside outcrops",
       "detail": "Circle the cliff ring northwest of the starting valley.  Surface fragments protrude from the ground and can be kicked for bonus drops, netting ~30 fragments per lap【palwiki-paldium†L86-L115】.",
-      "targets": [ { "kind": "item", "id": "paldium-fragment", "qty": 30 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ -40, 120 ], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "paldium-fragment",
+          "qty": 30
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            -40,
+            120
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [ "stone-pickaxe" ], "pals": [ "foxparks" ], "consumables": [] },
-      "xp_award_estimate": { "min": 70, "max": 110 },
-      "outputs": { "items": [ { "item_id": "paldium-fragment", "qty": 30 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "stone-pickaxe"
+        ],
+        "pals": [
+          "foxparks"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 70,
+        "max": 110
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "paldium-fragment",
+            "qty": 30
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "palwiki-paldium" ]
+      "citations": [
+        "palwiki-paldium"
+      ]
     },
     {
       "step_id": "resource-paldium:003",
       "type": "craft",
       "summary": "Refine fragments from Ore",
       "detail": "Back at base, smelt spare Ore into Ingots, then crush the leftovers to convert into extra fragments.  Each smelting cycle produces 2 fragments as a by-product when using the Primitive Furnace【palwiki-paldium†L118-L140】.",
-      "targets": [ { "kind": "item", "id": "paldium-fragment", "qty": 10 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ 0, 0 ], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "paldium-fragment",
+          "qty": 10
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [ "lifmunk" ], "consumables": [] },
-      "xp_award_estimate": { "min": 50, "max": 70 },
-      "outputs": { "items": [ { "item_id": "paldium-fragment", "qty": 10 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 50,
+        "max": 70
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "paldium-fragment",
+            "qty": 10
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "palwiki-paldium" ]
+      "citations": [
+        "palwiki-paldium"
+      ]
     }
   ],
-  "completion_criteria": [ { "type": "have-item", "item_id": "paldium-fragment", "qty": 50 } ],
-  "yields": { "levels_estimate": "+0 to +1", "key_unlocks": [] },
-  "metrics": {
-    "xp_per_minute": { "solo": 15.0, "coop": 22.0 },
-    "travel_distance_m": 900,
-    "consumable_cost": [ { "item_id": "stone-pickaxe", "qty": 1 } ]
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "paldium-fragment",
+      "qty": 50
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": []
   },
-  "next_routes": [ { "route_id": "mount-foxparks-harness", "reason": "Paldium needed for harness crafting" }, { "route_id": "tech-grappling-gun", "reason": "Supplies fragments for the tech" } ]
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "mount-foxparks-harness",
+      "reason": "Paldium needed for harness crafting"
+    },
+    {
+      "route_id": "tech-grappling-gun",
+      "reason": "Supplies fragments for the tech"
+    }
+  ]
 }
 ```
 
@@ -1297,18 +2321,43 @@ merchant to your workforce.
   "route_id": "capture-base-merchant",
   "title": "Recruit Base Merchant",
   "category": "capture-index",
-  "tags": [ "human", "merchant", "base-support" ],
+  "tags": [
+    "human",
+    "merchant",
+    "base-support"
+  ],
   "progression_role": "support",
-  "recommended_level": { "min": 10, "max": 18 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [ "starter-base-capture" ], "tech": [], "items": [], "pals": [] },
+  "recommended_level": {
+    "min": 10,
+    "max": 18
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
   "objectives": [
     "Craft or buy high-grade Pal Spheres for human capture",
     "Travel to the Small Settlement and separate a merchant from guards",
     "Capture the merchant and assign them to your base"
   ],
-  "estimated_time_minutes": { "solo": 25, "coop": 18 },
-  "estimated_xp_gain": { "min": 350, "max": 600 },
+  "estimated_time_minutes": {
+    "solo": 25,
+    "coop": 18
+  },
+  "estimated_xp_gain": {
+    "min": 350,
+    "max": 600
+  },
   "risk_profile": "medium",
   "failure_penalties": {
     "normal": "Knockouts drop your pouch and may cost gold if PIDF guards finish the fight.",
@@ -1318,7 +2367,10 @@ merchant to your workforce.
     "underleveled": "If your weapons are below Iron tier, focus on trapping single merchants at night when patrols thin out before attempting the capture.",
     "overleveled": "Players above level 18 can skip step :001 if they already stock Mega Pal Spheres and move straight to isolating the merchant.",
     "resource_shortages": [
-      { "item_id": "paldium-fragment", "solution": "Trigger resource-paldium from step :001 to restock fragments for higher-grade spheres." }
+      {
+        "item_id": "paldium-fragment",
+        "solution": "Trigger resource-paldium from step :001 to restock fragments for higher-grade spheres."
+      }
     ],
     "time_limited": "Complete steps :001 and :002 only; mark the merchant’s position and return later with time to handle the capture.",
     "dynamic_rules": [
@@ -1327,8 +2379,12 @@ merchant to your workforce.
         "condition": "mode.coop === true",
         "adjustment": "Have one player kite PIDF guards away during step :003 while the other drops the merchant to low HP for an easy capture.",
         "priority": 2,
-        "mode_scope": [ "coop" ],
-        "related_steps": [ "capture-base-merchant:003" ],
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "capture-base-merchant:003"
+        ],
         "follow_up_routes": []
       },
       {
@@ -1336,17 +2392,49 @@ merchant to your workforce.
         "condition": "resource_gaps contains pal-sphere >= 5",
         "adjustment": "Loop resource-paldium immediately after step :001 to craft additional high-grade spheres before confronting the merchant.",
         "priority": 1,
-        "mode_scope": [ "normal", "hardcore", "solo", "coop" ],
-        "related_steps": [ "capture-base-merchant:001" ],
-        "follow_up_routes": [ "resource-paldium" ]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "capture-base-merchant:001"
+        ],
+        "follow_up_routes": [
+          "resource-paldium"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "capture-base-merchant:checkpoint-scout", "summary": "Merchant location scouted", "benefits": [ "Safe pull path identified" ], "related_steps": [ "capture-base-merchant:002" ] },
-    { "id": "capture-base-merchant:checkpoint-captured", "summary": "Merchant captured", "benefits": [ "Permanent base vendor unlocked" ], "related_steps": [ "capture-base-merchant:003" ] }
+    {
+      "id": "capture-base-merchant:checkpoint-scout",
+      "summary": "Merchant location scouted",
+      "benefits": [
+        "Safe pull path identified"
+      ],
+      "related_steps": [
+        "capture-base-merchant:002"
+      ]
+    },
+    {
+      "id": "capture-base-merchant:checkpoint-captured",
+      "summary": "Merchant captured",
+      "benefits": [
+        "Permanent base vendor unlocked"
+      ],
+      "related_steps": [
+        "capture-base-merchant:003"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "resource-paldium" ], "optional": [] },
+  "supporting_routes": {
+    "recommended": [
+      "resource-paldium"
+    ],
+    "optional": []
+  },
   "failure_recovery": {
     "normal": "If guards overwhelm you, fast travel back after respawning, recover your pouch and repeat from the scouting checkpoint.",
     "hardcore": "Disengage using terrain when patrols converge; if capture attempts fail twice, retreat to avoid fatal guard focus fire."
@@ -1357,17 +2445,82 @@ merchant to your workforce.
       "type": "prepare",
       "summary": "Craft high-grade Pal Spheres",
       "detail": "Use your best Pal Sphere recipe (Great or better) and craft at least six before leaving base. Human catch rates are far lower than standard Pals, so higher-grade spheres dramatically improve success odds【529f5c†L67-L80】.",
-      "targets": [ { "kind": "item", "id": "pal-sphere", "qty": 6 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ 0, 0 ], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "pal-sphere",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Craft a spare stack to avoid mid-raid shortages; you cannot risk repeat crimes.", "safety_buffer_items": [ { "item_id": "pal-sphere", "qty": 3 } ] },
-        "coop": { "role_splits": [ { "role": "crafter", "tasks": "Queues high-grade spheres" }, { "role": "supplier", "tasks": "Feeds fragments and ingots" } ], "loot_rules": "Split sphere stacks evenly" }
+        "hardcore": {
+          "tactics": "Craft a spare stack to avoid mid-raid shortages; you cannot risk repeat crimes.",
+          "safety_buffer_items": [
+            {
+              "item_id": "pal-sphere",
+              "qty": 3
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "crafter",
+              "tasks": "Queues high-grade spheres"
+            },
+            {
+              "role": "supplier",
+              "tasks": "Feeds fragments and ingots"
+            }
+          ],
+          "loot_rules": "Split sphere stacks evenly"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [ { "item_id": "pal-sphere", "qty": 6 } ] },
-      "xp_award_estimate": { "min": 80, "max": 120 },
-      "outputs": { "items": [ { "item_id": "pal-sphere", "qty": 6 } ], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "player lacks pal-sphere >= 6", "action": "include_subroute", "subroute_ref": "resource-paldium" } ],
-      "citations": [ "palwiki-humans" ]
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 6
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 120
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 6
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks pal-sphere >= 6",
+          "action": "include_subroute",
+          "subroute_ref": "resource-paldium"
+        }
+      ],
+      "citations": [
+        "palwiki-humans"
+      ]
     },
     {
       "step_id": "capture-base-merchant:002",
@@ -1375,16 +2528,57 @@ merchant to your workforce.
       "summary": "Scout the Small Settlement",
       "detail": "Ride or glide to the Small Settlement at approximately (75, -479). The village hosts both a Pal Merchant and a Wandering Merchant—confirm patrol routes and identify clear back alleys for the capture attempt【165dd8†L71-L90】.",
       "targets": [],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ 75, -479 ], "time": "day", "weather": "any" } ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Enter from the cliffside to avoid triggering wanted status while scouting." },
-        "coop": { "role_splits": [ { "role": "spotter", "tasks": "Marks guard paths" }, { "role": "controller", "tasks": "Prepares trap location" } ], "loot_rules": "Share any merchant stock equally" }
+        "hardcore": {
+          "tactics": "Enter from the cliffside to avoid triggering wanted status while scouting."
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "spotter",
+              "tasks": "Marks guard paths"
+            },
+            {
+              "role": "controller",
+              "tasks": "Prepares trap location"
+            }
+          ],
+          "loot_rules": "Share any merchant stock equally"
+        }
       },
-      "recommended_loadout": { "gear": [ "glider" ], "pals": [ "foxparks" ], "consumables": [] },
-      "xp_award_estimate": { "min": 40, "max": 70 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "glider"
+        ],
+        "pals": [
+          "foxparks"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 70
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "palwiki-small-settlement" ]
+      "citations": [
+        "palwiki-small-settlement"
+      ]
     },
     {
       "step_id": "capture-base-merchant:003",
@@ -1392,16 +2586,62 @@ merchant to your workforce.
       "summary": "Weaken and capture the merchant",
       "detail": "Aggro the merchant away from guards, chip them to low HP, then throw your high-grade Pal Spheres until the catch lands. All non-leader humans can be captured once weakened, but expect multiple throws because their catch rate is significantly lower than normal Pals【529f5c†L67-L90】.",
       "targets": [],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ 75, -479 ], "time": "night", "weather": "any" } ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "night",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Use stun grenades or partner skills to avoid lethal retaliation—you cannot afford PIDF executions." },
-        "coop": { "role_splits": [ { "role": "tank", "tasks": "Holds aggro" }, { "role": "snare", "tasks": "Applies slow and throws spheres" } ], "loot_rules": "Whoever spends the most spheres gets priority on merchant placement" }
+        "hardcore": {
+          "tactics": "Use stun grenades or partner skills to avoid lethal retaliation—you cannot afford PIDF executions."
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "tank",
+              "tasks": "Holds aggro"
+            },
+            {
+              "role": "snare",
+              "tasks": "Applies slow and throws spheres"
+            }
+          ],
+          "loot_rules": "Whoever spends the most spheres gets priority on merchant placement"
+        }
       },
-      "recommended_loadout": { "gear": [ "pal-sphere" ], "pals": [ "direhowl" ], "consumables": [ { "item_id": "pal-sphere", "qty": 6 } ] },
-      "xp_award_estimate": { "min": 180, "max": 280 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "pal-sphere"
+        ],
+        "pals": [
+          "direhowl"
+        ],
+        "consumables": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 6
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 180,
+        "max": 280
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "palwiki-humans" ]
+      "citations": [
+        "palwiki-humans"
+      ]
     },
     {
       "step_id": "capture-base-merchant:004",
@@ -1409,21 +2649,54 @@ merchant to your workforce.
       "summary": "Assign the merchant to your base",
       "detail": "Place the captured merchant in your base party. Humans have only rank 1 work suitability and cannot run farms or wield their weapons, but merchants stationed at your base permanently open their shop so you can buy and sell without hunting for a wandering spawn【94455f†L13-L18】【529f5c†L76-L90】.",
       "targets": [],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ 0, 0 ], "time": "any", "weather": "any" } ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 50, "max": 80 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 50,
+        "max": 80
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "palwiki-humans" ]
+      "citations": [
+        "palwiki-humans"
+      ]
     }
   ],
-  "completion_criteria": [ { "type": "have-base-npc", "npc_id": "pal-merchant" } ],
-  "yields": { "levels_estimate": "+0 to +1", "key_unlocks": [ "base-merchant-vendor" ] },
+  "completion_criteria": [
+    {
+      "type": "have-base-npc",
+      "npc_id": "pal-merchant"
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "base-merchant-vendor"
+    ]
+  },
   "metrics": {
-    "xp_per_minute": { "solo": 16.0, "coop": 22.0 },
-    "travel_distance_m": 1500,
-    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 6 } ]
+    "progress_segments": 4,
+    "boss_targets": 0,
+    "quest_nodes": 0
   },
   "next_routes": []
 }
@@ -1442,22 +2715,66 @@ player lacks materials.
   "route_id": "mount-foxparks-harness",
   "title": "Craft Foxparks Harness",
   "category": "mounts",
-  "tags": [ "pal-gear", "fire-support", "early-game", "combat" ],
+  "tags": [
+    "pal-gear",
+    "fire-support",
+    "early-game",
+    "combat"
+  ],
   "progression_role": "optional",
-  "recommended_level": { "min": 6, "max": 8 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [ "starter-base-capture" ], "tech": [ "tech-pal-gear-workbench" ], "items": [], "pals": [ "foxparks" ] },
-  "objectives": [ "Unlock Foxparks Harness tech", "Gather Leather, Flame Organs and Paldium Fragments", "Craft the harness", "Equip and use Foxparks as a flamethrower" ],
-  "estimated_time_minutes": { "solo": 20, "coop": 15 },
-  "estimated_xp_gain": { "min": 400, "max": 600 },
+  "recommended_level": {
+    "min": 6,
+    "max": 8
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [
+      "tech-pal-gear-workbench"
+    ],
+    "items": [],
+    "pals": [
+      "foxparks"
+    ]
+  },
+  "objectives": [
+    "Unlock Foxparks Harness tech",
+    "Gather Leather, Flame Organs and Paldium Fragments",
+    "Craft the harness",
+    "Equip and use Foxparks as a flamethrower"
+  ],
+  "estimated_time_minutes": {
+    "solo": 20,
+    "coop": 15
+  },
+  "estimated_xp_gain": {
+    "min": 400,
+    "max": 600
+  },
   "risk_profile": "medium",
-  "failure_penalties": { "normal": "Loss of materials", "hardcore": "Death results in loss of Pals and materials" },
+  "failure_penalties": {
+    "normal": "Loss of materials",
+    "hardcore": "Death results in loss of Pals and materials"
+  },
   "adaptive_guidance": {
     "underleveled": "Focus on capturing Foxparks at night when their patrol radius shrinks, then delay crafting until level 7 for better survivability.",
     "overleveled": "Skip step :001 if your Pal roster already includes Foxparks and jump straight to unlocking and crafting.",
     "resource_shortages": [
-      { "item_id": "leather", "solution": "Invoke resource-leather-early via step :003’s branching." },
-      { "item_id": "flame-organ", "solution": "Farm Rushoar in the Sea Breeze Archipelago while Foxparks respawn." }
+      {
+        "item_id": "leather",
+        "solution": "Invoke resource-leather-early via step :003’s branching."
+      },
+      {
+        "item_id": "flame-organ",
+        "solution": "Farm Rushoar in the Sea Breeze Archipelago while Foxparks respawn."
+      }
     ],
     "time_limited": "Perform steps :002 through :004 only; purchase missing Leather to finish within ten minutes.",
     "dynamic_rules": [
@@ -1466,33 +2783,79 @@ player lacks materials.
         "condition": "resource_gaps contains flame-organ >= 5",
         "adjustment": "Loop Rushoar packs near the Sea Breeze bridge between attempts in step :003 until the flame-organ shortage clears.",
         "priority": 1,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["mount-foxparks-harness:003"],
-        "follow_up_routes": ["resource-leather-early"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "mount-foxparks-harness:003"
+        ],
+        "follow_up_routes": [
+          "resource-leather-early"
+        ]
       },
       {
         "signal": "time_budget_short",
         "condition": "available_time_minutes && available_time_minutes < 15",
         "adjustment": "Skip capturing in :001, buy the remaining Leather via the merchant tip, and craft immediately after step :002.",
         "priority": 3,
-        "mode_scope": ["solo", "coop"],
-        "related_steps": ["mount-foxparks-harness:002", "mount-foxparks-harness:004"]
+        "mode_scope": [
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "mount-foxparks-harness:002",
+          "mount-foxparks-harness:004"
+        ]
       },
       {
         "signal": "mode:coop",
         "condition": "mode.coop === true",
         "adjustment": "Assign one player to gather Flame Organs while another mines Paldium in :003 to finish the material checklist in a single loop.",
         "priority": 2,
-        "mode_scope": ["coop"],
-        "related_steps": ["mount-foxparks-harness:003"]
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "mount-foxparks-harness:003"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "mount-foxparks-harness:checkpoint-capture", "summary": "Foxparks secured", "benefits": [ "Unlocks partner flamethrower", "Qualifies for harness tech" ], "related_steps": [ "mount-foxparks-harness:001" ] },
-    { "id": "mount-foxparks-harness:checkpoint-crafted", "summary": "Harness crafted", "benefits": [ "Fire damage tool ready", "Improves furnace automation" ], "related_steps": [ "mount-foxparks-harness:004" ] }
+    {
+      "id": "mount-foxparks-harness:checkpoint-capture",
+      "summary": "Foxparks secured",
+      "benefits": [
+        "Unlocks partner flamethrower",
+        "Qualifies for harness tech"
+      ],
+      "related_steps": [
+        "mount-foxparks-harness:001"
+      ]
+    },
+    {
+      "id": "mount-foxparks-harness:checkpoint-crafted",
+      "summary": "Harness crafted",
+      "benefits": [
+        "Fire damage tool ready",
+        "Improves furnace automation"
+      ],
+      "related_steps": [
+        "mount-foxparks-harness:004"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "resource-leather-early" ], "optional": [ "resource-paldium" ] },
+  "supporting_routes": {
+    "recommended": [
+      "resource-leather-early"
+    ],
+    "optional": [
+      "resource-paldium"
+    ]
+  },
   "failure_recovery": {
     "normal": "If Foxparks faints, rest at your base to heal it rather than recapturing; materials remain in inventory.",
     "hardcore": "Avoid simultaneous aggro from Rushoars and Foxparks; disengage using terrain if HP falls below 40%."
@@ -1503,86 +2866,340 @@ player lacks materials.
       "type": "capture",
       "summary": "Ensure you have a Foxparks",
       "detail": "If you haven’t already captured a Foxparks, travel to its spawn points around coordinates (189, -478) or (144, -583) in the Windswept Hills【956200907149478†L146-L169】.  Use Water Pals to weaken it, then capture it with a Pal Sphere.",
-      "targets": [ { "kind": "pal", "id": "foxparks", "qty": 1 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [189, -478], "time": "any", "weather": "any" }, { "region_id": "windswept-hills", "coords": [144, -583], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "foxparks",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            189,
+            -478
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            144,
+            -583
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Capture from behind to avoid being burned and always carry a water Pal", "safety_buffer_items": [ { "item_id": "pal-sphere", "qty": 2 } ] },
-        "coop": { "role_splits": [ { "role": "bait", "tasks": "Aggro Foxparks" }, { "role": "catcher", "tasks": "Throw Pal Spheres" } ], "loot_rules": "Whoever catches it keeps it" }
+        "hardcore": {
+          "tactics": "Capture from behind to avoid being burned and always carry a water Pal",
+          "safety_buffer_items": [
+            {
+              "item_id": "pal-sphere",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "bait",
+              "tasks": "Aggro Foxparks"
+            },
+            {
+              "role": "catcher",
+              "tasks": "Throw Pal Spheres"
+            }
+          ],
+          "loot_rules": "Whoever catches it keeps it"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "lifmunk" ], "consumables": [ { "item_id": "pal-sphere", "qty": 3 } ] },
-      "xp_award_estimate": { "min": 60, "max": 100 },
-      "outputs": { "items": [], "pals": [ "foxparks" ], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 3
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 100
+      },
+      "outputs": {
+        "items": [],
+        "pals": [
+          "foxparks"
+        ],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "thegamer-foxparks-spawn" ]
+      "citations": [
+        "thegamer-foxparks-spawn"
+      ]
     },
     {
       "step_id": "mount-foxparks-harness:002",
       "type": "unlock-tech",
-      "summary": "Unlock the Foxparks Harness",        
+      "summary": "Unlock the Foxparks Harness",
       "detail": "Open the Technology menu at level 6 and spend 1 tech point to unlock the Foxparks Harness【353245298505537†L150-L180】.  This requires that you have already built a Pal Gear Workbench.",
-      "targets": [ { "kind": "tech", "id": "tech-foxparks-harness" } ],
+      "targets": [
+        {
+          "kind": "tech",
+          "id": "tech-foxparks-harness"
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 10, "max": 20 },
-      "outputs": { "items": [], "pals": [], "unlocks": { "tech": [ "tech-foxparks-harness" ] } },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 10,
+        "max": 20
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "tech": [
+            "tech-foxparks-harness"
+          ]
+        }
+      },
       "branching": [],
-      "citations": [ "gameclubz-foxparks-harness" ]
+      "citations": [
+        "gameclubz-foxparks-harness"
+      ]
     },
     {
       "step_id": "mount-foxparks-harness:003",
       "type": "gather",
       "summary": "Collect materials",
       "detail": "Gather 3 Leather, 5 Flame Organs and 5 Paldium Fragments.  Hunt Foxparks and Rushoars for Leather and Flame Organs, or branch to the leather farm route if you lack Leather.  Mine blue ore nodes for Paldium Fragments.",
-      "targets": [ { "kind": "item", "id": "leather", "qty": 3 }, { "kind": "item", "id": "flame-organ", "qty": 5 }, { "kind": "item", "id": "paldium-fragment", "qty": 5 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [189, -478], "time": "any", "weather": "any" }, { "region_id": "sea-breeze-archipelago", "coords": [-650, -650], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "leather",
+          "qty": 3
+        },
+        {
+          "kind": "item",
+          "id": "flame-organ",
+          "qty": 5
+        },
+        {
+          "kind": "item",
+          "id": "paldium-fragment",
+          "qty": 5
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            189,
+            -478
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "sea-breeze-archipelago",
+          "coords": [
+            -650,
+            -650
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Farm extra Leather (5 instead of 3) to allow for gear repairs", "safety_buffer_items": [ { "item_id": "leather", "qty": 2 } ] },
-        "coop": { "role_splits": [ { "role": "farmer", "tasks": "Hunt Foxparks and collect Flame Organs" }, { "role": "miner", "tasks": "Mine Paldium nodes" } ], "loot_rules": "Pool resources then split evenly" }
+        "hardcore": {
+          "tactics": "Farm extra Leather (5 instead of 3) to allow for gear repairs",
+          "safety_buffer_items": [
+            {
+              "item_id": "leather",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "farmer",
+              "tasks": "Hunt Foxparks and collect Flame Organs"
+            },
+            {
+              "role": "miner",
+              "tasks": "Mine Paldium nodes"
+            }
+          ],
+          "loot_rules": "Pool resources then split evenly"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "lifmunk" ], "consumables": [] },
-      "xp_award_estimate": { "min": 100, "max": 200 },
-      "outputs": { "items": [ { "item_id": "leather", "qty": 3 }, { "item_id": "flame-organ", "qty": 5 }, { "item_id": "paldium-fragment", "qty": 5 } ], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "player lacks leather >= 3", "action": "include_subroute", "subroute_ref": "resource-leather-early" } ],
-      "citations": [ "gameclubz-foxparks-harness", "shockbyte-leather-sources" ]
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 100,
+        "max": 200
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "leather",
+            "qty": 3
+          },
+          {
+            "item_id": "flame-organ",
+            "qty": 5
+          },
+          {
+            "item_id": "paldium-fragment",
+            "qty": 5
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks leather >= 3",
+          "action": "include_subroute",
+          "subroute_ref": "resource-leather-early"
+        }
+      ],
+      "citations": [
+        "gameclubz-foxparks-harness",
+        "shockbyte-leather-sources"
+      ]
     },
     {
       "step_id": "mount-foxparks-harness:004",
       "type": "craft",
       "summary": "Craft the harness",
       "detail": "At your Pal Gear Workbench, craft the Foxparks Harness using the collected materials【353245298505537†L150-L180】.  The process takes about one minute.",
-      "targets": [ { "kind": "item", "id": "foxparks-harness", "qty": 1 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [0, 0], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "foxparks-harness",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 50, "max": 80 },
-      "outputs": { "items": [ { "item_id": "foxparks-harness", "qty": 1 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 50,
+        "max": 80
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "foxparks-harness",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "gameclubz-foxparks-harness" ]
+      "citations": [
+        "gameclubz-foxparks-harness"
+      ]
     },
     {
       "step_id": "mount-foxparks-harness:005",
       "type": "explore",
       "summary": "Equip the harness and use Foxparks",
       "detail": "Equip the harness on Foxparks via the Pal menu.  Summon Foxparks, then hold the attack button to spray fire like a flamethrower【513843636763139†L117-L170】.  This tool is excellent for clearing early dungeons and lighting furnaces.",
-      "targets": [ { "kind": "item", "id": "foxparks-harness", "qty": 1 } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "foxparks-harness",
+          "qty": 1
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [ "foxparks-harness" ], "pals": [ "foxparks" ], "consumables": [] },
-      "xp_award_estimate": { "min": 30, "max": 50 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "foxparks-harness"
+        ],
+        "pals": [
+          "foxparks"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 30,
+        "max": 50
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "paldb-foxparks-partner" ]
+      "citations": [
+        "paldb-foxparks-partner"
+      ]
     }
   ],
-  "completion_criteria": [ { "type": "have-item", "item_id": "foxparks-harness", "qty": 1 } ],
-  "yields": { "levels_estimate": "+1", "key_unlocks": [] },
-  "metrics": {
-    "xp_per_minute": { "solo": 18.0, "coop": 24.0 },
-    "travel_distance_m": 900,
-    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 3 }, { "item_id": "flame-organ", "qty": 5 }, { "item_id": "paldium-fragment", "qty": 5 } ]
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "foxparks-harness",
+      "qty": 1
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1",
+    "key_unlocks": []
   },
-  "next_routes": [ { "route_id": "mount-eikthyrdeer-saddle", "reason": "Progress to a ridable mount after unlocking saddle tech" }, { "route_id": "mount-direhowl-harness", "reason": "Alternative ground mount path" } ]
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "mount-eikthyrdeer-saddle",
+      "reason": "Progress to a ridable mount after unlocking saddle tech"
+    },
+    {
+      "route_id": "mount-direhowl-harness",
+      "reason": "Alternative ground mount path"
+    }
+  ]
 }
 ```
 
@@ -1596,22 +3213,67 @@ provides a speed boost, double jump and improved logging【142053078936299†L12
   "route_id": "mount-eikthyrdeer-saddle",
   "title": "Craft Eikthyrdeer Saddle",
   "category": "mounts",
-  "tags": [ "mount", "mobility", "mid-game", "logging" ],
+  "tags": [
+    "mount",
+    "mobility",
+    "mid-game",
+    "logging"
+  ],
   "progression_role": "core",
-  "recommended_level": { "min": 12, "max": 15 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [ "starter-base-capture" ], "tech": [ "tech-pal-gear-workbench" ], "items": [], "pals": [ "eikthyrdeer" ] },
-  "objectives": [ "Capture an Eikthyrdeer", "Unlock the Eikthyrdeer Saddle tech", "Gather Leather, Fiber, Ingots, Horns and Paldium", "Craft the saddle", "Ride the mount" ],
-  "estimated_time_minutes": { "solo": 40, "coop": 30 },
-  "estimated_xp_gain": { "min": 800, "max": 1200 },
+  "recommended_level": {
+    "min": 12,
+    "max": 15
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [
+      "tech-pal-gear-workbench"
+    ],
+    "items": [],
+    "pals": [
+      "eikthyrdeer"
+    ]
+  },
+  "objectives": [
+    "Capture an Eikthyrdeer",
+    "Unlock the Eikthyrdeer Saddle tech",
+    "Gather Leather, Fiber, Ingots, Horns and Paldium",
+    "Craft the saddle",
+    "Ride the mount"
+  ],
+  "estimated_time_minutes": {
+    "solo": 40,
+    "coop": 30
+  },
+  "estimated_xp_gain": {
+    "min": 800,
+    "max": 1200
+  },
   "risk_profile": "medium",
-  "failure_penalties": { "normal": "Loss of materials", "hardcore": "Death may delete your character and Pals" },
+  "failure_penalties": {
+    "normal": "Loss of materials",
+    "hardcore": "Death may delete your character and Pals"
+  },
   "adaptive_guidance": {
     "underleveled": "Farm Leather and Fiber before attempting the capture; Eikthyrdeer hits hard at level 10 and below.",
     "overleveled": "Skip step :001 if you already captured multiple Eikthyrdeer and proceed to crafting for a quick unlock.",
     "resource_shortages": [
-      { "item_id": "ingot", "solution": "Smelt Ore at a Primitive Furnace before starting step :003." },
-      { "item_id": "horn", "solution": "Hunt extra Eikthyrdeer or trade with co-op partners who have surplus." }
+      {
+        "item_id": "ingot",
+        "solution": "Smelt Ore at a Primitive Furnace before starting step :003."
+      },
+      {
+        "item_id": "horn",
+        "solution": "Hunt extra Eikthyrdeer or trade with co-op partners who have surplus."
+      }
     ],
     "time_limited": "Complete steps :002 through :004 now and return for the capture later; the saddle can be pre-crafted once resources are stockpiled.",
     "dynamic_rules": [
@@ -1620,33 +3282,82 @@ provides a speed boost, double jump and improved logging【142053078936299†L12
         "condition": "resource_gaps contains ingot >= 10",
         "adjustment": "Insert a furnace run before step :003—queue 5 ore batches to cover the ingot deficit while other materials are gathered.",
         "priority": 1,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["mount-eikthyrdeer-saddle:003"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "mount-eikthyrdeer-saddle:003"
+        ]
       },
       {
         "signal": "level_gap:under",
         "condition": "player.estimated_level < recommended_level.min",
         "adjustment": "Delay the capture in :001 and loop resource-leather-early plus tower-free XP farms until level 12.",
         "priority": 2,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["mount-eikthyrdeer-saddle:001"],
-        "follow_up_routes": ["resource-leather-early", "resource-paldium"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "mount-eikthyrdeer-saddle:001"
+        ],
+        "follow_up_routes": [
+          "resource-leather-early",
+          "resource-paldium"
+        ]
       },
       {
         "signal": "mode:coop",
         "condition": "mode.coop === true",
         "adjustment": "Assign the highest damage player to secure the capture in :001 while teammates pre-farm Fiber and Paldium for :003, reducing downtime.",
         "priority": 3,
-        "mode_scope": ["coop"],
-        "related_steps": ["mount-eikthyrdeer-saddle:001", "mount-eikthyrdeer-saddle:003"]
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "mount-eikthyrdeer-saddle:001",
+          "mount-eikthyrdeer-saddle:003"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "mount-eikthyrdeer-saddle:checkpoint-capture", "summary": "Eikthyrdeer captured", "benefits": [ "Unlocks Guardian of the Forest partner skill" ], "related_steps": [ "mount-eikthyrdeer-saddle:001" ] },
-    { "id": "mount-eikthyrdeer-saddle:checkpoint-craft", "summary": "Saddle assembled", "benefits": [ "Enables riding", "Improves logging throughput" ], "related_steps": [ "mount-eikthyrdeer-saddle:004" ] }
+    {
+      "id": "mount-eikthyrdeer-saddle:checkpoint-capture",
+      "summary": "Eikthyrdeer captured",
+      "benefits": [
+        "Unlocks Guardian of the Forest partner skill"
+      ],
+      "related_steps": [
+        "mount-eikthyrdeer-saddle:001"
+      ]
+    },
+    {
+      "id": "mount-eikthyrdeer-saddle:checkpoint-craft",
+      "summary": "Saddle assembled",
+      "benefits": [
+        "Enables riding",
+        "Improves logging throughput"
+      ],
+      "related_steps": [
+        "mount-eikthyrdeer-saddle:004"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "resource-leather-early", "resource-paldium" ], "optional": [ "mount-foxparks-harness" ] },
+  "supporting_routes": {
+    "recommended": [
+      "resource-leather-early",
+      "resource-paldium"
+    ],
+    "optional": [
+      "mount-foxparks-harness"
+    ]
+  },
   "failure_recovery": {
     "normal": "If you fall during the capture, fast travel back and kite the Pal away from tower patrols before retrying.",
     "hardcore": "Use terrain elevation to break line-of-sight; disengage immediately if tower guards join the fight."
@@ -1657,86 +3368,356 @@ provides a speed boost, double jump and improved logging【142053078936299†L12
       "type": "capture",
       "summary": "Catch an Eikthyrdeer",
       "detail": "Travel northwest of the starting area near the Rayne Syndicate Tower and locate an Eikthyrdeer【963225160620124†L140-L167】.  Use Water or Fire Pals depending on the variant and capture it.",
-      "targets": [ { "kind": "pal", "id": "eikthyrdeer", "qty": 1 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [300, 100], "time": "day", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "eikthyrdeer",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            300,
+            100
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Approach slowly and aim for a back attack; avoid the Tower’s aggro range", "safety_buffer_items": [ { "item_id": "pal-sphere", "qty": 2 } ] },
-        "coop": { "role_splits": [ { "role": "tank", "tasks": "Hold aggro" }, { "role": "catcher", "tasks": "Throw spheres" } ], "loot_rules": "First catch wins" }
+        "hardcore": {
+          "tactics": "Approach slowly and aim for a back attack; avoid the Tower’s aggro range",
+          "safety_buffer_items": [
+            {
+              "item_id": "pal-sphere",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "tank",
+              "tasks": "Hold aggro"
+            },
+            {
+              "role": "catcher",
+              "tasks": "Throw spheres"
+            }
+          ],
+          "loot_rules": "First catch wins"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "foxparks" ], "consumables": [ { "item_id": "pal-sphere", "qty": 5 } ] },
-      "xp_award_estimate": { "min": 100, "max": 150 },
-      "outputs": { "items": [], "pals": [ "eikthyrdeer" ], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "foxparks"
+        ],
+        "consumables": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 5
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 100,
+        "max": 150
+      },
+      "outputs": {
+        "items": [],
+        "pals": [
+          "eikthyrdeer"
+        ],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "gameclubz-eikthyrdeer-saddle" ]
+      "citations": [
+        "gameclubz-eikthyrdeer-saddle"
+      ]
     },
     {
       "step_id": "mount-eikthyrdeer-saddle:002",
       "type": "unlock-tech",
       "summary": "Unlock the saddle tech",
       "detail": "At level 12, spend 2 tech points to unlock the Eikthyrdeer Saddle【963225160620124†L160-L167】.",
-      "targets": [ { "kind": "tech", "id": "tech-eikthyrdeer-saddle" } ],
+      "targets": [
+        {
+          "kind": "tech",
+          "id": "tech-eikthyrdeer-saddle"
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 10, "max": 20 },
-      "outputs": { "items": [], "pals": [], "unlocks": { "tech": [ "tech-eikthyrdeer-saddle" ] } },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 10,
+        "max": 20
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "tech": [
+            "tech-eikthyrdeer-saddle"
+          ]
+        }
+      },
       "branching": [],
-      "citations": [ "gameclubz-eikthyrdeer-saddle" ]
+      "citations": [
+        "gameclubz-eikthyrdeer-saddle"
+      ]
     },
     {
       "step_id": "mount-eikthyrdeer-saddle:003",
       "type": "gather",
       "summary": "Collect materials",
       "detail": "Gather 5 Leather, 20 Fiber, 10 Ingots, 3 Horns and 15 Paldium Fragments【963225160620124†L160-L167】.  Leather can be farmed using the leather subroute.  Fiber is harvested from bushes; Ingots require smelting ore.  Horns drop from Eikthyrdeer; if you only have one, defeat additional Eikthyrdeers.  Paldium comes from ore nodes.",
-      "targets": [ { "kind": "item", "id": "leather", "qty": 5 }, { "kind": "item", "id": "fiber", "qty": 20 }, { "kind": "item", "id": "ingot", "qty": 10 }, { "kind": "item", "id": "horn", "qty": 3 }, { "kind": "item", "id": "paldium-fragment", "qty": 15 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [189, -478], "time": "any", "weather": "any" }, { "region_id": "bamboo-groves", "coords": [300, 300], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "leather",
+          "qty": 5
+        },
+        {
+          "kind": "item",
+          "id": "fiber",
+          "qty": 20
+        },
+        {
+          "kind": "item",
+          "id": "ingot",
+          "qty": 10
+        },
+        {
+          "kind": "item",
+          "id": "horn",
+          "qty": 3
+        },
+        {
+          "kind": "item",
+          "id": "paldium-fragment",
+          "qty": 15
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            189,
+            -478
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "bamboo-groves",
+          "coords": [
+            300,
+            300
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Gather a 20 % buffer (6 Leather, 24 Fiber) to account for mistakes", "safety_buffer_items": [ { "item_id": "leather", "qty": 1 } ] },
-        "coop": { "role_splits": [ { "role": "hunter", "tasks": "Farm Leather and Horns" }, { "role": "miner", "tasks": "Mine ore and smelt Ingots" }, { "role": "gatherer", "tasks": "Collect Fiber and Paldium" } ], "loot_rules": "Pool resources and split after crafting" }
+        "hardcore": {
+          "tactics": "Gather a 20 % buffer (6 Leather, 24 Fiber) to account for mistakes",
+          "safety_buffer_items": [
+            {
+              "item_id": "leather",
+              "qty": 1
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "hunter",
+              "tasks": "Farm Leather and Horns"
+            },
+            {
+              "role": "miner",
+              "tasks": "Mine ore and smelt Ingots"
+            },
+            {
+              "role": "gatherer",
+              "tasks": "Collect Fiber and Paldium"
+            }
+          ],
+          "loot_rules": "Pool resources and split after crafting"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "lifmunk" ], "consumables": [] },
-      "xp_award_estimate": { "min": 300, "max": 500 },
-      "outputs": { "items": [ { "item_id": "leather", "qty": 5 }, { "item_id": "fiber", "qty": 20 }, { "item_id": "ingot", "qty": 10 }, { "item_id": "horn", "qty": 3 }, { "item_id": "paldium-fragment", "qty": 15 } ], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "player lacks leather >= 5", "action": "include_subroute", "subroute_ref": "resource-leather-early" } ],
-      "citations": [ "gameclubz-eikthyrdeer-saddle", "eikthyrdeer-drops" ]
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 300,
+        "max": 500
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "leather",
+            "qty": 5
+          },
+          {
+            "item_id": "fiber",
+            "qty": 20
+          },
+          {
+            "item_id": "ingot",
+            "qty": 10
+          },
+          {
+            "item_id": "horn",
+            "qty": 3
+          },
+          {
+            "item_id": "paldium-fragment",
+            "qty": 15
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks leather >= 5",
+          "action": "include_subroute",
+          "subroute_ref": "resource-leather-early"
+        }
+      ],
+      "citations": [
+        "gameclubz-eikthyrdeer-saddle",
+        "eikthyrdeer-drops"
+      ]
     },
     {
       "step_id": "mount-eikthyrdeer-saddle:004",
       "type": "craft",
       "summary": "Craft the saddle",
       "detail": "Use the Pal Gear Workbench to craft the Eikthyrdeer Saddle【963225160620124†L160-L167】.  The process takes around 90 seconds.",
-      "targets": [ { "kind": "item", "id": "eikthyrdeer-saddle", "qty": 1 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [0, 0], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "eikthyrdeer-saddle",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 100, "max": 150 },
-      "outputs": { "items": [ { "item_id": "eikthyrdeer-saddle", "qty": 1 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 100,
+        "max": 150
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "eikthyrdeer-saddle",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "gameclubz-eikthyrdeer-saddle" ]
+      "citations": [
+        "gameclubz-eikthyrdeer-saddle"
+      ]
     },
     {
       "step_id": "mount-eikthyrdeer-saddle:005",
       "type": "explore",
       "summary": "Equip and ride your mount",
       "detail": "Equip the saddle on Eikthyrdeer via the Pal menu and summon it.  Press LB to call the Pal and X to mount.  Enjoy increased movement speed, a double jump and improved logging efficiency【142053078936299†L123-L142】.",
-      "targets": [ { "kind": "pal", "id": "eikthyrdeer", "qty": 1 } ],
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "eikthyrdeer",
+          "qty": 1
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [ "eikthyrdeer-saddle" ], "pals": [ "eikthyrdeer" ], "consumables": [] },
-      "xp_award_estimate": { "min": 50, "max": 70 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "eikthyrdeer-saddle"
+        ],
+        "pals": [
+          "eikthyrdeer"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 50,
+        "max": 70
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "gameclubz-eikthyrdeer-saddle", "eikthyrdeer-partner-skill" ]
+      "citations": [
+        "gameclubz-eikthyrdeer-saddle",
+        "eikthyrdeer-partner-skill"
+      ]
     }
   ],
-  "completion_criteria": [ { "type": "have-item", "item_id": "eikthyrdeer-saddle", "qty": 1 } ],
-  "yields": { "levels_estimate": "+2 to +3", "key_unlocks": [ "tech-eikthyrdeer-saddle" ] },
-  "metrics": {
-    "xp_per_minute": { "solo": 16.0, "coop": 21.0 },
-    "travel_distance_m": 1800,
-    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 6 }, { "item_id": "leather", "qty": 5 }, { "item_id": "fiber", "qty": 20 }, { "item_id": "ingot", "qty": 10 }, { "item_id": "horn", "qty": 3 }, { "item_id": "paldium-fragment", "qty": 15 } ]
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "eikthyrdeer-saddle",
+      "qty": 1
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+2 to +3",
+    "key_unlocks": [
+      "tech-eikthyrdeer-saddle"
+    ]
   },
-  "next_routes": [ { "route_id": "mount-nitewing-saddle", "reason": "Progress to a flying mount" }, { "route_id": "tower-rayne-syndicate", "reason": "Now strong enough to challenge a tower" } ]
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "mount-nitewing-saddle",
+      "reason": "Progress to a flying mount"
+    },
+    {
+      "route_id": "tower-rayne-syndicate",
+      "reason": "Now strong enough to challenge a tower"
+    }
+  ]
 }
 ```
 
@@ -1745,26 +3726,71 @@ provides a speed boost, double jump and improved logging【142053078936299†L12
 Direhowl provides a faster ground mount than Eikthyrdeer but lacks logging bonuses.  This route covers capturing Direhowl and crafting its harness.
 
 ```json
-{ 
+{
   "route_id": "mount-direhowl-harness",
   "title": "Craft Direhowl Harness",
   "category": "mounts",
-  "tags": [ "mount", "speed", "mid-game", "night-hunt" ],
+  "tags": [
+    "mount",
+    "speed",
+    "mid-game",
+    "night-hunt"
+  ],
   "progression_role": "optional",
-  "recommended_level": { "min": 9, "max": 12 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [ "starter-base-capture" ], "tech": [ "tech-pal-gear-workbench" ], "items": [], "pals": [ "direhowl" ] },
-  "objectives": [ "Capture a Direhowl", "Unlock the Direhowl Harness", "Gather Leather, Wood, Fiber and Paldium", "Craft the harness", "Ride the mount" ],
-  "estimated_time_minutes": { "solo": 30, "coop": 20 },
-  "estimated_xp_gain": { "min": 500, "max": 800 },
+  "recommended_level": {
+    "min": 9,
+    "max": 12
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [
+      "tech-pal-gear-workbench"
+    ],
+    "items": [],
+    "pals": [
+      "direhowl"
+    ]
+  },
+  "objectives": [
+    "Capture a Direhowl",
+    "Unlock the Direhowl Harness",
+    "Gather Leather, Wood, Fiber and Paldium",
+    "Craft the harness",
+    "Ride the mount"
+  ],
+  "estimated_time_minutes": {
+    "solo": 30,
+    "coop": 20
+  },
+  "estimated_xp_gain": {
+    "min": 500,
+    "max": 800
+  },
   "risk_profile": "medium",
-  "failure_penalties": { "normal": "Loss of materials", "hardcore": "Death may delete character and Pals" },
+  "failure_penalties": {
+    "normal": "Loss of materials",
+    "hardcore": "Death may delete character and Pals"
+  },
   "adaptive_guidance": {
     "underleveled": "Hunt Direhowl during dawn when fewer spawn together, and bring a tanky Pal to soak hits.",
     "overleveled": "Use tranquilizer bolts to speed up captures; Direhowl’s HP melts under high-tier gear.",
     "resource_shortages": [
-      { "item_id": "wood", "solution": "Assign work Pals to logging while you hunt; deposit extras before step :003." },
-      { "item_id": "leather", "solution": "Loop the leather subroute or trade with co-op allies." }
+      {
+        "item_id": "wood",
+        "solution": "Assign work Pals to logging while you hunt; deposit extras before step :003."
+      },
+      {
+        "item_id": "leather",
+        "solution": "Loop the leather subroute or trade with co-op allies."
+      }
     ],
     "time_limited": "Skip step :001 if Direhowl is already caught and fast travel to your base to craft immediately.",
     "dynamic_rules": [
@@ -1773,32 +3799,74 @@ Direhowl provides a faster ground mount than Eikthyrdeer but lacks logging bonus
         "condition": "mode.hardcore === true",
         "adjustment": "Use the Moonless Shore spawn where cliffs provide cover; retreat after each pull to avoid overlapping packs during step :001.",
         "priority": 1,
-        "mode_scope": ["hardcore"],
-        "related_steps": ["mount-direhowl-harness:001"]
+        "mode_scope": [
+          "hardcore"
+        ],
+        "related_steps": [
+          "mount-direhowl-harness:001"
+        ]
       },
       {
         "signal": "resource_gap:wood",
         "condition": "resource_gaps contains wood >= 20",
         "adjustment": "Queue base logging jobs before leaving or bring a logging Pal like Eikthyrdeer so step :003 completes in a single loop.",
         "priority": 2,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["mount-direhowl-harness:003"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "mount-direhowl-harness:003"
+        ]
       },
       {
         "signal": "time_budget_short",
         "condition": "available_time_minutes && available_time_minutes < 20",
         "adjustment": "Craft immediately if Direhowl is already owned; otherwise capture once and postpone any optional repeat farming to a later session.",
         "priority": 3,
-        "mode_scope": ["solo", "coop"],
-        "related_steps": ["mount-direhowl-harness:001", "mount-direhowl-harness:004"]
+        "mode_scope": [
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "mount-direhowl-harness:001",
+          "mount-direhowl-harness:004"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "mount-direhowl-harness:checkpoint-capture", "summary": "Direhowl captured", "benefits": [ "Unlocks sprinting partner skill" ], "related_steps": [ "mount-direhowl-harness:001" ] },
-    { "id": "mount-direhowl-harness:checkpoint-crafted", "summary": "Harness ready", "benefits": [ "Fastest ground mount unlocked" ], "related_steps": [ "mount-direhowl-harness:004" ] }
+    {
+      "id": "mount-direhowl-harness:checkpoint-capture",
+      "summary": "Direhowl captured",
+      "benefits": [
+        "Unlocks sprinting partner skill"
+      ],
+      "related_steps": [
+        "mount-direhowl-harness:001"
+      ]
+    },
+    {
+      "id": "mount-direhowl-harness:checkpoint-crafted",
+      "summary": "Harness ready",
+      "benefits": [
+        "Fastest ground mount unlocked"
+      ],
+      "related_steps": [
+        "mount-direhowl-harness:004"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "resource-leather-early" ], "optional": [ "resource-paldium" ] },
+  "supporting_routes": {
+    "recommended": [
+      "resource-leather-early"
+    ],
+    "optional": [
+      "resource-paldium"
+    ]
+  },
   "failure_recovery": {
     "normal": "If Direhowl defeats you, respawn at the nearest statue and kite it into open areas for the next attempt.",
     "hardcore": "Avoid desert bandit camps en route; detour along the coastline to minimise PvE threats."
@@ -1809,86 +3877,346 @@ Direhowl provides a faster ground mount than Eikthyrdeer but lacks logging bonus
       "type": "capture",
       "summary": "Catch a Direhowl",
       "detail": "Travel to the Moonless Shore or Twilight Dunes at night and locate a Direhowl.  Use Light element skills to weaken it and capture it with Pal Spheres.",
-      "targets": [ { "kind": "pal", "id": "direhowl", "qty": 1 } ],
-      "locations": [ { "region_id": "moonless-shore", "coords": [600, -350], "time": "night", "weather": "any" }, { "region_id": "twilight-dunes", "coords": [700, -100], "time": "night", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "direhowl",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "moonless-shore",
+          "coords": [
+            600,
+            -350
+          ],
+          "time": "night",
+          "weather": "any"
+        },
+        {
+          "region_id": "twilight-dunes",
+          "coords": [
+            700,
+            -100
+          ],
+          "time": "night",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Bring a Pal with healing skills and avoid multiple Direhowls", "safety_buffer_items": [ { "item_id": "pal-sphere", "qty": 2 } ] },
-        "coop": { "role_splits": [ { "role": "tank", "tasks": "Take aggro" }, { "role": "catcher", "tasks": "Throw spheres" } ], "loot_rules": "First catch keeps it" }
+        "hardcore": {
+          "tactics": "Bring a Pal with healing skills and avoid multiple Direhowls",
+          "safety_buffer_items": [
+            {
+              "item_id": "pal-sphere",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "tank",
+              "tasks": "Take aggro"
+            },
+            {
+              "role": "catcher",
+              "tasks": "Throw spheres"
+            }
+          ],
+          "loot_rules": "First catch keeps it"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "eikthyrdeer" ], "consumables": [ { "item_id": "pal-sphere", "qty": 5 } ] },
-      "xp_award_estimate": { "min": 80, "max": 120 },
-      "outputs": { "items": [], "pals": [ "direhowl" ], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "eikthyrdeer"
+        ],
+        "consumables": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 5
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 120
+      },
+      "outputs": {
+        "items": [],
+        "pals": [
+          "direhowl"
+        ],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "palwiki-direhowl-recipe" ]
+      "citations": [
+        "palwiki-direhowl-recipe"
+      ]
     },
     {
       "step_id": "mount-direhowl-harness:002",
       "type": "unlock-tech",
       "summary": "Unlock Direhowl Harness tech",
       "detail": "At level 9, spend 1 tech point to unlock the Direhowl Harness【197143349627535†L151-L156】.",
-      "targets": [ { "kind": "tech", "id": "tech-direhowl-harness" } ],
+      "targets": [
+        {
+          "kind": "tech",
+          "id": "tech-direhowl-harness"
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 10, "max": 20 },
-      "outputs": { "items": [], "pals": [], "unlocks": { "tech": [ "tech-direhowl-harness" ] } },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 10,
+        "max": 20
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "tech": [
+            "tech-direhowl-harness"
+          ]
+        }
+      },
       "branching": [],
-      "citations": [ "palwiki-direhowl-recipe" ]
+      "citations": [
+        "palwiki-direhowl-recipe"
+      ]
     },
     {
       "step_id": "mount-direhowl-harness:003",
       "type": "gather",
       "summary": "Collect materials",
       "detail": "Gather 10 Leather, 20 Wood, 15 Fiber and 10 Paldium Fragments【197143349627535†L151-L156】.  Use the leather farming route if necessary.  Wood and Fiber can be collected around the Windswept Hills; Paldium from blue ore nodes.",
-      "targets": [ { "kind": "item", "id": "leather", "qty": 10 }, { "kind": "item", "id": "wood", "qty": 20 }, { "kind": "item", "id": "fiber", "qty": 15 }, { "kind": "item", "id": "paldium-fragment", "qty": 10 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [0, 0], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "leather",
+          "qty": 10
+        },
+        {
+          "kind": "item",
+          "id": "wood",
+          "qty": 20
+        },
+        {
+          "kind": "item",
+          "id": "fiber",
+          "qty": 15
+        },
+        {
+          "kind": "item",
+          "id": "paldium-fragment",
+          "qty": 10
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Gather a 10 % buffer", "safety_buffer_items": [ { "item_id": "leather", "qty": 2 } ] },
-        "coop": { "role_splits": [ { "role": "farmer", "tasks": "Collect Leather" }, { "role": "logger", "tasks": "Gather Wood and Fiber" }, { "role": "miner", "tasks": "Mine Paldium" } ], "loot_rules": "Pool then split" }
+        "hardcore": {
+          "tactics": "Gather a 10 % buffer",
+          "safety_buffer_items": [
+            {
+              "item_id": "leather",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "farmer",
+              "tasks": "Collect Leather"
+            },
+            {
+              "role": "logger",
+              "tasks": "Gather Wood and Fiber"
+            },
+            {
+              "role": "miner",
+              "tasks": "Mine Paldium"
+            }
+          ],
+          "loot_rules": "Pool then split"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "lifmunk" ], "consumables": [] },
-      "xp_award_estimate": { "min": 200, "max": 350 },
-      "outputs": { "items": [ { "item_id": "leather", "qty": 10 }, { "item_id": "wood", "qty": 20 }, { "item_id": "fiber", "qty": 15 }, { "item_id": "paldium-fragment", "qty": 10 } ], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "player lacks leather >= 10", "action": "include_subroute", "subroute_ref": "resource-leather-early" } ],
-      "citations": [ "palwiki-direhowl-recipe", "shockbyte-leather-sources" ]
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 200,
+        "max": 350
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "leather",
+            "qty": 10
+          },
+          {
+            "item_id": "wood",
+            "qty": 20
+          },
+          {
+            "item_id": "fiber",
+            "qty": 15
+          },
+          {
+            "item_id": "paldium-fragment",
+            "qty": 10
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks leather >= 10",
+          "action": "include_subroute",
+          "subroute_ref": "resource-leather-early"
+        }
+      ],
+      "citations": [
+        "palwiki-direhowl-recipe",
+        "shockbyte-leather-sources"
+      ]
     },
     {
       "step_id": "mount-direhowl-harness:004",
       "type": "craft",
       "summary": "Craft the harness",
       "detail": "Use the Pal Gear Workbench to craft the Direhowl Harness with the collected materials【197143349627535†L151-L156】.",
-      "targets": [ { "kind": "item", "id": "direhowl-harness", "qty": 1 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [0, 0], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "direhowl-harness",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 60, "max": 100 },
-      "outputs": { "items": [ { "item_id": "direhowl-harness", "qty": 1 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 100
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "direhowl-harness",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "palwiki-direhowl-recipe" ]
+      "citations": [
+        "palwiki-direhowl-recipe"
+      ]
     },
     {
       "step_id": "mount-direhowl-harness:005",
       "type": "explore",
       "summary": "Equip and ride",
       "detail": "Equip the harness on Direhowl and ride your new mount.  It offers greater sprint speed than Eikthyrdeer but lacks double jump and logging bonuses.",
-      "targets": [ { "kind": "pal", "id": "direhowl", "qty": 1 } ],
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "direhowl",
+          "qty": 1
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [ "direhowl-harness" ], "pals": [ "direhowl" ], "consumables": [] },
-      "xp_award_estimate": { "min": 30, "max": 50 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "direhowl-harness"
+        ],
+        "pals": [
+          "direhowl"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 30,
+        "max": 50
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "palwiki-direhowl-recipe" ]
+      "citations": [
+        "palwiki-direhowl-recipe"
+      ]
     }
   ],
-  "completion_criteria": [ { "type": "have-item", "item_id": "direhowl-harness", "qty": 1 } ],
-  "yields": { "levels_estimate": "+1 to +2", "key_unlocks": [ "tech-direhowl-harness" ] },
-  "metrics": {
-    "xp_per_minute": { "solo": 17.0, "coop": 22.0 },
-    "travel_distance_m": 1600,
-    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 6 }, { "item_id": "leather", "qty": 10 }, { "item_id": "wood", "qty": 20 }, { "item_id": "fiber", "qty": 15 }, { "item_id": "paldium-fragment", "qty": 10 } ]
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "direhowl-harness",
+      "qty": 1
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1 to +2",
+    "key_unlocks": [
+      "tech-direhowl-harness"
+    ]
   },
-  "next_routes": [ { "route_id": "mount-eikthyrdeer-saddle", "reason": "Alternate mount path" }, { "route_id": "tower-rayne-syndicate", "reason": "Ready to tackle a boss" } ]
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "mount-eikthyrdeer-saddle",
+      "reason": "Alternate mount path"
+    },
+    {
+      "route_id": "tower-rayne-syndicate",
+      "reason": "Ready to tackle a boss"
+    }
+  ]
 }
 ```
 
@@ -1903,22 +4231,65 @@ This route enables players to obtain their first flying mount by capturing Nitew
   "route_id": "mount-nitewing-saddle",
   "title": "Craft Nitewing Saddle",
   "category": "mounts",
-  "tags": [ "mount", "flight", "mid-game", "exploration" ],
+  "tags": [
+    "mount",
+    "flight",
+    "mid-game",
+    "exploration"
+  ],
   "progression_role": "core",
-  "recommended_level": { "min": 15, "max": 20 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [ "mount-eikthyrdeer-saddle" ], "tech": [ "tech-pal-gear-workbench" ], "items": [], "pals": [] },
-  "objectives": [ "Capture a Nitewing", "Unlock the Nitewing Saddle tech", "Gather materials: 20 Leather, 10 Cloth, 15 Ingots, 20 Fiber, 20 Paldium", "Craft the saddle", "Ride a flying mount" ],
-  "estimated_time_minutes": { "solo": 45, "coop": 35 },
-  "estimated_xp_gain": { "min": 900, "max": 1400 },
+  "recommended_level": {
+    "min": 15,
+    "max": 20
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "mount-eikthyrdeer-saddle"
+    ],
+    "tech": [
+      "tech-pal-gear-workbench"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Capture a Nitewing",
+    "Unlock the Nitewing Saddle tech",
+    "Gather materials: 20 Leather, 10 Cloth, 15 Ingots, 20 Fiber, 20 Paldium",
+    "Craft the saddle",
+    "Ride a flying mount"
+  ],
+  "estimated_time_minutes": {
+    "solo": 45,
+    "coop": 35
+  },
+  "estimated_xp_gain": {
+    "min": 900,
+    "max": 1400
+  },
   "risk_profile": "medium",
-  "failure_penalties": { "normal": "Loss of materials", "hardcore": "Death may delete character and Pals" },
+  "failure_penalties": {
+    "normal": "Loss of materials",
+    "hardcore": "Death may delete character and Pals"
+  },
   "adaptive_guidance": {
     "underleveled": "Farm Leather and Cloth before travelling; Ice Wind Island’s level 18 mobs overwhelm players below 14.",
     "overleveled": "Capture Nitewing using Ultra Spheres for a near-guaranteed catch, then finish crafting in one trip.",
     "resource_shortages": [
-      { "item_id": "cloth", "solution": "Queue extra Cloth at the Workbench before leaving for Ice Wind Island." },
-      { "item_id": "paldium-fragment", "solution": "Mine volcanic nodes while mounted on Eikthyrdeer." }
+      {
+        "item_id": "cloth",
+        "solution": "Queue extra Cloth at the Workbench before leaving for Ice Wind Island."
+      },
+      {
+        "item_id": "paldium-fragment",
+        "solution": "Mine volcanic nodes while mounted on Eikthyrdeer."
+      }
     ],
     "time_limited": "Skip step :001 if you already own Nitewing and focus on crafting to unlock flight quickly.",
     "dynamic_rules": [
@@ -1927,33 +4298,84 @@ This route enables players to obtain their first flying mount by capturing Nitew
         "condition": "resource_gaps contains cloth >= 10",
         "adjustment": "Batch-craft Cloth before departure so step :003 doesn’t require a return trip mid-route.",
         "priority": 1,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["mount-nitewing-saddle:003"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "mount-nitewing-saddle:003"
+        ]
       },
       {
         "signal": "time_budget_short",
         "condition": "available_time_minutes && available_time_minutes < 30",
         "adjustment": "Defer the Ice Wind Island capture to a future session; instead, craft outstanding materials in :003 and unlock the tech in :002 now.",
         "priority": 2,
-        "mode_scope": ["solo", "coop"],
-        "related_steps": ["mount-nitewing-saddle:002", "mount-nitewing-saddle:003"]
+        "mode_scope": [
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "mount-nitewing-saddle:002",
+          "mount-nitewing-saddle:003"
+        ]
       },
       {
         "signal": "goal:exploration",
         "condition": "goals includes exploration",
         "adjustment": "Prioritise finishing all steps in one run to unlock aerial scouting; queue this route to the top of recommendations when exploration is requested.",
         "priority": 3,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["mount-nitewing-saddle:004", "mount-nitewing-saddle:005"],
-        "follow_up_routes": ["tech-grappling-gun", "tower-rayne-syndicate"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "mount-nitewing-saddle:004",
+          "mount-nitewing-saddle:005"
+        ],
+        "follow_up_routes": [
+          "tech-grappling-gun",
+          "tower-rayne-syndicate"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "mount-nitewing-saddle:checkpoint-capture", "summary": "Nitewing captured", "benefits": [ "Access to flight-ready Pal" ], "related_steps": [ "mount-nitewing-saddle:001" ] },
-    { "id": "mount-nitewing-saddle:checkpoint-crafted", "summary": "Saddle complete", "benefits": [ "Unlocks full aerial traversal", "Opens late-game farming spots" ], "related_steps": [ "mount-nitewing-saddle:004" ] }
+    {
+      "id": "mount-nitewing-saddle:checkpoint-capture",
+      "summary": "Nitewing captured",
+      "benefits": [
+        "Access to flight-ready Pal"
+      ],
+      "related_steps": [
+        "mount-nitewing-saddle:001"
+      ]
+    },
+    {
+      "id": "mount-nitewing-saddle:checkpoint-crafted",
+      "summary": "Saddle complete",
+      "benefits": [
+        "Unlocks full aerial traversal",
+        "Opens late-game farming spots"
+      ],
+      "related_steps": [
+        "mount-nitewing-saddle:004"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "resource-leather-early", "resource-paldium" ], "optional": [ "mount-foxparks-harness" ] },
+  "supporting_routes": {
+    "recommended": [
+      "resource-leather-early",
+      "resource-paldium"
+    ],
+    "optional": [
+      "mount-foxparks-harness"
+    ]
+  },
   "failure_recovery": {
     "normal": "If you fall off cliffs during the capture, glide with a parachute or fast travel back to avoid corpse runs.",
     "hardcore": "Carry heat and cold resist gear; abandon the attempt if armor durability falls below 30 %."
@@ -1964,86 +4386,346 @@ This route enables players to obtain their first flying mount by capturing Nitew
       "type": "capture",
       "summary": "Catch a Nitewing",
       "detail": "Travel to Ice Wind Island and find Nitewing.  The Alpha Nitewing spawns around the frozen cliffs (level 18)【825211382965329†L294-L302】.  Use Electric or Ice Pals to weaken it, then throw Pal Spheres to capture.",
-      "targets": [ { "kind": "pal", "id": "nitewing", "qty": 1 } ],
-      "locations": [ { "region_id": "ice-wind-island", "coords": [ -800, 450 ], "time": "day", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "nitewing",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "ice-wind-island",
+          "coords": [
+            -800,
+            450
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Approach from behind to avoid Nitewing’s dive attacks and bring healing supplies", "safety_buffer_items": [ { "item_id": "pal-sphere", "qty": 2 } ] },
-        "coop": { "role_splits": [ { "role": "bait", "tasks": "Aggro Nitewing and dodge" }, { "role": "catcher", "tasks": "Throw Pal Spheres" } ], "loot_rules": "First capture keeps it" }
+        "hardcore": {
+          "tactics": "Approach from behind to avoid Nitewing’s dive attacks and bring healing supplies",
+          "safety_buffer_items": [
+            {
+              "item_id": "pal-sphere",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "bait",
+              "tasks": "Aggro Nitewing and dodge"
+            },
+            {
+              "role": "catcher",
+              "tasks": "Throw Pal Spheres"
+            }
+          ],
+          "loot_rules": "First capture keeps it"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "eikthyrdeer" ], "consumables": [ { "item_id": "pal-sphere", "qty": 5 } ] },
-      "xp_award_estimate": { "min": 120, "max": 180 },
-      "outputs": { "items": [], "pals": [ "nitewing" ], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "eikthyrdeer"
+        ],
+        "consumables": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 5
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [],
+        "pals": [
+          "nitewing"
+        ],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "pcgamesn-bosses" ]
+      "citations": [
+        "pcgamesn-bosses"
+      ]
     },
     {
       "step_id": "mount-nitewing-saddle:002",
       "type": "unlock-tech",
       "summary": "Unlock Nitewing Saddle tech",
       "detail": "At level 15, spend 2 tech points to unlock the Nitewing saddle【524512399342633†L151-L156】.",
-      "targets": [ { "kind": "tech", "id": "tech-nitewing-saddle" } ],
+      "targets": [
+        {
+          "kind": "tech",
+          "id": "tech-nitewing-saddle"
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 20, "max": 40 },
-      "outputs": { "items": [], "pals": [], "unlocks": { "tech": [ "tech-nitewing-saddle" ] } },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 20,
+        "max": 40
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "tech": [
+            "tech-nitewing-saddle"
+          ]
+        }
+      },
       "branching": [],
-      "citations": [ "palwiki-nitewing-saddle" ]
+      "citations": [
+        "palwiki-nitewing-saddle"
+      ]
     },
     {
       "step_id": "mount-nitewing-saddle:003",
       "type": "gather",
       "summary": "Collect materials",
       "detail": "Gather 20 Leather, 10 Cloth, 15 Ingots, 20 Fiber and 20 Paldium Fragments.  Hunt leather‑dropping Pals or branch to the leather loop if needed.  Cloth is crafted from fiber at a Primitive Workbench.  Ingots require smelting ore.",
-      "targets": [ { "kind": "item", "id": "leather", "qty": 20 }, { "kind": "item", "id": "cloth", "qty": 10 }, { "kind": "item", "id": "ingot", "qty": 15 }, { "kind": "item", "id": "fiber", "qty": 20 }, { "kind": "item", "id": "paldium-fragment", "qty": 20 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ 0, 0 ], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "leather",
+          "qty": 20
+        },
+        {
+          "kind": "item",
+          "id": "cloth",
+          "qty": 10
+        },
+        {
+          "kind": "item",
+          "id": "ingot",
+          "qty": 15
+        },
+        {
+          "kind": "item",
+          "id": "fiber",
+          "qty": 20
+        },
+        {
+          "kind": "item",
+          "id": "paldium-fragment",
+          "qty": 20
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Collect a 20 % buffer of each material to account for failures", "safety_buffer_items": [ { "item_id": "leather", "qty": 4 } ] },
-        "coop": { "role_splits": [ { "role": "farmer", "tasks": "Gather Leather and Fiber" }, { "role": "crafter", "tasks": "Craft Cloth and smelt Ingots" }, { "role": "miner", "tasks": "Mine Paldium" } ], "loot_rules": "Pool resources and share after crafting" }
+        "hardcore": {
+          "tactics": "Collect a 20 % buffer of each material to account for failures",
+          "safety_buffer_items": [
+            {
+              "item_id": "leather",
+              "qty": 4
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "farmer",
+              "tasks": "Gather Leather and Fiber"
+            },
+            {
+              "role": "crafter",
+              "tasks": "Craft Cloth and smelt Ingots"
+            },
+            {
+              "role": "miner",
+              "tasks": "Mine Paldium"
+            }
+          ],
+          "loot_rules": "Pool resources and share after crafting"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "lifmunk" ], "consumables": [] },
-      "xp_award_estimate": { "min": 300, "max": 500 },
-      "outputs": { "items": [ { "item_id": "leather", "qty": 20 }, { "item_id": "cloth", "qty": 10 }, { "item_id": "ingot", "qty": 15 }, { "item_id": "fiber", "qty": 20 }, { "item_id": "paldium-fragment", "qty": 20 } ], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "player lacks leather >= 20", "action": "include_subroute", "subroute_ref": "resource-leather-early" } ],
-      "citations": [ "palwiki-nitewing-saddle", "shockbyte-leather-sources" ]
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 300,
+        "max": 500
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "leather",
+            "qty": 20
+          },
+          {
+            "item_id": "cloth",
+            "qty": 10
+          },
+          {
+            "item_id": "ingot",
+            "qty": 15
+          },
+          {
+            "item_id": "fiber",
+            "qty": 20
+          },
+          {
+            "item_id": "paldium-fragment",
+            "qty": 20
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks leather >= 20",
+          "action": "include_subroute",
+          "subroute_ref": "resource-leather-early"
+        }
+      ],
+      "citations": [
+        "palwiki-nitewing-saddle",
+        "shockbyte-leather-sources"
+      ]
     },
     {
       "step_id": "mount-nitewing-saddle:004",
       "type": "craft",
       "summary": "Craft the Nitewing Saddle",
       "detail": "At your Pal Gear Workbench, craft the Nitewing Saddle using the collected materials【524512399342633†L151-L156】.  The process takes about two minutes.",
-      "targets": [ { "kind": "item", "id": "nitewing-saddle", "qty": 1 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ 0, 0 ], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "nitewing-saddle",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 100, "max": 150 },
-      "outputs": { "items": [ { "item_id": "nitewing-saddle", "qty": 1 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 100,
+        "max": 150
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "nitewing-saddle",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "palwiki-nitewing-saddle" ]
+      "citations": [
+        "palwiki-nitewing-saddle"
+      ]
     },
     {
       "step_id": "mount-nitewing-saddle:005",
       "type": "explore",
       "summary": "Equip and fly",
       "detail": "Equip the saddle on Nitewing via the Pal menu and summon it.  Use the mount to fly across the map at high speed, unlocking new exploration possibilities.",
-      "targets": [ { "kind": "pal", "id": "nitewing", "qty": 1 } ],
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "nitewing",
+          "qty": 1
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [ "nitewing-saddle" ], "pals": [ "nitewing" ], "consumables": [] },
-      "xp_award_estimate": { "min": 50, "max": 70 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "nitewing-saddle"
+        ],
+        "pals": [
+          "nitewing"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 50,
+        "max": 70
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "palwiki-nitewing-saddle" ]
+      "citations": [
+        "palwiki-nitewing-saddle"
+      ]
     }
   ],
-  "completion_criteria": [ { "type": "have-item", "item_id": "nitewing-saddle", "qty": 1 } ],
-  "yields": { "levels_estimate": "+2 to +3", "key_unlocks": [ "tech-nitewing-saddle" ] },
-  "metrics": {
-    "xp_per_minute": { "solo": 15.5, "coop": 20.5 },
-    "travel_distance_m": 2400,
-    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 6 }, { "item_id": "leather", "qty": 20 }, { "item_id": "cloth", "qty": 10 }, { "item_id": "ingot", "qty": 15 }, { "item_id": "fiber", "qty": 20 }, { "item_id": "paldium-fragment", "qty": 20 } ]
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "nitewing-saddle",
+      "qty": 1
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+2 to +3",
+    "key_unlocks": [
+      "tech-nitewing-saddle"
+    ]
   },
-  "next_routes": [ { "route_id": "tech-grappling-gun", "reason": "Use flying mobility to gather materials for advanced tools" }, { "route_id": "tower-rayne-syndicate", "reason": "Now capable of taking on tower bosses" } ]
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "tech-grappling-gun",
+      "reason": "Use flying mobility to gather materials for advanced tools"
+    },
+    {
+      "route_id": "tower-rayne-syndicate",
+      "reason": "Now capable of taking on tower bosses"
+    }
+  ]
 }
 ```
 
@@ -2056,22 +4738,63 @@ The Grappling Gun allows players to traverse cliffs and gaps quickly.  Unlocking
   "route_id": "tech-grappling-gun",
   "title": "Craft Grappling Gun",
   "category": "tech",
-  "tags": [ "mobility", "tool", "mid-game", "tech" ],
+  "tags": [
+    "mobility",
+    "tool",
+    "mid-game",
+    "tech"
+  ],
   "progression_role": "core",
-  "recommended_level": { "min": 12, "max": 16 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [], "tech": [ "tech-grappling-gun" ], "items": [], "pals": [] },
-  "objectives": [ "Obtain an Ancient Technology Point", "Unlock Grappling Gun tech", "Gather crafting materials", "Craft the Grappling Gun", "Use the tool" ],
-  "estimated_time_minutes": { "solo": 30, "coop": 25 },
-  "estimated_xp_gain": { "min": 500, "max": 800 },
+  "recommended_level": {
+    "min": 12,
+    "max": 16
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [],
+    "tech": [
+      "tech-grappling-gun"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Obtain an Ancient Technology Point",
+    "Unlock Grappling Gun tech",
+    "Gather crafting materials",
+    "Craft the Grappling Gun",
+    "Use the tool"
+  ],
+  "estimated_time_minutes": {
+    "solo": 30,
+    "coop": 25
+  },
+  "estimated_xp_gain": {
+    "min": 500,
+    "max": 800
+  },
   "risk_profile": "medium",
-  "failure_penalties": { "normal": "Loss of materials", "hardcore": "Death may result in permanent character loss" },
+  "failure_penalties": {
+    "normal": "Loss of materials",
+    "hardcore": "Death may result in permanent character loss"
+  },
   "adaptive_guidance": {
     "underleveled": "Secure the Ancient Technology Point via the tower route with a coop partner if you are below level 14.",
     "overleveled": "Speedrun the tower fight and craft immediately to unlock traversal shortcuts for late-game farming.",
     "resource_shortages": [
-      { "item_id": "ancient-civilization-part", "solution": "Run Ruin dungeons or reuse spare parts from tower caches." },
-      { "item_id": "fiber", "solution": "Assign work Pals to logging stations to auto-gather while you clear the tower." }
+      {
+        "item_id": "ancient-civilization-part",
+        "solution": "Run Ruin dungeons or reuse spare parts from tower caches."
+      },
+      {
+        "item_id": "fiber",
+        "solution": "Assign work Pals to logging stations to auto-gather while you clear the tower."
+      }
     ],
     "time_limited": "Borrow an Ancient Technology Point from stored inventory and postpone dungeon farming for later.",
     "dynamic_rules": [
@@ -2080,33 +4803,81 @@ The Grappling Gun allows players to traverse cliffs and gaps quickly.  Unlocking
         "condition": "resource_gaps contains ancient-civilization-part >= 1",
         "adjustment": "Schedule a dungeon run immediately after step :001 so the Ancient Part is secured before crafting begins.",
         "priority": 1,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["tech-grappling-gun:003"],
-        "follow_up_routes": ["tower-rayne-syndicate"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "tech-grappling-gun:003"
+        ],
+        "follow_up_routes": [
+          "tower-rayne-syndicate"
+        ]
       },
       {
         "signal": "goal:mobility",
         "condition": "goals includes mobility",
         "adjustment": "Prioritise this route once the Ancient Point is banked; the recommender boosts its score when mobility is requested.",
         "priority": 2,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["tech-grappling-gun:004", "tech-grappling-gun:005"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "tech-grappling-gun:004",
+          "tech-grappling-gun:005"
+        ]
       },
       {
         "signal": "mode:coop",
         "condition": "mode.coop === true",
         "adjustment": "Split duties—two players clear the tower while the others farm fiber and ingots—so crafting can start immediately after the point is earned.",
         "priority": 3,
-        "mode_scope": ["coop"],
-        "related_steps": ["tech-grappling-gun:001", "tech-grappling-gun:003"]
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "tech-grappling-gun:001",
+          "tech-grappling-gun:003"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "tech-grappling-gun:checkpoint-point", "summary": "Ancient Technology Point acquired", "benefits": [ "Unlocks advanced tech tier" ], "related_steps": [ "tech-grappling-gun:001" ] },
-    { "id": "tech-grappling-gun:checkpoint-craft", "summary": "Grappling Gun crafted", "benefits": [ "Enables rapid traversal" ], "related_steps": [ "tech-grappling-gun:004" ] }
+    {
+      "id": "tech-grappling-gun:checkpoint-point",
+      "summary": "Ancient Technology Point acquired",
+      "benefits": [
+        "Unlocks advanced tech tier"
+      ],
+      "related_steps": [
+        "tech-grappling-gun:001"
+      ]
+    },
+    {
+      "id": "tech-grappling-gun:checkpoint-craft",
+      "summary": "Grappling Gun crafted",
+      "benefits": [
+        "Enables rapid traversal"
+      ],
+      "related_steps": [
+        "tech-grappling-gun:004"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "tower-rayne-syndicate", "mount-nitewing-saddle" ], "optional": [ "resource-paldium" ] },
+  "supporting_routes": {
+    "recommended": [
+      "tower-rayne-syndicate",
+      "mount-nitewing-saddle"
+    ],
+    "optional": [
+      "resource-paldium"
+    ]
+  },
   "failure_recovery": {
     "normal": "If you wipe in a dungeon while farming parts, restock healing items and reattempt after respawning at base.",
     "hardcore": "Only tackle dungeons with full armor durability; withdraw if Ancient Part drops do not appear within two clears."
@@ -2117,83 +4888,297 @@ The Grappling Gun allows players to traverse cliffs and gaps quickly.  Unlocking
       "type": "fight",
       "summary": "Earn an Ancient Technology Point",
       "detail": "Complete the Rayne Syndicate Tower or another tower to obtain at least one Ancient Technology Point.  See the tower route for details.",
-      "targets": [ { "kind": "item", "id": "ancient-technology-point", "qty": 1 } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "ancient-technology-point",
+          "qty": 1
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 500, "max": 700 },
-      "outputs": { "items": [ { "item_id": "ancient-technology-point", "qty": 1 } ], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "player lacks ancient-technology-point >= 1", "action": "include_subroute", "subroute_ref": "tower-rayne-syndicate" } ],
-      "citations": [ "pcgamesn-bosses" ]
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 500,
+        "max": 700
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient-technology-point",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks ancient-technology-point >= 1",
+          "action": "include_subroute",
+          "subroute_ref": "tower-rayne-syndicate"
+        }
+      ],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
     },
     {
       "step_id": "tech-grappling-gun:002",
       "type": "unlock-tech",
       "summary": "Unlock Grappling Gun tech",
       "detail": "Spend 1 Ancient Technology Point at level 12 to unlock the Grappling Gun【312162085103617†L180-L205】.",
-      "targets": [ { "kind": "tech", "id": "tech-grappling-gun" } ],
+      "targets": [
+        {
+          "kind": "tech",
+          "id": "tech-grappling-gun"
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 10, "max": 20 },
-      "outputs": { "items": [], "pals": [], "unlocks": { "tech": [ "tech-grappling-gun" ] } },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 10,
+        "max": 20
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "tech": [
+            "tech-grappling-gun"
+          ]
+        }
+      },
       "branching": [],
-      "citations": [ "pcgamer-grappling-gun" ]
+      "citations": [
+        "pcgamer-grappling-gun"
+      ]
     },
     {
       "step_id": "tech-grappling-gun:003",
       "type": "gather",
       "summary": "Collect materials",
       "detail": "Gather 10 Paldium Fragments, 10 Ingots, 30 Fiber and 1 Ancient Civilization Part【312162085103617†L180-L205】.  Ancient Civilization Parts drop from tower bosses and dungeons.",
-      "targets": [ { "kind": "item", "id": "paldium-fragment", "qty": 10 }, { "kind": "item", "id": "ingot", "qty": 10 }, { "kind": "item", "id": "fiber", "qty": 30 }, { "kind": "item", "id": "ancient-civilization-part", "qty": 1 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ 0, 0 ], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "paldium-fragment",
+          "qty": 10
+        },
+        {
+          "kind": "item",
+          "id": "ingot",
+          "qty": 10
+        },
+        {
+          "kind": "item",
+          "id": "fiber",
+          "qty": 30
+        },
+        {
+          "kind": "item",
+          "id": "ancient-civilization-part",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Gather a 10 % buffer of each resource", "safety_buffer_items": [ { "item_id": "paldium-fragment", "qty": 1 } ] },
-        "coop": { "role_splits": [ { "role": "miner", "tasks": "Mine Paldium" }, { "role": "smelter", "tasks": "Craft Ingots" }, { "role": "gatherer", "tasks": "Harvest Fiber" }, { "role": "raider", "tasks": "Farm Ancient Parts from dungeons" } ], "loot_rules": "Pool resources and share" }
+        "hardcore": {
+          "tactics": "Gather a 10 % buffer of each resource",
+          "safety_buffer_items": [
+            {
+              "item_id": "paldium-fragment",
+              "qty": 1
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "miner",
+              "tasks": "Mine Paldium"
+            },
+            {
+              "role": "smelter",
+              "tasks": "Craft Ingots"
+            },
+            {
+              "role": "gatherer",
+              "tasks": "Harvest Fiber"
+            },
+            {
+              "role": "raider",
+              "tasks": "Farm Ancient Parts from dungeons"
+            }
+          ],
+          "loot_rules": "Pool resources and share"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "lifmunk" ], "consumables": [] },
-      "xp_award_estimate": { "min": 150, "max": 250 },
-      "outputs": { "items": [ { "item_id": "paldium-fragment", "qty": 10 }, { "item_id": "ingot", "qty": 10 }, { "item_id": "fiber", "qty": 30 }, { "item_id": "ancient-civilization-part", "qty": 1 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 150,
+        "max": 250
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "paldium-fragment",
+            "qty": 10
+          },
+          {
+            "item_id": "ingot",
+            "qty": 10
+          },
+          {
+            "item_id": "fiber",
+            "qty": 30
+          },
+          {
+            "item_id": "ancient-civilization-part",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "pcgamer-grappling-gun" ]
+      "citations": [
+        "pcgamer-grappling-gun"
+      ]
     },
     {
       "step_id": "tech-grappling-gun:004",
       "type": "craft",
       "summary": "Craft the Grappling Gun",
       "detail": "At your Primitive Workbench or Weapon Workbench, craft the Grappling Gun using the collected materials【312162085103617†L180-L205】.",
-      "targets": [ { "kind": "item", "id": "grappling-gun", "qty": 1 } ],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ 0, 0 ], "time": "any", "weather": "any" } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "grappling-gun",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 80, "max": 120 },
-      "outputs": { "items": [ { "item_id": "grappling-gun", "qty": 1 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 120
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "grappling-gun",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "pcgamer-grappling-gun" ]
+      "citations": [
+        "pcgamer-grappling-gun"
+      ]
     },
     {
       "step_id": "tech-grappling-gun:005",
       "type": "explore",
       "summary": "Use the Grappling Gun",
       "detail": "Equip the Grappling Gun and test it on nearby cliffs.  Aim at a surface and fire to pull yourself toward it.  This tool greatly improves exploration and mobility.",
-      "targets": [ { "kind": "item", "id": "grappling-gun", "qty": 1 } ],
+      "targets": [
+        {
+          "kind": "item",
+          "id": "grappling-gun",
+          "qty": 1
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [ "grappling-gun" ], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 20, "max": 30 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "grappling-gun"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 20,
+        "max": 30
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "pcgamer-grappling-gun" ]
+      "citations": [
+        "pcgamer-grappling-gun"
+      ]
     }
   ],
-  "completion_criteria": [ { "type": "have-item", "item_id": "grappling-gun", "qty": 1 } ],
-  "yields": { "levels_estimate": "+1", "key_unlocks": [ "tech-grappling-gun" ] },
-  "metrics": {
-    "xp_per_minute": { "solo": 17.5, "coop": 22.5 },
-    "travel_distance_m": 600,
-    "consumable_cost": [ { "item_id": "ancient-civilization-part", "qty": 1 }, { "item_id": "paldium-fragment", "qty": 10 }, { "item_id": "fiber", "qty": 30 }, { "item_id": "ingot", "qty": 10 } ]
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "grappling-gun",
+      "qty": 1
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1",
+    "key_unlocks": [
+      "tech-grappling-gun"
+    ]
   },
-  "next_routes": [ { "route_id": "capture-jetragon", "reason": "Use advanced mobility to tackle a legendary Pal" } ]
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "capture-jetragon",
+      "reason": "Use advanced mobility to tackle a legendary Pal"
+    }
+  ]
 }
 ```
 
@@ -2206,22 +5191,62 @@ The first tower challenge pits you against Zoe and her electric Pal Grizzbolt.  
   "route_id": "tower-rayne-syndicate",
   "title": "Rayne Syndicate Tower: Zoe & Grizzbolt",
   "category": "bosses",
-  "tags": [ "tower", "boss", "ancient-points", "combat" ],
+  "tags": [
+    "tower",
+    "boss",
+    "ancient-points",
+    "combat"
+  ],
   "progression_role": "core",
-  "recommended_level": { "min": 15, "max": 18 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [ "mount-eikthyrdeer-saddle" ], "tech": [], "items": [], "pals": [] },
-  "objectives": [ "Travel to the Rayne Syndicate Tower", "Prepare with Ground‑type Pals and gear", "Defeat Zoe & Grizzbolt within the time limit", "Claim Ancient Technology Points" ],
-  "estimated_time_minutes": { "solo": 15, "coop": 10 },
-  "estimated_xp_gain": { "min": 1500, "max": 2500 },
+  "recommended_level": {
+    "min": 15,
+    "max": 18
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "mount-eikthyrdeer-saddle"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Travel to the Rayne Syndicate Tower",
+    "Prepare with Ground‑type Pals and gear",
+    "Defeat Zoe & Grizzbolt within the time limit",
+    "Claim Ancient Technology Points"
+  ],
+  "estimated_time_minutes": {
+    "solo": 15,
+    "coop": 10
+  },
+  "estimated_xp_gain": {
+    "min": 1500,
+    "max": 2500
+  },
   "risk_profile": "high",
-  "failure_penalties": { "normal": "Loss of consumables and time", "hardcore": "Death results in character deletion and loss of Pals" },
+  "failure_penalties": {
+    "normal": "Loss of consumables and time",
+    "hardcore": "Death results in character deletion and loss of Pals"
+  },
   "adaptive_guidance": {
     "underleveled": "Delay the attempt until level 15+ or bring a co-op partner to split aggro.",
     "overleveled": "Focus on phase DPS; you can burst the boss quickly with upgraded rifles and fire pals.",
     "resource_shortages": [
-      { "item_id": "healing-potion", "solution": "Craft Large Berries at camp before entry." },
-      { "item_id": "shield", "solution": "Forge spares at the Weapon Workbench in case of durability loss." }
+      {
+        "item_id": "healing-potion",
+        "solution": "Craft Large Berries at camp before entry."
+      },
+      {
+        "item_id": "shield",
+        "solution": "Forge spares at the Weapon Workbench in case of durability loss."
+      }
     ],
     "time_limited": "If pressed for time, skip optional mobs and sprint straight to the arena; the boss instance starts instantly.",
     "dynamic_rules": [
@@ -2230,33 +5255,81 @@ The first tower challenge pits you against Zoe and her electric Pal Grizzbolt.  
         "condition": "resource_gaps contains healing-potion >= 3",
         "adjustment": "Queue a berry crafting batch before travelling so each player carries at least three heals into step :003.",
         "priority": 1,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["tower-rayne-syndicate:002", "tower-rayne-syndicate:003"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "tower-rayne-syndicate:002",
+          "tower-rayne-syndicate:003"
+        ]
       },
       {
         "signal": "mode:coop",
         "condition": "mode.coop === true",
         "adjustment": "Assign a dedicated healer who rotates shields while the DPS focuses on Grizzbolt; swap roles after each phase to manage stamina.",
         "priority": 2,
-        "mode_scope": ["coop"],
-        "related_steps": ["tower-rayne-syndicate:003"]
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "tower-rayne-syndicate:003"
+        ]
       },
       {
         "signal": "goal:ancient-points",
         "condition": "goals includes ancient-points",
         "adjustment": "Push this tower to the top of recommendations until its Ancient Technology Points are secured, then immediately surface tech-grappling-gun as the follow-up.",
         "priority": 3,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["tower-rayne-syndicate:003"],
-        "follow_up_routes": ["tech-grappling-gun"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "tower-rayne-syndicate:003"
+        ],
+        "follow_up_routes": [
+          "tech-grappling-gun"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "tower-rayne-syndicate:checkpoint-arrival", "summary": "Tower entrance reached", "benefits": [ "Unlocks fast travel statue" ], "related_steps": [ "tower-rayne-syndicate:001" ] },
-    { "id": "tower-rayne-syndicate:checkpoint-victory", "summary": "Zoe & Grizzbolt defeated", "benefits": [ "Awards Ancient Technology Points", "Unlocks Grappling Gun tech" ], "related_steps": [ "tower-rayne-syndicate:003" ] }
+    {
+      "id": "tower-rayne-syndicate:checkpoint-arrival",
+      "summary": "Tower entrance reached",
+      "benefits": [
+        "Unlocks fast travel statue"
+      ],
+      "related_steps": [
+        "tower-rayne-syndicate:001"
+      ]
+    },
+    {
+      "id": "tower-rayne-syndicate:checkpoint-victory",
+      "summary": "Zoe & Grizzbolt defeated",
+      "benefits": [
+        "Awards Ancient Technology Points",
+        "Unlocks Grappling Gun tech"
+      ],
+      "related_steps": [
+        "tower-rayne-syndicate:003"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "mount-eikthyrdeer-saddle", "mount-nitewing-saddle" ], "optional": [ "tech-grappling-gun" ] },
+  "supporting_routes": {
+    "recommended": [
+      "mount-eikthyrdeer-saddle",
+      "mount-nitewing-saddle"
+    ],
+    "optional": [
+      "tech-grappling-gun"
+    ]
+  },
   "failure_recovery": {
     "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
     "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
@@ -2268,13 +5341,38 @@ The first tower challenge pits you against Zoe and her electric Pal Grizzbolt.  
       "summary": "Reach the tower",
       "detail": "Ride your mount to the Rayne Syndicate Tower at coordinates (112, -434) in the Windswept Hills【825211382965329†L103-L118】.",
       "targets": [],
-      "locations": [ { "region_id": "windswept-hills", "coords": [ 112, -434 ], "time": "any", "weather": "any" } ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            112,
+            -434
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [ "eikthyrdeer-saddle" ], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 50, "max": 70 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "eikthyrdeer-saddle"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 50,
+        "max": 70
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "pcgamesn-bosses" ]
+      "citations": [
+        "pcgamesn-bosses"
+      ]
     },
     {
       "step_id": "tower-rayne-syndicate:002",
@@ -2284,41 +5382,183 @@ The first tower challenge pits you against Zoe and her electric Pal Grizzbolt.  
       "targets": [],
       "locations": [],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Bring two Ground Pals and keep distance when Grizzbolt powers up", "safety_buffer_items": [ { "item_id": "paldium-fragment", "qty": 5 } ] },
-        "coop": { "role_splits": [ { "role": "tank", "tasks": "Hold boss aggro" }, { "role": "dps", "tasks": "Deal damage from range" } ], "loot_rules": "Ancient Technology Points are shared" }
+        "hardcore": {
+          "tactics": "Bring two Ground Pals and keep distance when Grizzbolt powers up",
+          "safety_buffer_items": [
+            {
+              "item_id": "paldium-fragment",
+              "qty": 5
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "tank",
+              "tasks": "Hold boss aggro"
+            },
+            {
+              "role": "dps",
+              "tasks": "Deal damage from range"
+            }
+          ],
+          "loot_rules": "Ancient Technology Points are shared"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "foxparks", "lifmunk" ], "consumables": [] },
-      "xp_award_estimate": { "min": 100, "max": 200 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "foxparks",
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 100,
+        "max": 200
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "pcgamesn-bosses" ]
+      "citations": [
+        "pcgamesn-bosses"
+      ]
     },
     {
       "step_id": "tower-rayne-syndicate:003",
       "type": "fight",
       "summary": "Defeat Zoe & Grizzbolt",
       "detail": "Engage Zoe and her Pal Grizzbolt.  Deal at least 30K damage within ten minutes【825211382965329†L103-L118】.  Use Ground or Water attacks, dodge electric beams and avoid the arena edges.",
-      "targets": [ { "kind": "boss", "id": "rayne-syndicate-tower", "qty": 1 } ],
+      "targets": [
+        {
+          "kind": "boss",
+          "id": "rayne-syndicate-tower",
+          "qty": 1
+        }
+      ],
       "locations": [],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Stay mobile, use ranged attacks and always maintain a safe distance", "safety_buffer_items": [ { "item_id": "ancient-technology-point", "qty": 1 } ] },
-        "coop": { "role_splits": [ { "role": "healer", "tasks": "Heal allies" }, { "role": "damage", "tasks": "Focus on Grizzbolt" } ], "loot_rules": "Share Ancient Technology Points equally" }
+        "hardcore": {
+          "tactics": "Stay mobile, use ranged attacks and always maintain a safe distance",
+          "safety_buffer_items": [
+            {
+              "item_id": "ancient-technology-point",
+              "qty": 1
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "healer",
+              "tasks": "Heal allies"
+            },
+            {
+              "role": "damage",
+              "tasks": "Focus on Grizzbolt"
+            }
+          ],
+          "loot_rules": "Share Ancient Technology Points equally"
+        }
       },
-      "recommended_loadout": { "gear": [], "pals": [ "lifmunk" ], "consumables": [] },
-      "xp_award_estimate": { "min": 1200, "max": 2000 },
-      "outputs": { "items": [ { "item_id": "ancient-technology-point", "qty": 5 } ], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 1200,
+        "max": 2000
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient-technology-point",
+            "qty": 5
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "pcgamesn-bosses" ]
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-rayne-syndicate:004",
+      "type": "quest",
+      "summary": "Log the Rayne Syndicate defeat with the guild investigators",
+      "detail": "After the tower clears, interact with any Investigator board to record Zoe & Grizzbolt's defeat. This advances the main story requests and unlocks fresh bounties.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            116,
+            -398
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 250,
+        "max": 400
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
     }
   ],
-  "completion_criteria": [ { "type": "boss-cleared", "boss_id": "rayne-syndicate-tower" } ],
-  "yields": { "levels_estimate": "+3 to +4", "key_unlocks": [ "ancient-technology-points" ] },
-  "metrics": {
-    "xp_per_minute": { "solo": 110.0, "coop": 160.0 },
-    "travel_distance_m": 1500,
-    "consumable_cost": [ { "item_id": "healing-potion", "qty": 5 }, { "item_id": "shield", "qty": 1 } ]
+  "completion_criteria": [
+    {
+      "type": "boss-cleared",
+      "boss_id": "rayne-syndicate-tower"
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+3 to +4",
+    "key_unlocks": [
+      "ancient-technology-points"
+    ]
   },
-  "next_routes": [ { "route_id": "tech-grappling-gun", "reason": "Rewards provide the point needed to unlock this tech" }, { "route_id": "capture-jetragon", "reason": "Gives experience and resources to attempt the legendary Pal" } ]
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 1,
+    "quest_nodes": 1
+  },
+  "next_routes": [
+    {
+      "route_id": "tech-grappling-gun",
+      "reason": "Rewards provide the point needed to unlock this tech"
+    },
+    {
+      "route_id": "capture-jetragon",
+      "reason": "Gives experience and resources to attempt the legendary Pal"
+    },
+    {
+      "route_id": "tower-free-pal-alliance",
+      "reason": "Next tower in the Investigator storyline"
+    }
+  ]
 }
 ```
 
@@ -2331,22 +5571,63 @@ This advanced route details how to capture Jetragon, a level 50 legendary Pal f
   "route_id": "capture-jetragon",
   "title": "Capture Jetragon",
   "category": "capture-index",
-  "tags": [ "legendary", "capture", "late-game", "flying" ],
+  "tags": [
+    "legendary",
+    "capture",
+    "late-game",
+    "flying"
+  ],
   "progression_role": "optional",
-  "recommended_level": { "min": 50, "max": 60 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [ "tower-rayne-syndicate", "mount-nitewing-saddle" ], "tech": [], "items": [], "pals": [] },
-  "objectives": [ "Prepare high‑level gear and Pals", "Travel to Mount Obsidian", "Weaken Jetragon", "Capture it" ],
-  "estimated_time_minutes": { "solo": 60, "coop": 45 },
-  "estimated_xp_gain": { "min": 2500, "max": 4000 },
+  "recommended_level": {
+    "min": 50,
+    "max": 60
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "tower-rayne-syndicate",
+      "mount-nitewing-saddle"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Prepare high‑level gear and Pals",
+    "Travel to Mount Obsidian",
+    "Weaken Jetragon",
+    "Capture it"
+  ],
+  "estimated_time_minutes": {
+    "solo": 60,
+    "coop": 45
+  },
+  "estimated_xp_gain": {
+    "min": 2500,
+    "max": 4000
+  },
   "risk_profile": "high",
-  "failure_penalties": { "normal": "Loss of valuable Pal Spheres and gear", "hardcore": "Death may result in permanent loss of character and Pals" },
+  "failure_penalties": {
+    "normal": "Loss of valuable Pal Spheres and gear",
+    "hardcore": "Death may result in permanent loss of character and Pals"
+  },
   "adaptive_guidance": {
     "underleveled": "Run tower and dungeon loops until at least level 48; bring Heat Resistant armor before attempting the volcano.",
     "overleveled": "Use Legendary Spheres and heavy weapons to shorten the fight; Jetragon can be bursted down quickly at high gear scores.",
     "resource_shortages": [
-      { "item_id": "heat-resistant-armor", "solution": "Craft at a Production Assembly Line using Fire Organs and Ingot stock." },
-      { "item_id": "ultra-pal-sphere", "solution": "Farm Ancient Parts and craft extras before travelling." }
+      {
+        "item_id": "heat-resistant-armor",
+        "solution": "Craft at a Production Assembly Line using Fire Organs and Ingot stock."
+      },
+      {
+        "item_id": "ultra-pal-sphere",
+        "solution": "Farm Ancient Parts and craft extras before travelling."
+      }
     ],
     "time_limited": "Skip optional prep by borrowing Ultra Spheres from teammates and focusing on the capture attempt.",
     "dynamic_rules": [
@@ -2355,32 +5636,78 @@ This advanced route details how to capture Jetragon, a level 50 legendary Pal f
         "condition": "resource_gaps contains heat-resistant-armor >= 1",
         "adjustment": "Queue armor crafting before departure to prevent heat damage from ending the run early; do not proceed to step :002 without it.",
         "priority": 1,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["capture-jetragon:001"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "capture-jetragon:001"
+        ]
       },
       {
         "signal": "mode:coop",
         "condition": "mode.coop === true",
         "adjustment": "Designate a loot master to track Ultra Sphere usage so the team can rotate capture attempts without wasting consumables.",
         "priority": 2,
-        "mode_scope": ["coop"],
-        "related_steps": ["capture-jetragon:003", "capture-jetragon:004"]
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "capture-jetragon:003",
+          "capture-jetragon:004"
+        ]
       },
       {
         "signal": "goal:legendary",
         "condition": "goals includes legendary",
         "adjustment": "Surface this route immediately after prerequisites clear and highlight the need for Ultra Spheres plus Grappling Gun mobility in the recommendation copy.",
         "priority": 3,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["capture-jetragon:001", "capture-jetragon:004"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "capture-jetragon:001",
+          "capture-jetragon:004"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "capture-jetragon:checkpoint-prep", "summary": "Heat gear and spheres ready", "benefits": [ "Ensures survival in Mount Obsidian" ], "related_steps": [ "capture-jetragon:001" ] },
-    { "id": "capture-jetragon:checkpoint-engage", "summary": "Jetragon weakened", "benefits": [ "Capture threshold reached" ], "related_steps": [ "capture-jetragon:003" ] }
+    {
+      "id": "capture-jetragon:checkpoint-prep",
+      "summary": "Heat gear and spheres ready",
+      "benefits": [
+        "Ensures survival in Mount Obsidian"
+      ],
+      "related_steps": [
+        "capture-jetragon:001"
+      ]
+    },
+    {
+      "id": "capture-jetragon:checkpoint-engage",
+      "summary": "Jetragon weakened",
+      "benefits": [
+        "Capture threshold reached"
+      ],
+      "related_steps": [
+        "capture-jetragon:003"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "tech-grappling-gun", "mount-nitewing-saddle" ], "optional": [ "tower-rayne-syndicate" ] },
+  "supporting_routes": {
+    "recommended": [
+      "tech-grappling-gun",
+      "mount-nitewing-saddle"
+    ],
+    "optional": [
+      "tower-rayne-syndicate"
+    ]
+  },
   "failure_recovery": {
     "normal": "If you faint, retrieve your bag immediately; resupply on cooling consumables before retrying.",
     "hardcore": "Abort if armor durability dips below 40 % or if multiple lava golems join the fight; survival takes priority."
@@ -2394,14 +5721,56 @@ This advanced route details how to capture Jetragon, a level 50 legendary Pal f
       "targets": [],
       "locations": [],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Ensure all gear is upgraded and carry backup mounts", "safety_buffer_items": [ { "item_id": "paldium-fragment", "qty": 10 } ] },
-        "coop": { "role_splits": [ { "role": "tank", "tasks": "Take aggro and soak damage" }, { "role": "damage", "tasks": "Deal sustained damage" }, { "role": "support", "tasks": "Heal and provide buffs" } ], "loot_rules": "The player who throws the final sphere keeps Jetragon" }
+        "hardcore": {
+          "tactics": "Ensure all gear is upgraded and carry backup mounts",
+          "safety_buffer_items": [
+            {
+              "item_id": "paldium-fragment",
+              "qty": 10
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "tank",
+              "tasks": "Take aggro and soak damage"
+            },
+            {
+              "role": "damage",
+              "tasks": "Deal sustained damage"
+            },
+            {
+              "role": "support",
+              "tasks": "Heal and provide buffs"
+            }
+          ],
+          "loot_rules": "The player who throws the final sphere keeps Jetragon"
+        }
       },
-      "recommended_loadout": { "gear": [ "grappling-gun" ], "pals": [ "nitewing" ], "consumables": [] },
-      "xp_award_estimate": { "min": 300, "max": 400 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "grappling-gun"
+        ],
+        "pals": [
+          "nitewing"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 300,
+        "max": 400
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "pcgamesn-bosses", "pcgamer-grappling-gun" ]
+      "citations": [
+        "pcgamesn-bosses",
+        "pcgamer-grappling-gun"
+      ]
     },
     {
       "step_id": "capture-jetragon:002",
@@ -2409,52 +5778,160 @@ This advanced route details how to capture Jetragon, a level 50 legendary Pal f
       "summary": "Reach Mount Obsidian",
       "detail": "Fly to Mount Obsidian in the volcanic region.  Use your Nitewing or Eikthyrdeer to reach the foot of the volcano without taking lava damage.",
       "targets": [],
-      "locations": [ { "region_id": "mount-obsidian", "coords": [ 850, -500 ], "time": "any", "weather": "any" } ],
+      "locations": [
+        {
+          "region_id": "mount-obsidian",
+          "coords": [
+            850,
+            -500
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [ "eikthyrdeer-saddle", "nitewing-saddle" ], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 50, "max": 80 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "eikthyrdeer-saddle",
+          "nitewing-saddle"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 50,
+        "max": 80
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "pcgamesn-jetragon" ]
+      "citations": [
+        "pcgamesn-jetragon"
+      ]
     },
     {
       "step_id": "capture-jetragon:003",
       "type": "fight",
       "summary": "Weaken Jetragon",
       "detail": "Engage Jetragon cautiously.  Use Ice or Dragon attacks to exploit its weaknesses.  Dodge its fire breath and meteor strikes.  Reduce its HP to the capture threshold.",
-      "targets": [ { "kind": "pal", "id": "jetragon", "qty": 1 } ],
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "jetragon",
+          "qty": 1
+        }
+      ],
       "locations": [],
       "mode_adjustments": {
-        "hardcore": { "tactics": "Maintain maximum distance and use hit‑and‑run tactics", "safety_buffer_items": [ { "item_id": "ancient-technology-point", "qty": 1 } ] },
-        "coop": { "role_splits": [ { "role": "kiter", "tasks": "Lead Jetragon around obstacles" }, { "role": "sniper", "tasks": "Deal high damage with rockets" }, { "role": "catcher", "tasks": "Prepare Pal Spheres" } ], "loot_rules": "Discuss who will claim the capture" }
+        "hardcore": {
+          "tactics": "Maintain maximum distance and use hit‑and‑run tactics",
+          "safety_buffer_items": [
+            {
+              "item_id": "ancient-technology-point",
+              "qty": 1
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "kiter",
+              "tasks": "Lead Jetragon around obstacles"
+            },
+            {
+              "role": "sniper",
+              "tasks": "Deal high damage with rockets"
+            },
+            {
+              "role": "catcher",
+              "tasks": "Prepare Pal Spheres"
+            }
+          ],
+          "loot_rules": "Discuss who will claim the capture"
+        }
       },
-      "recommended_loadout": { "gear": [ "grappling-gun" ], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 2000, "max": 3000 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [
+          "grappling-gun"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 2000,
+        "max": 3000
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "pcgamesn-jetragon" ]
+      "citations": [
+        "pcgamesn-jetragon"
+      ]
     },
     {
       "step_id": "capture-jetragon:004",
       "type": "capture",
       "summary": "Capture Jetragon",
       "detail": "When Jetragon’s health is low, throw Ultra Pal Spheres until you succeed.  It may take several attempts.  Once captured, Jetragon becomes a powerful flying mount with unmatched speed and combat abilities.",
-      "targets": [ { "kind": "pal", "id": "jetragon", "qty": 1 } ],
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "jetragon",
+          "qty": 1
+        }
+      ],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [ { "item_id": "pal-sphere", "qty": 5 } ] },
-      "xp_award_estimate": { "min": 200, "max": 300 },
-      "outputs": { "items": [], "pals": [ "jetragon" ], "unlocks": {} },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 5
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 200,
+        "max": 300
+      },
+      "outputs": {
+        "items": [],
+        "pals": [
+          "jetragon"
+        ],
+        "unlocks": {}
+      },
       "branching": [],
-      "citations": [ "pcgamesn-jetragon" ]
+      "citations": [
+        "pcgamesn-jetragon"
+      ]
     }
   ],
-  "completion_criteria": [ { "type": "have-item", "item_id": "jetragon", "qty": 1 } ],
-  "yields": { "levels_estimate": "+5 to +6", "key_unlocks": [ "pal-jetragon" ] },
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "jetragon",
+      "qty": 1
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+5 to +6",
+    "key_unlocks": [
+      "pal-jetragon"
+    ]
+  },
   "metrics": {
-    "xp_per_minute": { "solo": 45.0, "coop": 60.0 },
-    "travel_distance_m": 3200,
-    "consumable_cost": [ { "item_id": "ultra-pal-sphere", "qty": 6 }, { "item_id": "heat-resistant-armor", "qty": 1 }, { "item_id": "healing-potion", "qty": 8 } ]
+    "progress_segments": 3,
+    "boss_targets": 1,
+    "quest_nodes": 0
   },
   "next_routes": []
 }
@@ -2472,25 +5949,59 @@ entire flow as a single experience.
   "route_id": "purposeful-arc-early-foundation",
   "title": "Purposeful Arc — Early Foundation",
   "category": "campaign",
-  "tags": [ "purposeful", "campaign", "early-game", "base-building", "mounts" ],
+  "tags": [
+    "purposeful",
+    "campaign",
+    "early-game",
+    "base-building",
+    "mounts"
+  ],
   "progression_role": "core",
-  "recommended_level": { "min": 1, "max": 12 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [], "tech": [], "items": [], "pals": [] },
+  "recommended_level": {
+    "min": 1,
+    "max": 12
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
   "objectives": [
     "Complete the starter playlist that unlocks automation and key work pals",
     "Craft Foxparks and Eikthyrdeer gear to add furnace automation and traversal"
   ],
-  "estimated_time_minutes": { "solo": 110, "coop": 80 },
-  "estimated_xp_gain": { "min": 1400, "max": 2300 },
+  "estimated_time_minutes": {
+    "solo": 110,
+    "coop": 80
+  },
+  "estimated_xp_gain": {
+    "min": 1400,
+    "max": 2300
+  },
   "risk_profile": "medium",
-  "failure_penalties": { "normal": "Failed captures cost spheres and time", "hardcore": "Deaths during mount hunts jeopardise the save" },
+  "failure_penalties": {
+    "normal": "Failed captures cost spheres and time",
+    "hardcore": "Deaths during mount hunts jeopardise the save"
+  },
   "adaptive_guidance": {
     "underleveled": "If you are level 3 or lower, run Starter Base and Capture twice before moving on to the mount steps.",
     "overleveled": "Players above level 12 can move straight from Foxparks harness into the Eikthyrdeer saddle without repeating the leather loop.",
     "resource_shortages": [
-      { "item_id": "leather", "solution": "Repeat the leather loop in step :002 until at least 20 Leather are banked." },
-      { "item_id": "paldium-fragment", "solution": "Trigger the resource-paldium subroute between steps :002 and :003 if you drop below 15 fragments." }
+      {
+        "item_id": "leather",
+        "solution": "Repeat the leather loop in step :002 until at least 20 Leather are banked."
+      },
+      {
+        "item_id": "paldium-fragment",
+        "solution": "Trigger the resource-paldium subroute between steps :002 and :003 if you drop below 15 fragments."
+      }
     ],
     "time_limited": "When you have under an hour, complete steps :001 and :003, then bookmark the saddle run in :004 for another session.",
     "dynamic_rules": [
@@ -2499,18 +6010,58 @@ entire flow as a single experience.
         "condition": "goals includes automation",
         "adjustment": "Prioritise the Foxparks harness immediately after the starter base route to ignite furnaces and campfires without manual tending.",
         "priority": 2,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["purposeful-arc-early-foundation:003"],
-        "follow_up_routes": ["mount-foxparks-harness"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "purposeful-arc-early-foundation:003"
+        ],
+        "follow_up_routes": [
+          "mount-foxparks-harness"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "purposeful-early:checkpoint-base", "summary": "Starter base secured", "benefits": [ "Workbench unlocked", "Pal automation online" ], "related_steps": [ "purposeful-arc-early-foundation:001" ] },
-    { "id": "purposeful-early:checkpoint-mounts", "summary": "Foxparks and Eikthyrdeer saddles crafted", "benefits": [ "Rapid travel", "Automated smelting" ], "related_steps": [ "purposeful-arc-early-foundation:004" ] }
+    {
+      "id": "purposeful-early:checkpoint-base",
+      "summary": "Starter base secured",
+      "benefits": [
+        "Workbench unlocked",
+        "Pal automation online"
+      ],
+      "related_steps": [
+        "purposeful-arc-early-foundation:001"
+      ]
+    },
+    {
+      "id": "purposeful-early:checkpoint-mounts",
+      "summary": "Foxparks and Eikthyrdeer saddles crafted",
+      "benefits": [
+        "Rapid travel",
+        "Automated smelting"
+      ],
+      "related_steps": [
+        "purposeful-arc-early-foundation:004"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "resource-leather-early", "resource-paldium" ], "optional": [ "capture-base-merchant" ] },
-  "failure_recovery": { "normal": "Recraft Pal Spheres and repeat failed captures; regroup at your base to restock.", "hardcore": "Abort the hunt if HP drops below 40%—Hardcore saves should never risk a wipe over a mount." },
+  "supporting_routes": {
+    "recommended": [
+      "resource-leather-early",
+      "resource-paldium"
+    ],
+    "optional": [
+      "capture-base-merchant"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Recraft Pal Spheres and repeat failed captures; regroup at your base to restock.",
+    "hardcore": "Abort the hunt if HP drops below 40%—Hardcore saves should never risk a wipe over a mount."
+  },
   "steps": [
     {
       "step_id": "purposeful-arc-early-foundation:001",
@@ -2520,10 +6071,27 @@ entire flow as a single experience.
       "targets": [],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 300, "max": 600 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "starter-base-capture" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 300,
+        "max": 600
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "always",
+          "action": "include_subroute",
+          "subroute_ref": "starter-base-capture"
+        }
+      ],
       "citations": []
     },
     {
@@ -2534,10 +6102,27 @@ entire flow as a single experience.
       "targets": [],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 250, "max": 450 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "resource-leather-early" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 250,
+        "max": 450
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "always",
+          "action": "include_subroute",
+          "subroute_ref": "resource-leather-early"
+        }
+      ],
       "citations": []
     },
     {
@@ -2548,10 +6133,27 @@ entire flow as a single experience.
       "targets": [],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 400, "max": 600 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "mount-foxparks-harness" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 400,
+        "max": 600
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "always",
+          "action": "include_subroute",
+          "subroute_ref": "mount-foxparks-harness"
+        }
+      ],
       "citations": []
     },
     {
@@ -2562,24 +6164,60 @@ entire flow as a single experience.
       "targets": [],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 450, "max": 650 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "mount-eikthyrdeer-saddle" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 450,
+        "max": 650
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "always",
+          "action": "include_subroute",
+          "subroute_ref": "mount-eikthyrdeer-saddle"
+        }
+      ],
       "citations": []
     }
   ],
   "completion_criteria": [
-    { "type": "have-item", "item_id": "foxparks-harness", "qty": 1 },
-    { "type": "have-item", "item_id": "eikthyrdeer-saddle", "qty": 1 }
+    {
+      "type": "have-item",
+      "item_id": "foxparks-harness",
+      "qty": 1
+    },
+    {
+      "type": "have-item",
+      "item_id": "eikthyrdeer-saddle",
+      "qty": 1
+    }
   ],
-  "yields": { "levels_estimate": "+2 to +4", "key_unlocks": [ "tech-foxparks-harness", "tech-eikthyrdeer-saddle" ] },
-  "metrics": {
-    "xp_per_minute": { "solo": 14.0, "coop": 20.0 },
-    "travel_distance_m": 1600,
-    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 12 } ]
+  "yields": {
+    "levels_estimate": "+2 to +4",
+    "key_unlocks": [
+      "tech-foxparks-harness",
+      "tech-eikthyrdeer-saddle"
+    ]
   },
-  "next_routes": [ { "route_id": "purposeful-arc-mid-expansion", "reason": "Continue the purposeful campaign into mounts, merchants and the first tower" } ]
+  "metrics": {
+    "progress_segments": 8,
+    "boss_targets": 0,
+    "quest_nodes": 2
+  },
+  "next_routes": [
+    {
+      "route_id": "purposeful-arc-mid-expansion",
+      "reason": "Continue the purposeful campaign into mounts, merchants and the first tower"
+    }
+  ]
 }
 ```
 
@@ -2595,25 +6233,61 @@ player asks for a directed progression path.
   "route_id": "purposeful-arc-mid-expansion",
   "title": "Purposeful Arc — Mid Expansion",
   "category": "campaign",
-  "tags": [ "purposeful", "campaign", "mid-game", "merchant", "mounts" ],
+  "tags": [
+    "purposeful",
+    "campaign",
+    "mid-game",
+    "merchant",
+    "mounts"
+  ],
   "progression_role": "core",
-  "recommended_level": { "min": 12, "max": 28 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [ "purposeful-arc-early-foundation" ], "tech": [], "items": [], "pals": [] },
+  "recommended_level": {
+    "min": 12,
+    "max": 28
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "purposeful-arc-early-foundation"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
   "objectives": [
     "Bring a merchant home, then upgrade to Direhowl and Nitewing mobility",
     "Defeat Zoe & Grizzbolt and invest the Ancient Technology Point in the Grappling Gun"
   ],
-  "estimated_time_minutes": { "solo": 150, "coop": 110 },
-  "estimated_xp_gain": { "min": 2200, "max": 3400 },
+  "estimated_time_minutes": {
+    "solo": 150,
+    "coop": 110
+  },
+  "estimated_xp_gain": {
+    "min": 2200,
+    "max": 3400
+  },
   "risk_profile": "high",
-  "failure_penalties": { "normal": "Tower wipes and failed captures cost valuable gear", "hardcore": "Tower defeats delete the run" },
+  "failure_penalties": {
+    "normal": "Tower wipes and failed captures cost valuable gear",
+    "hardcore": "Tower defeats delete the run"
+  },
   "adaptive_guidance": {
     "underleveled": "If you enter below level 15, capture Direhowl before attempting the tower to boost combat stats.",
     "overleveled": "Players above level 25 can swap steps :002 and :004 to unlock the tower first, then finish Direhowl on the way out.",
     "resource_shortages": [
-      { "item_id": "pal-sphere", "solution": "Craft Great Spheres between steps :001 and :002 so human captures do not deplete your supply." },
-      { "item_id": "cloth", "solution": "Queue cloth crafting before the flying saddle in step :003." }
+      {
+        "item_id": "pal-sphere",
+        "solution": "Craft Great Spheres between steps :001 and :002 so human captures do not deplete your supply."
+      },
+      {
+        "item_id": "cloth",
+        "solution": "Queue cloth crafting before the flying saddle in step :003."
+      }
     ],
     "time_limited": "With limited time, focus on the merchant capture and Nitewing saddle; bookmark the tower run for later.",
     "dynamic_rules": [
@@ -2622,18 +6296,57 @@ player asks for a directed progression path.
         "condition": "goals includes boss",
         "adjustment": "Move the tower encounter to the top of the list so you secure Ancient Technology Points before other errands.",
         "priority": 3,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["purposeful-arc-mid-expansion:004"],
-        "follow_up_routes": ["tower-rayne-syndicate"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "purposeful-arc-mid-expansion:004"
+        ],
+        "follow_up_routes": [
+          "tower-rayne-syndicate"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "purposeful-mid:checkpoint-merchant", "summary": "Base merchant recruited", "benefits": [ "Permanent vendor access" ], "related_steps": [ "purposeful-arc-mid-expansion:001" ] },
-    { "id": "purposeful-mid:checkpoint-tower", "summary": "Zoe & Grizzbolt defeated", "benefits": [ "Ancient Technology Point", "Tower fast travel" ], "related_steps": [ "purposeful-arc-mid-expansion:004" ] }
+    {
+      "id": "purposeful-mid:checkpoint-merchant",
+      "summary": "Base merchant recruited",
+      "benefits": [
+        "Permanent vendor access"
+      ],
+      "related_steps": [
+        "purposeful-arc-mid-expansion:001"
+      ]
+    },
+    {
+      "id": "purposeful-mid:checkpoint-tower",
+      "summary": "Zoe & Grizzbolt defeated",
+      "benefits": [
+        "Ancient Technology Point",
+        "Tower fast travel"
+      ],
+      "related_steps": [
+        "purposeful-arc-mid-expansion:004"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "resource-paldium", "resource-leather-early" ], "optional": [ "mount-eikthyrdeer-saddle" ] },
-  "failure_recovery": { "normal": "Restock spheres and medicine after each major attempt; re-run leather or paldium farms if supplies run low.", "hardcore": "Bail from tower fights when shields break—preserving the save is more important than the Ancient Point." },
+  "supporting_routes": {
+    "recommended": [
+      "resource-paldium",
+      "resource-leather-early"
+    ],
+    "optional": [
+      "mount-eikthyrdeer-saddle"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Restock spheres and medicine after each major attempt; re-run leather or paldium farms if supplies run low.",
+    "hardcore": "Bail from tower fights when shields break—preserving the save is more important than the Ancient Point."
+  },
   "steps": [
     {
       "step_id": "purposeful-arc-mid-expansion:001",
@@ -2643,10 +6356,27 @@ player asks for a directed progression path.
       "targets": [],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 350, "max": 550 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "capture-base-merchant" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 350,
+        "max": 550
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "always",
+          "action": "include_subroute",
+          "subroute_ref": "capture-base-merchant"
+        }
+      ],
       "citations": []
     },
     {
@@ -2657,10 +6387,27 @@ player asks for a directed progression path.
       "targets": [],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 450, "max": 650 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "mount-direhowl-harness" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 450,
+        "max": 650
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "always",
+          "action": "include_subroute",
+          "subroute_ref": "mount-direhowl-harness"
+        }
+      ],
       "citations": []
     },
     {
@@ -2671,10 +6418,27 @@ player asks for a directed progression path.
       "targets": [],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 500, "max": 700 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "mount-nitewing-saddle" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 500,
+        "max": 700
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "always",
+          "action": "include_subroute",
+          "subroute_ref": "mount-nitewing-saddle"
+        }
+      ],
       "citations": []
     },
     {
@@ -2685,10 +6449,27 @@ player asks for a directed progression path.
       "targets": [],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 600, "max": 900 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "tower-rayne-syndicate" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 600,
+        "max": 900
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "always",
+          "action": "include_subroute",
+          "subroute_ref": "tower-rayne-syndicate"
+        }
+      ],
       "citations": []
     },
     {
@@ -2699,24 +6480,59 @@ player asks for a directed progression path.
       "targets": [],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 300, "max": 600 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "tech-grappling-gun" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 300,
+        "max": 600
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "always",
+          "action": "include_subroute",
+          "subroute_ref": "tech-grappling-gun"
+        }
+      ],
       "citations": []
     }
   ],
   "completion_criteria": [
-    { "type": "have-item", "item_id": "nitewing-saddle", "qty": 1 },
-    { "type": "have-tech", "tech_id": "tech-grappling-gun" }
+    {
+      "type": "have-item",
+      "item_id": "nitewing-saddle",
+      "qty": 1
+    },
+    {
+      "type": "have-tech",
+      "tech_id": "tech-grappling-gun"
+    }
   ],
-  "yields": { "levels_estimate": "+3 to +5", "key_unlocks": [ "tech-grappling-gun", "base-merchant-vendor" ] },
-  "metrics": {
-    "xp_per_minute": { "solo": 16.0, "coop": 22.0 },
-    "travel_distance_m": 2400,
-    "consumable_cost": [ { "item_id": "pal-sphere", "qty": 18 }, { "item_id": "healing-potion", "qty": 6 } ]
+  "yields": {
+    "levels_estimate": "+3 to +5",
+    "key_unlocks": [
+      "tech-grappling-gun",
+      "base-merchant-vendor"
+    ]
   },
-  "next_routes": [ { "route_id": "purposeful-arc-legendary-push", "reason": "Cap the purposeful run with a legendary capture" } ]
+  "metrics": {
+    "progress_segments": 8,
+    "boss_targets": 1,
+    "quest_nodes": 2
+  },
+  "next_routes": [
+    {
+      "route_id": "purposeful-arc-legendary-push",
+      "reason": "Cap the purposeful run with a legendary capture"
+    }
+  ]
 }
 ```
 
@@ -2731,24 +6547,57 @@ carries you from late-game prep into the flagship legendary mount.
   "route_id": "purposeful-arc-legendary-push",
   "title": "Purposeful Arc — Legendary Push",
   "category": "campaign",
-  "tags": [ "purposeful", "campaign", "late-game", "legendary", "raid-prep" ],
+  "tags": [
+    "purposeful",
+    "campaign",
+    "late-game",
+    "legendary",
+    "raid-prep"
+  ],
   "progression_role": "core",
-  "recommended_level": { "min": 35, "max": 50 },
-  "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
-  "prerequisites": { "routes": [ "purposeful-arc-mid-expansion" ], "tech": [], "items": [], "pals": [] },
+  "recommended_level": {
+    "min": 35,
+    "max": 50
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "purposeful-arc-mid-expansion"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
   "objectives": [
     "Refresh Grappling Gun supplies and craft endgame gear",
     "Capture the legendary Jetragon to finish the purposeful campaign"
   ],
-  "estimated_time_minutes": { "solo": 120, "coop": 95 },
-  "estimated_xp_gain": { "min": 2600, "max": 4200 },
+  "estimated_time_minutes": {
+    "solo": 120,
+    "coop": 95
+  },
+  "estimated_xp_gain": {
+    "min": 2600,
+    "max": 4200
+  },
   "risk_profile": "high",
-  "failure_penalties": { "normal": "Legendary attempts consume expensive spheres", "hardcore": "Heat damage and boss wipes can end the save" },
+  "failure_penalties": {
+    "normal": "Legendary attempts consume expensive spheres",
+    "hardcore": "Heat damage and boss wipes can end the save"
+  },
   "adaptive_guidance": {
     "underleveled": "If you are under level 40, loop tower and dungeon routes for XP before tackling Jetragon.",
     "overleveled": "Players with legendary gear can skip the Grappling Gun refresh and go straight to the capture attempt.",
     "resource_shortages": [
-      { "item_id": "ultra-pal-sphere", "solution": "Farm Ancient Parts via tower re-clears before committing to the capture." }
+      {
+        "item_id": "ultra-pal-sphere",
+        "solution": "Farm Ancient Parts via tower re-clears before committing to the capture."
+      }
     ],
     "time_limited": "With limited time, scout Mount Obsidian and craft Ultra Spheres now, then schedule the capture for later.",
     "dynamic_rules": [
@@ -2757,18 +6606,56 @@ carries you from late-game prep into the flagship legendary mount.
         "condition": "goals includes legendary",
         "adjustment": "Surface the Jetragon capture immediately and keep it pinned in the active queue until it is completed.",
         "priority": 3,
-        "mode_scope": ["normal", "hardcore", "solo", "coop"],
-        "related_steps": ["purposeful-arc-legendary-push:002"],
-        "follow_up_routes": ["capture-jetragon"]
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "purposeful-arc-legendary-push:002"
+        ],
+        "follow_up_routes": [
+          "capture-jetragon"
+        ]
       }
     ]
   },
   "checkpoints": [
-    { "id": "purposeful-legendary:checkpoint-prep", "summary": "Grappling Gun refitted", "benefits": [ "Mobility confirmed" ], "related_steps": [ "purposeful-arc-legendary-push:001" ] },
-    { "id": "purposeful-legendary:checkpoint-capture", "summary": "Jetragon secured", "benefits": [ "Legendary flying mount unlocked" ], "related_steps": [ "purposeful-arc-legendary-push:002" ] }
+    {
+      "id": "purposeful-legendary:checkpoint-prep",
+      "summary": "Grappling Gun refitted",
+      "benefits": [
+        "Mobility confirmed"
+      ],
+      "related_steps": [
+        "purposeful-arc-legendary-push:001"
+      ]
+    },
+    {
+      "id": "purposeful-legendary:checkpoint-capture",
+      "summary": "Jetragon secured",
+      "benefits": [
+        "Legendary flying mount unlocked"
+      ],
+      "related_steps": [
+        "purposeful-arc-legendary-push:002"
+      ]
+    }
   ],
-  "supporting_routes": { "recommended": [ "tower-rayne-syndicate", "tech-grappling-gun" ], "optional": [ "resource-leather-early" ] },
-  "failure_recovery": { "normal": "Refill Ultra Spheres and cooling gear after a failed attempt before re-engaging.", "hardcore": "Exit the volcano if armour drops into the red; Hardcore survival outweighs the legendary reward." },
+  "supporting_routes": {
+    "recommended": [
+      "tower-rayne-syndicate",
+      "tech-grappling-gun"
+    ],
+    "optional": [
+      "resource-leather-early"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Refill Ultra Spheres and cooling gear after a failed attempt before re-engaging.",
+    "hardcore": "Exit the volcano if armour drops into the red; Hardcore survival outweighs the legendary reward."
+  },
   "steps": [
     {
       "step_id": "purposeful-arc-legendary-push:001",
@@ -2778,10 +6665,27 @@ carries you from late-game prep into the flagship legendary mount.
       "targets": [],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 400, "max": 600 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "tech-grappling-gun" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 400,
+        "max": 600
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "always",
+          "action": "include_subroute",
+          "subroute_ref": "tech-grappling-gun"
+        }
+      ],
       "citations": []
     },
     {
@@ -2792,25 +6696,1962 @@ carries you from late-game prep into the flagship legendary mount.
       "targets": [],
       "locations": [],
       "mode_adjustments": {},
-      "recommended_loadout": { "gear": [], "pals": [], "consumables": [] },
-      "xp_award_estimate": { "min": 2200, "max": 3600 },
-      "outputs": { "items": [], "pals": [], "unlocks": {} },
-      "branching": [ { "condition": "always", "action": "include_subroute", "subroute_ref": "capture-jetragon" } ],
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 2200,
+        "max": 3600
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "always",
+          "action": "include_subroute",
+          "subroute_ref": "capture-jetragon"
+        }
+      ],
       "citations": []
     }
   ],
   "completion_criteria": [
-    { "type": "have-pal", "pal_id": "jetragon", "qty": 1 }
+    {
+      "type": "have-pal",
+      "pal_id": "jetragon",
+      "qty": 1
+    }
   ],
-  "yields": { "levels_estimate": "+4 to +6", "key_unlocks": [ "pal-jetragon" ] },
+  "yields": {
+    "levels_estimate": "+4 to +6",
+    "key_unlocks": [
+      "pal-jetragon"
+    ]
+  },
   "metrics": {
-    "xp_per_minute": { "solo": 19.5, "coop": 26.0 },
-    "travel_distance_m": 3600,
-    "consumable_cost": [ { "item_id": "ultra-pal-sphere", "qty": 6 }, { "item_id": "heat-resistant-armor", "qty": 1 } ]
+    "progress_segments": 10,
+    "boss_targets": 2,
+    "quest_nodes": 3
   },
   "next_routes": []
 }
 ```
+### Route: PIDF Tower: Axel & Orserk
+
+```json
+{
+  "route_id": "tower-pidf-axel-orserk",
+  "title": "PIDF Tower: Axel & Orserk",
+  "category": "bosses",
+  "tags": [
+    "tower",
+    "boss",
+    "ancient-points",
+    "combat"
+  ],
+  "progression_role": "core",
+  "recommended_level": {
+    "min": 34,
+    "max": 42
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "tower-free-pal-alliance",
+      "tech-grappling-gun"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Enter the PIDF desert headquarters",
+    "Prepare a counter team",
+    "Defeat Axel & Orserk",
+    "Report the victory to the Investigator board"
+  ],
+  "estimated_time_minutes": {
+    "solo": 17,
+    "coop": 13
+  },
+  "estimated_xp_gain": {
+    "min": 2600,
+    "max": 3400
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Loss of consumables and time",
+    "hardcore": "Death results in character deletion and loss of Pals"
+  },
+  "adaptive_guidance": {
+    "underleveled": "Run additional base defense missions or craft higher-tier rifles before challenging Axel.",
+    "overleveled": "Lean on burst Dragon damage to end Orserk quickly and skip the longer beam patterns.",
+    "resource_shortages": [
+      {
+        "item_id": "heat-resistant-undershirt",
+        "solution": "Craft heat gear at base to avoid attrition in the PIDF desert approach."
+      }
+    ],
+    "time_limited": "Sprint past patrols and head straight to the lift; the tower queue is short once inside.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:heat-resistant-undershirt",
+        "condition": "resource_gaps includes heat-resistant-undershirt",
+        "adjustment": "Queue a quick heat gear craft before :001 so the desert march does not chip away your HP.",
+        "priority": 1,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "tower-pidf-axel-orserk:001",
+          "tower-pidf-axel-orserk:002"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "tower-pidf-axel-orserk:checkpoint-arrival",
+      "summary": "PIDF gate breached",
+      "benefits": [
+        "Unlocks PIDF fast travel"
+      ],
+      "related_steps": [
+        "tower-pidf-axel-orserk:001"
+      ]
+    },
+    {
+      "id": "tower-pidf-axel-orserk:checkpoint-victory",
+      "summary": "Axel & Orserk defeated",
+      "benefits": [
+        "Grants Ancient Technology Points",
+        "Opens desert mission board upgrades"
+      ],
+      "related_steps": [
+        "tower-pidf-axel-orserk:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "tech-grappling-gun",
+      "mount-direhowl-harness"
+    ],
+    "optional": [
+      "resource-paldium"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
+    "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
+  },
+  "steps": [
+    {
+      "step_id": "tower-pidf-axel-orserk:001",
+      "type": "travel",
+      "summary": "Enter the PIDF desert headquarters",
+      "detail": "Glide into the PIDF headquarters courtyard at (350, -200). Bring heat protection; the desert sun and lasers hit hard.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "pidf-hq",
+          "coords": [
+            350,
+            -200
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 90
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-pidf-axel-orserk:002",
+      "type": "prepare",
+      "summary": "Prepare a counter team",
+      "detail": "Prioritise high-mobility Electric or Dragon pals like Astegon, Rayhound, or Beakon to interrupt Orserk. Pack both heat and cold resistance for Axel's elemental swaps.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Carry extra shields and keep distance to avoid burst phases.",
+          "safety_buffer_items": [
+            {
+              "item_id": "large-med-kit",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "support",
+              "tasks": "Keep heals and revives ready"
+            },
+            {
+              "role": "damage",
+              "tasks": "Maintain boss aggro and burst windows"
+            }
+          ],
+          "loot_rules": "Share Ancient Technology Points equally"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "astegon",
+          "rayhound",
+          "beakon"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 150,
+        "max": 260
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-pidf-axel-orserk:003",
+      "type": "fight",
+      "summary": "Defeat Axel & Orserk",
+      "detail": "Axel deploys Orserk's lightning charges. Time dodges between beam sweeps and punish after slam combos. Keep stamina for sudden teleports.",
+      "targets": [
+        {
+          "kind": "boss",
+          "id": "tower-pidf-axel-orserk",
+          "qty": 1
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Rotate shields and disengage during enraged phases to avoid permadeath wipes.",
+          "safety_buffer_items": [
+            {
+              "item_id": "ancient-technology-point",
+              "qty": 1
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "breaker",
+              "tasks": "Stagger the boss with elemental counters"
+            },
+            {
+              "role": "finisher",
+              "tasks": "Push damage once shields fall"
+            }
+          ],
+          "loot_rules": "Ensure everyone tags the boss before the final blow"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "astegon",
+          "rayhound"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 2000,
+        "max": 3000
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient-technology-point",
+            "qty": 5
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-pidf-axel-orserk:004",
+      "type": "quest",
+      "summary": "Report the victory",
+      "detail": "File the PIDF takedown at an Investigator board to unlock the next chain of priority alerts.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            116,
+            -398
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 280,
+        "max": 420
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "boss-cleared",
+      "boss_id": "tower-pidf-axel-orserk"
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+3 to +4",
+    "key_unlocks": [
+      "ancient-technology-points"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 1,
+    "quest_nodes": 1
+  },
+  "next_routes": [
+    {
+      "route_id": "tower-brothers-eternal-pyre",
+      "reason": "Carry momentum into the Mount Obsidian assault"
+    }
+  ]
+}
+```
+
+### Route: Brothers of the Eternal Pyre Tower: Marcus & Faleris
+
+```json
+{
+  "route_id": "tower-brothers-eternal-pyre",
+  "title": "Brothers of the Eternal Pyre Tower: Marcus & Faleris",
+  "category": "bosses",
+  "tags": [
+    "tower",
+    "boss",
+    "ancient-points",
+    "combat"
+  ],
+  "progression_role": "core",
+  "recommended_level": {
+    "min": 40,
+    "max": 48
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "tower-pidf-axel-orserk"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Scale Mount Obsidian to the Eternal Pyre",
+    "Prepare a counter team",
+    "Defeat Marcus & Faleris",
+    "Report the victory to the Investigator board"
+  ],
+  "estimated_time_minutes": {
+    "solo": 19,
+    "coop": 14
+  },
+  "estimated_xp_gain": {
+    "min": 3000,
+    "max": 3800
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Loss of consumables and time",
+    "hardcore": "Death results in character deletion and loss of Pals"
+  },
+  "adaptive_guidance": {
+    "underleveled": "Farm volcanic alpha pals or clear high-tier raids to hit level 40 before challenging Marcus.",
+    "overleveled": "Use Water turrets or dual Surfents to stagger Faleris and shorten the encounter.",
+    "resource_shortages": [
+      {
+        "item_id": "cooler-box",
+        "solution": "Build a Cooler Box and craft heat-resistant meals before entering the lava zone."
+      }
+    ],
+    "time_limited": "Teleport directly to the Mount Obsidian statue and race up the cliff, ignoring side fights.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:cooler-box",
+        "condition": "resource_gaps includes cooler-box",
+        "adjustment": "Add a quick cooler-box craft to keep heat buffs ready for :001.",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "tower-brothers-eternal-pyre:001",
+          "tower-brothers-eternal-pyre:002"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "tower-brothers-eternal-pyre:checkpoint-arrival",
+      "summary": "Volcano ascent complete",
+      "benefits": [
+        "Unlocks Mount Obsidian fast travel"
+      ],
+      "related_steps": [
+        "tower-brothers-eternal-pyre:001"
+      ]
+    },
+    {
+      "id": "tower-brothers-eternal-pyre:checkpoint-victory",
+      "summary": "Marcus & Faleris defeated",
+      "benefits": [
+        "Awards Ancient Technology Points",
+        "Unlocks late-game heat gear"
+      ],
+      "related_steps": [
+        "tower-brothers-eternal-pyre:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "capture-jetragon",
+      "tech-grappling-gun"
+    ],
+    "optional": [
+      "mount-direhowl-harness"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
+    "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
+  },
+  "steps": [
+    {
+      "step_id": "tower-brothers-eternal-pyre:001",
+      "type": "travel",
+      "summary": "Scale Mount Obsidian to the Eternal Pyre",
+      "detail": "Climb the lava plateau on Mount Obsidian to reach the Brothers of the Eternal Pyre tower at (-560, -518).",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "mount-obsidian",
+          "coords": [
+            -560,
+            -518
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 90
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-brothers-eternal-pyre:002",
+      "type": "prepare",
+      "summary": "Prepare a counter team",
+      "detail": "Assemble Water and Ice pals like Surfent, Suzaku Aqua, or Jolthog Cryst to douse Faleris. Pack cooling drinks and heatproof armor.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Carry extra shields and keep distance to avoid burst phases.",
+          "safety_buffer_items": [
+            {
+              "item_id": "large-med-kit",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "support",
+              "tasks": "Keep heals and revives ready"
+            },
+            {
+              "role": "damage",
+              "tasks": "Maintain boss aggro and burst windows"
+            }
+          ],
+          "loot_rules": "Share Ancient Technology Points equally"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "surfent",
+          "suzaku-aqua",
+          "jolthog-cryst"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 150,
+        "max": 260
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-brothers-eternal-pyre:003",
+      "type": "fight",
+      "summary": "Defeat Marcus & Faleris",
+      "detail": "Marcus fights alongside Faleris' firestorms. Quench flame orbs, avoid lava pools, and punish when Faleris dives.",
+      "targets": [
+        {
+          "kind": "boss",
+          "id": "tower-brothers-eternal-pyre",
+          "qty": 1
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Rotate shields and disengage during enraged phases to avoid permadeath wipes.",
+          "safety_buffer_items": [
+            {
+              "item_id": "ancient-technology-point",
+              "qty": 1
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "breaker",
+              "tasks": "Stagger the boss with elemental counters"
+            },
+            {
+              "role": "finisher",
+              "tasks": "Push damage once shields fall"
+            }
+          ],
+          "loot_rules": "Ensure everyone tags the boss before the final blow"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "surfent",
+          "suzaku-aqua"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 2400,
+        "max": 3400
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient-technology-point",
+            "qty": 5
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-brothers-eternal-pyre:004",
+      "type": "quest",
+      "summary": "Report the victory",
+      "detail": "Log the Eternal Pyre clear with the Investigator board to unlock the high-heat emergency quests.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            116,
+            -398
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 280,
+        "max": 420
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "boss-cleared",
+      "boss_id": "tower-brothers-eternal-pyre"
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+3 to +4",
+    "key_unlocks": [
+      "ancient-technology-points"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 1,
+    "quest_nodes": 1
+  },
+  "next_routes": [
+    {
+      "route_id": "tower-pal-genetics",
+      "reason": "Advance to the PAL Genetic Research Unit finale"
+    }
+  ]
+}
+```
+
+### Route: PAL Genetic Research Unit: Victor & Shadowbeak
+
+```json
+{
+  "route_id": "tower-pal-genetics",
+  "title": "PAL Genetic Research Unit: Victor & Shadowbeak",
+  "category": "bosses",
+  "tags": [
+    "tower",
+    "boss",
+    "ancient-points",
+    "combat"
+  ],
+  "progression_role": "core",
+  "recommended_level": {
+    "min": 46,
+    "max": 54
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "tower-brothers-eternal-pyre",
+      "capture-jetragon"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Storm the PAL Genetic Research Unit",
+    "Prepare a counter team",
+    "Defeat Victor & Shadowbeak",
+    "Report the victory to the Investigator board"
+  ],
+  "estimated_time_minutes": {
+    "solo": 20,
+    "coop": 15
+  },
+  "estimated_xp_gain": {
+    "min": 3600,
+    "max": 4400
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Loss of consumables and time",
+    "hardcore": "Death results in character deletion and loss of Pals"
+  },
+  "adaptive_guidance": {
+    "underleveled": "Complete legendary capture routes or high-tier raids to gear up before fighting Victor.",
+    "overleveled": "Chain Dragon burst windows to phase Shadowbeak quickly and skip the late enrage.",
+    "resource_shortages": [
+      {
+        "item_id": "ancient-technology-point",
+        "solution": "Farm earlier towers or raids to stock Ancient Technology Points for emergency revives."
+      }
+    ],
+    "time_limited": "Rush the lab lobby and ignore optional console rooms; the arena is near the entrance elevator.",
+    "dynamic_rules": [
+      {
+        "signal": "goal:legendary-captures",
+        "condition": "goals includes legendary-captures",
+        "adjustment": "Surface capture-jetragon immediately after Victor falls to capitalise on the unlocked skies.",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "tower-pal-genetics:003"
+        ],
+        "follow_up_routes": [
+          "capture-jetragon"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "tower-pal-genetics:checkpoint-arrival",
+      "summary": "Research unit breached",
+      "benefits": [
+        "Unlocks PAL Genetic fast travel"
+      ],
+      "related_steps": [
+        "tower-pal-genetics:001"
+      ]
+    },
+    {
+      "id": "tower-pal-genetics:checkpoint-victory",
+      "summary": "Victor & Shadowbeak defeated",
+      "benefits": [
+        "Awards Ancient Technology Points",
+        "Opens late-game raid rotation"
+      ],
+      "related_steps": [
+        "tower-pal-genetics:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "capture-jetragon",
+      "purposeful-arc-legendary-push"
+    ],
+    "optional": [
+      "tech-grappling-gun"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
+    "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
+  },
+  "steps": [
+    {
+      "step_id": "tower-pal-genetics:001",
+      "type": "travel",
+      "summary": "Storm the PAL Genetic Research Unit",
+      "detail": "Fly to the snowbound PAL Genetic Research Unit around (558, 340). Expect elite automatons on the approach.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "pal-genetic-research-unit",
+          "coords": [
+            558,
+            340
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 90
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-pal-genetics:002",
+      "type": "prepare",
+      "summary": "Prepare a counter team",
+      "detail": "Bring legendary Dragons such as Jetragon, Frostallion, or Shadowbeak Noct to counter Victor. Carry plenty of shields for the beam spam.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Carry extra shields and keep distance to avoid burst phases.",
+          "safety_buffer_items": [
+            {
+              "item_id": "large-med-kit",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "support",
+              "tasks": "Keep heals and revives ready"
+            },
+            {
+              "role": "damage",
+              "tasks": "Maintain boss aggro and burst windows"
+            }
+          ],
+          "loot_rules": "Share Ancient Technology Points equally"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "jetragon",
+          "frostallion",
+          "shadowbeak"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 150,
+        "max": 260
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-pal-genetics:003",
+      "type": "fight",
+      "summary": "Defeat Victor & Shadowbeak",
+      "detail": "Victor summons Shadowbeak's void beams. Circle the arena, burst during cooldown windows, and avoid stacked lasers.",
+      "targets": [
+        {
+          "kind": "boss",
+          "id": "tower-pal-genetics",
+          "qty": 1
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Rotate shields and disengage during enraged phases to avoid permadeath wipes.",
+          "safety_buffer_items": [
+            {
+              "item_id": "ancient-technology-point",
+              "qty": 1
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "breaker",
+              "tasks": "Stagger the boss with elemental counters"
+            },
+            {
+              "role": "finisher",
+              "tasks": "Push damage once shields fall"
+            }
+          ],
+          "loot_rules": "Ensure everyone tags the boss before the final blow"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "jetragon",
+          "frostallion"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 3000,
+        "max": 4000
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient-technology-point",
+            "qty": 6
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-pal-genetics:004",
+      "type": "quest",
+      "summary": "Report the victory",
+      "detail": "Submit the PAL Genetic Research Unit defeat to the Investigator board to unlock endgame raids and Sakurajima intel.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            116,
+            -398
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 280,
+        "max": 420
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "boss-cleared",
+      "boss_id": "tower-pal-genetics"
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+3 to +4",
+    "key_unlocks": [
+      "ancient-technology-points"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 1,
+    "quest_nodes": 1
+  },
+  "next_routes": [
+    {
+      "route_id": "tower-sakurajima",
+      "reason": "Travel to Sakurajima for the Moonflower offensive"
+    },
+    {
+      "route_id": "purposeful-arc-legendary-push",
+      "reason": "Leverage new tech and raids unlocked by Victor's defeat"
+    }
+  ]
+}
+```
+
+### Route: Moonflower Tower: Saya & Selyne
+
+```json
+{
+  "route_id": "tower-sakurajima",
+  "title": "Moonflower Tower: Saya & Selyne",
+  "category": "bosses",
+  "tags": [
+    "tower",
+    "boss",
+    "ancient-points",
+    "combat"
+  ],
+  "progression_role": "core",
+  "recommended_level": {
+    "min": 50,
+    "max": 58
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "tower-pal-genetics"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Sail to Sakurajima and reach Moonflower Tower",
+    "Prepare a counter team",
+    "Defeat Saya & Selyne",
+    "Report the victory to the Investigator board"
+  ],
+  "estimated_time_minutes": {
+    "solo": 21,
+    "coop": 16
+  },
+  "estimated_xp_gain": {
+    "min": 3800,
+    "max": 4700
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Loss of consumables and time",
+    "hardcore": "Death results in character deletion and loss of Pals"
+  },
+  "adaptive_guidance": {
+    "underleveled": "Complete Sakurajima world quests and raid bosses to push into the low 50s before challenging Saya.",
+    "overleveled": "Leverage dual Fire legendary pals to collapse Selyne's shield phases rapidly.",
+    "resource_shortages": [
+      {
+        "item_id": "antidote",
+        "solution": "Craft Antidotes and anti-toxin meals to survive Selyne's poison mist."
+      }
+    ],
+    "time_limited": "Teleport to the island statue and head straight to the blossom platform without clearing optional camps.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:antidote",
+        "condition": "resource_gaps includes antidote",
+        "adjustment": "Queue a quick antidote craft before :002 so you can cleanse Selyne's poison mist.",
+        "priority": 1,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "tower-sakurajima:002"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "tower-sakurajima:checkpoint-arrival",
+      "summary": "Moonflower Tower reached",
+      "benefits": [
+        "Unlocks Sakurajima fast travel"
+      ],
+      "related_steps": [
+        "tower-sakurajima:001"
+      ]
+    },
+    {
+      "id": "tower-sakurajima:checkpoint-victory",
+      "summary": "Saya & Selyne defeated",
+      "benefits": [
+        "Awards Ancient Technology Points",
+        "Unlocks Feybreak chain"
+      ],
+      "related_steps": [
+        "tower-sakurajima:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "capture-jetragon",
+      "purposeful-arc-legendary-push"
+    ],
+    "optional": [
+      "mount-nitewing-saddle"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
+    "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
+  },
+  "steps": [
+    {
+      "step_id": "tower-sakurajima:001",
+      "type": "travel",
+      "summary": "Sail to Sakurajima and reach Moonflower Tower",
+      "detail": "Glide onto the blossom platform at (640, 120) on Sakurajima Island to enter Moonflower Tower.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "sakurajima-island",
+          "coords": [
+            640,
+            120
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 90
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-sakurajima:002",
+      "type": "prepare",
+      "summary": "Prepare a counter team",
+      "detail": "Mix Fire and Dark pals such as Faleris, Blazamut Ryu, or Helzephyr to counter Selyne's Ice and Toxic phases. Carry antidotes for poison fog.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Carry extra shields and keep distance to avoid burst phases.",
+          "safety_buffer_items": [
+            {
+              "item_id": "large-med-kit",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "support",
+              "tasks": "Keep heals and revives ready"
+            },
+            {
+              "role": "damage",
+              "tasks": "Maintain boss aggro and burst windows"
+            }
+          ],
+          "loot_rules": "Share Ancient Technology Points equally"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "faleris",
+          "blazamut-ryu",
+          "helzephyr"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 150,
+        "max": 260
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-sakurajima:003",
+      "type": "fight",
+      "summary": "Defeat Saya & Selyne",
+      "detail": "Saya & Selyne rotate toxic storms and Ice barrages. Cleanse poison quickly, dodge crescent slashes, and retaliate with Fire bursts.",
+      "targets": [
+        {
+          "kind": "boss",
+          "id": "tower-sakurajima",
+          "qty": 1
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Rotate shields and disengage during enraged phases to avoid permadeath wipes.",
+          "safety_buffer_items": [
+            {
+              "item_id": "ancient-technology-point",
+              "qty": 1
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "breaker",
+              "tasks": "Stagger the boss with elemental counters"
+            },
+            {
+              "role": "finisher",
+              "tasks": "Push damage once shields fall"
+            }
+          ],
+          "loot_rules": "Ensure everyone tags the boss before the final blow"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "faleris",
+          "blazamut-ryu"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 3200,
+        "max": 4300
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient-technology-point",
+            "qty": 6
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-sakurajima:004",
+      "type": "quest",
+      "summary": "Report the victory",
+      "detail": "Report the Moonflower victory to queue Feybreak missions on the Investigator board.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            116,
+            -398
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 280,
+        "max": 420
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "boss-cleared",
+      "boss_id": "tower-sakurajima"
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+3 to +4",
+    "key_unlocks": [
+      "ancient-technology-points"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 1,
+    "quest_nodes": 1
+  },
+  "next_routes": [
+    {
+      "route_id": "tower-feybreak",
+      "reason": "Advance to the Feybreak finale"
+    }
+  ]
+}
+```
+
+### Route: Feybreak Tower: Bjorn & Bastigor
+
+```json
+{
+  "route_id": "tower-feybreak",
+  "title": "Feybreak Tower: Bjorn & Bastigor",
+  "category": "bosses",
+  "tags": [
+    "tower",
+    "boss",
+    "ancient-points",
+    "combat"
+  ],
+  "progression_role": "core",
+  "recommended_level": {
+    "min": 54,
+    "max": 60
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "tower-sakurajima"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Fly to the Feybreak Tower summit",
+    "Prepare a counter team",
+    "Defeat Bjorn & Bastigor",
+    "Report the victory to the Investigator board"
+  ],
+  "estimated_time_minutes": {
+    "solo": 22,
+    "coop": 17
+  },
+  "estimated_xp_gain": {
+    "min": 4200,
+    "max": 5200
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Loss of consumables and time",
+    "hardcore": "Death results in character deletion and loss of Pals"
+  },
+  "adaptive_guidance": {
+    "underleveled": "Complete Sakurajima dungeons and late-game raids to polish gear before fighting Bjorn.",
+    "overleveled": "Use legendary Fire pal synergy to burst Bastigor before the heavy enrage.",
+    "resource_shortages": [
+      {
+        "item_id": "hot-curry",
+        "solution": "Cook heat buffs before the flight so the cold winds do not drain stamina."
+      }
+    ],
+    "time_limited": "Teleport to Feybreak Outpost and ride a flyer straight to the summit, ignoring chilling patrols.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:hot-curry",
+        "condition": "resource_gaps includes hot-curry",
+        "adjustment": "Queue warming meals before :001 to resist Feybreak chill.",
+        "priority": 1,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "tower-feybreak:001"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "tower-feybreak:checkpoint-arrival",
+      "summary": "Feybreak summit secured",
+      "benefits": [
+        "Unlocks Feybreak fast travel"
+      ],
+      "related_steps": [
+        "tower-feybreak:001"
+      ]
+    },
+    {
+      "id": "tower-feybreak:checkpoint-victory",
+      "summary": "Bjorn & Bastigor defeated",
+      "benefits": [
+        "Awards Ancient Technology Points",
+        "Completes Investigator storyline"
+      ],
+      "related_steps": [
+        "tower-feybreak:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "purposeful-arc-legendary-push",
+      "capture-jetragon"
+    ],
+    "optional": [
+      "tech-grappling-gun"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "If you fail the timer, exit to restock consumables and re-enter; progress resets but no loot is lost.",
+    "hardcore": "Abort the attempt if armor durability reaches red; Hardcore characters should prioritise survival over DPS."
+  },
+  "steps": [
+    {
+      "step_id": "tower-feybreak:001",
+      "type": "travel",
+      "summary": "Fly to the Feybreak Tower summit",
+      "detail": "Soar to the peak of Feybreak Island at (512, -662). Strong winds and ice bombardments guard the tower entrance.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "feybreak-island",
+          "coords": [
+            512,
+            -662
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 90
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-feybreak:002",
+      "type": "prepare",
+      "summary": "Prepare a counter team",
+      "detail": "Deploy elite Fire and Dragon pals such as Blazamut, Jetragon, or Ignis Ravager to crack Bastigor's armor. Stockpile warming meals.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Carry extra shields and keep distance to avoid burst phases.",
+          "safety_buffer_items": [
+            {
+              "item_id": "large-med-kit",
+              "qty": 2
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "support",
+              "tasks": "Keep heals and revives ready"
+            },
+            {
+              "role": "damage",
+              "tasks": "Maintain boss aggro and burst windows"
+            }
+          ],
+          "loot_rules": "Share Ancient Technology Points equally"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "blazamut",
+          "jetragon",
+          "ignis-ravager"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 150,
+        "max": 260
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-feybreak:003",
+      "type": "fight",
+      "summary": "Defeat Bjorn & Bastigor",
+      "detail": "Bjorn commands Bastigor's crushing strikes. Watch for icy ground spikes, maintain fire damage uptime, and save stamina for aerial dives.",
+      "targets": [
+        {
+          "kind": "boss",
+          "id": "tower-feybreak",
+          "qty": 1
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Rotate shields and disengage during enraged phases to avoid permadeath wipes.",
+          "safety_buffer_items": [
+            {
+              "item_id": "ancient-technology-point",
+              "qty": 1
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "breaker",
+              "tasks": "Stagger the boss with elemental counters"
+            },
+            {
+              "role": "finisher",
+              "tasks": "Push damage once shields fall"
+            }
+          ],
+          "loot_rules": "Ensure everyone tags the boss before the final blow"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "blazamut",
+          "jetragon"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 3600,
+        "max": 4800
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient-technology-point",
+            "qty": 8
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "tower-feybreak:004",
+      "type": "quest",
+      "summary": "Report the victory",
+      "detail": "Turn the Feybreak victory into the Investigator board to complete the adaptive story arc and unlock the final question set.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            116,
+            -398
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 280,
+        "max": 420
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "boss-cleared",
+      "boss_id": "tower-feybreak"
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+3 to +4",
+    "key_unlocks": [
+      "ancient-technology-points"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 1,
+    "quest_nodes": 1
+  },
+  "next_routes": [
+    {
+      "route_id": "quest-main-story",
+      "reason": "Wrap the Investigator campaign and review completed questions"
+    }
+  ]
+}
+```
+
+### Route: Investigator Main Story Wrap-Up
+
+```json
+{
+  "route_id": "quest-main-story",
+  "title": "Investigator Main Story Wrap-Up",
+  "category": "progression",
+  "tags": [
+    "story",
+    "quest",
+    "boss"
+  ],
+  "progression_role": "core",
+  "recommended_level": {
+    "min": 1,
+    "max": 60
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "tower-feybreak"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Check off every Investigator board request",
+    "Track tower victories and update the adaptive question set",
+    "Celebrate finishing the campaign with bonus quests"
+  ],
+  "estimated_time_minutes": {
+    "solo": 60,
+    "coop": 45
+  },
+  "estimated_xp_gain": {
+    "min": 2000,
+    "max": 3500
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Missing a board hand-in only costs time; re-open the log to resubmit.",
+    "hardcore": "Hardcore players should turn in quests before logging off to avoid progress loss."
+  },
+  "adaptive_guidance": {
+    "underleveled": "If the final requests feel rough, re-run earlier towers or legendary captures for XP boosts.",
+    "overleveled": "Speed through the board and mop up any missed optional questions to unlock cosmetics.",
+    "resource_shortages": [
+      {
+        "item_id": "ancient-technology-point",
+        "solution": "Re-clear earlier towers or raid bosses to refill Ancient Technology Points before answering the final prompts."
+      }
+    ],
+    "time_limited": "Focus on the mandatory board turn-ins first; optional question prompts can wait for a longer session.",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Split the board checklist between players so everyone hands in different regions simultaneously.",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "quest-main-story:002",
+          "quest-main-story:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "quest-main-story:checkpoint-first",
+      "summary": "Investigator board synced",
+      "benefits": [
+        "Displays completed question sets"
+      ],
+      "related_steps": [
+        "quest-main-story:001"
+      ]
+    },
+    {
+      "id": "quest-main-story:checkpoint-final",
+      "summary": "Campaign epilogue viewed",
+      "benefits": [
+        "Unlocks repeatable expert questions"
+      ],
+      "related_steps": [
+        "quest-main-story:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "purposeful-arc-legendary-push",
+      "tower-feybreak"
+    ],
+    "optional": [
+      "capture-jetragon"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Reopen the Investigator board to re-accept any missed requests; progress is saved per question.",
+    "hardcore": "Log board completions immediately to avoid losing them to Hardcore wipes."
+  },
+  "steps": [
+    {
+      "step_id": "quest-main-story:001",
+      "type": "quest",
+      "summary": "Sync with the Investigator board",
+      "detail": "Open an Investigator board and review completed tower records. Accept any lingering story requests tied to previous bosses.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            116,
+            -398
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 300,
+        "max": 420
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "quest-main-story:002",
+      "type": "quest",
+      "summary": "Hand in tower clear evidence",
+      "detail": "Submit proof of each tower victory (Rayne, Free Pal, PIDF, Eternal Pyre, PAL Genetic, Moonflower, Feybreak) to finish the Investigator campaign log.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 600,
+        "max": 900
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses"
+      ]
+    },
+    {
+      "step_id": "quest-main-story:003",
+      "type": "quest",
+      "summary": "Complete the adaptive question set",
+      "detail": "Answer every remaining Investigator question to unlock the adaptive guide epilogue and celebratory cosmetics.",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 700,
+        "max": 1100
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "quest-chain",
+      "quest_id": "investigator-mainline"
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+2 to +3",
+    "key_unlocks": [
+      "investigator-epilogue"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 6,
+    "boss_targets": 0,
+    "quest_nodes": 8
+  },
+  "next_routes": [
+    {
+      "route_id": "purposeful-arc-legendary-push",
+      "reason": "Replay legendary hunts with full adaptive context"
+    }
+  ]
+}
+```
+
 
 Palmate estimates the player’s level by summing XP from completed steps,
 adding bonuses and converting the total into a level using the XP table.
@@ -2821,23 +8662,54 @@ The following block describes the algorithm and provides an example.
   "level_estimator": {
     "xp_thresholds_ref": "xp_thresholds",
     "per_step_xp_ranges": {
-      "gather": { "min": 10, "max": 40 },
-      "build": { "min": 30, "max": 50 },
-      "craft": { "min": 50, "max": 80 },
-      "capture": { "min": 60, "max": 200 },
-      "farm": { "min": 150, "max": 300 },
-      "unlock-tech": { "min": 10, "max": 20 },
-      "travel": { "min": 5, "max": 15 },
-      "fight": { "min": 100, "max": 500 },
-      "explore": { "min": 30, "max": 70 }
+      "gather": {
+        "min": 10,
+        "max": 40
+      },
+      "build": {
+        "min": 30,
+        "max": 50
+      },
+      "craft": {
+        "min": 50,
+        "max": 80
+      },
+      "capture": {
+        "min": 60,
+        "max": 200
+      },
+      "farm": {
+        "min": 150,
+        "max": 300
+      },
+      "unlock-tech": {
+        "min": 10,
+        "max": 20
+      },
+      "travel": {
+        "min": 5,
+        "max": 15
+      },
+      "fight": {
+        "min": 100,
+        "max": 500
+      },
+      "explore": {
+        "min": 30,
+        "max": 70
+      },
+      "quest": {
+        "min": 150,
+        "max": 400
+      }
     },
     "metric_usage": {
-      "xp_per_minute_weight": 0.25,
-      "travel_distance_weight": -0.1,
-      "consumable_cost_weight": -0.05,
-      "description": "Route-level metrics adjust projections: higher XP/min slightly boosts expected level gain, while long travel or expensive consumables reduce the effective XP value."
+      "progress_segment_value": 40,
+      "boss_clear_value": 520,
+      "quest_node_value": 320,
+      "description": "Route-level metrics reflect adaptive momentum: progress segments reward checklist depth, boss clears add large boosts, and quest nodes track story completions."
     },
-    "estimation_method": "\n1. For each completed step, take the median of its XP estimate range (or the per‑step range if no estimate is provided).  Sum these medians to compute the base XP.\n2. Apply route-level adjustments using metrics: multiply xp_per_minute by the average of the route’s solo/coop time (in minutes) and the weight to reward efficient grinds, subtract travel_distance_m × travel_distance_weight ÷ 1000, and subtract consumable_cost totals × consumable_cost_weight.\n3. Add bonuses: +500 XP for each boss clear and +10 % for completing a route without deaths in Hardcore mode.  In Co‑Op, divide XP evenly among players.\n4. Convert the cumulative XP to a player level by finding the highest level where cumulative_xp ≤ total XP in the xp_thresholds array.\n5. Compute a confidence score between 0 and 1 equal to the fraction of steps with explicit XP estimates plus 0.1 if route metrics were provided.  Cap the score at 1.0.\n",
+    "estimation_method": "\n1. For each completed step, take the median of its XP estimate range (or the per-step range if no estimate is provided).  Sum these medians to compute the base XP.\n2. Add adaptive bonuses: progress_segments × progress_segment_value, boss_targets × boss_clear_value, and quest_nodes × quest_node_value.\n3. Add +500 XP for each boss clear marked directly on a step and +10% for finishing the route deathless in Hardcore.  In Co-Op, divide XP evenly among players.\n4. Convert cumulative XP to a player level by finding the highest level where cumulative_xp ≤ total XP in the xp_thresholds array.\n5. Compute confidence as the fraction of steps with explicit XP estimates plus 0.1 if route metrics are provided (cap at 1.0).",
     "example": "Suppose a player completed the Starter Base route in solo normal mode.  The median XP for its steps sums to ~370 XP.  No bonuses apply.  According to the XP table, 370 XP corresponds to level 5.  Because all steps have explicit XP estimates, the confidence score is 1.0."
   }
 }
@@ -2856,11 +8728,23 @@ help players understand why a route is suggested.
     "input_context_shape": {
       "declared_level": "int|null",
       "estimated_level": "int",
-      "mode": { "hardcore": "bool", "coop": "bool" },
-      "completed_routes": [ "route-id" ],
-      "goals": [ "tag" ],
+      "mode": {
+        "hardcore": "bool",
+        "coop": "bool"
+      },
+      "completed_routes": [
+        "route-id"
+      ],
+      "goals": [
+        "tag"
+      ],
       "available_time_minutes": "int|null",
-      "resource_gaps": [ { "item_id": "string", "qty": "int" } ]
+      "resource_gaps": [
+        {
+          "item_id": "string",
+          "qty": "int"
+        }
+      ]
     },
     "scoring_signals": {
       "prerequisites_met": 5,
@@ -2878,9 +8762,18 @@ help players understand why a route is suggested.
       "dynamic_alignment": 3
     },
     "metric_normalization": {
-      "xp_per_minute": { "target": 15, "score_per_sigma": 1.5 },
-      "travel_distance_m": { "target": 1200, "score_per_sigma": -1.0 },
-      "consumable_cost": { "target": 5, "score_per_sigma": -0.5 }
+      "progress_segments": {
+        "target": 4,
+        "score_per_sigma": 1.2
+      },
+      "boss_targets": {
+        "target": 1,
+        "score_per_sigma": 1.5
+      },
+      "quest_nodes": {
+        "target": 1,
+        "score_per_sigma": 1.1
+      }
     },
     "decision_flow": [
       "Filter out routes with unmet prerequisites or missing adaptive_guidance entries for requested goals",
@@ -2888,14 +8781,19 @@ help players understand why a route is suggested.
       "Prefer routes whose metrics meet or exceed normalization targets when available_time_minutes is low",
       "Award dynamic_alignment when player context satisfies a route’s adaptive_guidance.dynamic_rules"
     ],
-    "tie_breakers": [ "lowest_consumable_cost", "shortest_time", "highest_unlock_value", "alphabetical" ],
+    "tie_breakers": [
+      "lowest_consumable_cost",
+      "shortest_time",
+      "highest_unlock_value",
+      "alphabetical"
+    ],
     "explanation_templates": {
       "prerequisites_met": "You meet all prerequisites for this route.",
       "level_fit": "Your estimated level of {level} fits the recommended range ({min}-{max}).",
       "unlock_value": "Completing this route unlocks {unlocks}.",
       "resource_need": "You need {item} for upcoming routes.",
       "progression_role": "This is a {role} route that keeps your progression on track.",
-      "metric_efficiency": "Its projected {xp_per_minute} XP/min and short travel time make it efficient right now.",
+      "metric_efficiency": "Covers {progress_segments} major steps with {boss_targets} boss clear(s) and {quest_nodes} story objective(s) tracked.",
       "adaptive_guidance": "Adaptive guidance suggests {recommendation} based on your situation.",
       "dynamic_alignment": "Dynamic rule triggered: {rule_adjustment}."
     },
