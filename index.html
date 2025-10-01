@@ -4314,7 +4314,7 @@
               <div class="progress-card__icon"><i class="fa-solid fa-book-open-reader"></i></div>
               <div>
                 <h3>Adaptive guide completion</h3>
-                <p>Track required steps, boss victories, and story questions from your curated route.</p>
+                <p>Track required steps, boss victories, and story & optional quests from your curated route.</p>
               </div>
             </div>
             <div class="progress-meter" id="guideProgressMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -4415,14 +4415,14 @@
               <div class="route-overview__stat-header">
                 <span class="route-overview__stat-icon"><i class="fa-solid fa-scroll"></i></span>
                 <div>
-                  <p class="route-overview__stat-title" data-route-role="quest-title">Story questions</p>
+                  <p class="route-overview__stat-title" data-route-role="quest-title">Story & optional quests</p>
                   <p class="route-overview__stat-value" data-route-role="quest-count">0/0</p>
                 </div>
               </div>
               <div class="route-overview__meter" data-route-role="quest-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
                 <div class="fill" data-route-role="quest-fill"></div>
               </div>
-              <p class="route-overview__stat-sub" data-route-role="quest-note">Investigator questions completed</p>
+              <p class="route-overview__stat-sub" data-route-role="quest-note">Story and optional quest progress</p>
             </article>
           </div>
           <p class="progress-route__next" data-route-role="next-callout"></p>
@@ -9590,8 +9590,8 @@
           icon.className = 'fa-solid fa-map-location-dot';
           title.textContent = kidMode ? 'Adaptive Route Guide' : 'Adaptive Route Guide';
           subtitle.textContent = kidMode
-            ? 'Track main chapters, boss wins, and story questions together.'
-            : 'Monitor required steps, boss clears, and story questions before the system lines up your next priority.';
+            ? 'Track main chapters, boss wins, and story quests together.'
+            : 'Monitor required steps, boss clears, and story & optional quests before the system lines up your next priority.';
           meter.id = 'homeRouteProgressMeter';
           meter.setAttribute('aria-label', 'Route guide progress');
           fill.id = 'homeRouteProgressBar';
@@ -12786,9 +12786,10 @@
           const recommendations = computeRouteRecommendations(guide, routeContext, levelEstimate, stageSnapshot);
           latestRecommendations = Array.isArray(recommendations) ? recommendations.slice() : [];
           const heading = kidMode ? 'Adaptive Adventure Planner' : 'Adaptive Route Planner';
+          const suggestionsHeading = kidMode ? 'Tonight’s Adventure Paths' : 'Tonight’s Adventure Paths';
           const suggestionsLead = kidMode
-            ? 'Palmate studies your level, party mode, and wish list to queue up perfect adventures. Highlight one to see every step.'
-            : 'Palmate analyses the full guide library against your context. Highlight a path to preview the complete walkthrough.';
+            ? 'These curated paths keep your crew moving through the story while spotlighting bonus quests worth sampling tonight.'
+            : 'These curated paths balance main quest momentum, optional clean-up, and boss prep for tonight’s session.';
           const recommendationLead = kidMode
             ? 'Need other ideas? These extra adventures re-rank when your context changes.'
             : 'Want alternatives? The rest of the ranked library updates whenever your context shifts.';
@@ -12806,6 +12807,34 @@
           const plannerLead = kidMode
             ? 'Tell Palmate what you need tonight and we’ll build the perfect plan.'
             : 'Dial in your context and Palmate will surface the routes that matter most.';
+          const contextCollapsedClass = routeOverviewCollapsed ? ' route-context--collapsed' : '';
+          const tonightStats = [];
+          if(summary.requiredTotal){
+            tonightStats.push({
+              value: `${summary.requiredComplete}/${summary.requiredTotal}`,
+              label: kidMode ? 'Core quests done' : 'Core quests complete'
+            });
+          }
+          if(summary.questsTotal){
+            tonightStats.push({
+              value: `${summary.questsComplete}/${summary.questsTotal}`,
+              label: kidMode ? 'Story & bonus quests' : 'Story & optional quests'
+            });
+          }
+          if(summary.bossesTotal){
+            tonightStats.push({
+              value: `${summary.bossesComplete}/${summary.bossesTotal}`,
+              label: kidMode ? 'Boss wins' : 'Bosses cleared'
+            });
+          }
+          const tonightMetrics = tonightStats.length
+            ? `<ul class="route-tonight__metrics">${tonightStats.map(stat => `
+                <li class="route-tonight__metric">
+                  <span class="route-tonight__metric-value">${escapeHTML(stat.value)}</span>
+                  <span class="route-tonight__metric-label">${escapeHTML(stat.label)}</span>
+                </li>
+              `).join('')}</ul>`
+            : '';
           const suggestionsToggleLabel = routeSuggestionsCollapsed
             ? (kidMode ? 'Show preview' : 'Show preview')
             : (kidMode ? 'Hide preview' : 'Hide preview');
@@ -12820,7 +12849,7 @@
             </div>
           </header>
           <div class="route-shell">
-            <section class="card route-hero route-context" id="routeContextCard">
+            <section class="card route-hero route-context${contextCollapsedClass}" id="routeContextCard">
               <div class="route-hero__layout">
                 <div class="route-hero__overview">
                   ${renderRouteContextOverview(routeContext, levelEstimate, summary)}
@@ -12831,27 +12860,14 @@
               </div>
             </section>
             <div class="route-grid route-grid--primary">
-              <section class="card route-active-card" id="routeActiveCard">
-                <div class="route-active__header">
-                  <div class="route-active__title">
-                    <h3>${escapeHTML(kidMode ? 'Your adventure queue' : 'Active guides')}</h3>
-                    <p class="route-active__intro">${escapeHTML(kidMode
-                      ? 'Pick guides from the suggestions above. Only your chosen adventures stay visible here until you finish them.'
-                      : 'Pick guides from the suggestions above. Only the adventures you select stay visible here until they are complete.')}</p>
-                  </div>
-                  <div class="route-active__actions">
-                    <button type="button" class="btn" data-route-action="toggle-optional">${routeOptionalToggleLabel(routeHideOptional)}</button>
-                    <button type="button" class="btn" data-route-action="jump-next" data-step-id="">${kidMode ? 'Jump to next step' : 'Jump to next required'}</button>
-                  </div>
-                </div>
-                <div class="route-active__filters" data-route-role="filters" aria-label="Filter steps by category"></div>
-                <div class="route-active__list" id="routeChapters"></div>
-              </section>
               <section class="card route-suggestions-card route-suggestions-card--slim route-tonight-card${routeSuggestionsCollapsed ? ' route-suggestions-card--collapsed' : ''}" id="routeSuggestionsCard">
-                <div class="route-suggestions__header">
-                  <div class="route-suggestions__title">
-                    <h3>${kidMode ? 'Tonight’s Adventure Paths' : 'Suggested Adventure Paths'}</h3>
-                    <p class="route-suggestions__intro">${escapeHTML(suggestionsLead)}</p>
+                <div class="route-suggestions__header route-tonight__header">
+                  <div class="route-tonight__summary">
+                    <div class="route-tonight__titles">
+                      <h3>${escapeHTML(suggestionsHeading)}</h3>
+                      <p class="route-tonight__intro">${escapeHTML(suggestionsLead)}</p>
+                    </div>
+                    ${tonightMetrics}
                   </div>
                   <button type="button" class="route-suggestions__toggle" data-route-action="toggle-suggestions" aria-expanded="${routeSuggestionsCollapsed ? 'false' : 'true'}" aria-label="${escapeHTML(suggestionsToggleTitle)}">
                     <span data-route-suggestions-toggle-label>${escapeHTML(suggestionsToggleLabel)}</span>
@@ -12868,6 +12884,22 @@
                     ? 'Highlight a suggestion to preview the guide here.'
                     : 'Highlight a suggestion to preview the full walkthrough here.')}</p>
                 </div>
+              </section>
+              <section class="card route-active-card" id="routeActiveCard">
+                <div class="route-active__header">
+                  <div class="route-active__title">
+                    <h3>${escapeHTML(kidMode ? 'Your adventure queue' : 'Active guides')}</h3>
+                    <p class="route-active__intro">${escapeHTML(kidMode
+                      ? 'Pick guides from the suggestions above. Only your chosen adventures stay visible here until you finish them.'
+                      : 'Pick guides from the suggestions above. Only the adventures you select stay visible here until they are complete.')}</p>
+                  </div>
+                  <div class="route-active__actions">
+                    <button type="button" class="btn" data-route-action="toggle-optional">${routeOptionalToggleLabel(routeHideOptional)}</button>
+                    <button type="button" class="btn" data-route-action="jump-next" data-step-id="">${kidMode ? 'Jump to next step' : 'Jump to next required'}</button>
+                  </div>
+                </div>
+                <div class="route-active__filters" data-route-role="filters" aria-label="Filter steps by category"></div>
+                <div class="route-active__list" id="routeChapters"></div>
               </section>
             </div>
             <div class="route-grid route-grid--secondary">
@@ -13044,16 +13076,16 @@
       }
       let questNote;
       if(summary.questsTotal){
-        const remainingQuestions = summary.questsTotal - summary.questsComplete;
-        if(remainingQuestions === 0){
-          questNote = kidMode ? 'Every story question answered!' : 'All Investigator questions completed.';
+        const remainingQuests = summary.questsTotal - summary.questsComplete;
+        if(remainingQuests === 0){
+          questNote = kidMode ? 'Every story quest wrapped!' : 'All story and optional quests complete.';
         } else {
           questNote = kidMode
-            ? `${remainingQuestions} question${remainingQuestions === 1 ? '' : 's'} left`
-            : `${remainingQuestions} story question${remainingQuestions === 1 ? '' : 's'} remaining`;
+            ? `${remainingQuests} quest${remainingQuests === 1 ? '' : 's'} to finish`
+            : `${remainingQuests} story or optional quest${remainingQuests === 1 ? '' : 's'} remaining`;
         }
       } else {
-        questNote = kidMode ? 'Story questions show here' : 'Story question progress appears here';
+        questNote = kidMode ? 'Story & bonus quests show here' : 'Story and optional quest progress appears here';
       }
       const lastCompleted = getLastCompletedRouteMeta();
       const lastLabel = (() => {
@@ -13076,11 +13108,11 @@
       const questValue = summary.questsTotal ? `${summary.questsComplete}/${summary.questsTotal}` : '0/0';
       const collapsedClass = routeOverviewCollapsed ? ' route-overview--collapsed' : '';
       const toggleLabel = routeOverviewCollapsed
-        ? (kidMode ? 'Show snapshot' : 'Show snapshot')
-        : (kidMode ? 'Hide snapshot' : 'Hide snapshot');
+        ? (kidMode ? 'Show snapshot & options' : 'Show snapshot & options')
+        : (kidMode ? 'Hide snapshot & options' : 'Hide snapshot & options');
       const toggleTitle = routeOverviewCollapsed
-        ? (kidMode ? 'Expand session snapshot' : 'Show session snapshot details')
-        : (kidMode ? 'Collapse session snapshot' : 'Hide session snapshot details');
+        ? (kidMode ? 'Show session snapshot and context controls' : 'Show session snapshot and context controls')
+        : (kidMode ? 'Hide session snapshot and context controls' : 'Hide session snapshot and context controls');
       const condensedProgress = summary.requiredTotal
         ? `${summary.requiredComplete}/${summary.requiredTotal} ${kidMode ? 'big steps done' : 'required complete'}`
         : (kidMode ? 'No adventures tracked yet' : 'No routes tracked yet');
@@ -13183,7 +13215,7 @@
               <article class="route-overview__stat">
                 <div class="route-overview__stat-header">
                   <span class="route-overview__stat-icon"><i class="fa-solid fa-scroll"></i></span>
-                  <p class="route-overview__stat-title" data-route-role="quest-title">${kidMode ? 'Story questions' : 'Story questions'}</p>
+                  <p class="route-overview__stat-title" data-route-role="quest-title">${kidMode ? 'Story quests' : 'Story & optional quests'}</p>
                 </div>
                 <p class="route-overview__stat-value" data-route-role="quest-count">${escapeHTML(questValue)}</p>
                 <div class="route-overview__meter" data-route-role="quest-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${questsPct}">
@@ -13269,6 +13301,12 @@
 
     function applyRouteOverviewCollapseState(scope = document){
       const root = scope || document;
+      const contextCard = root.id === 'routeContextCard'
+        ? root
+        : root.querySelector ? root.querySelector('#routeContextCard') : null;
+      if(contextCard){
+        contextCard.classList.toggle('route-context--collapsed', !!routeOverviewCollapsed);
+      }
       const container = root.querySelector('[data-route-role="overview"]');
       if(container){
         container.classList.toggle('route-overview--collapsed', !!routeOverviewCollapsed);
@@ -13278,13 +13316,13 @@
         const expanded = !routeOverviewCollapsed;
         toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
         toggle.setAttribute('aria-label', expanded
-          ? (kidMode ? 'Collapse session snapshot' : 'Hide session snapshot details')
-          : (kidMode ? 'Expand session snapshot' : 'Show session snapshot details'));
+          ? (kidMode ? 'Hide session snapshot and context controls' : 'Hide session snapshot and context controls')
+          : (kidMode ? 'Show session snapshot and context controls' : 'Show session snapshot and context controls'));
         const label = toggle.querySelector('[data-route-overview-toggle-label]');
         if(label){
           label.textContent = routeOverviewCollapsed
-            ? (kidMode ? 'Show snapshot' : 'Show snapshot')
-            : (kidMode ? 'Hide snapshot' : 'Hide snapshot');
+            ? (kidMode ? 'Show snapshot & options' : 'Show snapshot & options')
+            : (kidMode ? 'Hide snapshot & options' : 'Hide snapshot & options');
         }
         const icon = toggle.querySelector('i');
         if(icon){
@@ -15634,7 +15672,7 @@
         el.textContent = kidMode ? 'Boss wins' : 'Bosses defeated';
       });
       document.querySelectorAll('[data-route-role="quest-title"]').forEach(el => {
-        el.textContent = kidMode ? 'Story questions' : 'Story questions';
+        el.textContent = kidMode ? 'Story quests' : 'Story & optional quests';
       });
 
       document.querySelectorAll('[data-route-role="required-count"]').forEach(el => {
@@ -15750,18 +15788,18 @@
       });
       document.querySelectorAll('[data-route-role="quest-note"]').forEach(el => {
         if(summary.questsTotal){
-          const remainingQuestions = summary.questsTotal - summary.questsComplete;
-          if(remainingQuestions === 0){
+          const remainingQuests = summary.questsTotal - summary.questsComplete;
+          if(remainingQuests === 0){
             el.textContent = kidMode
-              ? 'Every story question answered!'
-              : 'All Investigator questions completed.';
+              ? 'Every story quest wrapped!'
+              : 'All story and optional quests complete.';
           } else {
             el.textContent = kidMode
-              ? `${remainingQuestions} question${remainingQuestions === 1 ? '' : 's'} left`
-              : `${remainingQuestions} story question${remainingQuestions === 1 ? '' : 's'} remaining`;
+              ? `${remainingQuests} quest${remainingQuests === 1 ? '' : 's'} to finish`
+              : `${remainingQuests} story or optional quest${remainingQuests === 1 ? '' : 's'} remaining`;
           }
         } else {
-          el.textContent = kidMode ? 'Story questions show here' : 'Story question progress appears here';
+          el.textContent = kidMode ? 'Story & bonus quests show here' : 'Story and optional quest progress appears here';
         }
       });
 
@@ -17477,7 +17515,7 @@
       if (guideText) {
         guideText.textContent = kidMode
           ? 'Check off story steps and boss wins to power up this bar!'
-          : 'Check off route steps, boss clears, and story questions to track your run.';
+          : 'Check off route steps, boss clears, and story & optional quests to track your run.';
       }
       const bossQuestBadge = document.getElementById('bossQuestBadge');
       if (bossQuestBadge) {
@@ -17555,8 +17593,8 @@
       const routeLead = document.getElementById('progressRouteLead');
       if (routeLead) {
         routeLead.textContent = kidMode
-          ? 'See boss wins, story questions, and upcoming big steps without leaving this dashboard.'
-          : 'Review boss victories, story question progress, and upcoming priorities directly from the adaptive dashboard.';
+          ? 'See boss wins, story quests, and upcoming big steps without leaving this dashboard.'
+          : 'Review boss victories, story & optional quest progress, and upcoming priorities directly from the adaptive dashboard.';
       }
       document.querySelectorAll('[data-route-action="toggle-optional"]').forEach(btn => {
         btn.textContent = routeOptionalToggleLabel(routeHideOptional);
