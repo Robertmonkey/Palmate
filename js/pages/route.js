@@ -691,11 +691,17 @@ function navigateLink(l){
     else if(l.url) window.open(l.url, '_blank', 'noopener');
     else if(techId) focusSearch(niceName(techId), { target: 'items' });
   } else if(l.type==='item'){
-    const itemKey = l.id || l.slug;
-    if(itemKey && typeof window.openItemDetail === 'function'){ window.openItemDetail(itemKey); }
-    else if(itemKey) focusSearch(itemKey, { target: 'items' });
-    else if(l.url) window.open(l.url, '_blank', 'noopener');
-    else if(l.name || l.label) focusSearch(l.name || l.label, { target: 'items' });
+    const itemKey = normalizeItemKey(l);
+    const searchTerm = l.name || l.label || (itemKey ? niceName(itemKey) : '');
+    if(itemKey && typeof window.openItemDetail === 'function'){
+      window.openItemDetail(itemKey);
+    } else if(itemKey){
+      focusSearch(searchTerm || itemKey, { target: 'items' });
+    } else if(l.url){
+      window.open(l.url, '_blank', 'noopener');
+    } else if(searchTerm){
+      focusSearch(searchTerm, { target: 'items' });
+    }
   } else if(l.type==='passive'){
     const trait = capitalize(l.id || l.slug || '');
     if(typeof window.showTraitDetail === 'function') window.showTraitDetail(trait);
@@ -720,6 +726,26 @@ function navigateLink(l){
 function linkTypeToken(type){
   if(!type) return '';
   return String(type).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+}
+
+function normalizeItemKey(link){
+  if(!link) return '';
+  const candidates = [];
+  if(link.id != null) candidates.push(link.id);
+  if(link.slug != null) candidates.push(link.slug);
+  if(link.name) candidates.push(link.name);
+  if(link.label) candidates.push(link.label);
+  for(const candidate of candidates){
+    if(candidate == null) continue;
+    const raw = String(candidate).trim();
+    if(!raw) continue;
+    const normalized = raw
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/(^_|_$)/g, '');
+    if(normalized) return normalized;
+  }
+  return '';
 }
 
 function pulse(el){
