@@ -173,21 +173,11 @@ gba(119,141,169,0.45)}
 }
 .route-shell{display:grid;gap:28px}
 .route-shell>*{min-width:0}
-.route-grid{display:grid;gap:24px}
-.route-grid--primary>.card,.route-grid--secondary>.card{height:100%}
-@media (min-width:960px){
-  .route-grid--primary{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
-  .route-grid--secondary{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
-}
-@media (min-width:1280px){
-  .route-grid--secondary{grid-template-columns:minmax(0,0.95fr) minmax(0,1.05fr)}
-}
+.route-grid{display:flex;flex-direction:column;gap:24px}
+.route-grid--primary>.card,.route-grid--secondary>.card{height:auto}
 .route-hero{padding:22px 24px 26px}
 .route-hero.route-context{display:block}
-.route-hero__layout{display:grid;gap:24px}
-@media (min-width:1024px){
-  .route-hero__layout{grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);align-items:start}
-}
+.route-hero__layout{display:flex;flex-direction:column;gap:24px}
 .route-hero__overview,.route-hero__controls{display:grid;gap:20px}
 .route-hero__controls .route-context__controls{height:100%}
 .route-card{display:grid;gap:22px}
@@ -454,7 +444,9 @@ gba(119,141,169,0.45)}
 .route-active__filters .route-filters__chips{max-width:100%;overflow-x:auto;padding-bottom:4px}
 .route-active__filters .route-filters__chips::-webkit-scrollbar{height:6px}
 .route-active__filters .route-filters__chips::-webkit-scrollbar-thumb{background:rgba(119,141,169,0.45);border-radius:999px}
-.route-active__list{display:grid;gap:22px}
+.route-active__list{display:grid;gap:22px;max-height:min(70vh,560px);overflow:auto;padding-right:4px}
+.route-active__list::-webkit-scrollbar{width:8px}
+.route-active__list::-webkit-scrollbar-thumb{background:rgba(119,141,169,0.35);border-radius:999px}
 .route-active__list .card{margin:0}
 .route-active__empty{margin:0;font-size:.97rem;color:var(--muted,rgba(224,225,221,0.72));text-align:center;padding:24px 12px}
 
@@ -486,10 +478,7 @@ gba(119,141,169,0.45)}
 .route-suggestions__header{grid-area:header}
 .route-suggestions__list{grid-area:list}
 .route-suggestions__detail{grid-area:detail}
-@media (min-width:900px){
-  .route-suggestions-card{grid-template-columns:minmax(0,0.95fr) minmax(0,1.05fr);grid-template-areas:"header header" "list detail"}
-  .route-suggestions__list{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-}
+.route-suggestions__detail:not([data-route-id]){display:none}
 .route-suggestions__empty,.route-suggestions__placeholder{margin:0;color:var(--muted,rgba(224,225,221,0.72));font-size:.95rem;text-align:center;padding:12px}
 .route-suggestion-card{position:relative;display:grid;gap:12px;align-items:flex-start;padding:20px;border-radius:22px;color:var(--text,#f0f4f8);cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;overflow:hidden;background-image:linear-gradient(160deg,var(--route-suggestion-overlay,var(--guide-card-overlay,rgba(12,24,40,0.78))),rgba(12,24,40,0.92)),var(--route-suggestion-image, var(--guide-card-image, url('../assets/images/palworld-full-map-2.webp')));background-size:cover;background-position:var(--route-suggestion-position,var(--guide-card-position,center 40%))}
 .route-suggestion-card::before{content:"";position:absolute;z-index:0;width:var(--route-suggestion-marker-size,26px);height:var(--route-suggestion-marker-size,26px);border-radius:50%;top:var(--route-suggestion-marker-top,50%);left:var(--route-suggestion-marker-left,50%);transform:translate(-50%,-50%);background:radial-gradient(circle at center,var(--route-suggestion-accent,#9bd4ff)0%,var(--route-suggestion-accent,#9bd4ff)55%,rgba(0,0,0,0)70%);opacity:var(--route-suggestion-marker-opacity,0);box-shadow:0 0 0 5px rgba(0,0,0,0.4),0 16px 30px rgba(0,0,0,0.45);pointer-events:none;transition:opacity .2s ease,transform .2s ease}
