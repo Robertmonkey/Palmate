@@ -1026,57 +1026,123 @@
     }
 
     .home-hero {
-      background: linear-gradient(135deg, rgba(65, 90, 119, 0.6), rgba(119, 141, 169, 0.25));
-      border: 1px solid rgba(119, 141, 169, 0.35);
-      border-radius: 16px;
-      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      padding: clamp(24px, 4vw, 48px);
       display: grid;
-      gap: 20px;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+      gap: clamp(24px, 5vw, 48px);
+      border: 1px solid rgba(119, 141, 169, 0.4);
+      background: radial-gradient(circle at top left, rgba(119, 141, 169, 0.55), transparent 55%),
+        linear-gradient(135deg, rgba(27, 38, 59, 0.92), rgba(13, 27, 42, 0.82));
+    }
+
+    .home-hero::after {
+      content: '';
+      position: absolute;
+      inset: auto -120px -160px auto;
+      width: clamp(240px, 35vw, 420px);
+      height: clamp(240px, 35vw, 420px);
+      background: radial-gradient(circle at center, rgba(224, 225, 221, 0.28), transparent 70%);
+      opacity: 0.9;
+      pointer-events: none;
+      transform: rotate(18deg);
+    }
+
+    .home-hero__intro {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 18px;
+      align-content: start;
     }
 
     .home-hero__intro h3 {
-      margin: 0 0 6px;
-      font-size: 1.6rem;
+      margin: 0;
+      font-size: clamp(1.75rem, 3.2vw, 2.2rem);
+      line-height: 1.2;
     }
 
     .home-hero__intro p {
       margin: 0;
       color: var(--muted);
       font-size: 1rem;
+      max-width: 52ch;
     }
 
-    .mode-callouts {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+    .home-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(119, 141, 169, 0.25);
+      color: var(--light);
+      width: fit-content;
+    }
+
+    .home-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .home-hero__actions .btn {
+      flex: 0 0 auto;
+      min-width: 180px;
+    }
+
+    .home-hero__mode {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(13, 27, 42, 0.65);
+      border: 1px solid rgba(119, 141, 169, 0.25);
+      flex-wrap: wrap;
+    }
+
+    .home-hero__mode-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .mode-toggle {
+      display: flex;
+      gap: 8px;
     }
 
     .mode-card {
-      background: rgba(14, 29, 48, 0.85);
+      background: rgba(27, 38, 59, 0.8);
       border: 1px solid rgba(119, 141, 169, 0.25);
-      border-radius: 12px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: grid;
+      gap: 10px;
+      min-width: 180px;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .mode-card.active {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 2px rgba(119, 141, 169, 0.25);
+      border-color: rgba(114, 229, 196, 0.65);
+      box-shadow: 0 0 0 1px rgba(114, 229, 196, 0.2);
       transform: translateY(-2px);
     }
 
     .mode-card__status {
-      align-self: flex-start;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      background: rgba(119, 141, 169, 0.18);
-      color: var(--text);
+      letter-spacing: 0.08em;
       padding: 4px 10px;
       border-radius: 999px;
+      background: rgba(119, 141, 169, 0.18);
+      width: fit-content;
     }
 
     .mode-card.active .mode-card__status {
@@ -1086,13 +1152,13 @@
 
     .mode-card h3 {
       margin: 0;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
     }
 
     .mode-card p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .mode-card__features {
@@ -1100,14 +1166,84 @@
       padding: 0;
       list-style: none;
       display: grid;
-      gap: 6px;
+      gap: 4px;
+      font-size: 0.85rem;
       color: var(--light);
-      font-size: 0.9rem;
+    }
+
+    .mode-card__features li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      margin-right: 6px;
+      color: var(--success);
     }
 
     .mode-card__button {
-      margin-top: auto;
+      justify-self: start;
+      padding-inline: 18px;
+    }
+
+    .home-hero__panel {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      align-content: start;
+    }
+
+    .home-focus-card {
+      background: rgba(13, 27, 42, 0.82);
+      border: 1px solid rgba(119, 141, 169, 0.3);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      display: grid;
+      gap: 16px;
+      box-shadow: 0 16px 36px rgba(8, 16, 32, 0.45);
+    }
+
+    .home-focus-card__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(114, 229, 196, 0.15);
+      color: var(--success);
+    }
+
+    .home-focus-card h4 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .home-focus-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .home-focus-meter {
       width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(119, 141, 169, 0.18);
+      overflow: hidden;
+    }
+
+    .home-focus-meter .fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--success), var(--accent));
+      transition: width 0.6s ease;
+    }
+
+    .home-focus-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .home-section-header h3 {
@@ -1232,6 +1368,85 @@
       min-width: 160px;
     }
 
+    .home-progress-card--queue {
+      display: grid;
+      gap: 16px;
+    }
+
+    .home-progress-card--queue .home-progress-card__header {
+      align-items: flex-start;
+    }
+
+    .adaptive-queue {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .adaptive-queue__item {
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(13, 27, 42, 0.7);
+      border: 1px solid rgba(119, 141, 169, 0.25);
+    }
+
+    .adaptive-queue__meta {
+      display: grid;
+      gap: 4px;
+    }
+
+    .adaptive-queue__title {
+      margin: 0;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .adaptive-queue__stats {
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .adaptive-queue__badge {
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .adaptive-queue__cta {
+      align-self: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(119, 141, 169, 0.3);
+      background: rgba(27, 38, 59, 0.65);
+      color: var(--light);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .adaptive-queue__cta:hover {
+      transform: translateY(-1px);
+      border-color: rgba(114, 229, 196, 0.5);
+      background: rgba(27, 38, 59, 0.85);
+    }
+
+    .adaptive-queue__cta:disabled {
+      opacity: 0.6;
+      cursor: default;
+      transform: none;
+    }
+
     .home-spotlight {
       background: rgba(14, 29, 48, 0.85);
       border-radius: 16px;
@@ -1314,12 +1529,28 @@
       font-size: 1rem;
     }
 
+    @media (max-width: 900px) {
+      .home-hero {
+        grid-template-columns: 1fr;
+      }
+      .home-hero__panel {
+        order: -1;
+      }
+    }
+
     @media (max-width: 768px) {
       .home-progress-grid {
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       }
+      .home-hero__mode {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .mode-toggle {
+        width: 100%;
+      }
       .mode-card {
-        min-height: 100%;
+        width: 100%;
       }
     }
 
@@ -2677,6 +2908,108 @@
       color: var(--light);
       box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.2);
     }
+
+    .progress-overview {
+      display: grid;
+      gap: 18px;
+      margin-top: clamp(12px, 2vw, 20px);
+    }
+
+    @media (min-width: 720px) {
+      .progress-overview {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+    }
+
+    .progress-stage-card {
+      position: relative;
+      border-radius: 20px;
+      padding: clamp(20px, 3vw, 32px);
+      border: 1px solid rgba(119, 141, 169, 0.25);
+      background: linear-gradient(135deg, rgba(27, 38, 59, 0.88), rgba(13, 27, 42, 0.82));
+      overflow: hidden;
+      display: grid;
+      gap: 16px;
+    }
+
+    .progress-stage-card::after {
+      content: '';
+      position: absolute;
+      inset: -80px auto auto -80px;
+      width: clamp(220px, 30vw, 320px);
+      height: clamp(220px, 30vw, 320px);
+      background: radial-gradient(circle at center, rgba(114, 229, 196, 0.25), transparent 70%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .progress-stage-card__content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+    }
+
+    .progress-stage-card__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(114, 229, 196, 0.12);
+      color: var(--success);
+    }
+
+    .progress-stage-card__title {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+    }
+
+    .progress-stage-card__subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .progress-stage-card__meter {
+      display: grid;
+      gap: 6px;
+    }
+
+    .progress-stage-card__meter .label {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .progress-stage-meter {
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(119, 141, 169, 0.18);
+      overflow: hidden;
+    }
+
+    .progress-stage-meter .fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--success), var(--accent));
+      transition: width 0.6s ease;
+    }
+
+    .progress-stage-card__actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .progress-stage-card__actions .btn {
+      min-width: 160px;
+    }
     .progress-route {
       position: relative;
       margin-top: clamp(16px, 4vw, 28px);
@@ -3897,16 +4230,53 @@
       <!-- Progress page -->
       <section id="progressPage" class="page">
         <header class="page-header">
-          <h2>Your Progress</h2>
+          <h2>Adaptive Progress</h2>
         </header>
-        <p>Keep tabs on your Pal Marathon adventure. Check off guide steps, recruit pals and unlock technology—the meters below grow as you play.</p>
+        <p>Monitor your adaptive journey at a glance. Palmate keeps your current stage, pinned guides, pal roster, and workshop research in sync so you always know what to tackle next.</p>
+        <div class="progress-overview">
+          <article class="progress-stage-card">
+            <div class="progress-stage-card__content">
+              <span class="progress-stage-card__badge"><i class="fa-solid fa-compass"></i> Adaptive stage</span>
+              <h3 id="progressStageTitle">Loading stage…</h3>
+              <p id="progressStageSubtitle">We’ll surface your current milestone as soon as the guide loads.</p>
+            </div>
+            <div class="progress-stage-card__meter">
+              <span class="label" id="progressStageLabel">Adaptive completion</span>
+              <div class="progress-stage-meter" id="progressStageMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="fill" id="progressStageFill"></div>
+              </div>
+            </div>
+            <div class="progress-stage-card__actions">
+              <button type="button" class="btn" id="progressStageResume" disabled>Resume next step</button>
+              <button type="button" class="btn btn--ghost" id="progressStagePlanner">Open planner</button>
+            </div>
+          </article>
+          <article class="progress-stage-card">
+            <div class="progress-stage-card__content">
+              <span class="progress-stage-card__badge"><i class="fa-solid fa-layer-group"></i> Active queue</span>
+              <h3>Tonight’s active guides</h3>
+              <p id="progressQueueSubtitle">Pin guides from the planner to keep them here for instant access.</p>
+            </div>
+            <ul class="adaptive-queue" id="progressActiveQueue">
+              <li class="adaptive-queue__item">
+                <div class="adaptive-queue__meta">
+                  <p class="adaptive-queue__title">Queue loading…</p>
+                  <p class="adaptive-queue__stats">Add an adaptive guide from the planner to see it here.</p>
+                </div>
+              </li>
+            </ul>
+            <div class="progress-stage-card__actions">
+              <button type="button" class="btn btn--ghost" id="progressQueueManage">Manage queue</button>
+            </div>
+          </article>
+        </div>
         <div class="progress-grid">
           <article class="progress-card progress-card--hero">
             <div class="progress-card__header">
               <div class="progress-card__icon"><i class="fa-solid fa-book-open-reader"></i></div>
               <div>
-                <h3>Adventure Guide</h3>
-                <p>Follow the family route and topple every tower boss.</p>
+                <h3>Adaptive guide completion</h3>
+                <p>Track required steps and tower clears from your curated route.</p>
               </div>
             </div>
             <div class="progress-meter" id="guideProgressMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -3924,8 +4294,8 @@
             <div class="progress-card__header">
               <div class="progress-card__icon"><i class="fa-solid fa-paw"></i></div>
               <div>
-                <h3>Pal Squad</h3>
-                <p>Mark pals as caught when they join your crew.</p>
+                <h3>Pal squad registry</h3>
+                <p>Mark pals as recruited to keep your adaptive roster accurate.</p>
               </div>
             </div>
             <div class="progress-meter" id="palsProgressMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -3939,8 +4309,8 @@
             <div class="progress-card__header">
               <div class="progress-card__icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
               <div>
-                <h3>Workshop Tech</h3>
-                <p>Unlock inventions to boost your base and travel.</p>
+                <h3>Workshop momentum</h3>
+                <p>Unlock inventions to keep pace with the adaptive route recommendations.</p>
               </div>
             </div>
             <div class="progress-meter" id="techProgressMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -3954,9 +4324,9 @@
         <section id="progressRouteSection" class="progress-route card">
           <div class="progress-route__header">
             <div class="progress-route__intro">
-              <span class="progress-route__eyebrow"><i class="fa-solid fa-tower-broadcast"></i> Boss Route</span>
-              <h3>Boss Route &amp; Progress</h3>
-              <p id="progressRouteLead">Track tower victories, see what’s next, and fine-tune the route filters without leaving this page.</p>
+              <span class="progress-route__eyebrow"><i class="fa-solid fa-route"></i> Adaptive tracker</span>
+              <h3>Route intelligence &amp; boss timeline</h3>
+              <p id="progressRouteLead">Review tower victories, upcoming milestones, and tune your adaptive filters without leaving this dashboard.</p>
             </div>
             <div class="progress-route__actions">
               <button type="button" class="btn" data-route-action="toggle-optional">Hide Optional</button>
@@ -9048,9 +9418,8 @@
       updateBreedingSelection();
     }
 
-    // Home page builder.  Highlights the two presentation modes,
-    // shows quick progress snapshots, and surfaces the next pal to
-    // recruit so returning players know where to jump in.
+    // Home page builder.  Highlights adaptive guidance, quick status,
+    // and provides rapid jumps into the planner or progress dashboard.
     function buildHomePage() {
       const home = document.getElementById('homeCards');
       if (!home) return;
@@ -9063,7 +9432,7 @@
 
         const status = document.createElement('span');
         status.className = 'mode-card__status';
-        status.textContent = mode === 'kid' ? 'Kid Mode' : 'Grown-up Mode';
+        status.textContent = mode === 'kid' ? 'Kid mode' : 'Grown-up mode';
         card.appendChild(status);
 
         const title = document.createElement('h3');
@@ -9072,22 +9441,22 @@
 
         const desc = document.createElement('p');
         desc.textContent = mode === 'kid'
-          ? 'Friendly wording and bigger buttons keep younger Trainers confident.'
-          : 'Detailed strategy notes and numbers help planners and older players.';
+          ? 'Friendly wording, brighter cues, and extra encouragement for younger Trainers.'
+          : 'Full strategy notes, numbers, and context for planners and veteran captains.';
         card.appendChild(desc);
 
         const features = document.createElement('ul');
         features.className = 'mode-card__features';
         const featureLines = mode === 'kid'
           ? [
-              'Simple step-by-step guide language.',
-              'Larger tap targets and softer colours.',
-              'Encouraging reminders instead of jargon.'
+              'Simple story language for every guide step.',
+              'Large buttons with gentle colours and icons.',
+              'Positive reminders instead of intimidating jargon.'
             ]
           : [
-              'Expanded boss tips and resource callouts.',
-              'Full material lists for every unlock.',
-              'Extra context for breeding and combat choices.'
+              'Detailed boss prep, resistances, and combat notes.',
+              'Full material lists and supporting sub-routes.',
+              'Context for breeding, tech rushes, and co-op splits.'
             ];
         featureLines.forEach(line => {
           const li = document.createElement('li');
@@ -9098,9 +9467,9 @@
 
         const button = document.createElement('button');
         button.type = 'button';
-        button.className = 'btn mode-card__button';
+        button.className = 'btn btn--ghost mode-card__button';
         button.dataset.modeChoice = mode;
-        button.textContent = mode === 'kid' ? 'Use Kid Mode' : 'Use Grown-up Mode';
+        button.textContent = mode === 'kid' ? 'Switch to Kid Mode' : 'Switch to Grown-up Mode';
         button.addEventListener('click', () => {
           const desired = mode === 'kid';
           const requiresRebuild = kidMode !== desired;
@@ -9130,6 +9499,11 @@
         const title = document.createElement('h3');
         const subtitle = document.createElement('p');
 
+        headerText.appendChild(title);
+        headerText.appendChild(subtitle);
+        header.appendChild(headerText);
+        card.appendChild(header);
+
         const meter = document.createElement('div');
         meter.className = 'home-progress-meter';
         meter.setAttribute('role', 'progressbar');
@@ -9153,10 +9527,10 @@
 
         if (type === 'route') {
           icon.className = 'fa-solid fa-map-location-dot';
-          title.textContent = kidMode ? 'Family Route Guide' : 'Story Route Guide';
+          title.textContent = kidMode ? 'Adaptive Route Guide' : 'Adaptive Route Guide';
           subtitle.textContent = kidMode
-            ? 'Track tower goals and chapter steps together.'
-            : 'See required steps before tackling the next boss.';
+            ? 'Track main chapters, towers, and adaptive checkpoints together.'
+            : 'Monitor required steps before the system lines up your next boss.';
           meter.id = 'homeRouteProgressMeter';
           meter.setAttribute('aria-label', 'Route guide progress');
           fill.id = 'homeRouteProgressBar';
@@ -9206,7 +9580,7 @@
             switchPage('pals');
             playSound(clickSound);
           });
-        } else {
+        } else if (type === 'tech') {
           icon.className = 'fa-solid fa-screwdriver-wrench';
           title.textContent = kidMode ? 'Workshop Technology' : 'Technology progress';
           subtitle.textContent = kidMode
@@ -9235,12 +9609,44 @@
             }
             playSound(clickSound);
           });
+        } else {
+          card.classList.add('home-progress-card--queue');
+          icon.className = 'fa-solid fa-layer-group';
+          title.textContent = kidMode ? 'Tonight’s queue' : 'Adaptive queue';
+          subtitle.textContent = kidMode
+            ? 'Pin adventures from the planner to keep them front and centre.'
+            : 'Pinned adaptive guides stay here for quick hops back in.';
+          const list = document.createElement('ul');
+          list.className = 'adaptive-queue';
+          list.id = 'homeActiveQueue';
+          const placeholder = document.createElement('li');
+          placeholder.className = 'adaptive-queue__item';
+          const placeholderMeta = document.createElement('div');
+          placeholderMeta.className = 'adaptive-queue__meta';
+          const placeholderTitle = document.createElement('p');
+          placeholderTitle.className = 'adaptive-queue__title';
+          placeholderTitle.textContent = kidMode ? 'Queue loading…' : 'Queue loading…';
+          const placeholderStats = document.createElement('p');
+          placeholderStats.className = 'adaptive-queue__stats';
+          placeholderStats.textContent = kidMode
+            ? 'Add an adventure from the planner to see it here.'
+            : 'Pick a guide in the planner and it will appear here.';
+          placeholderMeta.appendChild(placeholderTitle);
+          placeholderMeta.appendChild(placeholderStats);
+          placeholder.appendChild(placeholderMeta);
+          list.appendChild(placeholder);
+          card.appendChild(list);
+          const manageBtn = document.createElement('button');
+          manageBtn.type = 'button';
+          manageBtn.className = 'adaptive-queue__cta';
+          manageBtn.textContent = kidMode ? 'Manage queue' : 'Manage queue';
+          manageBtn.addEventListener('click', () => {
+            switchPage('route');
+            playSound(clickSound);
+          });
+          card.appendChild(manageBtn);
+          return card;
         }
-
-        headerText.appendChild(title);
-        headerText.appendChild(subtitle);
-        header.appendChild(headerText);
-        card.appendChild(header);
 
         meter.appendChild(fill);
         card.appendChild(meter);
@@ -9257,15 +9663,107 @@
       hero.className = 'home-hero';
       const intro = document.createElement('div');
       intro.className = 'home-hero__intro';
-      intro.innerHTML = kidMode
-        ? '<h3>Choose how you play tonight</h3><p>Kid Mode keeps directions bright and simple, while grown-up mode adds the deeper strategy notes adults crave.</p>'
-        : '<h3>Two presentation styles for your crew</h3><p>Flip between Kid Mode for gentle guidance or Grown-up Mode for detailed callouts. Change it anytime and the whole guide updates instantly.</p>';
+      const eyebrow = document.createElement('span');
+      eyebrow.className = 'home-hero__eyebrow';
+      eyebrow.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> Adaptive guide';
+      intro.appendChild(eyebrow);
+      const headline = document.createElement('h3');
+      headline.id = 'homeAdaptiveHeadline';
+      headline.textContent = kidMode ? 'Loading your adaptive plan…' : 'Loading your adaptive plan…';
+      intro.appendChild(headline);
+      const subhead = document.createElement('p');
+      subhead.id = 'homeAdaptiveSubhead';
+      subhead.textContent = kidMode
+        ? 'Palmate is lining up the perfect adventures for tonight. Once your data loads, we’ll highlight the next big step.'
+        : 'Palmate is warming up your adaptive queue. We’ll summarise your current stage and next objective in a moment.';
+      intro.appendChild(subhead);
+      const actions = document.createElement('div');
+      actions.className = 'home-hero__actions';
+      const plannerBtn = document.createElement('button');
+      plannerBtn.type = 'button';
+      plannerBtn.className = 'btn';
+      plannerBtn.textContent = kidMode ? 'Open adaptive planner' : 'Open adaptive planner';
+      plannerBtn.addEventListener('click', () => {
+        switchPage('route');
+        playSound(clickSound);
+      });
+      const progressBtn = document.createElement('button');
+      progressBtn.type = 'button';
+      progressBtn.className = 'btn btn--ghost';
+      progressBtn.textContent = kidMode ? 'View progress dashboard' : 'View progress dashboard';
+      progressBtn.addEventListener('click', () => {
+        switchPage('progress');
+        playSound(clickSound);
+      });
+      actions.appendChild(plannerBtn);
+      actions.appendChild(progressBtn);
+      intro.appendChild(actions);
+      const modeWrap = document.createElement('div');
+      modeWrap.className = 'home-hero__mode';
+      const modeLabel = document.createElement('span');
+      modeLabel.className = 'home-hero__mode-label';
+      modeLabel.textContent = kidMode
+        ? 'How should Palmate speak to you?'
+        : 'Choose your presentation style';
+      const modeToggle = document.createElement('div');
+      modeToggle.className = 'mode-toggle';
+      modeToggle.appendChild(createModeCard('kid'));
+      modeToggle.appendChild(createModeCard('grown'));
+      modeWrap.appendChild(modeLabel);
+      modeWrap.appendChild(modeToggle);
+      intro.appendChild(modeWrap);
       hero.appendChild(intro);
-      const modeGrid = document.createElement('div');
-      modeGrid.className = 'mode-callouts';
-      modeGrid.appendChild(createModeCard('kid'));
-      modeGrid.appendChild(createModeCard('grown'));
-      hero.appendChild(modeGrid);
+
+      const panel = document.createElement('div');
+      panel.className = 'home-hero__panel';
+      const focusCard = document.createElement('article');
+      focusCard.className = 'home-focus-card';
+      const focusBadge = document.createElement('span');
+      focusBadge.className = 'home-focus-card__badge';
+      focusBadge.innerHTML = '<i class="fa-solid fa-route"></i> Next priority';
+      const focusTitle = document.createElement('h4');
+      focusTitle.id = 'homeHeroFocusTitle';
+      focusTitle.textContent = kidMode ? 'We are charting your next step…' : 'Preparing your next objective…';
+      const focusCopy = document.createElement('p');
+      focusCopy.id = 'homeHeroFocusCopy';
+      focusCopy.textContent = kidMode
+        ? 'As soon as the adaptive guide loads we will highlight the next big milestone.'
+        : 'Once the adaptive data is ready, you’ll see the upcoming milestone and context here.';
+      const focusMeter = document.createElement('div');
+      focusMeter.className = 'home-focus-meter';
+      focusMeter.id = 'homeHeroFocusMeter';
+      focusMeter.setAttribute('role', 'progressbar');
+      focusMeter.setAttribute('aria-valuemin', '0');
+      focusMeter.setAttribute('aria-valuemax', '100');
+      focusMeter.setAttribute('aria-valuenow', '0');
+      const focusFill = document.createElement('div');
+      focusFill.className = 'fill';
+      focusFill.id = 'homeHeroFocusFill';
+      focusMeter.appendChild(focusFill);
+      const focusActions = document.createElement('div');
+      focusActions.className = 'home-focus-actions';
+      const resumeBtn = document.createElement('button');
+      resumeBtn.type = 'button';
+      resumeBtn.className = 'btn';
+      resumeBtn.id = 'homeHeroResume';
+      resumeBtn.textContent = kidMode ? 'Resume next step' : 'Resume next step';
+      resumeBtn.disabled = true;
+      resumeBtn.addEventListener('click', () => {
+        const stepId = resumeBtn.dataset.stepId;
+        switchPage('route');
+        if (stepId) {
+          queueRouteFocus(stepId);
+        }
+        playSound(clickSound);
+      });
+      focusActions.appendChild(resumeBtn);
+      focusCard.appendChild(focusBadge);
+      focusCard.appendChild(focusTitle);
+      focusCard.appendChild(focusCopy);
+      focusCard.appendChild(focusMeter);
+      focusCard.appendChild(focusActions);
+      panel.appendChild(focusCard);
+      hero.appendChild(panel);
       home.appendChild(hero);
 
       const progressSection = document.createElement('section');
@@ -9273,14 +9771,14 @@
       const progressHeader = document.createElement('div');
       progressHeader.className = 'home-section-header';
       progressHeader.innerHTML = kidMode
-        ? '<h3>Where you left off</h3><p>Check the guide, your pal roster, and the workshop meter before diving back in.</p>'
-        : '<h3>Continue your journey</h3><p>Quick status bars show route progress, pal collection, and technology unlocks at a glance.</p>';
+        ? '<h3>Your adaptive status</h3><p>Peek at your route progress, active queue, pal roster, and workshop research in one glance.</p>'
+        : '<h3>Adaptive status overview</h3><p>Track route milestones, pinned guides, pal collection, and technology momentum before you dive back in.</p>';
       progressSection.appendChild(progressHeader);
       const progressGrid = document.createElement('div');
       progressGrid.className = 'home-progress-grid';
-      progressGrid.appendChild(createProgressCard('route'));
-      progressGrid.appendChild(createProgressCard('pals'));
-      progressGrid.appendChild(createProgressCard('tech'));
+      ['route', 'queue', 'pals', 'tech'].forEach(type => {
+        progressGrid.appendChild(createProgressCard(type));
+      });
       progressSection.appendChild(progressGrid);
       home.appendChild(progressSection);
 
@@ -9289,8 +9787,8 @@
       const spotlightHeader = document.createElement('div');
       spotlightHeader.className = 'home-section-header';
       spotlightHeader.innerHTML = kidMode
-        ? '<h3>Pal spotlight</h3><p>Here’s a pal to chase down next based on your progress.</p>'
-        : '<h3>Pal spotlight</h3><p>Use this reminder to see who you should recruit or train next.</p>';
+        ? '<h3>Pal spotlight</h3><p>Here’s a pal to chase next based on your adaptive progress.</p>'
+        : '<h3>Pal spotlight</h3><p>Adaptive reminders surface the pal that advances your current goals.</p>';
       spotlight.appendChild(spotlightHeader);
       const spotlightBtn = document.createElement('button');
       spotlightBtn.type = 'button';
@@ -14830,6 +15328,17 @@
       return null;
     }
 
+    function findNextStepForChapter(chapter, { includeOptional = false } = {}){
+      const steps = Array.isArray(chapter?.steps) ? chapter.steps : [];
+      for(const step of steps){
+        if(step.optional && !includeOptional) continue;
+        if(!routeState[step.id]){
+          return step;
+        }
+      }
+      return null;
+    }
+
     function findNextPalTarget(){
       const palsArray = Object.values(PALS || {});
       if(!palsArray.length) return null;
@@ -16321,11 +16830,68 @@
           ? 'Unlock new gadgets to light up this meter.'
           : 'Unlock tech to power up your workshop.';
       }
+      const stageTitle = document.getElementById('progressStageTitle');
+      if (stageTitle) {
+        stageTitle.textContent = kidMode
+          ? 'Loading your adaptive stage…'
+          : 'Loading your adaptive stage…';
+      }
+      const stageSubtitle = document.getElementById('progressStageSubtitle');
+      if (stageSubtitle) {
+        stageSubtitle.textContent = kidMode
+          ? 'We’re lining up the next big milestone for your adventure.'
+          : 'We’ll summarise the upcoming milestone once the guide data loads.';
+      }
+      const stageLabel = document.getElementById('progressStageLabel');
+      if (stageLabel) {
+        stageLabel.textContent = kidMode ? 'Big steps complete' : 'Required completion';
+      }
+      const queueSubtitle = document.getElementById('progressQueueSubtitle');
+      if (queueSubtitle) {
+        queueSubtitle.textContent = kidMode
+          ? 'Pin adventures from the planner to keep them right here.'
+          : 'Pin your active adaptive guides in the planner to keep them here.';
+      }
+      const stageResume = document.getElementById('progressStageResume');
+      if (stageResume) {
+        stageResume.textContent = kidMode ? 'Resume next step' : 'Resume next step';
+        stageResume.disabled = true;
+        if (!stageResume.dataset.bound) {
+          stageResume.dataset.bound = 'true';
+          stageResume.addEventListener('click', () => {
+            const stepId = stageResume.dataset.stepId;
+            switchPage('route');
+            if (stepId) {
+              queueRouteFocus(stepId);
+            }
+            playSound(clickSound);
+          });
+        }
+      }
+      const stagePlanner = document.getElementById('progressStagePlanner');
+      if (stagePlanner && !stagePlanner.dataset.bound) {
+        stagePlanner.dataset.bound = 'true';
+        stagePlanner.addEventListener('click', () => {
+          switchPage('route');
+          playSound(clickSound);
+        });
+      }
+      const queueManage = document.getElementById('progressQueueManage');
+      if (queueManage) {
+        if (!queueManage.dataset.bound) {
+          queueManage.dataset.bound = 'true';
+          queueManage.addEventListener('click', () => {
+            switchPage('route');
+            playSound(clickSound);
+          });
+        }
+        queueManage.textContent = kidMode ? 'Manage queue' : 'Manage queue';
+      }
       const routeLead = document.getElementById('progressRouteLead');
       if (routeLead) {
         routeLead.textContent = kidMode
-          ? 'Check tower victories, next big steps, and filters without leaving this hub.'
-          : 'Review tower progress, upcoming priorities, and tune filters from the progress dashboard.';
+          ? 'See tower wins, upcoming big steps, and tweak filters without leaving this dashboard.'
+          : 'Review tower progress, upcoming priorities, and adjust filters directly from the adaptive dashboard.';
       }
       document.querySelectorAll('[data-route-action="toggle-optional"]').forEach(btn => {
         btn.textContent = routeOptionalToggleLabel(routeHideOptional);
@@ -16333,7 +16899,7 @@
       });
       document.querySelectorAll('[data-route-action="jump-next"]').forEach(btn => {
         btn.disabled = true;
-        btn.textContent = kidMode ? 'Loading next step…' : 'Loading next step…';
+        btn.textContent = kidMode ? 'Loading next objective…' : 'Loading next objective…';
         btn.dataset.stepId = '';
       });
       const resetGuideBtn = document.getElementById('resetRouteProgress');
@@ -16462,6 +17028,9 @@
       }
 
       const guideSummary = calculateGuideProgressSummary();
+      const nextRequired = findNextRouteStep();
+      const nextAny = nextRequired || findNextRouteStep({ includeOptional: true });
+      const stageSnapshot = determineGuideStageSnapshot();
       const guideBar = document.getElementById('guideProgress');
       if (guideBar) guideBar.style.width = guideSummary.percent + '%';
       const guideMeter = document.getElementById('guideProgressMeter');
@@ -16500,8 +17069,6 @@
       }
       const homeRouteNext = document.getElementById('homeRouteNextStep');
       if (homeRouteNext) {
-        const nextRequired = findNextRouteStep();
-        const nextAny = nextRequired || findNextRouteStep({ includeOptional: true });
         if (nextAny && nextAny.step) {
           const chapterTitle = routeChapterTitle(nextAny.chapter);
           const stepCopy = kidMode
@@ -16513,14 +17080,247 @@
           const chapterHtml = chapterTitle ? ` — <strong>${escapeHTML(chapterTitle)}</strong>` : '';
           homeRouteNext.innerHTML = `${escapeHTML(prefix)}${chapterHtml}<br>${escapeHTML(stepCopy)}`;
           homeRouteNext.dataset.stepId = nextAny.step.id || '';
+          homeRouteNext.disabled = false;
         } else {
           homeRouteNext.textContent = kidMode
             ? 'Guide complete! Revisit bonus adventures anytime.'
             : 'Guide complete! Revisit optional chores or rerun towers.';
           homeRouteNext.dataset.stepId = '';
+          homeRouteNext.disabled = true;
         }
-        homeRouteNext.disabled = false;
       }
+      const guideDataReady = !!(routeGuideData && Array.isArray(routeGuideData.chapters) && routeGuideData.chapters.length);
+      const stageIndex = stageSnapshot && Number.isInteger(stageSnapshot.stageIndex)
+        ? stageSnapshot.stageIndex + 1
+        : null;
+      const stageTitleTextKid = stageSnapshot
+        ? (stageSnapshot.stageTitleKid || stageSnapshot.stageTitleGrown || 'Adaptive stage')
+        : 'Adaptive stage';
+      const stageTitleTextGrown = stageSnapshot
+        ? (stageSnapshot.stageTitleGrown || stageSnapshot.stageTitleKid || 'Adaptive stage')
+        : 'Adaptive stage';
+      const stageTitleText = kidMode ? stageTitleTextKid : stageTitleTextGrown;
+      const stageHeadline = guideDataReady
+        ? (stageIndex ? `Stage ${stageIndex}: ${stageTitleText}` : stageTitleText)
+        : (kidMode ? 'Loading adaptive stage…' : 'Loading adaptive stage…');
+      const heroHeadline = document.getElementById('homeAdaptiveHeadline');
+      if (heroHeadline) {
+        heroHeadline.textContent = stageHeadline;
+      }
+      const nextStepCopy = nextAny && nextAny.step
+        ? (kidMode ? (nextAny.step.textKid || nextAny.step.text || '') : (nextAny.step.text || nextAny.step.textKid || ''))
+        : '';
+      const remainingRequired = guideSummary.requiredTotal
+        ? Math.max(0, guideSummary.requiredTotal - guideSummary.requiredComplete)
+        : null;
+      const remainingText = remainingRequired != null
+        ? remainingRequired === 0
+          ? (kidMode ? 'All big steps complete' : 'All required steps complete')
+          : `${remainingRequired} ${kidMode ? (remainingRequired === 1 ? 'big step left' : 'big steps left') : (remainingRequired === 1 ? 'required step remaining' : 'required steps remaining')}`
+        : '';
+      const heroSubhead = document.getElementById('homeAdaptiveSubhead');
+      if (heroSubhead) {
+        if (guideDataReady) {
+          const parts = [];
+          if (remainingText) parts.push(remainingText);
+          if (nextStepCopy) parts.push(`${kidMode ? 'Next' : 'Next'}: ${nextStepCopy}`);
+          heroSubhead.textContent = parts.length
+            ? parts.join(' • ')
+            : (kidMode
+              ? 'Palmate is lining up the perfect adventures for tonight.'
+              : 'Palmate is analysing your adaptive route and next milestones.');
+        } else {
+          heroSubhead.textContent = kidMode
+            ? 'Palmate is lining up the perfect adventures for tonight.'
+            : 'Palmate is analysing your adaptive route and next milestones.';
+        }
+      }
+      const focusTitle = document.getElementById('homeHeroFocusTitle');
+      if (focusTitle) {
+        if (guideDataReady && nextAny && nextAny.chapter) {
+          const chapterTitle = routeChapterTitle(nextAny.chapter);
+          focusTitle.textContent = chapterTitle || stageHeadline;
+        } else {
+          focusTitle.textContent = guideDataReady ? (kidMode ? 'All caught up!' : 'All caught up!') : (kidMode ? 'Adaptive plan loading…' : 'Adaptive plan loading…');
+        }
+      }
+      const focusCopy = document.getElementById('homeHeroFocusCopy');
+      if (focusCopy) {
+        if (guideDataReady) {
+          focusCopy.textContent = nextStepCopy
+            ? nextStepCopy
+            : (kidMode
+              ? 'Queue a new adventure from the planner to keep the journey rolling.'
+              : 'Queue a new adaptive guide from the planner to keep momentum.');
+        } else {
+          focusCopy.textContent = kidMode
+            ? 'We’ll show the next big step once the guide finishes loading.'
+            : 'We’ll surface the next required step as soon as the adaptive guide finishes loading.';
+        }
+      }
+      const focusMeter = document.getElementById('homeHeroFocusMeter');
+      if (focusMeter) {
+        focusMeter.setAttribute('aria-valuenow', guideSummary.percent);
+      }
+      const focusFill = document.getElementById('homeHeroFocusFill');
+      if (focusFill) {
+        focusFill.style.width = guideSummary.percent + '%';
+      }
+      const homeHeroResume = document.getElementById('homeHeroResume');
+      if (homeHeroResume) {
+        if (guideDataReady && nextAny && nextAny.step) {
+          homeHeroResume.dataset.stepId = nextAny.step.id || '';
+          homeHeroResume.disabled = false;
+          homeHeroResume.textContent = kidMode ? 'Resume next step' : 'Resume next step';
+        } else {
+          homeHeroResume.dataset.stepId = '';
+          homeHeroResume.disabled = true;
+          homeHeroResume.textContent = guideDataReady ? (kidMode ? 'All caught up!' : 'All caught up!') : (kidMode ? 'Loading…' : 'Loading…');
+        }
+      }
+      const progressStageTitleEl = document.getElementById('progressStageTitle');
+      if (progressStageTitleEl) {
+        progressStageTitleEl.textContent = stageHeadline;
+      }
+      const progressStageSubtitle = document.getElementById('progressStageSubtitle');
+      if (progressStageSubtitle) {
+        if (guideDataReady && nextStepCopy) {
+          progressStageSubtitle.textContent = kidMode
+            ? `Next up: ${nextStepCopy}`
+            : `Next objective: ${nextStepCopy}`;
+        } else {
+          progressStageSubtitle.textContent = guideDataReady
+            ? (kidMode
+              ? 'All big steps complete! Queue optional adventures from the planner.'
+              : 'All required steps complete—queue optional support routes whenever you like.')
+            : (kidMode
+              ? 'We’re warming up your adaptive stage. Hang tight!'
+              : 'Adaptive stage insights will appear once the guide loads.');
+        }
+      }
+      const progressStageMeter = document.getElementById('progressStageMeter');
+      if (progressStageMeter) {
+        progressStageMeter.setAttribute('aria-valuenow', guideSummary.percent);
+      }
+      const progressStageFill = document.getElementById('progressStageFill');
+      if (progressStageFill) {
+        progressStageFill.style.width = guideSummary.percent + '%';
+      }
+      const progressStageResume = document.getElementById('progressStageResume');
+      if (progressStageResume) {
+        if (guideDataReady && nextAny && nextAny.step) {
+          progressStageResume.dataset.stepId = nextAny.step.id || '';
+          progressStageResume.disabled = false;
+          progressStageResume.textContent = kidMode ? 'Resume next step' : 'Resume next step';
+        } else {
+          progressStageResume.dataset.stepId = '';
+          progressStageResume.disabled = true;
+          progressStageResume.textContent = guideDataReady ? (kidMode ? 'All caught up!' : 'All caught up!') : (kidMode ? 'Loading…' : 'Loading…');
+        }
+      }
+      const renderAdaptiveQueue = (containerId, { limit } = {}) => {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+        if (!routeGuideData || !routeGuideData.routeLookup) {
+          const item = document.createElement('li');
+          item.className = 'adaptive-queue__item';
+          const meta = document.createElement('div');
+          meta.className = 'adaptive-queue__meta';
+          const title = document.createElement('p');
+          title.className = 'adaptive-queue__title';
+          title.textContent = kidMode ? 'Queue loading…' : 'Queue loading…';
+          const stats = document.createElement('p');
+          stats.className = 'adaptive-queue__stats';
+          stats.textContent = kidMode
+            ? 'Hang tight while we load your guides.'
+            : 'Adaptive guides are still loading.';
+          meta.appendChild(title);
+          meta.appendChild(stats);
+          item.appendChild(meta);
+          container.appendChild(item);
+          return;
+        }
+        const queueRoutes = Array.from(activeRouteIds)
+          .map(id => routeGuideData.routeLookup[id])
+          .filter(Boolean);
+        if (!queueRoutes.length) {
+          const item = document.createElement('li');
+          item.className = 'adaptive-queue__item';
+          const meta = document.createElement('div');
+          meta.className = 'adaptive-queue__meta';
+          const title = document.createElement('p');
+          title.className = 'adaptive-queue__title';
+          title.textContent = kidMode ? 'No guides pinned yet' : 'No guides pinned yet';
+          const stats = document.createElement('p');
+          stats.className = 'adaptive-queue__stats';
+          stats.textContent = kidMode
+            ? 'Pick an adventure in the planner to keep it here.'
+            : 'Select an adaptive guide in the planner to track it here.';
+          meta.appendChild(title);
+          meta.appendChild(stats);
+          item.appendChild(meta);
+          container.appendChild(item);
+          return;
+        }
+        const slice = limit ? queueRoutes.slice(0, limit) : queueRoutes;
+        slice.forEach(route => {
+          const li = document.createElement('li');
+          li.className = 'adaptive-queue__item';
+          const meta = document.createElement('div');
+          meta.className = 'adaptive-queue__meta';
+          const title = document.createElement('p');
+          title.className = 'adaptive-queue__title';
+          title.textContent = route.title || routeChapterTitle(route.chapter) || 'Guide';
+          const stats = document.createElement('p');
+          stats.className = 'adaptive-queue__stats';
+          const progress = chapterProgress(route.chapter);
+          const requiredCount = progress.requiredCount;
+          const requiredChecked = progress.requiredChecked;
+          const progressLabel = requiredCount
+            ? `${requiredChecked}/${requiredCount} ${kidMode ? 'big steps' : 'required steps'}`
+            : (kidMode ? 'No required steps' : 'No required steps');
+          const roleLabel = route.progression_role === 'core'
+            ? (kidMode ? 'Core adventure' : 'Core route')
+            : route.progression_role === 'support'
+              ? (kidMode ? 'Support prep' : 'Support route')
+              : (kidMode ? 'Optional fun' : 'Optional route');
+          stats.textContent = `${progressLabel} • ${roleLabel}`;
+          meta.appendChild(title);
+          meta.appendChild(stats);
+          li.appendChild(meta);
+          const nextRouteStep = findNextStepForChapter(route.chapter) || findNextStepForChapter(route.chapter, { includeOptional: true });
+          const cta = document.createElement('button');
+          cta.type = 'button';
+          cta.className = 'adaptive-queue__cta';
+          const icon = document.createElement('i');
+          icon.className = 'fa-solid fa-arrow-up-right-from-square';
+          icon.setAttribute('aria-hidden', 'true');
+          const span = document.createElement('span');
+          if (nextRouteStep) {
+            span.textContent = kidMode ? 'Resume' : 'Resume';
+            cta.dataset.stepId = nextRouteStep.id || '';
+            cta.addEventListener('click', () => {
+              switchPage('route');
+              queueRouteFocus(nextRouteStep.id);
+              playSound(clickSound);
+            });
+          } else {
+            span.textContent = kidMode ? 'Review' : 'Review';
+            cta.dataset.stepId = '';
+            cta.addEventListener('click', () => {
+              switchPage('route');
+              playSound(clickSound);
+            });
+          }
+          cta.appendChild(icon);
+          cta.appendChild(span);
+          li.appendChild(cta);
+          container.appendChild(li);
+        });
+      };
+      renderAdaptiveQueue('homeActiveQueue', { limit: 3 });
+      renderAdaptiveQueue('progressActiveQueue');
       const towersBadge = document.getElementById('towersClearedBadge');
       if (towersBadge) {
         towersBadge.textContent = guideSummary.towersTotal
