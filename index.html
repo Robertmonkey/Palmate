@@ -9441,7 +9441,21 @@
       returning_focus: 3,
       tower_alignment: 3.5,
       pal_gap: 3.5,
-      tech_gap: 3.5
+      tech_gap: 3.5,
+      prereq_pal_ready: 4.2,
+      prereq_tech_ready: 3.8,
+      region_alignment: 3.6,
+      mission_alignment: 3.3,
+      base_alignment: 3.2,
+      stage_alignment: 4.2,
+      boss_prep: 4.8,
+      boss_support: 3.7,
+      pal_ready_highlight: 3.4,
+      tech_followthrough: 3.9,
+      supporting_stage: 3.6,
+      active_region_chain: 3.2,
+      quest_cluster: 2.9,
+      boss_requirement_alignment: 3.8
     };
     let currentRouteSuggestionEntries = [];
     let activeSuggestedRouteId = null;
@@ -10212,6 +10226,7 @@
         next_routes: Array.isArray(route?.next_routes) ? route.next_routes.slice() : [],
         raw: route,
         chapter,
+        regions: collectRouteRegions(route),
         resourceOutputs,
         highlightPals: highlights.pals,
         highlightItems: highlights.items,
@@ -10415,6 +10430,134 @@
         items: Array.from(items),
         tech: Array.from(tech)
       };
+    }
+
+    function collectRouteRegions(route){
+      const counts = new Map();
+      const labels = new Map();
+      const register = (raw) => {
+        const slug = normalizeRegionId(raw);
+        if(!slug) return;
+        counts.set(slug, (counts.get(slug) || 0) + 1);
+        if(!labels.has(slug)){
+          labels.set(slug, describeRegionLabel(slug));
+        }
+      };
+      const rawRegions = Array.isArray(route?.regions) ? route.regions : [];
+      rawRegions.forEach(register);
+      const steps = Array.isArray(route?.steps) ? route.steps : [];
+      steps.forEach(step => {
+        const locations = Array.isArray(step?.locations) ? step.locations : [];
+        locations.forEach(location => {
+          if(location?.region_id){
+            register(location.region_id);
+          } else if(location?.region){
+            register(location.region);
+          }
+        });
+      });
+      const summary = Array.from(counts.entries())
+        .sort((a, b) => b[1] - a[1])
+        .map(([id, count]) => ({ id, count, name: labels.get(id) || describeRegionLabel(id) }));
+      return {
+        ids: summary.map(entry => entry.id),
+        summary,
+        primary: summary.length ? summary[0].id : null
+      };
+    }
+
+    function summarizeRouteRegions(route){
+      if(!route) return [];
+      const summary = Array.isArray(route?.regions?.summary) ? route.regions.summary : null;
+      if(summary && summary.length) return summary;
+      const derived = collectRouteRegions(route);
+      return Array.isArray(derived?.summary) ? derived.summary : [];
+    }
+
+    function normalizeRegionId(value){
+      if(!value) return '';
+      if(typeof value === 'string' && value.startsWith('region:')){
+        return slugifyForPalworld(value.slice(7));
+      }
+      return slugifyForPalworld(String(value));
+    }
+
+    function describeRegionLabel(id){
+      if(!id) return '';
+      const raw = id.replace(/^region:/, '');
+      return niceName(raw);
+    }
+
+    function resolvePalInfoBySlug(slug){
+      const normalized = slugifyForPalworld(String(slug || ''));
+      if(!normalized){
+        return { slug: '', id: null, pal: null, name: '', caught: false };
+      }
+      const link = { id: normalized, slug: normalized };
+      const palId = resolvePalIdFromLink(link);
+      const pal = palId != null && PALS ? PALS[palId] : null;
+      const name = pal?.name || niceName(normalized);
+      const caughtStatus = palId != null ? !!caught[palId] : isPalCaughtByName(name);
+      return { slug: normalized, id: palId, pal, name, caught: caughtStatus };
+    }
+
+    function resolveTechInfoBySlug(slug){
+      const normalized = slugifyForPalworld(String(slug || ''));
+      if(!normalized){
+        return { slug: '', name: '', unlocked: false };
+      }
+      const info = lookupTechBySlug(normalized) || lookupTechBySlug(`tech-${normalized}`);
+      const name = info?.item?.name || niceName(normalized);
+      return { slug: normalized, name, unlocked: isTechUnlocked(name) };
+    }
+
+    function deriveStageRegions(stageSnapshot){
+      const regions = new Map();
+      if(!stageSnapshot || !stageSnapshot.stageId){
+        return [];
+      }
+      const route = routeGuideData?.routeLookup?.[stageSnapshot.stageId];
+      if(route){
+        const regionSummary = Array.isArray(route?.regions?.summary) ? route.regions.summary : [];
+        regionSummary.slice(0, 4).forEach(entry => {
+          if(!regions.has(entry.id)){
+            regions.set(entry.id, { id: entry.id, name: entry.name });
+          }
+        });
+        if(stageSnapshot.nextStep && stageSnapshot.nextStep.id){
+          const raw = findRawStep(route, stageSnapshot.nextStep.id);
+          extractRegionsFromRawStep(raw).forEach(entry => {
+            if(!regions.has(entry.id)){
+              regions.set(entry.id, entry);
+            }
+          });
+        }
+      }
+      return Array.from(regions.values());
+    }
+
+    function extractRegionsFromRawStep(rawStep){
+      if(!rawStep) return [];
+      const map = new Map();
+      const locations = Array.isArray(rawStep?.locations) ? rawStep.locations : [];
+      locations.forEach(location => {
+        const id = normalizeRegionId(location?.region_id || location?.region || '');
+        if(!id || map.has(id)) return;
+        map.set(id, { id, name: describeRegionLabel(id) });
+      });
+      return Array.from(map.values());
+    }
+
+    function gatherPendingBaseRouteIds(stageSnapshot){
+      const ids = new Set();
+      const pending = Array.isArray(stageSnapshot?.pendingBaseSteps) ? stageSnapshot.pendingBaseSteps : [];
+      pending.forEach(entry => {
+        const chapterId = entry?.chapter?.id;
+        if(chapterId){
+          ids.add(chapterId);
+        }
+      });
+      return ids;
     }
 
     function deriveRoutePlaystyleKey(route){
@@ -10925,7 +11068,8 @@
       pruneCompletedActiveRoutes();
       const effectiveSummary = summary || calculateGuideProgressSummary();
       const effectiveLevel = levelEstimate || estimatePlayerLevel(routeContext);
-      const effectiveRecommendations = recommendations || computeRouteRecommendations(routeGuideData, routeContext, effectiveLevel);
+      const stageSnapshot = determineGuideStageSnapshot();
+      const effectiveRecommendations = recommendations || computeRouteRecommendations(routeGuideData, routeContext, effectiveLevel, stageSnapshot);
       const suggestionCount = renderRouteSuggestions(effectiveRecommendations);
       renderRouteRecommendationsList(effectiveRecommendations, { offset: suggestionCount });
       updateRouteOverviewUI(effectiveSummary);
@@ -11802,7 +11946,8 @@
           routeContext = normalizeRouteContext(routeContext);
           const summary = calculateGuideProgressSummary(chapters);
           const levelEstimate = estimatePlayerLevel(routeContext);
-          const recommendations = computeRouteRecommendations(guide, routeContext, levelEstimate);
+          const stageSnapshot = determineGuideStageSnapshot();
+          const recommendations = computeRouteRecommendations(guide, routeContext, levelEstimate, stageSnapshot);
           const heading = kidMode ? 'Adaptive Adventure Planner' : 'Adaptive Route Planner';
           const suggestionsLead = kidMode
             ? 'Palmate studies your level, party mode, and wish list to queue up perfect adventures. Highlight one to see every step.'
@@ -12664,7 +12809,7 @@
       });
     }
 
-    function computeRouteRecommendations(guide, context, levelEstimate){
+    function computeRouteRecommendations(guide, context, levelEstimate, stageSnapshot){
       const routes = Array.isArray(guide?.routes) ? guide.routes : [];
       if(!routes.length) return [];
       const weights = { ...DEFAULT_RECOMMENDER_WEIGHTS, ...(guide?.recommender?.scoring_signals || {}) };
@@ -12680,6 +12825,95 @@
       const playerLevel = context?.declaredLevel != null ? Number(context.declaredLevel) : (levelEstimate?.level ?? null);
       const goalSet = new Set((context?.goals || []).map(goal => String(goal || '').toLowerCase()));
       const activeRouteSet = new Set(loadActiveRouteIdsFromState(routeState));
+      const routeLookup = guide?.routeLookup || {};
+      const stage = stageSnapshot || determineGuideStageSnapshot();
+      const activeRegions = deriveStageRegions(stage);
+      const activeRegionSet = new Set(activeRegions.map(entry => entry.id));
+      const activeRegionNames = activeRegions.map(entry => entry.name);
+      const pendingBaseRouteIds = gatherPendingBaseRouteIds(stage);
+      const stageIndex = typeof stage?.stageIndex === 'number' ? stage.stageIndex : null;
+      const stageRouteId = stage?.stageId || null;
+      const stageRoute = stageRouteId ? routeLookup[stageRouteId] : null;
+      const stageSupportRecommended = new Set(Array.isArray(stageRoute?.supporting_routes?.recommended) ? stageRoute.supporting_routes.recommended : []);
+      const stageSupportOptional = new Set(Array.isArray(stageRoute?.supporting_routes?.optional) ? stageRoute.supporting_routes.optional : []);
+      const activeRouteRegionSet = new Set();
+      const activeRouteRegionNames = new Map();
+      activeRouteSet.forEach(id => {
+        const activeRoute = routeLookup[id];
+        if(!activeRoute) return;
+        const summary = summarizeRouteRegions(activeRoute);
+        summary.forEach(entry => {
+          if(!entry?.id) return;
+          activeRouteRegionSet.add(entry.id);
+          if(entry.name && !activeRouteRegionNames.has(entry.id)){
+            activeRouteRegionNames.set(entry.id, entry.name);
+          }
+        });
+      });
+      const stageNextCategory = stage?.nextStep?.category ? String(stage.nextStep.category).toLowerCase() : '';
+      const upcomingBoss = (() => {
+        const candidates = routes
+          .filter(route => !completedRoutes.has(route.id) && routePlaystyleKey(route) === 'boss')
+          .sort((a, b) => (a.index || 0) - (b.index || 0));
+        if(!candidates.length) return null;
+        if(stageIndex == null){
+          return { route: candidates[0], distanceFromStage: null };
+        }
+        const next = candidates.find(route => (route.index || 0) >= stageIndex) || candidates[candidates.length - 1];
+        return { route: next, distanceFromStage: (next.index || 0) - stageIndex };
+      })();
+      const bossPrereq = upcomingBoss?.route?.prerequisites || {};
+      const bossNeededTech = new Set();
+      const bossNeededTechNames = new Map();
+      (Array.isArray(bossPrereq?.tech) ? bossPrereq.tech : []).forEach(value => {
+        const info = resolveTechInfoBySlug(value);
+        if(!info.slug) return;
+        bossNeededTech.add(info.slug);
+        if(info.name && !bossNeededTechNames.has(info.slug)){
+          bossNeededTechNames.set(info.slug, info.name);
+        }
+      });
+      const bossNeededItems = new Set();
+      const bossNeededItemNames = new Map();
+      (Array.isArray(bossPrereq?.items) ? bossPrereq.items : []).forEach(entry => {
+        if(!entry) return;
+        const rawId = typeof entry === 'string' ? entry : (entry.item_id || entry.id);
+        const slug = slugifyForPalworld(String(rawId || ''));
+        if(!slug) return;
+        bossNeededItems.add(slug);
+        if(!bossNeededItemNames.has(slug)){
+          bossNeededItemNames.set(slug, niceName(slug));
+        }
+      });
+      const bossNeededPals = new Set();
+      const bossNeededPalNames = new Map();
+      (Array.isArray(bossPrereq?.pals) ? bossPrereq.pals : []).forEach(value => {
+        const info = resolvePalInfoBySlug(value);
+        if(!info.slug) return;
+        bossNeededPals.add(info.slug);
+        if(info.name && !bossNeededPalNames.has(info.slug)){
+          bossNeededPalNames.set(info.slug, info.name);
+        }
+      });
+      const missionRegionMap = new Map();
+      routes.forEach(routeEntry => {
+        const category = String(routeEntry?.category || '').toLowerCase();
+        const tags = Array.isArray(routeEntry?.tags) ? routeEntry.tags.map(tag => String(tag || '').toLowerCase()) : [];
+        const missionLike = category.includes('mission') || category.includes('quest') || tags.some(tag => tag.includes('mission') || tag.includes('quest'));
+        if(!missionLike) return;
+        const regionSummary = summarizeRouteRegions(routeEntry);
+        regionSummary.forEach(entry => {
+          if(!entry?.id) return;
+          if(!missionRegionMap.has(entry.id)){
+            missionRegionMap.set(entry.id, { id: entry.id, name: entry.name || describeRegionLabel(entry.id), total: 0, incomplete: 0 });
+          }
+          const info = missionRegionMap.get(entry.id);
+          info.total += 1;
+          if(!completedRoutes.has(routeEntry.id)){
+            info.incomplete += 1;
+          }
+        });
+      });
       const results = [];
       routes.forEach(route => {
         const unmetRoutes = (route?.prerequisites?.routes || []).filter(id => !completedRoutes.has(id));
@@ -12698,6 +12932,57 @@
           score += weights.prerequisites_met;
           if(templates.prerequisites_met){
             reasons.push(formatRecommendationText(templates.prerequisites_met));
+          }
+        }
+        const stageDistance = stageIndex != null ? (route.index || 0) - stageIndex : null;
+        const normalizedCategory = (route?.category || '').toLowerCase();
+        const normalizedTags = Array.isArray(route?.tags) ? route.tags.map(tag => String(tag || '').toLowerCase()) : [];
+        const playstyleKey = routePlaystyleKey(route);
+        const routeRegionSummary = summarizeRouteRegions(route);
+        const prereq = route?.prerequisites || {};
+        const requiredPalInfos = Array.isArray(prereq.pals) ? prereq.pals.map(resolvePalInfoBySlug).filter(info => info.slug) : [];
+        const missingPrereqPals = requiredPalInfos.filter(info => !info.caught);
+        const readyPrereqPalNames = requiredPalInfos.filter(info => info.caught).map(info => info.name);
+        if(requiredPalInfos.length){
+          if(!missingPrereqPals.length){
+            score += weights.prereq_pal_ready || 0;
+            const palNames = requiredPalInfos.map(info => info.name).join(', ');
+            if(templates.prereq_pal_ready){
+              reasons.push(formatRecommendationText(templates.prereq_pal_ready, { pals: palNames }));
+            } else {
+              reasons.push(kidMode ? `${palNames} are on your team—let them shine!` : `Prerequisite pals ready: ${palNames}.`);
+            }
+            contextSignals += requiredPalInfos.length;
+          } else {
+            score -= (weights.prereq_pal_ready || 0) * 0.8;
+            const palNames = missingPrereqPals.map(info => info.name).join(', ');
+            if(templates.prereq_pal_missing){
+              reasons.push(formatRecommendationText(templates.prereq_pal_missing, { pals: palNames }));
+            } else {
+              reasons.push(kidMode ? `Catch ${palNames} first.` : `Catch required pals: ${palNames}.`);
+            }
+          }
+        }
+        const requiredTechInfos = Array.isArray(prereq.tech) ? prereq.tech.map(resolveTechInfoBySlug).filter(info => info.slug) : [];
+        const missingPrereqTech = requiredTechInfos.filter(info => !info.unlocked);
+        if(requiredTechInfos.length){
+          if(!missingPrereqTech.length){
+            score += weights.prereq_tech_ready || 0;
+            const techNames = requiredTechInfos.map(info => info.name).join(', ');
+            if(templates.prereq_tech_ready){
+              reasons.push(formatRecommendationText(templates.prereq_tech_ready, { tech: techNames }));
+            } else {
+              reasons.push(kidMode ? `You already unlocked ${techNames}.` : `Required tech unlocked: ${techNames}.`);
+            }
+            contextSignals += 1;
+          } else {
+            score -= (weights.prereq_tech_ready || 0) * 0.7;
+            const techNames = missingPrereqTech.map(info => info.name).join(', ');
+            if(templates.prereq_tech_missing){
+              reasons.push(formatRecommendationText(templates.prereq_tech_missing, { tech: techNames }));
+            } else {
+              reasons.push(kidMode ? `Unlock ${techNames} to start.` : `Unlock required tech: ${techNames}.`);
+            }
           }
         }
         const range = route?.recommended_level || {};
@@ -12774,39 +13059,234 @@
             contextSignals += 1;
           }
         }
-        const highlightPals = Array.isArray(route?.highlightPals) ? route.highlightPals : [];
-        const missingPalEntries = highlightPals.map(slug => {
-          const link = { id: slug, slug };
-          const palId = resolvePalIdFromLink(link);
-          if(palId == null) return null;
-          return caught[palId] ? null : (PALS?.[palId]?.name || niceName(slug));
-        }).filter(Boolean);
-        if(highlightPals.length && weights.pal_gap){
-          if(missingPalEntries.length){
-            score += weights.pal_gap;
-            const sample = missingPalEntries.slice(0, 2).join(', ');
-            reasons.push(kidMode ? `Adds new pals like ${sample}.` : `Uncaught pals: ${sample}.`);
-            contextSignals += 1;
+        const matchedRegions = routeRegionSummary.filter(entry => activeRegionSet.has(entry.id));
+        if(matchedRegions.length){
+          score += weights.region_alignment || 0;
+          const regionNames = matchedRegions.slice(0, 2).map(entry => entry.name).join(', ');
+          if(templates.region_alignment){
+            reasons.push(formatRecommendationText(templates.region_alignment, { region: regionNames }));
           } else {
-            score -= (weights.pal_gap || 0) / 2;
+            const prefix = activeRegionNames.length ? 'already in' : 'focused on';
+            reasons.push(kidMode ? `We’re ${prefix} ${regionNames}.` : `Matches your time in ${regionNames}.`);
+          }
+          contextSignals += matchedRegions.length;
+        }
+        if(activeRouteRegionSet.size){
+          const sharedActiveRegions = routeRegionSummary.filter(entry => activeRouteRegionSet.has(entry.id));
+          if(sharedActiveRegions.length && !isActive){
+            score += weights.active_region_chain || 0;
+            const names = sharedActiveRegions.slice(0, 2).map(entry => entry.name || activeRouteRegionNames.get(entry.id) || describeRegionLabel(entry.id));
+            reasons.push(kidMode ? `Stacks with other plans in ${names.join(', ')}.` : `Shares region focus with active guides in ${names.join(', ')}.`);
+            contextSignals += sharedActiveRegions.length;
           }
         }
-        const highlightTech = Array.isArray(route?.highlightTech) ? route.highlightTech : [];
-        const missingTechEntries = highlightTech.map(id => {
-          const slug = slugifyForPalworld(String(id));
-          const techEntry = lookupTechBySlug(slug);
-          const name = techEntry?.item?.name;
-          if(!name) return null;
-          return isTechUnlocked(name) ? null : name;
-        }).filter(Boolean);
-        if(highlightTech.length && weights.tech_gap){
-          if(missingTechEntries.length){
-            score += weights.tech_gap;
-            const sample = missingTechEntries.slice(0, 2).join(', ');
-            reasons.push(kidMode ? `Unlocks tech like ${sample}.` : `Fills tech gaps: ${sample}.`);
+        if(stageRouteId && route.id === stageRouteId){
+          score += weights.stage_alignment || 0;
+          reasons.push(kidMode ? 'This is the current story chapter.' : 'Current chapter objective.');
+          contextSignals += 1;
+          tier = Math.min(tier, 0);
+        } else if(stageDistance === 1){
+          score += (weights.stage_alignment || 0) * 0.6;
+          reasons.push(kidMode ? 'Next story step is right here.' : 'Up next in the storyline.');
+          contextSignals += 1;
+          tier = Math.min(tier, 1);
+        } else if(stageDistance === -1 && !routeComplete){
+          score += (weights.stage_alignment || 0) * 0.4;
+          reasons.push(kidMode ? 'Clean up this step before moving on.' : 'Backfill the previous chapter.');
+          contextSignals += 1;
+        }
+        if(stageNextCategory && stageDistance != null && stageDistance <= 1){
+          const categoryMatch = normalizedCategory.includes(stageNextCategory) || normalizedTags.some(tag => tag.includes(stageNextCategory));
+          if(categoryMatch){
+            score += (weights.stage_alignment || 0) * 0.3;
+            reasons.push(kidMode ? 'Matches the next guide step.' : 'Lines up with the upcoming guide beat.');
             contextSignals += 1;
+          }
+        }
+        if(stageRouteId && stageRouteId !== route.id && !routeComplete){
+          const stageLabel = kidMode ? (stage?.stageTitleKid || stage?.stageTitleGrown || '') : (stage?.stageTitleGrown || stage?.stageTitleKid || '');
+          if(stageSupportRecommended.has(route.id)){
+            score += weights.supporting_stage || 0;
+            reasons.push(stageLabel
+              ? (kidMode ? `Helps finish ${stageLabel}.` : `Supports current chapter: ${stageLabel}.`)
+              : (kidMode ? 'Supports the current story prep.' : 'Supports the active chapter.'));
+            contextSignals += 1;
+            tier = Math.min(tier, 1);
+          } else if(stageSupportOptional.has(route.id)){
+            score += (weights.supporting_stage || 0) * 0.6;
+            reasons.push(stageLabel
+              ? (kidMode ? `Optional help for ${stageLabel}.` : `Optional prep for ${stageLabel}.`)
+              : (kidMode ? 'Optional story support.' : 'Optional chapter support.'));
+            contextSignals += 1;
+          }
+        }
+        if(pendingBaseRouteIds.has(route.id)){
+          score += weights.base_alignment || 0;
+          if(templates.base_alignment){
+            reasons.push(formatRecommendationText(templates.base_alignment, { stage: stage?.stageTitleGrown || '' }));
           } else {
-            score -= (weights.tech_gap || 0) / 2;
+            reasons.push(kidMode ? 'Clears the base chores Palmate flagged.' : 'Tackles the base tasks waiting in the planner.');
+          }
+          contextSignals += 1;
+        }
+        const isMissionRoute = normalizedCategory.includes('mission') || normalizedCategory.includes('quest') || normalizedTags.some(tag => tag.includes('mission') || tag.includes('quest'));
+        if(isMissionRoute && matchedRegions.length && (stageDistance == null || stageDistance <= 1)){
+          score += weights.mission_alignment || 0;
+          const regionName = matchedRegions[0]?.name || activeRegionNames[0] || route.title;
+          if(templates.mission_alignment){
+            reasons.push(formatRecommendationText(templates.mission_alignment, { region: regionName }));
+          } else {
+            reasons.push(kidMode ? `Quest fits this area in ${regionName}.` : `Quest aligns with your stop in ${regionName}.`);
+          }
+          contextSignals += 1;
+        }
+        if(isMissionRoute && missionRegionMap.size){
+          const clusterRegions = routeRegionSummary
+            .map(entry => missionRegionMap.get(entry.id))
+            .filter(info => info && info.incomplete > 1);
+          if(clusterRegions.length){
+            const clusterName = clusterRegions[0].name;
+            score += weights.quest_cluster || 0;
+            reasons.push(kidMode
+              ? `Bundle nearby quests in ${clusterName}.`
+              : `Cluster quests together while you’re in ${clusterName}.`);
+            contextSignals += clusterRegions.length;
+          }
+        }
+        const isBossRoute = playstyleKey === 'boss';
+        if(isBossRoute){
+          if(stageDistance != null){
+            if(stageDistance <= 0){
+              score += weights.boss_prep || 0;
+              reasons.push(kidMode ? 'Boss showdown is ready—gear up!' : `Boss encounter ready: ${route.title || 'Boss fight'}.`);
+              contextSignals += 1;
+            } else if(stageDistance === 1){
+              score += (weights.boss_prep || 0) * 0.8;
+              reasons.push(kidMode ? 'Get ready for the next boss.' : `Prep for upcoming boss: ${route.title || 'Boss fight'}.`);
+              contextSignals += 1;
+            } else if(stageDistance <= 3){
+              score += (weights.boss_prep || 0) * 0.4;
+            }
+          }
+        }
+        if(upcomingBoss && upcomingBoss.route && upcomingBoss.route.id !== route.id){
+          const supportDistance = upcomingBoss.route.index - (route.index || 0);
+          const leadsToBoss = Array.isArray(route?.next_routes) && route.next_routes.includes(upcomingBoss.route.id);
+          const recommendedSupport = Array.isArray(route?.supporting_routes?.recommended) && route.supporting_routes.recommended.includes(upcomingBoss.route.id);
+          const preppingRole = playstyleKey === 'resource' || playstyleKey === 'craft' || playstyleKey === 'base' || route.progression_role === 'support';
+          if(leadsToBoss || recommendedSupport || (preppingRole && supportDistance >= -1 && supportDistance <= 2)){
+            score += weights.boss_support || 0;
+            const bossName = upcomingBoss.route.title || 'boss fight';
+            if(templates.boss_support){
+              reasons.push(formatRecommendationText(templates.boss_support, { boss: bossName }));
+            } else {
+              reasons.push(kidMode ? `Prep gear for ${bossName}.` : `Sets up ${bossName}.`);
+            }
+            contextSignals += 1;
+          }
+        }
+        const unlocks = route?.outputs?.unlocks || {};
+        const techInfoMap = new Map();
+        const registerTechInfo = info => {
+          if(info && info.slug && !techInfoMap.has(info.slug)){
+            techInfoMap.set(info.slug, info);
+          }
+        };
+        if(unlocks){
+          if(Array.isArray(unlocks.tech)){
+            unlocks.tech.map(resolveTechInfoBySlug).forEach(registerTechInfo);
+          }
+          if(Array.isArray(unlocks.stations)){
+            unlocks.stations.map(resolveTechInfoBySlug).forEach(registerTechInfo);
+          }
+        }
+        if(Array.isArray(route?.yields?.key_unlocks)){
+          route.yields.key_unlocks.map(resolveTechInfoBySlug).forEach(registerTechInfo);
+        }
+        const plannedTechInfos = Array.from(techInfoMap.values());
+        const lockedTechInfos = plannedTechInfos.filter(info => !info.unlocked);
+        const resourceOutputSlugSet = new Set();
+        (Array.isArray(route?.resourceOutputs) ? route.resourceOutputs : []).forEach(itemId => {
+          const slug = slugifyForPalworld(String(itemId || ''));
+          if(slug){
+            resourceOutputSlugSet.add(slug);
+          }
+        });
+        const routePalRewardSet = new Set();
+        const registerPalReward = value => {
+          const info = resolvePalInfoBySlug(value);
+          if(info.slug){
+            routePalRewardSet.add(info.slug);
+          }
+        };
+        const rawSteps = Array.isArray(route?.steps) ? route.steps : [];
+        rawSteps.forEach(step => {
+          const outputs = step?.outputs || {};
+          if(Array.isArray(outputs.pals)){
+            outputs.pals.forEach(registerPalReward);
+          }
+        });
+        if(Array.isArray(route?.outputs?.pals)){
+          route.outputs.pals.forEach(registerPalReward);
+        }
+        const highlightPals = Array.isArray(route?.highlightPals) ? route.highlightPals : [];
+        const highlightPalInfos = highlightPals.map(resolvePalInfoBySlug).filter(info => info.slug);
+        const missingPalEntries = highlightPalInfos.filter(info => !info.caught).map(info => info.name);
+        const readyHighlightPals = highlightPalInfos.filter(info => info.caught);
+        if(highlightPalInfos.length && weights.pal_gap && missingPalEntries.length){
+          score += weights.pal_gap;
+          const sample = missingPalEntries.slice(0, 2).join(', ');
+          reasons.push(kidMode ? `Adds new pals like ${sample}.` : `Uncaught pals: ${sample}.`);
+          contextSignals += 1;
+        }
+        if(readyHighlightPals.length && (weights.pal_ready_highlight || 0) && !routeComplete){
+          const readyNames = readyHighlightPals.slice(0, 2).map(info => info.name).join(' & ');
+          reasons.push(kidMode ? `${readyNames} are ready for this plan.` : `Captured pals ready to leverage: ${readyNames}.`);
+          score += weights.pal_ready_highlight || 0;
+          contextSignals += readyHighlightPals.length;
+        }
+        const highlightTech = Array.isArray(route?.highlightTech) ? route.highlightTech : [];
+        const highlightTechInfos = highlightTech.map(resolveTechInfoBySlug).filter(info => info.slug);
+        const missingTechEntries = highlightTechInfos.filter(info => !info.unlocked).map(info => info.name);
+        if(highlightTechInfos.length && weights.tech_gap && missingTechEntries.length){
+          score += weights.tech_gap;
+          const sample = missingTechEntries.slice(0, 2).join(', ');
+          reasons.push(kidMode ? `Unlocks tech like ${sample}.` : `Fills tech gaps: ${sample}.`);
+          contextSignals += 1;
+        }
+        if(lockedTechInfos.length && (weights.tech_followthrough || 0) && !routeComplete){
+          const techNames = lockedTechInfos.slice(0, 2).map(info => info.name).join(', ');
+          const palSupportNames = readyPrereqPalNames.length ? readyPrereqPalNames : readyHighlightPals.map(info => info.name);
+          if(palSupportNames.length){
+            const palNames = palSupportNames.slice(0, 2).join(' & ');
+            reasons.push(kidMode ? `${palNames} are ready—build ${techNames}.` : `${palNames} now enable ${techNames}.`);
+            score += weights.tech_followthrough || 0;
+            contextSignals += lockedTechInfos.length;
+          }
+        }
+        if(upcomingBoss && upcomingBoss.route){
+          const bossName = upcomingBoss.route.title || 'boss fight';
+          const bossPrepSet = new Set();
+          lockedTechInfos.forEach(info => {
+            if(bossNeededTech.has(info.slug)){
+              bossPrepSet.add(bossNeededTechNames.get(info.slug) || info.name || niceName(info.slug));
+            }
+          });
+          resourceOutputSlugSet.forEach(slug => {
+            if(bossNeededItems.has(slug)){
+              bossPrepSet.add(bossNeededItemNames.get(slug) || niceName(slug));
+            }
+          });
+          routePalRewardSet.forEach(slug => {
+            if(bossNeededPals.has(slug)){
+              bossPrepSet.add(bossNeededPalNames.get(slug) || niceName(slug));
+            }
+          });
+          if(bossPrepSet.size){
+            score += weights.boss_requirement_alignment || 0;
+            const sample = Array.from(bossPrepSet).slice(0, 2).join(', ');
+            reasons.push(kidMode ? `Covers ${sample} before ${bossName}.` : `Delivers ${sample} needed for ${bossName}.`);
+            contextSignals += bossPrepSet.size;
           }
         }
         if(context.coop && route?.modes?.coop){
@@ -12822,7 +13302,6 @@
             score += (weights.risk_vs_mode || 0) / 2;
           }
         }
-        const normalizedTags = Array.isArray(route?.tags) ? route.tags.map(tag => String(tag || '').toLowerCase()) : [];
         const overlapTags = normalizedTags.filter(tag => goalSet.has(tag));
         if(overlapTags.length){
           const label = overlapTags.map(capitalize).join(', ');
@@ -12838,17 +13317,15 @@
           reasons.push(kidMode ? `Matches goals: ${display.join(', ')}` : `Objectives align with: ${display.join(', ')}`);
           contextSignals += objectiveMatches.length;
         }
-        let keywordMatch = null;
         if(goalSet.size && !overlapTags.length){
           const titleLower = (route.title || '').toLowerCase();
-          keywordMatch = Array.from(goalSet).find(goal => titleLower.includes(goal));
+          const keywordMatch = Array.from(goalSet).find(goal => titleLower.includes(goal));
           if(keywordMatch){
             score += weights.context_goal_keyword || 0;
             reasons.push(kidMode ? `Focuses on ${capitalize(keywordMatch)}.` : `Title includes ${keywordMatch}.`);
             contextSignals += 1;
           }
         }
-        const normalizedCategory = (route?.category || '').toLowerCase();
         const isTowerRoute = normalizedCategory.includes('tower') || normalizedCategory.includes('boss') || normalizedTags.some(tag => tag.includes('tower') || tag.includes('boss'));
         const towerGoal = goalSet.has('tower') || goalSet.has('boss');
         if(isTowerRoute && towerGoal){
@@ -12933,6 +13410,11 @@
         } else if(breakdown.requiredDone > 0){
           tier = Math.min(tier, 1);
         }
+        if(stageRouteId && route.id === stageRouteId){
+          tier = Math.min(tier, 0);
+        } else if(stageDistance === 1){
+          tier = Math.min(tier, 1);
+        }
         if(contextSignals > 0){
           tier = Math.min(tier, isActive ? 0 : 1);
         } else if(route.progression_role === 'core'){
@@ -12978,7 +13460,6 @@
         return (a.route.index || 0) - (b.route.index || 0);
       });
     }
-
     function evaluateDynamicRules(route, context, levelEstimate, resourceMap){
       const hits = [];
       const rules = route?.adaptive_guidance?.dynamic_rules;
