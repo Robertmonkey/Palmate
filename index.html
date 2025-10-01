@@ -9422,26 +9422,26 @@
     const DEFAULT_RECOMMENDER_WEIGHTS = {
       prerequisites_met: 6,
       level_fit: 5,
-      unlock_value: 4,
-      time_to_power_ratio: 2.5,
-      progression_role: 3,
-      coop_synergy: 2,
-      risk_vs_mode: 2,
-      tag_alignment: 3,
-      novelty: 1.5,
-      metric_efficiency: 2.5,
-      resource_relief: 3,
-      dynamic_alignment: 2,
-      progress_momentum: 4,
-      closeout_bonus: 3,
-      goal_objective_alignment: 4,
-      context_goal_keyword: 3,
-      synergy_next_routes: 2,
-      resource_urgency: 2.5,
-      returning_focus: 2.5,
-      tower_alignment: 3,
-      pal_gap: 3,
-      tech_gap: 3
+      unlock_value: 4.5,
+      time_to_power_ratio: 3.5,
+      progression_role: 4,
+      coop_synergy: 2.5,
+      risk_vs_mode: 2.5,
+      tag_alignment: 4,
+      novelty: 1,
+      metric_efficiency: 3,
+      resource_relief: 4,
+      dynamic_alignment: 2.5,
+      progress_momentum: 4.5,
+      closeout_bonus: 3.5,
+      goal_objective_alignment: 5,
+      context_goal_keyword: 3.5,
+      synergy_next_routes: 2.5,
+      resource_urgency: 3,
+      returning_focus: 3,
+      tower_alignment: 3.5,
+      pal_gap: 3.5,
+      tech_gap: 3.5
     };
     let currentRouteSuggestionEntries = [];
     let activeSuggestedRouteId = null;
@@ -11834,131 +11834,149 @@
               : 'Load the purposeful playbooks after the data finishes downloading.');
           const purposefulSectionOptions = renderPurposefulSectionOptions(purposeful);
           const purposefulSubsectionOptions = renderPurposefulSubsectionOptions(purposeful);
+          const plannerLead = kidMode
+            ? 'Tell Palmate what you need tonight and we’ll build the perfect plan.'
+            : 'Dial in your context and Palmate will surface the routes that matter most.';
           node.innerHTML = `
-          <header class="page-header">
-            <h2>${escapeHTML(heading)}</h2>
+          <header class="page-header route-page-header">
+            <div class="route-page-header__title">
+              <h2>${escapeHTML(heading)}</h2>
+              <p class="route-page-lead">${escapeHTML(plannerLead)}</p>
+            </div>
           </header>
-          <div class="route-layout">
-            <section class="card route-context" id="routeContextCard">
-              ${renderRouteContextOverview(routeContext, levelEstimate, summary)}
-              ${renderRouteContextControls(routeGuideData, routeContext)}
-            </section>
-            <section class="card route-suggestions-card route-tonight-card" id="routeSuggestionsCard">
-              <div class="route-suggestions__header">
-                <h3>${kidMode ? 'Tonight’s Adventure Paths' : 'Suggested Adventure Paths'}</h3>
-                <p class="route-suggestions__intro">${escapeHTML(suggestionsLead)}</p>
-              </div>
-              <div class="route-suggestions__list" id="routeSuggestionsList">
-                <p class="route-suggestions__empty">${escapeHTML(kidMode
-                  ? 'Adjust the options above to unlock personalised picks.'
-                  : 'Tune the planner above to surface tailored paths.')}</p>
-              </div>
-              <div class="route-suggestions__detail" id="routeSuggestionDetail">
-                <p class="route-suggestions__placeholder">${escapeHTML(kidMode
-                  ? 'Highlight a suggestion to preview the guide here.'
-                  : 'Highlight a suggestion to preview the full walkthrough here.')}</p>
-              </div>
-            </section>
-          </div>
-          <section class="card route-active-card" id="routeActiveCard">
-            <div class="route-active__header">
-              <div class="route-active__title">
-                <h3>${escapeHTML(kidMode ? 'Your adventure queue' : 'Active guides')}</h3>
-                <p class="route-active__intro">${escapeHTML(kidMode
-                  ? 'Pick guides from the suggestions above. Only your chosen adventures stay visible here until you finish them.'
-                  : 'Pick guides from the suggestions above. Only the adventures you select stay visible here until they are complete.')}</p>
-              </div>
-              <div class="route-active__actions">
-                <button type="button" class="btn" data-route-action="toggle-optional">${routeOptionalToggleLabel(routeHideOptional)}</button>
-                <button type="button" class="btn" data-route-action="jump-next" data-step-id="">${kidMode ? 'Jump to next step' : 'Jump to next required'}</button>
-              </div>
-            </div>
-            <div class="route-active__filters" data-route-role="filters" aria-label="Filter steps by category"></div>
-            <div class="route-active__list" id="routeChapters"></div>
-          </section>
-          <section class="card route-recommendations-card" id="routeRecommendationsCard">
-            <div class="route-recommendations__header">
-              <h3>${kidMode ? 'More adventures to consider' : 'More adaptive picks'}</h3>
-              <p class="route-recommendations__intro">${escapeHTML(recommendationLead)}</p>
-            </div>
-            <div id="routeRecommendationsList" class="route-recommendations__list"></div>
-          </section>
-          <section class="card route-library" id="routeLibraryCard">
-            <details class="route-library__details">
-              <summary class="route-library__summary">
-                <div class="route-library__summary-text">
-                  <h3>${escapeHTML(kidMode ? 'Browse every guide' : 'Browse the full library')}</h3>
-                  <p>${escapeHTML(kidMode
-                    ? 'Open this drawer when you want to look up older or completed guides.'
-                    : 'Open the drawer to search the full guide library, including completed runs.')}</p>
+          <div class="route-shell">
+            <section class="card route-hero route-context" id="routeContextCard">
+              <div class="route-hero__layout">
+                <div class="route-hero__overview">
+                  ${renderRouteContextOverview(routeContext, levelEstimate, summary)}
                 </div>
-                <span class="route-library__count" data-route-role="library-count"></span>
-              </summary>
-              <div class="route-library__body">
-                <div class="route-library__filters" data-route-library-controls>
-                  <div class="route-library__filter-group" role="group" aria-label="${escapeHTML(kidMode ? 'Filter guides' : 'Filter guides by status')}">
-                    <button type="button" class="chip route-library__filter-btn${routeLibraryFilter === 'incomplete' ? ' route-library__filter-btn--active' : ''}" data-route-library-filter="incomplete">${escapeHTML(kidMode ? 'In progress' : 'In progress')}</button>
-                    <button type="button" class="chip route-library__filter-btn${routeLibraryFilter === 'complete' ? ' route-library__filter-btn--active' : ''}" data-route-library-filter="complete">${escapeHTML(kidMode ? 'Completed' : 'Completed')}</button>
-                    <button type="button" class="chip route-library__filter-btn${routeLibraryFilter === 'all' ? ' route-library__filter-btn--active' : ''}" data-route-library-filter="all">${escapeHTML(kidMode ? 'All guides' : 'All guides')}</button>
+                <div class="route-hero__controls">
+                  ${renderRouteContextControls(routeGuideData, routeContext)}
+                </div>
+              </div>
+            </section>
+            <div class="route-grid route-grid--primary">
+              <section class="card route-suggestions-card route-tonight-card" id="routeSuggestionsCard">
+                <div class="route-suggestions__header">
+                  <h3>${kidMode ? 'Tonight’s Adventure Paths' : 'Suggested Adventure Paths'}</h3>
+                  <p class="route-suggestions__intro">${escapeHTML(suggestionsLead)}</p>
+                </div>
+                <div class="route-suggestions__list" id="routeSuggestionsList">
+                  <p class="route-suggestions__empty">${escapeHTML(kidMode
+                    ? 'Adjust the options above to unlock personalised picks.'
+                    : 'Tune the planner above to surface tailored paths.')}</p>
+                </div>
+                <div class="route-suggestions__detail" id="routeSuggestionDetail">
+                  <p class="route-suggestions__placeholder">${escapeHTML(kidMode
+                    ? 'Highlight a suggestion to preview the guide here.'
+                    : 'Highlight a suggestion to preview the full walkthrough here.')}</p>
+                </div>
+              </section>
+              <section class="card route-active-card" id="routeActiveCard">
+                <div class="route-active__header">
+                  <div class="route-active__title">
+                    <h3>${escapeHTML(kidMode ? 'Your adventure queue' : 'Active guides')}</h3>
+                    <p class="route-active__intro">${escapeHTML(kidMode
+                      ? 'Pick guides from the suggestions above. Only your chosen adventures stay visible here until you finish them.'
+                      : 'Pick guides from the suggestions above. Only the adventures you select stay visible here until they are complete.')}</p>
                   </div>
-                  <button type="button" class="chip route-library__match${routeLibraryMatchContext && routeContext.goals.length ? ' route-library__match--active' : ''}" data-route-library-match="toggle" ${routeContext.goals.length ? '' : 'disabled'}>${escapeHTML(kidMode ? 'Match tonight’s goals' : 'Match tonight’s goals')}</button>
+                  <div class="route-active__actions">
+                    <button type="button" class="btn" data-route-action="toggle-optional">${routeOptionalToggleLabel(routeHideOptional)}</button>
+                    <button type="button" class="btn" data-route-action="jump-next" data-step-id="">${kidMode ? 'Jump to next step' : 'Jump to next required'}</button>
+                  </div>
                 </div>
-                <label class="route-library__search">
-                  <span class="route-library__search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                  <input type="search" id="routeLibrarySearch" placeholder="${escapeHTML(kidMode ? 'Search guides' : 'Search guides')}" aria-label="${escapeHTML(kidMode ? 'Search guides' : 'Search guides')}" />
-                </label>
-                <div class="route-library__list" id="routeLibraryList"></div>
-              </div>
-            </details>
-          </section>
-          <section class="card purposeful-guides" id="purposefulGuidesCard">
-            <div class="purposeful-guides__header">
-              <h3>${escapeHTML(kidMode ? 'Purposeful playbooks' : 'Purposeful progression guides')}</h3>
-              <p>${escapeHTML(purposefulLead)}</p>
-              <span class="purposeful-guides__count" data-purposeful-count></span>
+                <div class="route-active__filters" data-route-role="filters" aria-label="Filter steps by category"></div>
+                <div class="route-active__list" id="routeChapters"></div>
+              </section>
             </div>
-            <div class="purposeful-guides__controls">
-              <label class="purposeful-guides__search">
-                <span class="sr-only">${escapeHTML(kidMode ? 'Search playbooks' : 'Search purposeful guides')}</span>
-                <input type="search" id="purposefulGuidesSearch" placeholder="${escapeHTML(kidMode ? 'Search story arcs' : 'Search playbooks')}" value="${escapeHTML(purposefulGuidesSearchTerm)}" />
-              </label>
-              <div class="purposeful-guides__filters">
-                <label>
-                  <span>${escapeHTML(kidMode ? 'Game stage' : 'Game stage')}</span>
-                  <select id="purposefulGuidesSection">${purposefulSectionOptions}</select>
-                </label>
-                <label>
-                  <span>${escapeHTML(kidMode ? 'Focus route' : 'Focus route')}</span>
-                  <select id="purposefulGuidesSubsection" ${purposefulGuidesSectionFilter === 'all' ? 'disabled' : ''}>${purposefulSubsectionOptions}</select>
-                </label>
-              </div>
+            <div class="route-grid route-grid--secondary">
+              <section class="card route-recommendations-card" id="routeRecommendationsCard">
+                <div class="route-recommendations__header">
+                  <h3>${kidMode ? 'More adventures to consider' : 'More adaptive picks'}</h3>
+                  <p class="route-recommendations__intro">${escapeHTML(recommendationLead)}</p>
+                </div>
+                <div id="routeRecommendationsList" class="route-recommendations__list"></div>
+              </section>
+              <section class="card route-library" id="routeLibraryCard">
+                <details class="route-library__details">
+                  <summary class="route-library__summary">
+                    <div class="route-library__summary-text">
+                      <h3>${escapeHTML(kidMode ? 'Browse every guide' : 'Browse the full library')}</h3>
+                      <p>${escapeHTML(kidMode
+                        ? 'Open this drawer when you want to look up older or completed guides.'
+                        : 'Open the drawer to search the full guide library, including completed runs.')}</p>
+                    </div>
+                    <span class="route-library__count" data-route-role="library-count"></span>
+                  </summary>
+                  <div class="route-library__body">
+                    <div class="route-library__filters" data-route-library-controls>
+                      <div class="route-library__filter-group" role="group" aria-label="${escapeHTML(kidMode ? 'Filter guides' : 'Filter guides by status')}">
+                        <button type="button" class="chip route-library__filter-btn${routeLibraryFilter === 'incomplete' ? ' route-library__filter-btn--active' : ''}" data-route-library-filter="incomplete">${escapeHTML(kidMode ? 'In progress' : 'In progress')}</button>
+                        <button type="button" class="chip route-library__filter-btn${routeLibraryFilter === 'complete' ? ' route-library__filter-btn--active' : ''}" data-route-library-filter="complete">${escapeHTML(kidMode ? 'Completed' : 'Completed')}</button>
+                        <button type="button" class="chip route-library__filter-btn${routeLibraryFilter === 'all' ? ' route-library__filter-btn--active' : ''}" data-route-library-filter="all">${escapeHTML(kidMode ? 'All guides' : 'All guides')}</button>
+                      </div>
+                      <button type="button" class="chip route-library__match${routeLibraryMatchContext && routeContext.goals.length ? ' route-library__match--active' : ''}" data-route-library-match="toggle" ${routeContext.goals.length ? '' : 'disabled'}>${escapeHTML(kidMode ? 'Match tonight’s goals' : 'Match tonight’s goals')}</button>
+                    </div>
+                    <label class="route-library__search">
+                      <span class="route-library__search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                      <input type="search" id="routeLibrarySearch" placeholder="${escapeHTML(kidMode ? 'Search guides' : 'Search guides')}" aria-label="${escapeHTML(kidMode ? 'Search guides' : 'Search guides')}" />
+                    </label>
+                    <div class="route-library__list" id="routeLibraryList"></div>
+                  </div>
+                </details>
+              </section>
             </div>
-            <div class="purposeful-guides__list" id="purposefulGuidesList"></div>
-          </section>
-          <section class="card guide-catalog" id="guideCatalogCard">
-            <div class="guide-catalog__header">
-              <h3>${escapeHTML(kidMode ? 'Guide encyclopedia' : 'Complete guide index')}</h3>
-              <p>${escapeHTML(catalogLead)}</p>
-              <span class="guide-catalog__count" data-guide-catalog-count></span>
+            <div class="route-grid route-grid--secondary">
+              <section class="card purposeful-guides" id="purposefulGuidesCard">
+                <div class="purposeful-guides__header">
+                  <h3>${escapeHTML(kidMode ? 'Purposeful playbooks' : 'Purposeful progression guides')}</h3>
+                  <p>${escapeHTML(purposefulLead)}</p>
+                  <span class="purposeful-guides__count" data-purposeful-count></span>
+                </div>
+                <div class="purposeful-guides__controls">
+                  <label class="purposeful-guides__search">
+                    <span class="sr-only">${escapeHTML(kidMode ? 'Search playbooks' : 'Search purposeful guides')}</span>
+                    <input type="search" id="purposefulGuidesSearch" placeholder="${escapeHTML(kidMode ? 'Search story arcs' : 'Search playbooks')}" value="${escapeHTML(purposefulGuidesSearchTerm)}" />
+                  </label>
+                  <div class="purposeful-guides__filters">
+                    <label>
+                      <span>${escapeHTML(kidMode ? 'Game stage' : 'Game stage')}</span>
+                      <select id="purposefulGuidesSection">${purposefulSectionOptions}</select>
+                    </label>
+                    <label>
+                      <span>${escapeHTML(kidMode ? 'Focus route' : 'Focus route')}</span>
+                      <select id="purposefulGuidesSubsection" ${purposefulGuidesSectionFilter === 'all' ? 'disabled' : ''}>${purposefulSubsectionOptions}</select>
+                    </label>
+                  </div>
+                </div>
+                <div class="purposeful-guides__list" id="purposefulGuidesList"></div>
+              </section>
+              <section class="card guide-catalog" id="guideCatalogCard">
+                <div class="guide-catalog__header">
+                  <h3>${escapeHTML(kidMode ? 'Guide encyclopedia' : 'Complete guide index')}</h3>
+                  <p>${escapeHTML(catalogLead)}</p>
+                  <span class="guide-catalog__count" data-guide-catalog-count></span>
+                </div>
+                <div class="guide-catalog__controls">
+                  <label class="guide-catalog__search">
+                    <span class="sr-only">${escapeHTML(kidMode ? 'Search guides' : 'Search guide catalog')}</span>
+                    <input type="search" id="guideCatalogSearch" placeholder="${escapeHTML(kidMode ? 'Search all guides' : 'Search the catalog')}" value="${escapeHTML(guideCatalogSearchTerm)}" />
+                  </label>
+                  <div class="guide-catalog__filters">
+                    <label>
+                      <span>${escapeHTML(kidMode ? 'Category group' : 'Category group')}</span>
+                      <select id="guideCatalogGroup">${groupOptions}</select>
+                    </label>
+                    <label>
+                      <span>${escapeHTML(kidMode ? 'Focus' : 'Focus')}</span>
+                      <select id="guideCatalogCategory">${categoryOptions}</select>
+                    </label>
+                  </div>
+                </div>
+                <div class="guide-catalog__list" id="guideCatalogList"></div>
+              </section>
             </div>
-            <div class="guide-catalog__controls">
-              <label class="guide-catalog__search">
-                <span class="sr-only">${escapeHTML(kidMode ? 'Search guides' : 'Search guide catalog')}</span>
-                <input type="search" id="guideCatalogSearch" placeholder="${escapeHTML(kidMode ? 'Search all guides' : 'Search the catalog')}" value="${escapeHTML(guideCatalogSearchTerm)}" />
-              </label>
-              <div class="guide-catalog__filters">
-                <label>
-                  <span>${escapeHTML(kidMode ? 'Category group' : 'Category group')}</span>
-                  <select id="guideCatalogGroup">${groupOptions}</select>
-                </label>
-                <label>
-                  <span>${escapeHTML(kidMode ? 'Focus' : 'Focus')}</span>
-                  <select id="guideCatalogCategory">${categoryOptions}</select>
-                </label>
-              </div>
-            </div>
-            <div class="guide-catalog__list" id="guideCatalogList"></div>
-          </section>
+          </div>
         `;
           const wrap = node.querySelector('#routeChapters');
           syncActiveRouteIds();
@@ -12058,25 +12076,20 @@
         }
         return dateLabel ? `Last cleared: ${title} — ${dateLabel}` : `Last cleared: ${title}`;
       })();
-      const totalPals = Object.keys(PALS || {}).length;
-      const caughtCount = Object.keys(caught || {}).filter(key => caught[key]).length;
-      const palPct = totalPals ? Math.round((caughtCount / totalPals) * 100) : 0;
-      let totalTech = 0;
-      (Array.isArray(TECH) ? TECH : []).forEach(level => {
-        if(level && Array.isArray(level.items)){
-          totalTech += level.items.length;
-        }
-      });
-      const unlockedCount = Object.keys(unlocked || {}).filter(key => unlocked[key]).length;
-      const techPct = totalTech ? Math.round((unlockedCount / totalTech) * 100) : 0;
-      const totalRoutesCount = (summary.routes?.core?.total || 0) + (summary.routes?.support?.total || 0) + (summary.routes?.optional?.total || 0);
-      const completedRoutesCount = (summary.routes?.core?.complete || 0) + (summary.routes?.support?.complete || 0) + (summary.routes?.optional?.complete || 0);
-      const completedLabel = totalRoutesCount ? `${completedRoutesCount}/${totalRoutesCount}` : String(completedRoutesCount);
+      const badgeLabel = kidMode ? 'Session snapshot' : 'Session snapshot';
+      const leadCopy = kidMode
+        ? 'Keep this snapshot in view while you choose what to tackle next.'
+        : 'Use this snapshot to line up the perfect push for tonight.';
+      const historyCaption = kidMode ? 'Latest finish' : 'Latest completion';
       const requiredValue = summary.requiredTotal ? `${summary.requiredComplete}/${summary.requiredTotal}` : '0/0';
       const optionalValue = summary.optionalTotal ? `${summary.optionalComplete}/${summary.optionalTotal}` : '0/0';
       const towerValue = summary.towersTotal ? `${summary.towersComplete}/${summary.towersTotal}` : '0/0';
       return `
-        <div class="route-overview__header">
+        <div class="route-overview">
+          <div class="route-overview__lead">
+            <span class="route-overview__badge">${escapeHTML(badgeLabel)}</span>
+            <p class="route-overview__lead-copy">${escapeHTML(leadCopy)}</p>
+          </div>
           <div class="route-overview__stats">
             <article class="route-overview__stat">
               <div class="route-overview__stat-header">
@@ -12130,39 +12143,12 @@
               <p class="route-overview__stat-sub" data-route-role="tower-note">${escapeHTML(towerNote)}</p>
             </article>
           </div>
-          <div class="route-overview__insights">
-            <article class="route-overview__insight">
-              <span class="route-overview__insight-icon"><i class="fa-solid fa-paw"></i></span>
-              <div>
-                <p class="route-overview__insight-title">${escapeHTML(kidMode ? 'Pals caught' : 'Pals captured')}</p>
-                <p class="route-overview__insight-value">${escapeHTML(totalPals ? `${caughtCount}/${totalPals}` : '—')}</p>
-              </div>
-              <div class="route-overview__insight-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${palPct}">
-                <span style="width:${palPct}%"></span>
-              </div>
-            </article>
-            <article class="route-overview__insight">
-              <span class="route-overview__insight-icon"><i class="fa-solid fa-microchip"></i></span>
-              <div>
-                <p class="route-overview__insight-title">${escapeHTML(kidMode ? 'Tech unlocked' : 'Tech unlocks')}</p>
-                <p class="route-overview__insight-value">${escapeHTML(totalTech ? `${unlockedCount}/${totalTech}` : '—')}</p>
-              </div>
-              <div class="route-overview__insight-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${techPct}">
-                <span style="width:${techPct}%"></span>
-              </div>
-            </article>
-            <article class="route-overview__insight">
-              <span class="route-overview__insight-icon"><i class="fa-solid fa-list-check"></i></span>
-              <div>
-                <p class="route-overview__insight-title">${escapeHTML(kidMode ? 'Guides complete' : 'Routes complete')}</p>
-                <p class="route-overview__insight-value">${escapeHTML(completedLabel)}</p>
-              </div>
-              <p class="route-overview__insight-note">${escapeHTML(lastLabel)}</p>
-            </article>
-          </div>
-          <div class="route-overview__controls">
+          <div class="route-overview__controls route-overview__controls--compact">
             <p class="route-overview__next" data-route-role="next-callout"></p>
-            <p class="route-overview__history" data-route-role="last-completed">${escapeHTML(lastLabel)}</p>
+            <div class="route-overview__history-block">
+              <span class="route-overview__history-label">${escapeHTML(historyCaption)}</span>
+              <p class="route-overview__history" data-route-role="last-completed">${escapeHTML(lastLabel)}</p>
+            </div>
           </div>
         </div>
       `;
@@ -12693,12 +12679,21 @@
       const availableTime = context?.availableTimeMinutes != null ? Number(context.availableTimeMinutes) : null;
       const playerLevel = context?.declaredLevel != null ? Number(context.declaredLevel) : (levelEstimate?.level ?? null);
       const goalSet = new Set((context?.goals || []).map(goal => String(goal || '').toLowerCase()));
+      const activeRouteSet = new Set(loadActiveRouteIdsFromState(routeState));
       const results = [];
       routes.forEach(route => {
         const unmetRoutes = (route?.prerequisites?.routes || []).filter(id => !completedRoutes.has(id));
         if(unmetRoutes.length) return;
+        const routeComplete = completedRoutes.has(route.id);
+        const isActive = activeRouteSet.has(route.id);
+        if(routeComplete && !isActive) return;
+        const breakdown = routeProgressBreakdown(route);
         const reasons = [];
         let score = 0;
+        let contextSignals = isActive ? 2 : 0;
+        let levelGap = 0;
+        let timeDelta = null;
+        let tier = 4;
         if(weights.prerequisites_met){
           score += weights.prerequisites_met;
           if(templates.prerequisites_met){
@@ -12707,21 +12702,39 @@
         }
         const range = route?.recommended_level || {};
         if(playerLevel != null && (range.min != null || range.max != null)){
-          if(range.min != null && range.max != null && playerLevel >= range.min && playerLevel <= range.max){
-            score += weights.level_fit || 0;
-            if(templates.level_fit){
-              reasons.push(formatRecommendationText(templates.level_fit, { level: playerLevel, min: range.min, max: range.max }));
-            }
-          } else if(range.min != null && playerLevel < range.min){
+          const min = range.min != null ? Number(range.min) : null;
+          const max = range.max != null ? Number(range.max) : null;
+          let inRange = true;
+          if(min != null && playerLevel < min){
+            const gap = min - playerLevel;
+            levelGap = Math.max(levelGap, gap);
+            inRange = false;
             score -= (weights.level_fit || 0) / 2;
+            if(gap >= 5){
+              score -= (weights.level_fit || 0) / 2;
+            }
             if(route?.adaptive_guidance?.underleveled){
               reasons.push(formatRecommendationText(templates.adaptive_guidance, { recommendation: route.adaptive_guidance.underleveled }));
             }
-          } else if(range.max != null && playerLevel > range.max){
+          } else if(max != null && playerLevel > max){
+            const gap = playerLevel - max;
+            levelGap = Math.max(levelGap, gap);
+            inRange = false;
             score -= (weights.level_fit || 0) / 2;
+            if(gap >= 5){
+              score -= (weights.level_fit || 0) / 2;
+            }
             if(route?.adaptive_guidance?.overleveled){
               reasons.push(formatRecommendationText(templates.adaptive_guidance, { recommendation: route.adaptive_guidance.overleveled }));
             }
+          } else {
+            score += weights.level_fit || 0;
+          }
+          if(inRange){
+            if(templates.level_fit){
+              reasons.push(formatRecommendationText(templates.level_fit, { level: playerLevel, min: range.min, max: range.max }));
+            }
+            contextSignals += 1;
           }
         }
         if(Array.isArray(route?.yields?.key_unlocks) && route.yields.key_unlocks.length){
@@ -12732,23 +12745,33 @@
           } else {
             reasons.push(kidMode ? `Unlocks ${unlockList}.` : `Unlocks: ${unlockList}`);
           }
+          contextSignals += 1;
         }
         if(availableTime != null){
           const desired = context.coop ? route?.estimated_time_minutes?.coop : route?.estimated_time_minutes?.solo;
           const fallback = context.coop ? route?.estimated_time_minutes?.solo : route?.estimated_time_minutes?.coop;
           const timeValue = desired != null ? desired : fallback;
           if(timeValue != null){
+            timeDelta = timeValue - availableTime;
             if(timeValue <= availableTime){
               score += weights.time_to_power_ratio || 0;
+              contextSignals += 1;
             } else {
               score -= (weights.time_to_power_ratio || 0) / 2;
+              if(timeDelta > 20){
+                score -= (weights.time_to_power_ratio || 0) / 2;
+              }
             }
           }
         }
         if(route?.progression_role){
-          score += (weights.progression_role || 0) * (route.progression_role === 'core' ? 1 : 0.5);
+          const baseRole = route.progression_role === 'core' ? 1 : route.progression_role === 'support' ? 0.7 : 0.4;
+          score += (weights.progression_role || 0) * baseRole;
           if(templates.progression_role){
             reasons.push(formatRecommendationText(templates.progression_role, { role: capitalize(route.progression_role) }));
+          }
+          if(route.progression_role === 'core'){
+            contextSignals += 1;
           }
         }
         const highlightPals = Array.isArray(route?.highlightPals) ? route.highlightPals : [];
@@ -12763,6 +12786,7 @@
             score += weights.pal_gap;
             const sample = missingPalEntries.slice(0, 2).join(', ');
             reasons.push(kidMode ? `Adds new pals like ${sample}.` : `Uncaught pals: ${sample}.`);
+            contextSignals += 1;
           } else {
             score -= (weights.pal_gap || 0) / 2;
           }
@@ -12780,12 +12804,14 @@
             score += weights.tech_gap;
             const sample = missingTechEntries.slice(0, 2).join(', ');
             reasons.push(kidMode ? `Unlocks tech like ${sample}.` : `Fills tech gaps: ${sample}.`);
+            contextSignals += 1;
           } else {
             score -= (weights.tech_gap || 0) / 2;
           }
         }
         if(context.coop && route?.modes?.coop){
           score += weights.coop_synergy || 0;
+          contextSignals += 1;
         } else if(context.coop && route?.modes && route.modes.coop === false){
           score -= (weights.coop_synergy || 0) / 2;
         }
@@ -12802,6 +12828,7 @@
           const label = overlapTags.map(capitalize).join(', ');
           score += weights.tag_alignment || 0;
           reasons.push(kidMode ? `Goal match: ${label}` : `Goal focus: ${overlapTags.join(', ')}`);
+          contextSignals += overlapTags.length * 2;
         }
         const objectives = Array.isArray(route?.objectives) ? route.objectives.map(obj => String(obj || '').toLowerCase()) : [];
         const objectiveMatches = goalSet.size ? objectives.filter(obj => Array.from(goalSet).some(goal => obj.includes(goal))) : [];
@@ -12809,13 +12836,16 @@
           score += weights.goal_objective_alignment || 0;
           const display = objectiveMatches.slice(0, 2).map(niceName);
           reasons.push(kidMode ? `Matches goals: ${display.join(', ')}` : `Objectives align with: ${display.join(', ')}`);
+          contextSignals += objectiveMatches.length;
         }
+        let keywordMatch = null;
         if(goalSet.size && !overlapTags.length){
           const titleLower = (route.title || '').toLowerCase();
-          const keywordMatch = Array.from(goalSet).find(goal => titleLower.includes(goal));
+          keywordMatch = Array.from(goalSet).find(goal => titleLower.includes(goal));
           if(keywordMatch){
             score += weights.context_goal_keyword || 0;
             reasons.push(kidMode ? `Focuses on ${capitalize(keywordMatch)}.` : `Title includes ${keywordMatch}.`);
+            contextSignals += 1;
           }
         }
         const normalizedCategory = (route?.category || '').toLowerCase();
@@ -12824,25 +12854,26 @@
         if(isTowerRoute && towerGoal){
           score += weights.tower_alignment || 0;
           reasons.push(kidMode ? 'Perfect for tower showdowns.' : 'Aligns with your tower/boss focus.');
+          contextSignals += 1;
         }
-        if(!completedRoutes.has(route.id)){
+        if(!routeComplete){
           score += weights.novelty || 0;
-        } else {
-          score -= (weights.novelty || 0) / 2;
         }
-        const breakdown = routeProgressBreakdown(route);
         if(breakdown.requiredDone > 0 && breakdown.requiredDone < breakdown.requiredTotal){
           score += weights.progress_momentum || 0;
           reasons.push(kidMode ? 'You already started this route—keep going!' : 'Momentum bonus: you have partial progress here.');
+          contextSignals += 1;
         }
         const remainingRequired = breakdown.requiredTotal - breakdown.requiredDone;
         if(breakdown.requiredTotal && remainingRequired > 0 && remainingRequired <= 2){
           score += weights.closeout_bonus || 0;
           reasons.push(kidMode ? 'Only a couple big steps left!' : 'Close to completion — only a few required steps remain.');
+          contextSignals += 1;
         }
-        if(breakdown.totalDone > 0 && !completedRoutes.has(route.id)){
+        if(breakdown.totalDone > 0 && !routeComplete){
           score += weights.returning_focus || 0;
           reasons.push(kidMode ? 'Let’s finish what you started.' : 'Finish the route you already began.');
+          contextSignals += 1;
         }
         const metrics = route?.metrics || {};
         const xpPerMinute = metrics.xp_per_minute;
@@ -12858,6 +12889,7 @@
             } else {
               reasons.push(kidMode ? `Great XP: ${avg.toFixed(1)}/m.` : `XP efficiency: ${avg.toFixed(1)} per minute.`);
             }
+            contextSignals += 1;
           }
         }
         const resourceMatches = [];
@@ -12876,9 +12908,11 @@
             const names = resourceMatches.map(match => niceName(match.itemId));
             reasons.push(kidMode ? `Helps gather ${names.join(', ')}.` : `Addresses shortages: ${names.join(', ')}`);
           }
+          contextSignals += resourceMatches.length * 2;
           if(resourceMatches.some(match => match.qty != null && match.qty >= 20)){
             score += weights.resource_urgency || 0;
             reasons.push(kidMode ? 'Big resource refill.' : 'High priority resource shortage covered.');
+            contextSignals += 1;
           }
         }
         const dynamicHits = evaluateDynamicRules(route, context, levelEstimate, resourceMap);
@@ -12887,16 +12921,62 @@
           dynamicHits.forEach(hit => {
             reasons.push(formatRecommendationText(templates.dynamic_alignment, { rule_adjustment: hit }));
           });
+          contextSignals += dynamicHits.length;
         }
         const futureRoutes = Array.isArray(route?.next_routes) ? route.next_routes.filter(id => !completedRoutes.has(id)) : [];
         if(futureRoutes.length){
           score += weights.synergy_next_routes || 0;
           reasons.push(kidMode ? 'Opens new adventures next.' : 'Sets up follow-up routes.');
         }
+        if(isActive){
+          tier = 0;
+        } else if(breakdown.requiredDone > 0){
+          tier = Math.min(tier, 1);
+        }
+        if(contextSignals > 0){
+          tier = Math.min(tier, isActive ? 0 : 1);
+        } else if(route.progression_role === 'core'){
+          tier = Math.min(tier, 2);
+        } else if(route.progression_role === 'support'){
+          tier = Math.min(tier, 3);
+        }
+        if(levelGap >= 4){
+          tier = Math.max(tier, 3);
+        }
+        if(timeDelta != null && timeDelta > 20){
+          tier = Math.max(tier, 3);
+        }
         const nextStep = findFirstIncompleteStepForRoute(route, { includeOptional: true });
-        results.push({ route, score, reasons, nextStepId: nextStep ? nextStep.id : null });
+        results.push({
+          route,
+          score,
+          reasons,
+          nextStepId: nextStep ? nextStep.id : null,
+          tier,
+          contextSignals,
+          breakdown,
+          levelGap,
+          timeDelta
+        });
       });
-      return results.sort((a, b) => (b.score || 0) - (a.score || 0));
+      return results.sort((a, b) => {
+        const tierA = a.tier ?? 0;
+        const tierB = b.tier ?? 0;
+        if(tierA !== tierB) return tierA - tierB;
+        const contextA = a.contextSignals ?? 0;
+        const contextB = b.contextSignals ?? 0;
+        if(contextA !== contextB) return contextB - contextA;
+        const scoreDiff = (b.score || 0) - (a.score || 0);
+        if(scoreDiff !== 0) return scoreDiff;
+        const progressA = a.breakdown ? (a.breakdown.requiredDone / Math.max(1, a.breakdown.requiredTotal)) : 0;
+        const progressB = b.breakdown ? (b.breakdown.requiredDone / Math.max(1, b.breakdown.requiredTotal)) : 0;
+        if(progressA !== progressB) return progressB - progressA;
+        const levelGapDiff = (a.levelGap || 0) - (b.levelGap || 0);
+        if(levelGapDiff !== 0) return levelGapDiff;
+        const timeDeltaDiff = (a.timeDelta ?? 0) - (b.timeDelta ?? 0);
+        if(timeDeltaDiff !== 0) return timeDeltaDiff;
+        return (a.route.index || 0) - (b.route.index || 0);
+      });
     }
 
     function evaluateDynamicRules(route, context, levelEstimate, resourceMap){
