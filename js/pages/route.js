@@ -249,8 +249,11 @@ function renderSteps(ch, state, hideOptional){
       ? `<span class="step-flag">${escapeHTML(kid ? 'Bonus' : 'Optional')}</span>`
       : '';
     const links = renderLinks(step.links || []);
+    const classes = ['step'];
+    if(step.optional) classes.push('optional');
+    if(checked) classes.push('step--checked');
     fragments.push(`
-      <label class="step ${step.optional ? 'optional' : ''}">
+      <label class="${classes.join(' ')}">
         <input type="checkbox" data-step="${step.id}" ${checked ? 'checked' : ''} />
         <div class="step-content">
           <div class="step-header">
@@ -496,8 +499,12 @@ function renderLinks(links){
   if(!links || !links.length) return '';
   return `<div class="step-links badges">${links.map(l=>{
     const label = linkLabel(l);
-    const payload = JSON.stringify(l).replace(/"/g,'&quot;');
-    return `<a href="#" class="chip link" data-link="${payload}" role="button">${escapeHTML(label)}</a>`;
+    const safeLabel = escapeHTML(label);
+    const payload = escapeHTML(JSON.stringify(l));
+    const typeToken = linkTypeToken(l?.type);
+    const typeAttr = typeToken ? ` data-link-type="${typeToken}"` : '';
+    const titleAttr = label ? ` title="${safeLabel}"` : '';
+    return `<a href="#" class="chip link" data-link="${payload}"${typeAttr}${titleAttr} role="button">${safeLabel}</a>`;
   }).join('')}</div>`;
 }
 
@@ -532,15 +539,23 @@ function isKidMode(){
 }
 
 function linkLabel(l){
+  if(!l) return 'Open';
+  if(l.label) return String(l.label);
+  const id = l.id || l.slug || l.name;
   if(l.type==='pal'){
-    const source = l.slug || l.id || l.name;
+    const source = l.name || l.slug || id;
     return capitalize(source);
   }
-  if(l.type==='passive') return capitalize(l.id);
-  if(l.type==='move') return niceName(l.id);
-  if(l.type==='tech') return techName(l.id);
-  if(l.type==='glossary') return niceName(l.id);
-  if(l.type==='tower') return niceName(l.id);
+  if(l.type==='item') return niceName(id || l.label || 'item');
+  if(l.type==='tech') return techName(id || l.label || 'tech');
+  if(l.type==='passive') return capitalize(id || l.label || 'passive');
+  if(l.type==='move') return niceName(id || l.label || 'move');
+  if(l.type==='glossary') return niceName(id || l.label || 'entry');
+  if(l.type==='tower'){
+    if(l.map && l.map.title) return l.map.title;
+    return niceName(id || 'tower');
+  }
+  if(id) return niceName(id);
   return 'Open';
 }
 
@@ -548,24 +563,42 @@ function linkLabel(l){
 function navigateLink(l){
   if(!l) return;
   if(l.type==='pal'){
-    if(window.viewPal) window.viewPal(l.slug || l.id);
-    else focusSearch(l.slug || l.id, { target: 'pals' });
+    const target = l.slug || l.id;
+    if(target && typeof window.viewPal === 'function') window.viewPal(target);
+    else if(target) focusSearch(target, { target: 'pals' });
   } else if(l.type==='tech'){
-    if(window.showTechDetail) window.showTechDetail(l.id);
-    else window.open(`https://palworld.gg/items?search=${encodeURIComponent(niceName(l.id))}`,'_blank','noopener');
+    if(typeof window.showTechDetail === 'function') window.showTechDetail(l.id);
+    else if(l.url) window.open(l.url, '_blank', 'noopener');
+    else if(l.id) focusSearch(niceName(l.id), { target: 'items' });
+  } else if(l.type==='item'){
+    const itemKey = l.id || l.slug;
+    if(itemKey && typeof window.openItemDetail === 'function'){ window.openItemDetail(itemKey); }
+    else if(itemKey) focusSearch(itemKey, { target: 'items' });
+    else if(l.url) window.open(l.url, '_blank', 'noopener');
   } else if(l.type==='passive'){
-    if(window.showTraitDetail) window.showTraitDetail(capitalize(l.id));
-    else focusSearch(l.id, { target: 'pals' });
+    const trait = capitalize(l.id || l.slug || '');
+    if(typeof window.showTraitDetail === 'function') window.showTraitDetail(trait);
+    else if(trait) focusSearch(trait, { target: 'pals' });
   } else if(l.type==='move'){
-    if(window.showSkillDetail) window.showSkillDetail(l.id);
-    else focusSearch(niceName(l.id), { target: 'pals' });
+    if(typeof window.showSkillDetail === 'function') window.showSkillDetail(l.id);
+    else if(l.id) focusSearch(niceName(l.id), { target: 'pals' });
   } else if(l.type==='glossary'){
-    if(window.showGlossaryDetail) window.showGlossaryDetail(l.id);
-    else window.open(`https://palworld.gg/items?search=${encodeURIComponent(niceName(l.id))}`,'_blank','noopener');
+    const key = l.id || l.slug;
+    if(typeof window.showGlossaryDetail === 'function' && key) window.showGlossaryDetail(key);
+    else if(l.url) window.open(l.url, '_blank', 'noopener');
+    else if(key) focusSearch(niceName(key), { target: 'items' });
   } else if(l.type==='tower'){
-    // External map (safe deep-link placeholder)
-    window.open(l.url || 'https://palworld.gg/map', '_blank', 'noopener');
+    if(typeof window.openTowerMap === 'function') window.openTowerMap(l);
+    else if(l.url) window.open(l.url, '_blank', 'noopener');
+    else if(l.map && l.map.url) window.open(l.map.url, '_blank', 'noopener');
+  } else if(l.url){
+    window.open(l.url, '_blank', 'noopener');
   }
+}
+
+function linkTypeToken(type){
+  if(!type) return '';
+  return String(type).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
 }
 
 function pulse(el){
