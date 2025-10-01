@@ -270,6 +270,40 @@ gba(119,141,169,0.45)}
 .guide-catalog__keywords{display:flex;flex-wrap:wrap;gap:6px;margin:0}
 .guide-catalog__keyword{padding:4px 10px;border-radius:999px;background:rgba(119,141,169,0.18);border:1px solid rgba(119,141,169,0.32);font-size:.75rem;font-weight:600;color:rgba(224,225,221,0.85)}
 .guide-catalog__steps{margin:0;padding-left:20px;display:grid;gap:6px;font-size:.92rem;color:rgba(224,225,221,0.85)}
+.purposeful-guides{display:grid;gap:20px}
+.purposeful-guides__header{display:flex;flex-direction:column;gap:6px}
+.purposeful-guides__header h3{margin:0;font-size:1.3rem}
+.purposeful-guides__header p{margin:0;font-size:.95rem;color:var(--muted,rgba(224,225,221,0.72))}
+.purposeful-guides__count{font-size:.85rem;font-weight:600;color:rgba(224,225,221,0.82)}
+.purposeful-guides__controls{display:grid;gap:12px}
+@media (min-width:720px){.purposeful-guides__controls{grid-template-columns:260px 1fr;align-items:start}}
+.purposeful-guides__search{display:flex;align-items:center;gap:10px;padding:0 14px;background:rgba(10,22,40,0.82);border:1px solid rgba(119,141,169,0.28);border-radius:16px}
+.purposeful-guides__search input{flex:1;background:transparent;border:none;color:var(--text,#f0f4f8);font-size:1rem;padding:12px 0}
+.purposeful-guides__search input:focus-visible{outline:none}
+.purposeful-guides__filters{display:flex;flex-wrap:wrap;gap:12px}
+.purposeful-guides__filters label{display:flex;flex-direction:column;gap:6px;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(224,225,221,0.65)}
+.purposeful-guides__filters select{min-width:180px;background:rgba(13,27,42,0.7);border:1px solid rgba(119,141,169,0.35);border-radius:12px;color:var(--text,#f0f4f8);padding:10px 12px;font-size:.95rem}
+.purposeful-guides__filters select:disabled{opacity:.55}
+.purposeful-guides__filters select:focus-visible{outline:none;border-color:var(--accent,#778da9);box-shadow:0 0 0 2px rgba(119,141,169,0.35)}
+.purposeful-guides__list{display:grid;gap:14px}
+.purposeful-guides__empty{margin:0;font-size:.95rem;color:var(--muted,rgba(224,225,221,0.72));text-align:center;padding:18px 0}
+.purposeful-guide__item{display:grid;gap:12px;padding:16px;border-radius:18px;background:rgba(8,16,32,0.78);border:1px solid rgba(119,141,169,0.26);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.04)}
+.purposeful-guide__header{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:flex-start}
+.purposeful-guide__title-block{display:flex;flex-direction:column;gap:4px;min-width:0}
+.purposeful-guide__title{margin:0;font-size:1.15rem}
+.purposeful-guide__subtitle{margin:0;color:var(--muted,rgba(224,225,221,0.72));font-size:.9rem}
+.purposeful-guide__labels{display:flex;flex-wrap:wrap;gap:8px}
+.purposeful-guide__badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;background:rgba(148,210,189,0.18);border:1px solid rgba(148,210,189,0.45);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(224,225,221,0.88)}
+.purposeful-guide__badge--sub{background:rgba(119,141,169,0.2);border-color:rgba(119,141,169,0.45)}
+.purposeful-guide__purpose{margin:0;color:rgba(224,225,221,0.85);line-height:1.5}
+.purposeful-guide__steps{margin:0;padding-left:20px;display:grid;gap:6px;font-size:.95rem;color:rgba(224,225,221,0.88)}
+.purposeful-guide__steps li{line-height:1.45}
+.purposeful-guide__related{display:grid;gap:6px}
+.purposeful-guide__related h5{margin:0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(224,225,221,0.68)}
+.purposeful-guide__related-chips{display:flex;flex-wrap:wrap;gap:8px}
+.purposeful-guide__related-chip{padding:4px 10px;border-radius:999px;background:rgba(119,141,169,0.2);border:1px solid rgba(119,141,169,0.4);font-size:.78rem;font-weight:600;color:rgba(224,225,221,0.88)}
+.purposeful-guide__next{margin:0;font-size:.92rem;color:rgba(224,225,221,0.88)}
+.purposeful-guide__reference{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;background:rgba(119,141,169,0.18);border:1px solid rgba(119,141,169,0.32);font-size:.85rem;font-weight:600}
 
 .route-overview__insights{display:grid;gap:16px;margin-top:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .route-overview__insight{display:grid;gap:8px;padding:14px;border-radius:16px;background:rgba(8,16,32,0.75);border:1px solid rgba(119,141,169,0.26);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.04)}
