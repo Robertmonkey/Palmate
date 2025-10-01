@@ -9937,6 +9937,93 @@
       exploration: { overlay: ROUTE_VISUAL_THEMES.map.overlay, accent: ROUTE_VISUAL_THEMES.map.accent, icon: 'fa-compass', position: ROUTE_VISUAL_THEMES.map.position },
       generic: { overlay: ROUTE_VISUAL_THEMES.generic.overlay, accent: ROUTE_VISUAL_THEMES.generic.accent, icon: ROUTE_VISUAL_THEMES.generic.icon, position: ROUTE_VISUAL_THEMES.generic.position }
     };
+    const GUIDE_CATALOG_GROUP_LEVEL_MAP = {
+      'getting-started-core-missions': { min: 1, max: 12 },
+      'pals-capture': { min: 5, max: 30 },
+      'resources-crafting': { min: 10, max: 35 },
+      'technology-crafting-tools': { min: 15, max: 40 },
+      'base-building-management': { min: 10, max: 30 },
+      'combat-boss-guides': { min: 20, max: 60 },
+      'exploration-maps-dungeons': { min: 15, max: 45 },
+      'breeding-eggs': { min: 20, max: 45 },
+      'stats-mechanics': { min: 1, max: 60 },
+      'special-updates-events': { min: 1, max: 60 },
+      'multiplayer-pvp': { min: 10, max: 60 },
+      'social-community': { min: 1, max: 40 }
+    };
+    const GUIDE_CATALOG_GROUP_TIME_MAP = {
+      'getting-started-core-missions': 20,
+      'pals-capture': 25,
+      'resources-crafting': 30,
+      'technology-crafting-tools': 35,
+      'base-building-management': 28,
+      'combat-boss-guides': 40,
+      'exploration-maps-dungeons': 32,
+      'breeding-eggs': 34,
+      'stats-mechanics': 18,
+      'special-updates-events': 22,
+      'multiplayer-pvp': 26,
+      'social-community': 18
+    };
+    const GUIDE_CATALOG_GROUP_RISK_MAP = {
+      'getting-started-core-missions': 'low',
+      'pals-capture': 'medium',
+      'resources-crafting': 'medium',
+      'technology-crafting-tools': 'medium',
+      'base-building-management': 'low',
+      'combat-boss-guides': 'high',
+      'exploration-maps-dungeons': 'medium',
+      'breeding-eggs': 'medium',
+      'stats-mechanics': 'low',
+      'special-updates-events': 'medium',
+      'multiplayer-pvp': 'high',
+      'social-community': 'low'
+    };
+    const GUIDE_CATALOG_CATEGORY_ROUTE_MAP = {
+      breeding: 'breeding',
+      resources: 'resources',
+      'base-building': 'automation',
+      'base-management': 'automation',
+      crafting: 'tech',
+      technology: 'tech',
+      boss: 'bosses',
+      combat: 'bosses',
+      palpedia: 'capture-index',
+      capturing: 'capture-index',
+      missions: 'progression',
+      mechanics: 'misc',
+      exploration: 'progression',
+      dungeon: 'bosses',
+      update: 'misc',
+      social: 'misc',
+      multiplayer: 'misc',
+      event: 'misc',
+      economy: 'resources',
+      pvp: 'bosses',
+      stats: 'misc'
+    };
+    const GUIDE_CATALOG_CATEGORY_STEP_TYPE_MAP = {
+      breeding: 'breed',
+      resources: 'gather',
+      'base-building': 'build',
+      'base-management': 'build',
+      crafting: 'craft',
+      technology: 'craft',
+      boss: 'fight',
+      combat: 'fight',
+      palpedia: 'capture',
+      capturing: 'capture',
+      missions: 'quest',
+      mechanics: 'prepare',
+      exploration: 'explore',
+      dungeon: 'explore',
+      update: 'prepare',
+      social: 'talk',
+      multiplayer: 'talk',
+      event: 'quest',
+      economy: 'gather',
+      pvp: 'fight'
+    };
     const PAL_TYPE_VISUALS = {
       Fire: { overlay: 'rgba(255, 138, 101, 0.6)', accent: '#ffb199' },
       Water: { overlay: 'rgba(80, 176, 255, 0.6)', accent: '#75c8ff' },
@@ -10480,7 +10567,18 @@
 
     async function augmentGuideData(parsed){
       const routes = Array.isArray(parsed?.routes) ? parsed.routes : [];
-      const augmentedRoutes = routes.map((route, index) => augmentRoute(route, index));
+      const baseAugmentedRoutes = routes.map((route, index) => augmentRoute(route, index));
+      const catalogMeta = parsed?.guideCatalog || null;
+      let catalogData = null;
+      if(catalogMeta){
+        catalogData = await loadGuideCatalog(catalogMeta);
+      }
+      const preparedCatalog = prepareGuideCatalog(catalogData, catalogMeta);
+      const generatedRoutes = generateGuideCatalogRoutes(preparedCatalog, {
+        existingRouteIds: new Set(baseAugmentedRoutes.map(entry => entry.id)),
+        startIndex: baseAugmentedRoutes.length
+      });
+      const augmentedRoutes = baseAugmentedRoutes.concat(generatedRoutes);
       const chapters = augmentedRoutes.map(entry => entry.chapter);
       const routeLookup = {};
       const tagSet = new Set();
@@ -10495,12 +10593,6 @@
       const sortedResources = Array.from(resourceFrequency.entries())
         .sort((a, b) => b[1] - a[1])
         .map(entry => entry[0]);
-      const catalogMeta = parsed?.guideCatalog || null;
-      let catalogData = null;
-      if(catalogMeta){
-        catalogData = await loadGuideCatalog(catalogMeta);
-      }
-      const preparedCatalog = prepareGuideCatalog(catalogData, catalogMeta);
       return {
         metadata: parsed?.metadata || null,
         xp: parsed?.xp || null,
@@ -10645,6 +10737,352 @@
         categories: Array.from(group.categories.values()).sort((a, b) => a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }))
       })).sort((a, b) => a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }));
       return { entries, groups, meta: meta || null, count: entries.length };
+    }
+
+    function generateGuideCatalogRoutes(catalog, { existingRouteIds = new Set(), startIndex = 0 } = {}){
+      if(!catalog || !Array.isArray(catalog.entries)){
+        return [];
+      }
+      const usedIds = existingRouteIds instanceof Set
+        ? existingRouteIds
+        : new Set(Array.isArray(existingRouteIds) ? existingRouteIds : []);
+      const routes = [];
+      let offset = 0;
+      catalog.entries.forEach((entry, entryIndex) => {
+        const rawRoute = convertGuideCatalogEntryToRoute(entry, { usedIds, entryIndex });
+        if(!rawRoute) return;
+        const augmented = augmentRoute(rawRoute, startIndex + offset);
+        if(augmented){
+          routes.push(augmented);
+          offset += 1;
+        }
+      });
+      return routes;
+    }
+
+    function convertGuideCatalogEntryToRoute(entry, { usedIds, entryIndex = 0 } = {}){
+      if(!entry || !entry.title) return null;
+      const routeId = ensureGuideCatalogRouteId(entry, usedIds, entryIndex);
+      const category = mapGuideCatalogCategoryToRouteCategory(entry);
+      const progressionRole = deriveGuideCatalogProgressionRole(category);
+      const steps = deriveGuideCatalogSteps(entry, { routeId, category });
+      if(!steps.length){
+        steps.push(createPlaceholderCatalogStep(routeId, entry));
+      }
+      const levelRange = deriveGuideCatalogLevelRange(entry);
+      const timeEstimate = deriveGuideCatalogTimeEstimate(entry, { steps });
+      const xpEstimate = deriveGuideCatalogXpEstimate(steps);
+      const risk = deriveGuideCatalogRiskProfile(entry, category);
+      const objectives = deriveGuideCatalogObjectives(entry, steps);
+      const adaptiveGuidance = deriveGuideCatalogAdaptiveGuidance(entry, { steps, levelRange, title: entry.title });
+      const checkpoints = deriveGuideCatalogCheckpoints(routeId, entry, steps);
+      const tags = buildGuideCatalogTags(entry);
+      const metrics = {
+        progress_segments: steps.length,
+        boss_targets: category === 'bosses' ? 1 : 0,
+        quest_nodes: steps.length
+      };
+      const yields = {
+        levels_estimate: levelRange.max <= 15 ? '+0 to +1' : (levelRange.max <= 30 ? '+0 to +2' : 'Knowledge boost'),
+        key_unlocks: []
+      };
+      return {
+        route_id: routeId,
+        title: entry.title,
+        category,
+        tags,
+        progression_role: progressionRole,
+        recommended_level: levelRange,
+        modes: { normal: true, hardcore: true, solo: true, coop: true },
+        prerequisites: { routes: [], tech: [], items: [], pals: [] },
+        objectives,
+        estimated_time_minutes: timeEstimate,
+        estimated_xp_gain: xpEstimate,
+        risk_profile: risk,
+        failure_penalties: {
+          normal: `If a step is missed, revisit the checklist for ${cleanGuideText(entry.title)} and repeat it calmly.`,
+          hardcore: `In Hardcore, retreat to safety, restock, and retry the ${cleanGuideText(entry.title)} checklist carefully.`
+        },
+        adaptive_guidance: adaptiveGuidance,
+        checkpoints,
+        supporting_routes: { recommended: [], optional: [] },
+        failure_recovery: {
+          normal: 'Backtrack to the last completed checkpoint, restock consumables, and repeat the missing steps.',
+          hardcore: 'Stabilise your base, bring defensive gear, and resume from the last checkpoint once ready.'
+        },
+        steps,
+        completion_criteria: [
+          { type: 'quest-chain', quest_id: routeId }
+        ],
+        yields,
+        metrics,
+        next_routes: []
+      };
+    }
+
+    function ensureGuideCatalogRouteId(entry, usedIds, entryIndex){
+      const baseSlug = slugifyForPalworld(entry?.id || entry?.title || `guide-${entryIndex + 1}`);
+      const prefix = baseSlug ? `catalog-${baseSlug}` : `catalog-guide-${entryIndex + 1}`;
+      let candidate = prefix || `catalog-guide-${entryIndex + 1}`;
+      let counter = 2;
+      while(usedIds && usedIds.has(candidate)){
+        candidate = `${prefix || 'catalog-guide'}-${counter}`;
+        counter += 1;
+      }
+      if(usedIds) usedIds.add(candidate);
+      return candidate;
+    }
+
+    function mapGuideCatalogCategoryToRouteCategory(entry){
+      const raw = entry?.categoryId || entry?.category || entry?.categoryLabel || '';
+      const slug = slugifyForPalworld(raw);
+      if(slug && GUIDE_CATALOG_CATEGORY_ROUTE_MAP[slug]){
+        return GUIDE_CATALOG_CATEGORY_ROUTE_MAP[slug];
+      }
+      return 'misc';
+    }
+
+    function deriveGuideCatalogProgressionRole(category){
+      if(category === 'progression' || category === 'bosses') return 'core';
+      if(category === 'resources' || category === 'tech' || category === 'automation') return 'support';
+      return 'optional';
+    }
+
+    function deriveGuideCatalogLevelRange(entry){
+      const slug = slugifyForPalworld(entry?.groupId || entry?.groupLabel || '');
+      if(slug && GUIDE_CATALOG_GROUP_LEVEL_MAP[slug]){
+        const range = GUIDE_CATALOG_GROUP_LEVEL_MAP[slug];
+        return { min: range.min, max: range.max };
+      }
+      return { min: 1, max: 60 };
+    }
+
+    function deriveGuideCatalogTimeEstimate(entry, { steps } = {}){
+      const slug = slugifyForPalworld(entry?.groupId || entry?.groupLabel || '');
+      const base = GUIDE_CATALOG_GROUP_TIME_MAP[slug] || 24;
+      const count = Array.isArray(steps) && steps.length ? steps.length : 1;
+      const solo = Math.max(8, Math.round(base + (count - 1) * 2));
+      const coop = Math.max(6, Math.round(solo * 0.8));
+      return { solo, coop };
+    }
+
+    function deriveGuideCatalogXpEstimate(steps){
+      const count = Array.isArray(steps) ? steps.length : 0;
+      const min = Math.max(40, count * 35);
+      const max = Math.max(min + 20, count * 60);
+      return { min, max };
+    }
+
+    function deriveGuideCatalogRiskProfile(entry, category){
+      const slug = slugifyForPalworld(entry?.groupId || entry?.groupLabel || '');
+      if(slug && GUIDE_CATALOG_GROUP_RISK_MAP[slug]){
+        return GUIDE_CATALOG_GROUP_RISK_MAP[slug];
+      }
+      if(category === 'bosses') return 'high';
+      if(category === 'progression') return 'medium';
+      return 'low';
+    }
+
+    function buildGuideCatalogTags(entry){
+      const tags = new Set();
+      const add = (value) => {
+        const cleaned = cleanGuideText(value);
+        if(cleaned) tags.add(cleaned);
+      };
+      add(entry?.categoryLabel || entry?.category);
+      add(entry?.groupLabel);
+      if(Array.isArray(entry?.keywords)){
+        entry.keywords.forEach(keyword => add(keyword));
+      }
+      return Array.from(tags).slice(0, 8);
+    }
+
+    function deriveGuideCatalogObjectives(entry, steps){
+      const objectives = [];
+      const trigger = cleanGuideText(entry?.trigger);
+      if(trigger) objectives.push(trigger);
+      if(Array.isArray(steps)){
+        steps.slice(0, 3).forEach(step => {
+          const text = cleanGuideText(step?.summary || step?.detail);
+          if(text) objectives.push(text);
+        });
+      }
+      if(!objectives.length && entry?.title){
+        objectives.push(`Work through the ${cleanGuideText(entry.title)} checklist.`);
+      }
+      return dedupeStrings(objectives);
+    }
+
+    function deriveGuideCatalogSteps(entry, { routeId, category } = {}){
+      const steps = [];
+      const list = Array.isArray(entry?.steps) ? entry.steps : [];
+      list.forEach((rawStep, index) => {
+        const detail = guideInstructionDetail(rawStep?.instruction);
+        if(!detail) return;
+        const orderValue = Number(rawStep?.order);
+        const order = Number.isFinite(orderValue) ? orderValue : index + 1;
+        const summary = guideInstructionSummary(rawStep?.instruction) || detail;
+        const stepType = guideCatalogStepType(category, entry);
+        steps.push({
+          step_id: `${routeId}:${String(order).padStart(3, '0')}`,
+          type: stepType,
+          summary,
+          detail,
+          targets: [],
+          locations: [],
+          mode_adjustments: {},
+          recommended_loadout: { gear: [], pals: [], consumables: [] },
+          xp_award_estimate: { min: 30, max: 60 },
+          outputs: { items: [], pals: [], unlocks: {} },
+          branching: [],
+          citations: Array.isArray(rawStep?.citations) ? rawStep.citations.slice() : []
+        });
+      });
+      return steps;
+    }
+
+    function guideCatalogStepType(routeCategory, entry){
+      const categorySlug = routeCategory && GUIDE_CATALOG_CATEGORY_STEP_TYPE_MAP[routeCategory]
+        ? routeCategory
+        : null;
+      if(categorySlug && GUIDE_CATALOG_CATEGORY_STEP_TYPE_MAP[categorySlug]){
+        return GUIDE_CATALOG_CATEGORY_STEP_TYPE_MAP[categorySlug];
+      }
+      const raw = slugifyForPalworld(entry?.categoryId || entry?.category || '');
+      if(raw && GUIDE_CATALOG_CATEGORY_STEP_TYPE_MAP[raw]){
+        return GUIDE_CATALOG_CATEGORY_STEP_TYPE_MAP[raw];
+      }
+      return 'quest';
+    }
+
+    function guideInstructionDetail(instruction){
+      return cleanGuideText(instruction);
+    }
+
+    function guideInstructionSummary(instruction){
+      const detail = guideInstructionDetail(instruction);
+      if(!detail) return '';
+      const sentenceMatch = detail.match(/[^.!?]+[.!?]?/);
+      const summary = sentenceMatch ? sentenceMatch[0].trim() : detail;
+      if(summary.length > 140){
+        return `${summary.slice(0, 137)}…`;
+      }
+      return summary;
+    }
+
+    function deriveGuideCatalogAdaptiveGuidance(entry, { steps, levelRange, title } = {}){
+      const list = Array.isArray(steps) ? steps : [];
+      const firstStep = list[0] || null;
+      const lastStep = list.length ? list[list.length - 1] : null;
+      const firstSummary = cleanGuideText(firstStep?.summary || title || 'the first step');
+      const lastSummary = cleanGuideText(lastStep?.summary || firstSummary);
+      const relatedFirst = firstStep ? [firstStep.step_id] : [];
+      const relatedLast = lastStep ? [lastStep.step_id] : relatedFirst.slice();
+      const dynamicRules = [];
+      if(relatedFirst.length){
+        dynamicRules.push({
+          signal: 'time_budget_short',
+          condition: 'available_time_minutes && available_time_minutes < 15',
+          adjustment: `Complete ${firstSummary} now and bookmark the remaining steps for later.`,
+          priority: 3,
+          mode_scope: ['normal', 'hardcore', 'solo', 'coop'],
+          related_steps: relatedFirst.slice()
+        });
+      }
+      if(relatedLast.length && levelRange){
+        dynamicRules.push({
+          signal: 'level_gap:over',
+          condition: 'player.estimated_level >= recommended_level.max + 5',
+          adjustment: `Skip ahead to ${lastSummary} to fast-track the checklist.`,
+          priority: 2,
+          mode_scope: ['normal', 'hardcore', 'solo', 'coop'],
+          related_steps: relatedLast.slice()
+        });
+      }
+      return {
+        underleveled: firstSummary
+          ? `If you're underleveled, focus on ${firstSummary} before tackling the remaining steps.`
+          : 'If underleveled, complete the first step and pause until you improve your gear.',
+        overleveled: lastSummary
+          ? `If you're overleveled, skim the early steps and prioritise ${lastSummary} to finish quickly.`
+          : 'Skim the checklist to confirm nothing critical is missing.',
+        resource_shortages: [],
+        time_limited: firstSummary
+          ? `Short on time? Complete ${firstSummary} and return later for the rest.`
+          : 'Short on time? Finish the first step and return later.',
+        dynamic_rules: dynamicRules
+      };
+    }
+
+    function deriveGuideCatalogCheckpoints(routeId, entry, steps){
+      const list = Array.isArray(steps) ? steps : [];
+      if(!list.length){
+        return [];
+      }
+      const checkpoints = [];
+      const firstStep = list[0];
+      if(firstStep){
+        checkpoints.push({
+          id: `${routeId}:checkpoint-start`,
+          summary: firstStep.summary || cleanGuideText(entry.title) || 'Begin the checklist',
+          benefits: [`${cleanGuideText(entry.title) || 'Guide'} underway`],
+          related_steps: [firstStep.step_id]
+        });
+      }
+      if(list.length > 2){
+        const midStep = list[Math.floor(list.length / 2)];
+        if(midStep){
+          checkpoints.push({
+            id: `${routeId}:checkpoint-mid`,
+            summary: midStep.summary || 'Midpoint review',
+            benefits: ['Progress confirmed'],
+            related_steps: [midStep.step_id]
+          });
+        }
+      }
+      const lastStep = list[list.length - 1];
+      if(lastStep && (!firstStep || lastStep.step_id !== firstStep.step_id)){
+        checkpoints.push({
+          id: `${routeId}:checkpoint-complete`,
+          summary: `Checklist complete: ${cleanGuideText(entry.title) || 'Guide finished'}`,
+          benefits: ['Checklist cleared'],
+          related_steps: [lastStep.step_id]
+        });
+      }
+      return checkpoints;
+    }
+
+    function createPlaceholderCatalogStep(routeId, entry){
+      const detail = cleanGuideText(entry?.title || 'Review the quick guide instructions.');
+      return {
+        step_id: `${routeId}:001`,
+        type: 'quest',
+        summary: detail || 'Review the quick guide instructions.',
+        detail: detail || 'Review the quick guide instructions.',
+        targets: [],
+        locations: [],
+        mode_adjustments: {},
+        recommended_loadout: { gear: [], pals: [], consumables: [] },
+        xp_award_estimate: { min: 30, max: 60 },
+        outputs: { items: [], pals: [], unlocks: {} },
+        branching: [],
+        citations: []
+      };
+    }
+
+    function dedupeStrings(values){
+      const result = [];
+      const seen = new Set();
+      values.forEach(value => {
+        if(!value && value !== 0) return;
+        const text = String(value).trim();
+        if(!text) return;
+        const key = text.toLowerCase();
+        if(seen.has(key)) return;
+        seen.add(key);
+        result.push(text);
+      });
+      return result;
     }
 
     function normalizeHeadingText(text){
