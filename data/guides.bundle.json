@@ -9644,7 +9644,7 @@
   },
   "guideCatalog": {
     "path": "data/guide_catalog.json",
-    "guide_count": 201,
+    "guide_count": 196,
     "fields": [
       "id",
       "title",
@@ -9773,19 +9773,19 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "**Open the technology tree** from the menu.",
+              "instruction": "**Earn technology points** by leveling up, completing missions and meeting any level requirements.",
               "citations": [
                 "354485449518951\u2020L207-L209"
               ]
             },
             {
               "order": 2,
-              "instruction": "Spend your accumulated **technology points** to unlock a new item or structure (e.g., Palbox or Pal Sphere blueprint).",
+              "instruction": "Open the **technology tree menu** and highlight the structure or item you want (e.g., Palbox, Pal Sphere blueprint).",
               "citations": []
             },
             {
               "order": 3,
-              "instruction": "**Confirm the unlock**, then gather resources to craft the newly unlocked item.",
+              "instruction": "Spend the points to **unlock the tech**, then gather resources and craft or place the new blueprint.",
               "citations": []
             }
           ]
@@ -9805,19 +9805,19 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "**Search near riversides and wetlands** for glowing blue rocks (Paldium nodes).",
+              "instruction": "Unlock the **Capturing Device (Pal Sphere) blueprint** in the tech tree if you have not already.",
               "citations": [
                 "354485449518951\u2020L225-L231"
               ]
             },
             {
               "order": 2,
-              "instruction": "**Mine Paldium fragments** with a pickaxe until you have enough pieces.",
+              "instruction": "Search riversides and wetlands for **glowing blue Paldium nodes** and mine fragments with a pickaxe.",
               "citations": []
             },
             {
               "order": 3,
-              "instruction": "**Combine Paldium fragments with wood and stone** at a workbench to craft Pal Spheres.",
+              "instruction": "At a workbench, **combine Paldium fragments with wood and stone** to craft Pal Spheres; stockpile extras for captures.",
               "citations": [
                 "354485449518951\u2020L224-L252"
               ]
@@ -9856,38 +9856,6 @@
           ]
         },
         {
-          "id": "build-a-palbox",
-          "title": "Build a Palbox",
-          "source_heading": "Build a Palbox",
-          "category": "Base Building",
-          "category_group": "Getting Started & Core Missions",
-          "trigger": "Player asks about storing or healing Pals",
-          "keywords": [
-            "Palbox",
-            "storage",
-            "healing"
-          ],
-          "steps": [
-            {
-              "order": 1,
-              "instruction": "**Unlock the Palbox technology** in the tech tree.",
-              "citations": []
-            },
-            {
-              "order": 2,
-              "instruction": "Gather resources (Paldium fragments, wood, stone) and **build the Palbox**.",
-              "citations": []
-            },
-            {
-              "order": 3,
-              "instruction": "**Place the Palbox** at your base.  It can heal injured Pals and store extras.",
-              "citations": [
-                "354485449518951\u2020L288-L296"
-              ]
-            }
-          ]
-        },
-        {
           "id": "establish-a-starting-base",
           "title": "Establish a Starting Base",
           "source_heading": "Establish a Starting Base",
@@ -9902,19 +9870,29 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "**Choose an open area** near resources or at a recommended location.",
+              "instruction": "**Scout a flat spot near wood, stone and water** (e.g., Plateau of Beginnings or Small Settlement) before committing.",
               "citations": []
             },
             {
               "order": 2,
-              "instruction": "**Place your Palbox** to claim the base and unlock construction options.",
+              "instruction": "**Unlock the Palbox technology** in the tech tree and gather Paldium fragments, wood and stone.",
               "citations": [
                 "354485449518951\u2020L310-L314"
               ]
             },
             {
               "order": 3,
-              "instruction": "Build essential structures: **workbench, campfire, storage** and assign Pals to work.",
+              "instruction": "Craft and **place the Palbox** to claim the base; it heals and stores Pals while unlocking construction options.",
+              "citations": []
+            },
+            {
+              "order": 4,
+              "instruction": "Immediately **build core stations**\u2014Primitive Workbench, campfire, storage chest and a bed\u2014for crafting, cooking and rest.",
+              "citations": []
+            },
+            {
+              "order": 5,
+              "instruction": "Finish by **adding fences or walls for safety and assigning Pals** to start automation and base leveling.",
               "citations": []
             }
           ]
@@ -9934,19 +9912,24 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "**Open the base management menu** via the Palbox.",
+              "instruction": "**Open the Palbox management menu** at your base to view available workers.",
               "citations": [
                 "354485449518951\u2020L329-L332"
               ]
             },
             {
               "order": 2,
-              "instruction": "Select a Pal with relevant work suitability (e.g., transport, kindling) and **assign it to a task**.",
+              "instruction": "Select a Pal with the right work suitability and **assign it to the base roster**.",
               "citations": []
             },
             {
               "order": 3,
-              "instruction": "Ensure Pals have access to required stations (e.g., furnace, farm) and monitor their SAN to avoid overwork.",
+              "instruction": "**Lead or place the Pal near the station** it should use (furnace, farm, fields) so it starts working immediately.",
+              "citations": []
+            },
+            {
+              "order": 4,
+              "instruction": "Keep watch on **SAN, hunger and pathing**; feed or rest the Pal and ensure stations stay supplied for efficiency.",
               "citations": []
             }
           ]
@@ -10042,64 +10025,6 @@
             {
               "order": 3,
               "instruction": "Allocate the available stat points to Health, Stamina, Weight or other desired attributes.",
-              "citations": []
-            }
-          ]
-        },
-        {
-          "id": "build-the-capturing-device",
-          "title": "Build the Capturing Device",
-          "source_heading": "Build the Capturing Device",
-          "category": "Crafting",
-          "category_group": "Getting Started & Core Missions",
-          "trigger": "Questions about crafting Pal spheres",
-          "keywords": [
-            "Pal spheres",
-            "crafting device"
-          ],
-          "steps": [
-            {
-              "order": 1,
-              "instruction": "Unlock the **Capturing Device** (Pal Sphere) blueprint from the tech tree.",
-              "citations": []
-            },
-            {
-              "order": 2,
-              "instruction": "**Collect Paldium fragments, wood and stones**.",
-              "citations": []
-            },
-            {
-              "order": 3,
-              "instruction": "Use the workbench to **craft Pal Spheres** for capturing Pals.",
-              "citations": []
-            }
-          ]
-        },
-        {
-          "id": "put-pals-to-work",
-          "title": "Put Pals to Work",
-          "source_heading": "Put Pals to Work",
-          "category": "Base Management",
-          "category_group": "Getting Started & Core Missions",
-          "trigger": "Triggered when players need to understand base automation",
-          "keywords": [
-            "base work",
-            "assignments"
-          ],
-          "steps": [
-            {
-              "order": 1,
-              "instruction": "**Assign a Pal** to the base using the management menu.",
-              "citations": []
-            },
-            {
-              "order": 2,
-              "instruction": "Place the Pal near the desired production structure (e.g., farm, furnace).",
-              "citations": []
-            },
-            {
-              "order": 3,
-              "instruction": "**Monitor the Pal\u2019s SAN and efficiency**; provide food and rest as needed.",
               "citations": []
             }
           ]
@@ -10316,35 +10241,6 @@
             {
               "order": 3,
               "instruction": "Defend against strong late-game enemies and environmental hazards.",
-              "citations": []
-            }
-          ]
-        },
-        {
-          "id": "setting-up-your-first-base",
-          "title": "Setting Up Your First Base",
-          "source_heading": "Setting Up Your First Base",
-          "category": "Base Building",
-          "category_group": "Base Building & Management",
-          "trigger": "Player asks how to place Palbox and structures",
-          "keywords": [
-            "base setup",
-            "Palbox"
-          ],
-          "steps": [
-            {
-              "order": 1,
-              "instruction": "**Place your Palbox** in a flat area to define the base.",
-              "citations": []
-            },
-            {
-              "order": 2,
-              "instruction": "**Build basic structures**: campfire, workbench, bed, storage chest.",
-              "citations": []
-            },
-            {
-              "order": 3,
-              "instruction": "Surround the base with fences or walls for safety.",
               "citations": []
             }
           ]
@@ -11212,35 +11108,6 @@
             {
               "order": 3,
               "instruction": "Offer items for sale or trade in exchange for gold or other goods.",
-              "citations": []
-            }
-          ]
-        },
-        {
-          "id": "unlocking-the-technology-tree",
-          "title": "Unlocking the Technology Tree",
-          "source_heading": "Unlocking the Technology Tree",
-          "category": "Technology",
-          "category_group": "Technology & Crafting Tools",
-          "trigger": "Player asks how to spend technology points",
-          "keywords": [
-            "tech tree",
-            "unlock technology"
-          ],
-          "steps": [
-            {
-              "order": 1,
-              "instruction": "Gain **technology points** by leveling up and completing missions.",
-              "citations": []
-            },
-            {
-              "order": 2,
-              "instruction": "Open the **technology menu**.",
-              "citations": []
-            },
-            {
-              "order": 3,
-              "instruction": "Spend points to unlock desired items; ensure you meet any level requirements.",
               "citations": []
             }
           ]
