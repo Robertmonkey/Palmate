@@ -41,7 +41,7 @@
       --muted: rgba(224,225,221,0.7);
       --danger: #e76f51;
       --success: #2a9d8f;
-      --layout-max-width: 1200px;
+      --layout-max-width: clamp(1200px, 92vw, 1640px);
       --layout-page-padding: clamp(16px, 3vw, 32px);
     }
     * {
@@ -9907,14 +9907,24 @@
     const ROUTE_ART_IMAGE = 'assets/images/palworld-full-map-2.webp';
     const ROUTE_LIBRARY_DEFAULT_LIMIT = 12;
     const GUIDE_CATALOG_DEFAULT_LIMIT = 24;
+    const ROUTE_THEME_ART_SOURCES = {
+      generic: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/058bd87dc17a7179e07c446aa64d0574ca43ab9d/header.jpg?t=1759163961',
+      pal: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_f81b7c4f20be3b99f76a1415c4cdb9b444c99b97.1920x1080.jpg?t=1759163961',
+      tech: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_0c8cbc20442b948c91b02d9e1b41bf0638a07c08.1920x1080.jpg?t=1759163961',
+      item: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_06e27c15c7b4b10233c937b887cf6a6925c83009.1920x1080.jpg?t=1759163961',
+      boss: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_a9fa84f0c21bc536f00925ab4586e8c4f587c2b7.1920x1080.jpg?t=1759163961',
+      npc: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_b3cea7c9f04a67d784d4c6a0c157a11d6268b189.1920x1080.jpg?t=1759163961',
+      travel: ROUTE_ART_IMAGE,
+      map: ROUTE_ART_IMAGE
+    };
     const ROUTE_VISUAL_THEMES = {
-      pal: { overlay: 'rgba(119, 141, 169, 0.58)', accent: '#9bd4ff', icon: 'fa-paw', position: 'center 40%' },
-      tech: { overlay: 'rgba(42, 157, 143, 0.58)', accent: '#72e5c4', icon: 'fa-microchip', position: 'center 48%' },
-      item: { overlay: 'rgba(255, 196, 77, 0.6)', accent: '#ffd166', icon: 'fa-sack', position: 'center 52%' },
-      boss: { overlay: 'rgba(126, 87, 255, 0.62)', accent: '#d1b8ff', icon: 'fa-chess-king', position: 'center 18%' },
-      map: { overlay: 'rgba(118, 206, 255, 0.6)', accent: '#6fe7ff', icon: 'fa-map-location-dot', position: 'center 32%' },
-      npc: { overlay: 'rgba(236, 72, 153, 0.5)', accent: '#f9a8d4', icon: 'fa-user-astronaut', position: 'center 45%' },
-      generic: { overlay: 'rgba(148, 187, 233, 0.55)', accent: '#9bd4ff', icon: 'fa-route', position: 'center 40%' }
+      pal: { image: ROUTE_THEME_ART_SOURCES.pal, overlay: 'rgba(119, 141, 169, 0.58)', accent: '#9bd4ff', icon: 'fa-paw', position: 'center 40%' },
+      tech: { image: ROUTE_THEME_ART_SOURCES.tech, overlay: 'rgba(42, 157, 143, 0.58)', accent: '#72e5c4', icon: 'fa-microchip', position: 'center 48%' },
+      item: { image: ROUTE_THEME_ART_SOURCES.item, overlay: 'rgba(255, 196, 77, 0.6)', accent: '#ffd166', icon: 'fa-sack', position: 'center 52%' },
+      boss: { image: ROUTE_THEME_ART_SOURCES.boss, overlay: 'rgba(126, 87, 255, 0.62)', accent: '#d1b8ff', icon: 'fa-chess-king', position: 'center 18%' },
+      map: { image: ROUTE_THEME_ART_SOURCES.map, overlay: 'rgba(118, 206, 255, 0.6)', accent: '#6fe7ff', icon: 'fa-map-location-dot', position: 'center 32%' },
+      npc: { image: ROUTE_THEME_ART_SOURCES.npc, overlay: 'rgba(236, 72, 153, 0.5)', accent: '#f9a8d4', icon: 'fa-user-astronaut', position: 'center 45%' },
+      generic: { image: ROUTE_THEME_ART_SOURCES.generic, overlay: 'rgba(148, 187, 233, 0.55)', accent: '#9bd4ff', icon: 'fa-route', position: 'center 40%' }
     };
     const GUIDE_CATALOG_THEME_MAP = {
       missions: { overlay: ROUTE_VISUAL_THEMES.map.overlay, accent: ROUTE_VISUAL_THEMES.map.accent, icon: 'fa-map-signs', position: ROUTE_VISUAL_THEMES.map.position },
@@ -9941,22 +9951,66 @@
       Neutral: { overlay: ROUTE_VISUAL_THEMES.pal.overlay, accent: ROUTE_VISUAL_THEMES.pal.accent }
     };
     const ROUTE_ART_LIBRARY = {
-      boss: { overlay: ROUTE_VISUAL_THEMES.boss.overlay, accent: ROUTE_VISUAL_THEMES.boss.accent, icon: ROUTE_VISUAL_THEMES.boss.icon, position: ROUTE_VISUAL_THEMES.boss.position },
-      tower: { overlay: ROUTE_VISUAL_THEMES.boss.overlay, accent: ROUTE_VISUAL_THEMES.boss.accent, icon: ROUTE_VISUAL_THEMES.boss.icon, position: ROUTE_VISUAL_THEMES.boss.position },
-      farming: { overlay: 'rgba(42, 157, 143, 0.6)', accent: '#8ff0b5', icon: 'fa-seedling', position: 'center 62%' },
-      gather: { overlay: 'rgba(42, 157, 143, 0.6)', accent: '#8ff0b5', icon: 'fa-seedling', position: 'center 62%' },
-      capture: { overlay: 'rgba(255, 170, 102, 0.6)', accent: '#ffd6a5', icon: 'fa-paw', position: 'center 58%' },
-      exploration: { overlay: ROUTE_VISUAL_THEMES.map.overlay, accent: ROUTE_VISUAL_THEMES.map.accent, icon: ROUTE_VISUAL_THEMES.map.icon, position: ROUTE_VISUAL_THEMES.map.position },
-      travel: { overlay: ROUTE_VISUAL_THEMES.map.overlay, accent: ROUTE_VISUAL_THEMES.map.accent, icon: ROUTE_VISUAL_THEMES.map.icon, position: ROUTE_VISUAL_THEMES.map.position },
-      craft: { overlay: 'rgba(255, 214, 102, 0.58)', accent: '#ffe599', icon: 'fa-hammer', position: 'center 44%' },
-      base: { overlay: 'rgba(90, 126, 255, 0.58)', accent: '#b8c3ff', icon: 'fa-house-flag', position: 'center 66%' }
+      boss: { ...ROUTE_VISUAL_THEMES.boss },
+      tower: { ...ROUTE_VISUAL_THEMES.boss },
+      farming: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(42, 157, 143, 0.6)', accent: '#8ff0b5', icon: 'fa-seedling', position: 'center 62%' },
+      gather: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(42, 157, 143, 0.6)', accent: '#8ff0b5', icon: 'fa-seedling', position: 'center 62%' },
+      capture: { ...ROUTE_VISUAL_THEMES.pal, overlay: 'rgba(255, 170, 102, 0.6)', accent: '#ffd6a5', icon: 'fa-paw', position: 'center 58%' },
+      exploration: { ...ROUTE_VISUAL_THEMES.map },
+      travel: { ...ROUTE_VISUAL_THEMES.map, image: ROUTE_THEME_ART_SOURCES.travel },
+      craft: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(255, 214, 102, 0.58)', accent: '#ffe599', icon: 'fa-hammer', position: 'center 44%' },
+      base: { ...ROUTE_VISUAL_THEMES.item, overlay: 'rgba(90, 126, 255, 0.58)', accent: '#b8c3ff', icon: 'fa-house-flag', position: 'center 66%' }
     };
     const ROUTE_ART_VARIANTS = [
-      { overlay: 'rgba(148, 187, 233, 0.55)', accent: '#9bd4ff', icon: 'fa-route', position: 'center 40%' },
-      { overlay: 'rgba(255, 123, 123, 0.52)', accent: '#ffb3c1', icon: 'fa-fire', position: 'center 64%' },
-      { overlay: 'rgba(92, 225, 230, 0.52)', accent: '#bde7f8', icon: 'fa-compass', position: 'center 28%' },
-      { overlay: 'rgba(255, 196, 77, 0.5)', accent: '#ffd6a5', icon: 'fa-sun', position: 'center 52%' }
+      { image: ROUTE_THEME_ART_SOURCES.generic, overlay: 'rgba(148, 187, 233, 0.55)', accent: '#9bd4ff', icon: 'fa-route', position: 'center 40%' },
+      { image: ROUTE_THEME_ART_SOURCES.item, overlay: 'rgba(255, 123, 123, 0.52)', accent: '#ffb3c1', icon: 'fa-fire', position: 'center 64%' },
+      { image: ROUTE_THEME_ART_SOURCES.pal, overlay: 'rgba(92, 225, 230, 0.52)', accent: '#bde7f8', icon: 'fa-compass', position: 'center 28%' },
+      { image: ROUTE_THEME_ART_SOURCES.tech, overlay: 'rgba(255, 196, 77, 0.5)', accent: '#ffd6a5', icon: 'fa-sun', position: 'center 52%' }
     ];
+    const NPC_ART_LIBRARY = {
+      zoe: ROUTE_THEME_ART_SOURCES.npc,
+      lily: ROUTE_THEME_ART_SOURCES.npc,
+      marcus: ROUTE_THEME_ART_SOURCES.npc,
+      victor: ROUTE_THEME_ART_SOURCES.npc,
+      lydia: ROUTE_THEME_ART_SOURCES.npc,
+      johanna: ROUTE_THEME_ART_SOURCES.npc,
+      sigurd: ROUTE_THEME_ART_SOURCES.npc,
+      abel: ROUTE_THEME_ART_SOURCES.npc,
+      eliza: ROUTE_THEME_ART_SOURCES.npc,
+      investigator: ROUTE_THEME_ART_SOURCES.npc
+    };
+    const ROUTE_CARD_BACKDROP_FALLBACKS = {
+      hero: {
+        image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/058bd87dc17a7179e07c446aa64d0574ca43ab9d/header.jpg?t=1759163961',
+        overlay: 'rgba(10, 22, 36, 0.78)',
+        position: 'center 40%'
+      },
+      active: {
+        image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_f81b7c4f20be3b99f76a1415c4cdb9b444c99b97.1920x1080.jpg?t=1759163961',
+        overlay: 'rgba(8, 20, 34, 0.8)',
+        position: 'center 55%'
+      },
+      suggestions: {
+        image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_a9fa84f0c21bc536f00925ab4586e8c4f587c2b7.1920x1080.jpg?t=1759163961',
+        overlay: 'rgba(12, 26, 44, 0.82)',
+        position: 'center 48%'
+      },
+      recommendations: {
+        image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_b3cea7c9f04a67d784d4c6a0c157a11d6268b189.1920x1080.jpg?t=1759163961',
+        overlay: 'rgba(8, 18, 34, 0.84)',
+        position: 'center 52%'
+      },
+      library: {
+        image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_06e27c15c7b4b10233c937b887cf6a6925c83009.1920x1080.jpg?t=1759163961',
+        overlay: 'rgba(10, 24, 40, 0.86)',
+        position: 'center 58%'
+      },
+      catalog: {
+        image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_0c8cbc20442b948c91b02d9e1b41bf0638a07c08.1920x1080.jpg?t=1759163961',
+        overlay: 'rgba(12, 30, 46, 0.88)',
+        position: 'center 50%'
+      }
+    };
     const ROUTE_GOAL_ICON_MAP = {
       'base-building': { icon: 'fa-house-flag' },
       'capture': { icon: 'fa-paw' },
@@ -10029,6 +10083,7 @@
     let routeLibrarySearchTerm = '';
     let routeLibraryFilter = 'incomplete';
     let routeLibraryMatchContext = false;
+    let latestRecommendations = [];
 
     function loadActiveRouteIdsFromState(state){
       const meta = state && typeof state.__meta === 'object' ? state.__meta : null;
@@ -10688,19 +10743,295 @@
 
     function createStepLinks(step){
       const links = [];
+      const linkMap = new Map();
+      const pushLink = (link) => {
+        if(!link || !link.type) return;
+        const keyBits = [link.type];
+        if(link.id){
+          keyBits.push(String(link.id).toLowerCase());
+        } else if(link.slug){
+          keyBits.push(String(link.slug).toLowerCase());
+        } else if(link.name){
+          keyBits.push(String(link.name).toLowerCase());
+        } else if(Array.isArray(link.coords)){
+          keyBits.push(link.coords.join(','));
+        }
+        const key = keyBits.join(':');
+        const existing = linkMap.get(key);
+        if(existing){
+          if(link.quantity != null && existing.quantity == null) existing.quantity = link.quantity;
+          if(link.map && !existing.map) existing.map = link.map;
+          if(Array.isArray(link.coords) && (!existing.coords || !existing.coords.length)) existing.coords = link.coords;
+          if(link.region && !existing.region) existing.region = link.region;
+          if(link.role && !existing.role) existing.role = link.role;
+          if(link.url && !existing.url) existing.url = link.url;
+          if(link.level != null && existing.level == null) existing.level = link.level;
+          if(link.name && !existing.name) existing.name = link.name;
+          if(link.slug && !existing.slug) existing.slug = link.slug;
+          return;
+        }
+        const entry = { ...link };
+        if(Array.isArray(entry.coords)){
+          entry.coords = entry.coords.slice(0, 2).map(Number);
+        }
+        linkMap.set(key, entry);
+        links.push(entry);
+      };
+      const normaliseString = (value) => {
+        if(value == null) return '';
+        return String(value).trim();
+      };
+      const addPalLink = (value) => {
+        if(!value) return;
+        if(typeof value === 'object'){
+          const slug = slugifyForPalworld(normaliseString(value.slug || value.id || value.name));
+          const palLink = {
+            type: 'pal',
+            id: value.id || slug || normaliseString(value.name),
+            slug,
+            name: value.name || value.label,
+            role: value.role || value.assignment || value.task || null
+          };
+          if(value.level != null) palLink.level = Number(value.level);
+          pushLink(palLink);
+          return;
+        }
+        const slug = slugifyForPalworld(normaliseString(value));
+        pushLink({ type: 'pal', id: slug || normaliseString(value), slug: slug || normaliseString(value) });
+      };
+      const addNpcLink = (value) => {
+        if(!value) return;
+        if(typeof value === 'object'){
+          const slug = slugifyForPalworld(normaliseString(value.slug || value.id || value.name));
+          const entry = {
+            type: 'npc',
+            id: value.id || slug || normaliseString(value.name),
+            slug,
+            name: value.name || value.label || normaliseString(value.id),
+            role: value.role || value.title || value.job || null,
+            region: value.region || value.region_id || null,
+            url: value.url || null
+          };
+          if(Array.isArray(value.coords)) entry.coords = value.coords.slice(0, 2).map(Number);
+          if(value.map && typeof value.map === 'object') entry.map = value.map;
+          pushLink(entry);
+          return;
+        }
+        const slug = slugifyForPalworld(normaliseString(value));
+        const label = normaliseString(value);
+        pushLink({ type: 'npc', id: slug || label, slug: slug || label, name: label });
+      };
+      const addItemLink = (value) => {
+        if(!value) return;
+        if(typeof value === 'object'){
+          const id = value.item_id || value.itemId || value.id || value.slug || normaliseString(value.name);
+          if(!id) return;
+          const quantity = value.quantity ?? value.amount ?? value.count ?? value.qty ?? value.total ?? null;
+          const entry = { type: 'item', id };
+          if(quantity != null) entry.quantity = Number(quantity);
+          pushLink(entry);
+          return;
+        }
+        pushLink({ type: 'item', id: normaliseString(value) });
+      };
+      const addTechLink = (value) => {
+        if(!value) return;
+        if(typeof value === 'object'){
+          const id = value.id || value.slug || value.tech_id || value.station_id || value.name;
+          if(!id) return;
+          const entry = { type: 'tech', id };
+          if(value.level != null) entry.level = Number(value.level);
+          pushLink(entry);
+          return;
+        }
+        pushLink({ type: 'tech', id: normaliseString(value) });
+      };
+      const addLocationLink = (location) => {
+        if(!location) return;
+        const coords = Array.isArray(location.coords) ? location.coords.slice(0, 2).map(Number) : null;
+        const entranceCoords = location.entrance && Array.isArray(location.entrance.coords)
+          ? location.entrance.coords.slice(0, 2).map(Number)
+          : null;
+        const regionId = normalizeRegionId(location.region_id || location.region || '');
+        const regionLabel = regionId ? describeRegionLabel(regionId) : '';
+        const baseLabel = normaliseString(location.label || location.landmark || regionLabel);
+        const coordsLabel = coords ? `(${coords[0]}, ${coords[1]})` : '';
+        const label = baseLabel || coordsLabel || 'Route location';
+        const identifier = regionId || (coords ? coords.join(',') : label);
+        const mapInfo = {
+          coords: coords || null,
+          entrance: location.entrance || null,
+          entranceCoords: entranceCoords || null,
+          region: regionLabel || null,
+          label,
+          title: label,
+          url: location.url || `${PALWORLD_BASE_URL}/map`
+        };
+        pushLink({
+          type: 'location',
+          id: identifier,
+          name: label,
+          region: regionLabel,
+          coords: coords || null,
+          map: mapInfo,
+          url: location.url || `${PALWORLD_BASE_URL}/map`
+        });
+      };
+      const processItemCollection = (collection) => {
+        if(!Array.isArray(collection)) return;
+        collection.forEach(addItemLink);
+      };
+      const processPalCollection = (collection) => {
+        if(!Array.isArray(collection)) return;
+        collection.forEach(addPalLink);
+      };
+      const processTechCollection = (collection) => {
+        if(!Array.isArray(collection)) return;
+        collection.forEach(addTechLink);
+      };
+      if(step && Array.isArray(step.links)){
+        step.links.forEach(raw => pushLink(raw));
+      }
       if(step && Array.isArray(step.targets)){
         step.targets.forEach(target => {
           if(!target || !target.kind) return;
           if(target.kind === 'pal'){
-            links.push({ type: 'pal', slug: target.id || target.slug, id: target.id || target.slug });
+            pushLink({ type: 'pal', slug: target.slug || target.id, id: target.id || target.slug, name: target.name });
           } else if(target.kind === 'item'){
-            links.push({ type: 'item', id: target.id });
+            pushLink({ type: 'item', id: target.id });
           } else if(target.kind === 'tech' || target.kind === 'station'){
-            links.push({ type: 'tech', id: target.id });
+            pushLink({ type: 'tech', id: target.id });
           } else if(target.kind === 'boss'){
-            links.push({ type: 'tower', id: target.id || target.slug || target.name, map: target.map });
+            pushLink({ type: 'tower', id: target.id || target.slug || target.name, map: target.map });
+          } else if(target.kind === 'npc'){
+            addNpcLink(target);
+          } else if(target.kind === 'location'){
+            addLocationLink(target);
           }
         });
+      }
+      const requirementSources = [];
+      if(Array.isArray(step?.requirements)) requirementSources.push(step.requirements);
+      if(step?.raw && Array.isArray(step.raw.requirements)) requirementSources.push(step.raw.requirements);
+      const processRequirement = (req) => {
+        if(!req) return;
+        if(typeof req === 'string'){
+          addItemLink(req);
+          return;
+        }
+        if(typeof req !== 'object') return;
+        if(req.kind === 'location'){
+          addLocationLink(req);
+          return;
+        }
+        if(req.kind === 'pal'){
+          addPalLink(req);
+          return;
+        }
+        if(req.kind === 'tech' || req.kind === 'station'){
+          const id = req.id || req.tech_id || req.station_id;
+          if(id) addTechLink({ ...req, id });
+          return;
+        }
+        if(req.kind === 'npc'){
+          addNpcLink(req);
+          return;
+        }
+        if(req.kind === 'item'){
+          addItemLink({ ...req, id: req.id || req.item_id });
+          return;
+        }
+        if(req.item_id || req.itemId || req.id){
+          addItemLink(req);
+          return;
+        }
+        if(req.tech_id || req.station_id || req.tech){
+          const id = req.tech_id || req.station_id || req.tech;
+          addTechLink({ ...req, id });
+          return;
+        }
+        if(req.pal_id || req.pal || req.slug || req.name){
+          addPalLink(req);
+          return;
+        }
+        if(req.npc_id || req.npc || req.kind === 'npc'){
+          addNpcLink(req);
+          return;
+        }
+        if(req.location){
+          addLocationLink(req.location);
+        }
+      };
+      requirementSources.forEach(list => {
+        list.forEach(processRequirement);
+      });
+      const adjustmentSources = [];
+      if(step?.mode_adjustments && typeof step.mode_adjustments === 'object') adjustmentSources.push(step.mode_adjustments);
+      if(step?.raw?.mode_adjustments && typeof step.raw.mode_adjustments === 'object' && step.raw.mode_adjustments !== step.mode_adjustments){
+        adjustmentSources.push(step.raw.mode_adjustments);
+      }
+      const handleModeArray = (key, value) => {
+        if(!Array.isArray(value)) return;
+        const lowerKey = key.toLowerCase();
+        if(lowerKey.includes('pal') || lowerKey.includes('ally') || lowerKey.includes('companion')){
+          processPalCollection(value);
+        } else if(lowerKey.includes('tech') || lowerKey.includes('station')){
+          processTechCollection(value);
+        } else if(lowerKey.includes('npc')){
+          value.forEach(addNpcLink);
+        } else if(lowerKey.includes('location')){
+          value.forEach(addLocationLink);
+        } else if(lowerKey.includes('item') || lowerKey.includes('consum') || lowerKey.includes('supply') || lowerKey.includes('gear')){
+          processItemCollection(value);
+        }
+      };
+      adjustmentSources.forEach(modeMap => {
+        Object.values(modeMap || {}).forEach(mode => {
+          if(!mode || typeof mode !== 'object') return;
+          processItemCollection(mode.safety_buffer_items);
+          processItemCollection(mode.support_items);
+          processItemCollection(mode.items);
+          processItemCollection(mode.gear);
+          processItemCollection(mode.consumables);
+          processPalCollection(mode.pals);
+          processPalCollection(mode.allies);
+          processTechCollection(mode.tech);
+          processTechCollection(mode.stations);
+          if(mode.loadout && typeof mode.loadout === 'object'){
+            processItemCollection(mode.loadout.gear);
+            processItemCollection(mode.loadout.consumables);
+            processPalCollection(mode.loadout.pals);
+          }
+          Object.entries(mode).forEach(([key, value]) => handleModeArray(key, value));
+        });
+      });
+      const outputs = step?.outputs || {};
+      if(Array.isArray(outputs.items)){
+        outputs.items.forEach(addItemLink);
+      }
+      if(Array.isArray(outputs.pals)){
+        outputs.pals.forEach(addPalLink);
+      }
+      if(outputs.unlocks){
+        if(Array.isArray(outputs.unlocks.tech)){
+          outputs.unlocks.tech.forEach(addTechLink);
+        }
+        if(Array.isArray(outputs.unlocks.stations)){
+          outputs.unlocks.stations.forEach(addTechLink);
+        }
+      }
+      const loadout = step?.recommended_loadout || {};
+      if(Array.isArray(loadout.pals)){
+        loadout.pals.forEach(addPalLink);
+      }
+      if(Array.isArray(loadout.gear)){
+        loadout.gear.forEach(addItemLink);
+      }
+      if(Array.isArray(loadout.consumables)){
+        loadout.consumables.forEach(addItemLink);
+      }
+      if(Array.isArray(step?.locations)){
+        step.locations.forEach(addLocationLink);
       }
       return links;
     }
@@ -11193,17 +11524,21 @@
             label: location?.label || niceName(target.id || target.slug || target.name || ''),
             alt: `${route?.title || 'Boss'} location`
           };
-        } else if(target.type === 'npc' && target.image){
-          return {
-            type: 'npc',
-            image: target.image,
-            overlay: ROUTE_VISUAL_THEMES.npc.overlay,
-            accent: ROUTE_VISUAL_THEMES.npc.accent,
-            icon: ROUTE_VISUAL_THEMES.npc.icon,
-            position: ROUTE_VISUAL_THEMES.npc.position,
-            label: target.name || niceName(target.id || ''),
-            alt: `${target.name || 'NPC'} portrait`
-          };
+        } else if(target.type === 'npc'){
+          const slug = slugifyForPalworld(target.slug || target.id || target.name || '');
+          const portrait = target.image || (slug ? NPC_ART_LIBRARY[slug] : null) || ROUTE_VISUAL_THEMES.npc.image;
+          if(portrait){
+            return {
+              type: 'npc',
+              image: portrait,
+              overlay: ROUTE_VISUAL_THEMES.npc.overlay,
+              accent: ROUTE_VISUAL_THEMES.npc.accent,
+              icon: ROUTE_VISUAL_THEMES.npc.icon,
+              position: ROUTE_VISUAL_THEMES.npc.position,
+              label: target.name || niceName(target.id || ''),
+              alt: `${target.name || 'NPC'} portrait`
+            };
+          }
         }
       }
       const location = routeStepLocation(step);
@@ -11247,7 +11582,9 @@
     }
 
     function computeRouteVisual(route){
-      const fallback = { ...ROUTE_VISUAL_THEMES.generic, image: ROUTE_ART_IMAGE, type: 'generic', label: route?.title || 'Route', alt: route?.title ? `${route.title} guide artwork` : 'Route guide artwork', marker: null };
+      const baseTheme = ROUTE_VISUAL_THEMES.generic || {};
+      const fallbackImage = baseTheme.image || ROUTE_ART_IMAGE;
+      const fallback = { ...baseTheme, image: fallbackImage, type: 'generic', label: route?.title || 'Route', alt: route?.title ? `${route.title} guide artwork` : 'Route guide artwork', marker: null };
       if(!route) return fallback;
       const steps = Array.isArray(route?.chapter?.steps) ? route.chapter.steps : [];
       for(const step of steps){
@@ -11260,7 +11597,7 @@
       if(tagVisual && Object.keys(tagVisual).length){
         return { ...fallback, ...tagVisual };
       }
-      const variants = ROUTE_ART_VARIANTS.length ? ROUTE_ART_VARIANTS : [ROUTE_VISUAL_THEMES.generic];
+      const variants = ROUTE_ART_VARIANTS.length ? ROUTE_ART_VARIANTS : [{ ...baseTheme, image: fallbackImage }];
       const variant = variants[Math.abs(hashString(route?.id || route?.title || 'route')) % variants.length] || variants[0];
       return { ...fallback, ...variant };
     }
@@ -11290,6 +11627,97 @@
         position: visual.position || ROUTE_VISUAL_THEMES.generic.position,
         marker: visual.marker || null
       };
+    }
+
+    function setRouteCardBackdrop(element, art, fallbackKey){
+      if(!element) return;
+      const fallback = ROUTE_CARD_BACKDROP_FALLBACKS[fallbackKey] || {};
+      const imageSource = art && art.image ? art.image : (fallback.image || ROUTE_ART_IMAGE);
+      const overlay = art && art.overlay ? art.overlay : (fallback.overlay || 'rgba(12, 28, 44, 0.85)');
+      const position = art && art.position ? art.position : (fallback.position || 'center 50%');
+      const accent = art && art.accent ? art.accent : fallback.accent;
+      const imageValue = `url('${sanitizeImageUrl(imageSource)}')`;
+      element.style.setProperty('--route-card-backdrop', imageValue);
+      element.style.setProperty('--route-card-overlay', overlay);
+      element.style.setProperty('--route-card-position', position);
+      if(accent){
+        element.style.setProperty('--route-card-accent', accent);
+      } else {
+        element.style.removeProperty('--route-card-accent');
+      }
+    }
+
+    function determineActiveRoute(){
+      const ids = Array.isArray(activeRouteIds) ? Array.from(activeRouteIds) : [];
+      for(const id of ids){
+        const route = routeGuideData?.routeLookup?.[id];
+        if(route) return route;
+      }
+      return null;
+    }
+
+    function determineHeroRoute(){
+      const next = findNextRouteStep() || findNextRouteStep({ includeOptional: true });
+      if(next && next.chapter){
+        const route = routeGuideData?.routeLookup?.[next.chapter.id];
+        if(route) return route;
+      }
+      const activeRoute = determineActiveRoute();
+      if(activeRoute) return activeRoute;
+      if(Array.isArray(currentRouteSuggestionEntries) && currentRouteSuggestionEntries.length){
+        const entry = currentRouteSuggestionEntries[0];
+        if(entry && entry.route) return entry.route;
+      }
+      if(Array.isArray(routeGuideData?.routes) && routeGuideData.routes.length){
+        return routeGuideData.routes[0];
+      }
+      return null;
+    }
+
+    function updateRouteSuggestionCardBackdrop(entries){
+      const card = document.getElementById('routeSuggestionsCard');
+      if(!card) return;
+      const collection = Array.isArray(entries) && entries.length ? entries : currentRouteSuggestionEntries;
+      let entry = null;
+      if(collection && collection.length){
+        entry = collection.find(item => item && item.route && item.route.id === activeSuggestedRouteId) || collection[0];
+      }
+      const art = entry && entry.route ? routeArtFor(entry.route) : null;
+      setRouteCardBackdrop(card, art, 'suggestions');
+    }
+
+    function updateRouteRecommendationBackdrop(recommendations, offset = 0){
+      const card = document.getElementById('routeRecommendationsCard');
+      if(!card) return;
+      const list = Array.isArray(recommendations) && recommendations.length ? recommendations : latestRecommendations;
+      const entry = list && list.length ? list[offset] || list[0] : null;
+      const art = entry && entry.route ? routeArtFor(entry.route) : null;
+      setRouteCardBackdrop(card, art, 'recommendations');
+    }
+
+    function updateRouteCardBackdrops({ recommendations } = {}){
+      const heroCard = document.getElementById('routeContextCard');
+      if(heroCard){
+        const heroRoute = determineHeroRoute();
+        const art = heroRoute ? routeArtFor(heroRoute) : null;
+        setRouteCardBackdrop(heroCard, art, 'hero');
+      }
+      const activeCard = document.getElementById('routeActiveCard');
+      if(activeCard){
+        const activeRoute = determineActiveRoute();
+        const art = activeRoute ? routeArtFor(activeRoute) : null;
+        setRouteCardBackdrop(activeCard, art, 'active');
+      }
+      updateRouteSuggestionCardBackdrop();
+      updateRouteRecommendationBackdrop(recommendations);
+      const libraryCard = document.getElementById('routeLibraryCard');
+      if(libraryCard){
+        setRouteCardBackdrop(libraryCard, null, 'library');
+      }
+      const catalogCard = document.getElementById('guideCatalogCard');
+      if(catalogCard){
+        setRouteCardBackdrop(catalogCard, null, 'catalog');
+      }
     }
 
     function isRemoteAsset(url){
@@ -11459,6 +11887,8 @@
       renderBossRouteTimeline();
       renderActiveRoutesList();
       renderRouteLibraryList();
+      latestRecommendations = Array.isArray(effectiveRecommendations) ? effectiveRecommendations.slice() : [];
+      updateRouteCardBackdrops({ recommendations: effectiveRecommendations });
     }
 
     function selectRouteSuggestions(recommendations, { min = 3, max = 4 } = {}){
@@ -11533,6 +11963,7 @@
       if(list){
         list.innerHTML = entries.map(entry => renderRouteSuggestionCard(entry, entry.route.id === activeSuggestedRouteId)).join('');
         applyRouteSuggestionArtStyles(list);
+        updateRouteSuggestionCardBackdrop(entries);
       }
       routeSuggestionsAbort = new AbortController();
       const { signal } = routeSuggestionsAbort;
@@ -11602,6 +12033,7 @@
       if(targetEntry){
         renderRouteSuggestionDetail(targetEntry);
       }
+      updateRouteCardBackdrops();
     }
 
     function renderRouteSuggestionDetail(entry){
@@ -12352,6 +12784,7 @@
           const levelEstimate = estimatePlayerLevel(routeContext);
           const stageSnapshot = determineGuideStageSnapshot();
           const recommendations = computeRouteRecommendations(guide, routeContext, levelEstimate, stageSnapshot);
+          latestRecommendations = Array.isArray(recommendations) ? recommendations.slice() : [];
           const heading = kidMode ? 'Adaptive Adventure Planner' : 'Adaptive Route Planner';
           const suggestionsLead = kidMode
             ? 'Palmate studies your level, party mode, and wish list to queue up perfect adventures. Highlight one to see every step.'
@@ -12529,6 +12962,7 @@
           bindRouteContextControls(node, { guide, summary, levelEstimate, recommendations });
           applyRouteOverviewCollapseState(node);
           applyRouteSuggestionsCollapseState(node);
+          updateRouteCardBackdrops({ recommendations });
         }
       }).catch(err => {
         console.error('Failed to render adaptive guide UI', err);
@@ -12972,6 +13406,7 @@
         const cards = recommendations.slice(offset, offset + 5).map(renderRouteRecommendation).join('');
         list.innerHTML = cards;
       }
+      updateRouteRecommendationBackdrop(recommendations, offset);
       if(routeRecommendationsAbort){
         routeRecommendationsAbort.abort();
       }
@@ -14553,15 +14988,18 @@
         const checked = !!routeState[step.id];
         const optionalHint = step.optional ? ` <em>(${escapeHTML(kidMode ? 'Bonus' : 'Optional')})</em>` : '';
         const detailHtml = renderStepDetail(step, route);
+        const linksHtml = renderLinks(step.links || []);
+        const detailBlock = detailHtml ? `\n              ${detailHtml}` : '';
+        const linksBlock = linksHtml ? `\n              ${linksHtml}` : '';
         fragments.push(`
-          <label class="step ${step.optional ? 'optional' : ''}">
+          <label class="step${step.optional ? ' optional' : ''}${checked ? ' step--checked' : ''}">
             <input type="checkbox" data-step="${step.id}" ${checked ? 'checked' : ''} />
-            <span class="step-meta">
-              <span class="step-category step-category--${categorySlug}">${escapeHTML(category)}</span>
-              <span class="step-text">${escapeHTML(routeStepText(step))}${optionalHint}</span>
-              ${detailHtml}
-            </span>
-            ${renderLinks(step.links || [])}
+            <div class="step-content">
+              <div class="step-header">
+                <span class="step-category step-category--${categorySlug}">${escapeHTML(category)}</span>
+                <span class="step-text">${escapeHTML(routeStepText(step))}${optionalHint}</span>
+              </div>${linksBlock}${detailBlock}
+            </div>
           </label>
         `);
       });
@@ -15453,17 +15891,35 @@
       return null;
     }
 
+    const STEP_LINK_TYPE_ORDER = { pal: 0, npc: 1, item: 2, tech: 3, location: 4, tower: 5, passive: 6, move: 7, glossary: 8 };
+
     function renderLinks(links){
-      if(!links || !links.length) return '';
-      return `<span class="badges">${links.map(link => {
-        const payload = JSON.stringify(link)
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#39;');
-        return `<a href="#" class="chip link" data-link="${payload}" role="button">${escapeHTML(linkLabel(link))}</a>`;
-      }).join('')}</span>`;
+      if(!Array.isArray(links) || !links.length) return '';
+      const sorted = links.slice().sort((a, b) => {
+        const orderA = STEP_LINK_TYPE_ORDER[a?.type] ?? 50;
+        const orderB = STEP_LINK_TYPE_ORDER[b?.type] ?? 50;
+        if(orderA !== orderB) return orderA - orderB;
+        const labelA = linkLabel(a).toLowerCase();
+        const labelB = linkLabel(b).toLowerCase();
+        return labelA.localeCompare(labelB, undefined, { sensitivity: 'base' });
+      });
+      const chips = sorted.map(renderLinkChip).join('');
+      return `<div class="step-links" role="list">${chips}</div>`;
+    }
+
+    function renderLinkChip(link){
+      const payload = JSON.stringify(link)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+      const label = linkLabel(link);
+      const meta = linkMeta(link);
+      const typeAttr = link.type ? ` data-link-type="${escapeHTML(link.type)}"` : '';
+      const titleAttr = label ? ` title="${escapeHTML(label)}"` : '';
+      const metaHtml = meta ? `<span class="chip__meta">${escapeHTML(meta)}</span>` : '';
+      return `<a href="#" class="chip link" data-link="${payload}" role="listitem"${typeAttr}${titleAttr}><span class="chip__body"><span class="chip__label">${escapeHTML(label)}</span>${metaHtml}</span></a>`;
     }
 
     function linkLabel(link){
@@ -15471,13 +15927,81 @@
         const source = link.slug || link.id || link.name;
         return capitalize(source);
       }
+      if(link.type === 'npc'){
+        if(link.name) return link.name;
+        if(link.slug) return niceName(link.slug);
+        if(link.id) return niceName(link.id);
+        return 'NPC';
+      }
       if(link.type === 'item') return niceName(link.id);
       if(link.type === 'passive') return capitalize(link.id);
       if(link.type === 'move') return niceName(link.id);
       if(link.type === 'tech') return niceName(link.id);
       if(link.type === 'glossary') return niceName(link.id);
       if(link.type === 'tower') return niceName(link.id);
+      if(link.type === 'location'){
+        if(link.name) return link.name;
+        if(link.region) return link.region;
+        if(Array.isArray(link.coords) && link.coords.length >= 2){
+          return `(${link.coords[0]}, ${link.coords[1]})`;
+        }
+        return 'Location';
+      }
       return 'Open';
+    }
+
+    function linkMeta(link){
+      if(!link || typeof link !== 'object') return '';
+      if(link.type === 'item'){
+        if(link.quantity != null && !Number.isNaN(Number(link.quantity))){
+          return `x${Number(link.quantity)}`;
+        }
+        return '';
+      }
+      if(link.type === 'pal'){
+        const details = [];
+        if(link.role) details.push(niceName(String(link.role)));
+        if(link.level != null && !Number.isNaN(Number(link.level))) details.push(`Lv ${Number(link.level)}`);
+        const palId = resolvePalIdFromLink(link);
+        const pal = palId != null ? PALS?.[palId] : null;
+        if(details.length === 0 && pal){
+          const primary = getPrimaryType(pal);
+          if(primary) details.push(primary);
+        }
+        return details.join(' • ');
+      }
+      if(link.type === 'npc'){
+        const parts = [];
+        if(link.role) parts.push(niceName(String(link.role)));
+        if(link.region) parts.push(link.region);
+        else if(Array.isArray(link.coords) && link.coords.length >= 2){
+          parts.push(`${link.coords[0]}, ${link.coords[1]}`);
+        }
+        return parts.join(' • ');
+      }
+      if(link.type === 'tech'){
+        const info = resolveTechFromLink(link);
+        const item = info?.item;
+        const parts = [];
+        if(item?.level != null) parts.push(`Lv ${item.level}`);
+        if(item?.category) parts.push(niceName(item.category));
+        return parts.join(' • ');
+      }
+      if(link.type === 'location'){
+        const parts = [];
+        if(link.region) parts.push(link.region);
+        if(Array.isArray(link.coords) && link.coords.length >= 2){
+          parts.push(`${link.coords[0]}, ${link.coords[1]}`);
+        }
+        return parts.join(' • ');
+      }
+      if(link.type === 'tower'){
+        if(link.map && link.map.region){
+          return link.map.region;
+        }
+        return '';
+      }
+      return '';
     }
 
     function navigateLink(link){
@@ -15503,6 +16027,30 @@
         showSkillDetail(link.id);
       } else if(link.type === 'glossary'){
         showGlossaryDetail(link.id);
+      } else if(link.type === 'npc'){
+        showNpcDetail(link);
+      } else if(link.type === 'location'){
+        const map = link.map ? { ...link.map } : {};
+        if(!map.coords && Array.isArray(link.coords)){
+          map.coords = link.coords.slice(0, 2).map(Number);
+        }
+        if(!map.entrance && link.entrance){
+          map.entrance = link.entrance;
+        }
+        if(!map.entranceCoords && Array.isArray(link.entranceCoords)){
+          map.entranceCoords = link.entranceCoords.slice(0, 2).map(Number);
+        }
+        if(!map.label && link.name){
+          map.label = link.name;
+        }
+        if(!map.title && link.name){
+          map.title = link.name;
+        }
+        if(!map.region && link.region){
+          map.region = link.region;
+        }
+        const fallbackUrl = link.url || `${PALWORLD_BASE_URL}/map`;
+        openRouteMapModal(map, fallbackUrl);
       } else if(link.type === 'tower'){
         openTowerMap(link);
       }
@@ -15562,6 +16110,39 @@
       });
     }
 
+    function showNpcDetail(link){
+      if(!link) return;
+      const identifier = link.slug || link.id || link.name || '';
+      const slug = slugifyForPalworld(String(identifier));
+      const displayName = link.name || (slug ? niceName(slug) : niceName(identifier) || 'NPC');
+      const safeName = escapeHTML(displayName);
+      const fallbackUrl = link.url || `${PALWORLD_BASE_URL}/bosses?search=${encodeURIComponent(displayName)}`;
+      const summaryParts = [];
+      if(kidMode){
+        summaryParts.push(`<p>Let's visit <strong>${safeName}</strong> so you remember who to talk to.</p>`);
+      } else {
+        summaryParts.push(`<p><strong>${safeName}</strong> quick reference.</p>`);
+      }
+      if(link.role){
+        summaryParts.push(`<p><strong>Role:</strong> ${escapeHTML(niceName(String(link.role)))}</p>`);
+      }
+      if(link.region){
+        summaryParts.push(`<p><strong>Region:</strong> ${escapeHTML(link.region)}</p>`);
+      } else if(Array.isArray(link.coords) && link.coords.length >= 2){
+        summaryParts.push(`<p><strong>Coords:</strong> ${escapeHTML(`${link.coords[0]}, ${link.coords[1]}`)}</p>`);
+      }
+      const note = kidMode
+        ? 'Palmate keeps this NPC profile beside your checklist so you never lose your place.'
+        : 'Palmate opens the NPC profile in a modal so you can keep progressing the route.';
+      openPalworldEmbed({
+        heading: `${displayName} – Palworld.gg`,
+        url: fallbackUrl,
+        fallbackUrl,
+        note,
+        summaryHtml: summaryParts.join('')
+      });
+    }
+
     function showGlossaryDetail(identifier){
       if(!identifier) return;
       const key = String(identifier).toLowerCase();
@@ -15585,6 +16166,7 @@
     }
 
     window.showTechDetail = showTechDetail;
+    window.showNpcDetail = showNpcDetail;
     window.showGlossaryDetail = showGlossaryDetail;
 
     function pulse(el){
