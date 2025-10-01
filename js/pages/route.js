@@ -62,17 +62,15 @@ export function renderRoute(node){
         </div>
         <div class="route-dashboard__next" data-route-overview="next">${escapeHTML(overview.nextLabel)}</div>
       </section>
-      <div class="route-workspace">
-        <aside class="route-workspace__sidebar">
-          <section class="card route-timeline" id="routeTimeline">
-            <div class="route-timeline__header">
-              <h3>${escapeHTML(kidMode ? 'Tonight’s roadmap' : 'Route timeline')}</h3>
-              <p>${escapeHTML(kidMode ? 'Tap any chapter to jump to its checklist.' : 'Jump to a chapter or skim completion at a glance.')}</p>
-            </div>
-            <ol class="route-timeline__list" id="routeTimelineList"></ol>
-          </section>
-        </aside>
-        <div class="route-workspace__content" id="chapters"></div>
+      <div class="route-layout">
+        <section class="card route-timeline" id="routeTimeline">
+          <div class="route-timeline__header">
+            <h3>${escapeHTML(kidMode ? 'Tonight’s roadmap' : 'Route timeline')}</h3>
+            <p>${escapeHTML(kidMode ? 'Tap any chapter to jump to its checklist.' : 'Jump to a chapter or skim completion at a glance.')}</p>
+          </div>
+          <ol class="route-timeline__list" id="routeTimelineList"></ol>
+        </section>
+        <section class="route-chapter-stack" id="chapters"></section>
       </div>
     </div>
   `;
