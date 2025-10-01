@@ -1,4 +1,5 @@
 import bundle from '../data/guides.bundle.json' assert { type: 'json' };
+import guideCatalog from '../data/guide_catalog.json' assert { type: 'json' };
 
 const cloneBundle = (payload) => {
   if (!payload || typeof payload !== 'object') return null;
@@ -37,3 +38,18 @@ ready.then((data) => {
     window.__GUIDE_BUNDLE__ = data;
   }
 });
+
+const catalogReady = Promise.resolve(guideCatalog)
+  .then(cloneBundle)
+  .then((data) => {
+    if (data) {
+      window.__GUIDE_CATALOG_FALLBACK__ = data;
+    }
+    return data;
+  })
+  .catch((err) => {
+    console.error('Failed to import fallback guide catalog.', err);
+    return null;
+  });
+
+window.__GUIDE_CATALOG_FALLBACK_PROMISE__ = catalogReady;
