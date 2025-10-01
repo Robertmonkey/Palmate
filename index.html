@@ -5858,8 +5858,7 @@
           persistRoutePreferences();
           const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
           chapters.forEach(ch => rerenderChapter(ch));
-          updateRouteOverviewUI();
-          renderBossRouteTimeline();
+          refreshRouteIntelligenceUI({ skipActiveList: true });
           playSound(clickSound);
         });
       });
@@ -10036,6 +10035,21 @@
       core: { kid: 'Main adventure', grown: 'Core progression' },
       adventure: { kid: 'Adventure mix', grown: 'Balanced adventure' }
     };
+    const ROUTE_SUGGESTION_CHIP_LABELS = {
+      pal: { kid: 'Pal spotlight', grown: 'Pal focus' },
+      item: { kid: 'Loot haul', grown: 'Resource focus' },
+      tech: { kid: 'New invention', grown: 'Tech unlock' },
+      boss: { kid: 'Boss battle', grown: 'Boss encounter' },
+      map: { kid: 'Explore zone', grown: 'Exploration' },
+      npc: { kid: 'NPC quest', grown: 'NPC storyline' },
+      capture: { kid: 'Capture pals', grown: 'Capture run' },
+      farming: { kid: 'Gather loot', grown: 'Resource farming' },
+      gather: { kid: 'Gather loot', grown: 'Resource farming' },
+      travel: { kid: 'Travel time', grown: 'Travel route' },
+      craft: { kid: 'Craft items', grown: 'Crafting focus' },
+      base: { kid: 'Base project', grown: 'Base project' },
+      generic: { kid: 'Adventure mix', grown: 'Adaptive pick' }
+    };
     const DEFAULT_RECOMMENDER_WEIGHTS = {
       prerequisites_met: 6,
       level_fit: 5,
@@ -11353,7 +11367,9 @@
     }
 
     function sanitizeImageUrl(url){
-      return String(url || ROUTE_ART_IMAGE).replace(/'/g, "\\'");
+      const raw = typeof url === 'string' ? url.trim() : '';
+      const safe = raw ? raw : ROUTE_ART_IMAGE;
+      return safe.replace(/'/g, "\\'");
     }
 
     function guideCatalogThemeFor(entry){
@@ -11901,7 +11917,7 @@
       };
     }
 
-    function refreshRouteIntelligenceUI({ summary, levelEstimate, recommendations } = {}){
+    function refreshRouteIntelligenceUI({ summary, levelEstimate, recommendations, skipActiveList = false } = {}){
       if(!routeGuideData) return;
       pruneCompletedActiveRoutes();
       const effectiveSummary = summary || calculateGuideProgressSummary();
@@ -11912,7 +11928,9 @@
       renderRouteRecommendationsList(effectiveRecommendations, { offset: suggestionCount });
       updateRouteOverviewUI(effectiveSummary);
       renderBossRouteTimeline();
-      renderActiveRoutesList();
+      if(!skipActiveList){
+        renderActiveRoutesList();
+      }
       renderRouteLibraryList();
       latestRecommendations = Array.isArray(effectiveRecommendations) ? effectiveRecommendations.slice() : [];
       updateRouteCardBackdrops({ recommendations: effectiveRecommendations });
@@ -12063,6 +12081,18 @@
       updateRouteCardBackdrops();
     }
 
+    function routeSuggestionChipLabel(art, route){
+      if(art && art.label){
+        return art.label;
+      }
+      const typeKey = art && art.type ? String(art.type).toLowerCase() : '';
+      const lookup = typeKey ? ROUTE_SUGGESTION_CHIP_LABELS[typeKey] : null;
+      if(lookup){
+        return kidMode ? lookup.kid : lookup.grown;
+      }
+      return routePlaystyleLabel(route);
+    }
+
     function renderRouteSuggestionDetail(entry){
       const detail = document.getElementById('routeSuggestionDetail');
       if(!detail) return;
@@ -12125,7 +12155,8 @@
         : `<p class="route-suggestion-detail__reason">${escapeHTML(kidMode ? 'Balanced for your crew.' : 'Balanced recommendation tailored to your context.')}</p>`;
       const focusStep = entry.nextStepId || (findFirstIncompleteStepForRoute(route, { includeOptional: true })?.id || '');
       const roleLabel = routePlaystyleLabel(route);
-      const typeLabel = art.label || '';
+      const chipLabel = routeSuggestionChipLabel(art, route);
+      const typeLabel = chipLabel && chipLabel !== roleLabel ? chipLabel : '';
       const highlights = routeHighlightMedia(route, { limit: 5 });
       const highlightsHtml = highlights.length
         ? `<div class="route-suggestion-detail__highlights">${highlights.map(entry => renderRouteHighlight(entry, { showLabel: true })).join('')}</div>`
@@ -12189,6 +12220,7 @@
       const highlightsHtml = highlights.length
         ? `<div class="route-suggestion-card__highlights">${highlights.map(item => renderRouteHighlight(item, { size: 'small' })).join('')}</div>`
         : '';
+      const typeLabel = routeSuggestionChipLabel(art, route);
       const dataAttributes = [
         `data-suggestion-route="${escapeHTML(route.id)}"`,
         `aria-pressed="${active ? 'true' : 'false'}"`
@@ -12214,7 +12246,11 @@
         dataAttributes.push(styleAttr);
       }
       return `
-        <button type="button" class="guide-card route-suggestion-card${active ? ' route-suggestion-card--active' : ''}" ${dataAttributes.join(' ')}>
+        <button type="button" class="route-suggestion-card${active ? ' route-suggestion-card--active' : ''}" ${dataAttributes.join(' ')}>
+          <div class="route-suggestion-card__media">
+            <div class="route-suggestion-card__avatar" aria-hidden="true"></div>
+            ${typeLabel ? `<span class="route-suggestion-card__tag">${escapeHTML(typeLabel)}</span>` : ''}
+          </div>
           <div class="route-suggestion-card__body">
             <div class="route-suggestion-card__top">
               <span class="route-suggestion-card__icon"><i class="fa-solid ${escapeHTML(art.icon)}"></i></span>
@@ -12245,9 +12281,11 @@
           const urlValue = `url('${sanitizeImageUrl(image)}')`;
           card.style.setProperty('--route-suggestion-image', urlValue);
           card.style.setProperty('--guide-card-image', urlValue);
+          card.style.setProperty('--route-suggestion-avatar', urlValue);
         } else {
           card.style.removeProperty('--route-suggestion-image');
           card.style.removeProperty('--guide-card-image');
+          card.style.removeProperty('--route-suggestion-avatar');
         }
         const overlay = card.dataset.artOverlay;
         if(overlay){
@@ -12290,18 +12328,23 @@
     function renderActiveRoutesList(){
       const wrap = document.getElementById('routeChapters');
       if(!wrap) return;
+      const showEmptyMessage = message => {
+        wrap.classList.add('route-active__list--empty');
+        wrap.innerHTML = `<p class="route-active__empty">${escapeHTML(message)}</p>`;
+      };
       if(!routeGuideData || !Array.isArray(routeGuideData.routes)){
-        wrap.innerHTML = `<p class="route-active__empty">${escapeHTML(kidMode ? 'Guides are still loading…' : 'Guide data is still loading.')}</p>`;
+        showEmptyMessage(kidMode ? 'Guides are still loading…' : 'Guide data is still loading.');
         return;
       }
       const activeIds = Array.from(activeRouteIds);
-      wrap.innerHTML = '';
       if(!activeIds.length){
-        wrap.innerHTML = `<p class="route-active__empty">${escapeHTML(kidMode
+        showEmptyMessage(kidMode
           ? 'Tap an adventure above to add it to your queue.'
-          : 'Choose a guide from the suggestions above to add it to your queue.')}</p>`;
+          : 'Choose a guide from the suggestions above to add it to your queue.');
         return;
       }
+      wrap.classList.remove('route-active__list--empty');
+      wrap.innerHTML = '';
       activeIds.forEach((routeId, index) => {
         const route = routeGuideData.routeLookup?.[routeId];
         if(!route) return;
@@ -14666,7 +14709,7 @@
         if(revealed){
           const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
           chapters.forEach(ch => rerenderChapter(ch));
-          updateRouteOverviewUI();
+          refreshRouteIntelligenceUI({ skipActiveList: true });
           requestAnimationFrame(applyQueuedRouteFocus);
         }
         return;
@@ -15207,7 +15250,7 @@
           persistRoutePreferences();
           const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
           chapters.forEach(ch => rerenderChapter(ch));
-          updateRouteOverviewUI();
+          refreshRouteIntelligenceUI({ skipActiveList: true });
         }
         return;
       }
@@ -15224,7 +15267,7 @@
       persistRoutePreferences();
       const chapters = Array.isArray(routeGuideData?.chapters) ? routeGuideData.chapters : [];
       chapters.forEach(ch => rerenderChapter(ch));
-      updateRouteOverviewUI();
+      refreshRouteIntelligenceUI({ skipActiveList: true });
     }
 
     function buildStepProgressOptions(step){
