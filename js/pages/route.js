@@ -37,7 +37,7 @@ export function renderRoute(node){
             <p class="route-dashboard__lead">${escapeHTML(heroLead)}</p>
           </div>
           <div class="route-dashboard__actions">
-            <button class="btn route-dashboard__action" id="toggleOptional">${optionalToggleLabel(false, kidMode)}</button>
+            <button class="btn route-dashboard__action" id="toggleOptional">${optionalToggleLabel(hideOptional, kidMode)}</button>
           </div>
         </div>
         <div class="route-dashboard__stats">
@@ -92,7 +92,9 @@ export function renderRoute(node){
   const timeline = node.querySelector('#routeTimeline');
   if(timeline){
     timeline.addEventListener('click', (event) => {
-      const anchor = event.target.closest('[data-scroll-target]');
+      const origin = event.target;
+      if(!(origin instanceof Element)) return;
+      const anchor = origin.closest('[data-scroll-target]');
       if(!anchor) return;
       event.preventDefault();
       const targetId = anchor.dataset.scrollTarget;
@@ -124,7 +126,9 @@ export function renderRoute(node){
   });
 
   wrap.addEventListener('click', (e) => {
-    const stepAnchor = e.target.closest('[data-link]');
+    const origin = e.target;
+    if(!(origin instanceof Element)) return;
+    const stepAnchor = origin.closest('[data-link]');
     if(stepAnchor){
       const payload = JSON.parse(stepAnchor.dataset.link);
       navigateLink(payload);
@@ -322,7 +326,11 @@ function calculateGuideOverview(chapters, state){
   let optionalTotal = 0;
   let optionalChecked = 0;
   let nextChapter = null;
-  let nextStep = null;
+  let nextChapterOptionalFallback = null;
+  let nextRequiredStep = null;
+  let nextRequiredChapter = null;
+  let nextOptionalStep = null;
+  let nextOptionalChapter = null;
 
   if(Array.isArray(chapters)){
     chapters.forEach(ch => {
@@ -334,23 +342,28 @@ function calculateGuideOverview(chapters, state){
       optionalTotal += optional.optionalCount;
       optionalChecked += optional.optionalChecked;
       const hasOptionalRemaining = optional.optionalCount > optional.optionalChecked;
-      if(progress.requiredDone){
-        clearedChapters += 1;
-        if(!nextChapter && hasOptionalRemaining){
+      if(!progress.requiredDone){
+        if(!nextChapter){
           nextChapter = ch;
         }
-      } else if(!nextChapter){
-        nextChapter = ch;
+      } else {
+        clearedChapters += 1;
+        if(hasOptionalRemaining && !nextChapterOptionalFallback){
+          nextChapterOptionalFallback = ch;
+        }
       }
-      if(!nextStep){
-        const nextRequired = ch.steps.find(step => !step.optional && !state[step.id]);
-        if(nextRequired){
-          nextStep = nextRequired;
-        } else {
-          const nextOptional = ch.steps.find(step => step.optional && !state[step.id]);
-          if(nextOptional){
-            nextStep = nextOptional;
-          }
+      if(!nextRequiredStep){
+        const candidate = ch.steps.find(step => !step.optional && !state[step.id]);
+        if(candidate){
+          nextRequiredStep = candidate;
+          nextRequiredChapter = ch;
+        }
+      }
+      if(!nextOptionalStep){
+        const candidate = ch.steps.find(step => step.optional && !state[step.id]);
+        if(candidate){
+          nextOptionalStep = candidate;
+          nextOptionalChapter = ch;
         }
       }
     });
@@ -386,8 +399,19 @@ function calculateGuideOverview(chapters, state){
       : `${remainingOptional} ${noun} remaining`;
   }
 
+  if(!nextChapter && nextChapterOptionalFallback){
+    nextChapter = nextChapterOptionalFallback;
+  }
+
   let nextLabel;
-  let nextChapterId = null;
+  let nextChapterId = nextChapter?.id || null;
+  const nextStep = nextRequiredStep || nextOptionalStep;
+  if(nextStep && nextStep.optional && nextOptionalChapter && !nextChapterId){
+    nextChapterId = nextOptionalChapter.id || null;
+  }
+  if(nextStep && !nextStep.optional && nextRequiredChapter){
+    nextChapterId = nextRequiredChapter.id || nextChapterId;
+  }
   if(totalChapters === 0){
     nextLabel = kid ? 'No chapters available yet.' : 'No chapters available yet.';
   } else if(nextStep){
@@ -658,18 +682,20 @@ function buildLinkImageIndex(primaryDataset, detailDataset){
 function navigateLink(l){
   if(!l) return;
   if(l.type==='pal'){
-    const target = l.slug || l.id;
+    const target = l.slug || l.id || l.name;
     if(target && typeof window.viewPal === 'function') window.viewPal(target);
     else if(target) focusSearch(target, { target: 'pals' });
   } else if(l.type==='tech'){
-    if(typeof window.showTechDetail === 'function') window.showTechDetail(l.id);
+    const techId = l.id || l.slug || l.name;
+    if(techId && typeof window.showTechDetail === 'function') window.showTechDetail(techId);
     else if(l.url) window.open(l.url, '_blank', 'noopener');
-    else if(l.id) focusSearch(niceName(l.id), { target: 'items' });
+    else if(techId) focusSearch(niceName(techId), { target: 'items' });
   } else if(l.type==='item'){
     const itemKey = l.id || l.slug;
     if(itemKey && typeof window.openItemDetail === 'function'){ window.openItemDetail(itemKey); }
     else if(itemKey) focusSearch(itemKey, { target: 'items' });
     else if(l.url) window.open(l.url, '_blank', 'noopener');
+    else if(l.name || l.label) focusSearch(l.name || l.label, { target: 'items' });
   } else if(l.type==='passive'){
     const trait = capitalize(l.id || l.slug || '');
     if(typeof window.showTraitDetail === 'function') window.showTraitDetail(trait);
