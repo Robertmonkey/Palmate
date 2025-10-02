@@ -51,6 +51,10 @@ This document describes the responsibilities, workflows and quality assurance st
 6. Test the route in both Normal and Hardcore modes.  For Co‑Op, explicitly define role splits and loot rules.
 7. Add the route to the library and update any other routes’ `next_routes` lists if they now lead into this new content.
 
+## Pending Resource Guide Coverage
+
+* The resource shortages menu now surfaces every harvestable item. However, the current guide catalog still lacks dedicated farming coverage for several materials and ingredients. Please prioritise researching and drafting routes for the following resources (confirm against `routeGuideData.resourceGuideGaps` before authoring to avoid duplicates): Beautiful Flower, Berry Seeds, Bone, Broncherry Meat, Cake, Caprity Meat, Carbon Fiber, Chikipi Poultry, Coal, Cotton Candy, Diamond, Egg, Eikthyrdeer Venison, Electric Organ, Flame Organ, Flour, Galeclaw Poultry, Gold Coin, Gumoss Leaf, Gunpowder, High Quality Cloth, High Quality Pal Oil, Honey, Ice Organ, Katress Hair, Lamball Mutton, Large Pal Soul, Lettuce Seeds, Mammorest Meat, Medium Pal Soul, Milk, Mozzarina Meat, Mushroom, Nail, Ore, Pal Fluids, Pal Metal Ingot, Paldium Fragment, Penking Plume, Polymer, Precious Dragon Stone, Pure Quartz, Raw Dumud, Raw Kelpsea, Red Berries, Refined Ingot, Reindrix Venison, Ruby, Rushoar Pork, Sapphire, Small Pal Soul, Sulfur, Tocotoco Feather, Tomato Seeds, Venom Gland, Wheat Seeds, Wool.
+
 ## Performance Notes
 
 * **Chunking** – When creating or updating `guides.md`, generate large JSON blocks in manageable chunks to avoid exceeding context limits.  Use the container tools to build the file incrementally.

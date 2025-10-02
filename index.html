@@ -10389,6 +10389,9 @@
         levelEstimator: null,
         recommender: null,
         guideCatalog: null,
+        keyResources: [],
+        resourceGuides: {},
+        resourceGuideGaps: [],
         extras: [],
         errors: []
       };
@@ -10607,6 +10610,70 @@
       return { importance, optional: !!optional, routeRole };
     }
 
+    const RESOURCE_ITEM_TYPE_WHITELIST = new Set(['material', 'materials', 'ingredient', 'ingredients', 'food']);
+    const RESOURCE_ITEM_CATEGORY_WHITELIST = new Set(['material', 'food']);
+
+    function isResourceItemId(itemId){
+      if(!itemId) return false;
+      const key = String(itemId).trim();
+      if(!key) return false;
+      const detail = ITEM_DETAILS?.[key];
+      if(detail && typeof detail.type === 'string'){
+        const type = detail.type.trim().toLowerCase();
+        if(RESOURCE_ITEM_TYPE_WHITELIST.has(type)){
+          return true;
+        }
+      }
+      const item = ITEMS?.[key];
+      if(item && typeof item.category === 'string'){
+        const category = item.category.trim().toLowerCase();
+        if(RESOURCE_ITEM_CATEGORY_WHITELIST.has(category)){
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function collectAllResourceItemIds(){
+      const ids = new Set();
+      if(ITEM_DETAILS && typeof ITEM_DETAILS === 'object'){
+        Object.keys(ITEM_DETAILS).forEach(key => {
+          if(isResourceItemId(key)){
+            ids.add(key);
+          }
+        });
+      }
+      if(ITEMS && typeof ITEMS === 'object'){
+        Object.keys(ITEMS).forEach(key => {
+          if(isResourceItemId(key)){
+            ids.add(key);
+          }
+        });
+      }
+      return Array.from(ids).sort((a, b) => itemDisplayName(a).localeCompare(itemDisplayName(b), undefined, { sensitivity: 'base' }));
+    }
+
+    function sortResourceGuideRoutes(routeIds, routeLookup){
+      const ids = Array.isArray(routeIds) ? routeIds.slice() : [];
+      const weightForRoute = route => {
+        if(!route) return 99;
+        const category = String(route.category || '').toLowerCase();
+        const role = String(route.progression_role || '').toLowerCase();
+        if(category === 'resources') return 0;
+        if(role === 'support') return 1;
+        if(category === 'crafting' || category === 'automation') return 2;
+        return 3;
+      };
+      ids.sort((a, b) => {
+        const routeA = routeLookup?.[a];
+        const routeB = routeLookup?.[b];
+        const diff = weightForRoute(routeA) - weightForRoute(routeB);
+        if(diff !== 0) return diff;
+        return (routeA?.title || a).localeCompare(routeB?.title || b, undefined, { sensitivity: 'base' });
+      });
+      return ids;
+    }
+
     async function augmentGuideData(parsed){
       const routes = Array.isArray(parsed?.routes) ? parsed.routes : [];
       const baseAugmentedRoutes = routes.map((route, index) => augmentRoute(route, index));
@@ -10625,16 +10692,44 @@
       const routeLookup = {};
       const tagSet = new Set();
       const resourceFrequency = new Map();
+      const resourceRoutes = new Map();
       augmentedRoutes.forEach(entry => {
         routeLookup[entry.id] = entry;
         entry.tags.forEach(tag => tagSet.add(tag));
         entry.resourceOutputs.forEach(itemId => {
+          if(!isResourceItemId(itemId)) return;
           resourceFrequency.set(itemId, (resourceFrequency.get(itemId) || 0) + 1);
+          if(!resourceRoutes.has(itemId)){
+            resourceRoutes.set(itemId, new Set());
+          }
+          resourceRoutes.get(itemId).add(entry.id);
         });
       });
-      const sortedResources = Array.from(resourceFrequency.entries())
-        .sort((a, b) => b[1] - a[1])
-        .map(entry => entry[0]);
+      const collectedResourceIds = collectAllResourceItemIds();
+      const resourceIdSet = new Set(collectedResourceIds);
+      resourceFrequency.forEach((count, key) => {
+        if(isResourceItemId(key)){
+          resourceIdSet.add(key);
+        }
+      });
+      const sortedResources = Array.from(resourceIdSet)
+        .sort((a, b) => itemDisplayName(a).localeCompare(itemDisplayName(b), undefined, { sensitivity: 'base' }));
+      const resourceGuides = {};
+      const missingResourceGuides = [];
+      sortedResources.forEach(itemId => {
+        const routesForItem = resourceRoutes.has(itemId)
+          ? Array.from(resourceRoutes.get(itemId))
+          : [];
+        const orderedRoutes = sortResourceGuideRoutes(routesForItem, routeLookup);
+        const entries = orderedRoutes.map(routeId => ({
+          id: routeId,
+          title: routeLookup?.[routeId]?.title || niceName(routeId)
+        }));
+        resourceGuides[itemId] = entries;
+        if(!entries.length){
+          missingResourceGuides.push(itemId);
+        }
+      });
       return {
         metadata: parsed?.metadata || null,
         xp: parsed?.xp || null,
@@ -10644,7 +10739,9 @@
         chapters,
         routeLookup,
         tags: Array.from(tagSet).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' })),
-        keyResources: sortedResources.slice(0, 24),
+        keyResources: sortedResources,
+        resourceGuides,
+        resourceGuideGaps: missingResourceGuides,
         extras: parsed?.extras || [],
         errors: parsed?.errors || [],
         guideCatalog: preparedCatalog
@@ -11710,22 +11807,34 @@
 
     function collectRouteResourceOutputs(route){
       const items = new Set();
+      const addItem = value => {
+        if(!value) return;
+        const itemId = value.item_id || value.itemId || value.id || value.slug || value;
+        if(!itemId) return;
+        if(isResourceItemId(itemId)){
+          items.add(itemId);
+        }
+      };
       if(route?.steps){
         route.steps.forEach(step => {
           const outputs = step?.outputs?.items || [];
-          outputs.forEach(entry => {
-            if(entry?.item_id){
-              items.add(entry.item_id);
+          outputs.forEach(addItem);
+          const links = Array.isArray(step?.links) ? step.links : [];
+          links.forEach(link => {
+            if(link && link.type === 'item'){
+              addItem(link);
+            }
+          });
+          const targets = Array.isArray(step?.targets) ? step.targets : [];
+          targets.forEach(target => {
+            if(target && target.kind === 'item'){
+              addItem(target);
             }
           });
         });
       }
       const routeOutputs = route?.outputs?.items || [];
-      routeOutputs.forEach(entry => {
-        if(entry?.item_id){
-          items.add(entry.item_id);
-        }
-      });
+      routeOutputs.forEach(addItem);
       return Array.from(items);
     }
 
@@ -13991,6 +14100,7 @@
         routeGoalDrawerOpen = false;
       }
       const resourceOptions = Array.isArray(guide?.keyResources) ? guide.keyResources : [];
+      const resourceGuideMap = guide?.resourceGuides || {};
       const goalTiles = tags.length
         ? renderGoalDrawer(tags, context.goals)
         : `<p class="route-context__empty">${escapeHTML(kidMode ? 'Goals load soon.' : 'No goals available yet.')}</p>`;
@@ -13998,7 +14108,11 @@
         ? context.resourceGaps.map(entry => renderResourceGapChip(entry)).join('')
         : `<p class="route-context__empty">${escapeHTML(kidMode ? 'Add items you are missing.' : 'Add resource gaps to surface farming routes.')}</p>`;
       const optionsHtml = resourceOptions.length
-        ? resourceOptions.map(itemId => `<option value="${escapeHTML(itemId)}">${escapeHTML(itemDisplayName(itemId))}</option>`).join('')
+        ? resourceOptions.map(itemId => {
+            const guides = Array.isArray(resourceGuideMap[itemId]) ? resourceGuideMap[itemId] : [];
+            const guideCountAttr = ` data-guide-count="${guides.length}"`;
+            return `<option value="${escapeHTML(itemId)}"${guideCountAttr}>${escapeHTML(itemDisplayName(itemId))}</option>`;
+          }).join('')
         : '';
       const levelSliderValue = levelValue === '' ? 1 : levelValue;
       const sliderEmptyAttr = levelValue === '' ? ' data-empty="true"' : '';
@@ -14038,6 +14152,7 @@
                   <input type="number" id="routeResourceQty" min="1" max="999" placeholder="${escapeHTML(kidMode ? 'Qty' : 'Qty')}" />
                   <button type="button" class="btn route-context__resource-add-btn" data-action="add-resource-gap">${escapeHTML(kidMode ? 'Add' : 'Add')}</button>
                 </div>
+                <div class="route-context__resource-hint" id="routeResourceGuideHint"></div>
                 <div class="route-context__resource-list" id="routeResourceList">${resourceChips}</div>
               </div>
             </div>
@@ -14188,12 +14303,46 @@
       return niceName(itemId);
     }
 
+    function resourceGuideEntries(itemId){
+      if(!itemId) return [];
+      const guides = routeGuideData?.resourceGuides || {};
+      const entries = guides[itemId];
+      return Array.isArray(entries) ? entries : [];
+    }
+
+    function renderResourceGuideHelp(itemId){
+      const entries = resourceGuideEntries(itemId);
+      if(!itemId){
+        return `<p class="route-context__resource-hint-text">${escapeHTML(kidMode ? 'Pick a resource to see farming guides.' : 'Select a resource to see gathering guides.')}</p>`;
+      }
+      if(!entries.length){
+        return `<p class="route-context__resource-hint-text route-context__resource-hint-text--empty">${escapeHTML(kidMode ? 'No guide yet — more coming soon.' : 'No dedicated guide yet. Flag this for the next update!')}</p>`;
+      }
+      const limited = entries.slice(0, 3);
+      const buttons = limited.map(entry => `<button type="button" class="chip route-resource-guide-link" data-resource-guide="${escapeHTML(entry.id)}">${escapeHTML(entry.title)}</button>`).join('');
+      const extra = entries.length - limited.length;
+      const extraLabel = extra > 0
+        ? `<span class="route-context__resource-hint-extra">${escapeHTML(kidMode ? `+${extra} more guide${extra === 1 ? '' : 's'}` : `+${extra} more guide${extra === 1 ? '' : 's'}`)}</span>`
+        : '';
+      const intro = kidMode ? 'Guides that can help:' : 'Guides covering this resource:';
+      return `
+        <div class="route-context__resource-hint-body">
+          <p class="route-context__resource-hint-text">${escapeHTML(intro)}</p>
+          <div class="route-context__resource-hint-list">${buttons}${extraLabel}</div>
+        </div>
+      `;
+    }
+
     function renderResourceGapChip(entry){
       const itemId = entry?.item_id || entry?.itemId || '';
       if(!itemId) return '';
       const qty = entry?.qty != null ? Number(entry.qty) : null;
       const qtyLabel = qty != null && !Number.isNaN(qty) ? ` ×${qty}` : '';
-      return `<button type="button" class="chip route-resource-chip" data-resource-id="${escapeHTML(itemId)}">${escapeHTML(itemDisplayName(itemId))}${escapeHTML(qtyLabel)}<span class="route-resource-chip__remove" aria-hidden="true">&times;</span></button>`;
+      const guideTitles = resourceGuideEntries(itemId).slice(0, 2).map(entry => entry.title);
+      const titleAttr = guideTitles.length
+        ? ` title="${escapeHTML((kidMode ? 'Guides: ' : 'Guides: ') + guideTitles.join(', '))}"`
+        : '';
+      return `<button type="button" class="chip route-resource-chip" data-resource-id="${escapeHTML(itemId)}"${titleAttr}>${escapeHTML(itemDisplayName(itemId))}${escapeHTML(qtyLabel)}<span class="route-resource-chip__remove" aria-hidden="true">&times;</span></button>`;
     }
 
     let routeRecommendationsAbort = null;
@@ -14663,6 +14812,12 @@
       const resourceSelect = card.querySelector('#routeResourceSelect');
       const resourceQty = card.querySelector('#routeResourceQty');
       const resourceList = card.querySelector('#routeResourceList');
+      const resourceHelp = card.querySelector('#routeResourceGuideHint');
+      const renderResourceHelp = itemId => {
+        if(resourceHelp){
+          resourceHelp.innerHTML = renderResourceGuideHelp(itemId);
+        }
+      };
       const addButton = card.querySelector('[data-action="add-resource-gap"]');
       if(addButton && resourceSelect){
         addButton.addEventListener('click', () => {
@@ -14675,7 +14830,24 @@
           filtered.push({ item_id: itemId, qty });
           if(resourceQty) resourceQty.value = '';
           resourceSelect.value = '';
+          renderResourceHelp('');
           updateRouteContextState({ resourceGaps: filtered });
+        }, { signal });
+      }
+      if(resourceSelect){
+        resourceSelect.addEventListener('change', () => {
+          renderResourceHelp(resourceSelect.value);
+        }, { signal });
+      }
+      if(resourceHelp){
+        renderResourceHelp(resourceSelect ? resourceSelect.value : '');
+        resourceHelp.addEventListener('click', event => {
+          const btn = event.target.closest('[data-resource-guide]');
+          if(!btn) return;
+          const routeId = btn.dataset.resourceGuide;
+          if(routeId){
+            openRoutePreviewById(routeId);
+          }
         }, { signal });
       }
       if(resourceList){
