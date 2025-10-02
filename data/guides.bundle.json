@@ -12293,6 +12293,671 @@
           "reason": "Replay legendary hunts with full adaptive context"
         }
       ]
+    },
+    {
+      "route_id": "resource-beautiful-flower",
+      "title": "Sanctuary Bloom Sweep",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "beautiful-flower",
+        "wildlife-sanctuary",
+        "late-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 30,
+        "max": 55
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Secure a safe landing on Wildlife Sanctuary No. 1",
+        "Capture Petallia and other flower-dropping Pals",
+        "Rotate higher-tier sanctuaries for sustained Beautiful Flower income"
+      ],
+      "estimated_time_minutes": {
+        "solo": 35,
+        "coop": 25
+      },
+      "estimated_xp_gain": {
+        "min": 480,
+        "max": 720
+      },
+      "risk_profile": "high",
+      "failure_penalties": {
+        "normal": "Trespassing alerts trigger PIDF reinforcements that can down you and confiscate loot if you wipe.",
+        "hardcore": "Hardcore deaths on sanctuaries mean permanent loss of captured rare Pals and any carried flowers."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Stay near the coastline of No. 1 Sanctuary until you can comfortably handle level-25 patrols before pushing deeper inland.",
+        "overleveled": "Once you shrug off level-50 threats, rotate Sanctuaries No. 2 and No. 3 to chain guaranteed Petallia and Lyleen drops.",
+        "resource_shortages": [
+          {
+            "item_id": "beautiful-flower",
+            "solution": "Lean on step :002 captures\u2014Petallia guarantees 2-3 Beautiful Flowers per defeat, stabilising stock quickly."
+          }
+        ],
+        "time_limited": "Run the shore perimeter of Sanctuary No. 1, netting Petallia spawns nearest the landing before PIDF heat builds.",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Assign one player to kite PIDF patrols while the other captures Petallia and Ribbuny to keep the drop chain flowing.",
+            "priority": 1,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-beautiful-flower:002"
+            ]
+          },
+          {
+            "signal": "resource_gap:strange-juice_high",
+            "condition": "resource_gaps['strange-juice'] >= 10",
+            "adjustment": "Queue an extra Sanctuary No. 3 sweep in step :003 so Beautiful Flower stock supports upcoming Strange Juice batches.",
+            "priority": 2,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "resource-beautiful-flower:003"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-beautiful-flower:checkpoint-landing",
+          "summary": "Sanctuary No. 1 landing secure",
+          "benefits": [
+            "Coastline safehouse established",
+            "PIDF alert window monitored"
+          ],
+          "related_steps": [
+            "resource-beautiful-flower:001"
+          ]
+        },
+        {
+          "id": "resource-beautiful-flower:checkpoint-petallia",
+          "summary": "Petallia captured",
+          "benefits": [
+            "Guaranteed flower drops",
+            "Grass utility Pal recruited"
+          ],
+          "related_steps": [
+            "resource-beautiful-flower:002"
+          ]
+        },
+        {
+          "id": "resource-beautiful-flower:checkpoint-rotation",
+          "summary": "Sanctuary rotation online",
+          "benefits": [
+            "High-tier flower farm unlocked",
+            "Level 50 routes vetted"
+          ],
+          "related_steps": [
+            "resource-beautiful-flower:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-pal-fluids"
+        ],
+        "optional": [
+          "resource-honey"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "Retreat to the landing chest, clear your wanted level, and restart from step :001 once patrols reset.",
+        "hardcore": "Extract immediately when reinforcements arrive; resume with throwaway gear until you rebuild a Petallia roster."
+      },
+      "steps": [
+        {
+          "step_id": "resource-beautiful-flower:001",
+          "type": "travel",
+          "summary": "Approach No. 1 Wildlife Sanctuary",
+          "detail": "Glide or sail south to the No. 1 Wildlife Sanctuary (90,-735) and set a shoreline camp. Trespassing warnings summon PIDF forces, so keep encumbrance light for fast extractions.\u3010fe9924\u2020L1-L18\u3011\u3010f574c5\u2020L5-L24\u3011",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "wildlife-sanctuary-1",
+              "coords": [
+                90,
+                -735
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "heat-resistant-armor",
+              "cold-resistant-armor"
+            ],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 120,
+            "max": 160
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-wildlife-sanctuary-1",
+            "palwiki-wildlife-sanctuary"
+          ]
+        },
+        {
+          "step_id": "resource-beautiful-flower:002",
+          "type": "capture",
+          "summary": "Farm Petallia and Ribbuny spawns",
+          "detail": "Sweep the inner gardens for Petallia and Ribbuny. Petallia always drops 2-3 Beautiful Flowers, while Ribbuny has a 5% flower drop chance\u2014bring fire or dark attackers like Blazehowl or Katress to accelerate clears.\u3010ba24e5\u2020L18-L37\u3011\u30109be50c\u2020L31-L59\u3011\u30109f35a4\u2020L31-L56\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "beautiful-flower",
+              "qty": 15
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "wildlife-sanctuary-1",
+              "coords": [
+                110,
+                -720
+              ],
+              "time": "day",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "crowd-control",
+                  "tasks": "Draw PIDF patrols away from capture targets"
+                },
+                {
+                  "role": "tamer",
+                  "tasks": "Capture Petallia/Ribbuny and collect drops"
+                }
+              ],
+              "loot_rules": "Deposit flowers in the shoreline chest between sweeps"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "legendary-sphere"
+            ],
+            "pals": [
+              "blazehowl",
+              "katress"
+            ],
+            "consumables": [
+              "smoked-meat"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 240,
+            "max": 320
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "beautiful-flower",
+                "qty": 15
+              }
+            ],
+            "pals": [
+              "petallia"
+            ],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-beautiful-flower",
+            "palwiki-ribbuny",
+            "palwiki-petallia"
+          ]
+        },
+        {
+          "step_id": "resource-beautiful-flower:003",
+          "type": "gather",
+          "summary": "Rotate Sanctuaries No. 2 and No. 3",
+          "detail": "Graduate to Sanctuary No. 2 (-675,-113) and No. 3 (669,640) for Wumpo Botan and Lyleen runs\u2014level 50 patrols drop guaranteed flowers quickly, so plan fast extractions after each sweep.\u3010ba24e5\u2020L24-L33\u3011\u301015adf0\u2020L1-L24\u3011\u3010c5acbe\u2020L1-L18\u3011\u3010f574c5\u2020L13-L20\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "beautiful-flower",
+              "qty": 25
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "wildlife-sanctuary-2",
+              "coords": [
+                -675,
+                -113
+              ],
+              "time": "any",
+              "weather": "any"
+            },
+            {
+              "region_id": "wildlife-sanctuary-3",
+              "coords": [
+                669,
+                640
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "legendary-sphere",
+              "heat-resistant-armor"
+            ],
+            "pals": [
+              "faleris"
+            ],
+            "consumables": [
+              "mega-glide-feather"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 320,
+            "max": 400
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "beautiful-flower",
+                "qty": 25
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-beautiful-flower",
+            "palwiki-wildlife-sanctuary-2",
+            "palwiki-wildlife-sanctuary-3",
+            "palwiki-wildlife-sanctuary"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "beautiful-flower",
+          "qty": 30
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "flower-apothecary"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "purposeful-arc-mid-expansion",
+          "reason": "Beautiful Flowers feed Strange Juice morale buffs for extended automation sessions."
+        }
+      ]
+    },
+    {
+      "route_id": "resource-carbon-fiber",
+      "title": "Carbon Fiber Fabrication",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "carbon-fiber",
+        "production-line",
+        "late-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 33,
+        "max": 50
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "resource-coal"
+        ],
+        "tech": [
+          "production-assembly-line"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Construct a powered Production Assembly Line",
+        "Stockpile Coal or Charcoal inputs",
+        "Batch-craft Carbon Fiber and secure legendary drop backups"
+      ],
+      "estimated_time_minutes": {
+        "solo": 30,
+        "coop": 20
+      },
+      "estimated_xp_gain": {
+        "min": 260,
+        "max": 380
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Power outages or raids halt batches and waste coal unless you babysit the line.",
+        "hardcore": "If the base falls during production you lose high-tier mats and handiwork pals."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Stick to Coal-to-Charcoal conversions until level 35, then unlock the Production Assembly Line for bulk crafting.",
+        "overleveled": "Automate dual assembly lines and feed them via conveyor chests for uninterrupted output.",
+        "resource_shortages": [
+          {
+            "item_id": "coal",
+            "solution": "Loop the Hillside Cavern run from resource-coal before starting new Carbon Fiber batches."
+          }
+        ],
+        "time_limited": "Queue short 10-coal batches so you can log off after each completes without wasting furnace fuel.",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Have one player feed furnaces and generators while the partner manages assembly line queues.",
+            "priority": 1,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-carbon-fiber:002",
+              "resource-carbon-fiber:003"
+            ]
+          },
+          {
+            "signal": "resource_gap:polymer_high",
+            "condition": "resource_gaps['polymer'] >= 20",
+            "adjustment": "Convert half the coal input into Charcoal so Polymer batches stay supplied alongside Carbon Fiber runs.",
+            "priority": 2,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "resource-carbon-fiber:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-carbon-fiber:checkpoint-line",
+          "summary": "Assembly line placed",
+          "benefits": [
+            "Handiwork station unlocked",
+            "Power routing verified"
+          ],
+          "related_steps": [
+            "resource-carbon-fiber:001"
+          ]
+        },
+        {
+          "id": "resource-carbon-fiber:checkpoint-stockpile",
+          "summary": "Fuel stock secured",
+          "benefits": [
+            "Coal/Charcoal bins filled",
+            "Generators topped"
+          ],
+          "related_steps": [
+            "resource-carbon-fiber:002"
+          ]
+        },
+        {
+          "id": "resource-carbon-fiber:checkpoint-batch",
+          "summary": "Carbon Fiber batch complete",
+          "benefits": [
+            "Base upgrades ready",
+            "Legendary drop backup planned"
+          ],
+          "related_steps": [
+            "resource-carbon-fiber:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-coal"
+        ],
+        "optional": [
+          "resource-pure-quartz"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "Repair generators, restock coal, and restart shorter crafting queues to avoid further resource loss.",
+        "hardcore": "Shift production to a backup base with spare handiwork pals until raids subside."
+      },
+      "steps": [
+        {
+          "step_id": "resource-carbon-fiber:001",
+          "type": "build",
+          "summary": "Unlock and place the Production Assembly Line",
+          "detail": "Spend level 28 tech points to unlock the Production Assembly Line, then craft it with 100 Ingots, 50 Wood, 20 Nails, and 10 Cement before wiring it to a generator.\u30105d3253\u2020L1-L33\u3011",
+          "targets": [
+            {
+              "kind": "tech",
+              "id": "production-assembly-line"
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "grizzbolt"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 100,
+            "max": 140
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {
+              "tech": [
+                "production-assembly-line"
+              ]
+            }
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-production-assembly-line"
+          ]
+        },
+        {
+          "step_id": "resource-carbon-fiber:002",
+          "type": "gather",
+          "summary": "Stock Coal or Charcoal feedstock",
+          "detail": "Gather at least 40 Coal or convert Wood into Charcoal so each batch has 2 Coal or 5 Charcoal per Carbon Fiber craft; balance inputs against other smelting needs.\u30102b82ab\u2020L138-L145\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "coal",
+              "qty": 40
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "mount-obsidian",
+              "coords": [
+                -587,
+                -517
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "metal-pickaxe"
+            ],
+            "pals": [
+              "cattiva"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 120
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "coal",
+                "qty": 40
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-coal"
+            }
+          ],
+          "citations": [
+            "pcgamesn-carbon-fiber"
+          ]
+        },
+        {
+          "step_id": "resource-carbon-fiber:003",
+          "type": "craft",
+          "summary": "Batch Carbon Fiber and plan legendary drops",
+          "detail": "Queue Carbon Fiber on the Production Assembly Line using the stocked fuel. If demand spikes, supplement with legendary boss drops from Jetragon or Shadowbeak runs.\u30102b82ab\u2020L141-L145\u3011\u3010278868\u2020L31-L60\u3011\u3010eac1d9\u2020L33-L62\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "carbon-fiber",
+              "qty": 20
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "grizzbolt",
+              "jetragon"
+            ],
+            "consumables": [
+              "power-gel"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 120,
+            "max": 140
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "carbon-fiber",
+                "qty": 20
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-carbon-fiber",
+            "palwiki-jetragon",
+            "palwiki-shadowbeak"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "carbon-fiber",
+          "qty": 40
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "advanced-armor"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-polymer",
+          "reason": "Polymer production shares assembly inputs; stabilised Carbon Fiber keeps tech upgrades flowing."
+        }
+      ]
     }
   ],
   "routeSchema": {
@@ -19823,6 +20488,51 @@
           "fast_travel_nodes": [
             "feybreak-tower-entrance"
           ]
+        },
+        {
+          "id": "wildlife-sanctuary-1",
+          "name": "No. 1 Wildlife Sanctuary",
+          "level_hint_min": 20,
+          "level_hint_max": 25,
+          "climate": "island sanctuary",
+          "hazards": "Trespassing triggers PIDF patrols",
+          "coordinates_bbox": [
+            90,
+            -735,
+            90,
+            -735
+          ],
+          "fast_travel_nodes": []
+        },
+        {
+          "id": "wildlife-sanctuary-2",
+          "name": "No. 2 Wildlife Sanctuary",
+          "level_hint_min": 50,
+          "level_hint_max": 50,
+          "climate": "island sanctuary",
+          "hazards": "Trespassing triggers elite PIDF patrols",
+          "coordinates_bbox": [
+            -675,
+            -113,
+            -675,
+            -113
+          ],
+          "fast_travel_nodes": []
+        },
+        {
+          "id": "wildlife-sanctuary-3",
+          "name": "No. 3 Wildlife Sanctuary",
+          "level_hint_min": 50,
+          "level_hint_max": 50,
+          "climate": "island sanctuary",
+          "hazards": "Trespassing triggers elite PIDF patrols",
+          "coordinates_bbox": [
+            669,
+            640,
+            669,
+            640
+          ],
+          "fast_travel_nodes": []
         }
       ]
     },
@@ -20214,6 +20924,84 @@
           "url": "https://palworld.fandom.com/wiki/Gunpowder",
           "access_date": "2025-10-05",
           "notes": "Confirms gunpowder is a tier 21 tech crafted at a High Quality Workbench or better using 2 Charcoal and 1 Sulfur for ammunition\u301031b0ff\u2020L1-L1\u3011\u30104c6362\u2020L1-L1\u3011."
+        },
+        "pcgamesn-beautiful-flower": {
+          "title": "Palworld beautiful flower locations",
+          "url": "https://www.pcgamesn.com/palworld/beautiful-flower",
+          "access_date": "2025-10-07",
+          "notes": "Lists Ribbunny, Petallia, Wumpo, and Lyleen as flower drops and explains Strange Juice usage at the Medieval Medicine Workbench.\u3010ba24e5\u2020L18-L37\u3011\u30100ed4ae\u2020L1-L12\u3011"
+        },
+        "palwiki-wildlife-sanctuary": {
+          "title": "Wildlife Sanctuary \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Wildlife_Sanctuary",
+          "access_date": "2025-10-07",
+          "notes": "Explains trespassing penalties and that Sanctuary No.1 hosts level 20-25 pals while No.2 and No.3 feature level 50 threats.\u3010f574c5\u2020L5-L24\u3011"
+        },
+        "palwiki-wildlife-sanctuary-1": {
+          "title": "No. 1 Wildlife Sanctuary \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/No._1_Wildlife_Sanctuary",
+          "access_date": "2025-10-07",
+          "notes": "Gives the island\u2019s coordinates (90,-735), highlights Petallia and other residents, and confirms Beautiful Flower gathering there.\u3010fe9924\u2020L1-L20\u3011"
+        },
+        "palwiki-wildlife-sanctuary-2": {
+          "title": "No. 2 Wildlife Sanctuary \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/No._2_Wildlife_Sanctuary",
+          "access_date": "2025-10-07",
+          "notes": "Provides coordinates (-675,-113) and lists high-level pals plus Beautiful Flower, Sulfur, and Ore spawns.\u301015adf0\u2020L1-L22\u3011"
+        },
+        "palwiki-wildlife-sanctuary-3": {
+          "title": "No. 3 Wildlife Sanctuary \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/No._3_Wildlife_Sanctuary",
+          "access_date": "2025-10-07",
+          "notes": "Locates the island at (669,640) and details late-game pals like Lyleen and Shadowbeak along with Beautiful Flower spawns.\u3010c5acbe\u2020L1-L19\u3011"
+        },
+        "palwiki-ribbuny": {
+          "title": "Ribbuny \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Ribbuny",
+          "access_date": "2025-10-07",
+          "notes": "Drop table shows Beautiful Flower as a rare drop alongside leather, plus behavior info.\u30109be50c\u2020L31-L59\u3011"
+        },
+        "palwiki-petallia": {
+          "title": "Petallia \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Petallia",
+          "access_date": "2025-10-07",
+          "notes": "Confirms Petallia guarantees 2-3 Beautiful Flowers and is exclusive to Sanctuary No.1 with work proficiencies.\u30109f35a4\u2020L31-L52\u3011"
+        },
+        "palwiki-beautiful-flower": {
+          "title": "Beautiful Flower \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Beautiful_Flower",
+          "access_date": "2025-10-07",
+          "notes": "States the item is harvested across all Wildlife Sanctuaries and used for Strange Juice crafting.\u301021cd8a\u2020L1-L28\u3011"
+        },
+        "pcgamesn-carbon-fiber": {
+          "title": "How to get Palworld Carbon Fiber",
+          "url": "https://www.pcgamesn.com/palworld/carbon-fiber",
+          "access_date": "2025-10-07",
+          "notes": "Explains unlocking the Production Assembly Line at level 28, coal/charcoal crafting inputs, and legendary drop alternatives from Jetragon or Shadowbeak.\u30102b82ab\u2020L138-L145\u3011"
+        },
+        "palwiki-carbon-fiber": {
+          "title": "Carbon Fiber \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Carbon_Fiber",
+          "access_date": "2025-10-07",
+          "notes": "Lists crafting recipes converting Coal or Charcoal into Carbon Fiber at the Production Assembly Line.\u3010f7ee05\u2020L1-L28\u3011"
+        },
+        "palwiki-production-assembly-line": {
+          "title": "Production Assembly Line \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Production_Assembly_Line",
+          "access_date": "2025-10-07",
+          "notes": "Details unlock level 28, required materials (100 Ingots, 50 Wood, 20 Nails, 10 Cement), and power requirements for the station.\u30105d3253\u2020L1-L35\u3011"
+        },
+        "palwiki-jetragon": {
+          "title": "Jetragon \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Jetragon",
+          "access_date": "2025-10-07",
+          "notes": "Drop table shows Carbon Fiber, Polymer, and Pure Quartz rewards from the legendary mount near Mount Obsidian.\u3010278868\u2020L31-L60\u3011"
+        },
+        "palwiki-shadowbeak": {
+          "title": "Shadowbeak \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Shadowbeak",
+          "access_date": "2025-10-07",
+          "notes": "Lists Carbon Fiber and Pal Metal Ingot drops plus its habitat in Sanctuary No.3.\u3010eac1d9\u2020L33-L62\u3011"
         }
       }
     }

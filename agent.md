@@ -63,6 +63,8 @@ This document describes the responsibilities, workflows and quality assurance st
   * Next steps: secure an additional primary citation for Astral Mountain node coordinates or alternative quartz hotspots, document reliable High Quality Pal Oil farming beyond Dumud ranching, and continue chipping away at remaining gap list items (e.g. Beautiful Flower, Carbon Fiber, Milk).
 *Progress 2025-10-07:* Added the Gunpowder Arsenal Chain route (`resource-gunpowder`) to both `guides.md` and `data/guides.bundle.json`, wiring in Charcoal/Gunpowder citations and ensuring the source registry covers the new references.
   * Next steps: chase a second independent citation for Mozzarina field spawns (needed for the Milk route), collect a merchant price source for bulk Sulfur-to-Gunpowder planning, and continue sourcing coordinates for outstanding resource gaps like Beautiful Flower and Carbon Fiber.
+*Progress 2025-10-08:* Authored Sanctuary Bloom Sweep (`resource-beautiful-flower`) and Carbon Fiber Fabrication (`resource-carbon-fiber`) routes with synchronized bundle updates, new wildlife sanctuary region metadata, and fresh citations spanning PCGamesN plus Palworld Wiki raw pages. Documented sanctuary hazards, Petallia/Ribbuny drop rates, Production Assembly Line requirements, and legendary boss drop fallbacks.
+  * Next steps: secure a second non-wiki citation for Beautiful Flower farming (ideally a map or guide confirming sanctuary coordinates), capture merchant pricing or crafting throughput data to quantify Strange Juice output, and continue tackling remaining resource gaps like Beautiful Flower ranch automation, Carbon Fiber power optimization, Milk, High Quality Pal Oil, and Beautiful Flower merchant routes.
 
 ## Performance Notes
 
