@@ -18,6 +18,15 @@
           "instruction": "**Locate a Great Eagle Statue** in the region you’re exploring.  These large statues emit a faint glow.",
           "citations": [
             "354485449518951†L124-L131"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "great-eagle-statue",
+              "name": "Great Eagle Statue",
+              "region": "Fast Travel Network",
+              "url": "https://palworld.gg/map"
+            }
           ]
         },
         {
@@ -50,17 +59,41 @@
           "instruction": "Explore the starting area and **collect fallen branches or strike trees** to gather wood.",
           "citations": [
             "354485449518951†L166-L169"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "Pick up **stones and fiber** from the ground; these materials are needed for early tools.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "fiber",
+              "slug": "fiber",
+              "name": "Fiber"
+            }
+          ]
         },
         {
           "order": 3,
           "instruction": "Keep gathering until you have enough wood to craft your first **axe and pickaxe**.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
+          ]
         }
       ]
     },
@@ -87,12 +120,35 @@
           "instruction": "**Place the workbench** near your Palbox or base location.",
           "citations": [
             "354485449518951†L188-L191"
+          ],
+          "links": [
+            {
+              "type": "tech",
+              "id": "palbox",
+              "slug": "palbox",
+              "name": "Palbox",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
+            }
           ]
         },
         {
           "order": 3,
           "instruction": "Gather the required materials (wood and stone) and **confirm construction**.  Use the bench to craft weapons and tools.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "stone",
+              "slug": "stone",
+              "name": "Stone"
+            },
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
+          ]
         }
       ]
     },
@@ -118,7 +174,23 @@
         {
           "order": 2,
           "instruction": "Open the **technology tree menu** and highlight the structure or item you want (e.g., Palbox, Pal Sphere blueprint).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "pal-sphere",
+              "slug": "pal-sphere",
+              "name": "Pal Sphere",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png"
+            },
+            {
+              "type": "tech",
+              "id": "palbox",
+              "slug": "palbox",
+              "name": "Palbox",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
+            }
+          ]
         },
         {
           "order": 3,
@@ -145,18 +217,50 @@
           "instruction": "Unlock the **Capturing Device (Pal Sphere) blueprint** in the tech tree if you have not already.",
           "citations": [
             "354485449518951†L225-L231"
+          ],
+          "links": [
+            {
+              "type": "tech",
+              "id": "pal-sphere",
+              "slug": "pal-sphere",
+              "name": "Pal Sphere",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "Search riversides and wetlands for **glowing blue Paldium nodes** and mine fragments with a pickaxe.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "mine",
+              "slug": "mine",
+              "name": "Mine",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+            }
+          ]
         },
         {
           "order": 3,
           "instruction": "At a workbench, **combine Paldium fragments with wood and stone** to craft Pal Spheres; stockpile extras for captures.",
           "citations": [
             "354485449518951†L224-L252"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "stone",
+              "slug": "stone",
+              "name": "Stone"
+            },
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
           ]
         }
       ]
@@ -188,7 +292,16 @@
         {
           "order": 3,
           "instruction": "Aim and **throw a Pal Sphere** at the weakened Pal.  Repeat until capture is successful.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "pal-sphere",
+              "slug": "pal-sphere",
+              "name": "Pal Sphere",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png"
+            }
+          ]
         }
       ]
     },
@@ -208,24 +321,91 @@
         {
           "order": 1,
           "instruction": "**Scout a flat spot near wood, stone and water** (e.g., Plateau of Beginnings or Small Settlement) before committing.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "stone",
+              "slug": "stone",
+              "name": "Stone"
+            },
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            },
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills",
+              "url": "https://palworld.gg/map"
+            }
+          ]
         },
         {
           "order": 2,
           "instruction": "**Unlock the Palbox technology** in the tech tree and gather Paldium fragments, wood and stone.",
           "citations": [
             "354485449518951†L310-L314"
+          ],
+          "links": [
+            {
+              "type": "tech",
+              "id": "palbox",
+              "slug": "palbox",
+              "name": "Palbox",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
+            },
+            {
+              "type": "item",
+              "id": "stone",
+              "slug": "stone",
+              "name": "Stone"
+            },
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
           ]
         },
         {
           "order": 3,
           "instruction": "Craft and **place the Palbox** to claim the base; it heals and stores Pals while unlocking construction options.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "palbox",
+              "slug": "palbox",
+              "name": "Palbox",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
+            }
+          ]
         },
         {
           "order": 4,
           "instruction": "Immediately **build core stations**—Primitive Workbench, campfire, storage chest and a bed—for crafting, cooking and rest.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "campfire",
+              "slug": "campfire",
+              "name": "Campfire",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Campfire.png"
+            },
+            {
+              "type": "tech",
+              "id": "primitive-workbench",
+              "slug": "primitive-workbench",
+              "name": "Primitive Workbench",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Primitive_Workbench.png"
+            }
+          ]
         },
         {
           "order": 5,
@@ -252,6 +432,15 @@
           "instruction": "**Open the Palbox management menu** at your base to view available workers.",
           "citations": [
             "354485449518951†L329-L332"
+          ],
+          "links": [
+            {
+              "type": "tech",
+              "id": "palbox",
+              "slug": "palbox",
+              "name": "Palbox",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
+            }
           ]
         },
         {
@@ -287,7 +476,15 @@
         {
           "order": 1,
           "instruction": "**Search for bushes** bearing red berries in the starting area.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "red_berries",
+              "slug": "red-berries",
+              "name": "Red Berries"
+            }
+          ]
         },
         {
           "order": 2,
@@ -326,6 +523,26 @@
           "instruction": "**Collect materials** such as fiber, wool and leather from Pals or plants.",
           "citations": [
             "354485449518951†L367-L370"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "fiber",
+              "slug": "fiber",
+              "name": "Fiber"
+            },
+            {
+              "type": "item",
+              "id": "leather",
+              "slug": "leather",
+              "name": "Leather"
+            },
+            {
+              "type": "item",
+              "id": "wool",
+              "slug": "wool",
+              "name": "Wool"
+            }
           ]
         },
         {
@@ -454,7 +671,16 @@
         {
           "order": 3,
           "instruction": "Place your **Palbox** and start constructing structures to take advantage of nearby Paldium nodes.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "palbox",
+              "slug": "palbox",
+              "name": "Palbox",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
+            }
+          ]
         }
       ]
     },
@@ -475,12 +701,35 @@
           "instruction": "Fast-travel to **Small Settlement** coordinates (8, -528).",
           "citations": [
             "633260338298658†L120-L126"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills",
+              "url": "https://palworld.gg/map"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "**Collect ore and wood** from abundant nodes around the site.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "ore",
+              "slug": "ore",
+              "name": "Ore"
+            },
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
+          ]
         },
         {
           "order": 3,
@@ -506,12 +755,55 @@
           "instruction": "Journey to **-77, -310** and head south into Cinnamoth Forest.",
           "citations": [
             "633260338298658†L128-L134"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "41",
+              "slug": "41",
+              "name": "Cinnamoth",
+              "image": "assets/pals/041_cinnamoth.png"
+            },
+            {
+              "type": "location",
+              "id": "cinnamoth-forest",
+              "name": "Cinnamoth Forest",
+              "region": "Windswept Hills",
+              "url": "https://palworld.gg/map"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "Build your base there to take advantage of large ore nodes and nearby sulfur for gunpowder.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "gunpowder",
+              "slug": "gunpowder",
+              "name": "Gunpowder",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gunpowder_icon.png"
+            },
+            {
+              "type": "item",
+              "id": "gunpowder",
+              "slug": "gunpowder",
+              "name": "Gunpowder"
+            },
+            {
+              "type": "item",
+              "id": "ore",
+              "slug": "ore",
+              "name": "Ore"
+            },
+            {
+              "type": "item",
+              "id": "sulfur",
+              "slug": "sulfur",
+              "name": "Sulfur"
+            }
+          ]
         },
         {
           "order": 3,
@@ -537,17 +829,56 @@
           "instruction": "Travel to **180, -39**.",
           "citations": [
             "633260338298658†L136-L141"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "180",
+              "slug": "180",
+              "name": "Green Slime",
+              "image": "assets/pals/-1_green_slim.png"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "Mine **coal** nodes around the Sealed Realm for tech progression.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "mine",
+              "slug": "mine",
+              "name": "Mine",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+            },
+            {
+              "type": "item",
+              "id": "coal",
+              "slug": "coal",
+              "name": "Coal"
+            },
+            {
+              "type": "location",
+              "id": "sealed-realm-of-the-guardian",
+              "name": "Sealed Realm of the Guardian",
+              "region": "Windswept Hills",
+              "url": "https://palworld.gg/map"
+            }
+          ]
         },
         {
           "order": 3,
           "instruction": "Construct your base with an emphasis on processing coal into refined materials.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "coal",
+              "slug": "coal",
+              "name": "Coal"
+            }
+          ]
         }
       ]
     },
@@ -568,6 +899,15 @@
           "instruction": "Reach **-646, 270** on Sakurajima Island.",
           "citations": [
             "633260338298658†L143-L149"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "sakurajima-island",
+              "name": "Sakurajima Island",
+              "region": "Sakurajima",
+              "url": "https://palworld.gg/map"
+            }
           ]
         },
         {
@@ -607,7 +947,16 @@
         {
           "order": 3,
           "instruction": "**Interact with the Palbox** to upgrade the base level and unlock more structures.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "palbox",
+              "slug": "palbox",
+              "name": "Palbox",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
+            }
+          ]
         }
       ]
     },
@@ -718,6 +1067,29 @@
           "instruction": "Capture Pals with **Transporting** or **Kindling** suitability (e.g., Wumpo, Jormuntide Ignis).",
           "citations": [
             "633260338298658†L161-L166"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "101",
+              "slug": "101",
+              "name": "Jormuntide",
+              "image": "assets/pals/101_jormuntide.png"
+            },
+            {
+              "type": "pal",
+              "id": "134",
+              "slug": "134",
+              "name": "Jormuntide Ignis",
+              "image": "assets/pals/134_jormuntide_ignis.png"
+            },
+            {
+              "type": "pal",
+              "id": "91",
+              "slug": "91",
+              "name": "Wumpo",
+              "image": "assets/pals/091_wumpo.png"
+            }
           ]
         },
         {
@@ -749,6 +1121,22 @@
           "instruction": "Obtain Pals like **Anubis** or **Astegon** for handiwork/mining.",
           "citations": [
             "633260338298658†L166-L172"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "100",
+              "slug": "100",
+              "name": "Anubis",
+              "image": "assets/pals/100_anubis.png"
+            },
+            {
+              "type": "pal",
+              "id": "98",
+              "slug": "98",
+              "name": "Astegon",
+              "image": "assets/pals/098_astegon.png"
+            }
           ]
         },
         {
@@ -780,6 +1168,43 @@
           "instruction": "Capture Pals such as **Jormuntide**, **Broncherry Aqua** or **Wumpo Botan** for watering or lumbering.",
           "citations": [
             "633260338298658†L161-L169"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "101",
+              "slug": "101",
+              "name": "Jormuntide",
+              "image": "assets/pals/101_jormuntide.png"
+            },
+            {
+              "type": "pal",
+              "id": "129",
+              "slug": "129",
+              "name": "Broncherry Aqua",
+              "image": "assets/pals/129_broncherry_aqua.png"
+            },
+            {
+              "type": "pal",
+              "id": "133",
+              "slug": "133",
+              "name": "Wumpo Botan",
+              "image": "assets/pals/133_wumpo_botan.png"
+            },
+            {
+              "type": "pal",
+              "id": "86",
+              "slug": "86",
+              "name": "Broncherry",
+              "image": "assets/pals/086_broncherry.png"
+            },
+            {
+              "type": "pal",
+              "id": "91",
+              "slug": "91",
+              "name": "Wumpo",
+              "image": "assets/pals/091_wumpo.png"
+            }
           ]
         },
         {
@@ -811,6 +1236,15 @@
           "instruction": "Use Pals with **Medicine Production** or **Planting** suitability (e.g., **Bellanoir**, **Lyleen**).",
           "citations": [
             "633260338298658†L174-L177"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "104",
+              "slug": "104",
+              "name": "Lyleen",
+              "image": "assets/pals/104_lyleen.png"
+            }
           ]
         },
         {
@@ -869,7 +1303,15 @@
         {
           "order": 1,
           "instruction": "Unlock generator technology (wind, coal or electric).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "coal",
+              "slug": "coal",
+              "name": "Coal"
+            }
+          ]
         },
         {
           "order": 2,
@@ -986,12 +1428,54 @@
         {
           "order": 1,
           "instruction": "Craft a **stone axe** and **pickaxe** using wood and stone.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "stone-axe",
+              "slug": "stone-axe",
+              "name": "Stone Axe",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Axe.png"
+            },
+            {
+              "type": "item",
+              "id": "stone",
+              "slug": "stone",
+              "name": "Stone"
+            },
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
+          ]
         },
         {
           "order": 2,
           "instruction": "Chop down trees to gather wood; mine boulders for stone.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "mine",
+              "slug": "mine",
+              "name": "Mine",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+            },
+            {
+              "type": "item",
+              "id": "stone",
+              "slug": "stone",
+              "name": "Stone"
+            },
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
+          ]
         },
         {
           "order": 3,
@@ -1015,18 +1499,63 @@
         {
           "order": 1,
           "instruction": "Locate **ore deposits** (grey rocks with metallic veins).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "ore",
+              "slug": "ore",
+              "name": "Ore"
+            }
+          ]
         },
         {
           "order": 2,
           "instruction": "Use a pickaxe to mine ore until nodes deplete.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "mine",
+              "slug": "mine",
+              "name": "Mine",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+            },
+            {
+              "type": "item",
+              "id": "ore",
+              "slug": "ore",
+              "name": "Ore"
+            }
+          ]
         },
         {
           "order": 3,
           "instruction": "Travel to coal-rich regions (e.g., Sealed Realm) and mine coal for advanced tech.",
           "citations": [
             "633260338298658†L136-L141"
+          ],
+          "links": [
+            {
+              "type": "tech",
+              "id": "mine",
+              "slug": "mine",
+              "name": "Mine",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+            },
+            {
+              "type": "item",
+              "id": "coal",
+              "slug": "coal",
+              "name": "Coal"
+            },
+            {
+              "type": "location",
+              "id": "sealed-realm-of-the-guardian",
+              "name": "Sealed Realm of the Guardian",
+              "region": "Windswept Hills",
+              "url": "https://palworld.gg/map"
+            }
           ]
         }
       ]
@@ -1048,17 +1577,75 @@
           "instruction": "Find sulfur deposits near volcanoes or **Cinnamoth Forest**.",
           "citations": [
             "633260338298658†L128-L134"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "41",
+              "slug": "41",
+              "name": "Cinnamoth",
+              "image": "assets/pals/041_cinnamoth.png"
+            },
+            {
+              "type": "item",
+              "id": "sulfur",
+              "slug": "sulfur",
+              "name": "Sulfur"
+            },
+            {
+              "type": "location",
+              "id": "cinnamoth-forest",
+              "name": "Cinnamoth Forest",
+              "region": "Windswept Hills",
+              "url": "https://palworld.gg/map"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "Mine sulfur with a pickaxe.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "mine",
+              "slug": "mine",
+              "name": "Mine",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+            },
+            {
+              "type": "item",
+              "id": "sulfur",
+              "slug": "sulfur",
+              "name": "Sulfur"
+            }
+          ]
         },
         {
           "order": 3,
           "instruction": "Use sulfur to craft gunpowder and explosives.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "gunpowder",
+              "slug": "gunpowder",
+              "name": "Gunpowder",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gunpowder_icon.png"
+            },
+            {
+              "type": "item",
+              "id": "gunpowder",
+              "slug": "gunpowder",
+              "name": "Gunpowder"
+            },
+            {
+              "type": "item",
+              "id": "sulfur",
+              "slug": "sulfur",
+              "name": "Sulfur"
+            }
+          ]
         }
       ]
     },
@@ -1079,12 +1666,30 @@
           "instruction": "Travel to **Sakurajima Island** to find crude oil nodes.",
           "citations": [
             "633260338298658†L143-L149"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "sakurajima-island",
+              "name": "Sakurajima Island",
+              "region": "Sakurajima",
+              "url": "https://palworld.gg/map"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "Mine crude oil using specialized equipment (oil extractor) and refine it into fuel.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "mine",
+              "slug": "mine",
+              "name": "Mine",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+            }
+          ]
         },
         {
           "order": 3,
@@ -1113,12 +1718,42 @@
         {
           "order": 2,
           "instruction": "Craft cloth at a loom or workbench by combining fibers.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "cloth",
+              "slug": "cloth",
+              "name": "Cloth",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png"
+            },
+            {
+              "type": "item",
+              "id": "cloth",
+              "slug": "cloth",
+              "name": "Cloth"
+            }
+          ]
         },
         {
           "order": 3,
           "instruction": "Use cloth for clothing and furniture.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "cloth",
+              "slug": "cloth",
+              "name": "Cloth",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png"
+            },
+            {
+              "type": "item",
+              "id": "cloth",
+              "slug": "cloth",
+              "name": "Cloth"
+            }
+          ]
         }
       ]
     },
@@ -1144,12 +1779,35 @@
         {
           "order": 2,
           "instruction": "Mine them with a pickaxe to collect fragments.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "mine",
+              "slug": "mine",
+              "name": "Mine",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+            }
+          ]
         },
         {
           "order": 3,
           "instruction": "Combine with wood and stone to craft Pal spheres.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "stone",
+              "slug": "stone",
+              "name": "Stone"
+            },
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
+          ]
         }
       ]
     },
@@ -1171,6 +1829,27 @@
           "instruction": "Hunt fluffy Pals (e.g., Lamball) for **wool and leather**.",
           "citations": [
             "354485449518951†L367-L370"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "1",
+              "slug": "1",
+              "name": "Lamball",
+              "image": "assets/pals/001_lamball.png"
+            },
+            {
+              "type": "item",
+              "id": "leather",
+              "slug": "leather",
+              "name": "Leather"
+            },
+            {
+              "type": "item",
+              "id": "wool",
+              "slug": "wool",
+              "name": "Wool"
+            }
           ]
         },
         {
@@ -1234,7 +1913,15 @@
         {
           "order": 2,
           "instruction": "Plant red berry seeds or other crop seeds.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "berry_seeds",
+              "slug": "berry-seeds",
+              "name": "Berry Seeds"
+            }
+          ]
         },
         {
           "order": 3,
@@ -1258,12 +1945,30 @@
         {
           "order": 1,
           "instruction": "Travel to late-game regions with chromite deposits (e.g., Astral Mountains).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "location",
+              "id": "astral-mountains",
+              "name": "Astral Mountains",
+              "region": "Astral Mountains",
+              "url": "https://palworld.gg/map"
+            }
+          ]
         },
         {
           "order": 2,
           "instruction": "Mine deposits with an upgraded pickaxe.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "mine",
+              "slug": "mine",
+              "name": "Mine",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+            }
+          ]
         },
         {
           "order": 3,
@@ -1464,12 +2169,42 @@
         {
           "order": 1,
           "instruction": "Unlock the specific **Pal gear** (e.g., Jetragon saddle) in the tech tree.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "111",
+              "slug": "111",
+              "name": "Jetragon",
+              "image": "assets/pals/111_jetragon.png"
+            }
+          ]
         },
         {
           "order": 2,
           "instruction": "Collect required materials (leather, ingots, cloth).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "cloth",
+              "slug": "cloth",
+              "name": "Cloth",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png"
+            },
+            {
+              "type": "item",
+              "id": "cloth",
+              "slug": "cloth",
+              "name": "Cloth"
+            },
+            {
+              "type": "item",
+              "id": "leather",
+              "slug": "leather",
+              "name": "Leather"
+            }
+          ]
         },
         {
           "order": 3,
@@ -1499,7 +2234,34 @@
         {
           "order": 2,
           "instruction": "Collect materials (wood, ingots, sulfur, polymer).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "polymer",
+              "slug": "polymer",
+              "name": "Polymer",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Polymer_icon.png"
+            },
+            {
+              "type": "item",
+              "id": "polymer",
+              "slug": "polymer",
+              "name": "Polymer"
+            },
+            {
+              "type": "item",
+              "id": "sulfur",
+              "slug": "sulfur",
+              "name": "Sulfur"
+            },
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
+          ]
         },
         {
           "order": 3,
@@ -1557,7 +2319,28 @@
         {
           "order": 2,
           "instruction": "Collect cloth, leather and Paldium.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "cloth",
+              "slug": "cloth",
+              "name": "Cloth",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png"
+            },
+            {
+              "type": "item",
+              "id": "cloth",
+              "slug": "cloth",
+              "name": "Cloth"
+            },
+            {
+              "type": "item",
+              "id": "leather",
+              "slug": "leather",
+              "name": "Leather"
+            }
+          ]
         },
         {
           "order": 3,
@@ -1581,7 +2364,16 @@
         {
           "order": 1,
           "instruction": "Unlock the **Lockpicking tool** technology (requires progression in Sakurajima update).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "location",
+              "id": "sakurajima-island",
+              "name": "Sakurajima Island",
+              "region": "Sakurajima",
+              "url": "https://palworld.gg/map"
+            }
+          ]
         },
         {
           "order": 2,
@@ -1618,7 +2410,22 @@
         {
           "order": 2,
           "instruction": "Collect hide, fur, cloth and metal plates.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "cloth",
+              "slug": "cloth",
+              "name": "Cloth",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png"
+            },
+            {
+              "type": "item",
+              "id": "cloth",
+              "slug": "cloth",
+              "name": "Cloth"
+            }
+          ]
         },
         {
           "order": 3,
@@ -1676,7 +2483,28 @@
         {
           "order": 2,
           "instruction": "Gather sulfur, charcoal (for gunpowder) and metal casings.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "gunpowder",
+              "slug": "gunpowder",
+              "name": "Gunpowder",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gunpowder_icon.png"
+            },
+            {
+              "type": "item",
+              "id": "gunpowder",
+              "slug": "gunpowder",
+              "name": "Gunpowder"
+            },
+            {
+              "type": "item",
+              "id": "sulfur",
+              "slug": "sulfur",
+              "name": "Sulfur"
+            }
+          ]
         },
         {
           "order": 3,
@@ -1729,7 +2557,16 @@
         {
           "order": 1,
           "instruction": "Build a **cooking station** or campfire.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "campfire",
+              "slug": "campfire",
+              "name": "Campfire",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Campfire.png"
+            }
+          ]
         },
         {
           "order": 2,
@@ -1764,7 +2601,15 @@
         {
           "order": 2,
           "instruction": "Gather large amounts of metal, wood and fuel.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
+          ]
         },
         {
           "order": 3,
@@ -1793,7 +2638,15 @@
         {
           "order": 2,
           "instruction": "Gather materials (fiber, rope, tranquilizer chemicals).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "fiber",
+              "slug": "fiber",
+              "name": "Fiber"
+            }
+          ]
         },
         {
           "order": 3,
@@ -1853,7 +2706,15 @@
         {
           "order": 2,
           "instruction": "Gather wood or metal to craft them.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
+          ]
         },
         {
           "order": 3,
@@ -2024,7 +2885,16 @@
         {
           "order": 1,
           "instruction": "Equip a melee weapon such as a sword or spear.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "sword",
+              "slug": "sword",
+              "name": "Sword",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sword.png"
+            }
+          ]
         },
         {
           "order": 2,
@@ -2053,7 +2923,16 @@
         {
           "order": 1,
           "instruction": "Equip a bow, crossbow or firearm.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "crossbow",
+              "slug": "crossbow",
+              "name": "Crossbow",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Crossbow.png"
+            }
+          ]
         },
         {
           "order": 2,
@@ -2093,7 +2972,16 @@
         {
           "order": 3,
           "instruction": "Focus on Grizzbolt’s weak points, dodge its attacks and use Water-type moves to win.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "103",
+              "slug": "103",
+              "name": "Grizzbolt",
+              "image": "assets/pals/103_grizzbolt.png"
+            }
+          ]
         }
       ]
     },
@@ -2123,7 +3011,16 @@
         {
           "order": 3,
           "instruction": "Burn down Lyleen’s plant-type minions and stagger the boss to defeat it.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "104",
+              "slug": "104",
+              "name": "Lyleen",
+              "image": "assets/pals/104_lyleen.png"
+            }
+          ]
         }
       ]
     },
@@ -2143,7 +3040,16 @@
         {
           "order": 1,
           "instruction": "Capture Ice or Grass Pals to counter Orserk’s Dragon/Electric typing.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "106",
+              "slug": "106",
+              "name": "Orserk",
+              "image": "assets/pals/106_orserk.png"
+            }
+          ]
         },
         {
           "order": 2,
@@ -2183,7 +3089,16 @@
         {
           "order": 3,
           "instruction": "Burst Shadowbeak down during openings and use healing items.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "107",
+              "slug": "107",
+              "name": "Shadowbeak",
+              "image": "assets/pals/107_shadowbeak.png"
+            }
+          ]
         }
       ]
     },
@@ -2349,7 +3264,23 @@
         {
           "order": 1,
           "instruction": "Use the interactive map to locate predator Pals (e.g., Warsect, Necromus).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "109",
+              "slug": "109",
+              "name": "Necromus",
+              "image": "assets/pals/109_necromus.png"
+            },
+            {
+              "type": "pal",
+              "id": "92",
+              "slug": "92",
+              "name": "Warsect",
+              "image": "assets/pals/092_warsect.png"
+            }
+          ]
         },
         {
           "order": 2,
@@ -2439,6 +3370,36 @@
           "instruction": "Refer to the Best Pals Tier List; top combat Pals include **Jormuntide Ignis**, **Jetragon** and **Frostallion**.",
           "citations": [
             "213589709604736†L156-L160"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "101",
+              "slug": "101",
+              "name": "Jormuntide",
+              "image": "assets/pals/101_jormuntide.png"
+            },
+            {
+              "type": "pal",
+              "id": "110",
+              "slug": "110",
+              "name": "Frostallion",
+              "image": "assets/pals/110_frostallion.png"
+            },
+            {
+              "type": "pal",
+              "id": "111",
+              "slug": "111",
+              "name": "Jetragon",
+              "image": "assets/pals/111_jetragon.png"
+            },
+            {
+              "type": "pal",
+              "id": "134",
+              "slug": "134",
+              "name": "Jormuntide Ignis",
+              "image": "assets/pals/134_jormuntide_ignis.png"
+            }
           ]
         },
         {
@@ -2468,7 +3429,16 @@
         {
           "order": 1,
           "instruction": "Craft or obtain top-tier weapons (e.g., rocket launcher, AK-like rifles).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "rocket-launcher",
+              "slug": "rocket-launcher",
+              "name": "Rocket Launcher",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rocket_Launcher.png"
+            }
+          ]
         },
         {
           "order": 2,
@@ -2623,7 +3593,16 @@
         {
           "order": 3,
           "instruction": "Throw the Pal Sphere and repeat until capture succeeds.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "pal-sphere",
+              "slug": "pal-sphere",
+              "name": "Pal Sphere",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png"
+            }
+          ]
         }
       ]
     },
@@ -2642,12 +3621,49 @@
         {
           "order": 1,
           "instruction": "Unlock higher-tier spheres (e.g., Giga Sphere, Ultra Sphere) via technology.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "giga-sphere",
+              "slug": "giga-sphere",
+              "name": "Giga Sphere",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Giga_Sphere_icon.png"
+            },
+            {
+              "type": "tech",
+              "id": "ultra-sphere",
+              "slug": "ultra-sphere",
+              "name": "Ultra Sphere",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ultra_Sphere_icon.png"
+            },
+            {
+              "type": "item",
+              "id": "ultra_sphere",
+              "slug": "ultra-sphere",
+              "name": "Ultra Sphere"
+            }
+          ]
         },
         {
           "order": 2,
           "instruction": "Gather rarer materials (chromite, polymer) to craft them.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "polymer",
+              "slug": "polymer",
+              "name": "Polymer",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Polymer_icon.png"
+            },
+            {
+              "type": "item",
+              "id": "polymer",
+              "slug": "polymer",
+              "name": "Polymer"
+            }
+          ]
         },
         {
           "order": 3,
@@ -2676,7 +3692,16 @@
         {
           "order": 2,
           "instruction": "Throw a Pal Sphere for a **back-attack bonus** that increases capture chance.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "pal-sphere",
+              "slug": "pal-sphere",
+              "name": "Pal Sphere",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png"
+            }
+          ]
         },
         {
           "order": 3,
@@ -2728,7 +3753,16 @@
         {
           "order": 1,
           "instruction": "Learn the spawn location and conditions for the specific Legendary Pal (e.g., Jetragon spawns in late-game islands).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "111",
+              "slug": "111",
+              "name": "Jetragon",
+              "image": "assets/pals/111_jetragon.png"
+            }
+          ]
         },
         {
           "order": 2,
@@ -2848,6 +3882,22 @@
           "instruction": "Capture Pals like **Anubis** or **Lunaris** that excel at handiwork.",
           "citations": [
             "633260338298658†L166-L167"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "100",
+              "slug": "100",
+              "name": "Anubis",
+              "image": "assets/pals/100_anubis.png"
+            },
+            {
+              "type": "pal",
+              "id": "63",
+              "slug": "63",
+              "name": "Lunaris",
+              "image": "assets/pals/063_lunaris.png"
+            }
           ]
         },
         {
@@ -2879,12 +3929,50 @@
           "instruction": "Capture Pals such as **Blazamut**, **Astegon** or **Reptyro**.",
           "citations": [
             "633260338298658†L170-L172"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "88",
+              "slug": "88",
+              "name": "Reptyro",
+              "image": "assets/pals/088_reptyro.png"
+            },
+            {
+              "type": "pal",
+              "id": "96",
+              "slug": "96",
+              "name": "Blazamut",
+              "image": "assets/pals/096_blazamut.png"
+            },
+            {
+              "type": "pal",
+              "id": "98",
+              "slug": "98",
+              "name": "Astegon",
+              "image": "assets/pals/098_astegon.png"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "Assign them to mine ore nodes or chop trees.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "mine",
+              "slug": "mine",
+              "name": "Mine",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+            },
+            {
+              "type": "item",
+              "id": "ore",
+              "slug": "ore",
+              "name": "Ore"
+            }
+          ]
         },
         {
           "order": 3,
@@ -2910,6 +3998,15 @@
           "instruction": "Acquire Pals with **Planting** suitability (e.g., **Lyleen**).",
           "citations": [
             "633260338298658†L174-L177"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "104",
+              "slug": "104",
+              "name": "Lyleen",
+              "image": "assets/pals/104_lyleen.png"
+            }
           ]
         },
         {
@@ -2941,6 +4038,29 @@
           "instruction": "Capture **Frostallion**, **Cryolinx** or **Reptyro Cyst** for cooling duties.",
           "citations": [
             "633260338298658†L178-L179"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "110",
+              "slug": "110",
+              "name": "Frostallion",
+              "image": "assets/pals/110_frostallion.png"
+            },
+            {
+              "type": "pal",
+              "id": "83",
+              "slug": "83",
+              "name": "Cryolinx",
+              "image": "assets/pals/083_cryolinx.png"
+            },
+            {
+              "type": "pal",
+              "id": "88",
+              "slug": "88",
+              "name": "Reptyro",
+              "image": "assets/pals/088_reptyro.png"
+            }
           ]
         },
         {
@@ -2951,7 +4071,16 @@
         {
           "order": 3,
           "instruction": "Use heat-producing Pals (like **Blazamut**) in cold areas for warmth.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "96",
+              "slug": "96",
+              "name": "Blazamut",
+              "image": "assets/pals/096_blazamut.png"
+            }
+          ]
         }
       ]
     },
@@ -2972,6 +4101,36 @@
           "instruction": "Capture **Orserk**, **Relaxaurus Lux** or **Grizzbolt**.",
           "citations": [
             "633260338298658†L168-L169"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "103",
+              "slug": "103",
+              "name": "Grizzbolt",
+              "image": "assets/pals/103_grizzbolt.png"
+            },
+            {
+              "type": "pal",
+              "id": "106",
+              "slug": "106",
+              "name": "Orserk",
+              "image": "assets/pals/106_orserk.png"
+            },
+            {
+              "type": "pal",
+              "id": "128",
+              "slug": "128",
+              "name": "Relaxaurus Lux",
+              "image": "assets/pals/128_relaxaurus_lux.png"
+            },
+            {
+              "type": "pal",
+              "id": "85",
+              "slug": "85",
+              "name": "Relaxaurus",
+              "image": "assets/pals/085_relaxaurus.png"
+            }
           ]
         },
         {
@@ -3035,7 +4194,16 @@
         {
           "order": 2,
           "instruction": "**Partner skills** are triggered when Pals accompany you in the overworld (e.g., Jetragon’s fast flight).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "111",
+              "slug": "111",
+              "name": "Jetragon",
+              "image": "assets/pals/111_jetragon.png"
+            }
+          ]
         },
         {
           "order": 3,
@@ -3122,7 +4290,16 @@
         {
           "order": 2,
           "instruction": "Access your Pal’s **appearance menu** via the Palbox or inventory.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "palbox",
+              "slug": "palbox",
+              "name": "Palbox",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
+            }
+          ]
         },
         {
           "order": 3,
@@ -3175,7 +4352,15 @@
         {
           "order": 1,
           "instruction": "Collect special items (Element Swap Stone) from raids or missions.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "stone",
+              "slug": "stone",
+              "name": "Stone"
+            }
+          ]
         },
         {
           "order": 2,
@@ -3267,7 +4452,16 @@
         {
           "order": 2,
           "instruction": "Toss a Pal Sphere from stealth for a higher success rate.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "pal-sphere",
+              "slug": "pal-sphere",
+              "name": "Pal Sphere",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png"
+            }
+          ]
         },
         {
           "order": 3,
@@ -3293,12 +4487,35 @@
           "instruction": "Reach **technology level 19** and unlock the Breeding Farm.",
           "citations": [
             "612653128208765†L51-L55"
+          ],
+          "links": [
+            {
+              "type": "tech",
+              "id": "breeding-farm",
+              "slug": "breeding-farm",
+              "name": "Breeding Farm",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Breeding_Farm.png"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "Collect wood, stone and Paldium fragments to build the farm.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "stone",
+              "slug": "stone",
+              "name": "Stone"
+            },
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            }
+          ]
         },
         {
           "order": 3,
@@ -3324,17 +4541,60 @@
           "instruction": "Gather **flour, berries, milk, eggs and honey**.",
           "citations": [
             "612653128208765†L53-L55"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "flour",
+              "slug": "flour",
+              "name": "Flour"
+            },
+            {
+              "type": "item",
+              "id": "honey",
+              "slug": "honey",
+              "name": "Honey"
+            },
+            {
+              "type": "item",
+              "id": "milk",
+              "slug": "milk",
+              "name": "Milk"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "Combine the ingredients at a cooking station to bake **cake**.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "cake",
+              "slug": "cake",
+              "name": "Cake"
+            }
+          ]
         },
         {
           "order": 3,
           "instruction": "Place cake in the Breeding Farm’s inventory to encourage Pals to mate.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "breeding-farm",
+              "slug": "breeding-farm",
+              "name": "Breeding Farm",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Breeding_Farm.png"
+            },
+            {
+              "type": "item",
+              "id": "cake",
+              "slug": "cake",
+              "name": "Cake"
+            }
+          ]
         }
       ]
     },
@@ -3355,12 +4615,35 @@
           "instruction": "Place one **male** and one **female** Pal in the Breeding Farm.",
           "citations": [
             "612653128208765†L53-L55"
+          ],
+          "links": [
+            {
+              "type": "tech",
+              "id": "breeding-farm",
+              "slug": "breeding-farm",
+              "name": "Breeding Farm",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Breeding_Farm.png"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "Provide cake and wait about **five minutes** for an egg to appear.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "cake",
+              "slug": "cake",
+              "name": "Cake"
+            },
+            {
+              "type": "item",
+              "id": "egg",
+              "slug": "egg",
+              "name": "Egg"
+            }
+          ]
         },
         {
           "order": 3,
@@ -3417,6 +4700,50 @@
           "instruction": "Use recommended combinations like **Relaxaurus + Sparkit → Relaxaurus Lux** or **Lyleen + Menasting → Lyleen Noct**.",
           "citations": [
             "612653128208765†L64-L77"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "104",
+              "slug": "104",
+              "name": "Lyleen",
+              "image": "assets/pals/104_lyleen.png"
+            },
+            {
+              "type": "pal",
+              "id": "128",
+              "slug": "128",
+              "name": "Relaxaurus Lux",
+              "image": "assets/pals/128_relaxaurus_lux.png"
+            },
+            {
+              "type": "pal",
+              "id": "136",
+              "slug": "136",
+              "name": "Lyleen Noct",
+              "image": "assets/pals/136_lyleen_noct.png"
+            },
+            {
+              "type": "pal",
+              "id": "7",
+              "slug": "7",
+              "name": "Sparkit",
+              "image": "assets/pals/007_sparkit.png"
+            },
+            {
+              "type": "pal",
+              "id": "85",
+              "slug": "85",
+              "name": "Relaxaurus",
+              "image": "assets/pals/085_relaxaurus.png"
+            },
+            {
+              "type": "pal",
+              "id": "99",
+              "slug": "99",
+              "name": "Menasting",
+              "image": "assets/pals/099_menasting.png"
+            }
           ]
         },
         {
@@ -3448,6 +4775,29 @@
           "instruction": "Combine **Penking + Bushi** to produce **Anubis** for early DPS.",
           "citations": [
             "612653128208765†L87-L100"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "100",
+              "slug": "100",
+              "name": "Anubis",
+              "image": "assets/pals/100_anubis.png"
+            },
+            {
+              "type": "pal",
+              "id": "11",
+              "slug": "11",
+              "name": "Penking",
+              "image": "assets/pals/011_penking.png"
+            },
+            {
+              "type": "pal",
+              "id": "72",
+              "slug": "72",
+              "name": "Bushi",
+              "image": "assets/pals/072_bushi.png"
+            }
           ]
         },
         {
@@ -3455,6 +4805,43 @@
           "instruction": "Use **Rushoar + Surfent** or **Swee + Sweepa** to get **Digtoise**.",
           "citations": [
             "612653128208765†L87-L105"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "20",
+              "slug": "20",
+              "name": "Rushoar",
+              "image": "assets/pals/020_rushoar.png"
+            },
+            {
+              "type": "pal",
+              "id": "53",
+              "slug": "53",
+              "name": "Swee",
+              "image": "assets/pals/053_swee.png"
+            },
+            {
+              "type": "pal",
+              "id": "54",
+              "slug": "54",
+              "name": "Sweepa",
+              "image": "assets/pals/054_sweepa.png"
+            },
+            {
+              "type": "pal",
+              "id": "65",
+              "slug": "65",
+              "name": "Surfent",
+              "image": "assets/pals/065_surfent.png"
+            },
+            {
+              "type": "pal",
+              "id": "67",
+              "slug": "67",
+              "name": "Digtoise",
+              "image": "assets/pals/067_digtoise.png"
+            }
           ]
         },
         {
@@ -3462,6 +4849,29 @@
           "instruction": "Breed **Nitewing + Cinnamoth** to obtain **Sibelyx**.",
           "citations": [
             "612653128208765†L87-L111"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "38",
+              "slug": "38",
+              "name": "Nitewing",
+              "image": "assets/pals/038_nitewing.png"
+            },
+            {
+              "type": "pal",
+              "id": "41",
+              "slug": "41",
+              "name": "Cinnamoth",
+              "image": "assets/pals/041_cinnamoth.png"
+            },
+            {
+              "type": "pal",
+              "id": "79",
+              "slug": "79",
+              "name": "Sibelyx",
+              "image": "assets/pals/079_sibelyx.png"
+            }
           ]
         }
       ]
@@ -3483,6 +4893,15 @@
           "instruction": "Breed **Penking + Penking** for Penking with the **Artisan** passive.",
           "citations": [
             "612653128208765†L120-L124"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "11",
+              "slug": "11",
+              "name": "Penking",
+              "image": "assets/pals/011_penking.png"
+            }
           ]
         },
         {
@@ -3490,6 +4909,29 @@
           "instruction": "Breed **Penking + Wumpo Botan** for random work passives.",
           "citations": [
             "612653128208765†L120-L127"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "11",
+              "slug": "11",
+              "name": "Penking",
+              "image": "assets/pals/011_penking.png"
+            },
+            {
+              "type": "pal",
+              "id": "133",
+              "slug": "133",
+              "name": "Wumpo Botan",
+              "image": "assets/pals/133_wumpo_botan.png"
+            },
+            {
+              "type": "pal",
+              "id": "91",
+              "slug": "91",
+              "name": "Wumpo",
+              "image": "assets/pals/091_wumpo.png"
+            }
           ]
         },
         {
@@ -3516,6 +4958,29 @@
           "instruction": "Breed **Relaxaurus + Sparkit** for **Relaxaurus Lux**.",
           "citations": [
             "612653128208765†L132-L134"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "128",
+              "slug": "128",
+              "name": "Relaxaurus Lux",
+              "image": "assets/pals/128_relaxaurus_lux.png"
+            },
+            {
+              "type": "pal",
+              "id": "7",
+              "slug": "7",
+              "name": "Sparkit",
+              "image": "assets/pals/007_sparkit.png"
+            },
+            {
+              "type": "pal",
+              "id": "85",
+              "slug": "85",
+              "name": "Relaxaurus",
+              "image": "assets/pals/085_relaxaurus.png"
+            }
           ]
         },
         {
@@ -3523,6 +4988,29 @@
           "instruction": "Breed **Incineram + Maraith** for **Incineram Noct**.",
           "citations": [
             "612653128208765†L132-L135"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "118",
+              "slug": "118",
+              "name": "Incineram Noct",
+              "image": "assets/pals/118_incineram_noct.png"
+            },
+            {
+              "type": "pal",
+              "id": "40",
+              "slug": "40",
+              "name": "Incineram",
+              "image": "assets/pals/040_incineram.png"
+            },
+            {
+              "type": "pal",
+              "id": "66",
+              "slug": "66",
+              "name": "Maraith",
+              "image": "assets/pals/066_maraith.png"
+            }
           ]
         },
         {
@@ -3530,6 +5018,22 @@
           "instruction": "Breed **Frostallion + Anubis** for **Bastigor**.",
           "citations": [
             "612653128208765†L132-L136"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "100",
+              "slug": "100",
+              "name": "Anubis",
+              "image": "assets/pals/100_anubis.png"
+            },
+            {
+              "type": "pal",
+              "id": "110",
+              "slug": "110",
+              "name": "Frostallion",
+              "image": "assets/pals/110_frostallion.png"
+            }
           ]
         }
       ]
@@ -3551,6 +5055,22 @@
           "instruction": "Combine **Lamball + Fielfox** to create **Digtoise Terra**.",
           "citations": [
             "612653128208765†L141-L144"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "1",
+              "slug": "1",
+              "name": "Lamball",
+              "image": "assets/pals/001_lamball.png"
+            },
+            {
+              "type": "pal",
+              "id": "67",
+              "slug": "67",
+              "name": "Digtoise",
+              "image": "assets/pals/067_digtoise.png"
+            }
           ]
         },
         {
@@ -3558,6 +5078,29 @@
           "instruction": "Breed **Mammorest + Wumpo** for **Mammorest Cryst**.",
           "citations": [
             "612653128208765†L141-L145"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "132",
+              "slug": "132",
+              "name": "Mammorest Cryst",
+              "image": "assets/pals/132_mammorest_cryst.png"
+            },
+            {
+              "type": "pal",
+              "id": "90",
+              "slug": "90",
+              "name": "Mammorest",
+              "image": "assets/pals/090_mammorest.png"
+            },
+            {
+              "type": "pal",
+              "id": "91",
+              "slug": "91",
+              "name": "Wumpo",
+              "image": "assets/pals/091_wumpo.png"
+            }
           ]
         },
         {
@@ -3565,6 +5108,29 @@
           "instruction": "Pair **Lyleen + Menasting** for **Lyleen Noct** as a healer-tank hybrid.",
           "citations": [
             "612653128208765†L141-L146"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "104",
+              "slug": "104",
+              "name": "Lyleen",
+              "image": "assets/pals/104_lyleen.png"
+            },
+            {
+              "type": "pal",
+              "id": "136",
+              "slug": "136",
+              "name": "Lyleen Noct",
+              "image": "assets/pals/136_lyleen_noct.png"
+            },
+            {
+              "type": "pal",
+              "id": "99",
+              "slug": "99",
+              "name": "Menasting",
+              "image": "assets/pals/099_menasting.png"
+            }
           ]
         }
       ]
@@ -3586,6 +5152,29 @@
           "instruction": "Breed **Elphidran + Surfent Aqua** for **Elphidran Aqua** (flying water mount).",
           "citations": [
             "612653128208765†L149-L154"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "125",
+              "slug": "125",
+              "name": "Elphidran Aqua",
+              "image": "assets/pals/125_elphidran_aqua.png"
+            },
+            {
+              "type": "pal",
+              "id": "65",
+              "slug": "65",
+              "name": "Surfent",
+              "image": "assets/pals/065_surfent.png"
+            },
+            {
+              "type": "pal",
+              "id": "80",
+              "slug": "80",
+              "name": "Elphidran",
+              "image": "assets/pals/080_elphidran.png"
+            }
           ]
         },
         {
@@ -3593,6 +5182,29 @@
           "instruction": "Pair **Eikthyrdeer + Hangyu** for **Eikthyrdeer Terra**.",
           "citations": [
             "612653128208765†L151-L154"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "117",
+              "slug": "117",
+              "name": "Eikthyrdeer Terra",
+              "image": "assets/pals/117_eikthyrdeer_terra.png"
+            },
+            {
+              "type": "pal",
+              "id": "32",
+              "slug": "32",
+              "name": "Hangyu",
+              "image": "assets/pals/032_hangyu.png"
+            },
+            {
+              "type": "pal",
+              "id": "37",
+              "slug": "37",
+              "name": "Eikthyrdeer",
+              "image": "assets/pals/037_eikthyrdeer.png"
+            }
           ]
         },
         {
@@ -3600,6 +5212,29 @@
           "instruction": "Combine **Surfent + Dumud** for **Surfent Terra**.",
           "citations": [
             "612653128208765†L149-L154"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "123",
+              "slug": "123",
+              "name": "Surfent Terra",
+              "image": "assets/pals/123_surfent_terra.png"
+            },
+            {
+              "type": "pal",
+              "id": "43",
+              "slug": "43",
+              "name": "Dumud",
+              "image": "assets/pals/043_dumud.png"
+            },
+            {
+              "type": "pal",
+              "id": "65",
+              "slug": "65",
+              "name": "Surfent",
+              "image": "assets/pals/065_surfent.png"
+            }
           ]
         }
       ]
@@ -3621,6 +5256,29 @@
           "instruction": "Breed **Lyleen + Menasting** again for **Lyleen Noct** (healer/support).",
           "citations": [
             "612653128208765†L160-L166"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "104",
+              "slug": "104",
+              "name": "Lyleen",
+              "image": "assets/pals/104_lyleen.png"
+            },
+            {
+              "type": "pal",
+              "id": "136",
+              "slug": "136",
+              "name": "Lyleen Noct",
+              "image": "assets/pals/136_lyleen_noct.png"
+            },
+            {
+              "type": "pal",
+              "id": "99",
+              "slug": "99",
+              "name": "Menasting",
+              "image": "assets/pals/099_menasting.png"
+            }
           ]
         },
         {
@@ -3628,6 +5286,29 @@
           "instruction": "Pair **Mau + Pengullet** for **Mau Cryst** (budget healer).",
           "citations": [
             "612653128208765†L160-L166"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "10",
+              "slug": "10",
+              "name": "Pengullet",
+              "image": "assets/pals/010_pengullet.png"
+            },
+            {
+              "type": "pal",
+              "id": "113",
+              "slug": "113",
+              "name": "Mau Cryst",
+              "image": "assets/pals/113_mau_cryst.png"
+            },
+            {
+              "type": "pal",
+              "id": "24",
+              "slug": "24",
+              "name": "Mau",
+              "image": "assets/pals/024_mau.png"
+            }
           ]
         },
         {
@@ -3635,6 +5316,29 @@
           "instruction": "Breed **Dinossom + Rayhound** for **Dinossom Lux** (speed buff support).",
           "citations": [
             "612653128208765†L160-L166"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "122",
+              "slug": "122",
+              "name": "Dinossom Lux",
+              "image": "assets/pals/122_dinossom_lux.png"
+            },
+            {
+              "type": "pal",
+              "id": "60",
+              "slug": "60",
+              "name": "Rayhound",
+              "image": "assets/pals/060_rayhound.png"
+            },
+            {
+              "type": "pal",
+              "id": "64",
+              "slug": "64",
+              "name": "Dinossom",
+              "image": "assets/pals/064_dinossom.png"
+            }
           ]
         }
       ]
@@ -3654,7 +5358,16 @@
         {
           "order": 1,
           "instruction": "Collect eggs from the Breeding Farm or in the wild.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "breeding-farm",
+              "slug": "breeding-farm",
+              "name": "Breeding Farm",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Breeding_Farm.png"
+            }
+          ]
         },
         {
           "order": 2,
@@ -3687,6 +5400,14 @@
           "instruction": "Breed high-level Pals; there is about a **5 % chance** to produce a Huge/Alpha Egg.",
           "citations": [
             "612653128208765†L60-L62"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "egg",
+              "slug": "egg",
+              "name": "Egg"
+            }
           ]
         },
         {
@@ -3721,12 +5442,34 @@
         {
           "order": 2,
           "instruction": "Provide cake and wait for the resulting hybrid egg.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "cake",
+              "slug": "cake",
+              "name": "Cake"
+            },
+            {
+              "type": "item",
+              "id": "egg",
+              "slug": "egg",
+              "name": "Egg"
+            }
+          ]
         },
         {
           "order": 3,
           "instruction": "Hatch the egg to obtain a subspecies with mixed elements or unique traits.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "egg",
+              "slug": "egg",
+              "name": "Egg"
+            }
+          ]
         }
       ]
     },
@@ -3783,7 +5526,15 @@
         {
           "order": 2,
           "instruction": "Always supply cake to keep Pals breeding continuously.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "cake",
+              "slug": "cake",
+              "name": "Cake"
+            }
+          ]
         },
         {
           "order": 3,
@@ -4039,7 +5790,16 @@
         {
           "order": 1,
           "instruction": "Ascend the Astral Mountains to reach ancient ruins.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "location",
+              "id": "astral-mountains",
+              "name": "Astral Mountains",
+              "region": "Astral Mountains",
+              "url": "https://palworld.gg/map"
+            }
+          ]
         },
         {
           "order": 2,
@@ -4155,7 +5915,15 @@
         {
           "order": 1,
           "instruction": "Search for egg markers on the interactive map.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "egg",
+              "slug": "egg",
+              "name": "Egg"
+            }
+          ]
         },
         {
           "order": 2,
@@ -4330,7 +6098,16 @@
         {
           "order": 1,
           "instruction": "Activate every Great Eagle Statue you encounter.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "location",
+              "id": "great-eagle-statue",
+              "name": "Great Eagle Statue",
+              "region": "Fast Travel Network",
+              "url": "https://palworld.gg/map"
+            }
+          ]
         },
         {
           "order": 2,
@@ -4398,7 +6175,23 @@
         {
           "order": 3,
           "instruction": "Hunt Terraria-themed Pals and items (Herbil, Icelyn, etc.).",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "144",
+              "slug": "144",
+              "name": "Herbil",
+              "image": "assets/pals/141_herbil.png"
+            },
+            {
+              "type": "pal",
+              "id": "145",
+              "slug": "145",
+              "name": "Icelyn",
+              "image": "assets/pals/142_icelyn.png"
+            }
+          ]
         }
       ]
     },
@@ -4422,7 +6215,23 @@
         {
           "order": 2,
           "instruction": "Capture or breed new Pals such as **Herbil** and **Icelyn**.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "144",
+              "slug": "144",
+              "name": "Herbil",
+              "image": "assets/pals/141_herbil.png"
+            },
+            {
+              "type": "pal",
+              "id": "145",
+              "slug": "145",
+              "name": "Icelyn",
+              "image": "assets/pals/142_icelyn.png"
+            }
+          ]
         },
         {
           "order": 3,
@@ -4649,7 +6458,23 @@
         {
           "order": 1,
           "instruction": "Identify predator Pals like **Warsect** or **Necromus**.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "109",
+              "slug": "109",
+              "name": "Necromus",
+              "image": "assets/pals/109_necromus.png"
+            },
+            {
+              "type": "pal",
+              "id": "92",
+              "slug": "92",
+              "name": "Warsect",
+              "image": "assets/pals/092_warsect.png"
+            }
+          ]
         },
         {
           "order": 2,
@@ -4680,12 +6505,30 @@
           "instruction": "Read the patch notes to understand new features: PVP arena, Lockpicking Tool v3, dog coins and more.",
           "citations": [
             "285876925291367†L181-L184"
+          ],
+          "links": [
+            {
+              "type": "tech",
+              "id": "lockpicking-tool-v3",
+              "slug": "lockpicking-tool-v3",
+              "name": "Lockpicking Tool v3",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lockpicking_Tool_v3_icon.png"
+            }
           ]
         },
         {
           "order": 2,
           "instruction": "Explore Sakurajima island to discover new dungeons and Pals.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "location",
+              "id": "sakurajima-island",
+              "name": "Sakurajima Island",
+              "region": "Sakurajima",
+              "url": "https://palworld.gg/map"
+            }
+          ]
         },
         {
           "order": 3,
@@ -4711,6 +6554,15 @@
           "instruction": "Travel to the PVP arena on Sakurajima island.",
           "citations": [
             "675291985780246†L470-L474"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "sakurajima-island",
+              "name": "Sakurajima Island",
+              "region": "Sakurajima",
+              "url": "https://palworld.gg/map"
+            }
           ]
         },
         {
@@ -4750,7 +6602,22 @@
         {
           "order": 3,
           "instruction": "Defeat enemies around the meteor and mine the ore inside.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "mine",
+              "slug": "mine",
+              "name": "Mine",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
+            },
+            {
+              "type": "item",
+              "id": "ore",
+              "slug": "ore",
+              "name": "Ore"
+            }
+          ]
         }
       ]
     },
@@ -4769,7 +6636,16 @@
         {
           "order": 1,
           "instruction": "Complete Sakurajima side quests that reward Dog Coins.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "location",
+              "id": "sakurajima-island",
+              "name": "Sakurajima Island",
+              "region": "Sakurajima",
+              "url": "https://palworld.gg/map"
+            }
+          ]
         },
         {
           "order": 2,
@@ -4832,7 +6708,16 @@
         {
           "order": 2,
           "instruction": "Access the skin menu for your Pal via the Palbox.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "palbox",
+              "slug": "palbox",
+              "name": "Palbox",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
+            }
+          ]
         },
         {
           "order": 3,
@@ -5183,7 +7068,16 @@
         {
           "order": 2,
           "instruction": "High Work Speed Pals (e.g., Penking) finish jobs faster.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "11",
+              "slug": "11",
+              "name": "Penking",
+              "image": "assets/pals/011_penking.png"
+            }
+          ]
         },
         {
           "order": 3,
@@ -5440,7 +7334,15 @@
         {
           "order": 1,
           "instruction": "Trees, ore nodes and berry bushes respawn after an in-game day or more.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "item",
+              "id": "ore",
+              "slug": "ore",
+              "name": "Ore"
+            }
+          ]
         },
         {
           "order": 2,
@@ -5537,7 +7439,16 @@
         {
           "order": 3,
           "instruction": "Collect rewards or recognition for 100 % completion.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "pal",
+              "id": "100",
+              "slug": "100",
+              "name": "Anubis",
+              "image": "assets/pals/100_anubis.png"
+            }
+          ]
         }
       ]
     },
@@ -5590,7 +7501,16 @@
         {
           "order": 2,
           "instruction": "Manually save by interacting with your bed or Palbox.",
-          "citations": []
+          "citations": [],
+          "links": [
+            {
+              "type": "tech",
+              "id": "palbox",
+              "slug": "palbox",
+              "name": "Palbox",
+              "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
+            }
+          ]
         },
         {
           "order": 3,
