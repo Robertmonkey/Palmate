@@ -59,6 +59,9 @@ This document describes the responsibilities, workflows and quality assurance st
 
 *Progress 2025-10-03:* Synced `data/guides.bundle.json` with the Honey, Coal, Wool, Egg, and Pal Fluids routes from `guides.md` (previously missing from the bundle). Attempted to source Mozzarina spawn coordinates and broader resource locations via wiki.gg, Fandom, PCGamesN, IGN, Game8, DualShockers, and other outlets—most blocked behind Cloudflare/HTTP 403/503 responses, leaving Milk and additional resource guides pending reliable citations.
 
+*Progress 2025-10-05:* Authored new resource routes for Sulfur (`resource-sulfur`), Pure Quartz (`resource-pure-quartz`), and Polymer (`resource-polymer`), with bundled JSON kept in sync and fresh citations covering PCGamesN and Palworld wiki sources.
+  * Next steps: secure an additional primary citation for Astral Mountain node coordinates or alternative quartz hotspots, document reliable High Quality Pal Oil farming beyond Dumud ranching, and continue chipping away at remaining gap list items (e.g. Beautiful Flower, Carbon Fiber, Milk).
+
 ## Performance Notes
 
 * **Chunking** – When creating or updating `guides.md`, generate large JSON blocks in manageable chunks to avoid exceeding context limits.  Use the container tools to build the file incrementally.
