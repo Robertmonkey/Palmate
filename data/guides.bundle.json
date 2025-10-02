@@ -14176,6 +14176,842 @@
           "reason": "Honey pairs with milk for cakes and pastries, so stabilising both keeps cooking queues flowing."
         }
       ]
+    },
+    {
+      "route_id": "resource-flour",
+      "title": "Flour Milling Network",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "flour",
+        "agriculture",
+        "cooking"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 15,
+        "max": 24
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture",
+          "resource-berry-seeds"
+        ],
+        "tech": [
+          "wheat-plantation",
+          "mill"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Purchase Wheat Seeds and starter grain from the Small Settlement merchant",
+        "Construct Wheat Plantations and assign planters and waterers",
+        "Build a Mill with a Watering Pal to automate grinding",
+        "Process harvested wheat into flour reserves"
+      ],
+      "estimated_time_minutes": {
+        "solo": 30,
+        "coop": 22
+      },
+      "estimated_xp_gain": {
+        "min": 180,
+        "max": 260
+      },
+      "risk_profile": "low",
+      "failure_penalties": {
+        "normal": "Losing seed stock delays plantation cycles until merchants restock.",
+        "hardcore": "Death in Windswept Hills risks seed stacks; stash extras at base before traveling."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Stick to day runs around Small Settlement to avoid Syndicate patrols while you buy seeds and wood.\u3010c6adb4\u2020L70-L87\u3011\u301014a18a\u2020L6-L13\u3011",
+        "overleveled": "Expand to two Wheat Plantations and assign higher-tier planters to keep the mill busy between combat outings.\u3010af5fcd\u2020L1-L12\u3011",
+        "resource_shortages": [
+          {
+            "item_id": "wheat-seeds",
+            "solution": "Trigger the resource-berry-seeds subroute or re-buy Wheat Seeds from the Small Settlement merchant when the stock refreshes every day.\u3010c6adb4\u2020L70-L85\u3011",
+            "subroute_ref": "resource-berry-seeds"
+          },
+          {
+            "item_id": "flour",
+            "solution": "Run step :004 twice before leaving base to keep 40+ flour queued for bakeries.\u3010bfc9eb\u2020L1-L17\u3011"
+          }
+        ],
+        "time_limited": "Buy seeds and wood in one trip, queue a single plantation harvest, and mill only enough flour for the immediate recipe."
+      },
+      "checkpoints": [
+        {
+          "id": "resource-flour:checkpoint-merchant",
+          "summary": "Seed stock purchased",
+          "benefits": [
+            "Seeds secured",
+            "Merchant route unlocked"
+          ],
+          "related_steps": [
+            "resource-flour:001"
+          ]
+        },
+        {
+          "id": "resource-flour:checkpoint-mill",
+          "summary": "Mill producing flour",
+          "benefits": [
+            "Automation running",
+            "Flour cached"
+          ],
+          "related_steps": [
+            "resource-flour:003",
+            "resource-flour:004"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-berry-seeds"
+        ],
+        "optional": [
+          "resource-honey"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "Revisit the merchant rotation or capture Bristla near Verdant Brook to restock Wheat Seeds if crops die off.",
+        "hardcore": "Keep one stack of seeds in a cooled chest so a wipe en route to the Small Settlement doesn't reset progress."
+      },
+      "steps": [
+        {
+          "step_id": "resource-flour:001",
+          "type": "travel",
+          "summary": "Buy Wheat Seeds from the Small Settlement",
+          "detail": "Fast travel to the Small Settlement (75,-479), trade with the Wandering Merchant for Wheat Seeds, Wheat, and spare berries so plantations can cycle immediately.\u3010c6adb4\u2020L70-L87\u3011\u301014a18a\u2020L6-L13\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "wheat-seeds",
+              "qty": 9
+            },
+            {
+              "kind": "item",
+              "id": "wheat",
+              "qty": 30
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                75,
+                -479
+              ],
+              "time": "day",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "buyer",
+                  "tasks": "Handle trades and ferry seeds"
+                },
+                {
+                  "role": "escort",
+                  "tasks": "Screen Syndicate patrols and haul lumber"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "pal-sphere"
+            ],
+            "pals": [
+              "lamball"
+            ],
+            "consumables": [
+              "gold-coin"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 60
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "wheat-seeds",
+                "qty": 9
+              },
+              {
+                "item_id": "wheat",
+                "qty": 30
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-berry-seeds"
+            }
+          ],
+          "citations": [
+            "palwiki-wandering-merchant",
+            "palwiki-small-settlement"
+          ]
+        },
+        {
+          "step_id": "resource-flour:002",
+          "type": "build",
+          "summary": "Raise Wheat Plantations",
+          "detail": "Spend 3 Wheat Seeds, 35 Wood, and 35 Stone per plot to build Wheat Plantations, then assign planters, waterers, and gatherers so grain cycles without supervision.\u3010af5fcd\u2020L1-L12\u3011",
+          "targets": [
+            {
+              "kind": "structure",
+              "id": "wheat-plantation",
+              "qty": 2
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "adjustment": "Assign at least one Watering level 2 Pal so harvests finish before nightly raids.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "bristla",
+              "fuack"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "wheat",
+                "qty": 60
+              }
+            ],
+            "pals": [],
+            "unlocks": {
+              "structures": [
+                "wheat-plantation"
+              ]
+            }
+          },
+          "branching": [
+            {
+              "condition": "player lacks wheat-seeds >= 3",
+              "action": "repeat",
+              "subroute_ref": "resource-berry-seeds"
+            }
+          ],
+          "citations": [
+            "palwiki-wheat-plantation",
+            "palwiki-wheat-seeds"
+          ]
+        },
+        {
+          "step_id": "resource-flour:003",
+          "type": "build",
+          "summary": "Construct the Mill",
+          "detail": "Unlock the Mill at technology level 15, spend 50 Wood and 40 Stone, and assign a Watering-suited Pal to spin the wheel.\u3010ecbbdd\u2020L1-L16\u3011",
+          "targets": [
+            {
+              "kind": "structure",
+              "id": "mill",
+              "qty": 1
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "pengullet"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 70
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {
+              "structures": [
+                "mill"
+              ]
+            }
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-mill"
+          ]
+        },
+        {
+          "step_id": "resource-flour:004",
+          "type": "craft",
+          "summary": "Grind wheat into flour",
+          "detail": "Feed harvested Wheat into the Mill in batches of three to produce Flour, then store finished sacks in cooled storage to avoid spoilage.\u3010bfc9eb\u2020L1-L17\u3011\u301015b61b\u2020L1-L11\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "flour",
+              "qty": 24
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "fuack"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 100
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "flour",
+                "qty": 24
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-flour",
+            "palwiki-wheat"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "flour",
+          "qty": 24
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "bakery-supplies"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 4,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-cake",
+          "reason": "Cake consumes Flour alongside milk, eggs, and honey for breeding."
+        },
+        {
+          "route_id": "resource-bread",
+          "reason": "Bread batches stabilize expedition food once flour output is reliable."
+        }
+      ]
+    },
+    {
+      "route_id": "resource-cake",
+      "title": "Cake Assembly Line",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "cake",
+        "breeding",
+        "cooking"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 24,
+        "max": 35
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "resource-flour",
+          "resource-milk",
+          "resource-egg",
+          "resource-honey"
+        ],
+        "tech": [
+          "cooking-pot",
+          "wheat-plantation",
+          "berry-plantation"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Stage plantations and ranchers for cake ingredients",
+        "Stabilize honey, milk, egg, and flour throughput",
+        "Cook cakes at the Cooking Pot and stock the breeding farm"
+      ],
+      "estimated_time_minutes": {
+        "solo": 45,
+        "coop": 30
+      },
+      "estimated_xp_gain": {
+        "min": 260,
+        "max": 360
+      },
+      "risk_profile": "low",
+      "failure_penalties": {
+        "normal": "Running out of cake slows breeding progress until bakeries restock.",
+        "hardcore": "Ingredient deaths in raids can wipe automation; keep backup pals condensed."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Prioritize automation first: set ranchers and plantations before pushing tower fights so breeding never stalls.",
+        "overleveled": "Expand to multiple plantations and mills so every breeding cycle consumes from overflow instead of active time.\u3010af5fcd\u2020L1-L12\u3011\u30108f2b7b\u2020L1-L11\u3011",
+        "resource_shortages": [
+          {
+            "item_id": "honey",
+            "solution": "Trigger resource-honey to refill Beegarde ranch output."
+          },
+          {
+            "item_id": "milk",
+            "solution": "Run resource-milk to restock Mozzarina bottles."
+          },
+          {
+            "item_id": "egg",
+            "solution": "Loop resource-egg to refresh ranch production."
+          },
+          {
+            "item_id": "flour",
+            "solution": "Re-run resource-flour and keep cooled storage near the Cooking Pot."
+          }
+        ],
+        "time_limited": "Queue one plantation harvest, raid nearby hives for honey, then cook cakes in a single batch before logging off."
+      },
+      "checkpoints": [
+        {
+          "id": "resource-cake:checkpoint-farms",
+          "summary": "Plantations online",
+          "benefits": [
+            "Ingredients cycling",
+            "Planters assigned"
+          ],
+          "related_steps": [
+            "resource-cake:001"
+          ]
+        },
+        {
+          "id": "resource-cake:checkpoint-pantry",
+          "summary": "Pantry stocked",
+          "benefits": [
+            "Honey, milk, eggs buffered",
+            "Flour milled"
+          ],
+          "related_steps": [
+            "resource-cake:002",
+            "resource-cake:003"
+          ]
+        },
+        {
+          "id": "resource-cake:checkpoint-bakery",
+          "summary": "First cakes baked",
+          "benefits": [
+            "Breeding farm supplied",
+            "Cooking Pot optimized"
+          ],
+          "related_steps": [
+            "resource-cake:004"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-flour",
+          "resource-milk",
+          "resource-egg",
+          "resource-honey"
+        ],
+        "optional": [
+          "resource-berry-seeds",
+          "resource-high-quality-pal-oil"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "Farm Lovander for a slim cake drop chance while automation recovers.\u301060f5d7\u2020L10-L12\u3011",
+        "hardcore": "Split ingredient herds across multiple bases so a raid can't depopulate every ranch at once."
+      },
+      "steps": [
+        {
+          "step_id": "resource-cake:001",
+          "type": "build",
+          "summary": "Expand plantations for berries and wheat",
+          "detail": "Construct at least one Berry Plantation (3 Berry Seeds, 20 Wood, 20 Stone) and a Wheat Plantation (3 Wheat Seeds, 35 Wood, 35 Stone), then assign planters, waterers, and gatherers.\u30108f2b7b\u2020L1-L11\u3011\u3010af5fcd\u2020L1-L12\u3011",
+          "targets": [
+            {
+              "kind": "structure",
+              "id": "berry-plantation",
+              "qty": 1
+            },
+            {
+              "kind": "structure",
+              "id": "wheat-plantation",
+              "qty": 1
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "builder",
+                  "tasks": "Place plots and supply materials"
+                },
+                {
+                  "role": "wrangler",
+                  "tasks": "Assign ranchers and planters"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "bristla",
+              "gumoss"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 120
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "red-berries",
+                "qty": 40
+              },
+              {
+                "item_id": "wheat",
+                "qty": 30
+              }
+            ],
+            "pals": [],
+            "unlocks": {
+              "structures": [
+                "berry-plantation",
+                "wheat-plantation"
+              ]
+            }
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-berry-seeds"
+            }
+          ],
+          "citations": [
+            "palwiki-berry-plantation",
+            "palwiki-wheat-plantation"
+          ]
+        },
+        {
+          "step_id": "resource-cake:002",
+          "type": "assign",
+          "summary": "Stabilize ranch ingredient output",
+          "detail": "Keep Chikipi, Mozzarina, and Beegarde assigned to ranches so eggs, milk, and honey flow while bakeries prep. Kick off the linked resource routes if any stockpile dips.\u301060f5d7\u2020L13-L20\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "egg",
+              "qty": 24
+            },
+            {
+              "kind": "item",
+              "id": "milk",
+              "qty": 21
+            },
+            {
+              "kind": "item",
+              "id": "honey",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "chikipi",
+              "mozzarina",
+              "beegarde"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 120
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "egg",
+                "qty": 24
+              },
+              {
+                "item_id": "milk",
+                "qty": 21
+              },
+              {
+                "item_id": "honey",
+                "qty": 6
+              }
+            ],
+            "pals": [
+              "chikipi",
+              "mozzarina",
+              "beegarde"
+            ],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-egg"
+            },
+            {
+              "subroute_ref": "resource-milk"
+            },
+            {
+              "subroute_ref": "resource-honey"
+            }
+          ],
+          "citations": [
+            "palwiki-cake"
+          ]
+        },
+        {
+          "step_id": "resource-cake:003",
+          "type": "craft",
+          "summary": "Mill flour in advance",
+          "detail": "Run the Flour Milling Network route or feed harvested wheat into your mill to maintain at least 30 flour on ice ahead of baking sessions.\u3010bfc9eb\u2020L1-L17\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "flour",
+              "qty": 30
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "fuack"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 100
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "flour",
+                "qty": 30
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-flour"
+            }
+          ],
+          "citations": [
+            "palwiki-flour"
+          ]
+        },
+        {
+          "step_id": "resource-cake:004",
+          "type": "craft",
+          "summary": "Bake cakes at the Cooking Pot",
+          "detail": "Build a Cooking Pot (20 Wood, 15 Ingots, 3 Flame Organs) and craft cakes using 5 Flour, 8 Red Berries, 7 Milk, 8 Eggs, and 2 Honey per batch. Store finished cakes in the Breeding Farm chest so they never spoil.\u3010f8b394\u2020L1-L12\u3011\u301060f5d7\u2020L1-L16\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "cake",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "adjustment": "Assign a Cooling Pal to the pantry and keep extra cakes in a safe chest in case of raids.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "heat-resistant-armor"
+            ],
+            "pals": [
+              "flambelle"
+            ],
+            "consumables": [
+              {
+                "item_id": "flame-organ",
+                "qty": 3
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 120
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "cake",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {
+              "structures": [
+                "cooking-pot"
+              ]
+            }
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-cooking-pot",
+            "palwiki-cake"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "cake",
+          "qty": 6
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "breeding-efficiency"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 4,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "breeding-advanced",
+          "reason": "Cakes unlock accelerated Pal breeding cycles."
+        },
+        {
+          "route_id": "resource-carbon-fiber",
+          "reason": "Breeding legendary pals benefits from weapon upgrades powered by cakes and polymer."
+        }
+      ]
     }
   ],
   "routeSchema": {

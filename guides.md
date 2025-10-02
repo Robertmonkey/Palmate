@@ -8597,6 +8597,856 @@ Milk powers cakes, hot drinks, and early-game sanity food, so this loop builds a
 }
 ```
 
+### Route: Flour Milling Network
+
+Flour Milling Network turns the Small Settlement merchant's grain stock into automated Wheat Plantations and a Mill, keeping flour flowing for bakeries and late-game cooking queues.【c6adb4†L34-L114】【af5fcd†L1-L12】【ecbbdd†L1-L16】【bfc9eb†L1-L17】
+
+```json
+{
+  "route_id": "resource-flour",
+  "title": "Flour Milling Network",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "flour",
+    "agriculture",
+    "cooking"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 15,
+    "max": 24
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture",
+      "resource-berry-seeds"
+    ],
+    "tech": [
+      "wheat-plantation",
+      "mill"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Purchase Wheat Seeds and starter grain from the Small Settlement merchant",
+    "Construct Wheat Plantations and assign planters and waterers",
+    "Build a Mill with a Watering Pal to automate grinding",
+    "Process harvested wheat into flour reserves"
+  ],
+  "estimated_time_minutes": {
+    "solo": 30,
+    "coop": 22
+  },
+  "estimated_xp_gain": {
+    "min": 180,
+    "max": 260
+  },
+  "risk_profile": "low",
+  "failure_penalties": {
+    "normal": "Losing seed stock delays plantation cycles until merchants restock.",
+    "hardcore": "Death in Windswept Hills risks seed stacks; stash extras at base before traveling."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Stick to day runs around Small Settlement to avoid Syndicate patrols while you buy seeds and wood.\u3010c6adb4\u2020L70-L87\u3011\u301014a18a\u2020L6-L13\u3011",
+    "overleveled": "Expand to two Wheat Plantations and assign higher-tier planters to keep the mill busy between combat outings.\u3010af5fcd\u2020L1-L12\u3011",
+    "resource_shortages": [
+      {
+        "item_id": "wheat-seeds",
+        "solution": "Trigger the resource-berry-seeds subroute or re-buy Wheat Seeds from the Small Settlement merchant when the stock refreshes every day.\u3010c6adb4\u2020L70-L85\u3011",
+        "subroute_ref": "resource-berry-seeds"
+      },
+      {
+        "item_id": "flour",
+        "solution": "Run step :004 twice before leaving base to keep 40+ flour queued for bakeries.\u3010bfc9eb\u2020L1-L17\u3011"
+      }
+    ],
+    "time_limited": "Buy seeds and wood in one trip, queue a single plantation harvest, and mill only enough flour for the immediate recipe."
+  },
+  "checkpoints": [
+    {
+      "id": "resource-flour:checkpoint-merchant",
+      "summary": "Seed stock purchased",
+      "benefits": [
+        "Seeds secured",
+        "Merchant route unlocked"
+      ],
+      "related_steps": [
+        "resource-flour:001"
+      ]
+    },
+    {
+      "id": "resource-flour:checkpoint-mill",
+      "summary": "Mill producing flour",
+      "benefits": [
+        "Automation running",
+        "Flour cached"
+      ],
+      "related_steps": [
+        "resource-flour:003",
+        "resource-flour:004"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-berry-seeds"
+    ],
+    "optional": [
+      "resource-honey"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Revisit the merchant rotation or capture Bristla near Verdant Brook to restock Wheat Seeds if crops die off.",
+    "hardcore": "Keep one stack of seeds in a cooled chest so a wipe en route to the Small Settlement doesn't reset progress."
+  },
+  "steps": [
+    {
+      "step_id": "resource-flour:001",
+      "type": "travel",
+      "summary": "Buy Wheat Seeds from the Small Settlement",
+      "detail": "Fast travel to the Small Settlement (75,-479), trade with the Wandering Merchant for Wheat Seeds, Wheat, and spare berries so plantations can cycle immediately.\u3010c6adb4\u2020L70-L87\u3011\u301014a18a\u2020L6-L13\u3011",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "wheat-seeds",
+          "qty": 9
+        },
+        {
+          "kind": "item",
+          "id": "wheat",
+          "qty": 30
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "buyer",
+              "tasks": "Handle trades and ferry seeds"
+            },
+            {
+              "role": "escort",
+              "tasks": "Screen Syndicate patrols and haul lumber"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "pal-sphere"
+        ],
+        "pals": [
+          "lamball"
+        ],
+        "consumables": [
+          "gold-coin"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 60
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "wheat-seeds",
+            "qty": 9
+          },
+          {
+            "item_id": "wheat",
+            "qty": 30
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-berry-seeds"
+        }
+      ],
+      "citations": [
+        "palwiki-wandering-merchant",
+        "palwiki-small-settlement"
+      ]
+    },
+    {
+      "step_id": "resource-flour:002",
+      "type": "build",
+      "summary": "Raise Wheat Plantations",
+      "detail": "Spend 3 Wheat Seeds, 35 Wood, and 35 Stone per plot to build Wheat Plantations, then assign planters, waterers, and gatherers so grain cycles without supervision.\u3010af5fcd\u2020L1-L12\u3011",
+      "targets": [
+        {
+          "kind": "structure",
+          "id": "wheat-plantation",
+          "qty": 2
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "adjustment": "Assign at least one Watering level 2 Pal so harvests finish before nightly raids.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "bristla",
+          "fuack"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 90
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "wheat",
+            "qty": 60
+          }
+        ],
+        "pals": [],
+        "unlocks": {
+          "structures": [
+            "wheat-plantation"
+          ]
+        }
+      },
+      "branching": [
+        {
+          "condition": "player lacks wheat-seeds >= 3",
+          "action": "repeat",
+          "subroute_ref": "resource-berry-seeds"
+        }
+      ],
+      "citations": [
+        "palwiki-wheat-plantation",
+        "palwiki-wheat-seeds"
+      ]
+    },
+    {
+      "step_id": "resource-flour:003",
+      "type": "build",
+      "summary": "Construct the Mill",
+      "detail": "Unlock the Mill at technology level 15, spend 50 Wood and 40 Stone, and assign a Watering-suited Pal to spin the wheel.\u3010ecbbdd\u2020L1-L16\u3011",
+      "targets": [
+        {
+          "kind": "structure",
+          "id": "mill",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "pengullet"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 70
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "structures": [
+            "mill"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-mill"
+      ]
+    },
+    {
+      "step_id": "resource-flour:004",
+      "type": "craft",
+      "summary": "Grind wheat into flour",
+      "detail": "Feed harvested Wheat into the Mill in batches of three to produce Flour, then store finished sacks in cooled storage to avoid spoilage.\u3010bfc9eb\u2020L1-L17\u3011\u301015b61b\u2020L1-L11\u3011",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "flour",
+          "qty": 24
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "fuack"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 100
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "flour",
+            "qty": 24
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-flour",
+        "palwiki-wheat"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "flour",
+      "qty": 24
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "bakery-supplies"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-cake",
+      "reason": "Cake consumes Flour alongside milk, eggs, and honey for breeding."
+    },
+    {
+      "route_id": "resource-bread",
+      "reason": "Bread batches stabilize expedition food once flour output is reliable."
+    }
+  ]
+}
+```
+
+### Route: Cake Assembly Line
+
+Cake Assembly Line coordinates plantations, ranch automation, and the Cooking Pot so breeding farms always have cakes on hand.【60f5d7†L1-L20】【8f2b7b†L1-L11】【af5fcd†L1-L12】【f8b394†L1-L12】
+
+```json
+{
+  "route_id": "resource-cake",
+  "title": "Cake Assembly Line",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "cake",
+    "breeding",
+    "cooking"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 24,
+    "max": 35
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "resource-flour",
+      "resource-milk",
+      "resource-egg",
+      "resource-honey"
+    ],
+    "tech": [
+      "cooking-pot",
+      "wheat-plantation",
+      "berry-plantation"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Stage plantations and ranchers for cake ingredients",
+    "Stabilize honey, milk, egg, and flour throughput",
+    "Cook cakes at the Cooking Pot and stock the breeding farm"
+  ],
+  "estimated_time_minutes": {
+    "solo": 45,
+    "coop": 30
+  },
+  "estimated_xp_gain": {
+    "min": 260,
+    "max": 360
+  },
+  "risk_profile": "low",
+  "failure_penalties": {
+    "normal": "Running out of cake slows breeding progress until bakeries restock.",
+    "hardcore": "Ingredient deaths in raids can wipe automation; keep backup pals condensed."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Prioritize automation first: set ranchers and plantations before pushing tower fights so breeding never stalls.",
+    "overleveled": "Expand to multiple plantations and mills so every breeding cycle consumes from overflow instead of active time.\u3010af5fcd\u2020L1-L12\u3011\u30108f2b7b\u2020L1-L11\u3011",
+    "resource_shortages": [
+      {
+        "item_id": "honey",
+        "solution": "Trigger resource-honey to refill Beegarde ranch output."
+      },
+      {
+        "item_id": "milk",
+        "solution": "Run resource-milk to restock Mozzarina bottles."
+      },
+      {
+        "item_id": "egg",
+        "solution": "Loop resource-egg to refresh ranch production."
+      },
+      {
+        "item_id": "flour",
+        "solution": "Re-run resource-flour and keep cooled storage near the Cooking Pot."
+      }
+    ],
+    "time_limited": "Queue one plantation harvest, raid nearby hives for honey, then cook cakes in a single batch before logging off."
+  },
+  "checkpoints": [
+    {
+      "id": "resource-cake:checkpoint-farms",
+      "summary": "Plantations online",
+      "benefits": [
+        "Ingredients cycling",
+        "Planters assigned"
+      ],
+      "related_steps": [
+        "resource-cake:001"
+      ]
+    },
+    {
+      "id": "resource-cake:checkpoint-pantry",
+      "summary": "Pantry stocked",
+      "benefits": [
+        "Honey, milk, eggs buffered",
+        "Flour milled"
+      ],
+      "related_steps": [
+        "resource-cake:002",
+        "resource-cake:003"
+      ]
+    },
+    {
+      "id": "resource-cake:checkpoint-bakery",
+      "summary": "First cakes baked",
+      "benefits": [
+        "Breeding farm supplied",
+        "Cooking Pot optimized"
+      ],
+      "related_steps": [
+        "resource-cake:004"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-flour",
+      "resource-milk",
+      "resource-egg",
+      "resource-honey"
+    ],
+    "optional": [
+      "resource-berry-seeds",
+      "resource-high-quality-pal-oil"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Farm Lovander for a slim cake drop chance while automation recovers.\u301060f5d7\u2020L10-L12\u3011",
+    "hardcore": "Split ingredient herds across multiple bases so a raid can't depopulate every ranch at once."
+  },
+  "steps": [
+    {
+      "step_id": "resource-cake:001",
+      "type": "build",
+      "summary": "Expand plantations for berries and wheat",
+      "detail": "Construct at least one Berry Plantation (3 Berry Seeds, 20 Wood, 20 Stone) and a Wheat Plantation (3 Wheat Seeds, 35 Wood, 35 Stone), then assign planters, waterers, and gatherers.\u30108f2b7b\u2020L1-L11\u3011\u3010af5fcd\u2020L1-L12\u3011",
+      "targets": [
+        {
+          "kind": "structure",
+          "id": "berry-plantation",
+          "qty": 1
+        },
+        {
+          "kind": "structure",
+          "id": "wheat-plantation",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "builder",
+              "tasks": "Place plots and supply materials"
+            },
+            {
+              "role": "wrangler",
+              "tasks": "Assign ranchers and planters"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "bristla",
+          "gumoss"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 120
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "red-berries",
+            "qty": 40
+          },
+          {
+            "item_id": "wheat",
+            "qty": 30
+          }
+        ],
+        "pals": [],
+        "unlocks": {
+          "structures": [
+            "berry-plantation",
+            "wheat-plantation"
+          ]
+        }
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-berry-seeds"
+        }
+      ],
+      "citations": [
+        "palwiki-berry-plantation",
+        "palwiki-wheat-plantation"
+      ]
+    },
+    {
+      "step_id": "resource-cake:002",
+      "type": "assign",
+      "summary": "Stabilize ranch ingredient output",
+      "detail": "Keep Chikipi, Mozzarina, and Beegarde assigned to ranches so eggs, milk, and honey flow while bakeries prep. Kick off the linked resource routes if any stockpile dips.\u301060f5d7\u2020L13-L20\u3011",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "egg",
+          "qty": 24
+        },
+        {
+          "kind": "item",
+          "id": "milk",
+          "qty": 21
+        },
+        {
+          "kind": "item",
+          "id": "honey",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "chikipi",
+          "mozzarina",
+          "beegarde"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 120
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "egg",
+            "qty": 24
+          },
+          {
+            "item_id": "milk",
+            "qty": 21
+          },
+          {
+            "item_id": "honey",
+            "qty": 6
+          }
+        ],
+        "pals": [
+          "chikipi",
+          "mozzarina",
+          "beegarde"
+        ],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-egg"
+        },
+        {
+          "subroute_ref": "resource-milk"
+        },
+        {
+          "subroute_ref": "resource-honey"
+        }
+      ],
+      "citations": [
+        "palwiki-cake"
+      ]
+    },
+    {
+      "step_id": "resource-cake:003",
+      "type": "craft",
+      "summary": "Mill flour in advance",
+      "detail": "Run the Flour Milling Network route or feed harvested wheat into your mill to maintain at least 30 flour on ice ahead of baking sessions.\u3010bfc9eb\u2020L1-L17\u3011",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "flour",
+          "qty": 30
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "fuack"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 100
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "flour",
+            "qty": 30
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-flour"
+        }
+      ],
+      "citations": [
+        "palwiki-flour"
+      ]
+    },
+    {
+      "step_id": "resource-cake:004",
+      "type": "craft",
+      "summary": "Bake cakes at the Cooking Pot",
+      "detail": "Build a Cooking Pot (20 Wood, 15 Ingots, 3 Flame Organs) and craft cakes using 5 Flour, 8 Red Berries, 7 Milk, 8 Eggs, and 2 Honey per batch. Store finished cakes in the Breeding Farm chest so they never spoil.\u3010f8b394\u2020L1-L12\u3011\u301060f5d7\u2020L1-L16\u3011",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "cake",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "adjustment": "Assign a Cooling Pal to the pantry and keep extra cakes in a safe chest in case of raids.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "heat-resistant-armor"
+        ],
+        "pals": [
+          "flambelle"
+        ],
+        "consumables": [
+          {
+            "item_id": "flame-organ",
+            "qty": 3
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 120
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "cake",
+            "qty": 6
+          }
+        ],
+        "pals": [],
+        "unlocks": {
+          "structures": [
+            "cooking-pot"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-cooking-pot",
+        "palwiki-cake"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "cake",
+      "qty": 6
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "breeding-efficiency"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "breeding-advanced",
+      "reason": "Cakes unlock accelerated Pal breeding cycles."
+    },
+    {
+      "route_id": "resource-carbon-fiber",
+      "reason": "Breeding legendary pals benefits from weapon upgrades powered by cakes and polymer."
+    }
+  ]
+}
+```
+
 ### Route: Recruit Base Merchant
 
 Catching a human merchant early gives permanent access to trading at home without
@@ -15104,68 +15954,432 @@ updating guides, refresh these entries with new dates and pages.
 ```json
 {
   "sources": {
-    "paldb-primitive-workbench": { "title": "Primitive Workbench – PalDB", "url": "https://paldb.cc/station/primitive-workbench", "access_date": "2025-09-30", "notes": "Shows that the Primitive Workbench requires 2 Wood to build【907636800064548†screenshot】." },
-    "thegamer-foxparks-spawn": { "title": "Palworld: How To Find And Capture Foxparks", "url": "https://www.thegamer.com/palworld-foxparks-location-guide/", "access_date": "2025-09-30", "notes": "Provides spawn coordinates for Foxparks and notes they are kindling Pals【956200907149478†L146-L169】." },
-    "namehero-xp-capture": { "title": "Palworld Leveling Guide", "url": "https://www.namehero.com/game-guides/palworld-leveling-guide/", "access_date": "2025-09-30", "notes": "Highlights that capturing Pals yields more XP than defeating them【116860197722081†L96-L128】." },
-    "shockbyte-leather-sources": { "title": "Palworld: How To Get Leather", "url": "https://shockbyte.com/blog/how-to-get-leather-in-palworld", "access_date": "2025-09-30", "notes": "Lists Pals that drop Leather and notes the Sea Breeze Archipelago Church and Bridge of the Twin Knights as farming locations【840767909995613†L78-L100】【840767909995613†L106-L135】." },
-    "shockbyte-leather-merchant": { "title": "Palworld: How To Get Leather", "url": "https://shockbyte.com/blog/how-to-get-leather-in-palworld", "access_date": "2025-09-30", "notes": "Notes that Wandering Merchants sell Leather for about 150 gold each【840767909995613†L78-L100】." },
-    "gameclubz-foxparks-harness": { "title": "Palworld – How to Unlock and Use Foxparks Harness", "url": "https://gameclubz.com/palworld/foxparks-harness-guide", "access_date": "2025-09-30", "notes": "Provides the Foxparks Harness recipe (3 Leather, 5 Flame Organs, 5 Paldium Fragments) and explains unlocking at level 6 after catching Foxparks【353245298505537†L150-L180】." },
-    "gameclubz-eikthyrdeer-saddle": { "title": "Palworld – Eikthyrdeer Saddle Guide", "url": "https://gameclubz.com/palworld/eikthyrdeer-saddle-guide", "access_date": "2025-09-30", "notes": "States that the Eikthyrdeer Saddle unlocks at level 12 with 2 tech points and lists required materials (5 Leather, 20 Fiber, 10 Ingots, 3 Horns, 15 Paldium Fragments)【963225160620124†L160-L167】." },
-    "eikthyrdeer-drops": { "title": "Eikthyrdeer – Palworld Wiki", "url": "https://palworld.fandom.com/wiki/Eikthyrdeer", "access_date": "2025-09-30", "notes": "Lists Eikthyrdeer drops: 2 Venison, 2–3 Leather and 2 Horns at 100 % drop rate【142053078936299†L295-L311】." },
-    "eikthyrdeer-partner-skill": { "title": "Eikthyrdeer – Palworld Wiki", "url": "https://palworld.fandom.com/wiki/Eikthyrdeer", "access_date": "2025-09-30", "notes": "Describes the partner skill ‘Guardian of the Forest’ – the Pal can be ridden, enables double jump and increases tree‑cutting efficiency【142053078936299†L123-L142】." },
-    "paldb-foxparks-partner": { "title": "Foxparks – PalDB", "url": "https://paldb.cc/pal/foxparks", "access_date": "2025-09-30", "notes": "Mentions the partner skill ‘Huggy Fire’ which equips Foxparks as a flamethrower and its work suitability (Kindling Lv1)【513843636763139†L117-L170】." },
-    "palwiki-direhowl-recipe": { "title": "Direhowl Saddled Harness – Palworld Wiki", "url": "https://palworld.fandom.com/wiki/Direhowl_Saddled_Harness", "access_date": "2025-09-30", "notes": "Provides the Direhowl harness recipe (10 Leather, 20 Wood, 15 Fiber, 10 Paldium Fragments) and states it unlocks at level 9 with 1 tech point【197143349627535†L151-L156】." },
-    "palwiki-nitewing-saddle": { "title": "Nitewing Saddled Harness – Palworld Wiki", "url": "https://palworld.fandom.com/wiki/Nitewing_Saddle", "access_date": "2025-09-30", "notes": "Lists the Nitewing saddle recipe (20 Leather, 10 Cloth, 15 Ingots, 20 Fiber, 20 Paldium Fragments) and level requirements【524512399342633†L151-L156】." },
-    "updatecrazy-patch-067": { "title": "Palworld Update v0.6.7 Patch Notes", "url": "https://updatecrazy.com/palworld-update-v0-6-7-patch-notes", "access_date": "2025-09-30", "notes": "Confirms game version 1.079.736 released on Sept 29 2025 and fixes relating to dungeon crashes【353708512100491†L31-L56】." },
-    "goleap-region-levels": { "title": "Palworld Map Level Zones", "url": "https://www.gameleap.com/palworld-map-level-zones", "access_date": "2025-09-30", "notes": "Provides level ranges for each region (e.g. Windswept Hills 1–15, Sea Breeze Archipelago 1–10)【950757978743332†L131-L147】." },
-    "gosunoob-vixy-breeding": { "title": "Palworld – Vixy Breeding Combinations", "url": "https://www.gosunoob.com/palworld/vixy-breeding/", "access_date": "2025-09-30", "notes": "Lists combos that produce Vixy and notes its work suitability and drops【506019502892519†screenshot】【761280216223901†screenshot】." }
-    ,"pcgamesn-bosses": { "title": "All Palworld bosses in order and how to beat them", "url": "https://www.pcgamesn.com/palworld/bosses", "access_date": "2025-09-30", "notes": "Provides details on tower bosses including Zoe & Grizzbolt, coordinates (112, -434), challenge damage (30K), recommended ground Pals and tactics【825211382965329†L103-L118】; also lists Nitewing as an Alpha Pal at Ice Wind Island (level 18)【825211382965329†L294-L302】 and Jetragon at Mount Obsidian (level 50)【825211382965329†L337-L339】." }
-    ,"pcgamer-grappling-gun": { "title": "Palworld grappling gun guide", "url": "https://www.pcgamer.com/palworld-grappling-gun-crafting/", "access_date": "2025-09-30", "notes": "Explains that the Grappling Gun unlocks at level 12 and costs 1 Ancient Technology Point; crafting requires 10 Paldium Fragments, 10 Ingots, 30 Fiber and 1 Ancient Civilization Part【312162085103617†L180-L205】." }
-    ,"pcgamesn-jetragon": { "title": "All Palworld bosses in order and how to beat them – Jetragon entry", "url": "https://www.pcgamesn.com/palworld/bosses", "access_date": "2025-09-30", "notes": "States that Jetragon is a level 50 Legendary Celestial Dragon found at Mount Obsidian【825211382965329†L337-L339】." }
-    ,"palwiki-humans": { "title": "Humans – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Humans", "access_date": "2025-09-30", "notes": "Explains that non-leader humans can be captured with Pal Spheres, have lower catch rates needing higher-grade spheres, cannot use their weapons, and merchants stationed at bases provide permanent shop access despite only rank 1 work suitability.【529f5c†L67-L90】【94455f†L13-L18】" }
-    ,"palwiki-small-settlement": { "title": "Small Settlement – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Small_Settlement", "access_date": "2025-09-30", "notes": "Gives the Small Settlement coordinates (~75,-479) and lists the Pal Merchant and Wandering Merchant inhabitants available to capture.【165dd8†L71-L90】" }
-    ,"palwiki-paldium": { "title": "Paldium Fragment – Palworld Wiki", "url": "https://palworld.fandom.com/wiki/Paldium_Fragment", "access_date": "2025-09-30", "notes": "Lists river, cliff and smelting sources for Paldium Fragments including respawn timers and conversion tips【palwiki-paldium†L42-L71】【palwiki-paldium†L86-L115】【palwiki-paldium†L118-L140】." }
-    ,"palwiki-lamball": { "title": "Lamball – The Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Lamball", "access_date": "2025-10-01", "notes": "Details Lamball drops, ranch production, and spawn regions in Windswept Hills and Sea Breeze Archipelago.【1e15ae†L1-L6】【9dc91d†L1-L5】【ca929c†L1-L7】【0fa8e2†L1-L4】" }
-    ,"palwiki-chikipi": { "title": "Chikipi – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Chikipi", "access_date": "2025-10-01", "notes": "States that Chikipi roam the Windswept Hills, lay eggs on the ground, and their Egg Layer partner skill produces eggs at the ranch.【7b6ddf†L1-L27】【c48565†L1-L10】【cca570†L1-L2】" }
-    ,"palwiki-pengullet": { "title": "Pengullet – The Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Pengullet", "access_date": "2025-10-01", "notes": "Confirms Pengullet drop Pal Fluids and describes their coastal behaviour and utility.【75c8b4†L10-L45】" }
-    ,"palwiki-pengullet-fandom": { "title": "Pengullet – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Pengullet", "access_date": "2025-10-01", "notes": "Lists Windswept Hills as a wild spawn region for Pengullet along with dungeon appearances.【7e854f†L1-L9】" }
-    ,"palwiki-fuack": { "title": "Fuack – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Fuack", "access_date": "2025-10-01", "notes": "Notes Fuack roam bodies of water in the Windswept Hills and drop both Leather and Pal Fluids when defeated.【edfa41†L1-L12】【904908†L1-L10】" }
-    ,"pcgamesn-sulfur": { "title": "Where to get Palworld Sulfur", "url": "https://www.pcgamesn.com/palworld/sulfur", "access_date": "2025-10-05", "notes": "Describes sulfur spawns at the Mossanda Forest ravine (234,-118), Mount Obsidian volcanic loops, and chest staging near the Eternal Pyre Tower Entrance.【951f6a†L9-L20】" }
-    ,"palwiki-sulfur": { "title": "Sulfur – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Sulfur", "access_date": "2025-10-05", "notes": "States sulfur can be mined from volcanic rocks and the dedicated Sulfur Mine.【449b54†L5-L8】" }
-    ,"pcgamesn-pure-quartz": { "title": "Where to get Palworld Pure Quartz", "url": "https://www.pcgamesn.com/palworld/pure-quartz", "access_date": "2025-10-05", "notes": "Locates Pure Quartz in the Astral Mountain snowy biome, recommends high-durability pickaxes, and suggests building an Astral base for passive mining.【def911†L13-L23】" }
-    ,"palwiki-pure-quartz": { "title": "Pure Quartz – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Pure_Quartz", "access_date": "2025-10-05", "notes": "Explains Pure Quartz rocks populate the Astral Mountain snowy fields and benefit from mining helpers like Xenogard.【eeb471†L1-L3】" }
-    ,"pcgamesn-polymer": { "title": "Palworld Polymer crafting guide", "url": "https://www.pcgamesn.com/palworld/polymer", "access_date": "2025-10-05", "notes": "Shows that Polymer unlocks at Technology level 33 on the Production Assembly Line and requires High Quality Pal Oil plus handiwork Pals to automate output.【efa13d†L1-L16】" }
-    ,"palwiki-polymer": { "title": "Polymer – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Polymer", "access_date": "2025-10-05", "notes": "Lists Polymer as crafted from 2 High Quality Pal Oil, weighs 0.5, and unlocks via the Technology branch.【99ff2c†L5-L11】" }
-    ,"palwiki-high-quality-pal-oil": { "title": "High Quality Pal Oil – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/High_Quality_Pal_Oil", "access_date": "2025-10-05", "notes": "Catalogs High Quality Pal Oil sources including merchants, Dumud ranching, and high-tier Pals like Quivern and Relaxaurus.【969e9d†L1-L8】" }
-    ,"palwiki-charcoal": { "title": "Charcoal – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Charcoal", "access_date": "2025-10-05", "notes": "States charcoal is crafted at any furnace, weighs 2, and costs 2 Wood per batch for gunpowder prep.【18fa49†L1-L1】【ac044b†L1-L7】" }
-    ,"palwiki-gunpowder": { "title": "Gunpowder – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Gunpowder", "access_date": "2025-10-05", "notes": "Confirms gunpowder is a tier 21 tech crafted at a High Quality Workbench or better using 2 Charcoal and 1 Sulfur for ammunition.【31b0ff†L1-L1】【4c6362†L1-L1】" }
-    ,"pcgamesn-beautiful-flower": { "title": "Palworld beautiful flower locations", "url": "https://www.pcgamesn.com/palworld/beautiful-flower", "access_date": "2025-10-07", "notes": "Lists Ribbunny, Petallia, Wumpo, and Lyleen as flower drops and explains Strange Juice crafting at the Medieval Medicine Workbench.【ba24e5†L18-L37】【0ed4ae†L1-L12】" }
-    ,"palwiki-wildlife-sanctuary": { "title": "Wildlife Sanctuary – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Wildlife_Sanctuary", "access_date": "2025-10-07", "notes": "Explains trespassing penalties and that Sanctuary No.1 hosts level 20-25 pals while No.2 and No.3 feature level 50 threats.【f574c5†L5-L24】" }
-    ,"palwiki-wildlife-sanctuary-1": { "title": "No. 1 Wildlife Sanctuary – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/No._1_Wildlife_Sanctuary", "access_date": "2025-10-07", "notes": "Gives the island’s coordinates (90,-735), highlights resident pals, and confirms Beautiful Flower harvesting there.【fe9924†L1-L20】" }
-    ,"palwiki-wildlife-sanctuary-2": { "title": "No. 2 Wildlife Sanctuary – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/No._2_Wildlife_Sanctuary", "access_date": "2025-10-07", "notes": "Provides coordinates (-675,-113) and lists late-game pals plus Beautiful Flower, Sulfur, and Ore spawns.【15adf0†L1-L22】" }
-    ,"palwiki-wildlife-sanctuary-3": { "title": "No. 3 Wildlife Sanctuary – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/No._3_Wildlife_Sanctuary", "access_date": "2025-10-07", "notes": "Locates the island at (669,640) and details Lyleen, Shadowbeak, and other high-level pals alongside Beautiful Flowers.【c5acbe†L1-L19】" }
-    ,"palwiki-ribbuny": { "title": "Ribbuny – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Ribbuny", "access_date": "2025-10-07", "notes": "Drop table shows Beautiful Flower as a rare drop alongside Leather and Ribbuny Ribbon while outlining work skills.【9be50c†L31-L59】" }
-    ,"palwiki-petallia": { "title": "Petallia – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Petallia", "access_date": "2025-10-07", "notes": "Confirms Petallia guarantees 2-3 Beautiful Flowers per defeat and only appears in Sanctuary No.1 with healing partner skills.【9f35a4†L31-L52】" }
-    ,"palwiki-beautiful-flower": { "title": "Beautiful Flower – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Beautiful_Flower", "access_date": "2025-10-07", "notes": "States the ingredient is harvested in every Wildlife Sanctuary and fuels Strange Juice recipes.【21cd8a†L1-L28】" }
-    ,"pcgamesn-carbon-fiber": { "title": "How to get Palworld Carbon Fiber", "url": "https://www.pcgamesn.com/palworld/carbon-fiber", "access_date": "2025-10-07", "notes": "Explains unlocking the Production Assembly Line at level 28, the 2 Coal/5 Charcoal crafting inputs, and legendary drop alternatives from Jetragon or Shadowbeak.【2b82ab†L138-L145】" }
-    ,"palwiki-carbon-fiber": { "title": "Carbon Fiber – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Carbon_Fiber", "access_date": "2025-10-07", "notes": "Lists Production Assembly Line recipes converting Coal or Charcoal into Carbon Fiber and documents unlock requirements.【f7ee05†L1-L28】" }
-    ,"palwiki-production-assembly-line": { "title": "Production Assembly Line – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Production_Assembly_Line", "access_date": "2025-10-07", "notes": "Details the station’s level 28 unlock, material costs (100 Ingots, 50 Wood, 20 Nails, 10 Cement), and need for handiwork pals plus power.【5d3253†L1-L35】" }
-    ,"palwiki-jetragon": { "title": "Jetragon – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Jetragon", "access_date": "2025-10-07", "notes": "Drop table shows Carbon Fiber, Polymer, and Pure Quartz rewards from the legendary Mount Obsidian dragon.【278868†L31-L60】" }
-    ,"palwiki-shadowbeak": { "title": "Shadowbeak – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Shadowbeak", "access_date": "2025-10-07", "notes": "Lists Carbon Fiber and Pal Metal Ingot drops plus its Sanctuary No.3 habitat and combat profile.【eac1d9†L33-L62】" }
-    ,"palwiki-berry-seeds": { "title": "Berry Seeds – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Berry_Seeds", "access_date": "2025-10-09", "notes": "Explains Berry Seeds drop from berry bushes and certain Pals and that Berry Plantations cost 3 seeds, 20 Wood, and 20 Stone.【bcbe7f†L1-L8】" }
-    ,"zilliongamer-berry-seeds": { "title": "Palworld | Berry Seeds Location & Crafting Recipe", "url": "https://zilliongamer.com/palworld/c/materials/berry-seeds-palworld", "access_date": "2025-10-09", "notes": "States Lifmunk and Gumoss guarantee Berry Seed drops, picking berries yields seeds, and plantations convert seeds into berry farms.【74f880†L1-L45】" }
-    ,"gamesfuze-lifmunk": { "title": "Where to Find and Catch Lifmunk in Palworld", "url": "https://gamesfuze.com/guides/where-to-find-and-catch-lifmunk-in-palworld/", "access_date": "2025-10-09", "notes": "Pins Lifmunk north of Rayne Syndicate Tower at (117,-405), notes Berry Seed drops, and recommends fire-element allies for captures.【b765fb†L6-L17】" }
-    ,"dexerto-gumoss": { "title": "Where to find and catch Gumoss in Palworld", "url": "https://www.dexerto.com/palworld/where-to-find-and-catch-gumoss-in-palworld-2498063/", "access_date": "2025-10-09", "notes": "Highlights Gumoss habitats including Small Settlement and Investigator's Fork with best coordinates 208,-476 and 198,-482.【7da1bf†L8-L18】" }
-    ,"palwiki-lifmunk": { "title": "Lifmunk – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Lifmunk", "access_date": "2025-10-09", "notes": "Lists Berry Seeds as a drop, outlines Lifmunk work skills, and confirms Windswept Hills habitat.【a54223†L1-L24】" }
-    ,"palwiki-mozzarina": { "title": "Mozzarina – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Mozzarina", "access_date": "2025-10-11", "notes": "Documents Milk Maker’s ranch production and that Mozzarina drop milk at 100% in both normal and alpha variants.【a877d4†L10-L35】" }
-    ,"palwiki-gumoss": { "title": "Gumoss – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Gumoss", "access_date": "2025-10-09", "notes": "Confirms Gumoss drops Berry Seeds and Gumoss Leaf and describes the special flower variant.【1e725f†L1-L8】" }
-    ,"palwiki-ranch": { "title": "Ranch – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Ranch", "access_date": "2025-10-11", "notes": "Shows Ranch unlock requirements (level 5, two tech points) and build costs of 50 Wood, 20 Stone, and 30 Fiber.【1a1614†L1-L16】" }
-    ,"palwiki-sealed-realms": { "title": "Sealed Realms – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Sealed_Realms", "access_date": "2025-10-11", "notes": "Lists every sealed realm with coordinates, including Sealed Realm of the Swordmaster at (-117,-490).【124c92†L57-L61】" }
-    ,"pcgamesn-high-quality-pal-oil": { "title": "Where to find Palworld High Quality Pal Oil", "url": "https://www.pcgamesn.com/palworld/high-quality-pal-oil", "access_date": "2025-10-10", "notes": "Calls out the Mossanda Forest lava ravine at (231,-119), merchant restocks, and Woolipop rotations for High Quality Pal Oil farming.【9cc14d†L17-L24】" }
-    ,"pcgamesn-milk": { "title": "Where to get Palworld milk", "url": "https://www.pcgamesn.com/palworld/milk", "access_date": "2025-10-11", "notes": "Explains you can ranch Mozzarina for guaranteed milk and buy extra bottles from the Small Settlement merchant for 100 gold.【63794d†L1-L14】" }
-    ,"palwiki-flambelle": { "title": "Flambelle – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Flambelle", "access_date": "2025-10-10", "notes": "Lists Flambelle’s guaranteed drops, including 1 High Quality Pal Oil per defeat.【c3b8c9†L23-L37】" }
-    ,"palwiki-woolipop": { "title": "Woolipop – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Woolipop", "access_date": "2025-10-10", "notes": "Shows Woolipop drops 1 High Quality Pal Oil alongside Cotton Candy and documents its ranch output.【c81b10†L13-L41】" }
-    ,"segmentnext-mozzarina": { "title": "Palworld: Mozzarina Location (& Best Breeding Combos)", "url": "https://segmentnext.com/palworld-mozzarina/", "access_date": "2025-10-11", "notes": "Highlights Mozzarina herds grazing in the southern Bamboo Groves just north of the Sealed Realm of the Swordmaster and between nearby fast travel points.【69a959†L1-L6】" }
+    "paldb-primitive-workbench": {
+      "title": "Primitive Workbench \u2013 PalDB",
+      "url": "https://paldb.cc/station/primitive-workbench",
+      "access_date": "2025-09-30",
+      "notes": "Shows that the Primitive Workbench requires 2 Wood to build\u3010907636800064548\u2020screenshot\u3011."
+    },
+    "thegamer-foxparks-spawn": {
+      "title": "Palworld: How To Find And Capture Foxparks",
+      "url": "https://www.thegamer.com/palworld-foxparks-location-guide/",
+      "access_date": "2025-09-30",
+      "notes": "Provides spawn coordinates for Foxparks and notes they are kindling Pals\u3010956200907149478\u2020L146-L169\u3011."
+    },
+    "namehero-xp-capture": {
+      "title": "Palworld Leveling Guide",
+      "url": "https://www.namehero.com/game-guides/palworld-leveling-guide/",
+      "access_date": "2025-09-30",
+      "notes": "Highlights that capturing Pals yields more XP than defeating them\u3010116860197722081\u2020L96-L128\u3011."
+    },
+    "shockbyte-leather-sources": {
+      "title": "Palworld: How To Get Leather",
+      "url": "https://shockbyte.com/blog/how-to-get-leather-in-palworld",
+      "access_date": "2025-09-30",
+      "notes": "Lists Pals that drop Leather and notes the Sea\u00a0Breeze Archipelago Church and Bridge of the Twin Knights as farming locations\u3010840767909995613\u2020L78-L100\u3011\u3010840767909995613\u2020L106-L135\u3011."
+    },
+    "shockbyte-leather-merchant": {
+      "title": "Palworld: How To Get Leather",
+      "url": "https://shockbyte.com/blog/how-to-get-leather-in-palworld",
+      "access_date": "2025-09-30",
+      "notes": "Notes that Wandering Merchants sell Leather for about 150\u00a0gold each\u3010840767909995613\u2020L78-L100\u3011."
+    },
+    "gameclubz-foxparks-harness": {
+      "title": "Palworld \u2013 How to Unlock and Use Foxparks Harness",
+      "url": "https://gameclubz.com/palworld/foxparks-harness-guide",
+      "access_date": "2025-09-30",
+      "notes": "Provides the Foxparks Harness recipe (3\u00a0Leather, 5\u00a0Flame Organs, 5\u00a0Paldium Fragments) and explains unlocking at level\u00a06 after catching Foxparks\u3010353245298505537\u2020L150-L180\u3011."
+    },
+    "gameclubz-eikthyrdeer-saddle": {
+      "title": "Palworld \u2013 Eikthyrdeer Saddle Guide",
+      "url": "https://gameclubz.com/palworld/eikthyrdeer-saddle-guide",
+      "access_date": "2025-09-30",
+      "notes": "States that the Eikthyrdeer Saddle unlocks at level\u00a012 with 2\u00a0tech points and lists required materials (5\u00a0Leather, 20\u00a0Fiber, 10\u00a0Ingots, 3\u00a0Horns, 15\u00a0Paldium Fragments)\u3010963225160620124\u2020L160-L167\u3011."
+    },
+    "eikthyrdeer-drops": {
+      "title": "Eikthyrdeer \u2013 Palworld Wiki",
+      "url": "https://palworld.fandom.com/wiki/Eikthyrdeer",
+      "access_date": "2025-09-30",
+      "notes": "Lists Eikthyrdeer drops: 2\u00a0Venison, 2\u20133\u00a0Leather and 2\u00a0Horns at 100\u00a0% drop rate\u3010142053078936299\u2020L295-L311\u3011."
+    },
+    "eikthyrdeer-partner-skill": {
+      "title": "Eikthyrdeer \u2013 Palworld Wiki",
+      "url": "https://palworld.fandom.com/wiki/Eikthyrdeer",
+      "access_date": "2025-09-30",
+      "notes": "Describes the partner skill \u2018Guardian of the Forest\u2019 \u2013 the Pal can be ridden, enables double jump and increases tree\u2011cutting efficiency\u3010142053078936299\u2020L123-L142\u3011."
+    },
+    "paldb-foxparks-partner": {
+      "title": "Foxparks \u2013 PalDB",
+      "url": "https://paldb.cc/pal/foxparks",
+      "access_date": "2025-09-30",
+      "notes": "Mentions the partner skill \u2018Huggy Fire\u2019 which equips Foxparks as a flamethrower and its work suitability (Kindling Lv1)\u3010513843636763139\u2020L117-L170\u3011."
+    },
+    "palwiki-direhowl-recipe": {
+      "title": "Direhowl Saddled Harness \u2013 Palworld Wiki",
+      "url": "https://palworld.fandom.com/wiki/Direhowl_Saddled_Harness",
+      "access_date": "2025-09-30",
+      "notes": "Provides the Direhowl harness recipe (10\u00a0Leather, 20\u00a0Wood, 15\u00a0Fiber, 10\u00a0Paldium Fragments) and states it unlocks at level\u00a09 with 1\u00a0tech point\u3010197143349627535\u2020L151-L156\u3011."
+    },
+    "palwiki-nitewing-saddle": {
+      "title": "Nitewing Saddled Harness \u2013 Palworld Wiki",
+      "url": "https://palworld.fandom.com/wiki/Nitewing_Saddle",
+      "access_date": "2025-09-30",
+      "notes": "Lists the Nitewing saddle recipe (20\u00a0Leather, 10\u00a0Cloth, 15\u00a0Ingots, 20\u00a0Fiber, 20\u00a0Paldium Fragments) and level requirements\u3010524512399342633\u2020L151-L156\u3011."
+    },
+    "updatecrazy-patch-067": {
+      "title": "Palworld Update v0.6.7 Patch Notes",
+      "url": "https://updatecrazy.com/palworld-update-v0-6-7-patch-notes",
+      "access_date": "2025-09-30",
+      "notes": "Confirms game version 1.079.736 released on Sept\u00a029\u00a02025 and fixes relating to dungeon crashes\u3010353708512100491\u2020L31-L56\u3011."
+    },
+    "goleap-region-levels": {
+      "title": "Palworld Map Level Zones",
+      "url": "https://www.gameleap.com/palworld-map-level-zones",
+      "access_date": "2025-09-30",
+      "notes": "Provides level ranges for each region (e.g. Windswept Hills 1\u201315, Sea\u00a0Breeze Archipelago 1\u201310)\u3010950757978743332\u2020L131-L147\u3011."
+    },
+    "gosunoob-vixy-breeding": {
+      "title": "Palworld \u2013 Vixy Breeding Combinations",
+      "url": "https://www.gosunoob.com/palworld/vixy-breeding/",
+      "access_date": "2025-09-30",
+      "notes": "Lists combos that produce Vixy and notes its work suitability and drops\u3010506019502892519\u2020screenshot\u3011\u3010761280216223901\u2020screenshot\u3011."
+    },
+    "pcgamesn-bosses": {
+      "title": "All Palworld bosses in order and how to beat them",
+      "url": "https://www.pcgamesn.com/palworld/bosses",
+      "access_date": "2025-09-30",
+      "notes": "Provides details on tower bosses including Zoe & Grizzbolt, coordinates (112,\u00a0-434), challenge damage (30K), recommended ground Pals and tactics\u3010825211382965329\u2020L103-L118\u3011; also lists Nitewing as an Alpha Pal at Ice Wind Island (level\u00a018)\u3010825211382965329\u2020L294-L302\u3011 and Jetragon at Mount Obsidian (level\u00a050)\u3010825211382965329\u2020L337-L339\u3011."
+    },
+    "pcgamer-grappling-gun": {
+      "title": "Palworld grappling gun guide",
+      "url": "https://www.pcgamer.com/palworld-grappling-gun-crafting/",
+      "access_date": "2025-09-30",
+      "notes": "Explains that the Grappling Gun unlocks at level\u00a012 and costs 1\u00a0Ancient Technology Point; crafting requires 10\u00a0Paldium Fragments, 10\u00a0Ingots, 30\u00a0Fiber and 1\u00a0Ancient Civilization Part\u3010312162085103617\u2020L180-L205\u3011."
+    },
+    "pcgamesn-jetragon": {
+      "title": "All Palworld bosses in order and how to beat them \u2013 Jetragon entry",
+      "url": "https://www.pcgamesn.com/palworld/bosses",
+      "access_date": "2025-09-30",
+      "notes": "States that Jetragon is a level\u00a050 Legendary Celestial Dragon found at Mount Obsidian\u3010825211382965329\u2020L337-L339\u3011."
+    },
+    "palwiki-humans": {
+      "title": "Humans \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Humans",
+      "access_date": "2025-09-30",
+      "notes": "Explains that non-leader humans can be captured with Pal Spheres, have lower catch rates needing higher-grade spheres, cannot use their weapons, and merchants stationed at bases provide permanent shop access despite only rank\u00a01 work suitability.\u3010529f5c\u2020L67-L90\u3011\u301094455f\u2020L13-L18\u3011"
+    },
+    "palwiki-small-settlement": {
+      "title": "Small Settlement \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Small_Settlement",
+      "access_date": "2025-09-30",
+      "notes": "Gives the Small Settlement coordinates (~75,-479) and lists the Pal Merchant and Wandering Merchant inhabitants available to capture.\u3010165dd8\u2020L71-L90\u3011"
+    },
+    "palwiki-paldium": {
+      "title": "Paldium Fragment \u2013 Palworld Wiki",
+      "url": "https://palworld.fandom.com/wiki/Paldium_Fragment",
+      "access_date": "2025-09-30",
+      "notes": "Lists river, cliff and smelting sources for Paldium Fragments including respawn timers and conversion tips\u3010palwiki-paldium\u2020L42-L71\u3011\u3010palwiki-paldium\u2020L86-L115\u3011\u3010palwiki-paldium\u2020L118-L140\u3011."
+    },
+    "palwiki-lamball": {
+      "title": "Lamball \u2013 The Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Lamball",
+      "access_date": "2025-10-01",
+      "notes": "Details Lamball drops, ranch production, and spawn regions in Windswept Hills and Sea Breeze Archipelago.\u30101e15ae\u2020L1-L6\u3011\u30109dc91d\u2020L1-L5\u3011\u3010ca929c\u2020L1-L7\u3011\u30100fa8e2\u2020L1-L4\u3011"
+    },
+    "palwiki-chikipi": {
+      "title": "Chikipi \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Chikipi",
+      "access_date": "2025-10-01",
+      "notes": "States that Chikipi roam the Windswept Hills, lay eggs on the ground, and their Egg Layer partner skill produces eggs at the ranch.\u30107b6ddf\u2020L1-L27\u3011\u3010c48565\u2020L1-L10\u3011\u3010cca570\u2020L1-L2\u3011"
+    },
+    "palwiki-pengullet": {
+      "title": "Pengullet \u2013 The Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Pengullet",
+      "access_date": "2025-10-01",
+      "notes": "Confirms Pengullet drop Pal Fluids and describes their coastal behaviour and utility.\u301075c8b4\u2020L10-L45\u3011"
+    },
+    "palwiki-pengullet-fandom": {
+      "title": "Pengullet \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Pengullet",
+      "access_date": "2025-10-01",
+      "notes": "Lists Windswept Hills as a wild spawn region for Pengullet along with dungeon appearances.\u30107e854f\u2020L1-L9\u3011"
+    },
+    "palwiki-fuack": {
+      "title": "Fuack \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Fuack",
+      "access_date": "2025-10-01",
+      "notes": "Notes Fuack roam bodies of water in the Windswept Hills and drop both Leather and Pal Fluids when defeated.\u3010edfa41\u2020L1-L12\u3011\u3010904908\u2020L1-L10\u3011"
+    },
+    "pcgamesn-sulfur": {
+      "title": "Where to get Palworld Sulfur",
+      "url": "https://www.pcgamesn.com/palworld/sulfur",
+      "access_date": "2025-10-05",
+      "notes": "Describes sulfur spawns at the Mossanda Forest ravine (234,-118), Mount Obsidian volcanic loops, and chest staging near the Eternal Pyre Tower Entrance.\u3010951f6a\u2020L9-L20\u3011"
+    },
+    "palwiki-sulfur": {
+      "title": "Sulfur \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Sulfur",
+      "access_date": "2025-10-05",
+      "notes": "States sulfur can be mined from volcanic rocks and the dedicated Sulfur Mine.\u3010449b54\u2020L5-L8\u3011"
+    },
+    "pcgamesn-pure-quartz": {
+      "title": "Where to get Palworld Pure Quartz",
+      "url": "https://www.pcgamesn.com/palworld/pure-quartz",
+      "access_date": "2025-10-05",
+      "notes": "Locates Pure Quartz in the Astral Mountain snowy biome, recommends high-durability pickaxes, and suggests building an Astral base for passive mining.\u3010def911\u2020L13-L23\u3011"
+    },
+    "palwiki-pure-quartz": {
+      "title": "Pure Quartz \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Pure_Quartz",
+      "access_date": "2025-10-05",
+      "notes": "Explains Pure Quartz rocks populate the Astral Mountain snowy fields and benefit from mining helpers like Xenogard.\u3010eeb471\u2020L1-L3\u3011"
+    },
+    "pcgamesn-polymer": {
+      "title": "Palworld Polymer crafting guide",
+      "url": "https://www.pcgamesn.com/palworld/polymer",
+      "access_date": "2025-10-05",
+      "notes": "Shows that Polymer unlocks at Technology level 33 on the Production Assembly Line and requires High Quality Pal Oil plus handiwork Pals to automate output.\u3010efa13d\u2020L1-L16\u3011"
+    },
+    "palwiki-polymer": {
+      "title": "Polymer \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Polymer",
+      "access_date": "2025-10-05",
+      "notes": "Lists Polymer as crafted from 2 High Quality Pal Oil, weighs 0.5, and unlocks via the Technology branch.\u301099ff2c\u2020L5-L11\u3011"
+    },
+    "palwiki-high-quality-pal-oil": {
+      "title": "High Quality Pal Oil \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/High_Quality_Pal_Oil",
+      "access_date": "2025-10-05",
+      "notes": "Catalogs High Quality Pal Oil sources including merchants, Dumud ranching, and high-tier Pals like Quivern and Relaxaurus.\u3010969e9d\u2020L1-L8\u3011"
+    },
+    "palwiki-charcoal": {
+      "title": "Charcoal \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Charcoal",
+      "access_date": "2025-10-05",
+      "notes": "States charcoal is crafted at any furnace, weighs 2, and costs 2 Wood per batch for gunpowder prep.\u301018fa49\u2020L1-L1\u3011\u3010ac044b\u2020L1-L7\u3011"
+    },
+    "palwiki-gunpowder": {
+      "title": "Gunpowder \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Gunpowder",
+      "access_date": "2025-10-05",
+      "notes": "Confirms gunpowder is a tier 21 tech crafted at a High Quality Workbench or better using 2 Charcoal and 1 Sulfur for ammunition.\u301031b0ff\u2020L1-L1\u3011\u30104c6362\u2020L1-L1\u3011"
+    },
+    "pcgamesn-beautiful-flower": {
+      "title": "Palworld beautiful flower locations",
+      "url": "https://www.pcgamesn.com/palworld/beautiful-flower",
+      "access_date": "2025-10-07",
+      "notes": "Lists Ribbunny, Petallia, Wumpo, and Lyleen as flower drops and explains Strange Juice crafting at the Medieval Medicine Workbench.\u3010ba24e5\u2020L18-L37\u3011\u30100ed4ae\u2020L1-L12\u3011"
+    },
+    "palwiki-wildlife-sanctuary": {
+      "title": "Wildlife Sanctuary \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Wildlife_Sanctuary",
+      "access_date": "2025-10-07",
+      "notes": "Explains trespassing penalties and that Sanctuary No.1 hosts level 20-25 pals while No.2 and No.3 feature level 50 threats.\u3010f574c5\u2020L5-L24\u3011"
+    },
+    "palwiki-wildlife-sanctuary-1": {
+      "title": "No. 1 Wildlife Sanctuary \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/No._1_Wildlife_Sanctuary",
+      "access_date": "2025-10-07",
+      "notes": "Gives the island\u2019s coordinates (90,-735), highlights resident pals, and confirms Beautiful Flower harvesting there.\u3010fe9924\u2020L1-L20\u3011"
+    },
+    "palwiki-wildlife-sanctuary-2": {
+      "title": "No. 2 Wildlife Sanctuary \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/No._2_Wildlife_Sanctuary",
+      "access_date": "2025-10-07",
+      "notes": "Provides coordinates (-675,-113) and lists late-game pals plus Beautiful Flower, Sulfur, and Ore spawns.\u301015adf0\u2020L1-L22\u3011"
+    },
+    "palwiki-wildlife-sanctuary-3": {
+      "title": "No. 3 Wildlife Sanctuary \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/No._3_Wildlife_Sanctuary",
+      "access_date": "2025-10-07",
+      "notes": "Locates the island at (669,640) and details Lyleen, Shadowbeak, and other high-level pals alongside Beautiful Flowers.\u3010c5acbe\u2020L1-L19\u3011"
+    },
+    "palwiki-ribbuny": {
+      "title": "Ribbuny \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Ribbuny",
+      "access_date": "2025-10-07",
+      "notes": "Drop table shows Beautiful Flower as a rare drop alongside Leather and Ribbuny Ribbon while outlining work skills.\u30109be50c\u2020L31-L59\u3011"
+    },
+    "palwiki-petallia": {
+      "title": "Petallia \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Petallia",
+      "access_date": "2025-10-07",
+      "notes": "Confirms Petallia guarantees 2-3 Beautiful Flowers per defeat and only appears in Sanctuary No.1 with healing partner skills.\u30109f35a4\u2020L31-L52\u3011"
+    },
+    "palwiki-beautiful-flower": {
+      "title": "Beautiful Flower \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Beautiful_Flower",
+      "access_date": "2025-10-07",
+      "notes": "States the ingredient is harvested in every Wildlife Sanctuary and fuels Strange Juice recipes.\u301021cd8a\u2020L1-L28\u3011"
+    },
+    "pcgamesn-carbon-fiber": {
+      "title": "How to get Palworld Carbon Fiber",
+      "url": "https://www.pcgamesn.com/palworld/carbon-fiber",
+      "access_date": "2025-10-07",
+      "notes": "Explains unlocking the Production Assembly Line at level 28, the 2 Coal/5 Charcoal crafting inputs, and legendary drop alternatives from Jetragon or Shadowbeak.\u30102b82ab\u2020L138-L145\u3011"
+    },
+    "palwiki-carbon-fiber": {
+      "title": "Carbon Fiber \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Carbon_Fiber",
+      "access_date": "2025-10-07",
+      "notes": "Lists Production Assembly Line recipes converting Coal or Charcoal into Carbon Fiber and documents unlock requirements.\u3010f7ee05\u2020L1-L28\u3011"
+    },
+    "palwiki-production-assembly-line": {
+      "title": "Production Assembly Line \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Production_Assembly_Line",
+      "access_date": "2025-10-07",
+      "notes": "Details the station\u2019s level 28 unlock, material costs (100 Ingots, 50 Wood, 20 Nails, 10 Cement), and need for handiwork pals plus power.\u30105d3253\u2020L1-L35\u3011"
+    },
+    "palwiki-jetragon": {
+      "title": "Jetragon \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Jetragon",
+      "access_date": "2025-10-07",
+      "notes": "Drop table shows Carbon Fiber, Polymer, and Pure Quartz rewards from the legendary Mount Obsidian dragon.\u3010278868\u2020L31-L60\u3011"
+    },
+    "palwiki-shadowbeak": {
+      "title": "Shadowbeak \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Shadowbeak",
+      "access_date": "2025-10-07",
+      "notes": "Lists Carbon Fiber and Pal Metal Ingot drops plus its Sanctuary No.3 habitat and combat profile.\u3010eac1d9\u2020L33-L62\u3011"
+    },
+    "palwiki-berry-seeds": {
+      "title": "Berry Seeds \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Berry_Seeds",
+      "access_date": "2025-10-09",
+      "notes": "Explains Berry Seeds drop from berry bushes and certain Pals and that Berry Plantations cost 3 seeds, 20 Wood, and 20 Stone.\u3010bcbe7f\u2020L1-L8\u3011"
+    },
+    "zilliongamer-berry-seeds": {
+      "title": "Palworld | Berry Seeds Location & Crafting Recipe",
+      "url": "https://zilliongamer.com/palworld/c/materials/berry-seeds-palworld",
+      "access_date": "2025-10-09",
+      "notes": "States Lifmunk and Gumoss guarantee Berry Seed drops, picking berries yields seeds, and plantations convert seeds into berry farms.\u301074f880\u2020L1-L45\u3011"
+    },
+    "gamesfuze-lifmunk": {
+      "title": "Where to Find and Catch Lifmunk in Palworld",
+      "url": "https://gamesfuze.com/guides/where-to-find-and-catch-lifmunk-in-palworld/",
+      "access_date": "2025-10-09",
+      "notes": "Pins Lifmunk north of Rayne Syndicate Tower at (117,-405), notes Berry Seed drops, and recommends fire-element allies for captures.\u3010b765fb\u2020L6-L17\u3011"
+    },
+    "dexerto-gumoss": {
+      "title": "Where to find and catch Gumoss in Palworld",
+      "url": "https://www.dexerto.com/palworld/where-to-find-and-catch-gumoss-in-palworld-2498063/",
+      "access_date": "2025-10-09",
+      "notes": "Highlights Gumoss habitats including Small Settlement and Investigator's Fork with best coordinates 208,-476 and 198,-482.\u30107da1bf\u2020L8-L18\u3011"
+    },
+    "palwiki-lifmunk": {
+      "title": "Lifmunk \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Lifmunk",
+      "access_date": "2025-10-09",
+      "notes": "Lists Berry Seeds as a drop, outlines Lifmunk work skills, and confirms Windswept Hills habitat.\u3010a54223\u2020L1-L24\u3011"
+    },
+    "palwiki-mozzarina": {
+      "title": "Mozzarina \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Mozzarina",
+      "access_date": "2025-10-11",
+      "notes": "Documents Milk Maker\u2019s ranch production and that Mozzarina drop milk at 100% in both normal and alpha variants.\u3010a877d4\u2020L10-L35\u3011"
+    },
+    "palwiki-gumoss": {
+      "title": "Gumoss \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Gumoss",
+      "access_date": "2025-10-09",
+      "notes": "Confirms Gumoss drops Berry Seeds and Gumoss Leaf and describes the special flower variant.\u30101e725f\u2020L1-L8\u3011"
+    },
+    "palwiki-ranch": {
+      "title": "Ranch \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Ranch",
+      "access_date": "2025-10-11",
+      "notes": "Shows Ranch unlock requirements (level 5, two tech points) and build costs of 50 Wood, 20 Stone, and 30 Fiber.\u30101a1614\u2020L1-L16\u3011"
+    },
+    "palwiki-sealed-realms": {
+      "title": "Sealed Realms \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Sealed_Realms",
+      "access_date": "2025-10-11",
+      "notes": "Lists every sealed realm with coordinates, including Sealed Realm of the Swordmaster at (-117,-490).\u3010124c92\u2020L57-L61\u3011"
+    },
+    "pcgamesn-high-quality-pal-oil": {
+      "title": "Where to find Palworld High Quality Pal Oil",
+      "url": "https://www.pcgamesn.com/palworld/high-quality-pal-oil",
+      "access_date": "2025-10-10",
+      "notes": "Calls out the Mossanda Forest lava ravine at (231,-119), merchant restocks, and Woolipop rotations for High Quality Pal Oil farming.\u30109cc14d\u2020L17-L24\u3011"
+    },
+    "pcgamesn-milk": {
+      "title": "Where to get Palworld milk",
+      "url": "https://www.pcgamesn.com/palworld/milk",
+      "access_date": "2025-10-11",
+      "notes": "Explains you can ranch Mozzarina for guaranteed milk and buy extra bottles from the Small Settlement merchant for 100 gold.\u301063794d\u2020L1-L14\u3011"
+    },
+    "palwiki-flambelle": {
+      "title": "Flambelle \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Flambelle",
+      "access_date": "2025-10-10",
+      "notes": "Lists Flambelle\u2019s guaranteed drops, including 1 High Quality Pal Oil per defeat.\u3010c3b8c9\u2020L23-L37\u3011"
+    },
+    "palwiki-woolipop": {
+      "title": "Woolipop \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Woolipop",
+      "access_date": "2025-10-10",
+      "notes": "Shows Woolipop drops 1 High Quality Pal Oil alongside Cotton Candy and documents its ranch output.\u3010c81b10\u2020L13-L41\u3011"
+    },
+    "segmentnext-mozzarina": {
+      "title": "Palworld: Mozzarina Location (& Best Breeding Combos)",
+      "url": "https://segmentnext.com/palworld-mozzarina/",
+      "access_date": "2025-10-11",
+      "notes": "Highlights Mozzarina herds grazing in the southern Bamboo Groves just north of the Sealed Realm of the Swordmaster and between nearby fast travel points.\u301069a959\u2020L1-L6\u3011"
+    },
+    "palwiki-wandering-merchant": {
+      "title": "Wandering Merchant \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Wandering_Merchant",
+      "access_date": "2025-10-12",
+      "notes": "Lists merchant inventory including Berry Seeds, Wheat Seeds, Wheat, and more with shared spawn coordinates like the Small Settlement vendor (78,-477).\u3010c6adb4\u2020L34-L114\u3011"
+    },
+    "palwiki-wheat-seeds": {
+      "title": "Wheat Seeds \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Wheat_Seeds",
+      "access_date": "2025-10-12",
+      "notes": "Explains Wheat Seeds drop sources (Bristla, Dinossom, Robinquill, etc.) and that wandering merchants sell seeds for 100 gold.\u301088f287\u2020L1-L13\u3011"
+    },
+    "palwiki-wheat-plantation": {
+      "title": "Wheat Plantation \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Wheat_Plantation",
+      "access_date": "2025-10-12",
+      "notes": "Details build costs (3 Wheat Seeds, 35 Wood, 35 Stone), tier 15 unlock, and automation tips for growing Wheat.\u3010af5fcd\u2020L1-L12\u3011"
+    },
+    "palwiki-mill": {
+      "title": "Mill \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Mill",
+      "access_date": "2025-10-12",
+      "notes": "States the Mill unlocks at technology tier 15 for 2 points, costs 50 Wood and 40 Stone, and requires a Watering Pal to grind Wheat into Flour.\u3010ecbbdd\u2020L1-L16\u3011"
+    },
+    "palwiki-flour": {
+      "title": "Flour \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Flour",
+      "access_date": "2025-10-12",
+      "notes": "Covers the 3 Wheat to 1 Flour conversion, Mill requirement, and storage recommendations for preventing spoilage.\u3010bfc9eb\u2020L1-L17\u3011"
+    },
+    "palwiki-wheat": {
+      "title": "Wheat \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Wheat",
+      "access_date": "2025-10-12",
+      "notes": "Notes Wheat can be purchased from merchants or grown via Wheat Plantations before milling into Flour.\u301015b61b\u2020L1-L11\u3011"
+    },
+    "palwiki-cake": {
+      "title": "Cake \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Cake",
+      "access_date": "2025-10-12",
+      "notes": "Lists the Cake recipe (5 Flour, 8 Red Berries, 7 Milk, 8 Eggs, 2 Honey) and outlines the ranching infrastructure needed for steady production.\u301060f5d7\u2020L1-L20\u3011"
+    },
+    "palwiki-berry-plantation": {
+      "title": "Berry Plantation \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Berry_Plantation",
+      "access_date": "2025-10-12",
+      "notes": "Provides costs (3 Berry Seeds, 20 Wood, 20 Stone) and automation notes for farming Red Berries.\u30108f2b7b\u2020L1-L11\u3011"
+    },
+    "palwiki-cooking-pot": {
+      "title": "Cooking Pot \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Cooking_Pot",
+      "access_date": "2025-10-12",
+      "notes": "Explains the tier 17 unlock, 20 Wood/15 Ingot/3 Flame Organ build cost, and lists Cake among Cooking Pot recipes.\u3010f8b394\u2020L1-L12\u3011"
+    }
   }
 }
 ```
