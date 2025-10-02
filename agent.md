@@ -79,6 +79,10 @@ This document describes the responsibilities, workflows and quality assurance st
     4. **Metals, gems & currency:** Document Ore, Refined Ingot, Pal Metal Ingot, Precious Dragon Stone, Diamond, Ruby, Sapphire, Pure merchant Gold Coin loops, and supporting refinery steps with tower/alpha farming spots.
     5. **Soul & feather drops:** Map Large/Medium/Small Pal Soul farming, Penking Plume, Tocotoco Feather, Penking arena clears, and any dungeon rotations that stabilise these materials.
     6. **Aquatic & crafting basics:** Author routes for Raw Dumud, Raw Kelpsea, Bone, Nail, Paldium Fragment, and ensure resource-guide gaps close out with QA checks.
+*Progress 2025-10-13:* Built Electric Organ Relay Circuit (`resource-electric-organ`), Flame Organ Kiln Loop (`resource-flame-organ`), and Ice Organ Chill Chain (`resource-ice-organ`), updated the bundled dataset, and registered fresh Game8/Dexerto/ProGameGuides citations for organ drops, merchant pricing, and dungeon loops.
+  * Next steps: extend elemental coverage to Venom Glands, Flame/Ice organ late-game spawns (Suzaku, Frostallion variants), and lock in Katress Hair automation so polymer and ammo chains stay balanced.
+*Progress 2025-10-14:* Authored Venom Gland Vial Chain (`resource-venom-gland`) and Katress Weaving Circuit (`resource-katress-hair`), synchronized `data/guides.bundle.json`, and expanded the source registry with PalNerd, SegmentNext, GameLeap, and ProGameGuides coordinates for plateau camps, Katress patrols, and the Sealed Realm alpha.
+  * Next steps: document Venom Gland late-game elites (Helzephyr Noct, Menasting) with Feybreak/Suzaku coverage, capture Caprity Noct spawn citations beyond PalNerd, and continue elemental reagent backlog (e.g., Venom Gland merchant restocks, Katress Ignis breeding drops).
 
 ## Performance Notes
 

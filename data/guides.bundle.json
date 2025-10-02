@@ -15012,6 +15012,1690 @@
           "reason": "Breeding legendary pals benefits from weapon upgrades powered by cakes and polymer."
         }
       ]
+    },
+    {
+      "route_id": "resource-electric-organ",
+      "title": "Electric Organ Relay Circuit",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "electric-organ",
+        "early-game",
+        "combat-farm"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 8,
+        "max": 24
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Stage the Bridge of the Twin Knights hunting lane",
+        "Chain Sparkit and Jolthog clears for organ drops",
+        "Top up organ stock from Small Settlement merchants"
+      ],
+      "estimated_time_minutes": {
+        "solo": 25,
+        "coop": 18
+      },
+      "estimated_xp_gain": {
+        "min": 240,
+        "max": 360
+      },
+      "risk_profile": "low",
+      "failure_penalties": {
+        "normal": "Deaths near the tower spawn you at distant statues and cost transport time and repair bills.",
+        "hardcore": "Hardcore wipes drop your early electric pals and any organs you hauled back toward base."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Glide down from Rayne Syndicate Tower and kite Sparkit toward the bridge while Water pals soak their attacks before committing to longer loops.\u30109565e9\u2020L11-L14\u3011\u3010eec516\u2020L5-L9\u3011",
+        "overleveled": "Rotate a Twilight Dunes sweep between bridge runs so higher-level Sparkit chains keep pace with late-game conductor crafting.\u3010eec516\u2020L5-L7\u3011",
+        "resource_shortages": [
+          {
+            "item_id": "electric-organ",
+            "solution": "Buy the merchant\u2019s 200-gold stock after every hunt to buffer against unlucky Sparkit drops.\u30109565e9\u2020L6-L8\u3011\u3010eec516\u2020L9-L14\u3011"
+          }
+        ],
+        "time_limited": "Run a single bridge lap, fast travel home, and bank the organs so you always leave with net profit.\u30109565e9\u2020L11-L14\u3011",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Assign a vanguard to tag Sparkit while a collector handles finishing blows and loot ferries back to the statue chest.",
+            "priority": 1,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-electric-organ:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-electric-organ:checkpoint-scout",
+          "summary": "Bridge lane scouted",
+          "benefits": [
+            "Sparkit patrols marked",
+            "Respawn anchor set"
+          ],
+          "related_steps": [
+            "resource-electric-organ:001"
+          ]
+        },
+        {
+          "id": "resource-electric-organ:checkpoint-hunt",
+          "summary": "Sparkit loop cleared",
+          "benefits": [
+            "Electric organ stack secured",
+            "Jolthog route learned"
+          ],
+          "related_steps": [
+            "resource-electric-organ:002"
+          ]
+        },
+        {
+          "id": "resource-electric-organ:checkpoint-supply",
+          "summary": "Merchant restock complete",
+          "benefits": [
+            "Gold stock converted",
+            "Base stores replenished"
+          ],
+          "related_steps": [
+            "resource-electric-organ:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-paldium"
+        ],
+        "optional": [
+          "capture-base-merchant"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "Respawn at Rayne Tower, rehydrate, and resume bridge pulls once armor is repaired.",
+        "hardcore": "Withdraw after each loop to deposit organs; don\u2019t risk a Hardcore wipe carrying full stacks."
+      },
+      "steps": [
+        {
+          "step_id": "resource-electric-organ:001",
+          "type": "travel",
+          "summary": "Stage the Rayne tower descent",
+          "detail": "Fast travel to Rayne Syndicate Tower Entrance (~112,-434), glide toward Bridge of the Twin Knights, and flag Sparkit patrol nodes before the farming loop begins.\u30109565e9\u2020L11-L14\u3011\u3010825211382965329\u2020L103-L118\u3011",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "verdant-brook",
+              "coords": [
+                112,
+                -434
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "glider"
+            ],
+            "pals": [
+              "pengullet"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "game8-electric-organ",
+            "dexerto-electric-organ",
+            "pcgamesn-bosses"
+          ]
+        },
+        {
+          "step_id": "resource-electric-organ:002",
+          "type": "combat",
+          "summary": "Loop Sparkit and Jolthog packs",
+          "detail": "Work the bridge ridge, burst Sparkit and Jolthog, fast travel to reset spawns, and repeat until you bank at least a dozen electric organs from guaranteed drops.\u30109565e9\u2020L11-L14\u3011\u30109565e9\u2020L60-L66\u3011\u3010eec516\u2020L5-L7\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "electric-organ",
+              "qty": 10
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "verdant-brook",
+              "coords": [
+                112,
+                -434
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "vanguard",
+                  "tasks": "Tag Sparkit and juggle aggro"
+                },
+                {
+                  "role": "collector",
+                  "tasks": "Finish weakened targets and loot organs"
+                }
+              ],
+              "loot_rules": "Split organs based on polymer and generator queues"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "bow"
+            ],
+            "pals": [
+              "pengullet",
+              "eikthyrdeer"
+            ],
+            "consumables": [
+              {
+                "item_id": "pal-sphere",
+                "qty": 6
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 140,
+            "max": 210
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "electric-organ",
+                "qty": 10
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "game8-electric-organ",
+            "dexerto-electric-organ"
+          ]
+        },
+        {
+          "step_id": "resource-electric-organ:003",
+          "type": "trade",
+          "summary": "Buy out the Small Settlement vendor",
+          "detail": "Visit the Small Settlement merchant (~73,-485) after each hunt and spend 200 gold per organ to pad reserves while wandering stock lasts.\u30109565e9\u2020L6-L8\u3011\u3010eec516\u2020L9-L14\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "electric-organ",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                75,
+                -479
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": [
+              {
+                "item_id": "gold-coin",
+                "qty": 1200
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 70
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "electric-organ",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "capture-base-merchant"
+            }
+          ],
+          "citations": [
+            "game8-electric-organ",
+            "dexerto-electric-organ"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "electric-organ",
+          "qty": 20
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "power-generator"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-flame-organ",
+          "reason": "Fire and electric reagents pair for polymer and generator upgrades."
+        }
+      ]
+    },
+    {
+      "route_id": "resource-flame-organ",
+      "title": "Flame Organ Kiln Loop",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "flame-organ",
+        "early-game",
+        "ranch"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 10,
+        "max": 28
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture"
+        ],
+        "tech": [
+          "ranch"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Farm Foxparks near spawn for rapid organ drops",
+        "Assign Flambelle to the ranch for passive production",
+        "Supplement supply by purchasing Small Settlement stock"
+      ],
+      "estimated_time_minutes": {
+        "solo": 30,
+        "coop": 22
+      },
+      "estimated_xp_gain": {
+        "min": 220,
+        "max": 340
+      },
+      "risk_profile": "low",
+      "failure_penalties": {
+        "normal": "Being downed near Rayne Tower wastes time jogging back to the Foxparks trail.",
+        "hardcore": "Hardcore wipes can cost your Flambelle rancher and reset organ automation."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Stick to the Grassy Behemoth Hills and Rayne Tower entrance path where Foxparks are easy kills with basic bows.\u30105531dc\u2020L2-L6\u3011",
+        "overleveled": "Add Mount Obsidian Flambelle sweeps to feed ranch assignments as you scale into mid-game heat tech.\u30105531dc\u2020L7-L8\u3011",
+        "resource_shortages": [
+          {
+            "item_id": "flame-organ",
+            "solution": "Cycle Foxparks runs, restock merchants, and keep a Flambelle grazing so you always have backup drops.\u3010cf6c22\u2020L5-L8\u3011"
+          }
+        ],
+        "time_limited": "Run the Foxparks ridge once, toss drops into base storage, and resume later without losing progress.\u30105531dc\u2020L5-L6\u3011",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Have one hunter clear Foxparks while the partner ferries organs home and rotates Flambelle at the ranch.",
+            "priority": 1,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-flame-organ:001",
+              "resource-flame-organ:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-flame-organ:checkpoint-foxparks",
+          "summary": "Foxparks loop mapped",
+          "benefits": [
+            "Spawn path memorized",
+            "Early organs banked"
+          ],
+          "related_steps": [
+            "resource-flame-organ:001"
+          ]
+        },
+        {
+          "id": "resource-flame-organ:checkpoint-ranch",
+          "summary": "Flambelle ranching",
+          "benefits": [
+            "Passive organ output",
+            "Base heat labor covered"
+          ],
+          "related_steps": [
+            "resource-flame-organ:002"
+          ]
+        },
+        {
+          "id": "resource-flame-organ:checkpoint-merchant",
+          "summary": "Merchant cleared",
+          "benefits": [
+            "Gold converted",
+            "Emergency reserve filled"
+          ],
+          "related_steps": [
+            "resource-flame-organ:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-coal"
+        ],
+        "optional": [
+          "resource-cake"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "Grab stored organs from base chests and rerun the spawn lap.",
+        "hardcore": "Keep a spare Flambelle condensed; replace any loss immediately to keep the ranch rolling."
+      },
+      "steps": [
+        {
+          "step_id": "resource-flame-organ:001",
+          "type": "travel",
+          "summary": "Sweep the Foxparks ridge",
+          "detail": "Warp to Grassy Behemoth Hills, sprint toward Rayne Syndicate Tower Entrance, and clear Foxparks along the ridge before fast travelling home to reset.\u30105531dc\u2020L2-L6\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "flame-organ",
+              "qty": 8
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "bow"
+            ],
+            "pals": [
+              "pengullet"
+            ],
+            "consumables": [
+              {
+                "item_id": "pal-sphere",
+                "qty": 4
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 120,
+            "max": 180
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "flame-organ",
+                "qty": 8
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "progameguides-flame-organ"
+          ]
+        },
+        {
+          "step_id": "resource-flame-organ:002",
+          "type": "assign",
+          "summary": "Ranch Flambelle for steady supply",
+          "detail": "Capture a Flambelle at roughly (361,-48), drop it into your ranch, and let Magma Tears generate organs while you craft.\u30105531dc\u2020L7-L9\u3011\u3010cf6c22\u2020L8-L8\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "flame-organ",
+              "qty": 4
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "mount-obsidian",
+              "coords": [
+                361,
+                -48
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "heat-resistant-armor"
+            ],
+            "pals": [
+              "flambelle"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 120
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "flame-organ",
+                "qty": 4
+              }
+            ],
+            "pals": [
+              "flambelle"
+            ],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "progameguides-flame-organ",
+            "game8-flame-organ"
+          ]
+        },
+        {
+          "step_id": "resource-flame-organ:003",
+          "type": "trade",
+          "summary": "Buy 100-gold organs",
+          "detail": "Swing through the Small Settlement after each run and spend 100 gold per Flame Organ to cushion crafting spikes.\u3010cf6c22\u2020L6-L6\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "flame-organ",
+              "qty": 5
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                75,
+                -479
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": [
+              {
+                "item_id": "gold-coin",
+                "qty": 500
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 60
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "flame-organ",
+                "qty": 5
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "capture-base-merchant"
+            }
+          ],
+          "citations": [
+            "game8-flame-organ"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "flame-organ",
+          "qty": 18
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "cooking-pot"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-cake",
+          "reason": "Cakes and polymer both lean on steady flame organ income."
+        }
+      ]
+    },
+    {
+      "route_id": "resource-ice-organ",
+      "title": "Ice Organ Chill Chain",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "ice-organ",
+        "dungeon",
+        "mid-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 18,
+        "max": 32
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Unlock the Sealed Realm of the Frozen Wings teleport",
+        "Farm Pengullet waves inside the Penking arena",
+        "Buy 100-gold organs from Duneshelter merchants"
+      ],
+      "estimated_time_minutes": {
+        "solo": 30,
+        "coop": 22
+      },
+      "estimated_xp_gain": {
+        "min": 320,
+        "max": 480
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Clearing Penking ends the dungeon and forces a respawn timer, wasting the farm run.",
+        "hardcore": "Hardcore wipes inside the arena delete your frost pals\u2014leave once armor degrades."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Enter the dungeon, clear Pengullets, and exit before touching Penking so you avoid the hour-long reset timer.\u30104307f5\u2020L9-L11\u3011",
+        "overleveled": "Rotate additional Ice-type drops like Reindrix or Foxcicle between dungeon runs to accelerate legendary saddle crafting.\u30104307f5\u2020L58-L64\u3011",
+        "resource_shortages": [
+          {
+            "item_id": "ice-organ",
+            "solution": "Buy Duneshelter stock for 100 gold whenever you pass through the desert to buffer against slow dungeon respawns.\u30104307f5\u2020L6-L7\u3011\u3010955051\u2020L5-L8\u3011"
+          }
+        ],
+        "time_limited": "Run one Pengullet clear, leave the dungeon, and stash organs before the cooldown catches up.\u30104307f5\u2020L9-L11\u3011",
+        "dynamic_rules": [
+          {
+            "signal": "resource_gap:pal-fluids_high",
+            "condition": "resource_gaps['pal-fluids'] >= 10",
+            "adjustment": "Stay inside for an extra Pengullet cycle\u2014the arena doubles as a Pal Fluid farm.\u30104307f5\u2020L9-L10\u3011",
+            "priority": 2,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "resource-ice-organ:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-ice-organ:checkpoint-realm",
+          "summary": "Frozen Wings teleport unlocked",
+          "benefits": [
+            "Quick arena access",
+            "Safe exit plan"
+          ],
+          "related_steps": [
+            "resource-ice-organ:001"
+          ]
+        },
+        {
+          "id": "resource-ice-organ:checkpoint-dungeon",
+          "summary": "Pengullet wave cleared",
+          "benefits": [
+            "Ice organs stocked",
+            "Pal fluids topped"
+          ],
+          "related_steps": [
+            "resource-ice-organ:002"
+          ]
+        },
+        {
+          "id": "resource-ice-organ:checkpoint-merchant",
+          "summary": "Duneshelter inventory purchased",
+          "benefits": [
+            "Desert route completed",
+            "Reserve organ cache"
+          ],
+          "related_steps": [
+            "resource-ice-organ:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-pal-fluids"
+        ],
+        "optional": [
+          "resource-electric-organ"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "Reset the dungeon timer, refill potions, and re-enter once Penking respawns.",
+        "hardcore": "Keep a spare cold-resist set ready; replace any fallen frost pals before the next run."
+      },
+      "steps": [
+        {
+          "step_id": "resource-ice-organ:001",
+          "type": "travel",
+          "summary": "Unlock the Frozen Wings fast travel",
+          "detail": "Activate the Sealed Realm of the Frozen Wings statue and set a camp outside the (113,-351) dungeon door for quick entries.\u30104307f5\u2020L9-L10\u3011",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "ice-wind-island",
+              "coords": [
+                113,
+                -351
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "cold-resistant-armor"
+            ],
+            "pals": [
+              "blazehowl"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 120
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "game8-ice-organ"
+          ]
+        },
+        {
+          "step_id": "resource-ice-organ:002",
+          "type": "combat",
+          "summary": "Farm Pengullets in the arena",
+          "detail": "Clear Pengullets supporting Penking, leave before defeating the boss, then re-enter once the cooldown lifts for another wave of organ drops.\u30104307f5\u2020L9-L11\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "ice-organ",
+              "qty": 12
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "ice-wind-island",
+              "coords": [
+                113,
+                -351
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "controller",
+                  "tasks": "Keeps Pengullets grouped"
+                },
+                {
+                  "role": "finisher",
+                  "tasks": "Delivers last hits and gathers loot"
+                }
+              ],
+              "loot_rules": "Split organs evenly before leaving the dungeon"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "musket"
+            ],
+            "pals": [
+              "kitsun",
+              "surfent"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 200,
+            "max": 300
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "ice-organ",
+                "qty": 12
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "game8-ice-organ"
+          ]
+        },
+        {
+          "step_id": "resource-ice-organ:003",
+          "type": "trade",
+          "summary": "Purchase Duneshelter stock",
+          "detail": "Travel to Duneshelter (358,350) and buy any 100-gold ice organs from the wandering merchants stationed there.\u30100e4eda\u2020L83-L83\u3011\u3010955051\u2020L5-L8\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "ice-organ",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "twilight-dunes",
+              "coords": [
+                358,
+                350
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": [
+              {
+                "item_id": "gold-coin",
+                "qty": 600
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 60
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "ice-organ",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "capture-base-merchant"
+            }
+          ],
+          "citations": [
+            "game8-ice-organ",
+            "dexerto-ice-organ"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "ice-organ",
+          "qty": 20
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "refrigerator"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-electric-organ",
+          "reason": "Pair ice and electric reagents to finish late-game generator chains."
+        }
+      ]
+    },
+    {
+      "route_id": "resource-venom-gland",
+      "title": "Venom Gland Vial Chain",
+      "category": "resource",
+      "tags": [
+        "resource",
+        "poison",
+        "mid-game",
+        "ammo-support"
+      ],
+      "progression_role": "resource",
+      "recommended_level": {
+        "min": 14,
+        "max": 32
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Stage a night-hunt camp south of the Plateau of Beginnings",
+        "Cull nocturnal poison pals for an initial organ stockpile",
+        "Backfill shortages through merchants and Caprity Noct ranching"
+      ],
+      "estimated_time_minutes": {
+        "solo": 40,
+        "coop": 28
+      },
+      "estimated_xp_gain": {
+        "min": 520,
+        "max": 900
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Night hunts risk wipes from clustered poison projectiles; expect armor durability loss.",
+        "hardcore": "Being downed by Helzephyr barrages ends the save\u2014kite aggressively and disengage below half HP."
+      },
+      "adaptive_guidance": {
+        "underleveled": "If armor is below Metal tier, anchor Step :001 at coordinate cluster C for easy retreat to Plateau fast travel before sunrise.\u3010palnerd-venom-gland\u2020L1-L20\u3011\u3010progameguides-base-triangle\u2020L1-L15\u3011",
+        "overleveled": "Players running rocket or shotgun builds can skip Step :002 after tagging 10 glands and move straight to ranch automation.",
+        "resource_shortages": [
+          {
+            "item_id": "venom-gland",
+            "solution": "Trigger Step :003 to restock from the Small Settlement merchant before repeating night loops."
+          }
+        ],
+        "time_limited": "Complete Steps :001 and :002 only; bank 10 glands then purchase extras on the next login."
+      },
+      "checkpoints": [
+        {
+          "id": "resource-venom-gland:checkpoint-scout",
+          "summary": "Camp staged south ridge",
+          "benefits": [
+            "Fast-travel anchor set",
+            "Bed and chests placed"
+          ],
+          "related_steps": [
+            "resource-venom-gland:001"
+          ]
+        },
+        {
+          "id": "resource-venom-gland:checkpoint-harvest",
+          "summary": "Night culling complete",
+          "benefits": [
+            "Initial venom stockpile",
+            "Poison arrow queue primed"
+          ],
+          "related_steps": [
+            "resource-venom-gland:002"
+          ]
+        },
+        {
+          "id": "resource-venom-gland:checkpoint-automation",
+          "summary": "Merchant and ranch running",
+          "benefits": [
+            "Emergency vendor access",
+            "Caprity Noct drops cycling"
+          ],
+          "related_steps": [
+            "resource-venom-gland:003",
+            "resource-venom-gland:004"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "capture-base-merchant",
+          "resource-paldium"
+        ],
+        "optional": [
+          "resource-carbon-fiber",
+          "mount-foxparks-harness"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "If you wipe to poison volleys, rest at the Plateau fast travel, buy five glands from the Small Settlement, and reset the hunt loop.\u3010palnerd-venom-gland\u2020L21-L35\u3011\u3010palwiki-venom-gland\u2020L1-L18\u3011",
+        "hardcore": "Rotate night hunts with a partner in co-op so one player stays at camp to revive if the other is downed."
+      },
+      "steps": [
+        {
+          "step_id": "resource-venom-gland:001",
+          "type": "travel",
+          "summary": "Stage Plateau south ridge camp",
+          "detail": "Fast travel to Plateau of Beginnings, glide to the southern peninsula, and drop a campfire, bed, and storage at roughly (230,-510) so you can reset night loops quickly.\u3010progameguides-base-triangle\u2020L1-L15\u3011",
+          "targets": [],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                230,
+                -510
+              ],
+              "time": "evening",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "metal-armor",
+              "crossbow"
+            ],
+            "pals": [
+              "nox",
+              "rushoar"
+            ],
+            "consumables": [
+              {
+                "item_id": "antidote",
+                "qty": 3
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 120
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "progameguides-base-triangle"
+          ]
+        },
+        {
+          "step_id": "resource-venom-gland:002",
+          "type": "combat",
+          "summary": "Cull Daedream and Depresso packs",
+          "detail": "Hunt Daedream and Depresso along the southern plateau ridges at night; both species drop Venom Glands when defeated or captured, letting you bank 12-15 glands per cycle before dawn.\u3010palnerd-venom-gland\u2020L5-L23\u3011\u3010palwiki-venom-gland\u2020L1-L18\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "venom-gland",
+              "qty": 12
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                160,
+                -560
+              ],
+              "time": "night",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "vanguard",
+                  "tasks": "Tag Daedream aggro with ranged fire and kite poison orbs."
+                },
+                {
+                  "role": "collector",
+                  "tasks": "Capture weakened targets with Giga Spheres and scoop drops."
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "poison-resistant-amulet"
+            ],
+            "pals": [
+              "eikthyrdeer",
+              "foxparks"
+            ],
+            "consumables": [
+              {
+                "item_id": "pal-sphere",
+                "qty": 6
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 220,
+            "max": 360
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "venom-gland",
+                "qty": 12
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palnerd-venom-gland",
+            "palwiki-venom-gland",
+            "progameguides-base-triangle"
+          ]
+        },
+        {
+          "step_id": "resource-venom-gland:003",
+          "type": "trade",
+          "summary": "Buy out Small Settlement stock",
+          "detail": "Visit the Small Settlement merchants around (100,-525) and purchase Venom Glands for 100 gold each to buffer poison ammo crafting before your next hunt cycle.\u3010palnerd-venom-gland\u2020L21-L35\u3011\u3010palwiki-venom-gland\u2020L1-L18\u3011\u3010progameguides-base-triangle\u2020L10-L15\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "venom-gland",
+              "qty": 5
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                100,
+                -525
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "lamball"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 80
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "venom-gland",
+                "qty": 5
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palnerd-venom-gland",
+            "palwiki-venom-gland",
+            "progameguides-base-triangle"
+          ]
+        },
+        {
+          "step_id": "resource-venom-gland:004",
+          "type": "build",
+          "summary": "Assign Caprity Noct to ranches",
+          "detail": "Capture Caprity Noct from Feybreak spawns and station it on a Ranch so it periodically drops Venom Glands for base logistics while you craft poison arrows.\u3010palnerd-venom-gland\u2020L23-L35\u3011",
+          "targets": [
+            {
+              "kind": "pal",
+              "id": "caprity-noct",
+              "qty": 1
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "caprity-noct"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 100
+          },
+          "outputs": {
+            "items": [],
+            "pals": [
+              "caprity-noct"
+            ],
+            "unlocks": {
+              "structures": [
+                "ranch"
+              ]
+            }
+          },
+          "branching": [],
+          "citations": [
+            "palnerd-venom-gland"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "venom-gland",
+          "qty": 20
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "poison-arrow-crafting",
+          "shadowbeak-saddle"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 4,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-katress-hair",
+          "reason": "Katress hunts overlap night loops and unlock Katress Cap crafting."
+        }
+      ]
+    },
+    {
+      "route_id": "resource-katress-hair",
+      "title": "Katress Weaving Circuit",
+      "category": "resource",
+      "tags": [
+        "resource",
+        "dark",
+        "mid-game",
+        "gear"
+      ],
+      "progression_role": "resource",
+      "recommended_level": {
+        "min": 23,
+        "max": 38
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "resource-venom-gland"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Night-hunt Katress patrols in Moonless Shore and Verdant Brook",
+        "Defeat or capture the Sealed Realm of the Invincible alpha",
+        "Breed backup Katress eggs and craft Katress Cap upgrades"
+      ],
+      "estimated_time_minutes": {
+        "solo": 45,
+        "coop": 32
+      },
+      "estimated_xp_gain": {
+        "min": 680,
+        "max": 1100
+      },
+      "risk_profile": "high",
+      "failure_penalties": {
+        "normal": "Katress claw combos inflict heavy stagger and leather steals; expect potion spend.",
+        "hardcore": "Dark spell barrages can one-shot underleveled teams\u2014retreat if shields break."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Use dragon-type pals like Dinossom to exploit Katress weakness and disengage after two kills before dawn.\u3010gameleap-katress\u2020L7-L20\u3011",
+        "overleveled": "Players above 35 can farm the alpha first, then loop Moonless Shore to minimize travel time.",
+        "resource_shortages": [
+          {
+            "item_id": "katress-hair",
+            "solution": "Run Step :003 breeding while Moonless Shore respawns reset."
+          }
+        ],
+        "time_limited": "Execute Step :001 only, banking 6-8 hair, and postpone the alpha fight until you have a longer session."
+      },
+      "checkpoints": [
+        {
+          "id": "resource-katress-hair:checkpoint-patrol",
+          "summary": "Moonless patrol cleared",
+          "benefits": [
+            "Initial hair supply",
+            "Dark drops secured"
+          ],
+          "related_steps": [
+            "resource-katress-hair:001"
+          ]
+        },
+        {
+          "id": "resource-katress-hair:checkpoint-alpha",
+          "summary": "Alpha subdued",
+          "benefits": [
+            "High-tier drops",
+            "Fast travel anchor unlocked"
+          ],
+          "related_steps": [
+            "resource-katress-hair:002"
+          ]
+        },
+        {
+          "id": "resource-katress-hair:checkpoint-breeding",
+          "summary": "Breeding loop online",
+          "benefits": [
+            "Egg pipeline running",
+            "Katress Cap crafted"
+          ],
+          "related_steps": [
+            "resource-katress-hair:003",
+            "resource-katress-hair:004"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "capture-base-merchant",
+          "resource-pure-quartz"
+        ],
+        "optional": [
+          "mount-foxparks-harness",
+          "resource-carbon-fiber"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "If Katress wipes the party, fast travel back at dawn, restock healing, and resume after nightfall with dragon pals in front.",
+        "hardcore": "Have one co-op player remain airborne on a flying pal to rez fallen allies if the alpha counters."
+      },
+      "steps": [
+        {
+          "step_id": "resource-katress-hair:001",
+          "type": "combat",
+          "summary": "Hunt Moonless Shore Katress",
+          "detail": "Circle Moonless Shore and Verdant Brook after dusk; Katress only spawn at night and have about a 50% chance to drop Katress Hair alongside leather.\u3010palnerd-katress-hair\u2020L1-L20\u3011\u3010palwiki-katress-hair\u2020L1-L10\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "katress-hair",
+              "qty": 8
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "moonless-shore",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "night",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "scout",
+                  "tasks": "Sweep shoreline on flying mount to tag spawns."
+                },
+                {
+                  "role": "finisher",
+                  "tasks": "Ground Katress with dragon skills and capture or defeat."
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "metal-armor",
+              "shotgun"
+            ],
+            "pals": [
+              "dinossom",
+              "chillet"
+            ],
+            "consumables": [
+              {
+                "item_id": "pal-sphere",
+                "qty": 6
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 260,
+            "max": 420
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "katress-hair",
+                "qty": 8
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palnerd-katress-hair",
+            "gameleap-katress",
+            "palwiki-katress-hair"
+          ]
+        },
+        {
+          "step_id": "resource-katress-hair:002",
+          "type": "combat",
+          "summary": "Clear Sealed Realm of the Invincible",
+          "detail": "Tackle the level 23 Katress alpha at the Sealed Realm of the Invincible near (241,-330) to secure high-grade drops and a fast travel anchor.\u3010segmentnext-katress\u2020L7-L24\u3011",
+          "targets": [
+            {
+              "kind": "pal",
+              "id": "katress",
+              "qty": 1
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "marsh-island",
+              "coords": [
+                241,
+                -330
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "poison-resist-amulet",
+              "assault-rifle"
+            ],
+            "pals": [
+              "suzaku",
+              "grizzbolt"
+            ],
+            "consumables": [
+              {
+                "item_id": "large-med-kit",
+                "qty": 2
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 240,
+            "max": 360
+          },
+          "outputs": {
+            "items": [],
+            "pals": [
+              "katress"
+            ],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "segmentnext-katress"
+          ]
+        },
+        {
+          "step_id": "resource-katress-hair:003",
+          "type": "build",
+          "summary": "Spin up Katress breeding pairs",
+          "detail": "Unlock the Breeding Farm and incubate Large Dark Eggs using combos like Penking + Celaray or Direhowl + Elizabee to replenish Katress without nightly hunts.\u3010gameleap-katress\u2020L20-L32\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "large-dark-egg",
+              "qty": 1
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "penking",
+              "celaray"
+            ],
+            "consumables": [
+              {
+                "item_id": "cake",
+                "qty": 2
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 120,
+            "max": 180
+          },
+          "outputs": {
+            "items": [],
+            "pals": [
+              "katress"
+            ],
+            "unlocks": {
+              "structures": [
+                "breeding-farm"
+              ]
+            }
+          },
+          "branching": [],
+          "citations": [
+            "gameleap-katress"
+          ]
+        },
+        {
+          "step_id": "resource-katress-hair:004",
+          "type": "craft",
+          "summary": "Craft Katress Cap and remedies",
+          "detail": "Spend Katress Hair on the Katress Cap schematic from Duneshelter merchants or convert surplus into Speed Remedy batches for work-speed buffs.\u3010palnerd-katress-hair\u2020L20-L36\u3011\u3010palwiki-katress-hair\u2020L1-L13\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "katress-cap",
+              "qty": 1
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "katress"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 140
+          },
+          "outputs": {
+            "items": [
+              "katress-cap"
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palnerd-katress-hair",
+            "palwiki-katress-hair"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "katress-hair",
+          "qty": 15
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "katress-cap",
+          "speed-remedy"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 4,
+        "boss_targets": 1,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-poison-arrow",
+          "reason": "Hair and glands feed advanced poison ammo crafting."
+        }
+      ]
     }
   ],
   "routeSchema": {
