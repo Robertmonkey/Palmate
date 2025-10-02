@@ -6,6 +6,25 @@ const palDataPath = path.join(__dirname, '..', 'data', 'palworld_complete_data_f
 const itemDetailsPath = path.join(__dirname, '..', 'data', 'item_details.json');
 
 const PALWORLD_MAP_URL = 'https://palworld.gg/map';
+const WORLD_MAP_IMAGE = 'assets/images/palworld-full-map-2.webp';
+const LINK_IMAGE_OVERRIDES = new Map([
+  ['pal:dazzi-noct', 'https://static.wikia.nocookie.net/palworld/images/4/48/Dazzi_Noct_menu.png/revision/latest?cb=20241223043619'],
+  ['pal:caprity-noct', 'https://static.wikia.nocookie.net/palworld/images/4/4d/Caprity_Noct_menu.png/revision/latest?cb=20241223043304'],
+  ['pal:omascul', 'https://static.wikia.nocookie.net/palworld/images/f/fa/Omascul_menu.png/revision/latest?cb=20241223044912'],
+  ['glossary:lifmunk-effigy', 'https://static.wikia.nocookie.net/palworld/images/9/95/Lifmunk_Effigy.png/revision/latest?cb=20240122214730'],
+  ['passive:artisan', 'assets/images/passives/artisan.svg'],
+  ['passive:legend', 'assets/images/passives/legend.svg'],
+  ['passive:runner', 'assets/images/passives/runner.svg'],
+  ['passive:swift', 'assets/images/passives/swift.svg'],
+  ['tower:zoe-grizzbolt', WORLD_MAP_IMAGE],
+  ['tower:desolate-church', WORLD_MAP_IMAGE],
+  ['tower:lily-lyleen', WORLD_MAP_IMAGE],
+  ['tower:axel-orserk', WORLD_MAP_IMAGE],
+  ['tower:marcus-faleris', WORLD_MAP_IMAGE],
+  ['tower:victor-shadowbeak', WORLD_MAP_IMAGE],
+  ['tower:saya-selyne', WORLD_MAP_IMAGE],
+  ['tower:bjorn-bastigor', WORLD_MAP_IMAGE],
+]);
 const MANUAL_LINKS = [
   {
     regex: /\bgreat eagle statues?\b/i,
@@ -32,6 +51,26 @@ const MANUAL_LINKS = [
     link: { type: 'location', id: 'astral-mountains', name: 'Astral Mountains', region: 'Astral Mountains', url: PALWORLD_MAP_URL }
   }
 ];
+
+function linkOverrideKey(type, value){
+  if(!type) return '';
+  const slug = slugify(value || '');
+  return `${type}:${slug}`;
+}
+
+function applyLinkImage(link){
+  if(!link || link.image) return link;
+  const candidates = [link.id, link.slug, link.name];
+  for(const candidate of candidates){
+    if(candidate == null) continue;
+    const key = linkOverrideKey(link.type, candidate);
+    if(LINK_IMAGE_OVERRIDES.has(key)){
+      link.image = LINK_IMAGE_OVERRIDES.get(key);
+      return link;
+    }
+  }
+  return link;
+}
 
 function readJson(file){
   return JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -84,7 +123,9 @@ function createEntity({ type, id, name, image, synonyms = [] }){
   if(!patterns.length){
     return null;
   }
-  return { type, id, slug, name: display, image: image || null, patterns };
+  const entity = { type, id, slug, name: display, image: image || null, patterns };
+  applyLinkImage(entity);
+  return entity;
 }
 
 function buildDictionary({ palData, itemDetails }){
@@ -150,13 +191,14 @@ function findMatches(text, entities, existingLinks){
       if(entity.slug) link.slug = entity.slug;
       if(entity.name) link.name = entity.name;
       if(entity.image) link.image = entity.image;
+      applyLinkImage(link);
       matches.push(link);
     }
   });
   MANUAL_LINKS.forEach(entry => {
     if(!entry || !entry.link || !entry.regex) return;
     if(entry.regex.test(text) || entry.regex.test(normalised)){
-      const manual = { ...entry.link };
+      const manual = applyLinkImage({ ...entry.link });
       const key = `${manual.type}:${manual.id || manual.slug || manual.name || ''}`;
       if(seen.has(key)) return;
       seen.add(key);
