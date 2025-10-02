@@ -9907,6 +9907,7 @@
     let guideCatalogGroupFilter = 'all';
     let guideCatalogCategoryFilter = 'all';
     let routeLibraryListAbort = null;
+    let guideCatalogListAbort = null;
     let pendingRouteFocus = null;
     let pendingTechFocus = null;
     const ROUTE_ART_IMAGE = 'assets/images/palworld-full-map-2.webp';
@@ -13313,6 +13314,15 @@
       return options.join('');
     }
 
+    function renderGuideCatalogStep(step){
+      if(!step) return '';
+      const hasLinks = Array.isArray(step.links) && step.links.length;
+      const instructionHtml = renderSimpleMarkdown(step.instruction || '');
+      if(!instructionHtml && !hasLinks) return '';
+      const linksHtml = hasLinks ? renderLinks(step.links) : '';
+      return `<li>${instructionHtml}${linksHtml}</li>`;
+    }
+
     function renderGuideCatalogCard(entry){
       if(!entry) return '';
       const art = guideCatalogArtFor(entry);
@@ -13324,8 +13334,11 @@
       const keywords = entry.keywords && entry.keywords.length
         ? `<div class="guide-card__keywords guide-catalog__keywords">${entry.keywords.map(keyword => `<span class="guide-card__keyword guide-catalog__keyword">${escapeHTML(keyword)}</span>`).join('')}</div>`
         : '';
-      const steps = entry.steps && entry.steps.length
-        ? `<ol class="guide-catalog__steps">${entry.steps.map(step => `<li>${escapeHTML(step.instruction)}</li>`).join('')}</ol>`
+      const stepItems = Array.isArray(entry.steps)
+        ? entry.steps.map(renderGuideCatalogStep).filter(Boolean)
+        : [];
+      const steps = stepItems.length
+        ? `<ol class="guide-catalog__steps">${stepItems.join('')}</ol>`
         : '';
       const attributes = [];
       if(styleAttr){
@@ -13371,6 +13384,10 @@
       const list = card.querySelector('#guideCatalogList');
       const countNode = card.querySelector('[data-guide-catalog-count]');
       if(!list) return;
+      if(guideCatalogListAbort){
+        guideCatalogListAbort.abort();
+        guideCatalogListAbort = null;
+      }
       const catalog = routeGuideData?.guideCatalog;
       if(!catalog || !Array.isArray(catalog.entries)){
         list.innerHTML = `<p class="guide-catalog__empty">${escapeHTML(kidMode ? 'Guide index loading…' : 'Guide catalog loading…')}</p>`;
@@ -13414,6 +13431,9 @@
       const limit = totalFiltered;
       const displayEntries = entries.slice(0, limit);
       list.innerHTML = displayEntries.map(renderGuideCatalogCard).join('');
+      guideCatalogListAbort = new AbortController();
+      const { signal } = guideCatalogListAbort;
+      list.addEventListener('click', handleRouteClick, { signal });
       if(countNode){
         let label;
         if(!hasQuery && !usingFilters){
