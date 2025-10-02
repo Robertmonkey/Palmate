@@ -403,10 +403,12 @@ gba(119,141,169,0.45)}
 .route-goal-option__icon{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:rgba(119,141,169,0.2);color:var(--accent,#778da9);font-size:1.1rem}
 .route-goal-option__label{font-size:.95rem;font-weight:600;color:rgba(224,225,221,0.92)}
 .route-goal-option--active{border-color:rgba(148,210,189,0.65);box-shadow:0 16px 32px rgba(148,210,189,0.2);transform:translateY(-1px)}
-.route-goal-drawer__footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.route-goal-drawer__footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px}
 .route-goal-drawer__bulk{display:flex;flex-wrap:wrap;gap:8px}
+.route-goal-drawer__bulk--quick{justify-content:flex-start;margin-bottom:12px}
 .route-goal-drawer__bulk-btn{min-height:36px;padding:6px 14px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;background:rgba(0,0,0,0.3);border:1px solid rgba(119,141,169,0.4);color:var(--text,#f0f4f8);border-radius:999px;transition:background .2s ease,border-color .2s ease,color .2s ease}
 .route-goal-drawer__bulk-btn:hover,.route-goal-drawer__bulk-btn:focus-visible{background:rgba(0,0,0,0.45);border-color:rgba(148,210,189,0.55);color:var(--text,#f0f4f8);outline:none}
+.route-goal-drawer__bulk-btn[disabled]{opacity:.5;cursor:not-allowed;pointer-events:none}
 .route-goal-drawer__close{background:rgba(0,0,0,0.35);border-color:rgba(119,141,169,0.4);color:var(--text,#f0f4f8)}
 .route-goal-drawer__close:hover{background:rgba(0,0,0,0.45)}
 .route-goal-drawer--open .route-goal-drawer__toggle{box-shadow:0 0 28px rgba(148,210,189,0.4);border-color:rgba(148,210,189,0.65)}

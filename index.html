@@ -14141,6 +14141,9 @@
       const classes = ['route-goal-drawer'];
       if(routeGoalDrawerOpen) classes.push('route-goal-drawer--open');
       const panelHiddenAttr = routeGoalDrawerOpen ? '' : ' hidden';
+      const hasGoals = tags.length > 0;
+      const allSelected = hasGoals && selectedSet.size === tags.length;
+      const anySelected = selectedSet.size > 0;
       const options = tags.map(tag => {
         const normalized = String(tag);
         const active = selectedSet.has(normalized);
@@ -14151,6 +14154,8 @@
       }).join('');
       const selectAllLabel = kidMode ? 'Select all goals' : 'Select all goals';
       const clearAllLabel = kidMode ? 'Clear goals' : 'Deselect all goals';
+      const selectAllDisabledAttr = (!hasGoals || allSelected) ? ' disabled' : '';
+      const clearAllDisabledAttr = anySelected ? '' : ' disabled';
       return `
         <div class="${classes.join(' ')}" data-goal-picker>
           <button type="button" class="route-goal-drawer__toggle" data-goal-toggle aria-expanded="${routeGoalDrawerOpen ? 'true' : 'false'}" aria-label="${escapeHTML(`${toggleLabel}: ${summary}`)}" title="${escapeHTML(summary)}">
@@ -14158,14 +14163,14 @@
             <div class="route-goal-drawer__summary" data-goal-summary data-goal-summary-text="${escapeHTML(summary)}">${summaryMarkup}</div>
           </button>
           <div class="route-goal-drawer__panel"${panelHiddenAttr}>
+            <div class="route-goal-drawer__bulk route-goal-drawer__bulk--quick">
+              <button type="button" class="chip route-goal-drawer__bulk-btn" data-goal-bulk="select-all"${selectAllDisabledAttr}>${escapeHTML(selectAllLabel)}</button>
+              <button type="button" class="chip route-goal-drawer__bulk-btn" data-goal-bulk="clear"${clearAllDisabledAttr}>${escapeHTML(clearAllLabel)}</button>
+            </div>
             <div class="route-goal-drawer__list">
               ${options}
             </div>
             <div class="route-goal-drawer__footer">
-              <div class="route-goal-drawer__bulk">
-                <button type="button" class="chip route-goal-drawer__bulk-btn" data-goal-bulk="select-all">${escapeHTML(selectAllLabel)}</button>
-                <button type="button" class="chip route-goal-drawer__bulk-btn" data-goal-bulk="clear">${escapeHTML(clearAllLabel)}</button>
-              </div>
               <button type="button" class="chip route-goal-drawer__close" data-goal-close>${escapeHTML(kidMode ? 'Done picking' : 'Lock selections')}</button>
             </div>
           </div>
@@ -14633,6 +14638,7 @@
         });
         goalPicker.querySelectorAll('[data-goal-bulk]').forEach(btn => {
           btn.addEventListener('click', () => {
+            if(btn.disabled) return;
             const action = btn.dataset.goalBulk;
             const boxes = Array.from(goalPicker.querySelectorAll('[data-context-goal]'));
             if(!boxes.length) return;
