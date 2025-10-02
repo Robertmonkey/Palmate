@@ -10718,6 +10718,63 @@
       return null;
     }
 
+    function normalizeGuideCatalogLink(link){
+      if(!link || typeof link !== 'object') return null;
+      const type = typeof link.type === 'string' ? link.type.trim().toLowerCase() : '';
+      if(!type) return null;
+      const normalized = { type };
+      const assignString = (key, value, { slugify = false } = {}) => {
+        if(value == null) return;
+        const raw = String(value).trim();
+        if(!raw) return;
+        if(slugify){
+          const slug = slugifyForPalworld(raw) || raw;
+          normalized[key] = slug;
+        } else {
+          normalized[key] = raw;
+        }
+      };
+      const assignNumber = (key, value) => {
+        if(value == null || value === '') return;
+        const num = Number(value);
+        if(Number.isFinite(num)) normalized[key] = num;
+      };
+      assignString('id', link.id);
+      if(link.slug != null){
+        assignString('slug', link.slug, { slugify: true });
+      }
+      assignString('name', link.name);
+      assignString('role', link.role);
+      assignString('url', link.url);
+      assignString('image', link.image);
+      assignString('region', link.region);
+      assignNumber('quantity', link.quantity);
+      assignNumber('level', link.level);
+      if(Array.isArray(link.coords)){
+        const coords = link.coords
+          .slice(0, 2)
+          .map(entry => Number(entry))
+          .filter(entry => Number.isFinite(entry));
+        if(coords.length === 2) normalized.coords = coords;
+      }
+      if(Array.isArray(link.entranceCoords)){
+        const coords = link.entranceCoords
+          .slice(0, 2)
+          .map(entry => Number(entry))
+          .filter(entry => Number.isFinite(entry));
+        if(coords.length === 2) normalized.entranceCoords = coords;
+      }
+      return normalized;
+    }
+
+    function normalizeGuideCatalogLinks(list){
+      if(!Array.isArray(list)) return [];
+      const links = list
+        .map(normalizeGuideCatalogLink)
+        .filter(Boolean);
+      return links;
+    }
+
     function prepareGuideCatalog(raw, meta){
       if(!raw || typeof raw !== 'object' || !Array.isArray(raw.guides)){
         return null;
@@ -10735,11 +10792,16 @@
         const trigger = guide.trigger || '';
         const keywords = Array.isArray(guide.keywords) ? guide.keywords.filter(Boolean).map(value => String(value)) : [];
         const steps = Array.isArray(guide.steps)
-          ? guide.steps.map((step, stepIndex) => ({
-            order: Number(step?.order ?? (stepIndex + 1)),
-            instruction: step?.instruction || '',
-            citations: Array.isArray(step?.citations) ? step.citations.slice() : []
-          })).filter(step => step.instruction)
+          ? guide.steps.map((step, stepIndex) => {
+            const entry = {
+              order: Number(step?.order ?? (stepIndex + 1)),
+              instruction: step?.instruction || '',
+              citations: Array.isArray(step?.citations) ? step.citations.slice() : []
+            };
+            const links = normalizeGuideCatalogLinks(step?.links);
+            if(links.length) entry.links = links;
+            return entry;
+          }).filter(step => step.instruction)
           : [];
         steps.sort((a, b) => (a.order || 0) - (b.order || 0));
         const searchParts = [title, groupLabel, categoryLabel, trigger, keywords.join(' '), steps.map(step => step.instruction).join(' ')];
@@ -10964,7 +11026,8 @@
         const order = Number.isFinite(orderValue) ? orderValue : index + 1;
         const summary = guideInstructionSummary(rawStep?.instruction) || detail;
         const stepType = guideCatalogStepType(category, entry);
-        steps.push({
+        const normalizedLinks = normalizeGuideCatalogLinks(rawStep?.links);
+        const stepEntry = {
           step_id: `${routeId}:${String(order).padStart(3, '0')}`,
           type: stepType,
           summary,
@@ -10977,7 +11040,9 @@
           outputs: { items: [], pals: [], unlocks: {} },
           branching: [],
           citations: Array.isArray(rawStep?.citations) ? rawStep.citations.slice() : []
-        });
+        };
+        if(normalizedLinks.length) stepEntry.links = normalizedLinks;
+        steps.push(stepEntry);
       });
       return steps;
     }
@@ -11107,7 +11172,8 @@
         xp_award_estimate: { min: 30, max: 60 },
         outputs: { items: [], pals: [], unlocks: {} },
         branching: [],
-        citations: []
+        citations: [],
+        links: []
       };
     }
 
