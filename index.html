@@ -9906,6 +9906,7 @@
     let guideCatalogSearchTerm = '';
     let guideCatalogGroupFilter = 'all';
     let guideCatalogCategoryFilter = 'all';
+    let routeLibraryListAbort = null;
     let pendingRouteFocus = null;
     let pendingTechFocus = null;
     const ROUTE_ART_IMAGE = 'assets/images/palworld-full-map-2.webp';
@@ -12971,6 +12972,10 @@
       if(!list){
         return;
       }
+      if(routeLibraryListAbort){
+        routeLibraryListAbort.abort();
+        routeLibraryListAbort = null;
+      }
       const updateControlState = () => {
         document.querySelectorAll('[data-route-library-filter]').forEach(btn => {
           const key = btn.dataset.routeLibraryFilter || '';
@@ -13119,6 +13124,7 @@
       list.innerHTML = displayRoutes
         .map(entry => renderRouteLibraryCard(entry.route, { matchContext: shouldMatchContext && entry.contextMatch }))
         .join('');
+      bindRouteLibraryListInteractions(list);
       if(!usingAnyFilter && totalMatches > limit){
         const hint = kidMode
           ? 'Refine your search or filters to see more guides.'
@@ -13126,6 +13132,29 @@
         list.insertAdjacentHTML('beforeend', `<p class="route-library__hint">${escapeHTML(hint)}</p>`);
       }
       updateControlState();
+    }
+
+    function bindRouteLibraryListInteractions(list){
+      if(!list) return;
+      if(routeLibraryListAbort){
+        routeLibraryListAbort.abort();
+      }
+      routeLibraryListAbort = new AbortController();
+      const { signal } = routeLibraryListAbort;
+      list.addEventListener('click', event => {
+        const actionBtn = event.target.closest('button[data-action]');
+        if(actionBtn){
+          handleRouteClick(event);
+          return;
+        }
+        if(event.target.closest('.route-library-card__actions')) return;
+        const card = event.target.closest('.route-library-card');
+        if(!card) return;
+        const routeId = card.dataset.routeId;
+        if(!routeId) return;
+        event.preventDefault();
+        openRoutePreviewById(routeId);
+      }, { signal });
     }
 
     function renderRouteLibraryCard(route, { matchContext = false } = {}){
@@ -13155,6 +13184,7 @@
       const cardClasses = ['route-library-card'];
       if(complete) cardClasses.push('route-library-card--complete');
       if(matchContext) cardClasses.push('route-library-card--context');
+      const previewLabel = kidMode ? 'Preview guide' : 'Preview guide';
       return `
         <article class="${cardClasses.join(' ')}" data-route-id="${escapeHTML(route.id)}">
           <div class="route-library-card__media" style="--route-visual-image: url('${art.image}'); --route-visual-overlay: ${art.overlay}; --route-visual-accent: ${art.accent};">
@@ -13168,6 +13198,7 @@
           </div>
           <div class="route-library-card__actions">
             ${complete ? `<span class="route-library-card__status">${escapeHTML(kidMode ? 'Complete' : 'Complete')}</span>` : ''}
+            <button type="button" class="chip route-library-card__preview" data-action="previewRoute" data-route-id="${escapeHTML(route.id)}">${escapeHTML(previewLabel)}</button>
             <button type="button" class="chip route-library-card__activate" data-action="activateRoute" data-route-id="${escapeHTML(route.id)}">${escapeHTML(kidMode ? 'Add to queue' : 'Add to active')}</button>
           </div>
         </article>
@@ -15782,6 +15813,14 @@
       const btn = event.target.closest('button[data-action]');
       if(!btn) return;
       const action = btn.dataset.action;
+      if(action === 'previewRoute'){
+        const routeId = btn.dataset.routeId || btn.dataset.route;
+        if(routeId){
+          openRoutePreviewById(routeId);
+        }
+        event.preventDefault();
+        return;
+      }
       if(action === 'activateRoute'){
         const routeId = btn.dataset.routeId || btn.dataset.route;
         if(routeId){
