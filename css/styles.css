@@ -425,6 +425,14 @@ gba(119,141,169,0.45)}
   .route-context__resource-add select,.route-context__resource-add input{min-width:0;width:100%}
   .route-context__resource-add-btn{width:100%}
 }
+.route-context__resource-hint{display:grid;gap:6px;font-size:.85rem;color:rgba(224,225,221,0.72)}
+.route-context__resource-hint-body{display:grid;gap:6px}
+.route-context__resource-hint-text{margin:0;font-size:.85rem;color:rgba(224,225,221,0.72)}
+.route-context__resource-hint-text--empty{color:rgba(224,225,221,0.55)}
+.route-context__resource-hint-list{display:flex;flex-wrap:wrap;gap:8px}
+.route-context__resource-hint-extra{align-self:center;font-size:.8rem;color:rgba(224,225,221,0.6)}
+.route-resource-guide-link{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid rgba(119,141,169,0.35);background:rgba(8,16,32,0.6);color:var(--text,#f0f4f8);font-size:.8rem;font-weight:600;cursor:pointer;transition:background .2s ease,border-color .2s ease}
+.route-resource-guide-link:hover,.route-resource-guide-link:focus-visible{background:rgba(119,141,169,0.25);border-color:rgba(119,141,169,0.55);outline:none}
 .route-context__resource-list{display:flex;flex-wrap:wrap;gap:8px}
 .route-resource-chip{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:rgba(119,141,169,0.2);border:1px solid rgba(119,141,169,0.35);font-size:.85rem;font-weight:600;cursor:pointer}
 .route-resource-chip__remove{font-weight:700;font-size:1rem}
