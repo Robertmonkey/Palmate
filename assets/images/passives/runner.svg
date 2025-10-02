@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">Runner passive icon</title>
+  <desc id="desc">Emerald badge with the letter R symbolising the Runner passive trait.</desc>
+  <defs>
+    <linearGradient id="runnerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bbf7d0"/>
+      <stop offset="50%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="runnerHighlight" x1="25%" y1="20%" x2="75%" y2="80%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.55)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+  <rect width="96" height="96" rx="24" fill="url(#runnerGradient)"/>
+  <rect x="18" y="18" width="60" height="60" rx="18" fill="url(#runnerHighlight)"/>
+  <path d="M36 24h18c10.6 0 17.6 5.8 17.6 15 0 6.4-3.4 11-9 13.4l10.4 21.6H60L50.4 54H48v19.8H36V24zm18 21c3.4 0 5.6-1.8 5.6-4.8s-2.2-4.6-5.6-4.6H48V45h6z" fill="#064e3b" opacity="0.3"/>
+  <text x="48" y="64" text-anchor="middle" font-family="'Poppins','Trebuchet MS',sans-serif" font-size="32" font-weight="700" fill="#064e3b">
+    R
+  </text>
+</svg>

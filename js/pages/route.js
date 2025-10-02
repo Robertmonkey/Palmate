@@ -4,7 +4,29 @@ import itemDetails from '../../data/item_details.json' assert { type: 'json' };
 
 const STORAGE_KEY = 'palmarathon:route:v1';
 const PREFERENCES_KEY = 'palmarathon:route:prefs:v1';
-const LINK_IMAGE_INDEX = buildLinkImageIndex(dataset, itemDetails);
+const WORLD_MAP_IMAGE = new URL('../../assets/images/palworld-full-map-2.webp', import.meta.url).href;
+const PASSIVE_IMAGE_OVERRIDES = {
+  artisan: new URL('../../assets/images/passives/artisan.svg', import.meta.url).href,
+  legend: new URL('../../assets/images/passives/legend.svg', import.meta.url).href,
+  runner: new URL('../../assets/images/passives/runner.svg', import.meta.url).href,
+  swift: new URL('../../assets/images/passives/swift.svg', import.meta.url).href,
+};
+const LINK_IMAGE_OVERRIDES = {
+  'lifmunk-effigy': 'https://static.wikia.nocookie.net/palworld/images/9/95/Lifmunk_Effigy.png/revision/latest?cb=20240122214730',
+  'dazzi-noct': 'https://static.wikia.nocookie.net/palworld/images/4/48/Dazzi_Noct_menu.png/revision/latest?cb=20241223043619',
+  'caprity-noct': 'https://static.wikia.nocookie.net/palworld/images/4/4d/Caprity_Noct_menu.png/revision/latest?cb=20241223043304',
+  omascul: 'https://static.wikia.nocookie.net/palworld/images/f/fa/Omascul_menu.png/revision/latest?cb=20241223044912',
+  'zoe-grizzbolt': WORLD_MAP_IMAGE,
+  'desolate-church': WORLD_MAP_IMAGE,
+  'lily-lyleen': WORLD_MAP_IMAGE,
+  'axel-orserk': WORLD_MAP_IMAGE,
+  'marcus-faleris': WORLD_MAP_IMAGE,
+  'victor-shadowbeak': WORLD_MAP_IMAGE,
+  'saya-selyne': WORLD_MAP_IMAGE,
+  'bjorn-bastigor': WORLD_MAP_IMAGE,
+  ...PASSIVE_IMAGE_OVERRIDES,
+};
+const LINK_IMAGE_INDEX = buildLinkImageIndex(dataset, itemDetails, LINK_IMAGE_OVERRIDES);
 
 export function renderRoute(node){
   const kidMode = isKidMode();
@@ -632,16 +654,16 @@ function normalizeLinkKey(value){
     .replace(/(^-|-$)/g, '');
 }
 
-function buildLinkImageIndex(primaryDataset, detailDataset){
+function buildLinkImageIndex(primaryDataset, detailDataset, overrides){
   const map = new Map();
-  const register = (key, url) => {
+  const register = (key, url, overwrite = false) => {
     if(!key || !url) return;
     const raw = String(key);
-    if(raw && !map.has(raw)){
+    if(raw && (overwrite || !map.has(raw))){
       map.set(raw, url);
     }
     const normalized = normalizeLinkKey(raw);
-    if(normalized && !map.has(normalized)){
+    if(normalized && (overwrite || !map.has(normalized))){
       map.set(normalized, url);
     }
   };
@@ -673,6 +695,12 @@ function buildLinkImageIndex(primaryDataset, detailDataset){
           stack.push(child);
         }
       }
+    }
+  }
+  if(overrides){
+    const iterable = overrides instanceof Map ? overrides.entries() : Object.entries(overrides);
+    for(const [key, url] of iterable){
+      register(key, url, true);
     }
   }
   return map;

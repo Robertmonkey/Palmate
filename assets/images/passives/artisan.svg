@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">Artisan passive icon</title>
+  <desc id="desc">Golden badge with the letter A symbolising the Artisan passive trait.</desc>
+  <defs>
+    <linearGradient id="artisanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fce7b2"/>
+      <stop offset="50%" stop-color="#f7c66c"/>
+      <stop offset="100%" stop-color="#d08528"/>
+    </linearGradient>
+    <linearGradient id="artisanHighlight" x1="20%" y1="15%" x2="80%" y2="75%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.6)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+  <rect width="96" height="96" rx="24" fill="url(#artisanGradient)"/>
+  <rect x="14" y="14" width="68" height="68" rx="20" fill="url(#artisanHighlight)"/>
+  <path d="M48 22l20 52H60l-3.6-10H39.6L36 74H28L48 22zm2.8 28l-5-14h-.2l-5 14h10.2z" fill="#43280f" opacity="0.28"/>
+  <text x="48" y="62" text-anchor="middle" font-family="'Poppins','Trebuchet MS',sans-serif" font-size="34" font-weight="700" fill="#2f1b05">
+    A
+  </text>
+</svg>
