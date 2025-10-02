@@ -15645,9 +15645,10 @@
       `;
     }
 
-    function rerenderChapter(chapter){
+    function rerenderChapter(chapter, options = {}){
       const node = document.querySelector(`#chapter-${chapter.id}`);
       if(!node) return;
+      const { focusStepId = '', previousScrollTop = null, anchorRect = null, restoreFocus = false } = options;
       const details = node.querySelector('.route-card__details');
       const wasOpen = details ? details.open : false;
       const route = routeGuideData?.routeLookup?.[chapter.id] || null;
@@ -15655,6 +15656,28 @@
       if(wasOpen){
         const nextDetails = node.querySelector('.route-card__details');
         if(nextDetails) nextDetails.open = true;
+      }
+      if(typeof previousScrollTop === 'number'){
+        restoreScrollPosition(previousScrollTop);
+      }
+      if(focusStepId){
+        const selector = `input[type="checkbox"][data-step="${cssEscape(focusStepId)}"]`;
+        const checkbox = node.querySelector(selector);
+        if(checkbox){
+          if(anchorRect){
+            const stepNode = checkbox.closest('label.step');
+            if(stepNode){
+              const newRect = stepNode.getBoundingClientRect();
+              const delta = newRect.top - anchorRect.top;
+              if(Math.abs(delta) > 1){
+                window.scrollBy(0, delta);
+              }
+            }
+          }
+          if(restoreFocus){
+            focusElement(checkbox);
+          }
+        }
       }
     }
 
@@ -15845,6 +15868,10 @@
           step = (chapter.steps || []).find(s => s.id === stepId) || null;
         }
       }
+      const stepLabel = target.closest('label.step');
+      const anchorRect = stepLabel ? { top: stepLabel.getBoundingClientRect().top } : null;
+      const shouldRestoreFocus = document.activeElement === target;
+      const previousScrollTop = getScrollTop();
       if(isChecked && step){
         const options = buildStepProgressOptions(step);
         if(options.length > 1){
@@ -15862,7 +15889,14 @@
       syncRouteCompletionMetadata();
       saveRouteState(routeState);
       if(chapter){
-        rerenderChapter(chapter);
+        rerenderChapter(chapter, {
+          focusStepId: stepId,
+          previousScrollTop,
+          anchorRect,
+          restoreFocus: shouldRestoreFocus
+        });
+      } else {
+        restoreScrollPosition(previousScrollTop);
       }
       refreshRouteIntelligenceUI();
       updateProgressUI();
@@ -15879,6 +15913,8 @@
       const btn = event.target.closest('button[data-action]');
       if(!btn) return;
       const action = btn.dataset.action;
+      const relatedChapterId = btn.dataset.ch || btn.dataset.routeId || btn.dataset.route || '';
+      const chapter = (routeGuideData?.chapters || []).find(ch => ch.id === relatedChapterId) || null;
       if(action === 'previewRoute'){
         const routeId = btn.dataset.routeId || btn.dataset.route;
         if(routeId){
@@ -15892,6 +15928,9 @@
         if(routeId){
           addActiveRoute(routeId);
           playSound(clickSound);
+          if(chapter){
+            rerenderChapter(chapter);
+          }
         }
         event.preventDefault();
         return;
@@ -15901,12 +15940,13 @@
         if(routeId){
           removeActiveRoute(routeId);
           playSound(clickSound);
+          if(chapter){
+            rerenderChapter(chapter);
+          }
         }
         event.preventDefault();
         return;
       }
-      const chapterId = btn.dataset.ch;
-      const chapter = (routeGuideData?.chapters || []).find(ch => ch.id === chapterId);
       if(!chapter) return;
       if(action === 'markRequired'){
         chapter.steps.filter(step => !step.optional).forEach(step => {
@@ -15963,6 +16003,36 @@
         return '<p class="route-steps-empty">' + escapeHTML(kidMode ? 'All steps hidden by filters.' : 'All steps hidden by filters.') + '</p>';
       }
       return `<div class="step-list">${fragments.join('')}</div>`;
+    }
+
+    function getScrollTop(){
+      if(typeof window === 'undefined') return 0;
+      if(typeof window.scrollY === 'number') return window.scrollY;
+      const doc = document.documentElement || document.body;
+      return doc && typeof doc.scrollTop === 'number' ? doc.scrollTop : 0;
+    }
+
+    function restoreScrollPosition(scrollTop){
+      if(typeof window === 'undefined') return;
+      if(typeof scrollTop !== 'number' || Number.isNaN(scrollTop)) return;
+      window.scrollTo(0, scrollTop);
+    }
+
+    function focusElement(element){
+      if(!element || typeof element.focus !== 'function') return;
+      try {
+        element.focus({ preventScroll: true });
+      } catch (error) {
+        element.focus();
+      }
+    }
+
+    function cssEscape(value){
+      if(typeof value !== 'string') return '';
+      if(typeof CSS !== 'undefined' && typeof CSS.escape === 'function'){
+        return CSS.escape(value);
+      }
+      return value.replace(/(["\\])/g, '\\$1');
     }
 
     function renderRouteFiltersUI(categories){
