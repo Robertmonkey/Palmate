@@ -8165,6 +8165,438 @@ High Quality Pal Oil fuels muskets, polymer, and other mid-game weaponry, so thi
 }
 ```
 
+### Route: Mozzarina Dairy Loop
+
+Milk powers cakes, hot drinks, and early-game sanity food, so this loop builds a Ranch, corrals Mozzarina near the Swordmaster sealed realm, and uses the Small Settlement merchant to keep bottles topped off.【63794d†L1-L14】【69a959†L1-L6】
+
+```json
+{
+  "route_id": "resource-milk",
+  "title": "Mozzarina Dairy Loop",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "milk",
+    "ranch",
+    "merchant"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 18,
+    "max": 32
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [
+      "ranch"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Unlock and place a Ranch near storage",
+    "Capture Mozzarina grazing by the Swordmaster sealed realm",
+    "Automate milk bottles via ranching and merchant restocks"
+  ],
+  "estimated_time_minutes": {
+    "solo": 32,
+    "coop": 24
+  },
+  "estimated_xp_gain": {
+    "min": 280,
+    "max": 460
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "If patrols down you in Bamboo Groves, Mozzarina despawn and you'll lose gathered milk.",
+    "hardcore": "Hardcore wipes in the grove mean permanent gear loss and Mozzarina replacements, so retreat if overwhelmed."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Clear step :002 at dawn when Bamboo Groves spawns are calmer, then leave the Mozzarina grazing until you're strong enough to defend raids.",
+    "overleveled": "Bring a capture squad and net two Mozzarina so a spare can rotate in while the first rests at base.",
+    "resource_shortages": [
+      {
+        "item_id": "milk",
+        "solution": "Run step :004 merchant purchases between ranch harvests to smooth cake production cycles."
+      }
+    ],
+    "time_limited": "Skip merchant travel and focus on step :003 ranch drops; empty the collection chest every Pal daytime to avoid overflow.",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Have one player keep patrols busy in the grove while the partner chains captures and hauls Mozzarina home.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-milk:002"
+        ]
+      },
+      {
+        "signal": "resource_gap:honey_high",
+        "condition": "resource_gaps['honey'] >= 10",
+        "adjustment": "Queue resource-honey once milk stabilises so cake assembly lines don't bottleneck on sweeteners.",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-milk:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-milk:checkpoint-ranch",
+      "summary": "Ranch foundation placed",
+      "benefits": [
+        "Milk drop-off area ready",
+        "Collection chest staged"
+      ],
+      "related_steps": [
+        "resource-milk:001"
+      ]
+    },
+    {
+      "id": "resource-milk:checkpoint-mozzarina",
+      "summary": "Mozzarina captured",
+      "benefits": [
+        "Guaranteed milk producer",
+        "Farming work suitability unlocked"
+      ],
+      "related_steps": [
+        "resource-milk:002"
+      ]
+    },
+    {
+      "id": "resource-milk:checkpoint-stockpile",
+      "summary": "Milk crates filled",
+      "benefits": [
+        "Cake and hot drink backlog secured",
+        "Merchant loop scheduled"
+      ],
+      "related_steps": [
+        "resource-milk:003",
+        "resource-milk:004"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "capture-base-merchant"
+    ],
+    "optional": [
+      "resource-honey"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "If the herd flees, rest at a nearby fast travel and return after five minutes; Mozzarina respawn near the Swordmaster arena.",
+    "hardcore": "Extract the captured Mozzarina immediately and store them before returning for another try—don't risk chain deaths."
+  },
+  "steps": [
+    {
+      "step_id": "resource-milk:001",
+      "type": "build",
+      "summary": "Unlock and place the Ranch",
+      "detail": "Spend 2 technology points at level 5 to unlock the Ranch, then craft it with 50 Wood, 20 Stone, and 30 Fiber next to food storage so milk drops land by your collection chest.【1a1614†L1-L16】",
+      "targets": [
+        {
+          "kind": "tech",
+          "id": "ranch"
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "builder",
+              "tasks": "Places the Ranch and walls"
+            },
+            {
+              "role": "logistics",
+              "tasks": "Feeds wood, stone, and fiber to the builder"
+            }
+          ],
+          "loot_rules": "Deposit spare fiber in the shared chest for future repairs"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "stone-axe"
+        ],
+        "pals": [
+          "lamball"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 90,
+        "max": 140
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ranch",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-ranch"
+      ]
+    },
+    {
+      "step_id": "resource-milk:002",
+      "type": "capture",
+      "summary": "Capture Mozzarina north of the Swordmaster arena",
+      "detail": "Glide into the Bamboo Groves herd just north of the Sealed Realm of the Swordmaster (−117, −490). Dark pals burst the neutral mobs quickly while you toss Mega Spheres at two Mozzarina before patrols rotate in from the Ravine Entrance teleport.【69a959†L1-L6】【124c92†L57-L61】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "mozzarina",
+          "qty": 2
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "bamboo-groves",
+          "coords": [
+            -117,
+            -490
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "crowd-control",
+              "tasks": "Kite patrols and clear hostile pals"
+            },
+            {
+              "role": "tamer",
+              "tasks": "Stun Mozzarina and throw spheres"
+            }
+          ],
+          "loot_rules": "Store extra Mozzarina meat in the shared pack"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "mega-pal-sphere",
+          "grappling-gun"
+        ],
+        "pals": [
+          "katress",
+          "blazehowl"
+        ],
+        "consumables": [
+          "smoked-meat"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 140,
+        "max": 210
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "mozzarina-meat",
+            "qty": 4
+          }
+        ],
+        "pals": [
+          "mozzarina"
+        ],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks mega-pal-sphere >= 4",
+          "action": "include_subroute",
+          "subroute_ref": "resource-paldium"
+        }
+      ],
+      "citations": [
+        "segmentnext-mozzarina",
+        "palwiki-sealed-realms"
+      ]
+    },
+    {
+      "step_id": "resource-milk:003",
+      "type": "assign",
+      "summary": "Staff the Ranch and harvest milk",
+      "detail": "Drop one Mozzarina into the Ranch and let it graze—Milk Maker guarantees a bottle every production cycle, and alpha variants keep 100% drop rates as well.【a877d4†L10-L35】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "milk",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "handler",
+              "tasks": "Keeps Mozzarina happy and rested"
+            },
+            {
+              "role": "runner",
+              "tasks": "Collects bottles and restocks feed"
+            }
+          ],
+          "loot_rules": "Split milk by crafting queue needs"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "mozzarina"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 90
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "milk",
+            "qty": 12
+          }
+        ],
+        "pals": [
+          "mozzarina"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-mozzarina"
+      ]
+    },
+    {
+      "step_id": "resource-milk:004",
+      "type": "trade",
+      "summary": "Top up from the Small Settlement merchant",
+      "detail": "Ride to the Small Settlement (~75, −479) and buy extra bottles for 100 gold when ranch output lags; consider capturing the merchant later for permanent base access.【63794d†L8-L14】【165dd8†L71-L90】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "milk",
+          "qty": 10
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "swift-flyer"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 60
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "milk",
+            "qty": 10
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-milk",
+        "palwiki-small-settlement"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "milk",
+      "qty": 24
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "milk-stockpile"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-honey",
+      "reason": "Honey pairs with milk for cakes and pastries, so stabilising both keeps cooking queues flowing."
+    }
+  ]
+}
+```
+
 ### Route: Recruit Base Merchant
 
 Catching a human merchant early gives permanent access to trading at home without
@@ -14725,10 +15157,15 @@ updating guides, refresh these entries with new dates and pages.
     ,"gamesfuze-lifmunk": { "title": "Where to Find and Catch Lifmunk in Palworld", "url": "https://gamesfuze.com/guides/where-to-find-and-catch-lifmunk-in-palworld/", "access_date": "2025-10-09", "notes": "Pins Lifmunk north of Rayne Syndicate Tower at (117,-405), notes Berry Seed drops, and recommends fire-element allies for captures.【b765fb†L6-L17】" }
     ,"dexerto-gumoss": { "title": "Where to find and catch Gumoss in Palworld", "url": "https://www.dexerto.com/palworld/where-to-find-and-catch-gumoss-in-palworld-2498063/", "access_date": "2025-10-09", "notes": "Highlights Gumoss habitats including Small Settlement and Investigator's Fork with best coordinates 208,-476 and 198,-482.【7da1bf†L8-L18】" }
     ,"palwiki-lifmunk": { "title": "Lifmunk – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Lifmunk", "access_date": "2025-10-09", "notes": "Lists Berry Seeds as a drop, outlines Lifmunk work skills, and confirms Windswept Hills habitat.【a54223†L1-L24】" }
+    ,"palwiki-mozzarina": { "title": "Mozzarina – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Mozzarina", "access_date": "2025-10-11", "notes": "Documents Milk Maker’s ranch production and that Mozzarina drop milk at 100% in both normal and alpha variants.【a877d4†L10-L35】" }
     ,"palwiki-gumoss": { "title": "Gumoss – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Gumoss", "access_date": "2025-10-09", "notes": "Confirms Gumoss drops Berry Seeds and Gumoss Leaf and describes the special flower variant.【1e725f†L1-L8】" }
+    ,"palwiki-ranch": { "title": "Ranch – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Ranch", "access_date": "2025-10-11", "notes": "Shows Ranch unlock requirements (level 5, two tech points) and build costs of 50 Wood, 20 Stone, and 30 Fiber.【1a1614†L1-L16】" }
+    ,"palwiki-sealed-realms": { "title": "Sealed Realms – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Sealed_Realms", "access_date": "2025-10-11", "notes": "Lists every sealed realm with coordinates, including Sealed Realm of the Swordmaster at (-117,-490).【124c92†L57-L61】" }
     ,"pcgamesn-high-quality-pal-oil": { "title": "Where to find Palworld High Quality Pal Oil", "url": "https://www.pcgamesn.com/palworld/high-quality-pal-oil", "access_date": "2025-10-10", "notes": "Calls out the Mossanda Forest lava ravine at (231,-119), merchant restocks, and Woolipop rotations for High Quality Pal Oil farming.【9cc14d†L17-L24】" }
+    ,"pcgamesn-milk": { "title": "Where to get Palworld milk", "url": "https://www.pcgamesn.com/palworld/milk", "access_date": "2025-10-11", "notes": "Explains you can ranch Mozzarina for guaranteed milk and buy extra bottles from the Small Settlement merchant for 100 gold.【63794d†L1-L14】" }
     ,"palwiki-flambelle": { "title": "Flambelle – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Flambelle", "access_date": "2025-10-10", "notes": "Lists Flambelle’s guaranteed drops, including 1 High Quality Pal Oil per defeat.【c3b8c9†L23-L37】" }
     ,"palwiki-woolipop": { "title": "Woolipop – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Woolipop", "access_date": "2025-10-10", "notes": "Shows Woolipop drops 1 High Quality Pal Oil alongside Cotton Candy and documents its ranch output.【c81b10†L13-L41】" }
+    ,"segmentnext-mozzarina": { "title": "Palworld: Mozzarina Location (& Best Breeding Combos)", "url": "https://segmentnext.com/palworld-mozzarina/", "access_date": "2025-10-11", "notes": "Highlights Mozzarina herds grazing in the southern Bamboo Groves just north of the Sealed Realm of the Swordmaster and between nearby fast travel points.【69a959†L1-L6】" }
   }
 }
 ```
