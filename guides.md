@@ -3551,6 +3551,1691 @@ options to convert Ore into fragments when nodes are depleted.
 }
 ```
 
+### Route: Honey Harvest Network
+
+Players who want reliable Cake production need an efficient way to gather Honey. This route chains the level 18 Cinnamoth Forest loop with Mossanda Forest’s Beegarde spawn clusters and ends by wiring those Beegarde into a ranch for passive output.【pcgamesn-honey†L135-L148】【palwiki-honey†L402-L433】
+
+```json
+{
+  "route_id": "resource-honey",
+  "title": "Honey Harvest Network",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "honey",
+    "breeding",
+    "mid-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 18,
+    "max": 30
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Capture honey-dropping Pals",
+    "Secure a steady honey supply at your ranch"
+  ],
+  "estimated_time_minutes": {
+    "solo": 18,
+    "coop": 12
+  },
+  "estimated_xp_gain": {
+    "min": 220,
+    "max": 420
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Respawn runs from Mossanda Forest take several minutes if you faint.",
+    "hardcore": "Level 30 patrols around Mossanda Forest can one-shot undergeared players."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Stay near Cinnamoth Forest (-74,-279) and net 6+ honey from level 18 Cinnamoth before approaching Mossanda Forest Pals.【pcgamesn-honey†L135-L144】",
+    "overleveled": "Chain Cinnamoth and Mossanda loops without fast travel to restock 20+ honey in a single outing.【pcgamesn-honey†L135-L145】",
+    "resource_shortages": [
+      {
+        "item_id": "pal-sphere",
+        "solution": "Craft extra Pal Spheres at base before hunting to avoid running dry mid-loop."
+      }
+    ],
+    "time_limited": "Clear only the Cinnamoth loop (step :001) for a quick honey top-up, then assign your best Beegarde at base.",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Split roles—one player kites and weakens targets while the other nets captures and hauls honey.",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-honey:001",
+          "resource-honey:002"
+        ]
+      },
+      {
+        "signal": "resource_gap:honey_high",
+        "condition": "resource_gaps contains honey >= 25",
+        "adjustment": "Capture two extra Beegarde in step :002 and immediately assign them to a spare ranch slot to double passive output.",
+        "priority": 1,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-honey:002",
+          "resource-honey:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-honey:checkpoint-cinnamoth",
+      "summary": "Cinnamoth loop cleared",
+      "related_steps": [
+        "resource-honey:001"
+      ],
+      "benefits": [
+        "Initial honey stock",
+        "Mid-tier bug pals captured"
+      ]
+    },
+    {
+      "id": "resource-honey:checkpoint-ranch",
+      "summary": "Ranch assignment complete",
+      "related_steps": [
+        "resource-honey:003"
+      ],
+      "benefits": [
+        "Passive honey income",
+        "Cake crafting ready"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "starter-base-capture"
+    ],
+    "optional": [
+      "resource-leather-early"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Fast travel back to Mossanda Forest, retrieve your pouch, and resume from the last cleared spawn loop.",
+    "hardcore": "If a death drops gear in Mossanda Forest, regroup at base, craft heat/cold protection, and recover with a co-op buddy if possible."
+  },
+  "steps": [
+    {
+      "step_id": "resource-honey:001",
+      "type": "capture",
+      "summary": "Capture Cinnamoth near Cinnamoth Forest",
+      "detail": "Teleport to Cinnamoth Forest (-74,-279) north of the Bridge of the Twin Knights. The level ~18 Cinnamoth here drop Honey when captured or defeated, letting you stock 6–8 units quickly.【pcgamesn-honey†L135-L144】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "honey",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "sea-breeze-archipelago",
+          "coords": [
+            -74,
+            -279
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Use ranged attacks to whittle Cinnamoth before capture and dodge their powder gusts.",
+          "safety_buffer_items": [
+            {
+              "item_id": "medicine",
+              "qty": 2
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "bow"
+        ],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "honey",
+            "qty": 6
+          }
+        ],
+        "pals": [
+          "cinnamoth"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-honey"
+      ]
+    },
+    {
+      "step_id": "resource-honey:002",
+      "type": "capture",
+      "summary": "Hunt Beegarde in Mossanda Forest",
+      "detail": "Travel to Mossanda Forest (234,-118). Level 20–30 Beegarde spawn in groups and reliably drop Honey; capture two or three to staff your ranch and stock additional drops.【pcgamesn-honey†L135-L145】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "beegarde",
+          "qty": 2
+        },
+        {
+          "kind": "item",
+          "id": "honey",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "forest-of-oblivion",
+          "coords": [
+            234,
+            -118
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "controller",
+              "tasks": "Pull individual Beegarde and keep aggro"
+            },
+            {
+              "role": "catcher",
+              "tasks": "Secure captures and collect Honey"
+            }
+          ],
+          "loot_rules": "Prioritise Honey for breeding stock"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "bow"
+        ],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 160,
+        "max": 200
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "honey",
+            "qty": 12
+          }
+        ],
+        "pals": [
+          "beegarde"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-honey"
+      ]
+    },
+    {
+      "step_id": "resource-honey:003",
+      "type": "base",
+      "summary": "Assign Beegarde to your ranch",
+      "detail": "Back at base, assign captured Beegarde to a Ranch. They will periodically produce Honey without further intervention, keeping your cake pipeline stocked.【pcgamesn-honey†L146-L148】【palwiki-honey†L402-L433】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "honey",
+          "qty": 20
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "beegarde"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 120
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "honey",
+            "qty": 20
+          }
+        ],
+        "pals": [],
+        "unlocks": {
+          "stations": [
+            "ranch"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-honey",
+        "palwiki-honey"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "honey",
+      "qty": 20
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "honey-farm"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "purposeful-arc-mid-expansion",
+      "reason": "Honey enables cake production for mid-game breeding and automation."
+    },
+    {
+      "route_id": "tower-pal-genetics",
+      "reason": "Stockpiled honey feeds breeding loops needed before confronting Pal Genetics."
+    }
+  ]
+}
+```
+
+### Route: Coal Vein Circuit
+
+Coal unlocks Refined Ingot fuel for improved furnaces and automation upgrades. The loop starts in the Hillside Cavern near the Windswept Hills statue, then graduates to the Desiccated Desert ridgeline and Astral Mountain veins once you can survive the heat and enemy levels.【pcgamesn-coal†L135-L138】【palwiki-coal†L388-L430】
+
+```json
+{
+  "route_id": "resource-coal",
+  "title": "Coal Vein Circuit",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "coal",
+    "refined-ingot",
+    "mid-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 20,
+    "max": 35
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Mine early Coal deposits safely",
+    "Unlock higher-yield Coal veins for Refined Ingots"
+  ],
+  "estimated_time_minutes": {
+    "solo": 22,
+    "coop": 15
+  },
+  "estimated_xp_gain": {
+    "min": 260,
+    "max": 480
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Encumbrance slows escape from dungeon mobs; expect a long jog if you overfill your pouch.",
+    "hardcore": "Heat and high-level enemies in late-game regions can wipe an unprepared team, costing gear."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Loop the Hillside Cavern entrance nodes and reset rather than diving deep until you reach level 25.【pcgamesn-coal†L135-L138】",
+    "overleveled": "Add the Desiccated Desert ridge and Astral Mountain outcrops to clear 60+ Coal per circuit.【pcgamesn-coal†L135-L138】",
+    "resource_shortages": [
+      {
+        "item_id": "metal-pickaxe",
+        "solution": "Upgrade to a Metal Pickaxe before leaving base so Coal rocks break quickly."
+      }
+    ],
+    "time_limited": "Run only step :001 and leave once your carry weight hits 70% to avoid slowing down.",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign one player to mine while the partner ferries ore to a chest outside the dungeon, keeping spawns cycling.",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-coal:001",
+          "resource-coal:002"
+        ]
+      },
+      {
+        "signal": "resource_gap:coal_high",
+        "condition": "resource_gaps contains coal >= 80",
+        "adjustment": "Queue Crusher batches in :003 so spare Stone converts to Coal Fragments while you mine fresh nodes.",
+        "priority": 1,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-coal:002",
+          "resource-coal:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-coal:checkpoint-hillside",
+      "summary": "Hillside Cavern cleared",
+      "related_steps": [
+        "resource-coal:001"
+      ],
+      "benefits": [
+        "20+ Coal mined",
+        "Respawn statue unlocked"
+      ]
+    },
+    {
+      "id": "resource-coal:checkpoint-smelter",
+      "summary": "Refined output queued",
+      "related_steps": [
+        "resource-coal:003"
+      ],
+      "benefits": [
+        "Refined Ingot fuel ready",
+        "Passive Coal from Crusher"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-paldium"
+    ],
+    "optional": []
+  },
+  "failure_recovery": {
+    "normal": "Drop excess Stone to regain stamina and kite remaining mobs back toward the entrance.",
+    "hardcore": "If you fall in late-game zones, retreat until you craft Heat Resistant gear before attempting recovery."
+  },
+  "steps": [
+    {
+      "step_id": "resource-coal:001",
+      "type": "gather",
+      "summary": "Mine Hillside Cavern nodes",
+      "detail": "Enter Hillside Cavern at 147,-397 northeast of Rayne Syndicate Tower. Clear the Coal, Sulfur, and Ore clusters with a Metal Pickaxe, exiting before weight caps you.【pcgamesn-coal†L135-L138】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "coal",
+          "qty": 24
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            147,
+            -397
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Use torches to reveal ambushes and pull ranged mobs back toward the entrance hallway.",
+          "safety_buffer_items": [
+            {
+              "item_id": "medicine",
+              "qty": 2
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "metal-pickaxe"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 150,
+        "max": 210
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "coal",
+            "qty": 24
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-coal"
+      ]
+    },
+    {
+      "step_id": "resource-coal:002",
+      "type": "gather",
+      "summary": "Survey high-yield ridges",
+      "detail": "Once geared, push into the Desiccated Desert ridgeline (~340,-120) and Astral Mountain foothills (~40, 320) where Coal veins respawn quickly but enemies hit much harder.【pcgamesn-coal†L135-L138】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "coal",
+          "qty": 36
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "desiccated-desert",
+          "coords": [
+            340,
+            -120
+          ],
+          "time": "day",
+          "weather": "clear"
+        },
+        {
+          "region_id": "astral-mountain",
+          "coords": [
+            40,
+            320
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "miner",
+              "tasks": "Break Coal veins"
+            },
+            {
+              "role": "lookout",
+              "tasks": "Ping elite patrols and escort hauls"
+            }
+          ],
+          "loot_rules": "Bank Coal in shared chests before fast travelling home"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "metal-pickaxe"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 190,
+        "max": 240
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "coal",
+            "qty": 36
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-coal"
+      ]
+    },
+    {
+      "step_id": "resource-coal:003",
+      "type": "craft",
+      "summary": "Process Coal for Refined Ingots",
+      "detail": "Back at base, feed Coal and Ore into the Improved Furnace to create Refined Ingots, or run Stone through the Crusher for extra Coal fragments.【palwiki-coal†L388-L430】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "refined-ingot",
+          "qty": 10
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 160
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "refined-ingot",
+            "qty": 10
+          }
+        ],
+        "pals": [],
+        "unlocks": {
+          "stations": [
+            "improved-furnace"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-coal"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "coal",
+      "qty": 60
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "refined-ingot-fuel"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "purposeful-arc-mid-expansion",
+      "reason": "Refined Ingots power the automation upgrades in the mid-game arc."
+    },
+    {
+      "route_id": "tower-brothers-eternal-pyre",
+      "reason": "Coal stockpiles support fire-resistant gear before tackling the Eternal Pyre."
+    }
+  ]
+}
+```
+
+### Route: Wool Ranch Loop
+
+Cloth upgrades and tailoring requests strain early-game bases. This loop corrals Lamball herds in Windswept Hills and Sea Breeze Archipelago, then parks captured Lamball on a ranch so Wool production continues while colonists craft and haul.【palwiki-lamball†L433-L623】
+
+```json
+{
+  "route_id": "resource-wool",
+  "title": "Wool Ranch Loop",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "wool",
+    "early-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 4,
+    "max": 18
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Sweep Windswept Hills Lamball herds",
+    "Tag Sea Breeze Archipelago backups",
+    "Assign ranch hands and spool cloth"
+  ],
+  "estimated_time_minutes": {
+    "solo": 18,
+    "coop": 12
+  },
+  "estimated_xp_gain": {
+    "min": 300,
+    "max": 520
+  },
+  "risk_profile": "low",
+  "failure_penalties": {
+    "normal": "Losing the herd only costs a few Pal Spheres and a short jog.",
+    "hardcore": "Hardcore runs risk sacrificing early ranch workers; keep stamina high when kiting hostile patrols."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Stick to the Windswept Hills meadows and capture docile Lamball pairs until you can safely travel to Sea Breeze.【palwiki-lamball†L620-L623】【goleap-region-levels†L131-L147】",
+    "overleveled": "Chain both regions in a single loop, hauling 25+ Wool before returning to base for tailoring queues.【palwiki-lamball†L620-L623】",
+    "resource_shortages": [
+      {
+        "item_id": "pal-sphere",
+        "solution": "Craft extra Pal Spheres at the Primitive Workbench before leaving; you will need at least six to refresh ranch slots."
+      }
+    ],
+    "time_limited": "Complete step :001 only, then assign one Lamball to the ranch for passive Wool until you can finish the loop.",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Split duties—one player lassos Lamball while the other clears respawn timers and escorts captives back to base.",
+        "priority": 3,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-wool:001",
+          "resource-wool:002"
+        ]
+      },
+      {
+        "signal": "resource_gap:wool_high",
+        "condition": "resource_gaps contains wool >= 30",
+        "adjustment": "Assign two Lamball to separate ranch slots after step :003 to double passive production and queue cloth crafting immediately.",
+        "priority": 1,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-wool:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-wool:checkpoint-herd",
+      "summary": "Herd secured",
+      "benefits": [
+        "Stable Wool income",
+        "Extra Handiwork pals"
+      ],
+      "related_steps": [
+        "resource-wool:001",
+        "resource-wool:002"
+      ]
+    },
+    {
+      "id": "resource-wool:checkpoint-ranch",
+      "summary": "Ranch staffed",
+      "benefits": [
+        "Passive Wool production",
+        "Cloth queue primed"
+      ],
+      "related_steps": [
+        "resource-wool:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "starter-base-capture"
+    ],
+    "optional": [
+      "resource-honey"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "If Lamball faint en route, fast travel back to the Windswept Hills statue and repeat step :001 with fresh Pal Spheres.",
+    "hardcore": "Drop excess cargo before kiting hostile patrols; sprinting empty-handed keeps Hardcore characters safer while escorting Lamball."
+  },
+  "steps": [
+    {
+      "step_id": "resource-wool:001",
+      "type": "capture",
+      "summary": "Net Lamball herds in Windswept Hills",
+      "detail": "Teleport to the Windswept Hills statue and sweep the meadows south of the plateau. Lamball spawn here in friendly pairs and drop 1–3 Wool per capture, letting you recruit three ranch hands quickly.【palwiki-lamball†L575-L623】【goleap-region-levels†L131-L147】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "lamball",
+          "qty": 3
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            -58,
+            -470
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Keep distance from Syndicate patrols and use ranged damage to soften Lamball before throwing Pal Spheres.",
+          "safety_buffer_items": [
+            {
+              "item_id": "berry",
+              "qty": 5
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "wrangler",
+              "tasks": "Aggro and weaken Lamball"
+            },
+            {
+              "role": "catcher",
+              "tasks": "Throw Pal Spheres and haul captures"
+            }
+          ],
+          "loot_rules": "Share Wool evenly to keep tailoring supplied"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "bow"
+        ],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 170
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "wool",
+            "qty": 8
+          }
+        ],
+        "pals": [
+          "lamball"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-lamball",
+        "goleap-region-levels"
+      ]
+    },
+    {
+      "step_id": "resource-wool:002",
+      "type": "capture",
+      "summary": "Rotate through Sea Breeze Archipelago pastures",
+      "detail": "Sail or glide to the Sea Breeze Archipelago and loop the coastal fields north of the Church. Lamball spawn here at similar levels, ensuring replacement workers and extra Wool for crafting stock.【palwiki-lamball†L620-L623】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "wool",
+          "qty": 10
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "sea-breeze-archipelago",
+          "coords": [
+            148,
+            -508
+          ],
+          "time": "day",
+          "weather": "clear"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "bow"
+        ],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 130,
+        "max": 180
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "wool",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-lamball"
+      ]
+    },
+    {
+      "step_id": "resource-wool:003",
+      "type": "base",
+      "summary": "Staff the ranch and weave cloth",
+      "detail": "Back at base, assign two Lamball to the Ranch so they passively generate Wool, then queue Cloth recipes at the workbench for early armor upgrades.【palwiki-lamball†L433-L623】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "cloth",
+          "qty": 10
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "lamball"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 120
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "wool",
+            "qty": 20
+          }
+        ],
+        "pals": [],
+        "unlocks": {
+          "stations": [
+            "ranch"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-lamball"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "wool",
+      "qty": 30
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "cloth-crafting"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "purposeful-arc-mid-expansion",
+      "reason": "Cloth and Wool keep the mid-game expansion upgrades rolling."
+    },
+    {
+      "route_id": "resource-honey",
+      "reason": "Cake production needs steady Wool alongside Honey and Eggs."
+    }
+  ]
+}
+```
+
+### Route: Egg Clutch Run
+
+Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sweeps Windswept Hills for docile Chikipi, stations them on your ranch, and backtracks through the meadow to scoop stray ground eggs while timers reset.【palwiki-chikipi†L1850-L1859】【palwiki-chikipi†L1667-L1692】
+
+```json
+{
+  "route_id": "resource-egg",
+  "title": "Egg Clutch Run",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "egg",
+    "breeding"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 3,
+    "max": 12
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Capture a clutch of Chikipi",
+    "Assign layers to the ranch",
+    "Sweep the meadow for loose eggs"
+  ],
+  "estimated_time_minutes": {
+    "solo": 15,
+    "coop": 10
+  },
+  "estimated_xp_gain": {
+    "min": 260,
+    "max": 420
+  },
+  "risk_profile": "low",
+  "failure_penalties": {
+    "normal": "Minimal—Chikipi flee rather than fight, so only time is lost.",
+    "hardcore": "Hardcore runs risk a stray patrol near the fields; keep distance if undergeared."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Stay near the Palbox outskirts and capture one Chikipi at a time to avoid chain aggro.【palwiki-chikipi†L1850-L1857】",
+    "overleveled": "Run the route twice per outing, filling both ranch slots and stockpiling 15+ Eggs for breeding queues.【palwiki-chikipi†L1667-L1693】",
+    "resource_shortages": [
+      {
+        "item_id": "pal-sphere",
+        "solution": "Bring at least five Pal Spheres so you can secure a full ranch roster without returning mid-loop."
+      }
+    ],
+    "time_limited": "Catch two Chikipi in step :001, assign them during :002, and let passive production cover the deficit until you revisit.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:egg_high",
+        "condition": "resource_gaps contains egg >= 12",
+        "adjustment": "Hold an extra Chikipi in your party after step :002 so you can rotate fresh layers into the ranch as timers cool down.",
+        "priority": 1,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-egg:002"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-egg:checkpoint-capture",
+      "summary": "Chikipi captured",
+      "benefits": [
+        "Ranch-ready workers"
+      ],
+      "related_steps": [
+        "resource-egg:001"
+      ]
+    },
+    {
+      "id": "resource-egg:checkpoint-ranch",
+      "summary": "Egg production online",
+      "benefits": [
+        "Passive egg income",
+        "Cake pipeline primed"
+      ],
+      "related_steps": [
+        "resource-egg:002"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-honey"
+    ],
+    "optional": [
+      "resource-wool"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "If a Chikipi faints, fast travel back to the Hills statue and repeat step :001—respawns are fast.",
+    "hardcore": "Avoid combat entirely; sprint away from patrols rather than risking a Hardcore wipe for a single egg."
+  },
+  "steps": [
+    {
+      "step_id": "resource-egg:001",
+      "type": "capture",
+      "summary": "Gather Chikipi in Windswept Hills",
+      "detail": "Circle the grassy flats below the Palbox. Chikipi roam here constantly, lay eggs on the ground, and rarely fight back, so you can secure four layers quickly.【palwiki-chikipi†L1850-L1859】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "chikipi",
+          "qty": 4
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            -42,
+            -498
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "wrangler",
+              "tasks": "Tag and weaken Chikipi"
+            },
+            {
+              "role": "collector",
+              "tasks": "Grab ground eggs and throw Pal Spheres"
+            }
+          ],
+          "loot_rules": "Split eggs evenly for breeding"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "bow"
+        ],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 140,
+        "max": 200
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "egg",
+            "qty": 6
+          }
+        ],
+        "pals": [
+          "chikipi"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-chikipi"
+      ]
+    },
+    {
+      "step_id": "resource-egg:002",
+      "type": "base",
+      "summary": "Assign layers to the ranch",
+      "detail": "Place two captured Chikipi on the Ranch. Their Egg Layer partner skill produces eggs over time, so stagger assignments to keep timers rolling.【palwiki-chikipi†L1667-L1693】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "egg",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "chikipi"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 120
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "egg",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {
+          "stations": [
+            "ranch"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-chikipi"
+      ]
+    },
+    {
+      "step_id": "resource-egg:003",
+      "type": "gather",
+      "summary": "Scoop loose eggs while timers reset",
+      "detail": "Jog a perimeter lap through the same fields, collecting freshly laid eggs and watching for respawned Chikipi to top off your ranch roster.【palwiki-chikipi†L1850-L1859】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "egg",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            -35,
+            -520
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 80
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "egg",
+            "qty": 8
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-chikipi"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "egg",
+      "qty": 18
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "cake-baking"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-honey",
+      "reason": "Pair eggs with Honey to bake Cake for breeding."
+    }
+  ]
+}
+```
+
+### Route: Pal Fluid Condenser
+
+Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along the Windswept Hills coastline, scoops Fuack from inland ponds, and pipelines the extras into your factories and cooking queues.【palwiki-pengullet-fandom†L1868-L1872】【palwiki-pengullet†L575-L619】【palwiki-fuack†L1853-L1859】【palwiki-fuack†L1667-L1667】
+
+```json
+{
+  "route_id": "resource-pal-fluids",
+  "title": "Pal Fluid Condenser",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "pal-fluids",
+    "automation"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 5,
+    "max": 20
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Capture coastal Pengullet",
+    "Sweep inland ponds for Fuack",
+    "Assign fluid workers or cull for stock"
+  ],
+  "estimated_time_minutes": {
+    "solo": 16,
+    "coop": 11
+  },
+  "estimated_xp_gain": {
+    "min": 320,
+    "max": 500
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Aggressive patrols near the shoreline can down you; respawning costs travel time.",
+    "hardcore": "Hardcore runs should avoid cliff combat—fall damage while hauling fluids can be lethal."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Capture only Pengullet during daylight and avoid the deeper coves where Syndicate scouts roam.【palwiki-pengullet-fandom†L1868-L1872】",
+    "overleveled": "Chain Pengullet and Fuack loops without returning to base, filling storage with 30+ Pal Fluids per run.【palwiki-pengullet†L575-L619】【palwiki-fuack†L1667-L1667】",
+    "resource_shortages": [
+      {
+        "item_id": "pal-sphere",
+        "solution": "Craft surplus Pal Spheres so you can safely capture both species without crafting breaks."
+      }
+    ],
+    "time_limited": "Complete step :001 only for a quick 10 Pal Fluid top-up, then let ranch assignments produce more while you log off.",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Have one player capture while the other ferries extras back to base to keep spawn timers rolling.",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-pal-fluids:001",
+          "resource-pal-fluids:002"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-pal-fluids:checkpoint-coast",
+      "summary": "Coastline cleared",
+      "benefits": [
+        "Initial Pal Fluids",
+        "Watering pals captured"
+      ],
+      "related_steps": [
+        "resource-pal-fluids:001"
+      ]
+    },
+    {
+      "id": "resource-pal-fluids:checkpoint-base",
+      "summary": "Fluid production online",
+      "benefits": [
+        "Factory feedstock",
+        "Water chores staffed"
+      ],
+      "related_steps": [
+        "resource-pal-fluids:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-coal"
+    ],
+    "optional": [
+      "resource-wool"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "If you fall or faint on the cliffs, fast travel back to the coastline statue and resume from the last cleared cove.",
+    "hardcore": "Retreat before nightfall; Hardcore players should avoid fighting Penking patrols until geared."
+  },
+  "steps": [
+    {
+      "step_id": "resource-pal-fluids:001",
+      "type": "capture",
+      "summary": "Sweep the Windswept shoreline for Pengullet",
+      "detail": "Follow the beach east of the Windswept Hills fast travel point. Pengullet congregate along the water, drop Pal Fluids on capture, and offer Watering utility for your base.【palwiki-pengullet-fandom†L1868-L1872】【palwiki-pengullet†L575-L619】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "pal-fluids",
+          "qty": 10
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            -120,
+            -560
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Use ranged attacks from the cliffs to soften Pengullet before throwing spheres to avoid retaliation.",
+          "safety_buffer_items": [
+            {
+              "item_id": "medicine",
+              "qty": 2
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "bow"
+        ],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 150,
+        "max": 210
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "pal-fluids",
+            "qty": 10
+          }
+        ],
+        "pals": [
+          "pengullet"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-pengullet-fandom",
+        "palwiki-pengullet"
+      ]
+    },
+    {
+      "step_id": "resource-pal-fluids:002",
+      "type": "capture",
+      "summary": "Tag Fuack around inland ponds",
+      "detail": "Cut inland to the freshwater pools west of the plateau. Fuack roam around water sources, drop Pal Fluids alongside Leather, and bolster your Watering roster.【palwiki-fuack†L1853-L1859】【palwiki-fuack†L1667-L1667】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "pal-fluids",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            -30,
+            -440
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "bow"
+        ],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 140,
+        "max": 200
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "pal-fluids",
+            "qty": 12
+          }
+        ],
+        "pals": [
+          "fuack"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-fuack"
+      ]
+    },
+    {
+      "step_id": "resource-pal-fluids:003",
+      "type": "base",
+      "summary": "Assign fluid workers or bottle extras",
+      "detail": "Back at base, station Pengullet or Fuack on Watering posts or cooking stations, then butcher surplus captures for additional Pal Fluids to feed polymer and medicine recipes.【palwiki-pengullet†L575-L619】【palwiki-fuack†L1667-L1667】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "pal-fluids",
+          "qty": 10
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "pengullet",
+          "fuack"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 120
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "pal-fluids",
+            "qty": 15
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-pengullet",
+        "palwiki-fuack"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "pal-fluids",
+      "qty": 30
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "polymer-crafting"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "purposeful-arc-mid-expansion",
+      "reason": "Pal Fluids feed polymer and circuit recipes in the mid-game expansion arc."
+    }
+  ]
+}
+```
+
 ### Route: Recruit Base Merchant
 
 Catching a human merchant early gives permanent access to trading at home without
@@ -10079,6 +11764,11 @@ updating guides, refresh these entries with new dates and pages.
     ,"palwiki-humans": { "title": "Humans – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Humans", "access_date": "2025-09-30", "notes": "Explains that non-leader humans can be captured with Pal Spheres, have lower catch rates needing higher-grade spheres, cannot use their weapons, and merchants stationed at bases provide permanent shop access despite only rank 1 work suitability.【529f5c†L67-L90】【94455f†L13-L18】" }
     ,"palwiki-small-settlement": { "title": "Small Settlement – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Small_Settlement", "access_date": "2025-09-30", "notes": "Gives the Small Settlement coordinates (~75,-479) and lists the Pal Merchant and Wandering Merchant inhabitants available to capture.【165dd8†L71-L90】" }
     ,"palwiki-paldium": { "title": "Paldium Fragment – Palworld Wiki", "url": "https://palworld.fandom.com/wiki/Paldium_Fragment", "access_date": "2025-09-30", "notes": "Lists river, cliff and smelting sources for Paldium Fragments including respawn timers and conversion tips【palwiki-paldium†L42-L71】【palwiki-paldium†L86-L115】【palwiki-paldium†L118-L140】." }
+    ,"palwiki-lamball": { "title": "Lamball – The Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Lamball", "access_date": "2025-10-01", "notes": "Details Lamball drops, ranch production, and spawn regions in Windswept Hills and Sea Breeze Archipelago.【1e15ae†L1-L6】【9dc91d†L1-L5】【ca929c†L1-L7】【0fa8e2†L1-L4】" }
+    ,"palwiki-chikipi": { "title": "Chikipi – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Chikipi", "access_date": "2025-10-01", "notes": "States that Chikipi roam the Windswept Hills, lay eggs on the ground, and their Egg Layer partner skill produces eggs at the ranch.【7b6ddf†L1-L27】【c48565†L1-L10】【cca570†L1-L2】" }
+    ,"palwiki-pengullet": { "title": "Pengullet – The Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Pengullet", "access_date": "2025-10-01", "notes": "Confirms Pengullet drop Pal Fluids and describes their coastal behaviour and utility.【75c8b4†L10-L45】" }
+    ,"palwiki-pengullet-fandom": { "title": "Pengullet – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Pengullet", "access_date": "2025-10-01", "notes": "Lists Windswept Hills as a wild spawn region for Pengullet along with dungeon appearances.【7e854f†L1-L9】" }
+    ,"palwiki-fuack": { "title": "Fuack – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Fuack", "access_date": "2025-10-01", "notes": "Notes Fuack roam bodies of water in the Windswept Hills and drop both Leather and Pal Fluids when defeated.【edfa41†L1-L12】【904908†L1-L10】" }
   }
 }
 ```
