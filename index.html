@@ -6049,11 +6049,16 @@
       }
     };
     // Palworld's in-game coordinates are not symmetrical on the X/Y axes.
-    // The static map we render here is cropped to the explorable landmass,
-    // which spans roughly X = [-560, 640] and Y = [-662, 340] in world units.
-    // Using tighter bounds keeps the marker aligned with tower entrances
-    // instead of drifting toward the centre of the image.
-    const MAP_WORLD_BOUNDS = { minX: -560, maxX: 640, minY: -662, maxY: 340 };
+    // The community map hosted at palworld.gg converts in-game positions to a
+    // 256x256 tile space. Replicating that transform keeps our static map
+    // markers aligned regardless of screen size or aspect ratio.
+    // Palworld world coordinates convert to Leaflet tile space using a 7.8125 scale
+    // factor with an origin offset of 128. This mirrors the transformation used by
+    // palworld.gg so that static map markers align with the community map tiles.
+    const MAP_SCALE = 7.8125;
+    const MAP_OFFSET = 128;
+    const MAP_LAT_BOUNDS = { min: -256, max: 0 };
+    const MAP_LNG_BOUNDS = { min: 0, max: 256 };
     function clampToRange(value, min, max) {
       return Math.min(Math.max(value, min), max);
     }
@@ -6062,16 +6067,16 @@
         return { left: 50, top: 50 };
       }
       const [rawX, rawY] = coords.map(Number);
-      const width = MAP_WORLD_BOUNDS.maxX - MAP_WORLD_BOUNDS.minX;
-      const height = MAP_WORLD_BOUNDS.maxY - MAP_WORLD_BOUNDS.minY;
-      if (!width || !height) {
+      const lng = clampToRange((rawX / MAP_SCALE) + MAP_OFFSET, MAP_LNG_BOUNDS.min, MAP_LNG_BOUNDS.max);
+      const lat = clampToRange((rawY / MAP_SCALE) - MAP_OFFSET, MAP_LAT_BOUNDS.min, MAP_LAT_BOUNDS.max);
+      const lngSpan = MAP_LNG_BOUNDS.max - MAP_LNG_BOUNDS.min;
+      const latSpan = MAP_LAT_BOUNDS.max - MAP_LAT_BOUNDS.min;
+      if (!lngSpan || !latSpan) {
         return { left: 50, top: 50 };
       }
-      const x = clampToRange(rawX, MAP_WORLD_BOUNDS.minX, MAP_WORLD_BOUNDS.maxX);
-      const y = clampToRange(rawY, MAP_WORLD_BOUNDS.minY, MAP_WORLD_BOUNDS.maxY);
       return {
-        left: ((x - MAP_WORLD_BOUNDS.minX) / width) * 100,
-        top: ((MAP_WORLD_BOUNDS.maxY - y) / height) * 100
+        left: ((lng - MAP_LNG_BOUNDS.min) / lngSpan) * 100,
+        top: ((MAP_LAT_BOUNDS.max - lat) / latSpan) * 100
       };
     }
     function mapDescriptionLines(info) {
