@@ -5236,6 +5236,1014 @@ Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along 
 }
 ```
 
+
+### Route: Sulfur Flow Loop
+
+Sulfur powers gunpowder and every ballistic upgrade, so this loop opens with the Mossanda Forest lava ravine before graduating to Mount Obsidian chest staging to sustain ammunition stockpiles.【pcgamesn-sulfur†L11-L20】【palwiki-sulfur†L5-L8】
+
+```json
+{
+  "route_id": "resource-sulfur",
+  "title": "Sulfur Flow Loop",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "sulfur",
+    "gunpowder",
+    "mid-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 18,
+    "max": 34
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [],
+    "items": [
+      "heat-resistant-armor"
+    ],
+    "pals": []
+  },
+  "objectives": [
+    "Unlock safe Sulfur nodes near Mossanda Forest",
+    "Establish a Mount Obsidian mining circuit",
+    "Convert Sulfur into Gunpowder stock"
+  ],
+  "estimated_time_minutes": {
+    "solo": 30,
+    "coop": 20
+  },
+  "estimated_xp_gain": {
+    "min": 340,
+    "max": 520
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Heat damage and elite patrols can break gear and force long corpse runs if you overstay in lava zones.",
+    "hardcore": "Volcanic DoTs stack quickly; a wipe at Mount Obsidian risks permanent loss of high-tier tools and Pals."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Loop the Mossanda Forest ravine deposits until you can survive lava enemies deeper in Mount Obsidian.【pcgamesn-sulfur†L11-L19】",
+    "overleveled": "Base out of the Eternal Pyre entrance and rotate chest drops between runs to keep Sulfur flowing for munitions.【pcgamesn-sulfur†L15-L20】",
+    "resource_shortages": [
+      {
+        "item_id": "gunpowder",
+        "solution": "Run step :003 immediately after mining so Sulfur converts into ammunition stock instead of sitting unused.【pcgamesn-sulfur†L11-L15】"
+      }
+    ],
+    "time_limited": "Hit step :001 for a 10-minute top-up, then fast travel home before heat attrition sets in.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:gunpowder_high",
+        "condition": "resource_gaps contains gunpowder >= 60",
+        "adjustment": "Queue two Gunpowder batches during :003 and skip optional ore hauling so ammunition deficits clear first.",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-sulfur:003"
+        ]
+      },
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign one player to mine while the partner ferries ore and Sulfur back to the chest outside the Eternal Pyre entrance to keep nodes respawning.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-sulfur:002"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-sulfur:checkpoint-ravine",
+      "summary": "Mossanda ravine cleared",
+      "related_steps": [
+        "resource-sulfur:001"
+      ],
+      "benefits": [
+        "10+ Sulfur mined",
+        "Fast travel statue proximity unlocked"
+      ]
+    },
+    {
+      "id": "resource-sulfur:checkpoint-volcano",
+      "summary": "Volcanic chest stocked",
+      "related_steps": [
+        "resource-sulfur:002"
+      ],
+      "benefits": [
+        "30+ Sulfur banked",
+        "Chest staging at Eternal Pyre"
+      ]
+    },
+    {
+      "id": "resource-sulfur:checkpoint-ammo",
+      "summary": "Gunpowder queue started",
+      "related_steps": [
+        "resource-sulfur:003"
+      ],
+      "benefits": [
+        "Ammunition craft enabled",
+        "Sulfur stock stabilized"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-coal"
+    ],
+    "optional": [
+      "resource-pal-fluids"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Retreat to the ravine loop, repair gear, and rebuild Sulfur stock before another Mount Obsidian push.",
+    "hardcore": "If a Hardcore run fails, reset heat gear, recruit fresh carrying Pals, and re-enter during night when patrols thin."
+  },
+  "steps": [
+    {
+      "step_id": "resource-sulfur:001",
+      "type": "gather",
+      "summary": "Mine the Mossanda lava ravine",
+      "detail": "Head northeast of the Mossanda Forest fast travel statue (234,-118) to a lava ravine with early Sulfur nodes; clear the small clusters quickly before heat and encumbrance stack up.【pcgamesn-sulfur†L13-L19】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "sulfur",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "verdant-brook",
+          "coords": [
+            234,
+            -118
+          ],
+          "time": "day",
+          "weather": "clear"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "metal-pickaxe"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 140,
+        "max": 180
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "sulfur",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-sulfur"
+      ]
+    },
+    {
+      "step_id": "resource-sulfur:002",
+      "type": "gather",
+      "summary": "Loop Mount Obsidian deposits",
+      "detail": "Fast travel to the Brothers of the Eternal Pyre Tower (-588,-518), stage a chest outside, then sweep the surrounding lava flows while a Cattiva hauls ore and Sulfur back between passes.【pcgamesn-sulfur†L15-L20】【pcgamesn-bosses†L7-L9】【palwiki-sulfur†L5-L8】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "sulfur",
+          "qty": 36
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "mount-obsidian",
+          "coords": [
+            -588,
+            -518
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "miner",
+              "tasks": "Break Sulfur nodes"
+            },
+            {
+              "role": "runner",
+              "tasks": "Ferry loads to the chest and reset spawns"
+            }
+          ],
+          "loot_rules": "Deposit Sulfur in the shared chest each lap"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "metal-pickaxe",
+          "heat-resistant-armor"
+        ],
+        "pals": [
+          "cattiva"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 180,
+        "max": 240
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "sulfur",
+            "qty": 36
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-sulfur",
+        "pcgamesn-bosses",
+        "palwiki-sulfur"
+      ]
+    },
+    {
+      "step_id": "resource-sulfur:003",
+      "type": "craft",
+      "summary": "Refine Sulfur into Gunpowder",
+      "detail": "Back at base, combine Sulfur with Coal at the High Quality Workbench to craft Gunpowder so ammunition production keeps pace with weapon demand.【pcgamesn-sulfur†L11-L15】【palwiki-sulfur†L5-L8】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "gunpowder",
+          "qty": 30
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "cattiva"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 160
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "gunpowder",
+            "qty": 30
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-sulfur",
+        "palwiki-sulfur"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "sulfur",
+      "qty": 48
+    },
+    {
+      "type": "have-item",
+      "item_id": "gunpowder",
+      "qty": 30
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "gunpowder-stock"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-pure-quartz",
+      "reason": "Pure Quartz runs pair with Sulfur to advance late-game electronics."
+    },
+    {
+      "route_id": "purposeful-arc-mid-expansion",
+      "reason": "Gunpowder reserves accelerate weapon crafting during the mid-game expansion."
+    }
+  ]
+}
+```
+
+### Route: Astral Quartz Expedition
+
+Circuit boards and late-game electronics hinge on Pure Quartz. This expedition secures the PAL Research Tower fast travel, mines the Astral Mountain ridges, and anchors a base so mining Pals keep the ore flowing.【pcgamesn-pure-quartz†L15-L23】【palwiki-pure-quartz†L1-L3】
+
+```json
+{
+  "route_id": "resource-pure-quartz",
+  "title": "Astral Quartz Expedition",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "pure-quartz",
+    "electronics",
+    "late-mid-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 32,
+    "max": 46
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "resource-sulfur"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Unlock Astral Mountain fast travel",
+    "Mine high-grade Pure Quartz clusters",
+    "Stage a passive extraction base for circuit crafting"
+  ],
+  "estimated_time_minutes": {
+    "solo": 38,
+    "coop": 26
+  },
+  "estimated_xp_gain": {
+    "min": 420,
+    "max": 640
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Cold damage and high-level patrols can break tools and force long retreats from Astral Mountain.",
+    "hardcore": "Falls or freezes near Astral Mountain wipe end-game kits; regroup with spare cold gear before returning."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Unlock the PAL Research Tower statue first, then run short mining bursts before elites converge.【pcgamesn-pure-quartz†L15-L20】【pcgamesn-bosses†L11-L13】",
+    "overleveled": "Claim a ridge base inside Astral Mountain so mining Pals harvest Pure Quartz passively between manual runs.【pcgamesn-pure-quartz†L19-L23】",
+    "resource_shortages": [
+      {
+        "item_id": "circuit-board",
+        "solution": "Feed Pure Quartz into step :003 immediately so circuit production stays ahead of polymer demand.【pcgamesn-pure-quartz†L21-L23】"
+      }
+    ],
+    "time_limited": "Fast travel in, grab two node clusters near the tower, then recall home before respawns escalate.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:circuit-board_high",
+        "condition": "resource_gaps contains circuit-board >= 20",
+        "adjustment": "Run step :003 twice and prioritize manual mining in :002 over expansion tasks until the gap clears.",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-pure-quartz:002",
+          "resource-pure-quartz:003"
+        ]
+      },
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "One player scouts and kites patrols while the miner works nodes; swap roles every cycle to manage cold meters.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-pure-quartz:002"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-pure-quartz:checkpoint-statue",
+      "summary": "Astral access unlocked",
+      "related_steps": [
+        "resource-pure-quartz:001"
+      ],
+      "benefits": [
+        "PAL Research Tower statue activated",
+        "Cold travel route established"
+      ]
+    },
+    {
+      "id": "resource-pure-quartz:checkpoint-quarry",
+      "summary": "Quartz cache secured",
+      "related_steps": [
+        "resource-pure-quartz:002"
+      ],
+      "benefits": [
+        "40+ Pure Quartz hauled",
+        "Safe retreat path mapped"
+      ]
+    },
+    {
+      "id": "resource-pure-quartz:checkpoint-automation",
+      "summary": "Passive mining online",
+      "related_steps": [
+        "resource-pure-quartz:003"
+      ],
+      "benefits": [
+        "Astral base anchored",
+        "Circuit production primed"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-pal-fluids"
+    ],
+    "optional": [
+      "resource-sulfur"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Return during daylight with fresh cold gear and mine lighter loads until confidence returns.",
+    "hardcore": "If you lose gear, restock polymer and cold armor at home before risking another Astral run."
+  },
+  "steps": [
+    {
+      "step_id": "resource-pure-quartz:001",
+      "type": "travel",
+      "summary": "Unlock PAL Research Tower access",
+      "detail": "Climb to the PAL Research Tower statue at roughly (-149,445) so you can fast travel straight onto the snowy slopes leading into Astral Mountain’s Pure Quartz zone.【pcgamesn-bosses†L11-L13】【pcgamesn-pure-quartz†L15-L20】",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "ice-wind-island",
+          "coords": [
+            -149,
+            445
+          ],
+          "time": "day",
+          "weather": "clear"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 90,
+        "max": 130
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "travel": [
+            "pal-research-tower"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-bosses",
+        "pcgamesn-pure-quartz"
+      ]
+    },
+    {
+      "step_id": "resource-pure-quartz:002",
+      "type": "gather",
+      "summary": "Mine Astral Mountain ridges",
+      "detail": "From the tower, sweep the Astral Mountain ridges for dark grey nodes with silver veins—these are Pure Quartz deposits that require durable pickaxes to break efficiently.【pcgamesn-pure-quartz†L15-L19】【palwiki-pure-quartz†L1-L3】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "pure-quartz",
+          "qty": 40
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "astral-mountain",
+          "coords": [
+            -149,
+            445
+          ],
+          "time": "day",
+          "weather": "snow"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "miner",
+              "tasks": "Break Pure Quartz nodes"
+            },
+            {
+              "role": "lookout",
+              "tasks": "Ping elite patrols and pull aggro away"
+            }
+          ],
+          "loot_rules": "Share Quartz stacks evenly for upcoming crafts"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "metal-pickaxe"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 220,
+        "max": 300
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "pure-quartz",
+            "qty": 40
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-pure-quartz",
+        "palwiki-pure-quartz"
+      ]
+    },
+    {
+      "step_id": "resource-pure-quartz:003",
+      "type": "base",
+      "summary": "Anchor an Astral mining outpost",
+      "detail": "Claim a base spot that includes Pure Quartz nodes and assign mining and transport Pals so the deposits respawn into storage while you craft circuit boards on-site.【pcgamesn-pure-quartz†L17-L23】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "pure-quartz",
+          "qty": 60
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "astral-mountain",
+          "coords": [
+            -149,
+            445
+          ],
+          "time": "any",
+          "weather": "snow"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "metal-pickaxe"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 200,
+        "max": 240
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "pure-quartz",
+            "qty": 60
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-pure-quartz"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "pure-quartz",
+      "qty": 80
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1",
+    "key_unlocks": [
+      "circuit-board-production"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-polymer",
+      "reason": "Polymer crafting consumes Pure Quartz via Circuit Boards and benefits from the Astral outpost."
+    }
+  ]
+}
+```
+
+### Route: Polymer Assembly Workflow
+
+Polymer production ties together high-level tech: unlock the assembly line, farm High Quality Pal Oil from ranch Pals or merchants, then craft batches that feed weapons and circuit chains.【pcgamesn-polymer†L9-L16】【palwiki-polymer†L5-L11】【palwiki-high-quality-pal-oil†L1-L8】
+
+```json
+{
+  "route_id": "resource-polymer",
+  "title": "Polymer Assembly Workflow",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "polymer",
+    "advanced-crafting",
+    "late-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 35,
+    "max": 50
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "resource-pure-quartz"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Unlock polymer production tech",
+    "Secure a renewable High Quality Pal Oil supply",
+    "Craft Polymer batches for weapons and circuits"
+  ],
+  "estimated_time_minutes": {
+    "solo": 28,
+    "coop": 18
+  },
+  "estimated_xp_gain": {
+    "min": 360,
+    "max": 520
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Wasted oil and tech points slow weapon upgrades if the assembly line idles.",
+    "hardcore": "Losing the assembly crew in raids delays late-game gear since polymer feeds every advanced recipe."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Unlock the Production Assembly Line at tech level 33, then run small polymer batches until you stockpile better gear.【pcgamesn-polymer†L9-L13】",
+    "overleveled": "Queue long polymer runs overnight with multiple handiwork Pals so weapons and circuit boards never bottleneck.【pcgamesn-polymer†L9-L16】",
+    "resource_shortages": [
+      {
+        "item_id": "high-quality-pal-oil",
+        "solution": "Assign Dumud to a Ranch and buy extra oil from merchants before starting long assembly queues.【palwiki-high-quality-pal-oil†L1-L8】"
+      }
+    ],
+    "time_limited": "Craft two quick batches in step :003, then shut down the line to avoid burning precious oil.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:polymer_high",
+        "condition": "resource_gaps contains polymer >= 30",
+        "adjustment": "Increase batch size in :003 to 6 polymer per queue and reassign an extra handiwork Pal until the gap closes.",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-polymer:003"
+        ]
+      },
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Have one player wrangle oil deliveries while the other cycles the assembly line UI for nonstop output.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-polymer:002",
+          "resource-polymer:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-polymer:checkpoint-tech",
+      "summary": "Assembly line unlocked",
+      "related_steps": [
+        "resource-polymer:001"
+      ],
+      "benefits": [
+        "Production Assembly Line built",
+        "Polymer recipe learned"
+      ]
+    },
+    {
+      "id": "resource-polymer:checkpoint-oil",
+      "summary": "Oil supply secured",
+      "related_steps": [
+        "resource-polymer:002"
+      ],
+      "benefits": [
+        "Ranch output established",
+        "Merchant backup stock"
+      ]
+    },
+    {
+      "id": "resource-polymer:checkpoint-batch",
+      "summary": "Polymer batch completed",
+      "related_steps": [
+        "resource-polymer:003"
+      ],
+      "benefits": [
+        "10+ Polymer crafted",
+        "Weapons and circuits unblocked"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-pal-fluids"
+    ],
+    "optional": [
+      "resource-sulfur"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Pause the line, restock oil via merchants or ranch, and resume smaller batches until supply stabilises.",
+    "hardcore": "Rebuild the assembly line with spare materials and rotate fresh handiwork Pals to avoid chain deaths."
+  },
+  "steps": [
+    {
+      "step_id": "resource-polymer:001",
+      "type": "build",
+      "summary": "Unlock production assembly",
+      "detail": "Spend tech points at level 33 to unlock the Production Assembly Line and the Polymer recipe, then place the machine at base with power access.【pcgamesn-polymer†L9-L13】",
+      "targets": [
+        {
+          "kind": "tech",
+          "id": "production-assembly-line"
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 110
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "tech": [
+            "production-assembly-line",
+            "polymer-recipe"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-polymer"
+      ]
+    },
+    {
+      "step_id": "resource-polymer:002",
+      "type": "farm",
+      "summary": "Farm High Quality Pal Oil",
+      "detail": "Capture Dumud or other listed Pals and station them at a Ranch to generate High Quality Pal Oil, supplementing with merchant purchases as needed.【palwiki-high-quality-pal-oil†L1-L8】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "high-quality-pal-oil",
+          "qty": 20
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "rancher",
+              "tasks": "Keep Dumud fed and happy"
+            },
+            {
+              "role": "buyer",
+              "tasks": "Cycle merchants for extra oil"
+            }
+          ],
+          "loot_rules": "Split oil stacks evenly before crafting"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "dumud"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "high-quality-pal-oil",
+            "qty": 20
+          }
+        ],
+        "pals": [
+          "dumud"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-high-quality-pal-oil"
+      ]
+    },
+    {
+      "step_id": "resource-polymer:003",
+      "type": "craft",
+      "summary": "Run Polymer batches",
+      "detail": "Load the Production Assembly Line with 2 High Quality Pal Oil per craft and assign handiwork Pals to turn the stock into Polymer for weapons and circuit boards.【pcgamesn-polymer†L9-L16】【palwiki-polymer†L5-L11】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "polymer",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 160,
+        "max": 230
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "polymer",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-polymer",
+        "palwiki-polymer"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "polymer",
+      "qty": 24
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "polymer-supply"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "purposeful-arc-late-expansion",
+      "reason": "Late-game expansion arcs consume Polymer for weapons and automation upgrades."
+    }
+  ]
+}
+```
+
+
 ### Route: Recruit Base Merchant
 
 Catching a human merchant early gives permanent access to trading at home without
@@ -11769,6 +12777,13 @@ updating guides, refresh these entries with new dates and pages.
     ,"palwiki-pengullet": { "title": "Pengullet – The Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Pengullet", "access_date": "2025-10-01", "notes": "Confirms Pengullet drop Pal Fluids and describes their coastal behaviour and utility.【75c8b4†L10-L45】" }
     ,"palwiki-pengullet-fandom": { "title": "Pengullet – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Pengullet", "access_date": "2025-10-01", "notes": "Lists Windswept Hills as a wild spawn region for Pengullet along with dungeon appearances.【7e854f†L1-L9】" }
     ,"palwiki-fuack": { "title": "Fuack – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Fuack", "access_date": "2025-10-01", "notes": "Notes Fuack roam bodies of water in the Windswept Hills and drop both Leather and Pal Fluids when defeated.【edfa41†L1-L12】【904908†L1-L10】" }
+    ,"pcgamesn-sulfur": { "title": "Where to get Palworld Sulfur", "url": "https://www.pcgamesn.com/palworld/sulfur", "access_date": "2025-10-05", "notes": "Describes sulfur spawns at the Mossanda Forest ravine (234,-118), Mount Obsidian volcanic loops, and chest staging near the Eternal Pyre Tower Entrance.【951f6a†L9-L20】" }
+    ,"palwiki-sulfur": { "title": "Sulfur – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Sulfur", "access_date": "2025-10-05", "notes": "States sulfur can be mined from volcanic rocks and the dedicated Sulfur Mine.【449b54†L5-L8】" }
+    ,"pcgamesn-pure-quartz": { "title": "Where to get Palworld Pure Quartz", "url": "https://www.pcgamesn.com/palworld/pure-quartz", "access_date": "2025-10-05", "notes": "Locates Pure Quartz in the Astral Mountain snowy biome, recommends high-durability pickaxes, and suggests building an Astral base for passive mining.【def911†L13-L23】" }
+    ,"palwiki-pure-quartz": { "title": "Pure Quartz – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Pure_Quartz", "access_date": "2025-10-05", "notes": "Explains Pure Quartz rocks populate the Astral Mountain snowy fields and benefit from mining helpers like Xenogard.【eeb471†L1-L3】" }
+    ,"pcgamesn-polymer": { "title": "Palworld Polymer crafting guide", "url": "https://www.pcgamesn.com/palworld/polymer", "access_date": "2025-10-05", "notes": "Shows that Polymer unlocks at Technology level 33 on the Production Assembly Line and requires High Quality Pal Oil plus handiwork Pals to automate output.【efa13d†L1-L16】" }
+    ,"palwiki-polymer": { "title": "Polymer – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Polymer", "access_date": "2025-10-05", "notes": "Lists Polymer as crafted from 2 High Quality Pal Oil, weighs 0.5, and unlocks via the Technology branch.【99ff2c†L5-L11】" }
+    ,"palwiki-high-quality-pal-oil": { "title": "High Quality Pal Oil – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/High_Quality_Pal_Oil", "access_date": "2025-10-05", "notes": "Catalogs High Quality Pal Oil sources including merchants, Dumud ranching, and high-tier Pals like Quivern and Relaxaurus.【969e9d†L1-L8】" }
   }
 }
 ```
