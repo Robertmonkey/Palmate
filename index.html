@@ -14111,26 +14111,24 @@
     }
 
     function formatGoalSummary(goals){
-      if(!Array.isArray(goals) || !goals.length){
-        return kidMode ? 'Tap to pick tonight’s goals' : 'Tap to pick tonight’s goals';
+      const selection = Array.isArray(goals) ? goals.filter(Boolean) : [];
+      if(!selection.length){
+        return kidMode ? 'No goals selected yet' : 'No goals selected yet';
       }
-      const labels = goals.slice(0, 3).map(goal => capitalize(goal));
-      const remainder = goals.length - labels.length;
-      const suffix = remainder > 0 ? ` +${remainder}` : '';
-      return `${labels.join(', ')}${suffix}`;
+      if(selection.length === 1){
+        return kidMode ? '1 goal selected' : '1 focus selected';
+      }
+      return kidMode
+        ? `${selection.length} goals selected`
+        : `${selection.length} focuses selected`;
     }
 
     function renderGoalSummaryMarkup(goals){
-      if(!Array.isArray(goals) || !goals.length){
-        const label = kidMode ? 'Tap to pick tonight’s goals' : 'Tap to pick tonight’s goals';
-        return `<span class="route-goal-summary__placeholder">${escapeHTML(label)}</span>`;
-      }
-      const chips = goals.slice(0, 3).map(goal => `<span class="route-goal-summary__chip">${escapeHTML(capitalize(goal))}</span>`);
-      const remainder = goals.length - chips.length;
-      if(remainder > 0){
-        chips.push(`<span class="route-goal-summary__chip route-goal-summary__chip--more">+${remainder}</span>`);
-      }
-      return chips.join('');
+      const summaryLabel = formatGoalSummary(goals);
+      const empty = !Array.isArray(goals) || !goals.length;
+      const classes = ['route-goal-summary__count'];
+      if(empty) classes.push('route-goal-summary__count--empty');
+      return `<span class="${classes.join(' ')}">${escapeHTML(summaryLabel)}</span>`;
     }
 
     function renderGoalDrawer(tags, selectedGoals){
@@ -14151,22 +14149,30 @@
       }).join('');
       const selectAllLabel = kidMode ? 'Select all goals' : 'Select all goals';
       const clearAllLabel = kidMode ? 'Clear goals' : 'Deselect all goals';
+      const manageLabel = kidMode ? 'Browse goals' : 'Manage goals';
+      const summaryHint = kidMode ? 'Focus areas update recommendations instantly.' : 'Adjusting goals tunes every recommendation.';
       return `
         <div class="${classes.join(' ')}" data-goal-picker>
-          <button type="button" class="route-goal-drawer__toggle" data-goal-toggle aria-expanded="${routeGoalDrawerOpen ? 'true' : 'false'}" aria-label="${escapeHTML(`${toggleLabel}: ${summary}`)}" title="${escapeHTML(summary)}">
-            <span class="route-goal-drawer__title">${escapeHTML(toggleLabel)}</span>
-            <div class="route-goal-drawer__summary" data-goal-summary data-goal-summary-text="${escapeHTML(summary)}">${summaryMarkup}</div>
-          </button>
+          <div class="route-goal-drawer__surface">
+            <div class="route-goal-drawer__header">
+              <div class="route-goal-drawer__title-block">
+                <span class="route-goal-drawer__title">${escapeHTML(toggleLabel)}</span>
+                <div class="route-goal-drawer__summary" data-goal-summary data-goal-summary-text="${escapeHTML(summary)}" title="${escapeHTML(summaryHint)}">${summaryMarkup}</div>
+              </div>
+              <button type="button" class="route-goal-drawer__manage" data-goal-toggle aria-expanded="${routeGoalDrawerOpen ? 'true' : 'false'}" aria-label="${escapeHTML(`${toggleLabel}: ${summary}`)}">
+                <span>${escapeHTML(manageLabel)}</span>
+                <i class="fa-solid fa-chevron-${routeGoalDrawerOpen ? 'up' : 'down'}" data-goal-toggle-icon></i>
+              </button>
+            </div>
+            <div class="route-goal-drawer__actions">
+              <button type="button" class="chip route-goal-drawer__action" data-goal-bulk="select-all">${escapeHTML(selectAllLabel)}</button>
+              <button type="button" class="chip route-goal-drawer__action" data-goal-bulk="clear">${escapeHTML(clearAllLabel)}</button>
+              <button type="button" class="chip route-goal-drawer__action route-goal-drawer__action--primary" data-goal-close>${escapeHTML(kidMode ? 'Done picking' : 'Lock selections')}</button>
+            </div>
+          </div>
           <div class="route-goal-drawer__panel"${panelHiddenAttr}>
             <div class="route-goal-drawer__list">
               ${options}
-            </div>
-            <div class="route-goal-drawer__footer">
-              <div class="route-goal-drawer__bulk">
-                <button type="button" class="chip route-goal-drawer__bulk-btn" data-goal-bulk="select-all">${escapeHTML(selectAllLabel)}</button>
-                <button type="button" class="chip route-goal-drawer__bulk-btn" data-goal-bulk="clear">${escapeHTML(clearAllLabel)}</button>
-              </div>
-              <button type="button" class="chip route-goal-drawer__close" data-goal-close>${escapeHTML(kidMode ? 'Done picking' : 'Lock selections')}</button>
             </div>
           </div>
         </div>
@@ -14596,6 +14602,7 @@
       const goalPicker = card.querySelector('[data-goal-picker]');
       if(goalPicker){
         const toggle = goalPicker.querySelector('[data-goal-toggle]');
+        const toggleIcon = goalPicker.querySelector('[data-goal-toggle-icon]');
         const panel = goalPicker.querySelector('.route-goal-drawer__panel');
         const applyDrawerState = () => {
           goalPicker.classList.toggle('route-goal-drawer--open', routeGoalDrawerOpen);
@@ -14608,6 +14615,10 @@
           }
           if(toggle){
             toggle.setAttribute('aria-expanded', routeGoalDrawerOpen ? 'true' : 'false');
+          }
+          if(toggleIcon){
+            toggleIcon.classList.toggle('fa-chevron-up', routeGoalDrawerOpen);
+            toggleIcon.classList.toggle('fa-chevron-down', !routeGoalDrawerOpen);
           }
         };
         if(toggle){
