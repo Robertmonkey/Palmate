@@ -4949,6 +4949,410 @@ Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sw
 }
 ```
 
+### Route: Berry Seed Supply Chain
+
+Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and Gumoss for their guaranteed seed drops, sweeps berry bushes for backup seeds, and spins up a Berry Plantation so production continues between hunts.【zilliongamer-berry-seeds†L11-L28】【palwiki-berry-seeds†L1-L8】
+
+```json
+{
+  "route_id": "resource-berry-seeds",
+  "title": "Berry Seed Supply Chain",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "berry-seeds",
+    "agriculture",
+    "early-mid-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 5,
+    "max": 16
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Farm Lifmunk and Gumoss for Berry Seed drops",
+    "Harvest wild berry bushes for emergency seeds",
+    "Build a Berry Plantation and assign planters"
+  ],
+  "estimated_time_minutes": {
+    "solo": 24,
+    "coop": 16
+  },
+  "estimated_xp_gain": {
+    "min": 160,
+    "max": 260
+  },
+  "risk_profile": "low",
+  "failure_penalties": {
+    "normal": "Burning Pal Spheres on skittish targets slows early upgrades.",
+    "hardcore": "Knockouts around Investigator's Fork risk losing starter gear; regroup before re-engaging."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Kite Lifmunk north of the Rayne Tower statue and let a fire Pal soften them before throws; every drop yields Berry Seeds to restock quickly.【b765fb†L12-L17】【zilliongamer-berry-seeds†L11-L18】",
+    "overleveled": "Rotate to Gumoss near Investigator's Fork, then leave both planters on a Berry Plantation so berries and seeds build passively between sorties.【7da1bf†L8-L18】【palwiki-berry-seeds†L1-L8】",
+    "resource_shortages": [
+      {
+        "item_id": "berry",
+        "solution": "Clear the berry bushes flanking the Small Settlement while plantations cycle to keep kitchens stocked.【palwiki-berry-seeds†L1-L4】【palwiki-small-settlement†L71-L90】"
+      },
+      {
+        "item_id": "berry-seeds",
+        "solution": "Repeat step :001 focusing on the Gumoss spawn at 208,-476 so the guaranteed drops refill ranch input.【7da1bf†L8-L18】【zilliongamer-berry-seeds†L11-L18】"
+      }
+    ],
+    "time_limited": "Skip the bush sweep and run one Lifmunk/Gumoss circuit for 10–12 seeds, then build the plantation after returning home.",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Split duties so one player tags Lifmunk near Rayne Tower while the partner clears Gumoss at Investigator's Fork, then regroup to seed the plantation chest.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-berry-seeds:001",
+          "resource-berry-seeds:003"
+        ]
+      },
+      {
+        "signal": "resource_gap:berry_high",
+        "condition": "resource_gaps contains berry >= 20",
+        "adjustment": "Loop step :002 twice before leaving the Small Settlement so the base pantry refills.",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-berry-seeds:002"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-berry-seeds:checkpoint-lifmunk",
+      "summary": "Lifmunk circuit cleared",
+      "benefits": [
+        "Guaranteed seeds banked",
+        "Rayne tower loop mapped"
+      ],
+      "related_steps": [
+        "resource-berry-seeds:001"
+      ]
+    },
+    {
+      "id": "resource-berry-seeds:checkpoint-bush",
+      "summary": "Berry bush cache stripped",
+      "benefits": [
+        "Emergency seeds secured",
+        "Fresh berries hauled"
+      ],
+      "related_steps": [
+        "resource-berry-seeds:002"
+      ]
+    },
+    {
+      "id": "resource-berry-seeds:checkpoint-plantation",
+      "summary": "Berry Plantation online",
+      "benefits": [
+        "Automation running",
+        "Planters assigned"
+      ],
+      "related_steps": [
+        "resource-berry-seeds:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "starter-base-capture"
+    ],
+    "optional": [
+      "resource-egg",
+      "resource-honey"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Fast travel back to Rayne Tower, restock Pal Spheres, and resume the Lifmunk sweep if patrols scatter the herd.",
+    "hardcore": "Cache valuables before revisiting Investigator's Fork so a downed run does not delete key tools."
+  },
+  "steps": [
+    {
+      "step_id": "resource-berry-seeds:001",
+      "type": "combat",
+      "summary": "Tag Lifmunk and Gumoss spawns",
+      "detail": "Warp to Rayne Syndicate Tower Entrance and sweep north around (117,-405) for Lifmunk, then glide east toward Investigator's Fork (208,-476) to pick off Gumoss. Defeat or capture each group for guaranteed Berry Seed drops before returning to base.【b765fb†L12-L17】【7da1bf†L8-L18】【zilliongamer-berry-seeds†L11-L18】【palwiki-berry-seeds†L1-L4】【palwiki-lifmunk†L1-L18】【palwiki-gumoss†L1-L4】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "berry-seeds",
+          "qty": 15
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            117,
+            -405
+          ],
+          "time": "day",
+          "weather": "any"
+        },
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            208,
+            -476
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "kite",
+              "tasks": "Gather Lifmunk into capture range"
+            },
+            {
+              "role": "finisher",
+              "tasks": "Burst Gumoss and loot seeds"
+            }
+          ],
+          "loot_rules": "Split seed stacks evenly before heading home"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "bow"
+        ],
+        "pals": [
+          "foxparks"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 90,
+        "max": 140
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "berry-seeds",
+            "qty": 15
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks berry-seeds >= 15",
+          "action": "repeat"
+        }
+      ],
+      "citations": [
+        "zilliongamer-berry-seeds",
+        "palwiki-berry-seeds",
+        "gamesfuze-lifmunk",
+        "dexerto-gumoss",
+        "palwiki-lifmunk",
+        "palwiki-gumoss"
+      ]
+    },
+    {
+      "step_id": "resource-berry-seeds:002",
+      "type": "gather",
+      "summary": "Strip berry bushes for backup seeds",
+      "detail": "Jog the path circling the Small Settlement (75,-479) and harvest every berry bush; each harvest has a chance to drop extra Berry Seeds while topping off raw berries for cooking.【palwiki-berry-seeds†L1-L4】【palwiki-small-settlement†L71-L90】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "berry-seeds",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "harvester",
+              "tasks": "Clear bushes and loot seeds"
+            },
+            {
+              "role": "scout",
+              "tasks": "Watch for Syndicate patrols and reset spawns"
+            }
+          ],
+          "loot_rules": "Dump seeds into a shared chest before splitting"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "stone-axe"
+        ],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 80
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "berry-seeds",
+            "qty": 6
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks berry-seeds >= 20",
+          "action": "repeat"
+        }
+      ],
+      "citations": [
+        "palwiki-berry-seeds",
+        "palwiki-small-settlement"
+      ]
+    },
+    {
+      "step_id": "resource-berry-seeds:003",
+      "type": "build",
+      "summary": "Construct and staff a Berry Plantation",
+      "detail": "Spend 3 Berry Seeds, 20 Wood, and 20 Stone to place a Berry Plantation, then assign Lifmunk or Gumoss so Planting work keeps berries and new seeds flowing automatically.【palwiki-berry-seeds†L1-L8】【palwiki-lifmunk†L1-L18】【palwiki-gumoss†L1-L8】",
+      "targets": [
+        {
+          "kind": "station",
+          "id": "berry-plantation"
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "builder",
+              "tasks": "Place the plantation and craft feed chests"
+            },
+            {
+              "role": "quartermaster",
+              "tasks": "Assign planters and balance wood/stone reserves"
+            }
+          ],
+          "loot_rules": "Keep at least half the seeds in a shared box for replants"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "wooden-hammer"
+        ],
+        "pals": [
+          "gumoss",
+          "lifmunk"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 110
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "stations": [
+            "berry-plantation"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-berry-seeds",
+        "palwiki-lifmunk",
+        "palwiki-gumoss"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "berry-seeds",
+      "qty": 20
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "berry-plantation"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-honey",
+      "reason": "Combine berries with honey for Strange Juice and cake recipes."
+    },
+    {
+      "route_id": "resource-egg",
+      "reason": "Pair steady eggs with berries to keep cake and bakery queues running."
+    }
+  ]
+}
+```
+
 ### Route: Pal Fluid Condenser
 
 Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along the Windswept Hills coastline, scoops Fuack from inland ponds, and pipelines the extras into your factories and cooking queues.【palwiki-pengullet-fandom†L1868-L1872】【palwiki-pengullet†L575-L619】【palwiki-fuack†L1853-L1859】【palwiki-fuack†L1667-L1667】
@@ -13913,6 +14317,12 @@ updating guides, refresh these entries with new dates and pages.
     ,"palwiki-production-assembly-line": { "title": "Production Assembly Line – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Production_Assembly_Line", "access_date": "2025-10-07", "notes": "Details the station’s level 28 unlock, material costs (100 Ingots, 50 Wood, 20 Nails, 10 Cement), and need for handiwork pals plus power.【5d3253†L1-L35】" }
     ,"palwiki-jetragon": { "title": "Jetragon – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Jetragon", "access_date": "2025-10-07", "notes": "Drop table shows Carbon Fiber, Polymer, and Pure Quartz rewards from the legendary Mount Obsidian dragon.【278868†L31-L60】" }
     ,"palwiki-shadowbeak": { "title": "Shadowbeak – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Shadowbeak", "access_date": "2025-10-07", "notes": "Lists Carbon Fiber and Pal Metal Ingot drops plus its Sanctuary No.3 habitat and combat profile.【eac1d9†L33-L62】" }
+    ,"palwiki-berry-seeds": { "title": "Berry Seeds – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Berry_Seeds", "access_date": "2025-10-09", "notes": "Explains Berry Seeds drop from berry bushes and certain Pals and that Berry Plantations cost 3 seeds, 20 Wood, and 20 Stone.【bcbe7f†L1-L8】" }
+    ,"zilliongamer-berry-seeds": { "title": "Palworld | Berry Seeds Location & Crafting Recipe", "url": "https://zilliongamer.com/palworld/c/materials/berry-seeds-palworld", "access_date": "2025-10-09", "notes": "States Lifmunk and Gumoss guarantee Berry Seed drops, picking berries yields seeds, and plantations convert seeds into berry farms.【74f880†L1-L45】" }
+    ,"gamesfuze-lifmunk": { "title": "Where to Find and Catch Lifmunk in Palworld", "url": "https://gamesfuze.com/guides/where-to-find-and-catch-lifmunk-in-palworld/", "access_date": "2025-10-09", "notes": "Pins Lifmunk north of Rayne Syndicate Tower at (117,-405), notes Berry Seed drops, and recommends fire-element allies for captures.【b765fb†L6-L17】" }
+    ,"dexerto-gumoss": { "title": "Where to find and catch Gumoss in Palworld", "url": "https://www.dexerto.com/palworld/where-to-find-and-catch-gumoss-in-palworld-2498063/", "access_date": "2025-10-09", "notes": "Highlights Gumoss habitats including Small Settlement and Investigator's Fork with best coordinates 208,-476 and 198,-482.【7da1bf†L8-L18】" }
+    ,"palwiki-lifmunk": { "title": "Lifmunk – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Lifmunk", "access_date": "2025-10-09", "notes": "Lists Berry Seeds as a drop, outlines Lifmunk work skills, and confirms Windswept Hills habitat.【a54223†L1-L24】" }
+    ,"palwiki-gumoss": { "title": "Gumoss – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Gumoss", "access_date": "2025-10-09", "notes": "Confirms Gumoss drops Berry Seeds and Gumoss Leaf and describes the special flower variant.【1e725f†L1-L8】" }
   }
 }
 ```
