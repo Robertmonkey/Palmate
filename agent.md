@@ -71,6 +71,15 @@ This document describes the responsibilities, workflows and quality assurance st
   * Next steps: chase secondary confirmations for Mozzarina spawn density (map screenshots or additional articles), add merchant pricing variability where available, and resume remaining seed/meat resource guides once reliable citations clear (e.g. Lettuce/Tomato seeds, Caprity meat).
   * Next steps: source precise Woolipop hillside coordinates or alternative citations for field spawn farming, capture merchant pricing variability for High Quality Pal Oil, and push the Milk/Lettuce/Tomato seed routes once reliable spawn documentation is located.
 
+*Progress 2025-10-12:* Authored Flour Milling Network (`resource-flour`) and Cake Assembly Line (`resource-cake`), synced the bundle/source registry with new merchant and plantation citations, and documented automated bakery pipelines feeding breeding operations.
+  * Next steps:
+    1. **Elemental reagents:** Capture Electric Organ, Flame Organ, Ice Organ, Venom Gland, and Katress Hair routes with precise spawn coordinates, drop tables, and any ranch automation backups.
+    2. **Protein & ranch goods:** Produce guides for Caprity Meat, Broncherry Meat, Galeclaw Poultry, Chikipi Poultry, Lamball Mutton, Mammorest Meat, Mozzarina Meat, Rushoar Pork, Cotton Candy, and High Quality Cloth, covering both field hunts and base automation.
+    3. **Seeds & botanicals:** Finish Lettuce Seeds, Tomato Seeds, Wheat Seeds, Red Berries, Mushroom, and Gumoss Leaf supply chains with plantation output benchmarks and merchant restock timing.
+    4. **Metals, gems & currency:** Document Ore, Refined Ingot, Pal Metal Ingot, Precious Dragon Stone, Diamond, Ruby, Sapphire, Pure merchant Gold Coin loops, and supporting refinery steps with tower/alpha farming spots.
+    5. **Soul & feather drops:** Map Large/Medium/Small Pal Soul farming, Penking Plume, Tocotoco Feather, Penking arena clears, and any dungeon rotations that stabilise these materials.
+    6. **Aquatic & crafting basics:** Author routes for Raw Dumud, Raw Kelpsea, Bone, Nail, Paldium Fragment, and ensure resource-guide gaps close out with QA checks.
+
 ## Performance Notes
 
 * **Chunking** – When creating or updating `guides.md`, generate large JSON blocks in manageable chunks to avoid exceeding context limits.  Use the container tools to build the file incrementally.
