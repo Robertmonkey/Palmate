@@ -33,7 +33,7 @@ export function renderRoute(node){
   const state = loadState();
   const preferences = loadPreferences();
   let hideOptional = !!preferences.hideOptional;
-  const overview = calculateGuideOverview(guide.chapters, state);
+  const overview = calculateGuideOverview(guide.chapters, state, { hideOptional });
   const openChapterIndex = (() => {
     if(overview.nextChapterId){
       const idx = guide.chapters.findIndex(ch => ch.id === overview.nextChapterId);
@@ -143,7 +143,7 @@ export function renderRoute(node){
       if(ch){
         rerenderChapter(ch, state, node, hideOptional);
       }
-      refreshGuideAnalytics(node, guide.chapters, state);
+      refreshGuideAnalytics(node, guide.chapters, state, hideOptional);
     }
   });
 
@@ -165,12 +165,12 @@ export function renderRoute(node){
       ch.steps.filter(s=>!s.optional).forEach(s=> state[s.id] = true);
       saveState(state);
       rerenderChapter(ch, state, node, hideOptional);
-      refreshGuideAnalytics(node, guide.chapters, state);
+      refreshGuideAnalytics(node, guide.chapters, state, hideOptional);
     } else if(btn.dataset.action==='resetChapter'){
       ch.steps.forEach(s=> delete state[s.id]);
       saveState(state);
       rerenderChapter(ch, state, node, hideOptional);
-      refreshGuideAnalytics(node, guide.chapters, state);
+      refreshGuideAnalytics(node, guide.chapters, state, hideOptional);
     }
   });
 
@@ -183,13 +183,13 @@ export function renderRoute(node){
       optionalButton.textContent = optionalToggleLabel(hideOptional, isKidMode());
       optionalButton.setAttribute('aria-pressed', hideOptional ? 'true' : 'false');
       guide.chapters.forEach(ch => rerenderChapter(ch, state, node, hideOptional));
-      refreshGuideAnalytics(node, guide.chapters, state);
+      refreshGuideAnalytics(node, guide.chapters, state, hideOptional);
     });
   }
   if(optionalButton){
     optionalButton.setAttribute('aria-pressed', hideOptional ? 'true' : 'false');
   }
-  refreshGuideAnalytics(node, guide.chapters, state);
+  refreshGuideAnalytics(node, guide.chapters, state, hideOptional);
 }
 
 function renderChapterInner(ch, index, state, hideOptional, open){
@@ -339,8 +339,9 @@ function chapterOptionalProgress(ch, state){
   return { optionalCount: optional.length, optionalChecked };
 }
 
-function calculateGuideOverview(chapters, state){
+function calculateGuideOverview(chapters, state, options = {}){
   const kid = isKidMode();
+  const hideOptional = !!options.hideOptional;
   const totalChapters = Array.isArray(chapters) ? chapters.length : 0;
   let clearedChapters = 0;
   let requiredTotal = 0;
@@ -370,7 +371,7 @@ function calculateGuideOverview(chapters, state){
         }
       } else {
         clearedChapters += 1;
-        if(hasOptionalRemaining && !nextChapterOptionalFallback){
+        if(!hideOptional && hasOptionalRemaining && !nextChapterOptionalFallback){
           nextChapterOptionalFallback = ch;
         }
       }
@@ -381,7 +382,7 @@ function calculateGuideOverview(chapters, state){
           nextRequiredChapter = ch;
         }
       }
-      if(!nextOptionalStep){
+      if(!hideOptional && !nextOptionalStep){
         const candidate = ch.steps.find(step => step.optional && !state[step.id]);
         if(candidate){
           nextOptionalStep = candidate;
@@ -414,6 +415,8 @@ function calculateGuideOverview(chapters, state){
     optionalSummary = kid ? 'Bonus chores appear as you unlock them.' : 'Optional tasks appear when available.';
   } else if(remainingOptional === 0){
     optionalSummary = kid ? 'All bonus fun complete.' : 'Optional clean-up complete.';
+  } else if(hideOptional){
+    optionalSummary = kid ? 'Bonus steps hidden.' : 'Optional steps hidden.';
   } else {
     const noun = remainingOptional === 1 ? (kid ? 'bonus step' : 'optional step') : (kid ? 'bonus steps' : 'optional steps');
     optionalSummary = kid
@@ -421,13 +424,13 @@ function calculateGuideOverview(chapters, state){
       : `${remainingOptional} ${noun} remaining`;
   }
 
-  if(!nextChapter && nextChapterOptionalFallback){
+  if(!hideOptional && !nextChapter && nextChapterOptionalFallback){
     nextChapter = nextChapterOptionalFallback;
   }
 
   let nextLabel;
   let nextChapterId = nextChapter?.id || null;
-  const nextStep = nextRequiredStep || nextOptionalStep;
+  const nextStep = nextRequiredStep || (hideOptional ? null : nextOptionalStep);
   if(nextStep && nextStep.optional && nextOptionalChapter && !nextChapterId){
     nextChapterId = nextOptionalChapter.id || null;
   }
@@ -471,8 +474,8 @@ function calculateGuideOverview(chapters, state){
   };
 }
 
-function refreshGuideAnalytics(node, chapters, state){
-  const overview = calculateGuideOverview(chapters, state);
+function refreshGuideAnalytics(node, chapters, state, hideOptional){
+  const overview = calculateGuideOverview(chapters, state, { hideOptional });
   updateOverview(node, overview);
   renderTimeline(node, chapters, state, overview.nextChapterId);
   return overview;
@@ -731,12 +734,14 @@ function navigateLink(l){
       focusSearch(searchTerm, { target: 'items' });
     }
   } else if(l.type==='passive'){
-    const trait = capitalize(l.id || l.slug || '');
-    if(typeof window.showTraitDetail === 'function') window.showTraitDetail(trait);
-    else if(trait) focusSearch(trait, { target: 'pals' });
+    const traitId = l.id || l.slug || l.name;
+    const traitDisplay = traitId ? capitalize(traitId) : (l.label ? String(l.label) : '');
+    if(traitId && typeof window.showTraitDetail === 'function') window.showTraitDetail(traitId);
+    else if(traitId) focusSearch(traitDisplay || traitId, { target: 'pals' });
   } else if(l.type==='move'){
-    if(typeof window.showSkillDetail === 'function') window.showSkillDetail(l.id);
-    else if(l.id) focusSearch(niceName(l.id), { target: 'pals' });
+    const moveId = l.id || l.slug || l.name;
+    if(moveId && typeof window.showSkillDetail === 'function') window.showSkillDetail(moveId);
+    else if(moveId) focusSearch(niceName(moveId), { target: 'pals' });
   } else if(l.type==='glossary'){
     const key = l.id || l.slug;
     if(typeof window.showGlossaryDetail === 'function' && key) window.showGlossaryDetail(key);
@@ -761,6 +766,7 @@ function normalizeItemKey(link){
   const candidates = [];
   if(link.id != null) candidates.push(link.id);
   if(link.slug != null) candidates.push(link.slug);
+  if(link.key != null) candidates.push(link.key);
   if(link.name) candidates.push(link.name);
   if(link.label) candidates.push(link.label);
   for(const candidate of candidates){
@@ -818,7 +824,10 @@ function savePreferences(prefs){
 }
 
 // --- Small helpers ---
-function escapeHTML(s){ return (s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function escapeHTML(value){
+  if(value == null) return '';
+  return String(value).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 function capitalize(s){ return (s||'').replace(/(^|-|_)\w/g, m=>m.toUpperCase()).replace(/[-_]/g,' '); }
 function niceName(id){ return capitalize(String(id).replace(/_/g,' ')); }
 function techName(id){ return niceName(id); }
