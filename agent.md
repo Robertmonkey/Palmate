@@ -66,6 +66,8 @@ This document describes the responsibilities, workflows and quality assurance st
 *Progress 2025-10-08:* Authored Sanctuary Bloom Sweep (`resource-beautiful-flower`) and Carbon Fiber Fabrication (`resource-carbon-fiber`) routes with synchronized bundle updates, new wildlife sanctuary region metadata, and fresh citations spanning PCGamesN plus Palworld Wiki raw pages. Documented sanctuary hazards, Petallia/Ribbuny drop rates, Production Assembly Line requirements, and legendary boss drop fallbacks.
 *Progress 2025-10-09:* Delivered Berry Seed Supply Chain (`resource-berry-seeds`) with full JSON coverage, synced bundle data, and six new citations (Palworld wiki, Zilliongamer, GamesFuze, Dexerto, Fandom). Route now teaches Lifmunk/Gumoss loops, berry bush backups, and Berry Plantation automation.
   * Next steps: chase merchant pricing or alternative seed vendors to quantify gold costs, document Berry Plantation output rates once a second primary source appears, and continue prioritising uncovered resource gaps (Milk, High Quality Pal Oil, Lettuce/Tomato seeds) now that Berry Seeds are live.
+*Progress 2025-10-10:* Added High Quality Pal Oil Hunts (`resource-high-quality-pal-oil`) covering Mossanda lava ravine Flambelle loops, Small Settlement merchant restocks, and Dumud ranch automation. Synced `data/guides.bundle.json`, expanded the guide catalog quick tips, and registered new citations for PCGamesN plus Flambelle/Woolipop wiki drops.
+  * Next steps: source precise Woolipop hillside coordinates or alternative citations for field spawn farming, capture merchant pricing variability for High Quality Pal Oil, and push the Milk/Lettuce/Tomato seed routes once reliable spawn documentation is located.
 
 ## Performance Notes
 

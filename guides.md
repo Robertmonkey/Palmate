@@ -7762,6 +7762,409 @@ Carbon Fiber unlocks late-game armor and weapon upgrades once you place a Produc
 }
 ```
 
+### Route: High Quality Pal Oil Hunts
+
+High Quality Pal Oil fuels muskets, polymer, and other mid-game weaponry, so this route secures the Mossanda lava ravine, merchant restocks, and Dumud ranching to keep polymer queues flowing.【9cc14d†L17-L24】【9e983e†L1-L26】
+
+```json
+{
+  "route_id": "resource-high-quality-pal-oil",
+  "title": "High Quality Pal Oil Hunts",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "high-quality-pal-oil",
+    "mid-game",
+    "combat-farm"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 21,
+    "max": 35
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [
+      "musket"
+    ],
+    "items": [
+      "heat-resistant-armor"
+    ],
+    "pals": []
+  },
+  "objectives": [
+    "Establish a safe camp at the Mossanda Forest lava ravine",
+    "Chain Flambelle clears for High Quality Pal Oil drops",
+    "Supplement drops with merchant buys and Dumud ranching"
+  ],
+  "estimated_time_minutes": {
+    "solo": 35,
+    "coop": 25
+  },
+  "estimated_xp_gain": {
+    "min": 260,
+    "max": 380
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Heat damage and level 30 patrols near Mossanda Forest can down you, wasting oil runs.",
+    "hardcore": "Hardcore wipes in the lava ravine risk permanent loss of Water counters and Polymer fuel stock."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Stay near the statue-side ridge and kite level 10 Flambelle with Water pals until you can push deeper into the ravine.【9cc14d†L17-L21】",
+    "overleveled": "Add Woolipop rotations east of Rayne Syndicate Tower between runs to keep oil income ahead of Polymer demand.【9cc14d†L21-L24】【c81b10†L13-L41】",
+    "resource_shortages": [
+      {
+        "item_id": "high-quality-pal-oil",
+        "solution": "Alternate Flambelle clears with merchant purchases before starting Polymer batches so stock never bottoms out.【9cc14d†L17-L24】"
+      }
+    ],
+    "time_limited": "Hit the lava ravine for a single ten-minute sweep, bank the drops, then fast travel home before heat attrition stacks.",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign a vanguard to clear Flambelle while a runner ferries oil to the chest at the statue between pulls.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-high-quality-pal-oil:001",
+          "resource-high-quality-pal-oil:002"
+        ]
+      },
+      {
+        "signal": "resource_gap:polymer_high",
+        "condition": "resource_gaps['polymer'] >= 10",
+        "adjustment": "Route oil immediately into Polymer queues once stock exceeds 10 to keep late-game weapons online.【efa13d†L1-L16】",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-high-quality-pal-oil:004"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-high-quality-pal-oil:checkpoint-ravine",
+      "summary": "Lava ravine staging secured",
+      "benefits": [
+        "Fast travel anchor established",
+        "Heat mitigation checked"
+      ],
+      "related_steps": [
+        "resource-high-quality-pal-oil:001"
+      ]
+    },
+    {
+      "id": "resource-high-quality-pal-oil:checkpoint-flambelle",
+      "summary": "Flambelle loop profitable",
+      "benefits": [
+        "High Quality Pal Oil banked",
+        "Water pal rotation tuned"
+      ],
+      "related_steps": [
+        "resource-high-quality-pal-oil:002"
+      ]
+    },
+    {
+      "id": "resource-high-quality-pal-oil:checkpoint-supply",
+      "summary": "Supplemental supply online",
+      "benefits": [
+        "Merchant restock secured",
+        "Dumud ranch producing"
+      ],
+      "related_steps": [
+        "resource-high-quality-pal-oil:003",
+        "resource-high-quality-pal-oil:004"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-polymer"
+    ],
+    "optional": [
+      "resource-sulfur"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Fast travel back to Mossanda Forest, restock Water pals, and rebuild drops before another push.",
+    "hardcore": "Withdraw once patrol timers overlap; swap in expendable pals until you re-stabilise oil reserves."
+  },
+  "steps": [
+    {
+      "step_id": "resource-high-quality-pal-oil:001",
+      "type": "travel",
+      "summary": "Scout the Mossanda lava ravine",
+      "detail": "Glide from the Mossanda Forest statue to the lava ravine at (231,-119), clear stray patrols, and stage storage near the cliff edge to minimise heat exposure.【9cc14d†L17-L21】",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "verdant-brook",
+          "coords": [
+            231,
+            -119
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "heat-resistant-armor",
+          "water-grenade"
+        ],
+        "pals": [
+          "pengullet"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 140,
+        "max": 180
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-high-quality-pal-oil"
+      ]
+    },
+    {
+      "step_id": "resource-high-quality-pal-oil:002",
+      "type": "combat",
+      "summary": "Farm Flambelle packs",
+      "detail": "Pull level 10 Flambelle into the cliff bowl, burst them with Water damage, and scoop guaranteed oil drops before respawns tick back in.【9cc14d†L17-L21】【c3b8c9†L23-L37】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "high-quality-pal-oil",
+          "qty": 8
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "verdant-brook",
+          "coords": [
+            231,
+            -119
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "vanguard",
+              "tasks": "Tank patrols and mark spawn cycles"
+            },
+            {
+              "role": "collector",
+              "tasks": "Finish Flambelle with Water skills and loot oil"
+            }
+          ],
+          "loot_rules": "Evenly split oil before leaving the ravine so Polymer queues stay balanced."
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "metal-spear"
+        ],
+        "pals": [
+          "fuack",
+          "surfent"
+        ],
+        "consumables": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 5
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 160,
+        "max": 220
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "high-quality-pal-oil",
+            "qty": 8
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-high-quality-pal-oil",
+        "palwiki-flambelle"
+      ]
+    },
+    {
+      "step_id": "resource-high-quality-pal-oil:003",
+      "type": "trade",
+      "summary": "Restock from merchants",
+      "detail": "Fast travel to the Small Settlement (75,-479) and buy spare oil from the Wandering Merchant whenever stock appears to cover polymer spikes.【9cc14d†L19-L24】【165dd8†L71-L90】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "high-quality-pal-oil",
+          "qty": 4
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": [
+          {
+            "item_id": "gold-coin",
+            "qty": 600
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 60
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "high-quality-pal-oil",
+            "qty": 4
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "capture-base-merchant"
+        }
+      ],
+      "citations": [
+        "pcgamesn-high-quality-pal-oil",
+        "palwiki-small-settlement"
+      ]
+    },
+    {
+      "step_id": "resource-high-quality-pal-oil:004",
+      "type": "assign",
+      "summary": "Ranch Dumud for passive oil",
+      "detail": "Capture or breed a Dumud and assign it to your ranch so it produces High Quality Pal Oil while you craft and explore.【9e983e†L1-L26】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "dumud",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "dumud"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 90
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "high-quality-pal-oil",
+            "qty": 2
+          }
+        ],
+        "pals": [
+          "dumud"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-high-quality-pal-oil"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "high-quality-pal-oil",
+      "qty": 16
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "polymer-crafting"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-polymer",
+      "reason": "Polymer consumes High Quality Pal Oil, so stabilising oil feeds advanced weapon crafting."
+    },
+    {
+      "route_id": "resource-carbon-fiber",
+      "reason": "Carbon Fiber runs share assembly infrastructure; pairing them keeps late-game armor rolling."
+    }
+  ]
+}
+```
+
 ### Route: Recruit Base Merchant
 
 Catching a human merchant early gives permanent access to trading at home without
@@ -14323,6 +14726,9 @@ updating guides, refresh these entries with new dates and pages.
     ,"dexerto-gumoss": { "title": "Where to find and catch Gumoss in Palworld", "url": "https://www.dexerto.com/palworld/where-to-find-and-catch-gumoss-in-palworld-2498063/", "access_date": "2025-10-09", "notes": "Highlights Gumoss habitats including Small Settlement and Investigator's Fork with best coordinates 208,-476 and 198,-482.【7da1bf†L8-L18】" }
     ,"palwiki-lifmunk": { "title": "Lifmunk – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Lifmunk", "access_date": "2025-10-09", "notes": "Lists Berry Seeds as a drop, outlines Lifmunk work skills, and confirms Windswept Hills habitat.【a54223†L1-L24】" }
     ,"palwiki-gumoss": { "title": "Gumoss – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Gumoss", "access_date": "2025-10-09", "notes": "Confirms Gumoss drops Berry Seeds and Gumoss Leaf and describes the special flower variant.【1e725f†L1-L8】" }
+    ,"pcgamesn-high-quality-pal-oil": { "title": "Where to find Palworld High Quality Pal Oil", "url": "https://www.pcgamesn.com/palworld/high-quality-pal-oil", "access_date": "2025-10-10", "notes": "Calls out the Mossanda Forest lava ravine at (231,-119), merchant restocks, and Woolipop rotations for High Quality Pal Oil farming.【9cc14d†L17-L24】" }
+    ,"palwiki-flambelle": { "title": "Flambelle – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Flambelle", "access_date": "2025-10-10", "notes": "Lists Flambelle’s guaranteed drops, including 1 High Quality Pal Oil per defeat.【c3b8c9†L23-L37】" }
+    ,"palwiki-woolipop": { "title": "Woolipop – Palworld Wiki", "url": "https://palworld.wiki.gg/wiki/Woolipop", "access_date": "2025-10-10", "notes": "Shows Woolipop drops 1 High Quality Pal Oil alongside Cotton Candy and documents its ranch output.【c81b10†L13-L41】" }
   }
 }
 ```
