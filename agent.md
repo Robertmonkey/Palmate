@@ -83,6 +83,8 @@ This document describes the responsibilities, workflows and quality assurance st
   * Next steps: extend elemental coverage to Venom Glands, Flame/Ice organ late-game spawns (Suzaku, Frostallion variants), and lock in Katress Hair automation so polymer and ammo chains stay balanced.
 *Progress 2025-10-14:* Authored Venom Gland Vial Chain (`resource-venom-gland`) and Katress Weaving Circuit (`resource-katress-hair`), synchronized `data/guides.bundle.json`, and expanded the source registry with PalNerd, SegmentNext, GameLeap, and ProGameGuides coordinates for plateau camps, Katress patrols, and the Sealed Realm alpha.
   * Next steps: document Venom Gland late-game elites (Helzephyr Noct, Menasting) with Feybreak/Suzaku coverage, capture Caprity Noct spawn citations beyond PalNerd, and continue elemental reagent backlog (e.g., Venom Gland merchant restocks, Katress Ignis breeding drops).
+*Progress 2025-10-15:* Added Ore Mining Grid (`resource-ore`) covering Fort Ruins hauls, Small Settlement automation, and Primitive Furnace smelting with synchronized bundle updates plus new Game8 and Palworld wiki citations for ore nodes and ingot recipes.
+  * Next steps: extend metal coverage to Refined Ingot/Pal Metal Ingot routes, capture merchant pricing for ore batches, and source additional automation footage for alternative mining pals (e.g., Rushoar, Dumud) to diversify loadouts.
 
 ## Performance Notes
 

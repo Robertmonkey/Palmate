@@ -8597,6 +8597,408 @@ Milk powers cakes, hot drinks, and early-game sanity food, so this loop builds a
 }
 ```
 
+### Route: Ore Mining Grid
+
+Ore underpins early metal gear, so this grid stakes the Fort Ruins ridge, anchors a Small Settlement cliff mining base, and keeps Ingots smelting out of automated hauls.【40f7a9†L1-L80】【047054†L18-L24】【951c6f†L6-L16】
+
+```json
+{
+  "route_id": "resource-ore",
+  "title": "Ore Mining Grid",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "ore",
+    "early-game",
+    "mining"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 10,
+    "max": 25
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [
+      "primitive-furnace"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Secure Fort Ruins ore nodes for manual hauls",
+    "Establish a Small Settlement cliff mining base",
+    "Deploy mining pals to automate ore income",
+    "Smelt ore into Ingots to feed metal crafting"
+  ],
+  "estimated_time_minutes": {
+    "solo": 40,
+    "coop": 28
+  },
+  "estimated_xp_gain": {
+    "min": 320,
+    "max": 500
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Over-encumbrance makes escape slow; stash ore between nodes to avoid wipes.",
+    "hardcore": "Falling while overweight or losing automation pals off the cliff can stall production for days."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Loop the Fort Ruins ridge (155,-394) for four quick nodes before committing to a remote base build.【40f7a9†L1-L36】",
+    "overleveled": "Push straight to the Small Settlement cliff (11,-523) and run eight-node automation laps once your pals can tank patrols.【40f7a9†L36-L72】",
+    "resource_shortages": [
+      {
+        "item_id": "ingot",
+        "solution": "Run step :004 every haul so mined ore turns into Ingots before weapon upgrades drain stock.【951c6f†L6-L16】"
+      }
+    ],
+    "time_limited": "Mine Fort Ruins once, drop ore in the staging chest, and fast travel home before nodes respawn.【40f7a9†L1-L36】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign a miner to break nodes while a hauler ferries loads to the cliff chest so respawns stay on cadence.【40f7a9†L36-L72】",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-ore:001",
+          "resource-ore:003"
+        ]
+      },
+      {
+        "signal": "resource_gap:ingot_high",
+        "condition": "resource_gaps['ingot'] >= 20",
+        "adjustment": "Repeat step :004 immediately after each haul until the furnace backlog clears and Ingots hit target.",
+        "priority": 1,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-ore:004"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-ore:checkpoint-fort",
+      "summary": "Fort Ruins ridge cleared",
+      "benefits": [
+        "Initial ore stock banked",
+        "Fast travel anchor confirmed"
+      ],
+      "related_steps": [
+        "resource-ore:001"
+      ]
+    },
+    {
+      "id": "resource-ore:checkpoint-base",
+      "summary": "Cliff base anchored",
+      "benefits": [
+        "Palbox and chest staged",
+        "Automation pathing stabilised"
+      ],
+      "related_steps": [
+        "resource-ore:002",
+        "resource-ore:003"
+      ]
+    },
+    {
+      "id": "resource-ore:checkpoint-smelt",
+      "summary": "Ingots queued",
+      "benefits": [
+        "Primitive Furnace active",
+        "Ingot reserves replenished"
+      ],
+      "related_steps": [
+        "resource-ore:004"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "capture-base-merchant"
+    ],
+    "optional": [
+      "resource-coal"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "If tools break or packs overflow, store ore at the cliff chest and fast travel home to repair before resuming.",
+    "hardcore": "Rotate mining pals out when raids spawn and keep weight under 85% to avoid lethal falls."
+  },
+  "steps": [
+    {
+      "step_id": "resource-ore:001",
+      "type": "gather",
+      "summary": "Mine Fort Ruins ridge",
+      "detail": "Fast travel to Fort Ruins (155,-394) and clear the four grey-and-red ore rocks west of the statue, stashing loads in a drop chest to prevent encumbrance.【40f7a9†L1-L36】【047054†L18-L24】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "ore",
+          "qty": 20
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "fort-ruins",
+          "coords": [
+            155,
+            -394
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "stone-pickaxe"
+        ],
+        "pals": [
+          "cattiva"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 170
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ore",
+            "qty": 20
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "game8-ore-farming",
+        "palwiki-ore"
+      ]
+    },
+    {
+      "step_id": "resource-ore:002",
+      "type": "build",
+      "summary": "Anchor the cliff mining base",
+      "detail": "Place a Palbox and Wooden Chest on the cliff west of the Small Settlement (11,-523) so every haul drops straight into storage without long walks.【40f7a9†L36-L60】",
+      "targets": [
+        {
+          "kind": "structure",
+          "id": "palbox",
+          "qty": 1
+        },
+        {
+          "kind": "structure",
+          "id": "wooden-chest",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            11,
+            -523
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "cattiva"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 110
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "structures": [
+            "palbox",
+            "wooden-chest"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "game8-ore-farming"
+      ]
+    },
+    {
+      "step_id": "resource-ore:003",
+      "type": "assign",
+      "summary": "Deploy mining pals and clear pathing",
+      "detail": "Bring Digtoise or other Mining level 2 pals, lay foundations over trees, and keep haulers cycling ore into the chest so automation never stalls.【d070f4†L1-L24】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "digtoise",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            11,
+            -523
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "miner",
+              "tasks": "Break nodes and reset respawns"
+            },
+            {
+              "role": "runner",
+              "tasks": "Collect ore and restock the chest"
+            }
+          ],
+          "loot_rules": "Deposit ore evenly before leaving the base"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "stone-pickaxe"
+        ],
+        "pals": [
+          "digtoise",
+          "cattiva"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 140,
+        "max": 200
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ore",
+            "qty": 40
+          }
+        ],
+        "pals": [
+          "digtoise"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "game8-ore-farming"
+      ]
+    },
+    {
+      "step_id": "resource-ore:004",
+      "type": "craft",
+      "summary": "Smelt ore into Ingots",
+      "detail": "At base, feed ore into the Primitive Furnace—each batch converts two ore into an Ingot that fuels mid-game weapons and armor.【951c6f†L6-L16】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "ingot",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 100,
+        "max": 160
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ingot",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-coal"
+        }
+      ],
+      "citations": [
+        "palwiki-ingot"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "ore",
+      "qty": 60
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "ingot-stockpile"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-carbon-fiber",
+      "reason": "Carbon Fiber crafting consumes large Ingot reserves, so stabilising ore keeps armor upgrades rolling."
+    }
+  ]
+}
+```
+
 ### Route: Flour Milling Network
 
 Flour Milling Network turns the Small Settlement merchant's grain stock into automated Wheat Plantations and a Mill, keeping flour flowing for bakeries and late-game cooking queues.【c6adb4†L34-L114】【af5fcd†L1-L12】【ecbbdd†L1-L16】【bfc9eb†L1-L17】
@@ -18069,6 +18471,12 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-12",
       "notes": "States the Mill unlocks at technology tier 15 for 2 points, costs 50 Wood and 40 Stone, and requires a Watering Pal to grind Wheat into Flour.\u3010ecbbdd\u2020L1-L16\u3011"
     },
+    "palwiki-ore": {
+      "title": "Ore \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Ore",
+      "access_date": "2025-10-15",
+      "notes": "Explains ore nodes are gray with red streaks, cites Ore Mining Site variants, and lists mining pal drop tables for ore.\u3010047054\u2020L18-L24\u3011"
+    },
     "palwiki-flour": {
       "title": "Flour \u2013 Palworld Wiki (Fandom)",
       "url": "https://palworld.fandom.com/wiki/Flour",
@@ -18080,6 +18488,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.fandom.com/wiki/Wheat",
       "access_date": "2025-10-12",
       "notes": "Notes Wheat can be purchased from merchants or grown via Wheat Plantations before milling into Flour.\u301015b61b\u2020L1-L11\u3011"
+    },
+    "palwiki-ingot": {
+      "title": "Ingot \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Ingot",
+      "access_date": "2025-10-15",
+      "notes": "Describes crafting Ingots by smelting two ore in a Primitive Furnace and highlights their role in mid-game equipment.【951c6f†L6-L16】"
     },
     "palwiki-cake": {
       "title": "Cake \u2013 Palworld Wiki (Fandom)",
@@ -18128,6 +18542,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://game8.co/games/Palworld/archives/440190",
       "access_date": "2025-10-13",
       "notes": "Covers Pengullet farming inside the Penking arena at (113,-351), Duneshelter merchant stock, and cautions against killing the boss during loops.\u30104307f5\u2020L3-L11\u3011\u30100e4eda\u2020L6-L83\u3011"
+    },
+    "game8-ore-farming": {
+      "title": "How to Farm Ore and Best Locations | Palworld\u3010Game8\u3011",
+      "url": "https://game8.co/games/Palworld/archives/440245",
+      "access_date": "2025-10-15",
+      "notes": "Lists Fort Ruins, Desolate Church, Small Settlement, and Icy Weasel Hill ore coordinates with base layout and automation guidance for mining pals.\u301040f7a9\u2020L1-L80\u3011\u3010d070f4\u2020L1-L24\u3011"
     },
     "dexerto-ice-organ": {
       "title": "How to get & farm Ice Organs in Palworld",
