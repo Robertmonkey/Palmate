@@ -11931,7 +11931,20 @@
 
     function sanitizeImageUrl(url){
       const raw = typeof url === 'string' ? url.trim() : '';
-      const safe = raw ? raw : ROUTE_ART_IMAGE;
+      let safe = raw || ROUTE_ART_IMAGE;
+      if(!safe){
+        safe = '';
+      }
+      const lower = safe.toLowerCase();
+      const isAbsolute = /^(https?:|data:|blob:|\/{1,2})/.test(lower);
+      if(!isAbsolute){
+        // Remove leading './' segments so we can normalise relative paths cleanly.
+        safe = safe.replace(/^\.\/+/,'');
+        // Keep any existing '../' segments (some assets already specify them).
+        if(!safe.startsWith('../')){
+          safe = `../${safe}`;
+        }
+      }
       return safe.replace(/'/g, "\\'");
     }
 
