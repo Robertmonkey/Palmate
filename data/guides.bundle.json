@@ -3,7 +3,7 @@
     "schema_version": 2,
     "game_version": "v0.6.7 (build 1.079.736)",
     "verified_at_utc": "2025-09-30T00:00:00Z",
-    "world_map_reference": "Palworld uses a two‑dimensional coordinate system where the X axis runs east–west and the Y axis runs north–south.  Coordinates may be positive or negative.  (0,0) lies near the initial spawn area on the main island.",
+    "world_map_reference": "Palworld uses a two\u2011dimensional coordinate system where the X axis runs east\u2013west and the Y axis runs north\u2013south.  Coordinates may be positive or negative.  (0,0) lies near the initial spawn area on the main island.",
     "difficulty_modes": [
       "normal",
       "hardcore"
@@ -280,12 +280,12 @@
       "capture_common_pal": {
         "min": 20,
         "max": 50,
-        "notes": "Capturing a new species yields a significant XP bonus compared with defeating it.  NameHero’s leveling guide emphasises capturing Pals to gain XP【116860197722081†L96-L128】."
+        "notes": "Capturing a new species yields a significant XP bonus compared with defeating it.  NameHero\u2019s leveling guide emphasises capturing Pals to gain XP\u3010116860197722081\u2020L96-L128\u3011."
       },
       "capture_rare_pal": {
         "min": 60,
         "max": 120,
-        "notes": "Rare or Alpha Pals award more XP (up to ~10× for Alphas)."
+        "notes": "Rare or Alpha Pals award more XP (up to ~10\u00d7 for Alphas)."
       },
       "defeat_pal": {
         "min": 10,
@@ -469,7 +469,7 @@
           "step_id": "starter-base-capture:001",
           "type": "gather",
           "summary": "Collect Wood and Stone",
-          "detail": "Harvest at least 20 Wood from trees and 15 Stone from boulders in the Windswept Hills.  Trees and stone nodes respawn quickly; use a primitive tool or your Pals to speed up collection.",
+          "detail": "Harvest at least 20\u00a0Wood from trees and 15\u00a0Stone from boulders in the Windswept Hills.  Trees and stone nodes respawn quickly; use a primitive tool or your Pals to speed up collection.",
           "targets": [
             {
               "kind": "item",
@@ -495,7 +495,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Avoid engaging hostile Pals while gathering; keep your HP above 50 % and carry extra berries.",
+              "tactics": "Avoid engaging hostile Pals while gathering; keep your HP above 50\u00a0% and carry extra berries.",
               "safety_buffer_items": [
                 {
                   "item_id": "wood",
@@ -551,7 +551,7 @@
           "step_id": "starter-base-capture:002",
           "type": "build",
           "summary": "Construct a Primitive Workbench",
-          "detail": "Open the construction menu and build a Primitive Workbench using 2 Wood【907636800064548†screenshot】.  Place it near your gathering area.",
+          "detail": "Open the construction menu and build a Primitive Workbench using 2\u00a0Wood\u3010907636800064548\u2020screenshot\u3011.  Place it near your gathering area.",
           "targets": [
             {
               "kind": "station",
@@ -597,7 +597,7 @@
           "step_id": "starter-base-capture:003",
           "type": "craft",
           "summary": "Craft Pal Spheres",
-          "detail": "Use the Primitive Workbench to craft at least five Pal Spheres.  Each sphere requires Paldium Fragments (gathered from blue ore) and a small amount of Wood and Stone.  If you lack fragments, mine Paldium nodes along the river.",
+          "detail": "Use the Primitive Workbench to craft at least five Pal\u00a0Spheres.  Each sphere requires Paldium Fragments (gathered from blue ore) and a small amount of Wood and Stone.  If you lack fragments, mine Paldium nodes along the river.",
           "targets": [
             {
               "kind": "item",
@@ -649,7 +649,7 @@
           "step_id": "starter-base-capture:004",
           "type": "capture",
           "summary": "Capture three early Pals",
-          "detail": "Throw Pal Spheres at Lamball, Cattiva, Chikipi, Lifmunk or Foxparks in the Windswept Hills【956200907149478†L146-L169】.  Approach from behind to improve your catch rate.  Capturing new species grants more XP than defeating them【116860197722081†L96-L128】.",
+          "detail": "Throw Pal\u00a0Spheres at Lamball, Cattiva, Chikipi, Lifmunk or Foxparks in the Windswept Hills\u3010956200907149478\u2020L146-L169\u3011.  Approach from behind to improve your catch rate.  Capturing new species grants more XP than defeating them\u3010116860197722081\u2020L96-L128\u3011.",
           "targets": [
             {
               "kind": "pal",
@@ -689,7 +689,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Avoid aggroing the nearby Mammorest boss while hunting【956200907149478†L146-L169】.  Always keep a healing item ready.",
+              "tactics": "Avoid aggroing the nearby Mammorest boss while hunting\u3010956200907149478\u2020L146-L169\u3011.  Always keep a healing item ready.",
               "safety_buffer_items": [
                 {
                   "item_id": "leather",
@@ -920,7 +920,7 @@
           {
             "signal": "resource_gap:leather_high",
             "condition": "resource_gaps contains leather >= 20",
-            "adjustment": "Run the Sea Breeze loop in :002 twice—first clockwise around the Church, then along the Bridge of the Twin Knights—to stock 20+ Leather in one outing.",
+            "adjustment": "Run the Sea Breeze loop in :002 twice\u2014first clockwise around the Church, then along the Bridge of the Twin Knights\u2014to stock 20+ Leather in one outing.",
             "priority": 2,
             "mode_scope": [
               "normal",
@@ -993,7 +993,7 @@
           "step_id": "resource-leather-early:001",
           "type": "travel",
           "summary": "Travel to leather hotspots",
-          "detail": "Head to the Sea Breeze Archipelago Church or the Bridge of the Twin Knights.  These areas host large numbers of Foxparks, Rushoars and Fuacks, which all drop Leather【840767909995613†L78-L100】【840767909995613†L106-L135】.",
+          "detail": "Head to the Sea\u00a0Breeze Archipelago Church or the Bridge of the Twin Knights.  These areas host large numbers of Foxparks, Rushoars and Fuacks, which all drop Leather\u3010840767909995613\u2020L78-L100\u3011\u3010840767909995613\u2020L106-L135\u3011.",
           "targets": [],
           "locations": [
             {
@@ -1041,8 +1041,8 @@
         {
           "step_id": "resource-leather-early:002",
           "type": "farm",
-          "summary": "Hunt leather‑dropping Pals",
-          "detail": "Defeat or capture Foxparks, Fuack, Rushoar, Melpaca, Vixy, Eikthyrdeer and Direhowl.  Each drop guarantees 1–3 Leather【142053078936299†L295-L311】【840767909995613†L49-L103】.  Use water Pals against fire types and electric Pals against water types.  Expect roughly 10–20 Leather/hour when solo and 20–30 Leather/hour in Co‑Op.",
+          "summary": "Hunt leather\u2011dropping Pals",
+          "detail": "Defeat or capture Foxparks, Fuack, Rushoar, Melpaca, Vixy, Eikthyrdeer and Direhowl.  Each drop guarantees 1\u20133\u00a0Leather\u3010142053078936299\u2020L295-L311\u3011\u3010840767909995613\u2020L49-L103\u3011.  Use water Pals against fire types and electric Pals against water types.  Expect roughly 10\u201320\u00a0Leather/hour when solo and 20\u201330\u00a0Leather/hour in Co\u2011Op.",
           "targets": [
             {
               "kind": "item",
@@ -1131,7 +1131,7 @@
           "step_id": "resource-leather-early:003",
           "type": "deliver",
           "summary": "Optionally buy Leather from merchants",
-          "detail": "If hunting is too risky, purchase Leather from a Wandering Merchant for approximately 150 gold each【840767909995613†L78-L100】.",
+          "detail": "If hunting is too risky, purchase Leather from a Wandering Merchant for approximately 150\u00a0gold each\u3010840767909995613\u2020L78-L100\u3011.",
           "targets": [
             {
               "kind": "item",
@@ -1251,7 +1251,7 @@
       },
       "risk_profile": "low",
       "failure_penalties": {
-        "normal": "Minimal—only time spent",
+        "normal": "Minimal\u2014only time spent",
         "hardcore": "Potential durability loss on tools"
       },
       "adaptive_guidance": {
@@ -1354,7 +1354,7 @@
           "step_id": "resource-paldium:001",
           "type": "gather",
           "summary": "Mine riverbed nodes",
-          "detail": "Follow the river south of the Windswept Hills fast travel statue.  Blue crystalline nodes respawn every few minutes and yield 2–4 fragments each【palwiki-paldium†L42-L71】.",
+          "detail": "Follow the river south of the Windswept Hills fast travel statue.  Blue crystalline nodes respawn every few minutes and yield 2\u20134 fragments each\u3010palwiki-paldium\u2020L42-L71\u3011.",
           "targets": [
             {
               "kind": "item",
@@ -1375,7 +1375,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Keep stamina above 50 % to dodge hostile Lamballs",
+              "tactics": "Keep stamina above 50\u00a0% to dodge hostile Lamballs",
               "safety_buffer_items": [
                 {
                   "item_id": "berry",
@@ -1429,7 +1429,7 @@
           "step_id": "resource-paldium:002",
           "type": "explore",
           "summary": "Hit cliffside outcrops",
-          "detail": "Circle the cliff ring northwest of the starting valley.  Surface fragments protrude from the ground and can be kicked for bonus drops, netting ~30 fragments per lap【palwiki-paldium†L86-L115】.",
+          "detail": "Circle the cliff ring northwest of the starting valley.  Surface fragments protrude from the ground and can be kicked for bonus drops, netting ~30 fragments per lap\u3010palwiki-paldium\u2020L86-L115\u3011.",
           "targets": [
             {
               "kind": "item",
@@ -1481,7 +1481,7 @@
           "step_id": "resource-paldium:003",
           "type": "craft",
           "summary": "Refine fragments from Ore",
-          "detail": "Back at base, smelt spare Ore into Ingots, then crush the leftovers to convert into extra fragments.  Each smelting cycle produces 2 fragments as a by-product when using the Primitive Furnace【palwiki-paldium†L118-L140】.",
+          "detail": "Back at base, smelt spare Ore into Ingots, then crush the leftovers to convert into extra fragments.  Each smelting cycle produces 2 fragments as a by-product when using the Primitive Furnace\u3010palwiki-paldium\u2020L118-L140\u3011.",
           "targets": [
             {
               "kind": "item",
@@ -1599,11 +1599,11 @@
       "risk_profile": "medium",
       "failure_penalties": {
         "normal": "Aggressive patrols near the shoreline can down you; respawning costs travel time.",
-        "hardcore": "Hardcore runs should avoid cliff combat—fall damage while hauling fluids can be lethal."
+        "hardcore": "Hardcore runs should avoid cliff combat\u2014fall damage while hauling fluids can be lethal."
       },
       "adaptive_guidance": {
-        "underleveled": "Capture only Pengullet during daylight and avoid the deeper coves where Syndicate scouts roam.【palwiki-pengullet-fandom†L1868-L1872】",
-        "overleveled": "Chain Pengullet and Fuack loops without returning to base, filling storage with 30+ Pal Fluids per run.【palwiki-pengullet†L575-L619】【palwiki-fuack†L1667-L1667】",
+        "underleveled": "Capture only Pengullet during daylight and avoid the deeper coves where Syndicate scouts roam.\u3010palwiki-pengullet-fandom\u2020L1868-L1872\u3011",
+        "overleveled": "Chain Pengullet and Fuack loops without returning to base, filling storage with 30+ Pal Fluids per run.\u3010palwiki-pengullet\u2020L575-L619\u3011\u3010palwiki-fuack\u2020L1667-L1667\u3011",
         "resource_shortages": [
           {
             "item_id": "pal-sphere",
@@ -1668,7 +1668,7 @@
           "step_id": "resource-pal-fluids:001",
           "type": "capture",
           "summary": "Sweep the Windswept shoreline for Pengullet",
-          "detail": "Follow the beach east of the Windswept Hills fast travel point. Pengullet congregate along the water, drop Pal Fluids on capture, and offer Watering utility for your base.【palwiki-pengullet-fandom†L1868-L1872】【palwiki-pengullet†L575-L619】",
+          "detail": "Follow the beach east of the Windswept Hills fast travel point. Pengullet congregate along the water, drop Pal Fluids on capture, and offer Watering utility for your base.\u3010palwiki-pengullet-fandom\u2020L1868-L1872\u3011\u3010palwiki-pengullet\u2020L575-L619\u3011",
           "targets": [
             {
               "kind": "item",
@@ -1735,7 +1735,7 @@
           "step_id": "resource-pal-fluids:002",
           "type": "capture",
           "summary": "Tag Fuack around inland ponds",
-          "detail": "Cut inland to the freshwater pools west of the plateau. Fuack roam around water sources, drop Pal Fluids alongside Leather, and bolster your Watering roster.【palwiki-fuack†L1853-L1859】【palwiki-fuack†L1667-L1667】",
+          "detail": "Cut inland to the freshwater pools west of the plateau. Fuack roam around water sources, drop Pal Fluids alongside Leather, and bolster your Watering roster.\u3010palwiki-fuack\u2020L1853-L1859\u3011\u3010palwiki-fuack\u2020L1667-L1667\u3011",
           "targets": [
             {
               "kind": "item",
@@ -1791,7 +1791,7 @@
           "step_id": "resource-pal-fluids:003",
           "type": "base",
           "summary": "Assign fluid workers or bottle extras",
-          "detail": "Back at base, station Pengullet or Fuack on Watering posts or cooking stations, then butcher surplus captures for additional Pal Fluids to feed polymer and medicine recipes.【palwiki-pengullet†L575-L619】【palwiki-fuack†L1667-L1667】",
+          "detail": "Back at base, station Pengullet or Fuack on Watering posts or cooking stations, then butcher surplus captures for additional Pal Fluids to feed polymer and medicine recipes.\u3010palwiki-pengullet\u2020L575-L619\u3011\u3010palwiki-fuack\u2020L1667-L1667\u3011",
           "targets": [
             {
               "kind": "item",
@@ -1908,12 +1908,12 @@
       },
       "risk_profile": "low",
       "failure_penalties": {
-        "normal": "Minimal—Chikipi flee rather than fight, so only time is lost.",
+        "normal": "Minimal\u2014Chikipi flee rather than fight, so only time is lost.",
         "hardcore": "Hardcore runs risk a stray patrol near the fields; keep distance if undergeared."
       },
       "adaptive_guidance": {
-        "underleveled": "Stay near the Palbox outskirts and capture one Chikipi at a time to avoid chain aggro.【palwiki-chikipi†L1850-L1857】",
-        "overleveled": "Run the route twice per outing, filling both ranch slots and stockpiling 15+ Eggs for breeding queues.【palwiki-chikipi†L1667-L1693】",
+        "underleveled": "Stay near the Palbox outskirts and capture one Chikipi at a time to avoid chain aggro.\u3010palwiki-chikipi\u2020L1850-L1857\u3011",
+        "overleveled": "Run the route twice per outing, filling both ranch slots and stockpiling 15+ Eggs for breeding queues.\u3010palwiki-chikipi\u2020L1667-L1693\u3011",
         "resource_shortages": [
           {
             "item_id": "pal-sphere",
@@ -1971,7 +1971,7 @@
         ]
       },
       "failure_recovery": {
-        "normal": "If a Chikipi faints, fast travel back to the Hills statue and repeat step :001—respawns are fast.",
+        "normal": "If a Chikipi faints, fast travel back to the Hills statue and repeat step :001\u2014respawns are fast.",
         "hardcore": "Avoid combat entirely; sprint away from patrols rather than risking a Hardcore wipe for a single egg."
       },
       "steps": [
@@ -1979,7 +1979,7 @@
           "step_id": "resource-egg:001",
           "type": "capture",
           "summary": "Gather Chikipi in Windswept Hills",
-          "detail": "Circle the grassy flats below the Palbox. Chikipi roam here constantly, lay eggs on the ground, and rarely fight back, so you can secure four layers quickly.【palwiki-chikipi†L1850-L1859】",
+          "detail": "Circle the grassy flats below the Palbox. Chikipi roam here constantly, lay eggs on the ground, and rarely fight back, so you can secure four layers quickly.\u3010palwiki-chikipi\u2020L1850-L1859\u3011",
           "targets": [
             {
               "kind": "pal",
@@ -2049,7 +2049,7 @@
           "step_id": "resource-egg:002",
           "type": "base",
           "summary": "Assign layers to the ranch",
-          "detail": "Place two captured Chikipi on the Ranch. Their Egg Layer partner skill produces eggs over time, so stagger assignments to keep timers rolling.【palwiki-chikipi†L1667-L1693】",
+          "detail": "Place two captured Chikipi on the Ranch. Their Egg Layer partner skill produces eggs over time, so stagger assignments to keep timers rolling.\u3010palwiki-chikipi\u2020L1667-L1693\u3011",
           "targets": [
             {
               "kind": "item",
@@ -2103,7 +2103,7 @@
           "step_id": "resource-egg:003",
           "type": "gather",
           "summary": "Scoop loose eggs while timers reset",
-          "detail": "Jog a perimeter lap through the same fields, collecting freshly laid eggs and watching for respawned Chikipi to top off your ranch roster.【palwiki-chikipi†L1850-L1859】",
+          "detail": "Jog a perimeter lap through the same fields, collecting freshly laid eggs and watching for respawned Chikipi to top off your ranch roster.\u3010palwiki-chikipi\u2020L1850-L1859\u3011",
           "targets": [
             {
               "kind": "item",
@@ -2220,8 +2220,8 @@
         "hardcore": "Hardcore runs risk sacrificing early ranch workers; keep stamina high when kiting hostile patrols."
       },
       "adaptive_guidance": {
-        "underleveled": "Stick to the Windswept Hills meadows and capture docile Lamball pairs until you can safely travel to Sea Breeze.【palwiki-lamball†L620-L623】【goleap-region-levels†L131-L147】",
-        "overleveled": "Chain both regions in a single loop, hauling 25+ Wool before returning to base for tailoring queues.【palwiki-lamball†L620-L623】",
+        "underleveled": "Stick to the Windswept Hills meadows and capture docile Lamball pairs until you can safely travel to Sea Breeze.\u3010palwiki-lamball\u2020L620-L623\u3011\u3010goleap-region-levels\u2020L131-L147\u3011",
+        "overleveled": "Chain both regions in a single loop, hauling 25+ Wool before returning to base for tailoring queues.\u3010palwiki-lamball\u2020L620-L623\u3011",
         "resource_shortages": [
           {
             "item_id": "pal-sphere",
@@ -2233,7 +2233,7 @@
           {
             "signal": "mode:coop",
             "condition": "mode.coop === true",
-            "adjustment": "Split duties—one player lassos Lamball while the other clears respawn timers and escorts captives back to base.",
+            "adjustment": "Split duties\u2014one player lassos Lamball while the other clears respawn timers and escorts captives back to base.",
             "priority": 3,
             "mode_scope": [
               "coop"
@@ -2302,7 +2302,7 @@
           "step_id": "resource-wool:001",
           "type": "capture",
           "summary": "Net Lamball herds in Windswept Hills",
-          "detail": "Teleport to the Windswept Hills statue and sweep the meadows south of the plateau. Lamball spawn here in friendly pairs and drop 1–3 Wool per capture, letting you recruit three ranch hands quickly.【palwiki-lamball†L575-L623】【goleap-region-levels†L131-L147】",
+          "detail": "Teleport to the Windswept Hills statue and sweep the meadows south of the plateau. Lamball spawn here in friendly pairs and drop 1\u20133 Wool per capture, letting you recruit three ranch hands quickly.\u3010palwiki-lamball\u2020L575-L623\u3011\u3010goleap-region-levels\u2020L131-L147\u3011",
           "targets": [
             {
               "kind": "pal",
@@ -2382,7 +2382,7 @@
           "step_id": "resource-wool:002",
           "type": "capture",
           "summary": "Rotate through Sea Breeze Archipelago pastures",
-          "detail": "Sail or glide to the Sea Breeze Archipelago and loop the coastal fields north of the Church. Lamball spawn here at similar levels, ensuring replacement workers and extra Wool for crafting stock.【palwiki-lamball†L620-L623】",
+          "detail": "Sail or glide to the Sea Breeze Archipelago and loop the coastal fields north of the Church. Lamball spawn here at similar levels, ensuring replacement workers and extra Wool for crafting stock.\u3010palwiki-lamball\u2020L620-L623\u3011",
           "targets": [
             {
               "kind": "item",
@@ -2436,7 +2436,7 @@
           "step_id": "resource-wool:003",
           "type": "base",
           "summary": "Staff the ranch and weave cloth",
-          "detail": "Back at base, assign two Lamball to the Ranch so they passively generate Wool, then queue Cloth recipes at the workbench for early armor upgrades.【palwiki-lamball†L433-L623】",
+          "detail": "Back at base, assign two Lamball to the Ranch so they passively generate Wool, then queue Cloth recipes at the workbench for early armor upgrades.\u3010palwiki-lamball\u2020L433-L623\u3011",
           "targets": [
             {
               "kind": "item",
@@ -2563,8 +2563,8 @@
         "hardcore": "Level 30 patrols around Mossanda Forest can one-shot undergeared players."
       },
       "adaptive_guidance": {
-        "underleveled": "Stay near Cinnamoth Forest (-74,-279) and net 6+ honey from level 18 Cinnamoth before approaching Mossanda Forest Pals.【pcgamesn-honey†L135-L144】",
-        "overleveled": "Chain Cinnamoth and Mossanda loops without fast travel to restock 20+ honey in a single outing.【pcgamesn-honey†L135-L145】",
+        "underleveled": "Stay near Cinnamoth Forest (-74,-279) and net 6+ honey from level 18 Cinnamoth before approaching Mossanda Forest Pals.\u3010pcgamesn-honey\u2020L135-L144\u3011",
+        "overleveled": "Chain Cinnamoth and Mossanda loops without fast travel to restock 20+ honey in a single outing.\u3010pcgamesn-honey\u2020L135-L145\u3011",
         "resource_shortages": [
           {
             "item_id": "pal-sphere",
@@ -2576,7 +2576,7 @@
           {
             "signal": "mode:coop",
             "condition": "mode.coop === true",
-            "adjustment": "Split roles—one player kites and weakens targets while the other nets captures and hauls honey.",
+            "adjustment": "Split roles\u2014one player kites and weakens targets while the other nets captures and hauls honey.",
             "priority": 2,
             "mode_scope": [
               "coop"
@@ -2645,7 +2645,7 @@
           "step_id": "resource-honey:001",
           "type": "capture",
           "summary": "Capture Cinnamoth near Cinnamoth Forest",
-          "detail": "Teleport to Cinnamoth Forest (-74,-279) north of the Bridge of the Twin Knights. The level ~18 Cinnamoth here drop Honey when captured or defeated, letting you stock 6–8 units quickly.【pcgamesn-honey†L135-L144】",
+          "detail": "Teleport to Cinnamoth Forest (-74,-279) north of the Bridge of the Twin Knights. The level ~18 Cinnamoth here drop Honey when captured or defeated, letting you stock 6\u20138 units quickly.\u3010pcgamesn-honey\u2020L135-L144\u3011",
           "targets": [
             {
               "kind": "item",
@@ -2711,7 +2711,7 @@
           "step_id": "resource-honey:002",
           "type": "capture",
           "summary": "Hunt Beegarde in Mossanda Forest",
-          "detail": "Travel to Mossanda Forest (234,-118). Level 20–30 Beegarde spawn in groups and reliably drop Honey; capture two or three to staff your ranch and stock additional drops.【pcgamesn-honey†L135-L145】",
+          "detail": "Travel to Mossanda Forest (234,-118). Level 20\u201330 Beegarde spawn in groups and reliably drop Honey; capture two or three to staff your ranch and stock additional drops.\u3010pcgamesn-honey\u2020L135-L145\u3011",
           "targets": [
             {
               "kind": "pal",
@@ -2786,7 +2786,7 @@
           "step_id": "resource-honey:003",
           "type": "base",
           "summary": "Assign Beegarde to your ranch",
-          "detail": "Back at base, assign captured Beegarde to a Ranch. They will periodically produce Honey without further intervention, keeping your cake pipeline stocked.【pcgamesn-honey†L146-L148】【palwiki-honey†L402-L433】",
+          "detail": "Back at base, assign captured Beegarde to a Ranch. They will periodically produce Honey without further intervention, keeping your cake pipeline stocked.\u3010pcgamesn-honey\u2020L146-L148\u3011\u3010palwiki-honey\u2020L402-L433\u3011",
           "targets": [
             {
               "kind": "item",
@@ -2914,8 +2914,8 @@
         "hardcore": "Heat and high-level enemies in late-game regions can wipe an unprepared team, costing gear."
       },
       "adaptive_guidance": {
-        "underleveled": "Loop the Hillside Cavern entrance nodes and reset rather than diving deep until you reach level 25.【pcgamesn-coal†L135-L138】",
-        "overleveled": "Add the Desiccated Desert ridge and Astral Mountain outcrops to clear 60+ Coal per circuit.【pcgamesn-coal†L135-L138】",
+        "underleveled": "Loop the Hillside Cavern entrance nodes and reset rather than diving deep until you reach level 25.\u3010pcgamesn-coal\u2020L135-L138\u3011",
+        "overleveled": "Add the Desiccated Desert ridge and Astral Mountain outcrops to clear 60+ Coal per circuit.\u3010pcgamesn-coal\u2020L135-L138\u3011",
         "resource_shortages": [
           {
             "item_id": "metal-pickaxe",
@@ -2994,7 +2994,7 @@
           "step_id": "resource-coal:001",
           "type": "gather",
           "summary": "Mine Hillside Cavern nodes",
-          "detail": "Enter Hillside Cavern at 147,-397 northeast of Rayne Syndicate Tower. Clear the Coal, Sulfur, and Ore clusters with a Metal Pickaxe, exiting before weight caps you.【pcgamesn-coal†L135-L138】",
+          "detail": "Enter Hillside Cavern at 147,-397 northeast of Rayne Syndicate Tower. Clear the Coal, Sulfur, and Ore clusters with a Metal Pickaxe, exiting before weight caps you.\u3010pcgamesn-coal\u2020L135-L138\u3011",
           "targets": [
             {
               "kind": "item",
@@ -3054,7 +3054,7 @@
           "step_id": "resource-coal:002",
           "type": "gather",
           "summary": "Survey high-yield ridges",
-          "detail": "Once geared, push into the Desiccated Desert ridgeline (~340,-120) and Astral Mountain foothills (~40, 320) where Coal veins respawn quickly but enemies hit much harder.【pcgamesn-coal†L135-L138】",
+          "detail": "Once geared, push into the Desiccated Desert ridgeline (~340,-120) and Astral Mountain foothills (~40, 320) where Coal veins respawn quickly but enemies hit much harder.\u3010pcgamesn-coal\u2020L135-L138\u3011",
           "targets": [
             {
               "kind": "item",
@@ -3127,7 +3127,7 @@
           "step_id": "resource-coal:003",
           "type": "craft",
           "summary": "Process Coal for Refined Ingots",
-          "detail": "Back at base, feed Coal and Ore into the Improved Furnace to create Refined Ingots, or run Stone through the Crusher for extra Coal fragments.【palwiki-coal†L388-L430】",
+          "detail": "Back at base, feed Coal and Ore into the Improved Furnace to create Refined Ingots, or run Stone through the Crusher for extra Coal fragments.\u3010palwiki-coal\u2020L388-L430\u3011",
           "targets": [
             {
               "kind": "item",
@@ -3255,12 +3255,12 @@
         "hardcore": "Volcanic DoTs stack quickly; a wipe at Mount Obsidian risks permanent loss of high-tier tools and Pals."
       },
       "adaptive_guidance": {
-        "underleveled": "Loop the Mossanda Forest ravine deposits until you can survive lava enemies deeper in Mount Obsidian.【pcgamesn-sulfur†L11-L19】",
-        "overleveled": "Base out of the Eternal Pyre entrance and rotate chest drops between runs to keep Sulfur flowing for munitions.【pcgamesn-sulfur†L15-L20】",
+        "underleveled": "Loop the Mossanda Forest ravine deposits until you can survive lava enemies deeper in Mount Obsidian.\u3010pcgamesn-sulfur\u2020L11-L19\u3011",
+        "overleveled": "Base out of the Eternal Pyre entrance and rotate chest drops between runs to keep Sulfur flowing for munitions.\u3010pcgamesn-sulfur\u2020L15-L20\u3011",
         "resource_shortages": [
           {
             "item_id": "gunpowder",
-            "solution": "Run step :003 immediately after mining so Sulfur converts into ammunition stock instead of sitting unused.【pcgamesn-sulfur†L11-L15】"
+            "solution": "Run step :003 immediately after mining so Sulfur converts into ammunition stock instead of sitting unused.\u3010pcgamesn-sulfur\u2020L11-L15\u3011"
           }
         ],
         "time_limited": "Hit step :001 for a 10-minute top-up, then fast travel home before heat attrition sets in.",
@@ -3346,7 +3346,7 @@
           "step_id": "resource-sulfur:001",
           "type": "gather",
           "summary": "Mine the Mossanda lava ravine",
-          "detail": "Head northeast of the Mossanda Forest fast travel statue (234,-118) to a lava ravine with early Sulfur nodes; clear the small clusters quickly before heat and encumbrance stack up.【pcgamesn-sulfur†L13-L19】",
+          "detail": "Head northeast of the Mossanda Forest fast travel statue (234,-118) to a lava ravine with early Sulfur nodes; clear the small clusters quickly before heat and encumbrance stack up.\u3010pcgamesn-sulfur\u2020L13-L19\u3011",
           "targets": [
             {
               "kind": "item",
@@ -3396,7 +3396,7 @@
           "step_id": "resource-sulfur:002",
           "type": "gather",
           "summary": "Loop Mount Obsidian deposits",
-          "detail": "Fast travel to the Brothers of the Eternal Pyre Tower (-588,-518), stage a chest outside, then sweep the surrounding lava flows while a Cattiva hauls ore and Sulfur back between passes.【pcgamesn-sulfur†L15-L20】【pcgamesn-bosses†L7-L9】【palwiki-sulfur†L5-L8】",
+          "detail": "Fast travel to the Brothers of the Eternal Pyre Tower (-588,-518), stage a chest outside, then sweep the surrounding lava flows while a Cattiva hauls ore and Sulfur back between passes.\u3010pcgamesn-sulfur\u2020L15-L20\u3011\u3010pcgamesn-bosses\u2020L7-L9\u3011\u3010palwiki-sulfur\u2020L5-L8\u3011",
           "targets": [
             {
               "kind": "item",
@@ -3465,7 +3465,7 @@
           "step_id": "resource-sulfur:003",
           "type": "craft",
           "summary": "Refine Sulfur into Gunpowder",
-          "detail": "Back at base, combine Sulfur with Coal at the High Quality Workbench to craft Gunpowder so ammunition production keeps pace with weapon demand.【pcgamesn-sulfur†L11-L15】【palwiki-sulfur†L5-L8】",
+          "detail": "Back at base, combine Sulfur with Coal at the High Quality Workbench to craft Gunpowder so ammunition production keeps pace with weapon demand.\u3010pcgamesn-sulfur\u2020L11-L15\u3011\u3010palwiki-sulfur\u2020L5-L8\u3011",
           "targets": [
             {
               "kind": "item",
@@ -3595,12 +3595,12 @@
         "hardcore": "Falls or freezes near Astral Mountain wipe end-game kits; regroup with spare cold gear before returning."
       },
       "adaptive_guidance": {
-        "underleveled": "Unlock the PAL Research Tower statue first, then run short mining bursts before elites converge.【pcgamesn-pure-quartz†L15-L20】【pcgamesn-bosses†L11-L13】",
-        "overleveled": "Claim a ridge base inside Astral Mountain so mining Pals harvest Pure Quartz passively between manual runs.【pcgamesn-pure-quartz†L19-L23】",
+        "underleveled": "Unlock the PAL Research Tower statue first, then run short mining bursts before elites converge.\u3010pcgamesn-pure-quartz\u2020L15-L20\u3011\u3010pcgamesn-bosses\u2020L11-L13\u3011",
+        "overleveled": "Claim a ridge base inside Astral Mountain so mining Pals harvest Pure Quartz passively between manual runs.\u3010pcgamesn-pure-quartz\u2020L19-L23\u3011",
         "resource_shortages": [
           {
             "item_id": "circuit-board",
-            "solution": "Feed Pure Quartz into step :003 immediately so circuit production stays ahead of polymer demand.【pcgamesn-pure-quartz†L21-L23】"
+            "solution": "Feed Pure Quartz into step :003 immediately so circuit production stays ahead of polymer demand.\u3010pcgamesn-pure-quartz\u2020L21-L23\u3011"
           }
         ],
         "time_limited": "Fast travel in, grab two node clusters near the tower, then recall home before respawns escalate.",
@@ -3687,7 +3687,7 @@
           "step_id": "resource-pure-quartz:001",
           "type": "travel",
           "summary": "Unlock PAL Research Tower access",
-          "detail": "Climb to the PAL Research Tower statue at roughly (-149,445) so you can fast travel straight onto the snowy slopes leading into Astral Mountain’s Pure Quartz zone.【pcgamesn-bosses†L11-L13】【pcgamesn-pure-quartz†L15-L20】",
+          "detail": "Climb to the PAL Research Tower statue at roughly (-149,445) so you can fast travel straight onto the snowy slopes leading into Astral Mountain\u2019s Pure Quartz zone.\u3010pcgamesn-bosses\u2020L11-L13\u3011\u3010pcgamesn-pure-quartz\u2020L15-L20\u3011",
           "targets": [],
           "locations": [
             {
@@ -3729,7 +3729,7 @@
           "step_id": "resource-pure-quartz:002",
           "type": "gather",
           "summary": "Mine Astral Mountain ridges",
-          "detail": "From the tower, sweep the Astral Mountain ridges for dark grey nodes with silver veins—these are Pure Quartz deposits that require durable pickaxes to break efficiently.【pcgamesn-pure-quartz†L15-L19】【palwiki-pure-quartz†L1-L3】",
+          "detail": "From the tower, sweep the Astral Mountain ridges for dark grey nodes with silver veins\u2014these are Pure Quartz deposits that require durable pickaxes to break efficiently.\u3010pcgamesn-pure-quartz\u2020L15-L19\u3011\u3010palwiki-pure-quartz\u2020L1-L3\u3011",
           "targets": [
             {
               "kind": "item",
@@ -3794,7 +3794,7 @@
           "step_id": "resource-pure-quartz:003",
           "type": "base",
           "summary": "Anchor an Astral mining outpost",
-          "detail": "Claim a base spot that includes Pure Quartz nodes and assign mining and transport Pals so the deposits respawn into storage while you craft circuit boards on-site.【pcgamesn-pure-quartz†L17-L23】",
+          "detail": "Claim a base spot that includes Pure Quartz nodes and assign mining and transport Pals so the deposits respawn into storage while you craft circuit boards on-site.\u3010pcgamesn-pure-quartz\u2020L17-L23\u3011",
           "targets": [
             {
               "kind": "item",
@@ -3914,12 +3914,12 @@
         "hardcore": "Losing the assembly crew in raids delays late-game gear since polymer feeds every advanced recipe."
       },
       "adaptive_guidance": {
-        "underleveled": "Unlock the Production Assembly Line at tech level 33, then run small polymer batches until you stockpile better gear.【efa13d†L9-L13】",
-        "overleveled": "Queue long polymer runs overnight with multiple handiwork Pals so weapons and circuit boards never bottleneck.【efa13d†L9-L16】",
+        "underleveled": "Unlock the Production Assembly Line at tech level 33, then run small polymer batches until you stockpile better gear.\u3010efa13d\u2020L9-L13\u3011",
+        "overleveled": "Queue long polymer runs overnight with multiple handiwork Pals so weapons and circuit boards never bottleneck.\u3010efa13d\u2020L9-L16\u3011",
         "resource_shortages": [
           {
             "item_id": "high-quality-pal-oil",
-            "solution": "Assign Dumud to a Ranch and buy extra oil from merchants before starting long assembly queues.【969e9d†L1-L8】"
+            "solution": "Assign Dumud to a Ranch and buy extra oil from merchants before starting long assembly queues.\u3010969e9d\u2020L1-L8\u3011"
           }
         ],
         "time_limited": "Craft two quick batches in step :003, then shut down the line to avoid burning precious oil.",
@@ -4006,7 +4006,7 @@
           "step_id": "resource-polymer:001",
           "type": "build",
           "summary": "Unlock production assembly",
-          "detail": "Spend tech points at level 33 to unlock the Production Assembly Line and the Polymer recipe, then place the machine at base with power access.【efa13d†L9-L13】",
+          "detail": "Spend tech points at level 33 to unlock the Production Assembly Line and the Polymer recipe, then place the machine at base with power access.\u3010efa13d\u2020L9-L13\u3011",
           "targets": [
             {
               "kind": "tech",
@@ -4053,7 +4053,7 @@
           "step_id": "resource-polymer:002",
           "type": "farm",
           "summary": "Farm High Quality Pal Oil",
-          "detail": "Capture Dumud or other listed Pals and station them at a Ranch to generate High Quality Pal Oil, supplementing with merchant purchases as needed.【969e9d†L1-L8】",
+          "detail": "Capture Dumud or other listed Pals and station them at a Ranch to generate High Quality Pal Oil, supplementing with merchant purchases as needed.\u3010969e9d\u2020L1-L8\u3011",
           "targets": [
             {
               "kind": "item",
@@ -4119,7 +4119,7 @@
           "step_id": "resource-polymer:003",
           "type": "craft",
           "summary": "Run Polymer batches",
-          "detail": "Load the Production Assembly Line with 2 High Quality Pal Oil per craft and assign handiwork Pals to turn the stock into Polymer for weapons and circuit boards.【efa13d†L9-L16】【99ff2c†L5-L11】",
+          "detail": "Load the Production Assembly Line with 2 High Quality Pal Oil per craft and assign handiwork Pals to turn the stock into Polymer for weapons and circuit boards.\u3010efa13d\u2020L9-L16\u3011\u301099ff2c\u2020L5-L11\u3011",
           "targets": [
             {
               "kind": "item",
@@ -4191,6 +4191,404 @@
       ]
     },
     {
+      "route_id": "resource-gunpowder",
+      "title": "Gunpowder Arsenal Chain",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "gunpowder",
+        "ammo",
+        "crafting"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 24,
+        "max": 38
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "resource-sulfur",
+          "resource-coal"
+        ],
+        "tech": [
+          "high-quality-workbench"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Secure Sulfur and Charcoal inputs",
+        "Staff furnaces for Charcoal production",
+        "Craft Gunpowder batches for ammo stockpiles"
+      ],
+      "estimated_time_minutes": {
+        "solo": 24,
+        "coop": 16
+      },
+      "estimated_xp_gain": {
+        "min": 260,
+        "max": 360
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "If Sulfur sits idle you stall ammo queues and waste furnace uptime.",
+        "hardcore": "Letting raids hit without gunpowder can cost top-tier weapons and pals."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Loop the Mossanda ravine deposits and Hillside Cavern entrance until you can survive level 30 patrols before pushing deeper.\u3010pcgamesn-sulfur\u2020L11-L19\u3011\u3010pcgamesn-coal\u2020L135-L138\u3011",
+        "overleveled": "Stage chests at the Eternal Pyre entrance and Astral ridges so mining pals ferry Sulfur and Coal while you queue gunpowder overnight.\u3010pcgamesn-sulfur\u2020L15-L20\u3011\u3010pcgamesn-coal\u2020L135-L138\u3011",
+        "resource_shortages": [
+          {
+            "item_id": "charcoal",
+            "solution": "Feed furnaces with Wood stacks (2 per Charcoal) and keep a Kindling pal assigned so burners never stall.\u3010palwiki-charcoal\u2020L1-L7\u3011"
+          }
+        ],
+        "time_limited": "Skip manual mining and craft from stored Sulfur and Charcoal for a quick 10-minute ammo top-up.",
+        "dynamic_rules": [
+          {
+            "signal": "resource_gap:gunpowder_high",
+            "condition": "resource_gaps contains gunpowder >= 60",
+            "adjustment": "Queue two batches in step :003 back-to-back and pause new weapon crafts until the deficit clears.\u3010palwiki-gunpowder\u2020L1-L1\u3011",
+            "priority": 2,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "resource-gunpowder:003"
+            ]
+          },
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "One player runs the Sulfur loop while the other tends furnaces and workbench queues, swapping each cycle to manage stamina.\u3010pcgamesn-sulfur\u2020L13-L19\u3011\u3010pcgamesn-coal\u2020L135-L138\u3011",
+            "priority": 1,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-gunpowder:001",
+              "resource-gunpowder:002",
+              "resource-gunpowder:003"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-gunpowder:checkpoint-stock",
+          "summary": "Sulfur and Coal restocked",
+          "related_steps": [
+            "resource-gunpowder:001"
+          ],
+          "benefits": [
+            "30+ Sulfur banked",
+            "Coal piles staged for burning"
+          ]
+        },
+        {
+          "id": "resource-gunpowder:checkpoint-burners",
+          "summary": "Charcoal burners staffed",
+          "related_steps": [
+            "resource-gunpowder:002"
+          ],
+          "benefits": [
+            "Continuous Charcoal output",
+            "Kindling pals assigned"
+          ]
+        },
+        {
+          "id": "resource-gunpowder:checkpoint-queue",
+          "summary": "Gunpowder batches queued",
+          "related_steps": [
+            "resource-gunpowder:003"
+          ],
+          "benefits": [
+            "Ammunition crafting active",
+            "Sulfur and Charcoal converted"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-sulfur",
+          "resource-coal"
+        ],
+        "optional": []
+      },
+      "failure_recovery": {
+        "normal": "If stockpiles dip, rerun step :001 and rebuild coal and sulfur caches before restarting production.",
+        "hardcore": "Rearm after wipes by restocking inputs first; only resume raids once gunpowder queues are stable."
+      },
+      "steps": [
+        {
+          "step_id": "resource-gunpowder:001",
+          "type": "gather",
+          "summary": "Run Sulfur and Coal loops",
+          "detail": "Teleport to Mossanda Forest (234,-118) for Sulfur, then sweep Hillside Cavern at 147,-397 to refill Coal before recalling home; drop overflow in a chest outside the Eternal Pyre entrance.\u3010pcgamesn-sulfur\u2020L13-L19\u3011\u3010pcgamesn-coal\u2020L135-L138\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "sulfur",
+              "qty": 30
+            },
+            {
+              "kind": "item",
+              "id": "coal",
+              "qty": 40
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "verdant-brook",
+              "coords": [
+                234,
+                -118
+              ],
+              "time": "any",
+              "weather": "any"
+            },
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                147,
+                -397
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "miner",
+                  "tasks": "Break nodes and kite patrols"
+                },
+                {
+                  "role": "hauler",
+                  "tasks": "Collect ore and reset chest staging"
+                }
+              ],
+              "loot_rules": "Divide Sulfur and Coal evenly before leaving the field"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "metal-pickaxe",
+              "heat-resistant-armor"
+            ],
+            "pals": [
+              "cattiva"
+            ],
+            "consumables": [
+              "pal-sphere"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 160,
+            "max": 220
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "sulfur",
+                "qty": 30
+              },
+              {
+                "item_id": "coal",
+                "qty": 40
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "condition": "player lacks sulfur >= 30",
+              "action": "include_subroute",
+              "subroute_ref": "resource-sulfur"
+            },
+            {
+              "condition": "player lacks coal >= 40",
+              "action": "include_subroute",
+              "subroute_ref": "resource-coal"
+            }
+          ],
+          "citations": [
+            "pcgamesn-sulfur",
+            "pcgamesn-coal"
+          ]
+        },
+        {
+          "step_id": "resource-gunpowder:002",
+          "type": "craft",
+          "summary": "Burn Wood into Charcoal",
+          "detail": "At base, load any furnace with Wood (2 per Charcoal) and assign a Kindling pal so the burn runs while you haul Sulfur in.\u3010palwiki-charcoal\u2020L1-L7\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "charcoal",
+              "qty": 40
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "tender",
+                  "tasks": "Keep furnaces fed and Kindling pals happy"
+                },
+                {
+                  "role": "runner",
+                  "tasks": "Shuttle Wood and Sulfur from storage"
+                }
+              ],
+              "loot_rules": "Stack Charcoal near the High Quality Workbench"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "campfire"
+            ],
+            "pals": [
+              "foxparks"
+            ],
+            "consumables": [
+              "wood"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 70,
+            "max": 100
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "charcoal",
+                "qty": 40
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-charcoal"
+          ]
+        },
+        {
+          "step_id": "resource-gunpowder:003",
+          "type": "craft",
+          "summary": "Batch Gunpowder",
+          "detail": "Use the High Quality Workbench (or better) to combine 2 Charcoal with 1 Sulfur per craft, queuing 60 units so ammo benches never sit idle.\u3010palwiki-gunpowder\u2020L1-L1\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "gunpowder",
+              "qty": 60
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "crafter",
+                  "tasks": "Maintain workbench queues"
+                },
+                {
+                  "role": "supplier",
+                  "tasks": "Top off Sulfur and Charcoal bins"
+                }
+              ],
+              "loot_rules": "Distribute gunpowder evenly before loading ammo benches"
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "high-quality-workbench"
+            ],
+            "pals": [
+              "anubis"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 90,
+            "max": 140
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "gunpowder",
+                "qty": 60
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-gunpowder"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "gunpowder",
+          "qty": 60
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "ammo-stockpile"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "purposeful-arc-mid-expansion",
+          "reason": "Mid-game expansion arcs chew through gunpowder for rifles and launchers."
+        }
+      ]
+    },
+    {
       "route_id": "capture-base-merchant",
       "title": "Recruit Base Merchant",
       "category": "capture-index",
@@ -4234,7 +4632,7 @@
       "risk_profile": "medium",
       "failure_penalties": {
         "normal": "Knockouts drop your pouch and may cost gold if PIDF guards finish the fight.",
-        "hardcore": "Being executed by guards permanently ends the save—retreat if health drops below 40%."
+        "hardcore": "Being executed by guards permanently ends the save\u2014retreat if health drops below 40%."
       },
       "adaptive_guidance": {
         "underleveled": "If your weapons are below Iron tier, focus on trapping single merchants at night when patrols thin out before attempting the capture.",
@@ -4245,7 +4643,7 @@
             "solution": "Trigger resource-paldium from step :001 to restock fragments for higher-grade spheres."
           }
         ],
-        "time_limited": "Complete steps :001 and :002 only; mark the merchant’s position and return later with time to handle the capture.",
+        "time_limited": "Complete steps :001 and :002 only; mark the merchant\u2019s position and return later with time to handle the capture.",
         "dynamic_rules": [
           {
             "signal": "mode:coop",
@@ -4317,7 +4715,7 @@
           "step_id": "capture-base-merchant:001",
           "type": "prepare",
           "summary": "Craft high-grade Pal Spheres",
-          "detail": "Use your best Pal Sphere recipe (Great or better) and craft at least six before leaving base. Human catch rates are far lower than standard Pals, so higher-grade spheres dramatically improve success odds【529f5c†L67-L80】.",
+          "detail": "Use your best Pal Sphere recipe (Great or better) and craft at least six before leaving base. Human catch rates are far lower than standard Pals, so higher-grade spheres dramatically improve success odds\u3010529f5c\u2020L67-L80\u3011.",
           "targets": [
             {
               "kind": "item",
@@ -4399,7 +4797,7 @@
           "step_id": "capture-base-merchant:002",
           "type": "travel",
           "summary": "Scout the Small Settlement",
-          "detail": "Ride or glide to the Small Settlement at approximately (75, -479). The village hosts both a Pal Merchant and a Wandering Merchant—confirm patrol routes and identify clear back alleys for the capture attempt【165dd8†L71-L90】.",
+          "detail": "Ride or glide to the Small Settlement at approximately (75,\u00a0-479). The village hosts both a Pal Merchant and a Wandering Merchant\u2014confirm patrol routes and identify clear back alleys for the capture attempt\u3010165dd8\u2020L71-L90\u3011.",
           "targets": [],
           "locations": [
             {
@@ -4457,7 +4855,7 @@
           "step_id": "capture-base-merchant:003",
           "type": "capture",
           "summary": "Weaken and capture the merchant",
-          "detail": "Aggro the merchant away from guards, chip them to low HP, then throw your high-grade Pal Spheres until the catch lands. All non-leader humans can be captured once weakened, but expect multiple throws because their catch rate is significantly lower than normal Pals【529f5c†L67-L90】.",
+          "detail": "Aggro the merchant away from guards, chip them to low HP, then throw your high-grade Pal Spheres until the catch lands. All non-leader humans can be captured once weakened, but expect multiple throws because their catch rate is significantly lower than normal Pals\u3010529f5c\u2020L67-L90\u3011.",
           "targets": [],
           "locations": [
             {
@@ -4472,7 +4870,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Use stun grenades or partner skills to avoid lethal retaliation—you cannot afford PIDF executions."
+              "tactics": "Use stun grenades or partner skills to avoid lethal retaliation\u2014you cannot afford PIDF executions."
             },
             "coop": {
               "role_splits": [
@@ -4520,7 +4918,7 @@
           "step_id": "capture-base-merchant:004",
           "type": "deliver",
           "summary": "Assign the merchant to your base",
-          "detail": "Place the captured merchant in your base party. Humans have only rank 1 work suitability and cannot run farms or wield their weapons, but merchants stationed at your base permanently open their shop so you can buy and sell without hunting for a wandering spawn【94455f†L13-L18】【529f5c†L76-L90】.",
+          "detail": "Place the captured merchant in your base party. Humans have only rank\u00a01 work suitability and cannot run farms or wield their weapons, but merchants stationed at your base permanently open their shop so you can buy and sell without hunting for a wandering spawn\u301094455f\u2020L13-L18\u3011\u3010529f5c\u2020L76-L90\u3011.",
           "targets": [],
           "locations": [
             {
@@ -4631,7 +5029,7 @@
         "resource_shortages": [
           {
             "item_id": "leather",
-            "solution": "Invoke resource-leather-early via step :003’s branching."
+            "solution": "Invoke resource-leather-early via step :003\u2019s branching."
           },
           {
             "item_id": "flame-organ",
@@ -4727,7 +5125,7 @@
           "step_id": "mount-foxparks-harness:001",
           "type": "capture",
           "summary": "Ensure you have a Foxparks",
-          "detail": "If you haven’t already captured a Foxparks, travel to its spawn points around coordinates (189, -478) or (144, -583) in the Windswept Hills【956200907149478†L146-L169】.  Use Water Pals to weaken it, then capture it with a Pal Sphere.",
+          "detail": "If you haven\u2019t already captured a Foxparks, travel to its spawn points around coordinates (189,\u00a0-478) or (144,\u00a0-583) in the Windswept Hills\u3010956200907149478\u2020L146-L169\u3011.  Use Water Pals to weaken it, then capture it with a Pal Sphere.",
           "targets": [
             {
               "kind": "pal",
@@ -4811,7 +5209,7 @@
           "step_id": "mount-foxparks-harness:002",
           "type": "unlock-tech",
           "summary": "Unlock the Foxparks Harness",
-          "detail": "Open the Technology menu at level 6 and spend 1 tech point to unlock the Foxparks Harness【353245298505537†L150-L180】.  This requires that you have already built a Pal Gear Workbench.",
+          "detail": "Open the Technology menu at level\u00a06 and spend 1\u00a0tech point to unlock the Foxparks Harness\u3010353245298505537\u2020L150-L180\u3011.  This requires that you have already built a Pal Gear Workbench.",
           "targets": [
             {
               "kind": "tech",
@@ -4847,7 +5245,7 @@
           "step_id": "mount-foxparks-harness:003",
           "type": "gather",
           "summary": "Collect materials",
-          "detail": "Gather 3 Leather, 5 Flame Organs and 5 Paldium Fragments.  Hunt Foxparks and Rushoars for Leather and Flame Organs, or branch to the leather farm route if you lack Leather.  Mine blue ore nodes for Paldium Fragments.",
+          "detail": "Gather 3\u00a0Leather, 5\u00a0Flame Organs and 5\u00a0Paldium Fragments.  Hunt Foxparks and Rushoars for Leather and Flame Organs, or branch to the leather farm route if you lack Leather.  Mine blue ore nodes for Paldium Fragments.",
           "targets": [
             {
               "kind": "item",
@@ -4954,7 +5352,7 @@
           "step_id": "mount-foxparks-harness:004",
           "type": "craft",
           "summary": "Craft the harness",
-          "detail": "At your Pal Gear Workbench, craft the Foxparks Harness using the collected materials【353245298505537†L150-L180】.  The process takes about one minute.",
+          "detail": "At your Pal Gear Workbench, craft the Foxparks Harness using the collected materials\u3010353245298505537\u2020L150-L180\u3011.  The process takes about one minute.",
           "targets": [
             {
               "kind": "item",
@@ -5002,7 +5400,7 @@
           "step_id": "mount-foxparks-harness:005",
           "type": "explore",
           "summary": "Equip the harness and use Foxparks",
-          "detail": "Equip the harness on Foxparks via the Pal menu.  Summon Foxparks, then hold the attack button to spray fire like a flamethrower【513843636763139†L117-L170】.  This tool is excellent for clearing early dungeons and lighting furnaces.",
+          "detail": "Equip the harness on Foxparks via the Pal menu.  Summon Foxparks, then hold the attack button to spray fire like a flamethrower\u3010513843636763139\u2020L117-L170\u3011.  This tool is excellent for clearing early dungeons and lighting furnaces.",
           "targets": [
             {
               "kind": "item",
@@ -5134,7 +5532,7 @@
           {
             "signal": "resource_gap:ingot",
             "condition": "resource_gaps contains ingot >= 10",
-            "adjustment": "Insert a furnace run before step :003—queue 5 ore batches to cover the ingot deficit while other materials are gathered.",
+            "adjustment": "Insert a furnace run before step :003\u2014queue 5 ore batches to cover the ingot deficit while other materials are gathered.",
             "priority": 1,
             "mode_scope": [
               "normal",
@@ -5221,7 +5619,7 @@
           "step_id": "mount-eikthyrdeer-saddle:001",
           "type": "capture",
           "summary": "Catch an Eikthyrdeer",
-          "detail": "Travel northwest of the starting area near the Rayne Syndicate Tower and locate an Eikthyrdeer【963225160620124†L140-L167】.  Use Water or Fire Pals depending on the variant and capture it.",
+          "detail": "Travel northwest of the starting area near the Rayne Syndicate Tower and locate an Eikthyrdeer\u3010963225160620124\u2020L140-L167\u3011.  Use Water or Fire Pals depending on the variant and capture it.",
           "targets": [
             {
               "kind": "pal",
@@ -5242,7 +5640,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Approach slowly and aim for a back attack; avoid the Tower’s aggro range",
+              "tactics": "Approach slowly and aim for a back attack; avoid the Tower\u2019s aggro range",
               "safety_buffer_items": [
                 {
                   "item_id": "pal-sphere",
@@ -5296,7 +5694,7 @@
           "step_id": "mount-eikthyrdeer-saddle:002",
           "type": "unlock-tech",
           "summary": "Unlock the saddle tech",
-          "detail": "At level 12, spend 2 tech points to unlock the Eikthyrdeer Saddle【963225160620124†L160-L167】.",
+          "detail": "At level\u00a012, spend 2\u00a0tech points to unlock the Eikthyrdeer Saddle\u3010963225160620124\u2020L160-L167\u3011.",
           "targets": [
             {
               "kind": "tech",
@@ -5332,7 +5730,7 @@
           "step_id": "mount-eikthyrdeer-saddle:003",
           "type": "gather",
           "summary": "Collect materials",
-          "detail": "Gather 5 Leather, 20 Fiber, 10 Ingots, 3 Horns and 15 Paldium Fragments【963225160620124†L160-L167】.  Leather can be farmed using the leather subroute.  Fiber is harvested from bushes; Ingots require smelting ore.  Horns drop from Eikthyrdeer; if you only have one, defeat additional Eikthyrdeers.  Paldium comes from ore nodes.",
+          "detail": "Gather 5\u00a0Leather, 20\u00a0Fiber, 10\u00a0Ingots, 3\u00a0Horns and 15\u00a0Paldium Fragments\u3010963225160620124\u2020L160-L167\u3011.  Leather can be farmed using the leather subroute.  Fiber is harvested from bushes; Ingots require smelting ore.  Horns drop from Eikthyrdeer; if you only have one, defeat additional Eikthyrdeers.  Paldium comes from ore nodes.",
           "targets": [
             {
               "kind": "item",
@@ -5382,7 +5780,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Gather a 20 % buffer (6 Leather, 24 Fiber) to account for mistakes",
+              "tactics": "Gather a 20\u00a0% buffer (6\u00a0Leather, 24\u00a0Fiber) to account for mistakes",
               "safety_buffer_items": [
                 {
                   "item_id": "leather",
@@ -5461,7 +5859,7 @@
           "step_id": "mount-eikthyrdeer-saddle:004",
           "type": "craft",
           "summary": "Craft the saddle",
-          "detail": "Use the Pal Gear Workbench to craft the Eikthyrdeer Saddle【963225160620124†L160-L167】.  The process takes around 90 seconds.",
+          "detail": "Use the Pal Gear Workbench to craft the Eikthyrdeer Saddle\u3010963225160620124\u2020L160-L167\u3011.  The process takes around 90\u00a0seconds.",
           "targets": [
             {
               "kind": "item",
@@ -5509,7 +5907,7 @@
           "step_id": "mount-eikthyrdeer-saddle:005",
           "type": "explore",
           "summary": "Equip and ride your mount",
-          "detail": "Equip the saddle on Eikthyrdeer via the Pal menu and summon it.  Press LB to call the Pal and X to mount.  Enjoy increased movement speed, a double jump and improved logging efficiency【142053078936299†L123-L142】.",
+          "detail": "Equip the saddle on Eikthyrdeer via the Pal menu and summon it.  Press LB to call the Pal and X to mount.  Enjoy increased movement speed, a double jump and improved logging efficiency\u3010142053078936299\u2020L123-L142\u3011.",
           "targets": [
             {
               "kind": "pal",
@@ -5628,7 +6026,7 @@
       },
       "adaptive_guidance": {
         "underleveled": "Hunt Direhowl during dawn when fewer spawn together, and bring a tanky Pal to soak hits.",
-        "overleveled": "Use tranquilizer bolts to speed up captures; Direhowl’s HP melts under high-tier gear.",
+        "overleveled": "Use tranquilizer bolts to speed up captures; Direhowl\u2019s HP melts under high-tier gear.",
         "resource_shortages": [
           {
             "item_id": "wood",
@@ -5723,7 +6121,7 @@
           "step_id": "mount-direhowl-harness:001",
           "type": "capture",
           "summary": "Catch a Direhowl",
-          "detail": "Travel to the Moonless Shore or Twilight Dunes at night and locate a Direhowl.  Use Light element skills to weaken it and capture it with Pal Spheres.",
+          "detail": "Travel to the Moonless Shore or Twilight Dunes at night and locate a Direhowl.  Use Light element skills to weaken it and capture it with Pal\u00a0Spheres.",
           "targets": [
             {
               "kind": "pal",
@@ -5807,7 +6205,7 @@
           "step_id": "mount-direhowl-harness:002",
           "type": "unlock-tech",
           "summary": "Unlock Direhowl Harness tech",
-          "detail": "At level 9, spend 1 tech point to unlock the Direhowl Harness【197143349627535†L151-L156】.",
+          "detail": "At level\u00a09, spend 1\u00a0tech point to unlock the Direhowl Harness\u3010197143349627535\u2020L151-L156\u3011.",
           "targets": [
             {
               "kind": "tech",
@@ -5843,7 +6241,7 @@
           "step_id": "mount-direhowl-harness:003",
           "type": "gather",
           "summary": "Collect materials",
-          "detail": "Gather 10 Leather, 20 Wood, 15 Fiber and 10 Paldium Fragments【197143349627535†L151-L156】.  Use the leather farming route if necessary.  Wood and Fiber can be collected around the Windswept Hills; Paldium from blue ore nodes.",
+          "detail": "Gather 10\u00a0Leather, 20\u00a0Wood, 15\u00a0Fiber and 10\u00a0Paldium Fragments\u3010197143349627535\u2020L151-L156\u3011.  Use the leather farming route if necessary.  Wood and Fiber can be collected around the Windswept Hills; Paldium from blue ore nodes.",
           "targets": [
             {
               "kind": "item",
@@ -5879,7 +6277,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Gather a 10 % buffer",
+              "tactics": "Gather a 10\u00a0% buffer",
               "safety_buffer_items": [
                 {
                   "item_id": "leather",
@@ -5954,7 +6352,7 @@
           "step_id": "mount-direhowl-harness:004",
           "type": "craft",
           "summary": "Craft the harness",
-          "detail": "Use the Pal Gear Workbench to craft the Direhowl Harness with the collected materials【197143349627535†L151-L156】.",
+          "detail": "Use the Pal Gear Workbench to craft the Direhowl Harness with the collected materials\u3010197143349627535\u2020L151-L156\u3011.",
           "targets": [
             {
               "kind": "item",
@@ -6099,7 +6497,7 @@
       "objectives": [
         "Capture a Nitewing",
         "Unlock the Nitewing Saddle tech",
-        "Gather materials: 20 Leather, 10 Cloth, 15 Ingots, 20 Fiber, 20 Paldium",
+        "Gather materials: 20\u00a0Leather, 10\u00a0Cloth, 15\u00a0Ingots, 20\u00a0Fiber, 20\u00a0Paldium",
         "Craft the saddle",
         "Ride a flying mount"
       ],
@@ -6117,7 +6515,7 @@
         "hardcore": "Death may delete character and Pals"
       },
       "adaptive_guidance": {
-        "underleveled": "Farm Leather and Cloth before travelling; Ice Wind Island’s level 18 mobs overwhelm players below 14.",
+        "underleveled": "Farm Leather and Cloth before travelling; Ice Wind Island\u2019s level 18 mobs overwhelm players below 14.",
         "overleveled": "Capture Nitewing using Ultra Spheres for a near-guaranteed catch, then finish crafting in one trip.",
         "resource_shortages": [
           {
@@ -6134,7 +6532,7 @@
           {
             "signal": "resource_gap:cloth",
             "condition": "resource_gaps contains cloth >= 10",
-            "adjustment": "Batch-craft Cloth before departure so step :003 doesn’t require a return trip mid-route.",
+            "adjustment": "Batch-craft Cloth before departure so step :003 doesn\u2019t require a return trip mid-route.",
             "priority": 1,
             "mode_scope": [
               "normal",
@@ -6216,14 +6614,14 @@
       },
       "failure_recovery": {
         "normal": "If you fall off cliffs during the capture, glide with a parachute or fast travel back to avoid corpse runs.",
-        "hardcore": "Carry heat and cold resist gear; abandon the attempt if armor durability falls below 30 %."
+        "hardcore": "Carry heat and cold resist gear; abandon the attempt if armor durability falls below 30\u00a0%."
       },
       "steps": [
         {
           "step_id": "mount-nitewing-saddle:001",
           "type": "capture",
           "summary": "Catch a Nitewing",
-          "detail": "Travel to Ice Wind Island and find Nitewing.  The Alpha Nitewing spawns around the frozen cliffs (level 18)【825211382965329†L294-L302】.  Use Electric or Ice Pals to weaken it, then throw Pal Spheres to capture.",
+          "detail": "Travel to Ice\u00a0Wind Island and find Nitewing.  The Alpha Nitewing spawns around the frozen cliffs (level\u00a018)\u3010825211382965329\u2020L294-L302\u3011.  Use Electric or Ice Pals to weaken it, then throw Pal Spheres to capture.",
           "targets": [
             {
               "kind": "pal",
@@ -6244,7 +6642,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Approach from behind to avoid Nitewing’s dive attacks and bring healing supplies",
+              "tactics": "Approach from behind to avoid Nitewing\u2019s dive attacks and bring healing supplies",
               "safety_buffer_items": [
                 {
                   "item_id": "pal-sphere",
@@ -6298,7 +6696,7 @@
           "step_id": "mount-nitewing-saddle:002",
           "type": "unlock-tech",
           "summary": "Unlock Nitewing Saddle tech",
-          "detail": "At level 15, spend 2 tech points to unlock the Nitewing saddle【524512399342633†L151-L156】.",
+          "detail": "At level\u00a015, spend 2\u00a0tech points to unlock the Nitewing saddle\u3010524512399342633\u2020L151-L156\u3011.",
           "targets": [
             {
               "kind": "tech",
@@ -6334,7 +6732,7 @@
           "step_id": "mount-nitewing-saddle:003",
           "type": "gather",
           "summary": "Collect materials",
-          "detail": "Gather 20 Leather, 10 Cloth, 15 Ingots, 20 Fiber and 20 Paldium Fragments.  Hunt leather‑dropping Pals or branch to the leather loop if needed.  Cloth is crafted from fiber at a Primitive Workbench.  Ingots require smelting ore.",
+          "detail": "Gather 20\u00a0Leather, 10\u00a0Cloth, 15\u00a0Ingots, 20\u00a0Fiber and 20\u00a0Paldium Fragments.  Hunt leather\u2011dropping Pals or branch to the leather loop if needed.  Cloth is crafted from fiber at a Primitive Workbench.  Ingots require smelting ore.",
           "targets": [
             {
               "kind": "item",
@@ -6375,7 +6773,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Collect a 20 % buffer of each material to account for failures",
+              "tactics": "Collect a 20\u00a0% buffer of each material to account for failures",
               "safety_buffer_items": [
                 {
                   "item_id": "leather",
@@ -6454,7 +6852,7 @@
           "step_id": "mount-nitewing-saddle:004",
           "type": "craft",
           "summary": "Craft the Nitewing Saddle",
-          "detail": "At your Pal Gear Workbench, craft the Nitewing Saddle using the collected materials【524512399342633†L151-L156】.  The process takes about two minutes.",
+          "detail": "At your Pal Gear Workbench, craft the Nitewing Saddle using the collected materials\u3010524512399342633\u2020L151-L156\u3011.  The process takes about two minutes.",
           "targets": [
             {
               "kind": "item",
@@ -6666,7 +7064,7 @@
           {
             "signal": "mode:coop",
             "condition": "mode.coop === true",
-            "adjustment": "Split duties—two players clear the tower while the others farm fiber and ingots—so crafting can start immediately after the point is earned.",
+            "adjustment": "Split duties\u2014two players clear the tower while the others farm fiber and ingots\u2014so crafting can start immediately after the point is earned.",
             "priority": 3,
             "mode_scope": [
               "coop"
@@ -6762,7 +7160,7 @@
           "step_id": "tech-grappling-gun:002",
           "type": "unlock-tech",
           "summary": "Unlock Grappling Gun tech",
-          "detail": "Spend 1 Ancient Technology Point at level 12 to unlock the Grappling Gun【312162085103617†L180-L205】.",
+          "detail": "Spend 1\u00a0Ancient Technology Point at level\u00a012 to unlock the Grappling Gun\u3010312162085103617\u2020L180-L205\u3011.",
           "targets": [
             {
               "kind": "tech",
@@ -6798,7 +7196,7 @@
           "step_id": "tech-grappling-gun:003",
           "type": "gather",
           "summary": "Collect materials",
-          "detail": "Gather 10 Paldium Fragments, 10 Ingots, 30 Fiber and 1 Ancient Civilization Part【312162085103617†L180-L205】.  Ancient Civilization Parts drop from tower bosses and dungeons.",
+          "detail": "Gather 10\u00a0Paldium Fragments, 10\u00a0Ingots, 30\u00a0Fiber and 1\u00a0Ancient Civilization Part\u3010312162085103617\u2020L180-L205\u3011.  Ancient Civilization Parts drop from tower bosses and dungeons.",
           "targets": [
             {
               "kind": "item",
@@ -6834,7 +7232,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Gather a 10 % buffer of each resource",
+              "tactics": "Gather a 10\u00a0% buffer of each resource",
               "safety_buffer_items": [
                 {
                   "item_id": "paldium-fragment",
@@ -6906,7 +7304,7 @@
           "step_id": "tech-grappling-gun:004",
           "type": "craft",
           "summary": "Craft the Grappling Gun",
-          "detail": "At your Primitive Workbench or Weapon Workbench, craft the Grappling Gun using the collected materials【312162085103617†L180-L205】.",
+          "detail": "At your Primitive Workbench or Weapon Workbench, craft the Grappling Gun using the collected materials\u3010312162085103617\u2020L180-L205\u3011.",
           "targets": [
             {
               "kind": "item",
@@ -7042,7 +7440,7 @@
       },
       "objectives": [
         "Travel to the Rayne Syndicate Tower",
-        "Prepare with Ground‑type Pals and gear",
+        "Prepare with Ground\u2011type Pals and gear",
         "Defeat Zoe & Grizzbolt within the time limit",
         "Claim Ancient Technology Points"
       ],
@@ -7163,7 +7561,7 @@
           "step_id": "tower-rayne-syndicate:001",
           "type": "travel",
           "summary": "Reach the tower",
-          "detail": "Ride your mount to the Rayne Syndicate Tower at coordinates (112, -434) in the Windswept Hills【825211382965329†L103-L118】.",
+          "detail": "Ride your mount to the Rayne Syndicate Tower at coordinates (112,\u00a0-434) in the Windswept Hills\u3010825211382965329\u2020L103-L118\u3011.",
           "targets": [],
           "locations": [
             {
@@ -7202,7 +7600,7 @@
           "step_id": "tower-rayne-syndicate:002",
           "type": "prepare",
           "summary": "Prepare for battle",
-          "detail": "Equip Ground or Grass Pals such as Gumoss and Fuddler to counter Grizzbolt’s Electric attacks【825211382965329†L103-L118】.  Carry healing items and equip decent armor.  In Hardcore, craft an extra shield.",
+          "detail": "Equip Ground or Grass Pals such as Gumoss and Fuddler to counter Grizzbolt\u2019s Electric attacks\u3010825211382965329\u2020L103-L118\u3011.  Carry healing items and equip decent armor.  In Hardcore, craft an extra shield.",
           "targets": [],
           "locations": [],
           "mode_adjustments": {
@@ -7255,7 +7653,7 @@
           "step_id": "tower-rayne-syndicate:003",
           "type": "fight",
           "summary": "Defeat Zoe & Grizzbolt",
-          "detail": "Engage Zoe and her Pal Grizzbolt.  Deal at least 30K damage within ten minutes【825211382965329†L103-L118】.  Use Ground or Water attacks, dodge electric beams and avoid the arena edges.",
+          "detail": "Engage Zoe and her Pal Grizzbolt.  Deal at least 30K damage within ten minutes\u3010825211382965329\u2020L103-L118\u3011.  Use Ground or Water attacks, dodge electric beams and avoid the arena edges.",
           "targets": [
             {
               "kind": "boss",
@@ -7415,7 +7813,7 @@
         "pals": []
       },
       "objectives": [
-        "Prepare high‑level gear and Pals",
+        "Prepare high\u2011level gear and Pals",
         "Travel to Mount Obsidian",
         "Weaken Jetragon",
         "Capture it"
@@ -7527,14 +7925,14 @@
       },
       "failure_recovery": {
         "normal": "If you faint, retrieve your bag immediately; resupply on cooling consumables before retrying.",
-        "hardcore": "Abort if armor durability dips below 40 % or if multiple lava golems join the fight; survival takes priority."
+        "hardcore": "Abort if armor durability dips below 40\u00a0% or if multiple lava golems join the fight; survival takes priority."
       },
       "steps": [
         {
           "step_id": "capture-jetragon:001",
           "type": "prepare",
           "summary": "Prepare for battle",
-          "detail": "Craft heat‑resistant armor and weapons such as rocket launchers.  Recruit high‑level Ice or Dragon Pals.  Bring Ultra Pal Spheres and plenty of healing items.",
+          "detail": "Craft heat\u2011resistant armor and weapons such as rocket launchers.  Recruit high\u2011level Ice or Dragon Pals.  Bring Ultra Pal Spheres and plenty of healing items.",
           "targets": [],
           "locations": [],
           "mode_adjustments": {
@@ -7644,7 +8042,7 @@
           "locations": [],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Maintain maximum distance and use hit‑and‑run tactics",
+              "tactics": "Maintain maximum distance and use hit\u2011and\u2011run tactics",
               "safety_buffer_items": [
                 {
                   "item_id": "ancient-technology-point",
@@ -7695,7 +8093,7 @@
           "step_id": "capture-jetragon:004",
           "type": "capture",
           "summary": "Capture Jetragon",
-          "detail": "When Jetragon’s health is low, throw Ultra Pal Spheres until you succeed.  It may take several attempts.  Once captured, Jetragon becomes a powerful flying mount with unmatched speed and combat abilities.",
+          "detail": "When Jetragon\u2019s health is low, throw Ultra Pal Spheres until you succeed.  It may take several attempts.  Once captured, Jetragon becomes a powerful flying mount with unmatched speed and combat abilities.",
           "targets": [
             {
               "kind": "pal",
@@ -7754,7 +8152,7 @@
     },
     {
       "route_id": "purposeful-arc-early-foundation",
-      "title": "Purposeful Arc — Early Foundation",
+      "title": "Purposeful Arc \u2014 Early Foundation",
       "category": "campaign",
       "tags": [
         "purposeful",
@@ -7867,7 +8265,7 @@
       },
       "failure_recovery": {
         "normal": "Recraft Pal Spheres and repeat failed captures; regroup at your base to restock.",
-        "hardcore": "Abort the hunt if HP drops below 40%—Hardcore saves should never risk a wipe over a mount."
+        "hardcore": "Abort the hunt if HP drops below 40%\u2014Hardcore saves should never risk a wipe over a mount."
       },
       "steps": [
         {
@@ -8028,7 +8426,7 @@
     },
     {
       "route_id": "purposeful-arc-mid-expansion",
-      "title": "Purposeful Arc — Mid Expansion",
+      "title": "Purposeful Arc \u2014 Mid Expansion",
       "category": "campaign",
       "tags": [
         "purposeful",
@@ -8142,7 +8540,7 @@
       },
       "failure_recovery": {
         "normal": "Restock spheres and medicine after each major attempt; re-run leather or paldium farms if supplies run low.",
-        "hardcore": "Bail from tower fights when shields break—preserving the save is more important than the Ancient Point."
+        "hardcore": "Bail from tower fights when shields break\u2014preserving the save is more important than the Ancient Point."
       },
       "steps": [
         {
@@ -8333,7 +8731,7 @@
     },
     {
       "route_id": "purposeful-arc-legendary-push",
-      "title": "Purposeful Arc — Legendary Push",
+      "title": "Purposeful Arc \u2014 Legendary Push",
       "category": "campaign",
       "tags": [
         "purposeful",
@@ -11342,7 +11740,7 @@
           "step_id": "quest-main-story-early:013",
           "type": "fight",
           "summary": "Defeat Lily & Lyleen at Free Pal Alliance Tower",
-          "detail": "Travel to the snowy Free Pal Alliance tower and melt Lyleen with fire Pals while dodging Lily’s ranged shots.",
+          "detail": "Travel to the snowy Free Pal Alliance tower and melt Lyleen with fire Pals while dodging Lily\u2019s ranged shots.",
           "targets": [],
           "locations": [
             {
@@ -11394,7 +11792,7 @@
           "step_id": "quest-main-story-early:014",
           "type": "fight",
           "summary": "Overcome Axel & Orserk at Eternal Pyre Tower",
-          "detail": "Scale Mount Obsidian, exploit Orserk’s weakness to ice and manage Axel’s melee assaults to take the volcanic tower.",
+          "detail": "Scale Mount Obsidian, exploit Orserk\u2019s weakness to ice and manage Axel\u2019s melee assaults to take the volcanic tower.",
           "targets": [],
           "locations": [
             {
@@ -11446,7 +11844,7 @@
           "step_id": "quest-main-story-early:015",
           "type": "fight",
           "summary": "Break Marcus & Faleris at PIDF Tower",
-          "detail": "Storm the desert tower, drench Faleris with water attacks and outmaneuver Marcus’s explosives for the fourth clear.",
+          "detail": "Storm the desert tower, drench Faleris with water attacks and outmaneuver Marcus\u2019s explosives for the fourth clear.",
           "targets": [],
           "locations": [
             {
@@ -11498,7 +11896,7 @@
           "step_id": "quest-main-story-early:016",
           "type": "fight",
           "summary": "Topple Victor & Shadowbeak at PAL Research",
-          "detail": "Climb the frozen tower, deploy dragon Pals against Shadowbeak and suppress Victor’s gadgets to secure Ancient tech.",
+          "detail": "Climb the frozen tower, deploy dragon Pals against Shadowbeak and suppress Victor\u2019s gadgets to secure Ancient tech.",
           "targets": [],
           "locations": [
             {
@@ -12194,8 +12592,8 @@
       "quest_node_value": 320,
       "description": "Route-level metrics reflect adaptive momentum: progress segments reward checklist depth, boss clears add large boosts, and quest nodes track story completions."
     },
-    "estimation_method": "\n1. For each completed step, take the median of its XP estimate range (or the per-step range if no estimate is provided).  Sum these medians to compute the base XP.\n2. Add adaptive bonuses: progress_segments × progress_segment_value, boss_targets × boss_clear_value, and quest_nodes × quest_node_value.\n3. Add +500 XP for each boss clear marked directly on a step and +10% for finishing the route deathless in Hardcore.  In Co-Op, divide XP evenly among players.\n4. Convert cumulative XP to a player level by finding the highest level where cumulative_xp ≤ total XP in the xp_thresholds array.\n5. Compute confidence as the fraction of steps with explicit XP estimates plus 0.1 if route metrics are provided (cap at 1.0).",
-    "example": "Suppose a player completed the Starter Base route in solo normal mode.  The median XP for its steps sums to ~370 XP.  No bonuses apply.  According to the XP table, 370 XP corresponds to level 5.  Because all steps have explicit XP estimates, the confidence score is 1.0."
+    "estimation_method": "\n1. For each completed step, take the median of its XP estimate range (or the per-step range if no estimate is provided).  Sum these medians to compute the base XP.\n2. Add adaptive bonuses: progress_segments \u00d7 progress_segment_value, boss_targets \u00d7 boss_clear_value, and quest_nodes \u00d7 quest_node_value.\n3. Add +500 XP for each boss clear marked directly on a step and +10% for finishing the route deathless in Hardcore.  In Co-Op, divide XP evenly among players.\n4. Convert cumulative XP to a player level by finding the highest level where cumulative_xp \u2264 total XP in the xp_thresholds array.\n5. Compute confidence as the fraction of steps with explicit XP estimates plus 0.1 if route metrics are provided (cap at 1.0).",
+    "example": "Suppose a player completed the Starter Base route in solo normal mode.  The median XP for its steps sums to ~370 XP.  No bonuses apply.  According to the XP table, 370 XP corresponds to level\u00a05.  Because all steps have explicit XP estimates, the confidence score is 1.0."
   },
   "recommender": {
     "input_context_shape": {
@@ -12252,7 +12650,7 @@
       "Filter out routes with unmet prerequisites or missing adaptive_guidance entries for requested goals",
       "Boost support routes when resource_gaps overlap with their outputs",
       "Prefer routes whose metrics meet or exceed normalization targets when available_time_minutes is low",
-      "Award dynamic_alignment when player context satisfies a route’s adaptive_guidance.dynamic_rules"
+      "Award dynamic_alignment when player context satisfies a route\u2019s adaptive_guidance.dynamic_rules"
     ],
     "tie_breakers": [
       "lowest_consumable_cost",
@@ -12313,9 +12711,9 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "**Locate a Great Eagle Statue** in the region you’re exploring.  These large statues emit a faint glow.",
+              "instruction": "**Locate a Great Eagle Statue** in the region you\u2019re exploring.  These large statues emit a faint glow.",
               "citations": [
-                "354485449518951†L124-L131"
+                "354485449518951\u2020L124-L131"
               ]
             },
             {
@@ -12347,7 +12745,7 @@
               "order": 1,
               "instruction": "Explore the starting area and **collect fallen branches or strike trees** to gather wood.",
               "citations": [
-                "354485449518951†L166-L169"
+                "354485449518951\u2020L166-L169"
               ]
             },
             {
@@ -12384,7 +12782,7 @@
               "order": 2,
               "instruction": "**Place the workbench** near your Palbox or base location.",
               "citations": [
-                "354485449518951†L188-L191"
+                "354485449518951\u2020L188-L191"
               ]
             },
             {
@@ -12410,7 +12808,7 @@
               "order": 1,
               "instruction": "**Earn technology points** by leveling up, completing missions and meeting any level requirements.",
               "citations": [
-                "354485449518951†L207-L209"
+                "354485449518951\u2020L207-L209"
               ]
             },
             {
@@ -12442,7 +12840,7 @@
               "order": 1,
               "instruction": "Unlock the **Capturing Device (Pal Sphere) blueprint** in the tech tree if you have not already.",
               "citations": [
-                "354485449518951†L225-L231"
+                "354485449518951\u2020L225-L231"
               ]
             },
             {
@@ -12454,7 +12852,7 @@
               "order": 3,
               "instruction": "At a workbench, **combine Paldium fragments with wood and stone** to craft Pal Spheres; stockpile extras for captures.",
               "citations": [
-                "354485449518951†L224-L252"
+                "354485449518951\u2020L224-L252"
               ]
             }
           ]
@@ -12480,7 +12878,7 @@
               "order": 2,
               "instruction": "**Weaken a wild Pal** by reducing its HP with non-fatal attacks.",
               "citations": [
-                "354485449518951†L272-L274"
+                "354485449518951\u2020L272-L274"
               ]
             },
             {
@@ -12512,7 +12910,7 @@
               "order": 2,
               "instruction": "**Unlock the Palbox technology** in the tech tree and gather Paldium fragments, wood and stone.",
               "citations": [
-                "354485449518951†L310-L314"
+                "354485449518951\u2020L310-L314"
               ]
             },
             {
@@ -12522,7 +12920,7 @@
             },
             {
               "order": 4,
-              "instruction": "Immediately **build core stations**—Primitive Workbench, campfire, storage chest and a bed—for crafting, cooking and rest.",
+              "instruction": "Immediately **build core stations**\u2014Primitive Workbench, campfire, storage chest and a bed\u2014for crafting, cooking and rest.",
               "citations": []
             },
             {
@@ -12549,7 +12947,7 @@
               "order": 1,
               "instruction": "**Open the Palbox management menu** at your base to view available workers.",
               "citations": [
-                "354485449518951†L329-L332"
+                "354485449518951\u2020L329-L332"
               ]
             },
             {
@@ -12591,7 +12989,7 @@
               "order": 2,
               "instruction": "**Harvest berries** by pressing the interact key.",
               "citations": [
-                "354485449518951†L347-L349"
+                "354485449518951\u2020L347-L349"
               ]
             },
             {
@@ -12623,7 +13021,7 @@
               "order": 2,
               "instruction": "**Collect materials** such as fiber, wool and leather from Pals or plants.",
               "citations": [
-                "354485449518951†L367-L370"
+                "354485449518951\u2020L367-L370"
               ]
             },
             {
@@ -12654,7 +13052,7 @@
               "order": 2,
               "instruction": "When you level up, open your **inventory/stats screen**.",
               "citations": [
-                "354485449518951†L382-L386"
+                "354485449518951\u2020L382-L386"
               ]
             },
             {
@@ -12686,7 +13084,7 @@
               "order": 2,
               "instruction": "**Wear weather-appropriate armor** to avoid cold or heat damage.",
               "citations": [
-                "354485449518951†L367-L370"
+                "354485449518951\u2020L367-L370"
               ]
             },
             {
@@ -12720,7 +13118,7 @@
             },
             {
               "order": 3,
-              "instruction": "Use your Pal’s partner skill and **swap Pals** to exploit elemental weaknesses.",
+              "instruction": "Use your Pal\u2019s partner skill and **swap Pals** to exploit elemental weaknesses.",
               "citations": []
             }
           ]
@@ -12741,7 +13139,7 @@
               "order": 1,
               "instruction": "Travel to coordinates **(264, -548)** on the southern coast.",
               "citations": [
-                "633260338298658†L112-L118"
+                "633260338298658\u2020L112-L118"
               ]
             },
             {
@@ -12772,7 +13170,7 @@
               "order": 1,
               "instruction": "Fast-travel to **Small Settlement** coordinates (8, -528).",
               "citations": [
-                "633260338298658†L120-L126"
+                "633260338298658\u2020L120-L126"
               ]
             },
             {
@@ -12803,7 +13201,7 @@
               "order": 1,
               "instruction": "Journey to **-77, -310** and head south into Cinnamoth Forest.",
               "citations": [
-                "633260338298658†L128-L134"
+                "633260338298658\u2020L128-L134"
               ]
             },
             {
@@ -12834,7 +13232,7 @@
               "order": 1,
               "instruction": "Travel to **180, -39**.",
               "citations": [
-                "633260338298658†L136-L141"
+                "633260338298658\u2020L136-L141"
               ]
             },
             {
@@ -12865,7 +13263,7 @@
               "order": 1,
               "instruction": "Reach **-646, 270** on Sakurajima Island.",
               "citations": [
-                "633260338298658†L143-L149"
+                "633260338298658\u2020L143-L149"
               ]
             },
             {
@@ -12983,7 +13381,7 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "Monitor each Pal’s **SAN meter**; high workloads reduce morale.",
+              "instruction": "Monitor each Pal\u2019s **SAN meter**; high workloads reduce morale.",
               "citations": []
             },
             {
@@ -13015,7 +13413,7 @@
               "order": 1,
               "instruction": "Capture Pals with **Transporting** or **Kindling** suitability (e.g., Wumpo, Jormuntide Ignis).",
               "citations": [
-                "633260338298658†L161-L166"
+                "633260338298658\u2020L161-L166"
               ]
             },
             {
@@ -13046,7 +13444,7 @@
               "order": 1,
               "instruction": "Obtain Pals like **Anubis** or **Astegon** for handiwork/mining.",
               "citations": [
-                "633260338298658†L166-L172"
+                "633260338298658\u2020L166-L172"
               ]
             },
             {
@@ -13077,7 +13475,7 @@
               "order": 1,
               "instruction": "Capture Pals such as **Jormuntide**, **Broncherry Aqua** or **Wumpo Botan** for watering or lumbering.",
               "citations": [
-                "633260338298658†L161-L169"
+                "633260338298658\u2020L161-L169"
               ]
             },
             {
@@ -13108,7 +13506,7 @@
               "order": 1,
               "instruction": "Use Pals with **Medicine Production** or **Planting** suitability (e.g., **Bellanoir**, **Lyleen**).",
               "citations": [
-                "633260338298658†L174-L177"
+                "633260338298658\u2020L174-L177"
               ]
             },
             {
@@ -13324,7 +13722,7 @@
               "order": 3,
               "instruction": "Travel to coal-rich regions (e.g., Sealed Realm) and mine coal for advanced tech.",
               "citations": [
-                "633260338298658†L136-L141"
+                "633260338298658\u2020L136-L141"
               ]
             }
           ]
@@ -13345,7 +13743,7 @@
               "order": 1,
               "instruction": "Find sulfur deposits near volcanoes or **Cinnamoth Forest**.",
               "citations": [
-                "633260338298658†L128-L134"
+                "633260338298658\u2020L128-L134"
               ]
             },
             {
@@ -13376,7 +13774,7 @@
               "order": 1,
               "instruction": "Travel to **Sakurajima Island** to find crude oil nodes.",
               "citations": [
-                "633260338298658†L143-L149"
+                "633260338298658\u2020L143-L149"
               ]
             },
             {
@@ -13436,7 +13834,7 @@
               "order": 1,
               "instruction": "Search near water for glowing blue rocks (Paldium).",
               "citations": [
-                "354485449518951†L225-L231"
+                "354485449518951\u2020L225-L231"
               ]
             },
             {
@@ -13468,7 +13866,7 @@
               "order": 1,
               "instruction": "Hunt fluffy Pals (e.g., Lamball) for **wool and leather**.",
               "citations": [
-                "354485449518951†L367-L370"
+                "354485449518951\u2020L367-L370"
               ]
             },
             {
@@ -13615,7 +14013,7 @@
               "order": 1,
               "instruction": "Visit desert regions at night when **Nightstar Sand** glows.",
               "citations": [
-                "92541297987896†L117-L118"
+                "92541297987896\u2020L117-L118"
               ]
             },
             {
@@ -13885,7 +14283,7 @@
               "order": 2,
               "instruction": "Gather Pal Metal Ingots, Paldium Fragments and Nails.",
               "citations": [
-                "285876925291367†L189-L203"
+                "285876925291367\u2020L189-L203"
               ]
             },
             {
@@ -14126,7 +14524,7 @@
               "order": 3,
               "instruction": "Build the incubator and place eggs inside to cut hatching time in half.",
               "citations": [
-                "612653128208765†L79-L83"
+                "612653128208765\u2020L79-L83"
               ]
             }
           ]
@@ -14263,7 +14661,7 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "Learn each Pal’s **element type** (Fire, Water, Grass, Electric, etc.).",
+              "instruction": "Learn each Pal\u2019s **element type** (Fire, Water, Grass, Electric, etc.).",
               "citations": []
             },
             {
@@ -14390,7 +14788,7 @@
             },
             {
               "order": 3,
-              "instruction": "Focus on Grizzbolt’s weak points, dodge its attacks and use Water-type moves to win.",
+              "instruction": "Focus on Grizzbolt\u2019s weak points, dodge its attacks and use Water-type moves to win.",
               "citations": []
             }
           ]
@@ -14420,7 +14818,7 @@
             },
             {
               "order": 3,
-              "instruction": "Burn down Lyleen’s plant-type minions and stagger the boss to defeat it.",
+              "instruction": "Burn down Lyleen\u2019s plant-type minions and stagger the boss to defeat it.",
               "citations": []
             }
           ]
@@ -14440,17 +14838,17 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "Capture Ice or Grass Pals to counter Orserk’s Dragon/Electric typing.",
+              "instruction": "Capture Ice or Grass Pals to counter Orserk\u2019s Dragon/Electric typing.",
               "citations": []
             },
             {
               "order": 2,
-              "instruction": "Dodge Axel’s long-range attacks and close the distance quickly.",
+              "instruction": "Dodge Axel\u2019s long-range attacks and close the distance quickly.",
               "citations": []
             },
             {
               "order": 3,
-              "instruction": "Focus your Pals’ partner skills and heal frequently.",
+              "instruction": "Focus your Pals\u2019 partner skills and heal frequently.",
               "citations": []
             }
           ]
@@ -14475,7 +14873,7 @@
             },
             {
               "order": 2,
-              "instruction": "Avoid Victor’s high-damage projectiles and stay mobile.",
+              "instruction": "Avoid Victor\u2019s high-damage projectiles and stay mobile.",
               "citations": []
             },
             {
@@ -14534,12 +14932,12 @@
             },
             {
               "order": 2,
-              "instruction": "Break Bellanoir’s shields by focusing your attacks.",
+              "instruction": "Break Bellanoir\u2019s shields by focusing your attacks.",
               "citations": []
             },
             {
               "order": 3,
-              "instruction": "Avoid the Libero variant’s rapid strikes and maintain healing.",
+              "instruction": "Avoid the Libero variant\u2019s rapid strikes and maintain healing.",
               "citations": []
             }
           ]
@@ -14564,7 +14962,7 @@
             },
             {
               "order": 2,
-              "instruction": "Dodge Bjorn’s area attacks; avoid standing in burning pools.",
+              "instruction": "Dodge Bjorn\u2019s area attacks; avoid standing in burning pools.",
               "citations": []
             },
             {
@@ -14622,7 +15020,7 @@
             },
             {
               "order": 2,
-              "instruction": "Target the Moon Lord’s hands and core; destroy each part in sequence.",
+              "instruction": "Target the Moon Lord\u2019s hands and core; destroy each part in sequence.",
               "citations": []
             },
             {
@@ -14736,7 +15134,7 @@
               "order": 1,
               "instruction": "Refer to the Best Pals Tier List; top combat Pals include **Jormuntide Ignis**, **Jetragon** and **Frostallion**.",
               "citations": [
-                "213589709604736†L156-L160"
+                "213589709604736\u2020L156-L160"
               ]
             },
             {
@@ -14915,7 +15313,7 @@
             },
             {
               "order": 2,
-              "instruction": "Reduce the Pal’s health without defeating it.",
+              "instruction": "Reduce the Pal\u2019s health without defeating it.",
               "citations": []
             },
             {
@@ -15055,7 +15453,7 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "Consult the interactive map or Palpedia for each Pal’s coordinates.",
+              "instruction": "Consult the interactive map or Palpedia for each Pal\u2019s coordinates.",
               "citations": []
             },
             {
@@ -15114,7 +15512,7 @@
               "order": 1,
               "instruction": "Identify Pals with **Transporting** or **Kindling** work suitability.",
               "citations": [
-                "633260338298658†L161-L166"
+                "633260338298658\u2020L161-L166"
               ]
             },
             {
@@ -15145,7 +15543,7 @@
               "order": 1,
               "instruction": "Capture Pals like **Anubis** or **Lunaris** that excel at handiwork.",
               "citations": [
-                "633260338298658†L166-L167"
+                "633260338298658\u2020L166-L167"
               ]
             },
             {
@@ -15176,7 +15574,7 @@
               "order": 1,
               "instruction": "Capture Pals such as **Blazamut**, **Astegon** or **Reptyro**.",
               "citations": [
-                "633260338298658†L170-L172"
+                "633260338298658\u2020L170-L172"
               ]
             },
             {
@@ -15207,7 +15605,7 @@
               "order": 1,
               "instruction": "Acquire Pals with **Planting** suitability (e.g., **Lyleen**).",
               "citations": [
-                "633260338298658†L174-L177"
+                "633260338298658\u2020L174-L177"
               ]
             },
             {
@@ -15238,7 +15636,7 @@
               "order": 1,
               "instruction": "Capture **Frostallion**, **Cryolinx** or **Reptyro Cyst** for cooling duties.",
               "citations": [
-                "633260338298658†L178-L179"
+                "633260338298658\u2020L178-L179"
               ]
             },
             {
@@ -15269,7 +15667,7 @@
               "order": 1,
               "instruction": "Capture **Orserk**, **Relaxaurus Lux** or **Grizzbolt**.",
               "citations": [
-                "633260338298658†L168-L169"
+                "633260338298658\u2020L168-L169"
               ]
             },
             {
@@ -15332,7 +15730,7 @@
             },
             {
               "order": 2,
-              "instruction": "**Partner skills** are triggered when Pals accompany you in the overworld (e.g., Jetragon’s fast flight).",
+              "instruction": "**Partner skills** are triggered when Pals accompany you in the overworld (e.g., Jetragon\u2019s fast flight).",
               "citations": []
             },
             {
@@ -15385,7 +15783,7 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "Monitor each Pal’s SAN bar; low SAN results in reduced efficiency or refusal to work.",
+              "instruction": "Monitor each Pal\u2019s SAN bar; low SAN results in reduced efficiency or refusal to work.",
               "citations": []
             },
             {
@@ -15419,12 +15817,12 @@
             },
             {
               "order": 2,
-              "instruction": "Access your Pal’s **appearance menu** via the Palbox or inventory.",
+              "instruction": "Access your Pal\u2019s **appearance menu** via the Palbox or inventory.",
               "citations": []
             },
             {
               "order": 3,
-              "instruction": "Apply the skin to change your Pal’s appearance.",
+              "instruction": "Apply the skin to change your Pal\u2019s appearance.",
               "citations": []
             }
           ]
@@ -15511,7 +15909,7 @@
             },
             {
               "order": 3,
-              "instruction": "While Palworld does not have Pokémon-style evolutions, some Pals have **subspecies** accessible via breeding.",
+              "instruction": "While Palworld does not have Pok\u00e9mon-style evolutions, some Pals have **subspecies** accessible via breeding.",
               "citations": []
             }
           ]
@@ -15590,7 +15988,7 @@
               "order": 1,
               "instruction": "Reach **technology level 19** and unlock the Breeding Farm.",
               "citations": [
-                "612653128208765†L51-L55"
+                "612653128208765\u2020L51-L55"
               ]
             },
             {
@@ -15621,7 +16019,7 @@
               "order": 1,
               "instruction": "Gather **flour, berries, milk, eggs and honey**.",
               "citations": [
-                "612653128208765†L53-L55"
+                "612653128208765\u2020L53-L55"
               ]
             },
             {
@@ -15631,7 +16029,7 @@
             },
             {
               "order": 3,
-              "instruction": "Place cake in the Breeding Farm’s inventory to encourage Pals to mate.",
+              "instruction": "Place cake in the Breeding Farm\u2019s inventory to encourage Pals to mate.",
               "citations": []
             }
           ]
@@ -15652,7 +16050,7 @@
               "order": 1,
               "instruction": "Place one **male** and one **female** Pal in the Breeding Farm.",
               "citations": [
-                "612653128208765†L53-L55"
+                "612653128208765\u2020L53-L55"
               ]
             },
             {
@@ -15664,7 +16062,7 @@
               "order": 3,
               "instruction": "Eggs inherit the average breeding power of the parents.",
               "citations": [
-                "612653128208765†L56-L58"
+                "612653128208765\u2020L56-L58"
               ]
             }
           ]
@@ -15712,9 +16110,9 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "Use recommended combinations like **Relaxaurus + Sparkit → Relaxaurus Lux** or **Lyleen + Menasting → Lyleen Noct**.",
+              "instruction": "Use recommended combinations like **Relaxaurus + Sparkit \u2192 Relaxaurus Lux** or **Lyleen + Menasting \u2192 Lyleen Noct**.",
               "citations": [
-                "612653128208765†L64-L77"
+                "612653128208765\u2020L64-L77"
               ]
             },
             {
@@ -15745,21 +16143,21 @@
               "order": 1,
               "instruction": "Combine **Penking + Bushi** to produce **Anubis** for early DPS.",
               "citations": [
-                "612653128208765†L87-L100"
+                "612653128208765\u2020L87-L100"
               ]
             },
             {
               "order": 2,
               "instruction": "Use **Rushoar + Surfent** or **Swee + Sweepa** to get **Digtoise**.",
               "citations": [
-                "612653128208765†L87-L105"
+                "612653128208765\u2020L87-L105"
               ]
             },
             {
               "order": 3,
               "instruction": "Breed **Nitewing + Cinnamoth** to obtain **Sibelyx**.",
               "citations": [
-                "612653128208765†L87-L111"
+                "612653128208765\u2020L87-L111"
               ]
             }
           ]
@@ -15780,14 +16178,14 @@
               "order": 1,
               "instruction": "Breed **Penking + Penking** for Penking with the **Artisan** passive.",
               "citations": [
-                "612653128208765†L120-L124"
+                "612653128208765\u2020L120-L124"
               ]
             },
             {
               "order": 2,
               "instruction": "Breed **Penking + Wumpo Botan** for random work passives.",
               "citations": [
-                "612653128208765†L120-L127"
+                "612653128208765\u2020L120-L127"
               ]
             },
             {
@@ -15813,21 +16211,21 @@
               "order": 1,
               "instruction": "Breed **Relaxaurus + Sparkit** for **Relaxaurus Lux**.",
               "citations": [
-                "612653128208765†L132-L134"
+                "612653128208765\u2020L132-L134"
               ]
             },
             {
               "order": 2,
               "instruction": "Breed **Incineram + Maraith** for **Incineram Noct**.",
               "citations": [
-                "612653128208765†L132-L135"
+                "612653128208765\u2020L132-L135"
               ]
             },
             {
               "order": 3,
               "instruction": "Breed **Frostallion + Anubis** for **Bastigor**.",
               "citations": [
-                "612653128208765†L132-L136"
+                "612653128208765\u2020L132-L136"
               ]
             }
           ]
@@ -15848,21 +16246,21 @@
               "order": 1,
               "instruction": "Combine **Lamball + Fielfox** to create **Digtoise Terra**.",
               "citations": [
-                "612653128208765†L141-L144"
+                "612653128208765\u2020L141-L144"
               ]
             },
             {
               "order": 2,
               "instruction": "Breed **Mammorest + Wumpo** for **Mammorest Cryst**.",
               "citations": [
-                "612653128208765†L141-L145"
+                "612653128208765\u2020L141-L145"
               ]
             },
             {
               "order": 3,
               "instruction": "Pair **Lyleen + Menasting** for **Lyleen Noct** as a healer-tank hybrid.",
               "citations": [
-                "612653128208765†L141-L146"
+                "612653128208765\u2020L141-L146"
               ]
             }
           ]
@@ -15883,21 +16281,21 @@
               "order": 1,
               "instruction": "Breed **Elphidran + Surfent Aqua** for **Elphidran Aqua** (flying water mount).",
               "citations": [
-                "612653128208765†L149-L154"
+                "612653128208765\u2020L149-L154"
               ]
             },
             {
               "order": 2,
               "instruction": "Pair **Eikthyrdeer + Hangyu** for **Eikthyrdeer Terra**.",
               "citations": [
-                "612653128208765†L151-L154"
+                "612653128208765\u2020L151-L154"
               ]
             },
             {
               "order": 3,
               "instruction": "Combine **Surfent + Dumud** for **Surfent Terra**.",
               "citations": [
-                "612653128208765†L149-L154"
+                "612653128208765\u2020L149-L154"
               ]
             }
           ]
@@ -15918,21 +16316,21 @@
               "order": 1,
               "instruction": "Breed **Lyleen + Menasting** again for **Lyleen Noct** (healer/support).",
               "citations": [
-                "612653128208765†L160-L166"
+                "612653128208765\u2020L160-L166"
               ]
             },
             {
               "order": 2,
               "instruction": "Pair **Mau + Pengullet** for **Mau Cryst** (budget healer).",
               "citations": [
-                "612653128208765†L160-L166"
+                "612653128208765\u2020L160-L166"
               ]
             },
             {
               "order": 3,
               "instruction": "Breed **Dinossom + Rayhound** for **Dinossom Lux** (speed buff support).",
               "citations": [
-                "612653128208765†L160-L166"
+                "612653128208765\u2020L160-L166"
               ]
             }
           ]
@@ -15958,7 +16356,7 @@
               "order": 2,
               "instruction": "Place them in a standard incubator or **Electric Incubator** to reduce hatching time.",
               "citations": [
-                "612653128208765†L79-L83"
+                "612653128208765\u2020L79-L83"
               ]
             },
             {
@@ -15984,7 +16382,7 @@
               "order": 1,
               "instruction": "Breed high-level Pals; there is about a **5 % chance** to produce a Huge/Alpha Egg.",
               "citations": [
-                "612653128208765†L60-L62"
+                "612653128208765\u2020L60-L62"
               ]
             },
             {
@@ -16044,7 +16442,7 @@
               "order": 1,
               "instruction": "Understand that 40 % of offspring get one passive, 30 % get two, 20 % get three and 10 % get four.",
               "citations": [
-                "612653128208765†L56-L59"
+                "612653128208765\u2020L56-L59"
               ]
             },
             {
@@ -16073,9 +16471,9 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "Use **Electric Incubators** to reduce wait time by 1.5×.",
+              "instruction": "Use **Electric Incubators** to reduce wait time by 1.5\u00d7.",
               "citations": [
-                "612653128208765†L79-L83"
+                "612653128208765\u2020L79-L83"
               ]
             },
             {
@@ -16520,7 +16918,7 @@
             },
             {
               "order": 3,
-              "instruction": "Adjust your base’s position or use Pals to mitigate weather effects.",
+              "instruction": "Adjust your base\u2019s position or use Pals to mitigate weather effects.",
               "citations": []
             }
           ]
@@ -16666,7 +17064,7 @@
             },
             {
               "order": 3,
-              "instruction": "Read entries in your log to learn more about Palworld’s story.",
+              "instruction": "Read entries in your log to learn more about Palworld\u2019s story.",
               "citations": []
             }
           ]
@@ -16677,7 +17075,7 @@
           "source_heading": "Tides of Terraria Content Overview",
           "category": "Update",
           "category_group": "Special Updates & Events",
-          "trigger": "Player asks what’s included in the Terraria collaboration",
+          "trigger": "Player asks what\u2019s included in the Terraria collaboration",
           "keywords": [
             "Terraria update",
             "new island"
@@ -16859,7 +17257,7 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "Travel to the oil rig’s coordinates.",
+              "instruction": "Travel to the oil rig\u2019s coordinates.",
               "citations": []
             },
             {
@@ -16977,7 +17375,7 @@
               "order": 1,
               "instruction": "Read the patch notes to understand new features: PVP arena, Lockpicking Tool v3, dog coins and more.",
               "citations": [
-                "285876925291367†L181-L184"
+                "285876925291367\u2020L181-L184"
               ]
             },
             {
@@ -17008,7 +17406,7 @@
               "order": 1,
               "instruction": "Travel to the PVP arena on Sakurajima island.",
               "citations": [
-                "675291985780246†L470-L474"
+                "675291985780246\u2020L470-L474"
               ]
             },
             {
@@ -17395,7 +17793,7 @@
             },
             {
               "order": 3,
-              "instruction": "Join each other’s games by inputting the provided codes.",
+              "instruction": "Join each other\u2019s games by inputting the provided codes.",
               "citations": []
             }
           ]
@@ -17424,7 +17822,7 @@
             },
             {
               "order": 3,
-              "instruction": "Respect other players’ privacy and follow community guidelines.",
+              "instruction": "Respect other players\u2019 privacy and follow community guidelines.",
               "citations": []
             }
           ]
@@ -17475,7 +17873,7 @@
               "order": 1,
               "instruction": "Work Speed influences how quickly a Pal completes assigned tasks.",
               "citations": [
-                "633260338298658†L160-L170"
+                "633260338298658\u2020L160-L170"
               ]
             },
             {
@@ -17496,7 +17894,7 @@
           "source_heading": "Stamina & Weight Systems",
           "category": "Mechanics",
           "category_group": "Stats & Mechanics",
-          "trigger": "Player asks why they can’t run or carry more",
+          "trigger": "Player asks why they can\u2019t run or carry more",
           "keywords": [
             "stamina",
             "weight"
@@ -17689,7 +18087,7 @@
             },
             {
               "order": 3,
-              "instruction": "Equip gear that reduces damage from the enemy’s dominant element.",
+              "instruction": "Equip gear that reduces damage from the enemy\u2019s dominant element.",
               "citations": []
             }
           ]
@@ -17998,7 +18396,7 @@
           "steps": [
             {
               "order": 1,
-              "instruction": "Check the game’s terms of service to ensure modding is allowed.",
+              "instruction": "Check the game\u2019s terms of service to ensure modding is allowed.",
               "citations": []
             },
             {
@@ -18153,7 +18551,7 @@
             },
             {
               "order": 3,
-              "instruction": "Monitor younger players’ interactions and ensure they play in safe environments.",
+              "instruction": "Monitor younger players\u2019 interactions and ensure they play in safe environments.",
               "citations": []
             }
           ]
@@ -18204,7 +18602,7 @@
           "resistances": [
             "neutral"
           ],
-          "breeding_notes": "Combines with Lifmunk to produce Vixy【506019502892519†screenshot】."
+          "breeding_notes": "Combines with Lifmunk to produce Vixy\u3010506019502892519\u2020screenshot\u3011."
         },
         {
           "id": "cattiva",
@@ -18238,7 +18636,7 @@
           "resistances": [
             "neutral"
           ],
-          "breeding_notes": "Combines with Mau Cryst to produce Vixy【506019502892519†screenshot】."
+          "breeding_notes": "Combines with Mau\u00a0Cryst to produce Vixy\u3010506019502892519\u2020screenshot\u3011."
         },
         {
           "id": "chikipi",
@@ -18279,7 +18677,7 @@
           "resistances": [
             "neutral"
           ],
-          "breeding_notes": "Combines with Foxparks to produce Vixy【506019502892519†screenshot】."
+          "breeding_notes": "Combines with Foxparks to produce Vixy\u3010506019502892519\u2020screenshot\u3011."
         },
         {
           "id": "lifmunk",
@@ -18320,7 +18718,7 @@
           "resistances": [
             "water"
           ],
-          "breeding_notes": "Combines with Lamball to produce Vixy【506019502892519†screenshot】."
+          "breeding_notes": "Combines with Lamball to produce Vixy\u3010506019502892519\u2020screenshot\u3011."
         },
         {
           "id": "foxparks",
@@ -18346,7 +18744,7 @@
               "drop_rate": 1.0
             }
           ],
-          "partner_skill": "Huggy Fire – can be equipped to the player to act as a flamethrower【513843636763139†L117-L170】.",
+          "partner_skill": "Huggy Fire \u2013 can be equipped to the player to act as a flamethrower\u3010513843636763139\u2020L117-L170\u3011.",
           "work_suitability": [
             {
               "type": "kindling",
@@ -18366,7 +18764,7 @@
           "resistances": [
             "fire"
           ],
-          "breeding_notes": "Combines with Chikipi to produce Vixy【506019502892519†screenshot】."
+          "breeding_notes": "Combines with Chikipi to produce Vixy\u3010506019502892519\u2020screenshot\u3011."
         },
         {
           "id": "fuack",
@@ -18387,7 +18785,7 @@
               "drop_rate": 1.0
             }
           ],
-          "partner_skill": "Watering – assists with watering crops.",
+          "partner_skill": "Watering \u2013 assists with watering crops.",
           "work_suitability": [
             {
               "type": "watering",
@@ -18428,7 +18826,7 @@
               "drop_rate": 1.0
             }
           ],
-          "partner_skill": "Rush Attack – charges at enemies when commanded.",
+          "partner_skill": "Rush Attack \u2013 charges at enemies when commanded.",
           "work_suitability": [
             {
               "type": "mining",
@@ -18473,7 +18871,7 @@
               "drop_rate": 1.0
             }
           ],
-          "partner_skill": "Dig Here! – produces items when assigned to a Ranch【761280216223901†screenshot】.",
+          "partner_skill": "Dig Here! \u2013 produces items when assigned to a Ranch\u3010761280216223901\u2020screenshot\u3011.",
           "work_suitability": [
             {
               "type": "gathering",
@@ -18497,7 +18895,7 @@
           "resistances": [
             "neutral"
           ],
-          "breeding_notes": "Can be bred by combining Lamball with Lifmunk, Lamball with Hangyu Cryst, Cattiva with Mau Cryst, Chikipi with Foxparks, Sparkit with Teafant, Teafant with Flambelle, or Cremis with Mau Cryst【506019502892519†screenshot】."
+          "breeding_notes": "Can be bred by combining Lamball with Lifmunk, Lamball with Hangyu\u00a0Cryst, Cattiva with Mau\u00a0Cryst, Chikipi with Foxparks, Sparkit with Teafant, Teafant with Flambelle, or Cremis with Mau\u00a0Cryst\u3010506019502892519\u2020screenshot\u3011."
         },
         {
           "id": "melpaca",
@@ -18518,7 +18916,7 @@
               "drop_rate": 1.0
             }
           ],
-          "partner_skill": "Mount – allows player to ride slowly and carry items.",
+          "partner_skill": "Mount \u2013 allows player to ride slowly and carry items.",
           "work_suitability": [
             {
               "type": "transporting",
@@ -18569,7 +18967,7 @@
               "drop_rate": 1.0
             }
           ],
-          "partner_skill": "Guardian of the Forest – can be ridden, enables a double jump and increases tree‑cutting efficiency【142053078936299†L123-L142】.",
+          "partner_skill": "Guardian of the Forest \u2013 can be ridden, enables a double jump and increases tree\u2011cutting efficiency\u3010142053078936299\u2020L123-L142\u3011.",
           "work_suitability": [
             {
               "type": "logging",
@@ -18610,7 +19008,7 @@
               "drop_rate": 1.0
             }
           ],
-          "partner_skill": "Mount – allows the player to ride quickly.",
+          "partner_skill": "Mount \u2013 allows the player to ride quickly.",
           "work_suitability": [
             {
               "type": "transporting",
@@ -18651,7 +19049,7 @@
               "drop_rate": 1.0
             }
           ],
-          "partner_skill": "Travel Companion – can be ridden to fly at high speed【468454281657786†screenshot】.",
+          "partner_skill": "Travel Companion \u2013 can be ridden to fly at high speed\u3010468454281657786\u2020screenshot\u3011.",
           "work_suitability": [
             {
               "type": "transporting",
@@ -19245,7 +19643,7 @@
           "level_hint_min": 1,
           "level_hint_max": 15,
           "climate": "temperate",
-          "hazards": "low‑level Pals",
+          "hazards": "low\u2011level Pals",
           "coordinates_bbox": [
             -500,
             -600,
@@ -19296,7 +19694,7 @@
           "level_hint_min": 20,
           "level_hint_max": 30,
           "climate": "lush valley",
-          "hazards": "mid‑level predators",
+          "hazards": "mid\u2011level predators",
           "coordinates_bbox": [
             -300,
             200,
@@ -19673,137 +20071,149 @@
               "alt_parent_pal_id": "mau-cryst"
             }
           ],
-          "notes": "Each pair produces a Vixy egg when bred at the breeding station【506019502892519†screenshot】."
+          "notes": "Each pair produces a Vixy egg when bred at the breeding station\u3010506019502892519\u2020screenshot\u3011."
         }
       ]
     },
     {
       "sources": {
         "paldb-primitive-workbench": {
-          "title": "Primitive Workbench – PalDB",
+          "title": "Primitive Workbench \u2013 PalDB",
           "url": "https://paldb.cc/station/primitive-workbench",
           "access_date": "2025-09-30",
-          "notes": "Shows that the Primitive Workbench requires 2 Wood to build【907636800064548†screenshot】."
+          "notes": "Shows that the Primitive Workbench requires 2 Wood to build\u3010907636800064548\u2020screenshot\u3011."
         },
         "thegamer-foxparks-spawn": {
           "title": "Palworld: How To Find And Capture Foxparks",
           "url": "https://www.thegamer.com/palworld-foxparks-location-guide/",
           "access_date": "2025-09-30",
-          "notes": "Provides spawn coordinates for Foxparks and notes they are kindling Pals【956200907149478†L146-L169】."
+          "notes": "Provides spawn coordinates for Foxparks and notes they are kindling Pals\u3010956200907149478\u2020L146-L169\u3011."
         },
         "namehero-xp-capture": {
           "title": "Palworld Leveling Guide",
           "url": "https://www.namehero.com/game-guides/palworld-leveling-guide/",
           "access_date": "2025-09-30",
-          "notes": "Highlights that capturing Pals yields more XP than defeating them【116860197722081†L96-L128】."
+          "notes": "Highlights that capturing Pals yields more XP than defeating them\u3010116860197722081\u2020L96-L128\u3011."
         },
         "shockbyte-leather-sources": {
           "title": "Palworld: How To Get Leather",
           "url": "https://shockbyte.com/blog/how-to-get-leather-in-palworld",
           "access_date": "2025-09-30",
-          "notes": "Lists Pals that drop Leather and notes the Sea Breeze Archipelago Church and Bridge of the Twin Knights as farming locations【840767909995613†L78-L100】【840767909995613†L106-L135】."
+          "notes": "Lists Pals that drop Leather and notes the Sea\u00a0Breeze Archipelago Church and Bridge of the Twin Knights as farming locations\u3010840767909995613\u2020L78-L100\u3011\u3010840767909995613\u2020L106-L135\u3011."
         },
         "shockbyte-leather-merchant": {
           "title": "Palworld: How To Get Leather",
           "url": "https://shockbyte.com/blog/how-to-get-leather-in-palworld",
           "access_date": "2025-09-30",
-          "notes": "Notes that Wandering Merchants sell Leather for about 150 gold each【840767909995613†L78-L100】."
+          "notes": "Notes that Wandering Merchants sell Leather for about 150\u00a0gold each\u3010840767909995613\u2020L78-L100\u3011."
         },
         "gameclubz-foxparks-harness": {
-          "title": "Palworld – How to Unlock and Use Foxparks Harness",
+          "title": "Palworld \u2013 How to Unlock and Use Foxparks Harness",
           "url": "https://gameclubz.com/palworld/foxparks-harness-guide",
           "access_date": "2025-09-30",
-          "notes": "Provides the Foxparks Harness recipe (3 Leather, 5 Flame Organs, 5 Paldium Fragments) and explains unlocking at level 6 after catching Foxparks【353245298505537†L150-L180】."
+          "notes": "Provides the Foxparks Harness recipe (3\u00a0Leather, 5\u00a0Flame Organs, 5\u00a0Paldium Fragments) and explains unlocking at level\u00a06 after catching Foxparks\u3010353245298505537\u2020L150-L180\u3011."
         },
         "gameclubz-eikthyrdeer-saddle": {
-          "title": "Palworld – Eikthyrdeer Saddle Guide",
+          "title": "Palworld \u2013 Eikthyrdeer Saddle Guide",
           "url": "https://gameclubz.com/palworld/eikthyrdeer-saddle-guide",
           "access_date": "2025-09-30",
-          "notes": "States that the Eikthyrdeer Saddle unlocks at level 12 with 2 tech points and lists required materials (5 Leather, 20 Fiber, 10 Ingots, 3 Horns, 15 Paldium Fragments)【963225160620124†L160-L167】."
+          "notes": "States that the Eikthyrdeer Saddle unlocks at level\u00a012 with 2\u00a0tech points and lists required materials (5\u00a0Leather, 20\u00a0Fiber, 10\u00a0Ingots, 3\u00a0Horns, 15\u00a0Paldium Fragments)\u3010963225160620124\u2020L160-L167\u3011."
         },
         "eikthyrdeer-drops": {
-          "title": "Eikthyrdeer – Palworld Wiki",
+          "title": "Eikthyrdeer \u2013 Palworld Wiki",
           "url": "https://palworld.fandom.com/wiki/Eikthyrdeer",
           "access_date": "2025-09-30",
-          "notes": "Lists Eikthyrdeer drops: 2 Venison, 2–3 Leather and 2 Horns at 100 % drop rate【142053078936299†L295-L311】."
+          "notes": "Lists Eikthyrdeer drops: 2\u00a0Venison, 2\u20133\u00a0Leather and 2\u00a0Horns at 100\u00a0% drop rate\u3010142053078936299\u2020L295-L311\u3011."
         },
         "eikthyrdeer-partner-skill": {
-          "title": "Eikthyrdeer – Palworld Wiki",
+          "title": "Eikthyrdeer \u2013 Palworld Wiki",
           "url": "https://palworld.fandom.com/wiki/Eikthyrdeer",
           "access_date": "2025-09-30",
-          "notes": "Describes the partner skill ‘Guardian of the Forest’ – the Pal can be ridden, enables double jump and increases tree‑cutting efficiency【142053078936299†L123-L142】."
+          "notes": "Describes the partner skill \u2018Guardian of the Forest\u2019 \u2013 the Pal can be ridden, enables double jump and increases tree\u2011cutting efficiency\u3010142053078936299\u2020L123-L142\u3011."
         },
         "paldb-foxparks-partner": {
-          "title": "Foxparks – PalDB",
+          "title": "Foxparks \u2013 PalDB",
           "url": "https://paldb.cc/pal/foxparks",
           "access_date": "2025-09-30",
-          "notes": "Mentions the partner skill ‘Huggy Fire’ which equips Foxparks as a flamethrower and its work suitability (Kindling Lv1)【513843636763139†L117-L170】."
+          "notes": "Mentions the partner skill \u2018Huggy Fire\u2019 which equips Foxparks as a flamethrower and its work suitability (Kindling Lv1)\u3010513843636763139\u2020L117-L170\u3011."
         },
         "palwiki-direhowl-recipe": {
-          "title": "Direhowl Saddled Harness – Palworld Wiki",
+          "title": "Direhowl Saddled Harness \u2013 Palworld Wiki",
           "url": "https://palworld.fandom.com/wiki/Direhowl_Saddled_Harness",
           "access_date": "2025-09-30",
-          "notes": "Provides the Direhowl harness recipe (10 Leather, 20 Wood, 15 Fiber, 10 Paldium Fragments) and states it unlocks at level 9 with 1 tech point【197143349627535†L151-L156】."
+          "notes": "Provides the Direhowl harness recipe (10\u00a0Leather, 20\u00a0Wood, 15\u00a0Fiber, 10\u00a0Paldium Fragments) and states it unlocks at level\u00a09 with 1\u00a0tech point\u3010197143349627535\u2020L151-L156\u3011."
         },
         "palwiki-nitewing-saddle": {
-          "title": "Nitewing Saddled Harness – Palworld Wiki",
+          "title": "Nitewing Saddled Harness \u2013 Palworld Wiki",
           "url": "https://palworld.fandom.com/wiki/Nitewing_Saddle",
           "access_date": "2025-09-30",
-          "notes": "Lists the Nitewing saddle recipe (20 Leather, 10 Cloth, 15 Ingots, 20 Fiber, 20 Paldium Fragments) and level requirements【524512399342633†L151-L156】."
+          "notes": "Lists the Nitewing saddle recipe (20\u00a0Leather, 10\u00a0Cloth, 15\u00a0Ingots, 20\u00a0Fiber, 20\u00a0Paldium Fragments) and level requirements\u3010524512399342633\u2020L151-L156\u3011."
         },
         "updatecrazy-patch-067": {
           "title": "Palworld Update v0.6.7 Patch Notes",
           "url": "https://updatecrazy.com/palworld-update-v0-6-7-patch-notes",
           "access_date": "2025-09-30",
-          "notes": "Confirms game version 1.079.736 released on Sept 29 2025 and fixes relating to dungeon crashes【353708512100491†L31-L56】."
+          "notes": "Confirms game version 1.079.736 released on Sept\u00a029\u00a02025 and fixes relating to dungeon crashes\u3010353708512100491\u2020L31-L56\u3011."
         },
         "goleap-region-levels": {
           "title": "Palworld Map Level Zones",
           "url": "https://www.gameleap.com/palworld-map-level-zones",
           "access_date": "2025-09-30",
-          "notes": "Provides level ranges for each region (e.g. Windswept Hills 1–15, Sea Breeze Archipelago 1–10)【950757978743332†L131-L147】."
+          "notes": "Provides level ranges for each region (e.g. Windswept Hills 1\u201315, Sea\u00a0Breeze Archipelago 1\u201310)\u3010950757978743332\u2020L131-L147\u3011."
         },
         "gosunoob-vixy-breeding": {
-          "title": "Palworld – Vixy Breeding Combinations",
+          "title": "Palworld \u2013 Vixy Breeding Combinations",
           "url": "https://www.gosunoob.com/palworld/vixy-breeding/",
           "access_date": "2025-09-30",
-          "notes": "Lists combos that produce Vixy and notes its work suitability and drops【506019502892519†screenshot】【761280216223901†screenshot】."
+          "notes": "Lists combos that produce Vixy and notes its work suitability and drops\u3010506019502892519\u2020screenshot\u3011\u3010761280216223901\u2020screenshot\u3011."
         },
         "pcgamesn-bosses": {
           "title": "All Palworld bosses in order and how to beat them",
           "url": "https://www.pcgamesn.com/palworld/bosses",
           "access_date": "2025-09-30",
-          "notes": "Provides details on tower bosses including Zoe & Grizzbolt, coordinates (112, -434), challenge damage (30K), recommended ground Pals and tactics【825211382965329†L103-L118】; also lists Nitewing as an Alpha Pal at Ice Wind Island (level 18)【825211382965329†L294-L302】 and Jetragon at Mount Obsidian (level 50)【825211382965329†L337-L339】."
+          "notes": "Provides details on tower bosses including Zoe & Grizzbolt, coordinates (112,\u00a0-434), challenge damage (30K), recommended ground Pals and tactics\u3010825211382965329\u2020L103-L118\u3011; also lists Nitewing as an Alpha Pal at Ice Wind Island (level\u00a018)\u3010825211382965329\u2020L294-L302\u3011 and Jetragon at Mount Obsidian (level\u00a050)\u3010825211382965329\u2020L337-L339\u3011."
         },
         "pcgamer-grappling-gun": {
           "title": "Palworld grappling gun guide",
           "url": "https://www.pcgamer.com/palworld-grappling-gun-crafting/",
           "access_date": "2025-09-30",
-          "notes": "Explains that the Grappling Gun unlocks at level 12 and costs 1 Ancient Technology Point; crafting requires 10 Paldium Fragments, 10 Ingots, 30 Fiber and 1 Ancient Civilization Part【312162085103617†L180-L205】."
+          "notes": "Explains that the Grappling Gun unlocks at level\u00a012 and costs 1\u00a0Ancient Technology Point; crafting requires 10\u00a0Paldium Fragments, 10\u00a0Ingots, 30\u00a0Fiber and 1\u00a0Ancient Civilization Part\u3010312162085103617\u2020L180-L205\u3011."
         },
         "pcgamesn-jetragon": {
-          "title": "All Palworld bosses in order and how to beat them – Jetragon entry",
+          "title": "All Palworld bosses in order and how to beat them \u2013 Jetragon entry",
           "url": "https://www.pcgamesn.com/palworld/bosses",
           "access_date": "2025-09-30",
-          "notes": "States that Jetragon is a level 50 Legendary Celestial Dragon found at Mount Obsidian【825211382965329†L337-L339】."
+          "notes": "States that Jetragon is a level\u00a050 Legendary Celestial Dragon found at Mount Obsidian\u3010825211382965329\u2020L337-L339\u3011."
         },
         "palwiki-humans": {
-          "title": "Humans – Palworld Wiki",
+          "title": "Humans \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Humans",
           "access_date": "2025-09-30",
-          "notes": "Explains that non-leader humans can be captured with Pal Spheres, have lower catch rates needing higher-grade spheres, cannot use their weapons, and merchants stationed at bases provide permanent shop access despite only rank 1 work suitability.【529f5c†L67-L90】【94455f†L13-L18】"
+          "notes": "Explains that non-leader humans can be captured with Pal Spheres, have lower catch rates needing higher-grade spheres, cannot use their weapons, and merchants stationed at bases provide permanent shop access despite only rank\u00a01 work suitability.\u3010529f5c\u2020L67-L90\u3011\u301094455f\u2020L13-L18\u3011"
         },
         "palwiki-small-settlement": {
-          "title": "Small Settlement – Palworld Wiki",
+          "title": "Small Settlement \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Small_Settlement",
           "access_date": "2025-09-30",
-          "notes": "Gives the Small Settlement coordinates (~75,-479) and lists the Pal Merchant and Wandering Merchant inhabitants available to capture.【165dd8†L71-L90】"
+          "notes": "Gives the Small Settlement coordinates (~75,-479) and lists the Pal Merchant and Wandering Merchant inhabitants available to capture.\u3010165dd8\u2020L71-L90\u3011"
         },
         "palwiki-paldium": {
-          "title": "Paldium Fragment – Palworld Wiki",
+          "title": "Paldium Fragment \u2013 Palworld Wiki",
           "url": "https://palworld.fandom.com/wiki/Paldium_Fragment",
           "access_date": "2025-09-30",
-          "notes": "Lists river, cliff and smelting sources for Paldium Fragments including respawn timers and conversion tips【palwiki-paldium†L42-L71】【palwiki-paldium†L86-L115】【palwiki-paldium†L118-L140】."
+          "notes": "Lists river, cliff and smelting sources for Paldium Fragments including respawn timers and conversion tips\u3010palwiki-paldium\u2020L42-L71\u3011\u3010palwiki-paldium\u2020L86-L115\u3011\u3010palwiki-paldium\u2020L118-L140\u3011."
+        },
+        "palwiki-charcoal": {
+          "title": "Charcoal \u2013 Palworld Wiki (Fandom)",
+          "url": "https://palworld.fandom.com/wiki/Charcoal",
+          "access_date": "2025-10-05",
+          "notes": "States charcoal is crafted at any furnace, weighs 2, and costs 2 Wood per batch for gunpowder prep\u301018fa49\u2020L1-L1\u3011\u3010ac044b\u2020L1-L7\u3011."
+        },
+        "palwiki-gunpowder": {
+          "title": "Gunpowder \u2013 Palworld Wiki (Fandom)",
+          "url": "https://palworld.fandom.com/wiki/Gunpowder",
+          "access_date": "2025-10-05",
+          "notes": "Confirms gunpowder is a tier 21 tech crafted at a High Quality Workbench or better using 2 Charcoal and 1 Sulfur for ammunition\u301031b0ff\u2020L1-L1\u3011\u30104c6362\u2020L1-L1\u3011."
         }
       }
     }

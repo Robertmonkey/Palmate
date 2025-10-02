@@ -61,6 +61,8 @@ This document describes the responsibilities, workflows and quality assurance st
 
 *Progress 2025-10-05:* Authored new resource routes for Sulfur (`resource-sulfur`), Pure Quartz (`resource-pure-quartz`), and Polymer (`resource-polymer`), with bundled JSON kept in sync and fresh citations covering PCGamesN and Palworld wiki sources.
   * Next steps: secure an additional primary citation for Astral Mountain node coordinates or alternative quartz hotspots, document reliable High Quality Pal Oil farming beyond Dumud ranching, and continue chipping away at remaining gap list items (e.g. Beautiful Flower, Carbon Fiber, Milk).
+*Progress 2025-10-07:* Added the Gunpowder Arsenal Chain route (`resource-gunpowder`) to both `guides.md` and `data/guides.bundle.json`, wiring in Charcoal/Gunpowder citations and ensuring the source registry covers the new references.
+  * Next steps: chase a second independent citation for Mozzarina field spawns (needed for the Milk route), collect a merchant price source for bulk Sulfur-to-Gunpowder planning, and continue sourcing coordinates for outstanding resource gaps like Beautiful Flower and Carbon Fiber.
 
 ## Performance Notes
 

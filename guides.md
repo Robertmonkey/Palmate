@@ -6244,6 +6244,411 @@ Polymer production ties together high-level tech: unlock the assembly line, farm
 ```
 
 
+### Route: Gunpowder Arsenal Chain
+
+Gunpowder keeps firearms running by blending Sulfur from the Mossanda lava ravine with Charcoal burned in your furnaces, then batching everything at the High Quality Workbench so ammunition crafts stay ahead of raids.【pcgamesn-sulfur†L11-L20】【palwiki-charcoal†L1-L7】【palwiki-gunpowder†L1-L1】
+
+```json
+{
+  "route_id": "resource-gunpowder",
+  "title": "Gunpowder Arsenal Chain",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "gunpowder",
+    "ammo",
+    "crafting"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 24,
+    "max": 38
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "resource-sulfur",
+      "resource-coal"
+    ],
+    "tech": [
+      "high-quality-workbench"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Secure Sulfur and Charcoal inputs",
+    "Staff furnaces for Charcoal production",
+    "Craft Gunpowder batches for ammo stockpiles"
+  ],
+  "estimated_time_minutes": {
+    "solo": 24,
+    "coop": 16
+  },
+  "estimated_xp_gain": {
+    "min": 260,
+    "max": 360
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "If Sulfur sits idle you stall ammo queues and waste furnace uptime.",
+    "hardcore": "Letting raids hit without gunpowder can cost top-tier weapons and pals."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Loop the Mossanda ravine deposits and Hillside Cavern entrance until you can survive level 30 patrols before pushing deeper.【pcgamesn-sulfur†L11-L19】【pcgamesn-coal†L135-L138】",
+    "overleveled": "Stage chests at the Eternal Pyre entrance and Astral ridges so mining pals ferry Sulfur and Coal while you queue gunpowder overnight.【pcgamesn-sulfur†L15-L20】【pcgamesn-coal†L135-L138】",
+    "resource_shortages": [
+      {
+        "item_id": "charcoal",
+        "solution": "Feed furnaces with Wood stacks (2 per Charcoal) and keep a Kindling pal assigned so burners never stall.【palwiki-charcoal†L1-L7】"
+      }
+    ],
+    "time_limited": "Skip manual mining and craft from stored Sulfur and Charcoal for a quick 10-minute ammo top-up.",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:gunpowder_high",
+        "condition": "resource_gaps contains gunpowder >= 60",
+        "adjustment": "Queue two batches in step :003 back-to-back and pause new weapon crafts until the deficit clears.【palwiki-gunpowder†L1-L1】",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-gunpowder:003"
+        ]
+      },
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "One player runs the Sulfur loop while the other tends furnaces and workbench queues, swapping each cycle to manage stamina.【pcgamesn-sulfur†L13-L19】【pcgamesn-coal†L135-L138】",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-gunpowder:001",
+          "resource-gunpowder:002",
+          "resource-gunpowder:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-gunpowder:checkpoint-stock",
+      "summary": "Sulfur and Coal restocked",
+      "related_steps": [
+        "resource-gunpowder:001"
+      ],
+      "benefits": [
+        "30+ Sulfur banked",
+        "Coal piles staged for burning"
+      ]
+    },
+    {
+      "id": "resource-gunpowder:checkpoint-burners",
+      "summary": "Charcoal burners staffed",
+      "related_steps": [
+        "resource-gunpowder:002"
+      ],
+      "benefits": [
+        "Continuous Charcoal output",
+        "Kindling pals assigned"
+      ]
+    },
+    {
+      "id": "resource-gunpowder:checkpoint-queue",
+      "summary": "Gunpowder batches queued",
+      "related_steps": [
+        "resource-gunpowder:003"
+      ],
+      "benefits": [
+        "Ammunition crafting active",
+        "Sulfur and Charcoal converted"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-sulfur",
+      "resource-coal"
+    ],
+    "optional": []
+  },
+  "failure_recovery": {
+    "normal": "If stockpiles dip, rerun step :001 and rebuild coal and sulfur caches before restarting production.",
+    "hardcore": "Rearm after wipes by restocking inputs first; only resume raids once gunpowder queues are stable."
+  },
+  "steps": [
+    {
+      "step_id": "resource-gunpowder:001",
+      "type": "gather",
+      "summary": "Run Sulfur and Coal loops",
+      "detail": "Teleport to Mossanda Forest (234,-118) for Sulfur, then sweep Hillside Cavern at 147,-397 to refill Coal before recalling home; drop overflow in a chest outside the Eternal Pyre entrance.【pcgamesn-sulfur†L13-L19】【pcgamesn-coal†L135-L138】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "sulfur",
+          "qty": 30
+        },
+        {
+          "kind": "item",
+          "id": "coal",
+          "qty": 40
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "verdant-brook",
+          "coords": [
+            234,
+            -118
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            147,
+            -397
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "miner",
+              "tasks": "Break nodes and kite patrols"
+            },
+            {
+              "role": "hauler",
+              "tasks": "Collect ore and reset chest staging"
+            }
+          ],
+          "loot_rules": "Divide Sulfur and Coal evenly before leaving the field"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "metal-pickaxe",
+          "heat-resistant-armor"
+        ],
+        "pals": [
+          "cattiva"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 160,
+        "max": 220
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "sulfur",
+            "qty": 30
+          },
+          {
+            "item_id": "coal",
+            "qty": 40
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks sulfur >= 30",
+          "action": "include_subroute",
+          "subroute_ref": "resource-sulfur"
+        },
+        {
+          "condition": "player lacks coal >= 40",
+          "action": "include_subroute",
+          "subroute_ref": "resource-coal"
+        }
+      ],
+      "citations": [
+        "pcgamesn-sulfur",
+        "pcgamesn-coal"
+      ]
+    },
+    {
+      "step_id": "resource-gunpowder:002",
+      "type": "craft",
+      "summary": "Burn Wood into Charcoal",
+      "detail": "At base, load any furnace with Wood (2 per Charcoal) and assign a Kindling pal so the burn runs while you haul Sulfur in.【palwiki-charcoal†L1-L7】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "charcoal",
+          "qty": 40
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "tender",
+              "tasks": "Keep furnaces fed and Kindling pals happy"
+            },
+            {
+              "role": "runner",
+              "tasks": "Shuttle Wood and Sulfur from storage"
+            }
+          ],
+          "loot_rules": "Stack Charcoal near the High Quality Workbench"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "campfire"
+        ],
+        "pals": [
+          "foxparks"
+        ],
+        "consumables": [
+          "wood"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 70,
+        "max": 100
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "charcoal",
+            "qty": 40
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-charcoal"
+      ]
+    },
+    {
+      "step_id": "resource-gunpowder:003",
+      "type": "craft",
+      "summary": "Batch Gunpowder",
+      "detail": "Use the High Quality Workbench (or better) to combine 2 Charcoal with 1 Sulfur per craft, queuing 60 units so ammo benches never sit idle.【palwiki-gunpowder†L1-L1】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "gunpowder",
+          "qty": 60
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "crafter",
+              "tasks": "Maintain workbench queues"
+            },
+            {
+              "role": "supplier",
+              "tasks": "Top off Sulfur and Charcoal bins"
+            }
+          ],
+          "loot_rules": "Distribute gunpowder evenly before loading ammo benches"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "high-quality-workbench"
+        ],
+        "pals": [
+          "anubis"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 90,
+        "max": 140
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "gunpowder",
+            "qty": 60
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-gunpowder"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "gunpowder",
+      "qty": 60
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "ammo-stockpile"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "purposeful-arc-mid-expansion",
+      "reason": "Mid-game expansion arcs chew through gunpowder for rifles and launchers."
+    }
+  ]
+}
+```
+
 ### Route: Recruit Base Merchant
 
 Catching a human merchant early gives permanent access to trading at home without
@@ -12784,6 +13189,8 @@ updating guides, refresh these entries with new dates and pages.
     ,"pcgamesn-polymer": { "title": "Palworld Polymer crafting guide", "url": "https://www.pcgamesn.com/palworld/polymer", "access_date": "2025-10-05", "notes": "Shows that Polymer unlocks at Technology level 33 on the Production Assembly Line and requires High Quality Pal Oil plus handiwork Pals to automate output.【efa13d†L1-L16】" }
     ,"palwiki-polymer": { "title": "Polymer – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Polymer", "access_date": "2025-10-05", "notes": "Lists Polymer as crafted from 2 High Quality Pal Oil, weighs 0.5, and unlocks via the Technology branch.【99ff2c†L5-L11】" }
     ,"palwiki-high-quality-pal-oil": { "title": "High Quality Pal Oil – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/High_Quality_Pal_Oil", "access_date": "2025-10-05", "notes": "Catalogs High Quality Pal Oil sources including merchants, Dumud ranching, and high-tier Pals like Quivern and Relaxaurus.【969e9d†L1-L8】" }
+    ,"palwiki-charcoal": { "title": "Charcoal – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Charcoal", "access_date": "2025-10-05", "notes": "States charcoal is crafted at any furnace, weighs 2, and costs 2 Wood per batch for gunpowder prep.【18fa49†L1-L1】【ac044b†L1-L7】" }
+    ,"palwiki-gunpowder": { "title": "Gunpowder – Palworld Wiki (Fandom)", "url": "https://palworld.fandom.com/wiki/Gunpowder", "access_date": "2025-10-05", "notes": "Confirms gunpowder is a tier 21 tech crafted at a High Quality Workbench or better using 2 Charcoal and 1 Sulfur for ammunition.【31b0ff†L1-L1】【4c6362†L1-L1】" }
   }
 }
 ```
