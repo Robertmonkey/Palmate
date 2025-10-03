@@ -116,3 +116,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Translate the new sources into a full `resource-small-pal-soul` route covering early-game night hunts, mid-game Crusher conversion loops, and late-game statue offering automation; wire the guide into `data/guides.bundle.json` and `data/guide_catalog.json` once coordinates are verified.
 2. Secure at least one citation with explicit coordinates or dungeon references for Daedream/Nox farming hotspots (e.g., Windswept Hills nighttime patrols or low-level dungeons) to anchor the step-by-step capture path.
 3. Identify efficient Medium/Large Pal Soul feedstock chains (alphas, raids, or breeding) so the Crusher conversions can scale without starving other statue upgrades; gather throughput benchmarks before drafting late-game automation steps.
+
+### 2025-10-03 Galeclaw Poultry route rollout
+
+* Authored the `resource-galeclaw-poultry` route plus shortage catalog entry, wiring Windswept Hills hunts, Meat Cleaver processing, and Cooler Box storage into the adaptive data so shortages UI can recommend the loop immediately.
+* Captured fresh citations (`palwiki-galeclaw-raw`, `palfandom-windswept-hills-raw`) and registered them in the source registry to back guaranteed drop rates and spawn coverage.
+
+**Continuation notes:**
+
+1. Locate a second independent map citation with explicit Galeclaw spawn coordinates (e.g., interactive map exports) to strengthen location guidance beyond the Fandom listing.
+2. Audit late-game cooking routes (Cake, Luxury Meals) to ensure they reference Galeclaw poultry in their prerequisites now that the supply loop exists.
+3. Prototype a sanctuary/alpha follow-up once reliable Caprity citations land so higher-tier poultry inputs (Caprity Meat) can chain directly from this route.

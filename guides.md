@@ -25,7 +25,7 @@ system used for map references, and the supported difficulty/party modes.
 { 
   "schema_version": 2,
   "game_version": "v0.6.7 (build 1.079.736)",
-  "verified_at_utc": "2025-09-30T00:00:00Z",
+  "verified_at_utc": "2025-10-03T00:00:00Z",
   "world_map_reference": "Palworld uses a two‑dimensional coordinate system where the X axis runs east–west and the Y axis runs north–south.  Coordinates may be positive or negative.  (0,0) lies near the initial spawn area on the main island.",
   "difficulty_modes": ["normal", "hardcore"],
   "party_modes": ["solo", "coop"]
@@ -8500,6 +8500,320 @@ Chikipi Poultry Harvest Loop corrals the starter meadow flocks, adds a Meat Clea
     {
       "route_id": "resource-cake",
       "reason": "Cake production relies on poultry for high-quality cooking buffs."
+    }
+  ]
+}
+```
+
+### Route: Galeclaw Poultry Skyridge Circuit
+
+Galeclaw Poultry Skyridge Circuit chains Windswept Hills ridge hunts with Meat Cleaver processing and chilled storage so mid-game kitchens never run dry on higher-tier poultry.【palfandom-windswept-hills-raw†L24-L40】【palwiki-galeclaw-raw†L6-L33】【palwiki-meat-cleaver†L20-L39】【palwiki-cooler-box-raw†L1-L24】
+
+```json
+{
+  "route_id": "resource-galeclaw-poultry",
+  "title": "Galeclaw Poultry Skyridge Circuit",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "galeclaw-poultry",
+    "cooking",
+    "mid-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 18,
+    "max": 32
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "resource-chikipi-poultry"
+    ],
+    "tech": [
+      "meat-cleaver"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Sweep Small Settlement cliffs for Galeclaw flights",
+    "Butcher captured Galeclaw with the Meat Cleaver for poultry",
+    "Stage cooled poultry reserves for mid-game recipes"
+  ],
+  "estimated_time_minutes": {
+    "solo": 34,
+    "coop": 24
+  },
+  "estimated_xp_gain": {
+    "min": 260,
+    "max": 420
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Falling off the ridge or losing captured flyers wastes spheres and delays poultry restocks until respawns.",
+    "hardcore": "Overextending on the cliffs risks lethal falls and pal losses, forcing you to rebuild the flock before butchering."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Anchor at the Small Settlement statue (75,-479) and chip away at the nearest Galeclaw pairs before retreating to the Palbox if they swarm.【palwiki-small-settlement†L3-L15】【palfandom-windswept-hills-raw†L24-L40】",
+    "overleveled": "Chain ridge sweeps with cleaver runs so every guaranteed drop turns into chilled stock before raids pull you elsewhere.【palwiki-galeclaw-raw†L6-L33】【palwiki-meat-cleaver†L20-L39】",
+    "resource_shortages": [
+      {
+        "item_id": "galeclaw_poultry",
+        "solution": "Cull two captured Galeclaw per loop—each yields one Galeclaw Poultry at 100%—then let the rest respawn for the next hunt.【palwiki-galeclaw-raw†L6-L33】【palwiki-meat-cleaver†L20-L39】"
+      }
+    ],
+    "time_limited": "Fast travel to the Small Settlement, drop two flights, butcher them, and stash the cuts in a Cooler Box before logging off.【palwiki-small-settlement†L3-L15】【palwiki-galeclaw-raw†L6-L33】【palwiki-cooler-box-raw†L1-L24】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Have the scout keep Galeclaw grounded while the butcher processes deliveries and rotates cooled stock between hunts.",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-galeclaw-poultry:001",
+          "resource-galeclaw-poultry:002",
+          "resource-galeclaw-poultry:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-galeclaw-poultry:checkpoint-ridge",
+      "label": "Ridge Patrol Stocked",
+      "includes": [
+        "resource-galeclaw-poultry:001"
+      ]
+    },
+    {
+      "id": "resource-galeclaw-poultry:checkpoint-cleaver",
+      "label": "Cleaver Line Running",
+      "includes": [
+        "resource-galeclaw-poultry:002"
+      ]
+    },
+    {
+      "id": "resource-galeclaw-poultry:checkpoint-pantry",
+      "label": "Cold Pantry Filled",
+      "includes": [
+        "resource-galeclaw-poultry:003"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "resource-galeclaw-poultry:001",
+      "type": "capture",
+      "summary": "Clip Galeclaw along the Small Settlement ridge",
+      "detail": "Teleport to the Small Settlement (75,-479), climb the western ridge, and ground Galeclaw with bolas before throwing spheres so you bank three flyers for butchering.【palwiki-small-settlement†L3-L15】【palfandom-windswept-hills-raw†L24-L40】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "galeclaw",
+          "qty": 3
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Use the cliff ledges for cover and only engage single flights so fall damage and crossfire stay manageable.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "scout",
+              "tasks": "Pull Galeclaw low with bolas and stagger aerial aggro"
+            },
+            {
+              "role": "wrangler",
+              "tasks": "Throw Pal Spheres and shuttle captures back to base"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "bola",
+          "crossbow"
+        ],
+        "pals": [
+          "foxparks"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 180,
+        "max": 260
+      },
+      "outputs": {
+        "items": [],
+        "pals": [
+          "galeclaw"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-small-settlement†L3-L15",
+        "palfandom-windswept-hills-raw†L24-L40"
+      ]
+    },
+    {
+      "step_id": "resource-galeclaw-poultry:002",
+      "type": "craft",
+      "summary": "Butcher Galeclaw for guaranteed poultry",
+      "detail": "Equip the Meat Cleaver (crafted at the Primitive Workbench for 5 Ingots, 20 Wood, 5 Stone) and butcher captured Galeclaw—each yields one Galeclaw Poultry at a 100% rate, so stagger culls to keep flyers in reserve.【palwiki-meat-cleaver†L20-L39】【palwiki-galeclaw-raw†L6-L33】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "galeclaw_poultry",
+          "qty": 3
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Back up captures with spare spheres before butchering so a misclick doesn’t erase your only flyers.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "meat-cleaver"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 90
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "galeclaw_poultry",
+            "qty": 3
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-meat-cleaver†L20-L39",
+        "palwiki-galeclaw-raw†L6-L33"
+      ]
+    },
+    {
+      "step_id": "resource-galeclaw-poultry:003",
+      "type": "base",
+      "summary": "Chill and rotate poultry reserves",
+      "detail": "Unlock the Cooler Box at tech level 13, craft it (20 Ingots, 20 Stone, 5 Ice Organs), and assign a Cooling pal so butchered Galeclaw Poultry stays fresh between hunts.【palwiki-cooler-box-raw†L1-L24】【palwiki-galeclaw-raw†L6-L33】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "galeclaw_poultry",
+          "qty": 9
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "penking"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 20,
+        "max": 40
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "galeclaw_poultry",
+            "qty": 9
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-cooler-box-raw†L1-L24",
+        "palwiki-galeclaw-raw†L6-L33"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "galeclaw_poultry",
+      "qty": 12
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "mid-tier-poultry-stock"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-cake",
+      "reason": "Cake batches crave Galeclaw Poultry for breeding buffs once Chikipi supplies run thin."
     }
   ]
 }
@@ -24276,6 +24590,12 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-23",
       "notes": "Lists Windswept Hills Lamball spawns, ranch wool production, and guaranteed Lamball Mutton drops for each cull.【palfandom-lamball†L17-L75】"
     },
+    "palfandom-windswept-hills-raw": {
+      "title": "Windswept Hills \u2013 Palworld Wiki (Fandom, raw)",
+      "url": "https://palworld.fandom.com/wiki/Windswept_Hills?action=raw",
+      "access_date": "2025-10-03",
+      "notes": "Lists local Windswept Hills pals, including Galeclaw flights near the starter region cliffs.【palfandom-windswept-hills-raw†L24-L40】"
+    },
     "palwiki-lamball-mutton-raw": {
       "title": "Lamball Mutton \u2013 Palworld Wiki (raw)",
       "url": "https://palworld.wiki.gg/index.php?title=Lamball_Mutton&action=raw",
@@ -24287,6 +24607,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.fandom.com/wiki/Chikipi",
       "access_date": "2025-10-01",
       "notes": "States that Chikipi roam the Windswept Hills, lay eggs on the ground, and their Egg Layer partner skill produces eggs at the ranch.\u30107b6ddf\u2020L1-L27\u3011\u3010c48565\u2020L1-L10\u3011\u3010cca570\u2020L1-L2\u3011"
+    },
+    "palwiki-galeclaw-raw": {
+      "title": "Galeclaw \u2013 palworld.wiki.gg (raw wikitext)",
+      "url": "https://palworld.wiki.gg/index.php?title=Galeclaw&action=raw",
+      "access_date": "2025-10-03",
+      "notes": "Provides Galeclaw drop tables showing 100% Galeclaw Poultry and Leather yields plus alpha rewards.【palwiki-galeclaw-raw†L6-L33】"
     },
     "palwiki-pengullet": {
       "title": "Pengullet \u2013 The Palworld Wiki",

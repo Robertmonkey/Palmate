@@ -1,0 +1,50 @@
+{{stub}}
+{{Infobox_Location
+|name = Windswept Hills
+|image = Windswept Hills.png
+|type = Region}}
+'''Windswept Hills''' is a region in {{PW}}.
+
+It is the first area players appear in upon starting the game. The area is a sprawling grassland that features plenty of towering mountains, flowing rivers, and small forests, along with some ancient ruins appearing sporadically in certain parts of the region.
+
+==Locations==
+* Windswept Hills Flying Fish Coast (fast travel/respawn point)
+* Windswept Hills Plateau of Beginnings (fast travel/respawn point)
+
+==Pals==
+{{Cols|3|
+*[[Beegarde]]
+*[[Cattiva]]
+*[[Chikipi]]
+*[[Chillet]]
+*[[Cinnamoth]]
+*[[Cremis]]
+*[[Daedream]]
+*[[Dinossom]]
+*[[Direhowl]] (via Raids)
+*[[Eikthyrdeer]]
+*[[Elphidran]]
+*[[Flopie]]
+*[[Foxparks]]
+*[[Galeclaw]]
+*[[Grizzbolt]] (World Boss)
+*[[Gumoss]]
+*[[Hoocrates]]
+*[[Lamball]]
+*[[Leezpunk]] (via Raids)
+*[[Lifmunk]]
+*[[Mammorest]]
+*[[Mossanda]]
+*[[Pengullet]]
+*[[Penking]]
+*[[Robinquill]]
+*[[Tanzee]]
+*[[Teafant]]
+*[[Tocotoco]] (via Raids)
+*[[Vaelet]]
+}}
+
+==Resources==
+TBA
+
+[[Category:Locations]]
