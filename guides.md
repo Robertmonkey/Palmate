@@ -24765,6 +24765,313 @@ Cotton Candy Woolipop Confection Loop uses breeding-farm automation to hatch a s
 }
 ```
 
+### Route: Broncherry Meat Caravan Loop
+
+Broncherry Meat Caravan Loop rides the overworld Alpha Broncherry at (-222,-669) and Meat Cleaver butchery so every daily respawn delivers guaranteed meat cuts plus tomato seed byproducts for late-game kitchens.【palwiki-alpha-pals†L1-L104】【palwiki-broncherry-raw†L66-L98】【palwiki-meat-cleaver†L2-L38】
+
+```json
+{
+  "route_id": "resource-broncherry-meat",
+  "title": "Broncherry Meat Caravan Loop",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "broncherry-meat",
+    "alpha-hunt",
+    "cooking"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 22,
+    "max": 34
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [],
+    "tech": [
+      "meat-cleaver"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Unlock the Meat Cleaver and stage capture gear for the level 23 alpha",
+    "Clear or capture the Verdant Brook Alpha Broncherry each in-game day",
+    "Butcher banked Broncherry to stockpile meat and seed drops"
+  ],
+  "estimated_time_minutes": {
+    "solo": 32,
+    "coop": 24
+  },
+  "estimated_xp_gain": {
+    "min": 420,
+    "max": 640
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Missing the alpha rotation forfeits the daily guaranteed meat bundle until the next in-game day respawn.",
+    "hardcore": "Hardcore wipes can cost your butchery kit and captured pals if PIDF patrols finish you during the hunt."
+  },
+  "adaptive_guidance": {
+    "underleveled": "If you cannot safely duel the alpha, throw Mega or Hyper Spheres to capture Broncherry at (-222,-669) and butcher it back at camp—the Meat Cleaver guarantees the same drops without a protracted fight.【palwiki-alpha-pals†L8-L104】【palwiki-meat-cleaver†L2-L38】",
+    "overleveled": "Run a daily kill plus a spare capture so you bank four Broncherry Meat and bonus Tomato Seeds for rib roasts and salads each loop.【palwiki-alpha-pals†L8-L104】【palwiki-broncherry-raw†L66-L98】",
+    "resource_shortages": [
+      {
+        "item_id": "broncherry_meat",
+        "solution": "Fast travel in, burst down the alpha for two guaranteed cuts, then butcher any captured spares to double the haul before logging off.【palwiki-alpha-pals†L8-L104】【palwiki-broncherry-raw†L66-L98】【palwiki-meat-cleaver†L2-L38】"
+      }
+    ],
+    "time_limited": "Alpha Broncherry respawns every in-game day; sprint in for a single clear, grab the two cuts, and reset by sleeping if you only have a few minutes.【palwiki-alpha-pals†L1-L12】【palwiki-broncherry-raw†L66-L98】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign one player to kite Broncherry while the partner nets captures and drags them home for butchery so the loop finishes before PIDF reinforcements arrive.",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-broncherry-meat:002",
+          "resource-broncherry-meat:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-broncherry-meat:checkpoint-cleaver",
+      "summary": "Butchery kit unlocked",
+      "benefits": [
+        "Meat Cleaver crafted",
+        "Hotbar slot configured"
+      ],
+      "related_steps": [
+        "resource-broncherry-meat:001"
+      ]
+    },
+    {
+      "id": "resource-broncherry-meat:checkpoint-alpha",
+      "summary": "Alpha cleared",
+      "benefits": [
+        "Daily respawn on cooldown",
+        "Guaranteed cuts secured"
+      ],
+      "related_steps": [
+        "resource-broncherry-meat:002"
+      ]
+    },
+    {
+      "id": "resource-broncherry-meat:checkpoint-storage",
+      "summary": "Meat banked",
+      "benefits": [
+        "Chest restocked",
+        "Seeds catalogued"
+      ],
+      "related_steps": [
+        "resource-broncherry-meat:003"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "resource-broncherry-meat:001",
+      "type": "prepare",
+      "summary": "Unlock Meat Cleaver and stage your kit",
+      "detail": "Spend 2 Technology Points at level 12 to unlock the Meat Cleaver, craft it at a Primitive Workbench, and keep it equipped so the Butcher command replaces Pet when you interact with captured pals.【palwiki-meat-cleaver†L2-L38】",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "meat-cleaver"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 0,
+        "max": 0
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-meat-cleaver†L2-L38"
+      ]
+    },
+    {
+      "step_id": "resource-broncherry-meat:002",
+      "type": "hunt",
+      "summary": "Sweep the Alpha Broncherry ridge",
+      "detail": "Fast travel to the nearby statue network and clear or capture Broncherry at (-222,-669); the level 23 alpha drops two Broncherry Meat every run and has a 50% chance to hand over Tomato Seeds.【palwiki-alpha-pals†L31-L104】【palwiki-broncherry-raw†L66-L98】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "broncherry_meat",
+          "qty": 2
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            -222,
+            -669
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Bring a tanky mount and disengage if PIDF patrols arrive; you can return after sleeping to reset the daily respawn.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "hyper-sphere",
+          "mega-sphere"
+        ],
+        "pals": [
+          "anubis"
+        ],
+        "consumables": [
+          "medical-supplies"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 300,
+        "max": 420
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "broncherry_meat",
+            "qty": 2
+          }
+        ],
+        "pals": [
+          "broncherry"
+        ],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-precious-dragon-stone"
+        }
+      ],
+      "citations": [
+        "palwiki-alpha-pals†L31-L104",
+        "palwiki-broncherry-raw†L66-L98"
+      ]
+    },
+    {
+      "step_id": "resource-broncherry-meat:003",
+      "type": "base",
+      "summary": "Butcher and bank the haul",
+      "detail": "Back at base, equip the Meat Cleaver and butcher captured Broncherry to duplicate the two guaranteed meat drops and stash any Tomato Seeds for plantations before the next respawn.【palwiki-broncherry-raw†L66-L98】【palwiki-meat-cleaver†L2-L38】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "broncherry_meat",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "meat-cleaver"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 220
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "broncherry_meat",
+            "qty": 6
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-tomato-seeds"
+        }
+      ],
+      "citations": [
+        "palwiki-broncherry-raw†L66-L98",
+        "palwiki-meat-cleaver†L2-L38"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "broncherry_meat",
+      "qty": 10
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": []
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 1,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-precious-dragon-stone",
+      "reason": "Share the alpha circuit to stack Precious Dragon Stones alongside Broncherry Meat each day."
+    },
+    {
+      "route_id": "resource-tomato-seeds",
+      "reason": "Broncherry’s Tomato Seed drops feed plantations that support Rib Roast and salad dishes."
+    }
+  ]
+}
+```
+
 ### Route: Small Pal Soul Night Hunts & Crusher Loop
 
 Small Pal Soul Night Hunts & Crusher Loop combines nocturnal Daedream and Nox sweeps near the Small Settlement with Crusher
@@ -25824,6 +26131,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/index.php?title=Braloha&action=raw",
       "access_date": "2025-10-17",
       "notes": "States Braloha spawns exclusively on Oasis Isle east of the Desiccated Desert peninsula.【palwiki-braloha-raw†L121-L125】"
+    },
+    "palwiki-broncherry-raw": {
+      "title": "Broncherry \u2013 palworld.wiki.gg (raw wikitext)",
+      "url": "https://palworld.wiki.gg/index.php?title=Broncherry&action=raw",
+      "access_date": "2025-11-13",
+      "notes": "Shows Broncherry guarantees two Broncherry Meat per drop, 50% Tomato Seed byproducts, and the alpha reward table for Winds of Spring.【palwiki-broncherry-raw†L66-L103】"
     },
     "palwiki-wumpo-botan-raw": {
       "title": "Wumpo Botan \u2013 Palworld Wiki (raw)",
