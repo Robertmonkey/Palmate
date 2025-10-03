@@ -24873,6 +24873,18 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-24",
       "notes": "Lists Helzephyr Medium Pal Soul drop chances and describes its nocturnal patrols north of the Bridge of the Twin Knights and Islandhopper Coast waypoints.【palwiki-helzephyr-raw†L65-L116】"
     },
+    "palwiki-killamari": {
+      "title": "Killamari \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Killamari",
+      "access_date": "2025-10-31",
+      "notes": "Confirms Killamari spawn in Windswept Hills night dungeons and drop Venom Glands alongside Jelly.【palwiki-killamari†L240-L240】"
+    },
+    "palwiki-menasting": {
+      "title": "Menasting \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Menasting",
+      "access_date": "2025-10-31",
+      "notes": "Documents the Desiccated Mineshaft alpha at (493,79) and its guaranteed Venom Gland and Precious Plume drops.【palwiki-menasting†L245-L245】"
+    },
     "palwiki-medium-pal-soul-raw": {
       "title": "Medium Pal Soul \u2013 Palworld Wiki (raw)",
       "url": "https://palworld.wiki.gg/index.php?title=Medium_Pal_Soul&action=raw",
@@ -24920,6 +24932,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.fandom.com/wiki/Medium_Pal_Soul?action=raw",
       "access_date": "2025-10-24",
       "notes": "Confirms guaranteed Sootseer drops, Helzephyr sources, and Desiccated Desert treasure chest spawns for Medium Pal Souls.【palfandom-medium-pal-soul-raw†L12-L38】"
+    },
+    "palfandom-venom-gland": {
+      "title": "Venom Gland \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Venom_Gland",
+      "access_date": "2025-10-31",
+      "notes": "Lists Venom Gland drops from Killamari, Helzephyr, and Menasting plus merchant sales, highlighting multi-source farming loops.【palfandom-venom-gland†L11-L34】"
     },
     "palfandom-precious-dragon-stone": {
       "title": "Precious Dragon Stone \u2013 Palworld Wiki (Fandom)",
