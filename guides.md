@@ -22,7 +22,7 @@ specifies the schema version, the verified game build, the coordinate
 system used for map references, and the supported difficulty/party modes.
 
 ```json
-{
+{ 
   "schema_version": 2,
   "game_version": "v0.6.7 (build 1.079.736)",
   "verified_at_utc": "2025-09-30T00:00:00Z",
@@ -7462,335 +7462,6 @@ Wildlife sanctuaries hide the only reliable wild sources of Beautiful Flowers, b
 }
 ```
 
-### Route: Carbon Fiber Fabrication
-
-Carbon Fiber unlocks late-game armor and weapon upgrades once you place a Production Assembly Line and feed it coal, with legendary Pals like Jetragon and Shadowbeak offering emergency stock if production falters.【5d3253†L1-L33】【2b82ab†L138-L145】【278868†L31-L60】【eac1d9†L33-L62】
-
-```json
-{
-  "route_id": "resource-carbon-fiber",
-  "title": "Carbon Fiber Fabrication",
-  "category": "resources",
-  "tags": [
-    "resource-farm",
-    "carbon-fiber",
-    "production-line",
-    "late-game"
-  ],
-  "progression_role": "support",
-  "recommended_level": {
-    "min": 33,
-    "max": 50
-  },
-  "modes": {
-    "normal": true,
-    "hardcore": true,
-    "solo": true,
-    "coop": true
-  },
-  "prerequisites": {
-    "routes": [
-      "resource-coal"
-    ],
-    "tech": [
-      "production-assembly-line"
-    ],
-    "items": [],
-    "pals": []
-  },
-  "objectives": [
-    "Construct a powered Production Assembly Line",
-    "Stockpile Coal or Charcoal inputs",
-    "Batch-craft Carbon Fiber and secure legendary drop backups"
-  ],
-  "estimated_time_minutes": {
-    "solo": 30,
-    "coop": 20
-  },
-  "estimated_xp_gain": {
-    "min": 260,
-    "max": 380
-  },
-  "risk_profile": "medium",
-  "failure_penalties": {
-    "normal": "Power outages or raids halt batches and waste coal unless you babysit the line.",
-    "hardcore": "If the base falls during production you lose high-tier mats and handiwork pals."
-  },
-  "adaptive_guidance": {
-    "underleveled": "Stick to Coal-to-Charcoal conversions until level 35, then unlock the Production Assembly Line for bulk crafting.",
-    "overleveled": "Automate dual assembly lines and feed them via conveyor chests for uninterrupted output.",
-    "resource_shortages": [
-      {
-        "item_id": "coal",
-        "solution": "Loop the Hillside Cavern run from resource-coal before starting new Carbon Fiber batches."
-      }
-    ],
-    "time_limited": "Queue short 10-coal batches so you can log off after each completes without wasting furnace fuel.",
-    "dynamic_rules": [
-      {
-        "signal": "mode:coop",
-        "condition": "mode.coop === true",
-        "adjustment": "Have one player feed furnaces and generators while the partner manages assembly line queues.",
-        "priority": 1,
-        "mode_scope": [
-          "coop"
-        ],
-        "related_steps": [
-          "resource-carbon-fiber:002",
-          "resource-carbon-fiber:003"
-        ]
-      },
-      {
-        "signal": "resource_gap:polymer_high",
-        "condition": "resource_gaps['polymer'] >= 20",
-        "adjustment": "Convert half the coal input into Charcoal so Polymer batches stay supplied alongside Carbon Fiber runs.",
-        "priority": 2,
-        "mode_scope": [
-          "normal",
-          "hardcore",
-          "solo",
-          "coop"
-        ],
-        "related_steps": [
-          "resource-carbon-fiber:002"
-        ]
-      }
-    ]
-  },
-  "checkpoints": [
-    {
-      "id": "resource-carbon-fiber:checkpoint-line",
-      "summary": "Assembly line placed",
-      "benefits": [
-        "Handiwork station unlocked",
-        "Power routing verified"
-      ],
-      "related_steps": [
-        "resource-carbon-fiber:001"
-      ]
-    },
-    {
-      "id": "resource-carbon-fiber:checkpoint-stockpile",
-      "summary": "Fuel stock secured",
-      "benefits": [
-        "Coal/Charcoal bins filled",
-        "Generators topped"
-      ],
-      "related_steps": [
-        "resource-carbon-fiber:002"
-      ]
-    },
-    {
-      "id": "resource-carbon-fiber:checkpoint-batch",
-      "summary": "Carbon Fiber batch complete",
-      "benefits": [
-        "Base upgrades ready",
-        "Legendary drop backup planned"
-      ],
-      "related_steps": [
-        "resource-carbon-fiber:003"
-      ]
-    }
-  ],
-  "supporting_routes": {
-    "recommended": [
-      "resource-coal"
-    ],
-    "optional": [
-      "resource-pure-quartz"
-    ]
-  },
-  "failure_recovery": {
-    "normal": "Repair generators, restock coal, and restart shorter crafting queues to avoid further resource loss.",
-    "hardcore": "Shift production to a backup base with spare handiwork pals until raids subside."
-  },
-  "steps": [
-    {
-      "step_id": "resource-carbon-fiber:001",
-      "type": "build",
-      "summary": "Unlock and place the Production Assembly Line",
-      "detail": "Spend level 28 tech points to unlock the Production Assembly Line, then craft it with 100 Ingots, 50 Wood, 20 Nails, and 10 Cement before wiring it to a generator.【5d3253†L1-L33】",
-      "targets": [
-        {
-          "kind": "tech",
-          "id": "production-assembly-line"
-        }
-      ],
-      "locations": [
-        {
-          "region_id": "windswept-hills",
-          "coords": [
-            0,
-            0
-          ],
-          "time": "any",
-          "weather": "any"
-        }
-      ],
-      "mode_adjustments": {},
-      "recommended_loadout": {
-        "gear": [],
-        "pals": [
-          "grizzbolt"
-        ],
-        "consumables": []
-      },
-      "xp_award_estimate": {
-        "min": 100,
-        "max": 140
-      },
-      "outputs": {
-        "items": [],
-        "pals": [],
-        "unlocks": {
-          "tech": [
-            "production-assembly-line"
-          ]
-        }
-      },
-      "branching": [],
-      "citations": [
-        "palwiki-production-assembly-line"
-      ]
-    },
-    {
-      "step_id": "resource-carbon-fiber:002",
-      "type": "gather",
-      "summary": "Stock Coal or Charcoal feedstock",
-      "detail": "Gather at least 40 Coal or convert Wood into Charcoal so each batch has 2 Coal or 5 Charcoal per Carbon Fiber craft; balance inputs against other smelting needs.【2b82ab†L138-L145】",
-      "targets": [
-        {
-          "kind": "item",
-          "id": "coal",
-          "qty": 40
-        }
-      ],
-      "locations": [
-        {
-          "region_id": "mount-obsidian",
-          "coords": [
-            -587,
-            -517
-          ],
-          "time": "any",
-          "weather": "any"
-        }
-      ],
-      "mode_adjustments": {},
-      "recommended_loadout": {
-        "gear": [
-          "metal-pickaxe"
-        ],
-        "pals": [
-          "cattiva"
-        ],
-        "consumables": []
-      },
-      "xp_award_estimate": {
-        "min": 80,
-        "max": 120
-      },
-      "outputs": {
-        "items": [
-          {
-            "item_id": "coal",
-            "qty": 40
-          }
-        ],
-        "pals": [],
-        "unlocks": {}
-      },
-      "branching": [
-        {
-          "subroute_ref": "resource-coal"
-        }
-      ],
-      "citations": [
-        "pcgamesn-carbon-fiber"
-      ]
-    },
-    {
-      "step_id": "resource-carbon-fiber:003",
-      "type": "craft",
-      "summary": "Batch Carbon Fiber and plan legendary drops",
-      "detail": "Queue Carbon Fiber on the Production Assembly Line using the stocked fuel. If demand spikes, supplement with legendary boss drops from Jetragon or Shadowbeak runs.【2b82ab†L141-L145】【278868†L31-L60】【eac1d9†L33-L62】",
-      "targets": [
-        {
-          "kind": "item",
-          "id": "carbon-fiber",
-          "qty": 20
-        }
-      ],
-      "locations": [
-        {
-          "region_id": "windswept-hills",
-          "coords": [
-            0,
-            0
-          ],
-          "time": "any",
-          "weather": "any"
-        }
-      ],
-      "mode_adjustments": {},
-      "recommended_loadout": {
-        "gear": [],
-        "pals": [
-          "grizzbolt",
-          "jetragon"
-        ],
-        "consumables": [
-          "power-gel"
-        ]
-      },
-      "xp_award_estimate": {
-        "min": 120,
-        "max": 140
-      },
-      "outputs": {
-        "items": [
-          {
-            "item_id": "carbon-fiber",
-            "qty": 20
-          }
-        ],
-        "pals": [],
-        "unlocks": {}
-      },
-      "branching": [],
-      "citations": [
-        "pcgamesn-carbon-fiber",
-        "palwiki-jetragon",
-        "palwiki-shadowbeak"
-      ]
-    }
-  ],
-  "completion_criteria": [
-    {
-      "type": "have-item",
-      "item_id": "carbon-fiber",
-      "qty": 40
-    }
-  ],
-  "yields": {
-    "levels_estimate": "+0 to +1",
-    "key_unlocks": [
-      "advanced-armor"
-    ]
-  },
-  "metrics": {
-    "progress_segments": 3,
-    "boss_targets": 0,
-    "quest_nodes": 0
-  },
-  "next_routes": [
-    {
-      "route_id": "resource-polymer",
-      "reason": "Polymer production shares assembly inputs; stabilised Carbon Fiber keeps tech upgrades flowing."
-    }
-  ]
-}
-```
 
 ### Route: High Quality Pal Oil Hunts
 
@@ -12474,12 +12145,354 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
   },
   "next_routes": [
     {
+      "route_id": "resource-carbon-fiber",
+      "reason": "Production Assembly Lines and carbon fiber stockpiles consume refined alloy frames."
+    },
+    {
       "route_id": "purposeful-arc-legendary-push",
       "reason": "Legendary push plans consume large Pal Metal batches for endgame armor and weapons."
     },
     {
       "route_id": "purposeful-arc-late-expansion",
       "reason": "Late expansion automation benches rely on Pal Metal alloys and powered factories."
+    }
+  ]
+}
+```
+
+### Route: Carbon Fiber Filament Works
+
+Carbon Fiber Filament Works unlocks the Production Assembly Line, pipelines coal and charcoal inputs, and keeps fiber batches rolling so late-game armor and weapon queues never stall.【palwiki-production-assembly-line†L1-L35】【palwiki-carbon-fiber†L13-L40】【palfandom-carbon-fiber†L86-L110】
+
+```json
+{
+  "route_id": "resource-carbon-fiber",
+  "title": "Carbon Fiber Filament Works",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "carbon-fiber",
+    "manufacturing",
+    "late-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 34,
+    "max": 44
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "resource-refined-ingot",
+      "resource-coal",
+      "resource-gunpowder"
+    ],
+    "tech": [
+      "production-assembly-line"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Unlock and build the Production Assembly Line",
+    "Stabilise coal and charcoal inputs for filament batches",
+    "Automate carbon fiber production and top up with legendary drops"
+  ],
+  "estimated_time_minutes": {
+    "solo": 55,
+    "coop": 38
+  },
+  "estimated_xp_gain": {
+    "min": 280,
+    "max": 420
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Letting the assembly line sit idle wastes ingots, nails, and cement that took hours to stockpile.",
+    "hardcore": "Hardcore wipes during ridge mining can strand your coal haulers and stall the entire fiber supply chain."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Bank the 100 Ingots, 20 Nails, and 10 Cement before hitting level 28 so the line goes up in one construction cycle.【palwiki-production-assembly-line†L8-L45】",
+    "overleveled": "Rotate Jetragon or Shadowbeak hunts between craft batches so their guaranteed drops patch any coal shortages.【palfandom-carbon-fiber†L108-L110】",
+    "resource_shortages": [
+      {
+        "item_id": "carbon-fiber",
+        "solution": "Each craft costs 2 Coal or 5 Charcoal—match queue sizes to your mining throughput before loading the hopper.【palwiki-carbon-fiber†L13-L40】【palfandom-carbon-fiber†L86-L110】"
+      }
+    ],
+    "time_limited": "Burn through a stored Charcoal crate for a 20-piece batch when you only have minutes before a raid.【palwiki-carbon-fiber†L37-L40】【palwiki-charcoal†L22-L31】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign one player to the Astral ridge mining loop while another staffs the assembly line and ferries wood for Charcoal.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-carbon-fiber:002",
+          "resource-carbon-fiber:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-carbon-fiber:checkpoint-line",
+      "label": "Assembly Line Framed",
+      "includes": [
+        "resource-carbon-fiber:001"
+      ]
+    },
+    {
+      "id": "resource-carbon-fiber:checkpoint-feedstock",
+      "label": "Coal & Charcoal Stocked",
+      "includes": [
+        "resource-carbon-fiber:002"
+      ]
+    },
+    {
+      "id": "resource-carbon-fiber:checkpoint-batch",
+      "label": "Fiber Batches Queued",
+      "includes": [
+        "resource-carbon-fiber:003"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "resource-carbon-fiber:001",
+      "type": "build",
+      "summary": "Construct the Production Assembly Line",
+      "detail": "Spend 3 tech points at level 28 to unlock the Production Assembly Line, then deliver 100 Ingots, 50 Wood, 20 Nails, and 10 Cement so three handiwork pals can staff the station without downtime.【palwiki-production-assembly-line†L8-L35】",
+      "targets": [
+        {
+          "kind": "station",
+          "id": "production-assembly-line"
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "wooden-hammer"
+        ],
+        "pals": [
+          "anubis"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "structures": [
+            "production-assembly-line"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-production-assembly-line"
+      ]
+    },
+    {
+      "step_id": "resource-carbon-fiber:002",
+      "type": "gather",
+      "summary": "Mine Astral ridge coal and cook backup Charcoal",
+      "detail": "Set Digtoise and Tombat crews on the (191,-36) ridge so ore and coal flow together, then keep furnaces burning Wood at a 2:1 ratio for Charcoal to buffer outages.【segmentnext-refined-ingot†L2-L5】【palwiki-charcoal†L22-L31】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "coal",
+          "qty": 60
+        },
+        {
+          "kind": "item",
+          "id": "charcoal",
+          "qty": 40
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "astral-mountain",
+          "coords": [
+            191,
+            -36
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Rotate shielded pals to soak alpha breath attacks while miners ferry loads back to base.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "metal-pickaxe"
+        ],
+        "pals": [
+          "digtoise",
+          "tombat",
+          "blazamut"
+        ],
+        "consumables": [
+          "wood"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 200,
+        "max": 260
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "coal",
+            "qty": 60
+          },
+          {
+            "item_id": "charcoal",
+            "qty": 40
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-coal"
+        }
+      ],
+      "citations": [
+        "segmentnext-refined-ingot",
+        "palwiki-charcoal"
+      ]
+    },
+    {
+      "step_id": "resource-carbon-fiber:003",
+      "type": "craft",
+      "summary": "Queue carbon fiber batches",
+      "detail": "Assign handiwork pals to the Assembly Line, feed it 2 Coal or 5 Charcoal per craft, and backfill with Jetragon or Shadowbeak drops when queues spike for late-game weapons.【palwiki-carbon-fiber†L13-L40】【palfandom-carbon-fiber†L86-L110】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "carbon-fiber",
+          "qty": 60
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "crafter",
+              "tasks": "Manage queues and swap handiwork pals"
+            },
+            {
+              "role": "supplier",
+              "tasks": "Refuel coal crates and stage Charcoal"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "anubis",
+          "grizzbolt"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 160,
+        "max": 220
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "carbon-fiber",
+            "qty": 60
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "purposeful-arc-legendary-push"
+        }
+      ],
+      "citations": [
+        "palwiki-carbon-fiber",
+        "palfandom-carbon-fiber"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-station",
+      "station_id": "production-assembly-line"
+    },
+    {
+      "type": "have-item",
+      "item_id": "carbon-fiber",
+      "qty": 60
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "carbon-fiber-stockpile"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "purposeful-arc-legendary-push",
+      "reason": "Legendary weapon and armor queues consume large carbon fiber stacks."
+    },
+    {
+      "route_id": "purposeful-arc-late-expansion",
+      "reason": "Factory expansions rely on carbon fiber components once assembly lines are online."
     }
   ]
 }

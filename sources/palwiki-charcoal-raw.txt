@@ -1,0 +1,42 @@
+{{stub}}
+{{Item
+| description   = Charcoal made from burning [[Wood]]. It can be combined with [[Sulfur]] to create [[Gunpowder]].
+| type          = Material
+| rarity        = Common
+
+| weight        = 2
+| durability    = 
+
+| buy           = 20
+| sell          = 2
+
+| technology    = 
+| required_level = 
+| cost          = 
+| made_at       = Primitive Furnace
+| workload        = 10
+}}
+
+'''Charcoal''' is a [[material]].
+
+== Acquisition ==
+* [[Crafting]]:
+** Can be crafted with any furnace.
+
+==Crafting==
+{{Recipe
+|mat1=Wood
+|mat1qty=2
+|output1=Charcoal
+|output1qty=1
+}}
+
+==Products==
+{{Products}}
+
+== History ==
+* [[0.1.2.0]]
+** Introduced.
+
+{{Navbox Materials}}
+[[Category:Materials]]
