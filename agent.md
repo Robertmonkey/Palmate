@@ -185,3 +185,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Capture empirical conversion throughput (Medium souls per minute) for common Watering pals to validate the new automation estimates before publishing dashboard copy.
 2. Monitor shortage cards after the next bundle rebuild to confirm the new automation step renders correctly and references the added `crusher-automation` unlock.
 3. Evaluate linking the automation step directly into `resource-large-pal-soul` once cooperative loadout benchmarks for Watering and Transporting pals are sourced.
+
+### 2025-11-16 Caprity Meat drop groundwork
+
+* Extracted fresh Palworld Wiki drop tables for Caprity and its alpha variant so Caprity Meat yields are locked in at 2 per capture or kill, clearing citation debt for the upcoming shortage route.【palwiki-caprity-raw†L1-L23】
+* Pulled the printable Caprity Meat drop table to mirror the base drop values for the ingredient registry and shortage metrics.【palwiki-caprity-meat†L1-L6】
+
+**Continuation notes:**
+
+1. Secure at least one overworld spawn citation with coordinates for repeatable Caprity hunts (interactive map export or atlas scrape) so the route can anchor a farming loop instead of relying on anecdotal positions.
+2. Cross-check sanctuary and ranch outputs for Caprity Noct to confirm whether nocturnal variants deliver meat alongside venom so the route can branch into automation once location data lands.
+3. Once coordinates are sourced, draft the `resource-caprity-meat` route with early capture, alpha clears, and ranch processing before wiring it into `data/guides.bundle.json` and `data/guide_catalog.json`.
