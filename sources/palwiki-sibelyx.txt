@@ -1,0 +1,140 @@
+{{Pal Prev/Next | prevPal = Vaelet | prevNo = 078 | nextPal =  Elphidran | nextNo = 080}}
+{{Pal
+
+|name                   ={{PAGENAME}}
+|no                     =079
+|title                  =Pallid Lady
+
+|ele1                   =Ice
+|ele2                   =
+
+|partnerskill           =Silk Maker
+|partnerskill_desc      =When activated, attacks targeted enemy with a powerful [[Blizzard Spike]].
+Sometimes produces [[High Quality Cloth]] when assigned to [[Ranch]].
+|partnerskill_icon      =Attack
+
+| hp                     = 110
+| attack                 = 90
+| attack_melee           = 90
+| defense                = 100
+| support                = 90
+
+| slow_walk_speed        = 50
+| walk_speed             = 100
+| run_speed              = 400
+| ride_sprint_speed      = 550
+| transport_speed        = 250
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 5900
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 450
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Ice Missile
+| activeskill7           = Icicle Cutter
+| activeskill15          = Iceberg
+| activeskill22          = Cryst Breath
+| activeskill30          = Spirit Flame
+| activeskill40          = Aqua Burst
+| activeskill50          = Blizzard Spike
+
+|kindling               =
+|watering               =
+|planting               =
+|generating_electricity =
+|handiwork              =
+|gathering              =
+|lumbering              =
+|mining                 =
+|medicine_production    =2
+|cooling                =2
+|transport              =
+|farming                =1
+
+| food                  = 5
+| nocturnal             = No
+
+|drop1=High Quality Cloth 
+|drop1_min=1
+|drop1_max=1
+|drop1_chance=100
+|drop2=Ice Organ 
+|drop2_min=2
+|drop2_max=3
+|drop2_chance=100
+|drop3                  = 
+|drop3_min              = 
+|drop3_max              = 
+|drop3_chance           = 
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=6
+|alphadrop1_max=8
+|alphadrop1_chance=100
+|alphadrop2=High Quality Cloth
+|alphadrop2_min=1
+|alphadrop2_max=1
+|alphadrop2_chance=100
+|alphadrop3=Ice Organ 
+|alphadrop3_min=2
+|alphadrop3_max=3
+|alphadrop3_chance=100
+|alphadrop4=Precious Pelt
+|alphadrop4_min=6
+|alphadrop4_max=8
+|alphadrop4_chance=100
+|alphadrop5=Ring of Ice Resistance +1
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=3
+
+}}{{paldeck|A Pal that likes the rain, and will often bask in rain showers until the weather clears up. On rainy days, [[Foxparks]] can often be found taking shelter beneath it.}}
+'''Sibelyx''' (Japanese: '''シルキーナ''' ''Silkyna'') is an {{i|Ice}} [[Elements|element]] [[Pals|pal]].
+
+== Appearance ==
+Sibelyx is a moth-like pal, it's body is mainly pure white with grey markings, the most notable feature of Sibelyx is the hat like structure the top of it's head takes on.
+
+== Behavior and habitat ==
+Its peaceful and won't attack unless attacked.
+Can be found as an Alpha Pal in the Sealed Realm of the Pristine.
+[[File:Sibelyx_Day_Habitat.webp|thumb|Daytime Sibelyx Spawns]]
+[[File:Sibelyx_Night_Habitat.webp|thumb|Nightime Sibelyx Spawns]]
+
+== Utility ==
+{{PAGENAME}} is capable of Medicine Reproduction Lv.2, Cooling Lv.2, & Farming Lv.1. It can create [[High Quality Cloth]] when working at a [[ranch]].
+
+== History ==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.2 to 0.24.
+* [[0.1.2.0]]
+** Introduced.
+
+== Trivia ==
+* Its Japanese name may partly come from ''silky''.
+*This Pal is #043 in Paldeck on PocketPair [https://x.com/Palworld_EN/status/1725483933801034237 X].
+
+== Media ==
+{{#ev:youtube|8DKJbxJDEFY|410|inline|Paldeck No.043 SIBELYX - Palworld Gameplay Pocketpair||autoplay=false}}
+<gallery widths="150">
+File:Sibelyx bis.png
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]

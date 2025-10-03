@@ -7866,6 +7866,350 @@ High Quality Pal Oil fuels muskets, polymer, and other mid-game weaponry, so thi
 }
 ```
 
+### Route: High Quality Cloth Loom Circuit
+
+High Quality Cloth Loom Circuit clears the Sealed Realm of the Pristine for Sibelyx ranch drops, then spins surplus wool into level-36 cloth batches at the High Quality Workbench to feed late-game armor queues.【palwiki-sibelyx†L1-L64】【palwiki-high-quality-cloth†L1-L26】
+
+```json
+{
+  "route_id": "resource-high-quality-cloth",
+  "title": "High Quality Cloth Loom Circuit",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "high-quality-cloth",
+    "late-game",
+    "armor"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 36,
+    "max": 50
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture",
+      "resource-wool"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Unlock high-tier weaving and stockpile wool",
+    "Defeat Sibelyx in the Sealed Realm of the Pristine",
+    "Automate High Quality Cloth output via ranching and batch crafts"
+  ],
+  "estimated_time_minutes": {
+    "solo": 48,
+    "coop": 32
+  },
+  "estimated_xp_gain": {
+    "min": 620,
+    "max": 980
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Wiping in the sealed realm burns spheres and repair kits while you wait on the respawn timer.",
+    "hardcore": "Hardcore failure despawns Sibelyx permanently and deletes late-game gear—withdraw if shields break."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Bring fire or electric pals that counter ice to stagger Sibelyx and avoid Blizzard Spike one-shots while you kite its frontal cone.【palwiki-sibelyx†L1-L62】",
+    "overleveled": "After unlocking the recipe, convert spare wool piles into cloth between realm rotations so your tailors never idle.【palwiki-high-quality-cloth†L1-L26】",
+    "resource_shortages": [
+      {
+        "item_id": "wool",
+        "solution": "Run the resource-wool route again to refill bales before queueing 10-wool crafts for each cloth batch.【palwiki-high-quality-cloth†L17-L24】"
+      },
+      {
+        "item_id": "high-quality-cloth",
+        "solution": "Assign Sibelyx to a ranch so its Silk Maker passive produces cloth while workshops finish the remaining workload.【palwiki-sibelyx†L1-L64】"
+      }
+    ],
+    "time_limited": "Skip optional wool crafts and just clear the Sealed Realm once; Sibelyx drops cloth on capture so you can deliver the minimum quota quickly.【palwiki-sibelyx†L1-L62】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Have one player kite Sibelyx around the arena while the partner focuses on breaking its guard and setting up the capture window, then split ranch and crafting duties back at base.",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-high-quality-cloth:002",
+          "resource-high-quality-cloth:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-high-quality-cloth:checkpoint-blueprint",
+      "label": "Weaving tech unlocked",
+      "includes": [
+        "resource-high-quality-cloth:001"
+      ]
+    },
+    {
+      "id": "resource-high-quality-cloth:checkpoint-sibelyx",
+      "label": "Sibelyx secured",
+      "includes": [
+        "resource-high-quality-cloth:002"
+      ]
+    },
+    {
+      "id": "resource-high-quality-cloth:checkpoint-loom",
+      "label": "Cloth automation online",
+      "includes": [
+        "resource-high-quality-cloth:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-wool"
+    ],
+    "optional": [
+      "resource-carbon-fiber"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Restock spheres and food, then re-enter once the realm resets; Sibelyx respawns on the next day cycle.",
+    "hardcore": "If Hardcore wipes the attempt, pivot to merchant purchases or trade partners while waiting for a friend to host the realm."
+  },
+  "steps": [
+    {
+      "step_id": "resource-high-quality-cloth:001",
+      "type": "build",
+      "summary": "Unlock High Quality Cloth tech",
+      "detail": "Spend two technology points at level 36 to unlock High Quality Cloth, place a High Quality Workbench, and queue wool shipments so tailors can work between boss runs.【palwiki-high-quality-cloth†L1-L26】",
+      "targets": [
+        {
+          "kind": "tech",
+          "id": "high-quality-cloth"
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "high-quality-workbench"
+        ],
+        "pals": [],
+        "consumables": [
+          {
+            "item_id": "wool",
+            "qty": 50
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "tech": [
+            "high-quality-cloth"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-high-quality-cloth"
+      ]
+    },
+    {
+      "step_id": "resource-high-quality-cloth:002",
+      "type": "combat",
+      "summary": "Clear Sealed Realm of the Pristine",
+      "detail": "Travel to the Sealed Realm of the Pristine (250,70), break Sibelyx’s shield, and capture it for guaranteed cloth drops and the Silk Maker ranch passive.【palwiki-sealed-realms†L44-L48】【palwiki-sibelyx†L1-L64】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "sibelyx",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "sealed-realm-of-the-pristine",
+          "coords": [
+            250,
+            70
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "vanguard",
+              "tasks": "Bait Blizzard Spike and stun Sibelyx with electric or fire skills."
+            },
+            {
+              "role": "controller",
+              "tasks": "Heal, reset traps, and secure the capture throw."
+            }
+          ],
+          "loot_rules": "Split cloth drops before leaving the arena."
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "legendary-sphere",
+          "heat-resistant-armor"
+        ],
+        "pals": [
+          "jormuntide-ignis",
+          "kitsun"
+        ],
+        "consumables": [
+          {
+            "item_id": "repair-kit",
+            "qty": 3
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 320,
+        "max": 520
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "high-quality-cloth",
+            "qty": 1
+          }
+        ],
+        "pals": [
+          "sibelyx"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-sealed-realms",
+        "palwiki-sibelyx"
+      ]
+    },
+    {
+      "step_id": "resource-high-quality-cloth:003",
+      "type": "base",
+      "summary": "Automate cloth output",
+      "detail": "Assign Sibelyx to a Ranch so it periodically produces High Quality Cloth, then craft additional cloth in 10-wool batches at the High Quality Workbench to sustain legendary armor builds.【palwiki-sibelyx†L1-L64】【palwiki-high-quality-cloth†L17-L24】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "high-quality-cloth",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "high-quality-workbench"
+        ],
+        "pals": [
+          "sibelyx",
+          "lamball"
+        ],
+        "consumables": [
+          {
+            "item_id": "wool",
+            "qty": 100
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 180,
+        "max": 280
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "high-quality-cloth",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks high-quality-cloth >= 20",
+          "action": "repeat"
+        }
+      ],
+      "citations": [
+        "palwiki-sibelyx",
+        "palwiki-high-quality-cloth"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "high-quality-cloth",
+      "qty": 20
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "tailor-upgrades"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 1,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-carbon-fiber",
+      "reason": "Carbon Fiber and High Quality Cloth combine for legendary armor sets—keep both queues supplied."
+    },
+    {
+      "route_id": "resource-ice-organ",
+      "reason": "Sibelyx also drops Ice Organs, so stabilising reagent stock lets you pivot into refrigerator and ammo builds."
+    }
+  ]
+}
+```
+
 ### Route: Mozzarina Dairy Loop
 
 Milk powers cakes, hot drinks, and early-game sanity food, so this loop builds a Ranch, corrals Mozzarina near the Swordmaster sealed realm, and uses the Small Settlement merchant to keep bottles topped off.【63794d†L1-L14】【69a959†L1-L6】
@@ -23369,6 +23713,24 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/wiki/Pal_Metal_Ingot",
       "access_date": "2025-10-20",
       "notes": "States Pal Metal Ingots are crafted at the Electric Furnace with a 4 Ore + 2 Paldium Fragment recipe and notes their late-game usage and drops.【palwiki-pal-metal-ingot†L1-L3】"
+    },
+    "palwiki-high-quality-cloth": {
+      "title": "High Quality Cloth \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/High_Quality_Cloth",
+      "access_date": "2025-10-26",
+      "notes": "Shows the level 36 unlock, High Quality Workbench crafting recipe (10 Wool per cloth), and Sibelyx ranch production for High Quality Cloth.【palwiki-high-quality-cloth†L3-L36】"
+    },
+    "palwiki-sibelyx": {
+      "title": "Sibelyx \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Sibelyx",
+      "access_date": "2025-10-26",
+      "notes": "Lists the Silk Maker passive, guaranteed cloth drops, and confirms Sibelyx resides in the Sealed Realm of the Pristine.【palwiki-sibelyx†L11-L122】"
+    },
+    "palwiki-sealed-realms": {
+      "title": "Sealed Realms \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Sealed_Realms",
+      "access_date": "2025-10-26",
+      "notes": "Provides the Sealed Realm of the Pristine entry with Sibelyx, recommended level 40, and coordinates (250,70).【palwiki-sealed-realms†L44-L47】"
     },
     "fandom-pal-metal-ingot": {
       "title": "Pal Metal Ingot \u2013 Palworld Wiki (Fandom)",
