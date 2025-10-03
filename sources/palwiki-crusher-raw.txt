@@ -1,0 +1,80 @@
+{{Infobox_Item
+|image = Crusher.png
+|type = Production
+|rarity = 
+|source = build
+|points_cost = 2
+|materials = 50 {{i|Wood}}<br/>20 {{i|Stone}}<br/>10 {{i|Paldium Fragment}}
+|tech_type = tech
+|tech_tier = 8}}
+'''Crusher''' is a structure in {{PW}}.
+
+It can be unlocked at level 8 for 2 [[Technology]] points.
+
+==Usage==
+It requires pals with the {{i|Watering}} trait to work. It processes various materials into certain others, such as converting Wood and Stone to [[Fiber]] and [[Paldium Fragment|Paldium Fragments]] respectively.
+{| class="fandom-table"
+!Input
+!Output 
+|-
+|1 {{i|Wood}}
+|2 {{I|Fiber}}
+|-
+|5 {{i|Stone}}
+|1 {{i|Paldium Fragment}}
+|-
+|1 {{I|Meteorite Fragment}}
+|3 {{I|Paldium Fragment}}
+|-
+|2 {{I|Ore}}
+|1 {{I|Paldium Fragment}}
+|-
+|1 {{i|Medium Pal Soul}}
+|2 {{i|Small Pal Soul}}
+|-
+|2 {{i|Small Pal Soul}}
+|1 {{i|Medium Pal Soul}}
+|-
+|1 {{i|Large Pal Soul}}
+|2 {{i|Medium Pal Soul}}
+|-
+|2 {{i|Medium Pal Soul}}
+|1 {{i|Large Pal Soul}}
+|-
+|2 {{I|Large Pal Soul}}
+|1 {{I|Giant Pal Soul}}
+|-
+|1 {{I|Giant Pal Soul}}
+|2 {{I|Large Pal Soul}}
+|-
+|1 {{I|Pal Sphere}}
+|1 {{I|Paldium Fragment}}
+|-
+|1 {{I|Mega Sphere}}
+|1 {{I|Paldium Fragment}}
+|-
+|1 {{I|Giga Sphere}}
+|2 {{I|Paldium Fragment}}
+|-
+|1 {{I|Hyper Sphere}}
+|3 {{I|Paldium Fragment}}
+|-
+|1 {{I|Ultra Sphere}}
+|5 {{I|Paldium Fragment}}
+|-
+|1 {{I|Legendary Sphere}}
+|10 {{I|Paldium Fragment}}
+|-
+|1 {{I|Ultimate Sphere}}
+|20 {{I|Paldium Fragment}}
+|-
+|1 {{I|Exotic Sphere}}
+|30 {{I|Paldium Fragment}}
+|}
+
+== Update History==
+* [[Early Access 0.2.0.6]]
+** You can now crush {{i|Small Pal Soul}}, {{i|Medium Pal Soul}} and {{i|Large Pal Soul}}.
+*[[Early Access 0.1.2.0]]
+**Introduced.
+[[Category:Structures]]

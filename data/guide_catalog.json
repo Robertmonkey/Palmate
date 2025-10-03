@@ -8762,6 +8762,27 @@
             "palfandom-medium-pal-soul-raw",
             "palwiki-crusher-pal-soul-conversion"
           ]
+        },
+        {
+          "order": 4,
+          "instruction": "Stage a **Crusher and Statue of Power loop** at base, keep Watering pals on the Crusher, and shuttle Small or Large souls into Medium stock before each upgrade batch.",
+          "citations": [
+            "palwiki-crusher-raw",
+            "palwiki-statue-of-power",
+            "palwiki-small-pal-soul"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "crusher",
+              "name": "Crusher"
+            },
+            {
+              "type": "structure",
+              "id": "statue-of-power",
+              "name": "Statue of Power"
+            }
+          ]
         }
       ]
     },

@@ -22509,11 +22509,12 @@
         "Ambush Helzephyr patrols for rare Medium Pal Soul drops",
         "Clear Sakurajima Sootseer camps for guaranteed Medium Pal Souls",
         "Loot Desiccated Desert treasure chests for loose Medium Pal Souls",
-        "Convert excess Small or Large souls in the Crusher to balance demand"
+        "Convert excess Small or Large souls in the Crusher to balance demand",
+        "Automate Crusher conversions so Statue of Power queues stay buffered"
       ],
       "estimated_time_minutes": {
-        "solo": 45,
-        "coop": 32
+        "solo": 50,
+        "coop": 36
       },
       "estimated_xp_gain": {
         "min": 480,
@@ -22582,6 +22583,17 @@
           ],
           "related_steps": [
             "resource-medium-pal-soul:004"
+          ]
+        },
+        {
+          "id": "resource-medium-pal-soul:checkpoint-automation",
+          "summary": "Crusher automation tuned",
+          "benefits": [
+            "Watering pals assigned",
+            "Small-to-medium cycle stabilized"
+          ],
+          "related_steps": [
+            "resource-medium-pal-soul:005"
           ]
         }
       ],
@@ -22794,7 +22806,7 @@
           "step_id": "resource-medium-pal-soul:004",
           "type": "craft",
           "summary": "Convert souls at the Crusher",
-          "detail": "Feed surplus Small Pal Souls into the Crusher for Medium conversions and down-convert spare Large souls when raids oversupply them, keeping the statue queue flush before raid prep sessions.【palwiki-medium-pal-soul-raw†L31-L42】",
+          "detail": "Assign at least two Watering pals to the Crusher so it continually swaps 2 Small Pal Souls into 1 Medium and breaks down Large souls when raids overflow, letting you balance supply without leaving base.【palwiki-crusher-raw†L15-L48】【palwiki-medium-pal-soul-raw†L33-L42】",
           "targets": [
             {
               "kind": "item",
@@ -22837,9 +22849,78 @@
               "statue-upgrades": true
             }
           },
-          "branching": [],
+          "branching": [
+            {
+              "subroute_ref": "resource-small-pal-soul"
+            }
+          ],
           "citations": [
+            "palwiki-crusher-raw",
             "palwiki-medium-pal-soul-raw"
+          ]
+        },
+        {
+          "step_id": "resource-medium-pal-soul:005",
+          "type": "build",
+          "summary": "Wire Crusher automation into the Statue loop",
+          "detail": "Stage storage beside the Crusher and Statue of Power, keep Watering pals working the Crusher, and task a Transporting pal to ferry Small and Large souls so every four Small souls cycle into two Medium before upgrade sessions.【palwiki-crusher-raw†L15-L48】【palwiki-statue-of-power†L3-L12】【palwiki-small-pal-soul†L3-L6】",
+          "targets": [
+            {
+              "kind": "structure",
+              "id": "crusher"
+            },
+            {
+              "kind": "structure",
+              "id": "statue-of-power"
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "tactics": "Have one player babysit Crusher queues while the other runs deliveries, then swap duties when statue offerings refill.",
+              "mode_scope": [
+                "coop"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 80
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "medium-pal-soul",
+                "qty": 8
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-small-pal-soul"
+            }
+          ],
+          "citations": [
+            "palwiki-crusher-raw",
+            "palwiki-statue-of-power",
+            "palwiki-small-pal-soul"
           ]
         }
       ],
@@ -22854,11 +22935,12 @@
         "levels_estimate": "+1 to +2",
         "key_unlocks": [
           "medium-pal-soul-buffer",
-          "statue-upgrade-pipeline"
+          "statue-upgrade-pipeline",
+          "crusher-automation"
         ]
       },
       "metrics": {
-        "progress_segments": 4,
+        "progress_segments": 5,
         "boss_targets": 0,
         "quest_nodes": 0
       },
@@ -30651,6 +30733,27 @@
                 "palwiki-medium-pal-soul-raw",
                 "palfandom-medium-pal-soul-raw",
                 "palwiki-crusher-pal-soul-conversion"
+              ]
+            },
+            {
+              "order": 4,
+              "instruction": "Stage a **Crusher and Statue of Power loop** at base, keep Watering pals on the Crusher, and shuttle Small or Large souls into Medium stock before each upgrade batch.",
+              "citations": [
+                "palwiki-crusher-raw",
+                "palwiki-statue-of-power",
+                "palwiki-small-pal-soul"
+              ],
+              "links": [
+                {
+                  "type": "structure",
+                  "id": "crusher",
+                  "name": "Crusher"
+                },
+                {
+                  "type": "structure",
+                  "id": "statue-of-power",
+                  "name": "Statue of Power"
+                }
               ]
             }
           ]
