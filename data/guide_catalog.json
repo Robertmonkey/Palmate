@@ -7781,6 +7781,92 @@
       ]
     },
     {
+      "id": "resource-berry-seed-supply-loop",
+      "title": "Berry Seed Supply Loop",
+      "source_heading": "Berry Seed Supply Loop",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "trigger": "Player asks how to farm Berry Seeds or keep berry plantations supplied",
+      "keywords": [
+        "berry seeds",
+        "farming",
+        "merchant"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Fast travel to the **Small Settlement (75,-479)** and harvest the surrounding red berry bushes for seed drops while clearing low-level mobs.",
+          "citations": [
+            "palwiki-berry-seeds-raw\u2020L1-L18",
+            "palwiki-small-settlement-raw\u2020L1-L11"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "item",
+              "id": "berry_seeds",
+              "slug": "berry-seeds",
+              "name": "Berry Seeds"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Rotate between the **Small Settlement** and **Duneshelter (357,347)** merchants to buy Berry Seeds for 50 gold each whenever they restock.",
+          "citations": [
+            "palwiki-wandering-merchant-raw\u2020L197-L252",
+            "palwiki-duneshelter-raw\u2020L1-L7"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "duneshelter",
+              "name": "Duneshelter",
+              "region": "Sand Dunes"
+            },
+            {
+              "type": "item",
+              "id": "gold_coin",
+              "slug": "gold-coin",
+              "name": "Gold Coin"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Spend 3 seeds plus 20 Wood and 20 Stone to place a **Berry Plantation**, then assign Planting, Watering, and Gathering pals to automate harvests.",
+          "citations": [
+            "palwiki-berry-plantation-raw\u2020L1-L34"
+          ],
+          "links": [
+            {
+              "type": "tech",
+              "id": "berry-plantation",
+              "slug": "berry-plantation",
+              "name": "Berry Plantation"
+            },
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            },
+            {
+              "type": "item",
+              "id": "stone",
+              "slug": "stone",
+              "name": "Stone"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "resource-carbon-fiber-filament-works",
       "title": "Carbon Fiber Filament Works",
       "source_heading": "Carbon Fiber Filament Works",

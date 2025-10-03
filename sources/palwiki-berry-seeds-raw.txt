@@ -1,0 +1,35 @@
+{{stub}}
+{{Item
+| description   = Seeds that produce [[Red Berries]]. Necessary for starting a farm. Can be obtained when picking Red Berries.
+| type          = Material
+| rarity        = Common
+
+| weight        = 0.05
+| durability    = 
+
+| buy           = 50
+| sell          = 5
+
+| technology    = 
+| required_level = 
+| cost          = 
+| made_at       = 
+| workload        = 
+}}
+
+'''Berry Seeds''' is a [[material]]. They can be gathered when harvesting wild red berries or from certain Pals. They are used for planting in the [[Berry Plantation]].
+
+==Acquisition== 
+*You can acquire them from [[Berry Bushes]].
+*Dropped by:
+{{Drops}}
+
+==Products==
+{{Products}}
+
+== History ==
+* [[0.1.2.0]]
+** Introduced.
+
+{{Navbox Materials}}
+[[Category:Materials]]

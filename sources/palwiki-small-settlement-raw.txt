@@ -1,0 +1,17 @@
+{{Stub}}
+[[File:Small Settlement Location.png|thumb|Location of the Small Settlement]]
+The '''Small Settlement''' is a point of interest in the [[Windswept Hills]]. It is typically the first [[Settlements|settlement]] the player will come across.
+
+Located North by Northwest of the starter location, [[Windswept Hills]], at approximately coordinates (75, -479).
+
+== Inhabitants ==
+There are several inhabitants of the Small Settlement
+
+* [[Enthusiastic Amateur Researcher]]
+* [[Gossiping Villager]]
+* [[Innkeeper]]
+* [[Pal Merchant]]
+* [[Reliable PIDF Officer]]
+* [[Wandering Merchant]]
+
+[[Category:Locations]]

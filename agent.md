@@ -115,6 +115,9 @@ This document describes the responsibilities, workflows and quality assurance st
 *Progress 2025-10-27:* Built Mozzarina Meat Packing Loop (`resource-mozzarina-meat`), wiring capture, cleaver, and cooler workflows into `guides.md`, `data/guides.bundle.json`, and `data/guide_catalog.json`, and added new raw citations for Mozzarina drops and Cooler Box tech alongside refreshed source registry notes.
   * Next steps: secure reliable Caprity/Galeclaw spawn citations (SegmentNext/GameSkinny/Gamespot requests currently return 404/403) so additional meat routes can ship, gather a second independent reference for Cooler Box merchant alternatives, and continue mapping remaining protein shortages (Caprity Meat, Galeclaw Poultry, Broncherry Meat) once location sources are accessible.
 
+*Progress 2025-10-29:* Rebuilt Berry Seed coverage as Berry Seed Supply Loop (`resource-berry-seeds`), replacing the outdated Lifmunk/Gumoss hunt with merchant+forage routing, refreshing `guides.md`, `data/guides.bundle.json`, and `data/guide_catalog.json`, and adding raw Palworld wiki transcripts plus settlement coordinates to the source registry.
+  * Next steps: capture merchant restock timing for berry seeds (second independent source still pending), log plantation yield rates from a secondary farming reference, and continue knocking out remaining meat/seed gaps once trustworthy spawn citations appear (Caprity Meat, Galeclaw Poultry, Lettuce/Tomato seeds).
+
 ## Performance Notes
 
 * **Chunking** – When creating or updating `guides.md`, generate large JSON blocks in manageable chunks to avoid exceeding context limits.  Use the container tools to build the file incrementally.
