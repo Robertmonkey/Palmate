@@ -15183,6 +15183,337 @@
       ]
     },
     {
+      "route_id": "resource-mozzarina-meat",
+      "title": "Mozzarina Meat Packing Loop",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "mozzarina-meat",
+        "cooking",
+        "mid-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 20,
+        "max": 34
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture",
+          "resource-milk"
+        ],
+        "tech": [
+          "meat-cleaver",
+          "cooler-box"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Reinforce the Mozzarina pasture north of the Swordmaster sealed realm",
+        "Unlock the Meat Cleaver and Cooler Box to process and chill prime cuts",
+        "Cull surplus Mozzarina for guaranteed meat while preserving dairy producers"
+      ],
+      "estimated_time_minutes": {
+        "solo": 36,
+        "coop": 26
+      },
+      "estimated_xp_gain": {
+        "min": 320,
+        "max": 520
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Wiping in Bamboo Groves despawns the herd and wastes cleaver cooldowns until respawns reset.",
+        "hardcore": "Hardcore deaths strand captured Mozzarina and delete crafted cleavers, so retreat if patrols swarm."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Sweep the grove at dawn, use Dark pals to stagger the herd, and pick off sleepy Mozzarina in small pulls.",
+        "overleveled": "Rotate hunts day and night\u2014herds respawn in pairs so you can chain captures into a cull cycle.",
+        "resource_shortages": [
+          {
+            "item_id": "mozzarina-meat",
+            "solution": "Cull two Mozzarina per loop with the cleaver; each yields 2\u20133 meat at a 100% rate so chill the cuts immediately."
+          }
+        ],
+        "time_limited": "Butcher two captives, stash the meat in a Cooler Box, then let ranchers refill stocks between raids.",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Assign a wrangler to kite patrols while the butcher chains cleaver swings and rotates chilled storage.",
+            "priority": 1,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-mozzarina-meat:001",
+              "resource-mozzarina-meat:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-mozzarina-meat:checkpoint-herd",
+          "label": "Mozzarina Herd Secured",
+          "includes": [
+            "resource-mozzarina-meat:001"
+          ]
+        },
+        {
+          "id": "resource-mozzarina-meat:checkpoint-cleaver",
+          "label": "Cleaver & Cooler Online",
+          "includes": [
+            "resource-mozzarina-meat:002"
+          ]
+        },
+        {
+          "id": "resource-mozzarina-meat:checkpoint-pantry",
+          "label": "Meat Pantry Stocked",
+          "includes": [
+            "resource-mozzarina-meat:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-milk"
+        ],
+        "optional": [
+          "resource-ice-organ"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "Fast travel to Ravine Entrance, rest five minutes, then recapture the herd once patrols rotate away.",
+        "hardcore": "Extract captured Mozzarina immediately and restock ice organs before another butchering run to avoid compounding losses."
+      },
+      "steps": [
+        {
+          "step_id": "resource-mozzarina-meat:001",
+          "type": "capture",
+          "summary": "Reinforce the Swordmaster pasture",
+          "detail": "Glide to the Sealed Realm of the Swordmaster (\u2212117, \u2212490) and sweep the southern Bamboo Groves. Mozzarina spawn in peaceful pairs all day, so use Dark pals to stagger them and throw Mega Spheres before Syndicate patrols rotate in.",
+          "targets": [
+            {
+              "kind": "pal",
+              "id": "mozzarina",
+              "qty": 4
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "bamboo-groves",
+              "coords": [
+                -117,
+                -490
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Tag one Mozzarina at a time and drag it toward Ravine Entrance before culling so backup patrols don't collapse on you.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "mega-pal-sphere",
+              "grappling-gun"
+            ],
+            "pals": [
+              "blazehowl"
+            ],
+            "consumables": [
+              "smoked-meat"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 200,
+            "max": 320
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "milk",
+                "qty": 2
+              }
+            ],
+            "pals": [
+              "mozzarina"
+            ],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "segmentnext-mozzarina",
+            "palwiki-sealed-realms"
+          ]
+        },
+        {
+          "step_id": "resource-mozzarina-meat:002",
+          "type": "craft",
+          "summary": "Unlock cleaver and chill storage",
+          "detail": "Spend 2 tech points at level 12 to unlock the Meat Cleaver, craft it at the Primitive Workbench (5 Ingots, 20 Wood, 5 Stone), then unlock the Cooler Box at level 13 so chilled storage keeps cuts fresh when tended by a Cooling Pal.",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "mozzarina-meat",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Capture an extra Mozzarina before butchering so a cleaver misclick doesn't exhaust your dairy line.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "meat-cleaver",
+              "cooler-box"
+            ],
+            "pals": [
+              "penking"
+            ],
+            "consumables": [
+              "ice-organ"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 80
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "mozzarina-meat",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "condition": "player lacks ice-organ >= 5",
+              "action": "include_subroute",
+              "subroute_ref": "resource-ice-organ"
+            }
+          ],
+          "citations": [
+            "palwiki-meat-cleaver",
+            "palwiki-cooler-box-raw"
+          ]
+        },
+        {
+          "step_id": "resource-mozzarina-meat:003",
+          "type": "base",
+          "summary": "Balance dairy and butcher rotations",
+          "detail": "Keep two Mozzarina assigned to the ranch for milk while cycling the extras through the cleaver. Each cull yields 2\u20133 Mozzarina Meat at 100%, so stage Cooler Box slots or cook high-SAN meals as needed.",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "mozzarina-meat",
+              "qty": 12
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "cooler-box",
+              "campfire"
+            ],
+            "pals": [
+              "penking"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 60
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "mozzarina-meat",
+                "qty": 12
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-mozzarina-raw",
+            "segmentnext-mozzarina"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "mozzarina-meat",
+          "qty": 12
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "prime-protein"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-cake",
+          "reason": "Cakes and other luxury meals scale with Mozzarina dairy and meat reserves."
+        },
+        {
+          "route_id": "resource-ice-organ",
+          "reason": "Cooler Boxes demand a steady Ice Organ supply to keep meat preserved."
+        }
+      ]
+    },
+    {
       "route_id": "resource-ore",
       "title": "Ore Mining Grid",
       "category": "resources",
@@ -30076,6 +30407,18 @@
           "url": "https://palworld.wiki.gg/wiki/Mau",
           "access_date": "2025-10-21",
           "notes": "Confirms Mau\u2019s Gold Digger partner skill digs coins, lists coin drop amounts, and notes it spawns in Windswept Hills dungeons or faction camps.\u3010palwiki-mau-raw\u2020L11-L115\u3011"
+        },
+        "palwiki-mozzarina-raw": {
+          "title": "Mozzarina \u2013 Palworld Wiki (raw)",
+          "url": "https://palworld.wiki.gg/index.php?title=Mozzarina&action=raw",
+          "access_date": "2025-10-27",
+          "notes": "Shows Mozzarina Meat dropping in 2\u20133 piece bundles at 100% alongside guaranteed milk for both normal and alpha variants.\u3010palwiki-mozzarina-raw\u2020L65-L105\u3011"
+        },
+        "palwiki-cooler-box-raw": {
+          "title": "Cooler Box \u2013 Palworld Wiki (raw)",
+          "url": "https://palworld.wiki.gg/index.php?title=Cooler_Box&action=raw",
+          "access_date": "2025-10-27",
+          "notes": "Explains the Cooler Box unlock at technology level 13, its 20 Ingot/20 Stone/5 Ice Organ recipe, and that Cooling pals prevent stored food from spoiling.\u3010palwiki-cooler-box-raw\u2020L1-L24\u3011"
         },
         "palwiki-gold-coin-raw": {
           "title": "Gold Coin \u2013 Palworld Wiki",
