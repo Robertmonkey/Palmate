@@ -1,0 +1,383 @@
+'''Alpha Pals''' are [[Pals]] that are larger and stronger than their regular counterparts and drop valuable items when defeated. They can be found all over the [[Palpagos Islands]], being visible on the world map or spawning at the end of {{i|Dungeons}}.
+
+== Overview ==
+Alpha Pals appear the same as their standard versions, save for being a good deal larger. In addition to their increased size, they also have more [[Health]] than their smaller kin, making them tougher to defeat. They also give far more XP when defeated, making taking them down a good choice for players looking to level up quickly.
+
+Some Alpha Pals can be encountered as overworld bosses. Overworld Alpha Pals either appear in their own scripted locations on the map or in special areas called [[Sealed Realms]] that can be entered to battle the Alpha Pal in question.
+
+Each overworld Alpha Pal always respawn every in-game day after being defeated. The ones in Sealed Realms will respawn after 1 hour with a shown timer in the entrance, and can be fast forwarded by sleeping.
+
+However, it should be noted that not every Pal has an Alpha version that appears in the overworld. The Alpha versions of these Pals (such as [[Lamball]] or [[Foxparks]]) appear randomly as a boss at the end of Dungeons.
+
+Alpha Pals also have a 5% chance to hatch from [[Pal Eggs]].
+
+== Differences Between Alpha Pals and Regular Pals ==
+Alpha Pals have a few differences compared to regular Pals:
+* When defeated, they give 10 times more XP than their regular variant would give.
+* The damage they receive is multiplied by a factor from 0.2 to 0.4 (depending on the specific Alpha Pal). This makes them last longer in combat.
+* Their capture rates are different, usually lower than the regular Pal. In most cases, the multiplier factor is 0.7 or 0.77.
+* Alpha Pals drop more items than their regular variants. See the '''Possible Drops''' section below.
+* Alpha Pals have a higher value when sold to a [[Pal Merchant]] than their regular variants.
+
+In addition, when an Alpha Pal is caught, the {{i|{{PAGENAME}}}} icon is displayed next to its name in most interfaces.
+
+== Possible Drops ==
+In addition to their regular item drops, Alpha Pals will always drop {{I|Ancient Civilization Parts}} when defeated. They'll also drop items to be sold like {{I|Precious Pelt|Precious Pelts}} or {{I|Precious Dragon Stone|Precious Dragon Stones}}.
+
+Certain Alpha Pals have a small chance to drop legendary-tier [[Schematics]]. For example, the Alpha [[Beakon]] boss has a 3% chance to drop the [[Handgun Schematic 4]] when defeated. This makes hunting Alpha Pals a good choice for players looking for the best gear.
+
+When a specific Alpha Pal on the world map is defeated or caught for the first time, they provide the player with [[Technology/Ancient Technology|Ancient Technology Points]].
+
+== List of Overworld Alpha Pals ==
+Below is a table of all available overworld Alpha Pals, along with their levels and approximate coordinates on the world map.
+{| class="wikitable sortable"
+|+
+!Pal
+!No.
+!Level
+!Title
+!Sealed?
+!Coordinates
+|-
+|{{I|Chillet}}
+|055
+|11
+|Dancer of the Plains
+|No
+|172, -419
+|-
+|{{I|Gumoss}}
+|013
+|11
+|Suddenly Transformed
+|No
+| -113, -628
+|-
+|{{I|Sweepa}}
+|054
+|11
+|Majesty of Fuzz
+| No
+| -228, -592
+|-
+|{{I|Dumud}}
+|043
+|14
+|Perpetual Procrastinator
+|No
+| -309, 6
+|-
+|{{I|Penking}}
+|011
+|15 
+|Pioneer of the Frozen Sea
+|[[Sealed Realm of the Frozen Wings]]
+|113, -353 
+|-
+|{{I|Azurobe}}
+|082
+|17
+|Lady of the Lake
+|No
+| -52, -387
+|-
+|{{I|Grintale}}
+|052
+|17
+|Marshmallow Body
+|No
+|335, -245
+|-
+|{{I|Nitewing}}
+|038
+|18
+|Wings of the Firmament
+|No
+| -275, -70
+|-
+|{{I|Broncherry}}
+|086
+|23
+|Winds of Spring
+|No
+| -222, -669
+|-
+|{{I|Bushi}}
+|072
+|23
+|Vagrant Warrior
+|[[Sealed Realm of the Swordmaster]]
+| -117, -490
+|-
+|{{I|Felbat}}
+|094
+|23
+|Gloom-shrouded Bloodsucker
+|[[Sealed Realm of the Abyssal Nights]]
+| -410, -55
+|-
+|{{I|Katress}}
+|075
+|23
+|Phantasmal Feline
+|[[Sealed Realm of the Invincible]]
+|240, -330
+|-
+|{{I|Kingpaca}}
+|089
+|23
+| Supreme Fluff Commander
+|No 
+|49, -460
+|-
+|{{I|Quivern}}
+|095
+|23
+|Wings of White
+|[[Sealed Realm of the Winged T|Sealed Realm of the Winged Tyrant]]
+| -256, -131
+|-
+|{{I|Fenglope}}
+|093
+|25
+|Drifting Cloud 
+|No
+| -257, -458
+|-
+|{{I|Petallia}}
+|087
+|28
+|Lady of the Garden
+| [[Sealed Realm of Spirits]]
+| -19, -264
+|-
+|{{I|Beakon}}
+|073
+|29
+|Wings of Thunder
+|No
+| -345, -252
+|-
+|{{I|Broncherry Aqua}}
+|086B
+|30
+|Waves of Summer
+|No
+| -167, -448
+|-
+|{{I|Elphidran}}
+|080
+|30
+|Gentle Sky Dragon
+|No
+|44, -282
+|-
+|{{I|Warsect}}
+|092
+|30
+|Unyielding Colossus
+|[[Sealed Realm of the Stalwart]]
+|160, -225
+|-
+|{{I|Elizabee}}
+|051
+|31
+|Empress of the Hive
+|No
+|20, -160
+|-
+|{{I|Mossanda Lux}}
+|033B
+|31
+|Inheritor of the Storm
+|No
+|450, -180
+|-
+|{{I|Relaxaurus Lux}}
+|085B
+|31
+|Gluttonous Thunder Dragon
+|[[Sealed Realm of the Thunder Dragon]]
+| -200, -344
+|-
+|{{I|Univolt}}
+|056
+|31
+|Swift Deity
+|No
+| -116, -542
+|-
+|{{I|Lunaris}}
+|063
+|32
+|Extraterrestrial
+|[[Sealed Realm of the Esoteric]]
+| -147, -660
+|-
+|{{I|Verdash}}
+|077
+|35
+|Gale of the Forest
+|[[Sealed Realm of the Swift]]
+|258, 10
+|-
+|{{I|Mammorest}}
+|090
+|38
+|King of the Forest
+|No
+|190, -478
+|-
+|{{I|Vaelet}}
+|078
+|38
+|Voice of the Violets
+|[[Sealed Realm of the Guardian]]
+|130, -50
+|-
+|{{I|Wumpo Botan}}
+|091B
+|38
+|Guardian of the Grassy Fields
+|No
+|450, -50
+|-
+|{{I|Sibelyx}}
+|079
+|40
+|Pallid Lady
+|[[Sealed Realm of the Pristine]]
+|250, 70
+|-
+|{{I|Menasting}}
+|099
+|44
+|Unstoppable Stinger
+|No
+|515, 100
+|-
+|{{I|Jormuntide}}
+|101
+|45
+|Emperor of the Sea
+|No
+|350, -85 and
+-176, -266
+|-
+|{{I|Suzaku}}
+|102
+|45
+|Ruler of the Crimson Dawn
+|No
+|405, 255
+|-
+|{{I|Kingpaca Cryst}}
+|089B
+|46
+|Azure Fluff Commander
+|No
+|<nowiki>-230, 470</nowiki>
+|-
+|{{I|Anubis}}
+|100
+|47
+|Guardian of the Dark Sun
+|No
+| -134, -94
+|-
+|{{I|Dinossom Lux}}
+|064B
+|47
+|Guardian of Lightning
+|No
+|350, 538
+|-
+|{{I|Astegon}}
+|098
+|48
+|Ravager of Stars
+|No
+| -615, -429
+|-
+|{{I|Blazamut}}
+|096
+|49
+|Cursed Tyrant
+|No
+| -442, -561
+|-
+|{{I|Lyleen Noct}}
+|104B
+|49
+|Empress of the Abyss
+|No
+|<nowiki>-169, 343</nowiki>
+|-
+|{{I|Menasting Terra}}
+|099B
+|54
+|Gold-Piercing Spear
+|No
+| -575, 332
+|-
+|{{I|Knocklem}}
+|120
+|55
+|Suit of Armor
+|No
+| -676, 174
+|-
+|{{I|Jetragon}}
+|111
+|55
+|Legendary Celestial Dragon
+|No
+| -789, -321
+|-
+|{{I|Frostallion}}
+|110
+|55
+|Legendary Steed of Ice
+|No
+| -358, 509
+|-
+|{{I|Paladius}}
+|108
+|55
+|Holy Knight of Legend
+|No
+|445, 680
+|-
+|{{I|Necromus}}
+|109
+|55
+|Dark Knight of Legend
+|No
+|445, 680
+|}
+
+== Notes == 
+* Prior to version [[0.2.4.0]], Alpha Pals did not have higher stats ({{i|HP}}, {{i|Attack}}, {{i|Defense}}, etc) than regular Pals.<ref>https://www.reddit.com/r/Palworld/comments/19erb1w/regular_pals_lucky_pals_alpha_pals_all_have_the/</ref> Now Alpha Pals have a higher HP stat than regular pals.
+* The Alpha icon will appear on overworld Pals that have a large level difference with the player. This icon will not render them Alphas, and will disappear when the player reaches a high enough level in comparison to the Pal, indicating the icon is a metric of Threat assessment, rather than a status of a Pal itself.
+** This also applies to [[Humans]].
+* When fighting overworld Alpha Pals, it's advised not to stray too far away from their primary spot, as the Alpha Pal might just retreat back to its spot in the middle of battle and recover all of its HP upon reaching it.
+* All [[Legendary Pals]] that spawn in the overworld are Alpha Pals.
+* Capturing and [[butchering]] Alpha Pals can be used as a method to obtain legendary-tier Schematics much faster, since the Alpha Pal will drop items when captured and then drop the same pool of items again after being butchered, essentially giving two chances of obtaining the Schematic in question.
+* Due to their increased size, Alpha Pals can be quite troublesome when assigned to work at a Base or used in tight areas like Dungeons, especially if the Pal in question is already large like {{I|Jormuntide}} or {{I|Astegon}}.
+
+== History ==
+* [[0.3.1.0]]
+** Wild boss spawns for Legendary Pals are now level 55 (up from 50).
+** Adjusted the selling price of all Pals. The selling price of Alpha Pals is now about twice that of the original species.
+* [[0.2.4.0]]
+** Increased the HP of all Alpha Pals, including [[Lucky Pals]], by 1.2.
+** [[Breeding]] [[Pal Eggs|eggs]] now have a slight chance to produce an Alpha Pal.
+* [[0.2.0.6]]
+** [[Pal Eggs|Eggs]] now have a small chance to produce  Alpha Pals.
+*** Only wild eggs and eggs dropped by Bellanoir (10%) have a chance to appear as Alpha.
+* [[0.1.2.0]]
+** Introduced.
+
+==References== 
+
+[[Category:Pals]]

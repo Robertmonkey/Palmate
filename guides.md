@@ -22614,6 +22614,496 @@ Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settleme
 }
 ```
 
+### Route: Precious Dragon Stone Alpha Relay
+
+Precious Dragon Stone Alpha Relay chains daily overworld alpha hunts with sealed realm resets so gemstones and tech funding keep flowing between merchant visits.【palwiki-precious-dragon-stone†L1-L18】【palwiki-alpha-pals†L1-L33】【palwiki-sealed-realms†L1-L33】
+
+```json
+{
+  "route_id": "resource-precious-dragon-stone",
+  "title": "Precious Dragon Stone Alpha Relay",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "precious-dragon-stone",
+    "alpha-hunt",
+    "currency"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 25,
+    "max": 50
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "resource-gold-coin"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Stage alpha-hunting gear and align respawn timers",
+    "Clear an overworld alpha circuit for Precious Dragon Stones",
+    "Rotate sealed realms for hourly gemstone top-ups",
+    "Liquidate stones at merchants to fund late-game tech"
+  ],
+  "estimated_time_minutes": {
+    "solo": 45,
+    "coop": 32
+  },
+  "estimated_xp_gain": {
+    "min": 900,
+    "max": 1500
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Missing an alpha clear delays the next in-game day respawn and stalls gemstone income until bosses return.【palwiki-alpha-pals†L12-L25】",
+    "hardcore": "Hardcore wipes on alpha bosses risk permanent Pal losses and waste sealed realm timers before they reset an hour later.【palwiki-alpha-pals†L18-L25】【palwiki-sealed-realms†L24-L29】"
+  },
+  "adaptive_guidance": {
+    "underleveled": "Focus on level 11-23 overworld alphas like Chillet, Gumoss, Broncherry, and Kingpaca until your capture gear and team can handle higher tiers.【palwiki-alpha-pals†L40-L72】",
+    "overleveled": "Add Warsect, Quivern, Verdash, and other late-game alphas to the loop so every respawn cycle yields extra stones and schematics.【palwiki-alpha-pals†L72-L104】",
+    "resource_shortages": [
+      {
+        "item_id": "precious-dragon-stone",
+        "solution": "Chain sealed realm clears between overworld sweeps; each fight rolls the alpha drop table and feeds additional gemstones before the hour-long reset.【palwiki-precious-dragon-stone†L1-L18】【palwiki-sealed-realms†L7-L29】"
+      }
+    ],
+    "time_limited": "Hit overworld alphas first—they respawn every in-game day—then spend remaining time on sealed realms that refresh hourly.【palwiki-alpha-pals†L12-L25】【palwiki-sealed-realms†L7-L29】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Split the squad so one hunter tags bosses while the partner clears trash and ferries drops, keeping respawn timers staggered.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-precious-dragon-stone:002",
+          "resource-precious-dragon-stone:003"
+        ]
+      },
+      {
+        "signal": "resource_gap:gold-coin_high",
+        "condition": "resource_gaps['gold-coin'] >= 500",
+        "adjustment": "Sell a batch of stones after the first circuit to replenish sphere crafting funds before the next hunt.",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-precious-dragon-stone:004"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-precious-dragon-stone:checkpoint-kit",
+      "summary": "Alpha hunt kit staged",
+      "benefits": [
+        "High-grade spheres crafted",
+        "Respawn timers aligned"
+      ],
+      "related_steps": [
+        "resource-precious-dragon-stone:001"
+      ]
+    },
+    {
+      "id": "resource-precious-dragon-stone:checkpoint-overworld",
+      "summary": "Overworld circuit cleared",
+      "benefits": [
+        "Daily alpha drops secured",
+        "Travel route mapped"
+      ],
+      "related_steps": [
+        "resource-precious-dragon-stone:002"
+      ]
+    },
+    {
+      "id": "resource-precious-dragon-stone:checkpoint-sealed",
+      "summary": "Sealed realms rotated",
+      "benefits": [
+        "Hourly resets tracked",
+        "Stone buffer increased"
+      ],
+      "related_steps": [
+        "resource-precious-dragon-stone:003"
+      ]
+    },
+    {
+      "id": "resource-precious-dragon-stone:checkpoint-ledger",
+      "summary": "Merchants paid",
+      "benefits": [
+        "Gold reserves replenished",
+        "Tech purchases funded"
+      ],
+      "related_steps": [
+        "resource-precious-dragon-stone:004"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-gold-coin",
+      "resource-large-pal-soul"
+    ],
+    "optional": [
+      "resource-medium-pal-soul"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Sleep at camp to roll the in-game day, restock spheres, and rerun the overworld loop once bosses respawn.【palwiki-alpha-pals†L12-L25】",
+    "hardcore": "Rotate sealed realms while waiting on overworld respawns—the arenas refresh hourly even if you had to retreat.【palwiki-sealed-realms†L24-L29】"
+  },
+  "steps": [
+    {
+      "step_id": "resource-precious-dragon-stone:001",
+      "type": "prepare",
+      "summary": "Stage the alpha hunt kit",
+      "detail": "Restock Mega and Hyper Spheres, healing, and elemental counters at base, then sleep until dawn so overworld Alpha Pals are alive when you deploy—they respawn each in-game day and drop Precious Dragon Stones when defeated.【palwiki-alpha-pals†L12-L25】【palwiki-precious-dragon-stone†L1-L18】",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "night",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Carry revival medicine and swap in bulky Pals before leaving base to avoid Hardcore permadeath chains.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "mega-sphere",
+          "hyper-sphere"
+        ],
+        "pals": [
+          "anubis"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 0,
+        "max": 0
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks mega-sphere >= 8",
+          "action": "include_subroute",
+          "subroute_ref": "resource-gold-coin"
+        }
+      ],
+      "citations": [
+        "palwiki-alpha-pals",
+        "palwiki-precious-dragon-stone"
+      ]
+    },
+    {
+      "step_id": "resource-precious-dragon-stone:002",
+      "type": "combat",
+      "summary": "Clear the overworld alpha circuit",
+      "detail": "Fast travel to nearby statues and sweep Chillet (172,-419), Gumoss (-113,-628), Broncherry (-222,-669), and Kingpaca (49,-460) each day; these overworld alphas sit between level 11 and 23 and reliably drop Precious Dragon Stones for every kill.【palwiki-alpha-pals†L40-L72】【palwiki-precious-dragon-stone†L1-L18】【palfandom-precious-dragon-stone†L1-L18】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "precious-dragon-stone",
+          "qty": 4
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            172,
+            -419
+          ],
+          "time": "day",
+          "weather": "any"
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            -113,
+            -628
+          ],
+          "time": "day",
+          "weather": "any"
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            -222,
+            -669
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            49,
+            -460
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "vanguard",
+              "tasks": "Hold aggro and stagger alphas"
+            },
+            {
+              "role": "finisher",
+              "tasks": "Capture or execute and loot stones"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "hyper-sphere"
+        ],
+        "pals": [
+          "rayhound",
+          "jetragon"
+        ],
+        "consumables": [
+          {
+            "item_id": "mega-sphere",
+            "qty": 6
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 600,
+        "max": 900
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "precious-dragon-stone",
+            "qty": 4
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-alpha-pals",
+        "palwiki-precious-dragon-stone",
+        "palfandom-precious-dragon-stone"
+      ]
+    },
+    {
+      "step_id": "resource-precious-dragon-stone:003",
+      "type": "combat",
+      "summary": "Rotate sealed realms for hourly resets",
+      "detail": "Dive the Sealed Realm of Spirits (-19,-264) for Petallia, the Swordmaster (-117,-490) for Bushi, and the Abyssal Nights (-411,-54) for Felbat to add hourly gemstone rolls between daily overworld clears.【palwiki-sealed-realms†L7-L29】【palwiki-alpha-pals†L46-L88】【palwiki-precious-dragon-stone†L1-L18】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "precious-dragon-stone",
+          "qty": 3
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            -19,
+            -264
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            -117,
+            -490
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            -411,
+            -54
+          ],
+          "time": "night",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Place a Palbox outside each sealed realm so you can swap durable tanks if the arena fight goes sideways before committing.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "hyper-sphere"
+        ],
+        "pals": [
+          "anubis",
+          "necromus"
+        ],
+        "consumables": [
+          {
+            "item_id": "mega-sphere",
+            "qty": 6
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 300,
+        "max": 450
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "precious-dragon-stone",
+            "qty": 3
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-sealed-realms",
+        "palwiki-alpha-pals",
+        "palwiki-precious-dragon-stone"
+      ]
+    },
+    {
+      "step_id": "resource-precious-dragon-stone:004",
+      "type": "trade",
+      "summary": "Liquidate gemstones with merchants",
+      "detail": "Teleport to the Small Settlement (75,-479) or visit wandering merchants to sell surplus stones for 1,000 Gold Coins each, banking profits for schematics or keeping a buffer for future hunts.【palwiki-precious-dragon-stone†L1-L18】【palfandom-precious-dragon-stone†L1-L18】【palwiki-wandering-merchant-raw†L24-L119】【palwiki-small-settlement†L1-L13】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "gold-coin",
+          "qty": 4000
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "solo": {
+          "tactics": "Sell half the haul and bank the rest so you can pivot to schematics or emergency respawn costs later."
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "glider"
+        ],
+        "pals": [
+          "jetragon"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 0,
+        "max": 0
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "gold-coin",
+            "qty": 4000
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-gold-coin"
+        }
+      ],
+      "citations": [
+        "palwiki-precious-dragon-stone",
+        "palfandom-precious-dragon-stone",
+        "palwiki-wandering-merchant-raw",
+        "palwiki-small-settlement"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "precious-dragon-stone",
+      "qty": 6
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1 to +2",
+    "key_unlocks": [
+      "alpha-tech-funding"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 7,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-carbon-fiber",
+      "reason": "Carbon Fiber fabrication leans on expensive schematics; gemstone sales cover the merchant bill."
+    },
+    {
+      "route_id": "resource-polymer",
+      "reason": "Polymer automation burns cash on electronics and oil routes, so gemstone revenue keeps assembly lines running."
+    }
+  ]
+}
+```
+
 ### Route: Lamball Butchery Circuit
 
 Lamball Butchery Circuit corrals Windswept Hills Lamball, unlocks the Meat Cleaver, and turns the flock into reliable Lamball Mutton for early cooking and merchant trades.【palfandom-lamball†L17-L75】【palwiki-meat-cleaver†L2-L38】【palwiki-lamball-mutton-raw†L1-L27】
@@ -24371,6 +24861,12 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-20",
       "notes": "Shows the Electric Furnace unlocks at level 44, costs 50 Refined Ingots, 10 Circuit Boards, 20 Polymer, 20 Carbon Fiber, and still needs electricity plus a fire Pal to operate.【palwiki-electric-furnace†L1-L4】"
     },
+    "palwiki-alpha-pals": {
+      "title": "Alpha Pals \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Alpha_Pals",
+      "access_date": "2025-10-31",
+      "notes": "Details alpha respawn timing, overworld boss coordinates, and sealed realm encounters that drop Precious Dragon Stones.【palwiki-alpha-pals†L1-L108】"
+    },
     "palwiki-helzephyr-raw": {
       "title": "Helzephyr \u2013 Palworld Wiki (raw)",
       "url": "https://palworld.wiki.gg/index.php?title=Helzephyr&action=raw",
@@ -24388,6 +24884,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/wiki/Pal_Metal_Ingot",
       "access_date": "2025-10-20",
       "notes": "States Pal Metal Ingots are crafted at the Electric Furnace with a 4 Ore + 2 Paldium Fragment recipe and notes their late-game usage and drops.【palwiki-pal-metal-ingot†L1-L3】"
+    },
+    "palwiki-precious-dragon-stone": {
+      "title": "Precious Dragon Stone \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Precious_Dragon_Stone",
+      "access_date": "2025-10-31",
+      "notes": "Explains Precious Dragon Stones drop from Alpha Pals and sell to merchants for 1,000 Gold Coins.【palwiki-precious-dragon-stone†L1-L18】"
     },
     "palwiki-high-quality-cloth": {
       "title": "High Quality Cloth \u2013 Palworld Wiki",
@@ -24418,6 +24920,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.fandom.com/wiki/Medium_Pal_Soul?action=raw",
       "access_date": "2025-10-24",
       "notes": "Confirms guaranteed Sootseer drops, Helzephyr sources, and Desiccated Desert treasure chest spawns for Medium Pal Souls.【palfandom-medium-pal-soul-raw†L12-L38】"
+    },
+    "palfandom-precious-dragon-stone": {
+      "title": "Precious Dragon Stone \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Precious_Dragon_Stone",
+      "access_date": "2025-10-31",
+      "notes": "Lists Precious Dragon Stone drops from Alpha Pals and Dungeon Bosses and confirms Wandering Merchants pay 1,000 Gold Coins.【palfandom-precious-dragon-stone†L1-L18】"
     }
   }
 }

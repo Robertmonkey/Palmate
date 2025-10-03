@@ -1,0 +1,35 @@
+{{Infobox Item
+|name = Precious Dragon Stone
+|image = Precious Dragon Stone icon.png
+|type = Material
+|rarity = Rare
+|effects = A gemstone-like ball collected from Pals. Can be sold to a merchant for a high price.
+|source = [[Alpha Pals]]<br/>
+[[Dungeon Boss]]
+|weight = 0
+|gold_sell = 1,000
+|sell_use_only = Yes}}
+'''Precious Dragon Stone''' is a material in {{PW}}.
+
+==Acquisition==
+Can be obtained from [[Alpha Pals]] and [[Dungeon Boss]]:
+{{Cols|2|
+* {{p|Astegon}}
+* {{p|Azurobe}}
+* {{p|Broncherry Aqua}}
+* {{p|Broncherry}}
+* {{p|Dinossom Lux}}
+* {{p|Dinossom}}
+* {{p|Jetragon}}
+* {{p|Jormuntide Ignis}}
+* {{p|Jormuntide}}
+* {{p|Orserk}}
+* {{p|Relaxaurus Lux}}
+* {{p|Relaxaurus}}
+}}
+
+== Use==
+Can be sold to [[Wandering Merchant]]s for 1,000 gold.
+
+{{Navbox Materials}}
+[[Category:Materials]]
