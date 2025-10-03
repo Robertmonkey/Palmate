@@ -7153,8 +7153,8 @@ Wildlife sanctuaries hide the only reliable wild sources of Beautiful Flowers, b
     "Rotate higher-tier sanctuaries for sustained Beautiful Flower income"
   ],
   "estimated_time_minutes": {
-    "solo": 35,
-    "coop": 25
+    "solo": 45,
+    "coop": 30
   },
   "estimated_xp_gain": {
     "min": 480,
@@ -7836,8 +7836,8 @@ High Quality Pal Oil fuels muskets, polymer, and other mid-game weaponry, so thi
     "Supplement drops with merchant buys and Dumud ranching"
   ],
   "estimated_time_minutes": {
-    "solo": 35,
-    "coop": 25
+    "solo": 45,
+    "coop": 30
   },
   "estimated_xp_gain": {
     "min": 260,
@@ -9881,7 +9881,7 @@ Cake Assembly Line coordinates plantations, ranch automation, and the Cooking Po
 
 ### Route: Tomato Seed Greenhouse Circuit
 
-Tomato Seed Greenhouse Circuit buys Small Settlement stock, loops Wumpo Botan and Dinossom Lux for drops, and spins up a Tomato Plantation so sandwich staples stay stocked.【4f4102†L1-L4】【ca10a8†L1-L6】【fb8f93†L1-L2】【509650†L10-L12】【c20a5e†L1-L3】
+Tomato Seed Greenhouse Circuit chains the Small Settlement and Duneshelter merchants with Oasis Isle Braloha sweeps, sanctuary alphas (Wumpo Botan, Vaelet), and a Tomato Plantation build so sandwich staples stay stocked.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-duneshelter†L506-L516】【palwiki-braloha-raw†L121-L125】【palwiki-tomato-seeds†L608-L826】【palwiki-vaelet-raw†L108-L116】【palwiki-wumpo-botan-raw†L109-L116】【palwiki-tomato-plantation-raw†L1-L34】
 
 ```json
 {
@@ -9915,13 +9915,14 @@ Tomato Seed Greenhouse Circuit buys Small Settlement stock, loops Wumpo Botan an
     "pals": []
   },
   "objectives": [
-    "Purchase tomato seeds from the Small Settlement merchant",
-    "Farm Wumpo Botan and Dinossom Lux for bulk seed drops",
+    "Purchase tomato seeds from the Small Settlement and Duneshelter merchants",
+    "Sweep Oasis Isle Braloha herds for supplementary drops",
+    "Farm Wumpo Botan, Braloha, and Vaelet sanctuary loops for bulk seed stockpiles",
     "Build and automate a Tomato Plantation"
   ],
   "estimated_time_minutes": {
-    "solo": 35,
-    "coop": 25
+    "solo": 45,
+    "coop": 30
   },
   "estimated_xp_gain": {
     "min": 240,
@@ -9933,24 +9934,24 @@ Tomato Seed Greenhouse Circuit buys Small Settlement stock, loops Wumpo Botan an
     "hardcore": "Alpha pals in the sanctuary can one-shot lightly geared hunters; retreat rather than risk permadeath."
   },
   "adaptive_guidance": {
-    "underleveled": "Stay on the merchant rotation until you can field tier-3 armor; Tomato Seeds stay available for 200 gold each.【4f4102†L1-L4】",
-    "overleveled": "Once your team survives sanctuary patrols, alternate Wumpo Botan loops with the level 47 Dinossom Lux alpha to stock surplus seeds quickly.【fb8f93†L1-L2】【509650†L10-L12】",
+    "underleveled": "Loop the Small Settlement and Duneshelter merchants until your squad can stomach sanctuary aggro; both vendors keep Tomato Seeds in stock for 200 gold.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-duneshelter†L506-L516】【palwiki-tomato-seeds†L552-L565】",
+    "overleveled": "Once you're comfortable in sanctuaries, alternate Wumpo Botan circuits with Sealed Realm of the Guardian clears to stockpile seeds fast.【palwiki-wumpo-botan-raw†L109-L116】【palwiki-vaelet-raw†L108-L116】【palwiki-tomato-seeds†L608-L826】",
     "resource_shortages": [
       {
         "item_id": "tomato-seeds",
-        "solution": "Chain the No. 2 Wildlife Sanctuary Wumpo Botan spawn and the Furthest Mineshaft alpha to refill the seed chest before plantations pause.【ca10a8†L1-L6】【fb8f93†L1-L2】【509650†L10-L12】"
+        "solution": "Rotate Wumpo Botan, Oasis Braloha, and the Vaelet alpha before plantations stall to refill the chest in one sweep.【palwiki-wumpo-botan-raw†L109-L116】【palwiki-braloha-raw†L121-L125】【palwiki-vaelet-raw†L108-L116】【palwiki-tomato-seeds†L608-L826】"
       },
       {
         "item_id": "gold-coin",
-        "solution": "Budget at least 1,200 gold for six seeds per cycle so you can replant after raids without waiting on merchant restocks.【4f4102†L1-L4】"
+        "solution": "Carry at least 1,200 gold per loop so you can buy six seeds from both merchants without waiting on restocks.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-tomato-seeds†L552-L565】"
       }
     ],
-    "time_limited": "If you only have a few minutes, buy seeds, place the plantation, and let automation handle harvests until your next session.【4f4102†L1-L4】【c20a5e†L1-L3】",
+    "time_limited": "Short on time? Buy a merchant stack, drop the plantation build, and let staffed pals harvest while you're away.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-tomato-plantation-raw†L1-L34】",
     "dynamic_rules": [
       {
         "signal": "mode:coop",
         "condition": "mode.coop === true",
-        "adjustment": "Assign one partner to merchant logistics while the other clears sanctuary mobs and escorts seeds back to base so downtime stays minimal.【fb8f93†L1-L2】【509650†L10-L12】",
+        "adjustment": "Split duties so one partner handles merchant runs while the other clears sanctuary targets and ferries seeds home.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-wumpo-botan-raw†L109-L116】【palwiki-vaelet-raw†L108-L116】",
         "priority": 2,
         "mode_scope": [
           "coop"
@@ -9989,8 +9990,8 @@ Tomato Seed Greenhouse Circuit buys Small Settlement stock, loops Wumpo Botan an
     {
       "step_id": "resource-tomato-seeds:001",
       "type": "trade",
-      "summary": "Buy Tomato Seeds from the Small Settlement merchant",
-      "detail": "Fast travel to the Small Settlement (78,-477) and purchase at least six Tomato Seeds for 200 gold apiece so you can cover initial plots and a spare reseed.【4f4102†L1-L4】【c6adb4†L34-L114】【165dd8†L71-L90】",
+      "summary": "Buy Tomato Seeds from settlement and desert merchants",
+      "detail": "Fast travel to the Small Settlement (78,-477) for the shared wandering merchant stock, then ride south to Duneshelter (357,347) and clear out the red-coat merchant's Tomato Seeds at 200 gold each before heading into the desert loops.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-duneshelter†L506-L516】【palwiki-tomato-seeds†L552-L565】",
       "targets": [
         {
           "kind": "item",
@@ -10027,7 +10028,10 @@ Tomato Seed Greenhouse Circuit buys Small Settlement stock, loops Wumpo Botan an
         "gear": [],
         "pals": [],
         "consumables": [
-          "gold-coin"
+          {
+            "item_id": "gold-coin",
+            "qty": 1200
+          }
         ]
       },
       "xp_award_estimate": {
@@ -10046,21 +10050,21 @@ Tomato Seed Greenhouse Circuit buys Small Settlement stock, loops Wumpo Botan an
       },
       "branching": [],
       "citations": [
-        "palwiki-tomato-seeds-fandom",
-        "palwiki-wandering-merchant",
-        "palwiki-small-settlement"
+        "palwiki-wandering-merchant-raw",
+        "palwiki-duneshelter",
+        "palwiki-tomato-seeds"
       ]
     },
     {
       "step_id": "resource-tomato-seeds:002",
       "type": "hunt",
-      "summary": "Farm Wumpo Botan and Dinossom Lux for bulk seeds",
-      "detail": "Sail to No. 2 Wildlife Sanctuary (-675,-113) to capture or defeat Wumpo Botan for guaranteed Lettuce and Tomato Seed drops, then glide to the Furthest Mineshaft (348,569) to down the level 47 Dinossom Lux alpha for an extra bundle per clear.【ca10a8†L1-L6】【fb8f93†L1-L2】【509650†L10-L12】【15adf0†L1-L22】",
+      "summary": "Chain Wumpo Botan, Braloha, and Vaelet drops",
+      "detail": "Sail to No. 2 Wildlife Sanctuary (-675,-113) for Wumpo Botan's guaranteed tomato seed drops, glide east from Duneshelter (357,347) to Oasis Isle to cull Braloha herds at a 50% seed rate, then clear the Sealed Realm of the Guardian (113,-353) for the Vaelet alpha's sanctuary haul before rotating back to merchants.【palwiki-wumpo-botan-raw†L109-L116】【palwiki-tomato-seeds†L608-L826】【palwiki-braloha-raw†L121-L125】【palwiki-duneshelter†L506-L516】【palwiki-vaelet-raw†L108-L116】【palwiki-sealed-guardian†L631-L660】",
       "targets": [
         {
           "kind": "item",
           "id": "tomato-seeds",
-          "qty": 12
+          "qty": 14
         }
       ],
       "locations": [
@@ -10070,22 +10074,31 @@ Tomato Seed Greenhouse Circuit buys Small Settlement stock, loops Wumpo Botan an
             -675,
             -113
           ],
-          "time": "day",
+          "time": "any",
           "weather": "any"
         },
         {
-          "region_id": "mount-obsidian",
+          "region_id": "twilight-dunes",
           "coords": [
-            348,
-            569
+            357,
+            347
           ],
           "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "astral-mountain",
+          "coords": [
+            113,
+            -353
+          ],
+          "time": "night",
           "weather": "any"
         }
       ],
       "mode_adjustments": {
         "hardcore": {
-          "tactics": "Focus on captures to avoid prolonged brawls with sanctuary elites and bail out if multiple Wumpo Botan converge.",
+          "tactics": "Prioritise captures to avoid prolonged brawls with sanctuary elites, using smoke or freeze pals to disengage when multiple targets converge.",
           "mode_scope": [
             "hardcore"
           ]
@@ -10094,29 +10107,40 @@ Tomato Seed Greenhouse Circuit buys Small Settlement stock, loops Wumpo Botan an
           "role_splits": [
             {
               "role": "controller",
-              "tasks": "Weaken Wumpo Botan and keep them snared"
+              "tasks": "Snare Wumpo Botan and Braloha while tagging Vaelet's adds"
             },
             {
               "role": "finisher",
-              "tasks": "Secure captures and haul seeds to the raft"
+              "tasks": "Secure captures and ferry seeds or loot back to camp"
             }
           ]
         }
       },
       "recommended_loadout": {
-        "gear": [],
-        "pals": [],
-        "consumables": []
+        "gear": [
+          "heat-resistant-armor",
+          "grappling-gun"
+        ],
+        "pals": [
+          "surfent",
+          "kitsun"
+        ],
+        "consumables": [
+          {
+            "item_id": "pal-sphere",
+            "qty": 10
+          }
+        ]
       },
       "xp_award_estimate": {
-        "min": 120,
-        "max": 210
+        "min": 180,
+        "max": 260
       },
       "outputs": {
         "items": [
           {
             "item_id": "tomato-seeds",
-            "qty": 12
+            "qty": 14
           }
         ],
         "pals": [],
@@ -10124,17 +10148,19 @@ Tomato Seed Greenhouse Circuit buys Small Settlement stock, loops Wumpo Botan an
       },
       "branching": [],
       "citations": [
-        "palwiki-wumpo-botan",
-        "palwiki-wumpo-botan-habitat",
-        "palwiki-dinossom-lux",
-        "palwiki-wildlife-sanctuary-2"
+        "palwiki-wumpo-botan-raw",
+        "palwiki-tomato-seeds",
+        "palwiki-braloha-raw",
+        "palwiki-duneshelter",
+        "palwiki-vaelet-raw",
+        "palwiki-sealed-guardian"
       ]
     },
     {
       "step_id": "resource-tomato-seeds:003",
       "type": "build",
       "summary": "Construct and staff a Tomato Plantation",
-      "detail": "Spend 3 Tomato Seeds, 70 Wood, 50 Stone, and 5 Pal Fluids to place a Tomato Plantation, then assign Pal partners with Planting, Watering, and Gathering to keep tomatoes flowing between hunts.【c20a5e†L1-L3】【6a9b5d†L1-L3】【285b69†L1-L4】",
+      "detail": "Spend 3 Tomato Seeds, 70 Wood, 50 Stone, and 5 Pal Fluids to place a Tomato Plantation, then assign Planting, Watering, and Gathering pals so tomatoes flow between merchant runs and sanctuary sweeps.【palwiki-tomato-plantation-raw†L1-L34】【palwiki-tomato-seeds†L847-L868】",
       "targets": [
         {
           "kind": "station",
@@ -10190,9 +10216,8 @@ Tomato Seed Greenhouse Circuit buys Small Settlement stock, loops Wumpo Botan an
       },
       "branching": [],
       "citations": [
-        "palwiki-tomato-plantation",
-        "palwiki-tomato-seeds",
-        "palwiki-tomato"
+        "palwiki-tomato-plantation-raw",
+        "palwiki-tomato-seeds"
       ]
     }
   ],
@@ -12642,6 +12667,457 @@ Secure Katress Hair for witch gear and speed remedies by chaining Moonless Shore
     {
       "route_id": "resource-poison-arrow",
       "reason": "Hair and glands feed advanced poison ammo crafting."
+    }
+  ]
+}
+```
+
+Large Pal Souls fuel Statue of Power upgrades for late-game builds, so this circuit unlocks the statue and Crusher, loops Anubis in Twilight Dunes, and backfills demand with Crusher conversions plus sanctuary sweeps.【game8-large-pal-soul†L87-L158】【palwiki-large-pal-soul†L116-L160】
+
+```json
+{
+  "route_id": "resource-large-pal-soul",
+  "title": "Large Pal Soul Resonance",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "pal-soul",
+    "statue-of-power"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 45,
+    "max": 60
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "resource-ore"
+    ],
+    "tech": [
+      "statue-of-power",
+      "crusher"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Unlock and build a Statue of Power and Crusher hub",
+    "Farm Anubis in Twilight Dunes for guaranteed Large Pal Souls",
+    "Convert Medium and Giant Pal Souls into Large via the Crusher",
+    "Sweep sanctuaries and Executioner raids for bonus Large Pal Souls"
+  ],
+  "estimated_time_minutes": {
+    "solo": 55,
+    "coop": 40
+  },
+  "estimated_xp_gain": {
+    "min": 720,
+    "max": 1180
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Being downed by level 50+ elites forces a corpse run through PIDF patrols and chews through high-tier gear durability.",
+    "hardcore": "Hardcore wipes against Anubis or Executioner raids delete endgame kits—disengage if shields and potions run dry."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Rotate Step :002 at night with traps and dark pals so Anubis stays staggered while you build Crusher stockpiles before challenging Executioner raids.【game8-large-pal-soul†L113-L136】",
+    "overleveled": "Chain Steps :002 and :004 in a single loop—clear Anubis, fast travel to the sanctuary, then intercept raids to bank 4+ souls per lap.【palwiki-large-pal-soul†L125-L160】",
+    "resource_shortages": [
+      {
+        "item_id": "large-pal-soul",
+        "solution": "Run Step :003 to convert two Medium Pal Souls or split one Giant Pal Soul into two Large souls whenever drops lag behind Statue demands.【game8-large-pal-soul†L117-L156】【palwiki-crusher†L159-L179】"
+      }
+    ],
+    "time_limited": "Prioritise Steps :001 and :003 so Crusher conversions keep Statue projects moving even if you skip hunt rotations this session.【game8-large-pal-soul†L117-L156】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Have one player kite Anubis while the partner rotates burst pals and Shock Traps to secure fast captures or kills.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-large-pal-soul:002"
+        ]
+      },
+      {
+        "signal": "resource_gap:medium-pal-soul_high",
+        "condition": "resource_gaps['medium-pal-soul'] >= 5",
+        "adjustment": "Queue medium soul farming before Step :003 so Crusher conversions stay positive.",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-large-pal-soul:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-large-pal-soul:checkpoint-base",
+      "summary": "Statue and Crusher online",
+      "benefits": [
+        "Statue upgrades unlocked",
+        "Crusher conversion hub active"
+      ],
+      "related_steps": [
+        "resource-large-pal-soul:001"
+      ]
+    },
+    {
+      "id": "resource-large-pal-soul:checkpoint-anubis",
+      "summary": "Anubis cleared",
+      "benefits": [
+        "Guaranteed Large Pal Soul secured",
+        "Twilight Dunes fast travel refreshed"
+      ],
+      "related_steps": [
+        "resource-large-pal-soul:002"
+      ]
+    },
+    {
+      "id": "resource-large-pal-soul:checkpoint-stockpile",
+      "summary": "Soul stockpile stabilised",
+      "benefits": [
+        "Crusher conversion cycle running",
+        "Sanctuary sweep route mapped"
+      ],
+      "related_steps": [
+        "resource-large-pal-soul:003",
+        "resource-large-pal-soul:004"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-carbon-fiber",
+      "resource-ore"
+    ],
+    "optional": [
+      "resource-pure-quartz"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "If Anubis wipes you, rest at the Twilight Dunes statue and return with fresh traps once patrols reset—the alpha respawns at (-134,-95).【palfandom-anubis†L294-L303】",
+    "hardcore": "Hardcore saves should lean on Step :003 conversions from banked Medium or Giant souls instead of repeating risky alpha fights.【game8-large-pal-soul†L117-L156】【palwiki-crusher†L159-L179】"
+  },
+  "steps": [
+    {
+      "step_id": "resource-large-pal-soul:001",
+      "type": "build",
+      "summary": "Install Statue of Power and Crusher",
+      "detail": "Spend tech points to unlock both the Statue of Power and Crusher, then place them near storage so Large Pal Souls can immediately feed upgrades and conversions.【palwiki-statue-of-power†L160-L186】【palwiki-crusher†L159-L179】",
+      "targets": [
+        {
+          "kind": "tech",
+          "id": "statue-of-power"
+        },
+        {
+          "kind": "tech",
+          "id": "crusher"
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "builder",
+              "tasks": "Places foundations and wiring"
+            },
+            {
+              "role": "quartermaster",
+              "tasks": "Delivers ingots, stone, and Paldium"
+            }
+          ],
+          "loot_rules": "Log soul deposits in shared chests"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "metal-armor"
+        ],
+        "pals": [
+          "anubis"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "statue-of-power",
+            "qty": 1
+          },
+          {
+            "item_id": "crusher",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-statue-of-power",
+        "palwiki-crusher"
+      ]
+    },
+    {
+      "step_id": "resource-large-pal-soul:002",
+      "type": "combat",
+      "summary": "Defeat Anubis in Twilight Dunes",
+      "detail": "Fast travel to Twilight Dunes and clear the level 47 Anubis alpha at (-134,-95); every kill drops a Large Pal Soul alongside Bones, making it the fastest repeatable source.【palfandom-anubis†L294-L303】【game8-large-pal-soul†L113-L120】【palwiki-large-pal-soul†L125-L132】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "anubis",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "id": "large-pal-soul",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "twilight-dunes",
+          "coords": [
+            -134,
+            -95
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "tank",
+              "tasks": "Kite Anubis and soak Ground Smash combos"
+            },
+            {
+              "role": "burst",
+              "tasks": "Drop Shock Traps and unload dark damage"
+            }
+          ],
+          "loot_rules": "Alternate soul pickups between runs"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "legendary-crossbow",
+          "shock-trap"
+        ],
+        "pals": [
+          "suzaku",
+          "grizzbolt"
+        ],
+        "consumables": [
+          {
+            "item_id": "large-med-kit",
+            "qty": 2
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 260,
+        "max": 420
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "large-pal-soul",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player lacks shock-trap",
+          "action": "include_subroute",
+          "subroute_ref": "resource-carbon-fiber"
+        }
+      ],
+      "citations": [
+        "palfandom-anubis",
+        "game8-large-pal-soul",
+        "palwiki-large-pal-soul"
+      ]
+    },
+    {
+      "step_id": "resource-large-pal-soul:003",
+      "type": "craft",
+      "summary": "Convert souls at the Crusher",
+      "detail": "Feed two Medium Pal Souls or one Giant Pal Soul into the Crusher to mint Large Pal Souls whenever Statue projects demand more than hunts provide.【game8-large-pal-soul†L117-L156】【palwiki-crusher†L159-L179】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "large-pal-soul",
+          "qty": 2
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "operator",
+              "tasks": "Queues Crusher recipes"
+            },
+            {
+              "role": "runner",
+              "tasks": "Shuttles medium and giant souls from storage"
+            }
+          ],
+          "loot_rules": "Record conversion yields in shared ledger"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "digtoise"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 100,
+        "max": 150
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "large-pal-soul",
+            "qty": 2
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "game8-large-pal-soul",
+        "palwiki-crusher"
+      ]
+    },
+    {
+      "step_id": "resource-large-pal-soul:004",
+      "type": "gather",
+      "summary": "Sweep sanctuaries and raids",
+      "detail": "After each hunt, glide through No. 2 Wildlife Sanctuary (-675,-113) and intercept Pal Genetic Research Unit raids—both zones leave Large Pal Souls on the ground after skirmishes.【palwiki-large-pal-soul†L116-L160】【palwiki-wildlife-sanctuary-2†L1-L15】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "large-pal-soul",
+          "qty": 2
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "wildlife-sanctuary-2",
+          "coords": [
+            -675,
+            -113
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Avoid chaining kills once PIDF reinforcements spawn—grab souls and extract immediately.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "spotter",
+              "tasks": "Marks loose souls and incoming raid waves"
+            },
+            {
+              "role": "clean-up",
+              "tasks": "Finishes elites and secures drops"
+            }
+          ],
+          "loot_rules": "Alternate who claims raid soul drops"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "heat-resistant-armor",
+          "cold-resistant-armor"
+        ],
+        "pals": [
+          "paladius"
+        ],
+        "consumables": [
+          {
+            "item_id": "antidote",
+            "qty": 2
+          }
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 240,
+        "max": 360
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "large-pal-soul",
+            "qty": 2
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-large-pal-soul",
+        "palwiki-wildlife-sanctuary-2"
+      ]
     }
   ]
 }
@@ -19687,6 +20163,84 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://www.gameleap.com/articles/how-to-get-katress-in-palworld-location-drops-breeding-combos",
       "access_date": "2025-10-14",
       "notes": "Highlights Moonless Shore and Verdant Brook night hunts plus recommended breeding pairs for Katress eggs.\u3010725fb4\u2020L1-L24\u3011"
+    },
+    "game8-large-pal-soul": {
+      "title": "How to Get Large Pal Soul: All Recipes and Effects  | Palworld\u3010Game8\u3011",
+      "url": "https://game8.co/games/Palworld/archives/440127",
+      "access_date": "2025-10-17",
+      "notes": "Lists Large Pal Soul drop sources (Anubis, Frostallion Noct, Necromus) and shows Crusher conversions between Medium, Large, and Giant souls plus Statue usage.\u3010game8-large-pal-soul\u2020L113-L158\u3011"
+    },
+    "palwiki-large-pal-soul": {
+      "title": "Large Pal Soul \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Large_Pal_Soul",
+      "access_date": "2025-10-17",
+      "notes": "Confirms Large Pal Souls spawn on the ground and drop from Anubis, Frostallion Noct, Necromus, Neptilius, and Pal Genetic Research Unit Executioners.\u3010palwiki-large-pal-soul\u2020L116-L160\u3011"
+    },
+    "palwiki-statue-of-power": {
+      "title": "Statue of Power \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Statue_of_Power",
+      "access_date": "2025-10-17",
+      "notes": "Explains Statue of Power interaction flow and that Pal enhancement consumes Small, Medium, Large, and Giant Pal Souls.\u3010palwiki-statue-of-power\u2020L160-L186\u3011"
+    },
+    "palwiki-crusher": {
+      "title": "Crusher \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Crusher",
+      "access_date": "2025-10-17",
+      "notes": "Lists Crusher recipes converting Small to Medium, Medium to Large, and Giant to Large Pal Souls.\u3010palwiki-crusher\u2020L159-L179\u3011"
+    },
+    "palwiki-wandering-merchant-raw": {
+      "title": "Wandering Merchant \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Wandering_Merchant&printable=yes&action=raw",
+      "access_date": "2025-10-17",
+      "notes": "Raw inventory table listing the Small Settlement (78,-477) and Duneshelter (357,347) merchants selling Tomato Seeds for 200 gold.【palwiki-wandering-merchant-raw†L197-L252】"
+    },
+    "palwiki-duneshelter": {
+      "title": "Duneshelter \u2013 Palworld Wiki (printable)",
+      "url": "https://palworld.wiki.gg/index.php?title=Duneshelter&printable=yes",
+      "access_date": "2025-10-17",
+      "notes": "Identifies Duneshelter at (357,347) with resident wandering merchants for desert trade routes.【palwiki-duneshelter†L506-L516】"
+    },
+    "palwiki-braloha-raw": {
+      "title": "Braloha \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Braloha&action=raw",
+      "access_date": "2025-10-17",
+      "notes": "States Braloha spawns exclusively on Oasis Isle east of the Desiccated Desert peninsula.【palwiki-braloha-raw†L121-L125】"
+    },
+    "palwiki-wumpo-botan-raw": {
+      "title": "Wumpo Botan \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Wumpo_Botan&action=raw",
+      "access_date": "2025-10-17",
+      "notes": "Confirms Wumpo Botan resides in No. 2 Wildlife Sanctuary and as an alpha on Eastern Wild Island.【palwiki-wumpo-botan-raw†L109-L116】"
+    },
+    "palwiki-vaelet-raw": {
+      "title": "Vaelet \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Vaelet&action=raw",
+      "access_date": "2025-10-17",
+      "notes": "Notes Vaelet patrols No. 1 Wildlife Sanctuary and appears as an alpha at the Sealed Realm of the Guardian.【palwiki-vaelet-raw†L108-L116】"
+    },
+    "palwiki-sealed-guardian": {
+      "title": "Sealed Realm of the Guardian \u2013 Palworld Wiki (printable)",
+      "url": "https://palworld.wiki.gg/index.php?title=Sealed_Realm_of_the_Guardian&printable=yes",
+      "access_date": "2025-10-17",
+      "notes": "Lists Sealed Realm coordinates including the Guardian portal at (113,-353).【palwiki-sealed-guardian†L631-L660】"
+    },
+    "palwiki-tomato-seeds": {
+      "title": "Tomato Seeds \u2013 Palworld Wiki (printable)",
+      "url": "https://palworld.wiki.gg/index.php?title=Tomato_Seeds&printable=yes",
+      "access_date": "2025-10-17",
+      "notes": "Details merchant pricing (200 gold) and drop rates for Braloha, Vaelet, and Wumpo Botan tomato seeds plus plantation material costs.【palwiki-tomato-seeds†L552-L868】"
+    },
+    "palwiki-tomato-plantation-raw": {
+      "title": "Tomato Plantation \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Tomato_Plantation&action=raw",
+      "access_date": "2025-10-17",
+      "notes": "Raw build data listing the 3 Tomato Seeds, 70 Wood, 50 Stone, and 5 Pal Fluids cost along with required work suitabilities.【palwiki-tomato-plantation-raw†L1-L34】"
+    },
+    "palfandom-anubis": {
+      "title": "Anubis \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Anubis",
+      "access_date": "2025-10-17",
+      "notes": "States Anubis spawns as an Alpha at Twilight Dunes (-134,-95).\u3010palfandom-anubis\u2020L300-L303\u3011"
     }
   }
 }

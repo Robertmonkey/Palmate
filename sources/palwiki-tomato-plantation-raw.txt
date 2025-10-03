@@ -1,0 +1,54 @@
+{{Stub}}
+{{Structure
+| description    = A farm that can grow [[Tomato]]. They take time to harvest, but increase the variety of meals you can prepare. Requires a few Pals to plant seeds, water, and harvest the crops.
+| category       = Food
+| hit_points     = 2,000
+| supporting     = No
+
+| workload       = 200
+| mat1           = Tomato Seeds
+| qty1           = 3
+| mat2           = Wood
+| qty2           = 70
+| mat3           = Stone
+| qty3           = 50
+| mat4           = Pal Fluids
+| qty4           = 5
+
+| tech_name      = Tomato Plantation
+| required_level = 21
+| cost      = 2
+}}
+
+The '''Tomato Plantation''' is a [[Building]] which can produce [[Tomato]]es. This can be done manually by the player, or through the use of [[Pals]] with the proper work suitabilities ([[Planting]], [[Watering]], and [[Gathering]]).
+
+Note that [[Tomato Seeds]] are not required to produce Tomatoes, only to construct the Plantation itself.
+
+==Acquisition==
+It's a tier 21 [[technology]] item and requires 2 points to unlock.
+
+==Crafting==
+{{Recipe
+|mat1=Tomato Seeds
+|mat1qty=3
+|mat2=Wood
+|mat2qty=70
+|mat3=Stone
+|mat3qty=50
+|mat4=Pal Fluids
+|mat4qty=5
+|output1=Tomato Plantation
+|output1qty=1
+}}
+
+== Usage ==
+The Tomato Plantation can grow [[Tomato]]es. To automate things, you may want a few [[Pals]] with {{i|gathering}}, {{i|watering}}, and {{i|planting}} traits to farm efficiently.
+
+==History==
+* [[0.3.4.0]]
+** Reduced crop workload from 225 to 110.
+** Reduced crop growth time from 180 to 150.
+* [[0.1.2.0]]
+** Introduced.
+
+[[Category:Structures]]

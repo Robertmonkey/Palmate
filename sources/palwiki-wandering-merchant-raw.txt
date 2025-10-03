@@ -1,0 +1,477 @@
+'''Wandering Merchant''' is a non-playable chracter that will buy and sell items for [[Gold Coin]]s. He appears at [[settlements]], selling various schematics, goods, and resources. Additionally, goods can be sold to the merchant for [[Gold Coins]].
+
+Like other NPCs, they can be captured in a [[Pal Spheres|Pal Sphere]], but doing so is considered a [[crime]] and will spawn hostile human NPCs, and the player is marked as "wanted." If captured, the merchant will still be able to sell and buy goods when talked to, making them useful on player bases. The Wandering Merchant can be captured using [[Pal Sphere]]s of a higher tier than [[Mega Sphere]]. Upon engaging with the merchant, [[PIDF Guard]]s and [[PIDF Infantry]] will spawn. They are capable of killing the merchant.
+
+==Types==
+*'''Red Coat''': these merchants are the most common, offering a selection of basic supplies and common items like food, [[materials]], and equipment. They're a good source for restocking essentials and finding early-game necessities;
+*'''Green Coat''': these merchants offer more advanced equipment and materials, including schematics and even rare ores. They're a great resource for seasoned players looking to upgrade their [[gear]] and craft powerful items;
+*'''Blue Coat''': known in-game as '''[[Pal Merchant]]''', as the name implies, they buy and sell [[Pals]];
+*'''[[Black Marketeer]]''': these elusive merchants deal in illegal or restricted goods, their inventory constantly changing and often containing high-value items. Finding them is a challenge, but their wares can be incredibly lucrative. 
+*'''[[Medal Merchant]]''': these merchants sell rare items for [[Dog Coin]]s instead of [[Gold Coin]]s.
+
+==Locations==
+Wandering Merchants are nomadic, appearing in random locations across the map. However, there are a few places where they're more likely to show up:
+*'''Settlement Outskirts''': merchants might stop to trade with travelers near the outskirts of [[settlements]];
+*'''Crossroads''': major crossroads and travel hubs often attract Wandering Merchants looking for customers;
+*'''Random Encounters''': While exploring the wilderness, the player might stumble upon a Wandering Merchant setting up camp.
+*'''Abandoned Churches''': Medal Merchants are usually found around ths type of ruins.
+
+==Stock==
+While there are a few wandering traders, the green and red coats have static inventory and prices based on their location.
+
+<tabber>
+|-|Wandering merchants=
+Shared by:
+*Small Settlement merchant (78, -477)
+*Sea Breeze Archipelago merchant (-190, -600)
+*Forgotten Island beach merchant (-397, 19)
+*Marsh Island shore merchant (434, -273)
+
+{| class="wikitable"
+!Item
+!Price
+|-
+|{{I|Long-eared Headband Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Witch Hat Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Farming Hat Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Bowler Hat Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Tocotoco Cap Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Gumoss Cap Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Penking Cap Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Ribbuny Headband Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Ring of Mercy}}
+|{{I|Gold Coin|none}} x30000
+|-
+|{{I|Pal Sphere}}
+|{{I|Gold Coin|none}} x120
+|-
+|{{I|Arrow}}
+|{{I|Gold Coin|none}} x5
+|-
+|{{I|Low Grade Medical Supplies}}
+|{{I|Gold Coin|none}} x240
+|-
+|{{I|Medical Supplies}}
+|{{I|Gold Coin|none}} x800
+|-
+|{{I|High Grade Medical Supplies}}
+|{{I|Gold Coin|none}} x3000
+|-
+|{{I|Berry Seeds}}
+|{{I|Gold Coin|none}} x50
+|-
+|{{I|Wheat Seeds}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Egg}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Milk}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Red Berries}}
+|{{I|Gold Coin|none}} x50
+|-
+|{{I|Wheat}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Chikipi Poultry}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Lamball Mutton}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Wool}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Leather}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Bone}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Horn}}
+|{{I|Gold Coin|none}} x300
+|-
+|{{I|Electric Organ}}
+|{{I|Gold Coin|none}} x200
+|-
+|{{I|Venom Gland}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Flame Organ}}
+|{{I|Gold Coin|none}} x100
+|}
+|-|Random Incident Wandering Merchants=
+These are wandering merchants that are guarded by two PIDF officers that are from a random incident.
+
+{| class="wikitable"
+!Item
+!Price
+|-
+|{{I|Paldium Fragment}}
+|{{I|Gold Coin|none}} x200
+|-
+|{{I|Skill Fruit: Implode}}
+|{{I|Gold Coin|none}} x5000
+|-
+|{{I|Water Skill Fruit: Acid Rain}}
+|{{I|Gold Coin|none}} x3000
+|-
+|{{I|Electric Skill Fruit: Lock-on Laser}}
+|{{I|Gold Coin|none}} x3000
+|-
+|{{I|Egg}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Milk}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Red Berries}}
+|{{I|Gold Coin|none}} x50
+|-
+|{{I|Wheat}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Low Grade Medical Supplies}}
+|{{I|Gold Coin|none}} x240
+|-
+|{{I|Medical Supplies}}
+|{{I|Gold Coin|none}} x800
+|-
+|{{I|High Grade Medical Supplies}}
+|{{I|Gold Coin|none}} x3000
+|-
+|{{I|Mind Control Meds}}
+|{{I|Gold Coin|none}} x10000
+|-
+|{{I|Wool}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Leather}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Bone}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Horn}}
+|{{I|Gold Coin|none}} x300
+|-
+|{{I|Pal Fluids}}
+|{{I|Gold Coin|none}} x300
+|-
+|{{I|High Quality Pal Oil}}
+|{{I|Gold Coin|none}} x300
+|-
+|{{I|Coarse Ammo}}
+|{{I|Gold Coin|none}} x120
+|-
+|{{I|Handgun Ammo}}
+|{{I|Gold Coin|none}} x120
+|-
+|{{I|Rifle Ammo}}
+|{{I|Gold Coin|none}} x220
+|-
+|{{I|Shotgun Shell}}
+|{{I|Gold Coin|none}} x220
+|-
+|{{I|Assault Rifle Ammo}}
+|{{I|Gold Coin|none}} x150
+|}
+|-|Duneshelter red shirt merchant=
+{| class="wikitable"
+!Item
+!Price
+|-
+|{{I|Mega Sphere}}
+|{{I|Gold Coin|none}} x920
+|-
+|{{I|Earth Skill Fruit: Sand Tornado}}
+|{{I|Gold Coin|none}} x2500
+|-
+|{{I|Earth Skill Fruit: Stone Cannon}}
+|{{I|Gold Coin|none}} x1000
+|-
+|{{I|Grass Skill Fruit: Seed Mine}}
+|{{I|Gold Coin|none}} x2000
+|-
+|{{I|Low Grade Medical Supplies}}
+|{{I|Gold Coin|none}} x240
+|-
+|{{I|Medical Supplies}}
+|{{I|Gold Coin|none}} x800
+|-
+|{{I|High Grade Medical Supplies}}
+|{{I|Gold Coin|none}} x3000
+|-
+|{{I|Mind Control Meds}}
+|{{I|Gold Coin|none}} x10000
+|-
+|{{I|Tomato}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Lettuce}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Leather}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Bone}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Horn}}
+|{{I|Gold Coin|none}} x300
+|-
+|{{I|Ice Organ}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|High Quality Pal Oil}}
+|{{I|Gold Coin|none}} x300
+|-
+|{{I|Tomato Seeds}}
+|{{I|Gold Coin|none}} x200
+|-
+|{{I|Lettuce Seeds}}
+|{{I|Gold Coin|none}} x200
+|}
+
+
+|-|Duneshelter green shirt merchant=
+{| class="wikitable"
+!Item
+!Price
+|-
+|{{I|Soft Hat Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Silk Hat Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Tricorne Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Exploration Cap Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Grinning Tocotoco Cap Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Katress Cap Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Leezpunk Hood Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Ring of Mercy}}
+|{{I|Gold Coin|none}} x30000
+|-
+|{{I|Heat Resistant Pelt Armor}}
+|{{I|Gold Coin|none}} x3000
+|-
+|{{I|Cold Resistant Pelt Armor}}
+|{{I|Gold Coin|none}} x3000
+|-
+|{{I|Heat Resistant Undershirt}}
+|{{I|Gold Coin|none}} x7000
+|-
+|{{I|Thermal Undershirt}}
+|{{I|Gold Coin|none}} x7000
+|-
+|{{I|Multiclimate Undershirt}}
+|{{I|Gold Coin|none}} x30000
+|-
+|{{I|Musket}}
+|{{I|Gold Coin|none}} x37600
+|-
+|{{I|Coarse Ammo}}
+|{{I|Gold Coin|none}} x120
+|-
+|{{I|Handgun Ammo}}
+|{{I|Gold Coin|none}} x120
+|-
+|{{I|Rifle Ammo}}
+|{{I|Gold Coin|none}} x220
+|-
+|{{I|Shotgun Shell}}
+|{{I|Gold Coin|none}} x220
+|-
+|{{I|Assault Rifle Ammo}}
+|{{I|Gold Coin|none}} x150
+|}
+
+|-|Fisherman's Point red shirt merchant=
+{| class="wikitable"
+!Item
+!Price
+|-
+|{{I|Mega Sphere}}
+|{{I|Gold Coin|none}} x920
+|-
+|{{I|Fire Skill Fruit: Ignis Breath}}
+|{{I|Gold Coin|none}} x2500
+|-
+|{{I|Fire Skill Fruit: Flare Storm}}
+|{{I|Gold Coin|none}} x2500
+|-
+|{{I|Water Skill Fruit: Aqua Burst}}
+|{{I|Gold Coin|none}} x2500
+|-
+|{{I|Low Grade Medical Supplies}}
+|{{I|Gold Coin|none}} x240
+|-
+|{{I|Medical Supplies}}
+|{{I|Gold Coin|none}} x800
+|-
+|{{I|High Grade Medical Supplies}}
+|{{I|Gold Coin|none}} x3000
+|-
+|{{I|Mind Control Meds}}
+|{{I|Gold Coin|none}} x10000
+|-
+|{{I|Tomato}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Lettuce}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Leather}}
+|{{I|Gold Coin|none}} x150
+|-
+|{{I|Bone}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|Horn}}
+|{{I|Gold Coin|none}} x300
+|-
+|{{I|Flame Organ}}
+|{{I|Gold Coin|none}} x100
+|-
+|{{I|High Quality Pal Oil}}
+|{{I|Gold Coin|none}} x300
+|-
+|{{I|Tomato Seeds}}
+|{{I|Gold Coin|none}} x200
+|-
+|{{I|Lettuce Seeds}}
+|{{I|Gold Coin|none}} x200
+|}
+
+|-|Fisherman's Point green shirt merchant=
+{| class="wikitable"
+!Item
+!Price
+|-
+|{{I|Monarch's Crown Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Golden Crown Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Helmet Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Graduate Cap Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Killamari Cap Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Swee Cap Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Dazzi Hat Schematic 1}}
+|{{I|Gold Coin|none}} x500
+|-
+|{{I|Ring of Mercy}}
+|{{I|Gold Coin|none}} x30000
+|-
+|{{I|Heat Resistant Pelt Armor}}
+|{{I|Gold Coin|none}} x3000
+|-
+|{{I|Heat Resistant Undershirt}}
+|{{I|Gold Coin|none}} x7000
+|-
+|{{I|Ring of Flame Resistance}}
+|{{I|Gold Coin|none}} x4000
+|-
+|{{I|Fire Arrow Crossbow}}
+|{{I|Gold Coin|none}} x25200
+|-
+|{{I|Fire Arrow}}
+|{{I|Gold Coin|none}} x15
+|-
+|{{I|Makeshift Handgun}}
+|{{I|Gold Coin|none}} x16600
+|-
+|{{I|Coarse Ammo}}
+|{{I|Gold Coin|none}} x120
+|-
+|{{I|Handgun Ammo}}
+|{{I|Gold Coin|none}} x120
+|-
+|{{I|Rifle Ammo}}
+|{{I|Gold Coin|none}} x220
+|-
+|{{I|Shotgun Shell}}
+|{{I|Gold Coin|none}} x220
+|-
+|{{I|Assault Rifle Ammo}}
+|{{I|Gold Coin|none}} x150
+|}
+</tabber>
+
+==Dialogue==
+
+Wandering Merchants will greet you by saying:
+:''"Welcome. I've got some good items in stock!"''
+
+You can then trade with the merchant, or leave:
+:'''"Buy"'''
+:'''"Sell"'''
+:'''"Leave"'''
+::''"Thanks, come again."''
+
+== History ==
+* [[0.3.4.0]]
+** Small Settlement merchant now sells Chikipi Poultry and Lamball Mutton.
+** Buy cost for Egg and Milk increased to 150 (up from 50).
+* [[0.3.1.0]]
+** Small Settlement merchant now sells Ribbuny Headband Schematic 1.
+** Duneshelter green merchant now sells Leezpunk Hood Schematic 1.
+** Fisherman's Point green merchant now sells Killamari Cap Schematic 1, Swee Cap Schematic 1 and Dazzi Hat Schematic 1.
+* [[0.2.0.6]]
+** Small Settlement merchant now sells Ring of Mercy.
+** Random Incident merchant now sells Pal Fluids, High Quality Pal Oil, and ammunition.
+** Duneshelter green merchant now sells Ring of Mercy and Multiclimate Undershirt.
+** Fisherman's Point green merchant now sells Ring of Mercy.
+* [[0.1.2.0]]
+** Introduced.
+
+==Gallery==
+<gallery>
+File:Red_Wandering_Merchant.png|A Red Coat Wandering Merchant.
+File:Wandering_Merchant.png|Green Coat
+File:Pal merchant.png|[[Pal Merchant]]
+File:Black Marketeer.png|[[Black Marketeer]]
+File:Medal_Merchant.png|[[Medal Merchant]]
+File:Wandering_merchant_captured.png|alt=Palworld's Wandering Merchant caught by a player-made Hanging Trap|Caught by a [[Hanging Trap]]
+</gallery>
+
+[[Category:Characters]]
+[[Category:Humans]]

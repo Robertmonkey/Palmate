@@ -1,0 +1,145 @@
+{{Pal Prev/Next | prevPal = Wumpo | prevNo = 091 | nextPal = Warsect | nextNo = 092}}
+{{Pal
+
+|name                    ={{PAGENAME}}
+| no                     =091B
+| title                  =Guardian of the Grassy Fields
+
+| ele1                   =Grass
+| ele2                   =
+
+| partnerskill           =Guardian of the Grassy Fields
+| partnerskill_desc      =Can be [[ridden]].
+While in team, Wumpo Botan helps carry supplies, increasing the [[player]]'s max [[carrying capacity]].
+| partnerskill_icon      =Mount
+
+| hp                     = 140
+| attack                 = 80
+| attack_melee           = 100
+| defense                = 110
+| support                = 100
+
+| slow_walk_speed        = 70
+| walk_speed             = 100
+| run_speed              = 365
+| ride_sprint_speed      = 550
+| transport_speed        = 150
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 5700
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 480
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Wind Cutter
+| activeskill7           = Aqua Gun
+| activeskill15          = Seed Mine
+| activeskill22          = Grass Tornado
+| activeskill30          = Spine Vine
+| activeskill40          = Aqua Burst
+| activeskill50          = Solar Blast
+
+| kindling               =
+| watering               =
+| planting               =1
+| generating_electricity =
+| handiwork              =2
+| gathering              =
+| lumbering              =3
+| mining                 =
+| medicine_production    =
+| cooling                =
+| transporting           =4
+| farming                =
+
+| food                  = 8
+| nocturnal             = No
+
+|drop1=Lettuce Seeds 
+|drop1_min=1
+|drop1_max=1
+|drop1_chance=100
+|drop2=Tomato Seeds 
+|drop2_min=1
+|drop2_max=1
+|drop2_chance=100
+|drop3=Beautiful Flower 
+|drop3_min=1
+|drop3_max=1
+|drop3_chance=20
+|drop4                  = Carrot Seeds
+|drop4_min              = 1
+|drop4_max              = 1
+|drop4_chance           = 50
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=6
+|alphadrop1_max=8
+|alphadrop1_chance=100
+|alphadrop2=Lettuce Seeds 
+|alphadrop2_min=1
+|alphadrop2_max=1
+|alphadrop2_chance=100
+|alphadrop3=Tomato Seeds 
+|alphadrop3_min=1
+|alphadrop3_max=1
+|alphadrop3_chance=100
+|alphadrop4=Precious Pelt
+|alphadrop4_min=6
+|alphadrop4_max=8
+|alphadrop4_chance=100
+|alphadrop5=Ring of Grass Resistance +1
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=3
+
+}}{{paldeck|Researchers once tried to cut the grass off its body to reveal its true form. In the end, only grass was left, as if that was all there was to begin with.}}
+'''Wumpo Botan''' (Japanese: '''トロピティ''' ''Tropiti'') is the {{i|Grass}} [[Elements|element]] [[Breeding|variation]] of [[Wumpo]].
+
+== Appearance ==
+Wumpo Botan is a large rotund Pal with dark and light green fur over top of black skin. It also has a flower on its head. These Pals also keep an unknown plant in their mouth at seemingly all times.
+
+== Behavior and habitat ==
+These Pals can be found in [[No. 2 Wildlife Sanctuary]] and as [[Alpha Pals]] on the [[Eastern Wild Island]].
+[[File:Wumpo_Botan_Day_Habitat.webp|thumb|Daytime Wumpo Botan Spawns]]
+[[File:Wumpo_Botan_Night_Habitat.webp|thumb|Nightime Wumpo Botan Spawns]]
+
+== Utility ==
+Wumpo Botan's [[Partner Skill]], Guardian of the Grassy Fields, augments the player's [[carrying capacity]] by 120 at rank 1. Note that this requires a [[Wumpo Botan Saddle]] to become active; if the player does not have one in their Key Items, this additional carrying capacity will not take effect. This saddle also permits Wumpo Botan to be [[Mounts|ridden]].
+
+Wumpo Botan also has the highest [[Transporting]] [[Work Suitability|suitability]] in the game, at 4. This is shared with [[Wumpo]]. Despite being able to move massive quantities of items at a time, Wumpo Botan moves slowly when transporting items, meaning that other Pals may be better choices when selecting a Pal to transport items into chests around the base.
+
+Wumpo Botan loses Wumpo's level 2 [[Cooling]] suitability, replacing it with level 1 [[Planting]].
+
+== History ==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.2 to 0.24.
+* [[0.1.2.0]]
+** Introduced.
+
+== Trivia ==
+* Wumpo is the only Grass element subspecies whose element isn’t from its regular counterpart. As a result, it uniquely has the “Botan” suffix, derived from “botanical”.
+* The Japanese name might be from “tropical” and “Yeti.”
+
+== Media ==
+<gallery widths="150">
+...
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]
+[[Category:Rideable Pals]]
+[[Category:Subspecies]]
+[[Category:Botan Subspecies]]

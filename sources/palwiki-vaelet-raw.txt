@@ -1,0 +1,139 @@
+{{Pal Prev/Next | prevPal = Verdash | prevNo = 077 | nextPal =  Sibelyx | nextNo = 079}}
+{{Pal
+
+|name                   =Vaelet
+|no                     =078
+|title                  =Voice of the Violets
+
+|ele1                   =Grass
+|ele2                   =
+
+|partnerskill           =Purification of Gaia
+|partnerskill_desc      =While fighting together, {{i|Ground}} [[Pals]] drop more [[items]] when defeated.
+|partnerskill_icon      =Drop Boost
+
+| hp                     = 100
+| attack                 = 100
+| attack_melee           = 100
+| defense                = 120
+| support                = 100
+
+| slow_walk_speed        = 100
+| walk_speed             = 150
+| run_speed              = 400
+| ride_sprint_speed      = 550
+| transport_speed        = 275
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 1960
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 1050
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Poison Fog
+| activeskill7           = Wind Cutter
+| activeskill15          = Poison Blast
+| activeskill22          = Seed Mine
+| activeskill30          = Grass Tornado
+| activeskill40          = Nightmare Ball
+| activeskill50          = Solar Blast
+
+|kindling               =
+|watering               =
+|planting               =2
+|generating_electricity =
+|handiwork              =2
+|gathering              =2
+|lumbering              =
+|mining                 =
+|medicine_production    =3
+|cooling                =
+|transporting           =1
+|farming                =
+
+| food                  = 3
+| nocturnal             = No
+
+|drop1=Low Grade Medical Supplies 
+|drop1_min=2
+|drop1_max=2
+|drop1_chance=100
+|drop2=Tomato Seeds 
+|drop2_min=1
+|drop2_max=1
+|drop2_chance=50
+|drop3                  = 
+|drop3_min              = 
+|drop3_max              = 
+|drop3_chance           = 
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=1
+|alphadrop1_max=3
+|alphadrop1_chance=100
+|alphadrop2=Low Grade Medical Supplies
+|alphadrop2_min=2
+|alphadrop2_max=2
+|alphadrop2_chance=100
+|alphadrop3=Tomato Seeds 
+|alphadrop3_min=1
+|alphadrop3_max=1
+|alphadrop3_chance=50
+|alphadrop4=Precious Entrails
+|alphadrop4_min=1
+|alphadrop4_max=3
+|alphadrop4_chance=100
+|alphadrop5=Double-barreled Shotgun Schematic 4
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=3
+
+}}{{paldeck|The castle was filled with the king's favorite flowers. A great battle ensued, and flames approached the castle. Amidst the chaos, the spirit of a flower appeared. - From the fairy tale, "The King's Flower."}}
+'''Vaelet''' (Japanese: '''ヴィオェッタ''' ''Violetta'') is a {{i|Grass}} [[Elements|element]] [[Pals|pal]].
+
+== Appearance ==
+Vaelet has a green and black body with purple petals on its back. The top part of its body is covered in white fur.
+
+== Behavior and habitat ==
+Its hostile and will attack on sight.
+It can be found in the [[No. 1 Wildlife Sanctuary]], and as an alpha at the Sealed Realm Of The Guardian quick travel.
+[[File:Vaelet_Day_Habitat.webp|thumb|Daytime Vaelet Spawns]]
+[[File:Vaelet_Night_Habitat.webp|thumb|Nightime Vaelet Spawns]]
+
+== Utility ==
+{{PAGENAME}} is able to ???.
+
+== History ==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.2 to 0.24.
+* [[0.2.0.6]]
+** Alpha Vaelet now drops [[Double-barreled Shotgun Schematic 4]] instead of [[Ring of Grass Resistance +1]].
+* [[0.1.2.0]]
+** Introduced.
+
+== Trivia ==
+* The Japanese name might be from the Italian word “Violetta,” which means violet.
+
+== Media ==
+<gallery widths="150">
+File:Vaelet bis.png
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]
