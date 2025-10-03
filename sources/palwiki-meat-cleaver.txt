@@ -1,0 +1,49 @@
+Meat Cleaver — palworld.wiki.gg (raw wikitext)
+{{Item
+| description   = Knife for butchering Pals. When equipped, the Pet command becomes Butcher. Butchered Pals will be gone for good.
+| type          = Weapon
+| rarity        = Common
+
+| weight        = 10
+| durability    = 300
+
+| buy           = 100
+| sell          = 10
+
+| attack        = 25
+|technology=Meat Cleaver
+|required_level=12
+|cost=2
+| made_at       = Primitive Workbench
+| workload        = 50
+}}
+The '''Meat Cleaver''' is a melee weapon in ''[[Palworld]]''. It is unlocked at level 12 for 2 [[Technology|Technology Points]].
+
+==Overview==
+The Meat Cleaver is used for butchering the user's [[Pals]], letting them obtain their drops once again after catching them. Though this action can be quite lucrative, especially if the Pal being butchered is an [[Alpha Pals|Alpha]] and will drop valuable items, Pals that are butchered will '''die permanently'''. As such, the user must be very careful when selecting which Pals they want to kill.
+
+==Crafting==
+{{Recipe
+|mat1=Ingot
+|mat1qty=5
+|mat2=Wood
+|mat2qty=20
+|mat3=Stone
+|mat3qty=5
+|output1=Meat Cleaver
+|output1qty=1
+}}
+
+== Notes ==
+* To butcher a Pal, press "4" (default key) to bring up the Pal command menu with the Pal you want to butcher with the Meat Cleaver in hand. On the uppermost tab of the menu it should then have the option to butcher that Pal (this option should replace the "Pet" command that would instead appear without the cleaver).
+** Captured [[Humans]] can also be butchered.
+* Capturing and butchering Alpha Pals can be used as a method to obtain legendary-tier [[Schematics]] much faster, since the Alpha Pal will drop items when captured and then drop the same pool of items again after being butchered, essentially giving two chances of obtaining the Schematic in question. For example, if you don't get the Schematic you want after catching an Alpha Pal, you can butcher it for a second chance at getting it. However, since legendary-tier Schematics have low drop rates, chances are you'll have to butcher the Alpha Pal several times before you get it.
+* Though the Meat Cleaver can be used as a weapon, it has extremely low attack power (the same amount as a [[Wooden Club]]), making its combat capabilities near non-existent.
+* Having [[Splatterina]] in the user’s party increases butchering drop amount.
+
+== History ==
+* [[0.1.2.0]]
+** Introduced.
+
+{{Navbox Gear}}
+[[Category:Weapons]]

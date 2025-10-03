@@ -97,6 +97,9 @@ This document describes the responsibilities, workflows and quality assurance st
 *Progress 2025-10-20:* Authored Refined Ingot Forge Cycle (`resource-refined-ingot`) and Pal Metal Alloy Grid (`resource-pal-metal-ingot`), wiring both guides into `guides.md`/`data/guides.bundle.json`, updating the source registry with palworld.wiki, SegmentNext, and Fandom citations, and adding raw transcripts in `sources/`. Routes now cover level-34 Improved Furnace mining loops, electric furnace construction, and Pal Metal drop hunts.
   * Next steps: secure a second independent citation for the (191,-36) dual-node ridge or alternative refined ingot hotspots, capture Electric Furnace power draw mechanics (generator throughput, battery backups) once a reliable source appears, map elite Pal Metal drop coordinates and respawn timers, and continue meat/seed backlog after confirming spawn references (Caprity/Broncherry meats, Galeclaw poultry).
 
+*Progress 2025-10-21:* Delivered Chikipi Poultry Harvest Loop (`resource-chikipi-poultry`) covering Windswept Hills capture sweeps, Meat Cleaver butchery, and pantry/ranch balancing, synchronized `data/guides.bundle.json`, and logged new source transcripts for the cleaver and Chikipi drops.【palwiki-chikipi†L9-L76】【palwiki-meat-cleaver†L20-L41】
+  * Next steps: source sanctuary-specific citations so Woolipop/Cotton Candy automation can ship, identify reliable field locations for Galeclaw poultry and Caprity meat (two independent sources per spawn), and expand the pantry chain with preservation infrastructure once storage references surface.
+
 ## Performance Notes
 
 * **Chunking** – When creating or updating `guides.md`, generate large JSON blocks in manageable chunks to avoid exceeding context limits.  Use the container tools to build the file incrementally.

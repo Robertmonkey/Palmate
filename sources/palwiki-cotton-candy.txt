@@ -1,0 +1,40 @@
+Cotton Candy — palworld.wiki.gg (raw wikitext)
+{{stub}}
+{{Item
+| description   = Cotton candy collected from [[Woolipop]]. Its sweetness fluffily melts away in your mouth.
+| type          = Ingredient
+| rarity        = Common
+
+| weight        = 0.2
+
+| buy           = 250
+| sell          = 25
+
+| nutrition     = 5
+| san           = 5
+| corruption    = 
+
+| technology    = 
+| required_level = 
+| cost          = 
+| made_at       = 
+| workload        = 
+}}
+
+'''Cotton Candy''' is a [[consumable]] [[ingredient]], no-perishable edible item dropped by [[Woolipop]]. Putting Woolipop in the ranch at your base will allow you to farm it. Unlike most other ingredients, cotton candy does not expire.
+
+==Acquisition==
+* [[Farming]]:
+** {{I|Woolipop}}
+* Dropped by:
+{{Drops}}
+
+== Products ==
+{{Products}}
+
+== History ==
+* [[0.1.2.0]]
+** Introduced.
+
+{{Navbox Ingredients}}
+[[Category:Ingredients]]

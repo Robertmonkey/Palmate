@@ -1,0 +1,117 @@
+Chikipi — palworld.fandom.com (raw wikitext)
+{{Pal Prev/Next | prevPal = Cattiva | prevNo = 002 | nextPal = Lifmunk | nextNo = 004}}
+{{Pal
+| name = Chikipi
+| alphatitle = Plump & Juicy
+| image = Chikipi.png
+| no = 003
+| ele1 = Neutral
+| drops = {{i|Egg}}<br/>{{i|Chikipi Poultry}}
+| food = 1
+| partnerskill = Egg Layer
+| psicon =Ranch 
+| psdesc = Sometimes lays an Egg when assigned to Ranch.
+| gathering = 1
+| farming = 1
+| breedpower = 1500
+|maps=<gallery>
+Chikipi Day Habitat.png|Day
+Chikipi Night Habitat.png|Night
+</gallery>}}
+'''Chikipi''' (Japanese: '''タマコッコ''' ''Tamakokko'') is a {{i|Neutral}} [[Elements|element]] [[Pals|Pal]].
+
+== Paldeck Entry==
+{{Paldeck|Extremely weak and far too delicious. It is one of the weakest Pals alongside [[Lamball]]. No matter how many are hunted, they just keep appearing.}}
+==Biology==
+===Appearance===
+Chikipi is a pal resembling a white chicken. Its body is vaguely egg-shaped and it has grey oval eyes. The beak of Chikipi is yellow and features a red wattle. The feet of Chikipi are orange with two clawed toes in the front and one toe at the back of the foot. The top of a Chikipi's head has a large comb that is red just like its waddle.
+
+===Behavior===
+Wild Chikipi may sporadically lay eggs on the ground, which can be picked up by the player. This Pal retaliates only when attacked, though neighboring Chikipi will become aggressive upon witnessing another Chikipi being harmed by the player.
+
+==Availability==
+===Wild Spawn===
+
+* [[Windswept Hills]]
+
+===[[Dungeons]]=== 
+*[[Dungeons#Grass Dungeons|Grass Dungeon Boss]]
+
+<div class="mw-collapsible mw-collapsed">
+=== [[Breeding]] ===
+<div class="mw-collapsible-content">
+{{Cols|2|{{Breeding|Chikipi}}}}
+</div></div>
+
+==Stats==
+{{Pal Table Stats
+|hp=60
+|attack=60
+|defense=60
+|min_hp=2425
+|max_hp=2920
+|min_attack=347
+|max_attack=421
+|max_defense=297
+|min_defense=371
+}}
+==Elemental Effectiveness==
+{{Pal Element Effect|type=neutral}}
+
+==Utility==
+'''Partner Skill:'''
+*Egg Layer - Sometimes lays eggs when assigned to Ranch.
+
+'''Work Suitability:'''
+* {{i|Gathering}} 1
+* {{i|Farming}} 1
+
+'''Possible Drops:''' 
+*Normal
+** {{i|Egg}}
+** {{i|Chikipi Poultry}}
+*Boss
+** {{i|Ancient Civilization Parts}}
+** {{i|Egg }}
+** {{i|Chikipi Poultry}}
+** {{i|Precious Plume}} 
+** {{i|Ring of Resistance}}
+'''Farming Produce''' 
+* {{i|Egg}}
+
+==Active Skills==
+{{PalSkillListStart}}
+{{PalSkillListEntry+|Chicken Rush|level=1}}
+{{PalSkillListEntry+|Air Cannon|level=7}}
+{{PalSkillListEntry+|Power Shot|level=15}}
+{{PalSkillListEntry+|Implode|level=22}}
+{{PalSkillListEntry+|Grass Tornado|level=30}}
+{{PalSkillListEntry+|Sand Tornado|level=40}}
+{{PalSkillListEntry+|Flare Storm|level=50}}
+{{PalSkillListEnd}}
+
+==Update History==
+*[[Early Access 0.1.2.0]]
+**Introduced.
+
+==Trivia== 
+*It was previously called '''Chickegg'''.
+*Chikipi's name may come from “chicken”, “chick”, and “chickpea” due to this Pal's small size.
+*Its Japanese name may come from 卵 ''tamago'' (egg) or simply 玉 ''tama'' (sphere/ball), and コッコ ''kokko'' (onomatopoeia for the sound a chicken makes).
+*Chikipi has:
+**The lowest stat total of all Pals, at 180.
+**The lowest HP of all Pals at 60, tied with [[Fuack]], [[Sparkit]], [[Killamari|Killamari,]] [[Tocotoco]], [[Swee]], and [[Flambelle]].
+*Chikipi was featured in Paldeck No.031 on PocketPair [https://x.com/Palworld_EN/status/1707726930106331431 X] and [https://www.youtube.com/watch?v=iJWqlcX855k youtube channel].
+
+==Gallery==
+<gallery>
+File:Paldeck - No.031 CHIKIPI - Palworld - Gameplay - Pocketpair-2
+File:Chieckegg2.png| A player petting a Chikipi
+File:Chickegg3.png| A player cooking a Chikipi
+File:Chikipi sleep.png|A Chikipi sleeping.
+File:Chikipi Lucky.png|The size difference between a [[Lucky Pals|Lucky]] Chikipi and a normal Chikipi.
+File:Chikipi1.png|Chikipi in Early logo
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals with exclusive Skills]]

@@ -8627,6 +8627,322 @@ Milk powers cakes, hot drinks, and early-game sanity food, so this loop builds a
 }
 ```
 
+### Route: Chikipi Poultry Harvest Loop
+
+Chikipi Poultry Harvest Loop corrals the starter meadow flocks, adds a Meat Cleaver station for humane culling, and keeps a chilled pantry stocked for early cooking chains.【palwiki-chikipi†L9-L13】【palwiki-meat-cleaver†L20-L39】
+
+```json
+{
+  "route_id": "resource-chikipi-poultry",
+  "title": "Chikipi Poultry Harvest Loop",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "chikipi-poultry",
+    "cooking",
+    "early-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 12,
+    "max": 22
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture",
+      "resource-egg"
+    ],
+    "tech": [
+      "primitive-workbench"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Capture Chikipi near the starter Palbox",
+    "Craft a Meat Cleaver and butcher excess birds for poultry",
+    "Stage ranch rotations and cold storage to keep poultry flowing"
+  ],
+  "estimated_time_minutes": {
+    "solo": 26,
+    "coop": 18
+  },
+  "estimated_xp_gain": {
+    "min": 150,
+    "max": 240
+  },
+  "risk_profile": "low",
+  "failure_penalties": {
+    "normal": "Culling the wrong Pal wastes partner passives and delays poultry restocks until respawns catch up.",
+    "hardcore": "Misusing the cleaver can trigger base morale loss and raids, costing you captured layers."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Work within sight of the Palbox so aggroed flocks leash and you can reset without burning spheres.【palwiki-chikipi†L29-L35】",
+    "overleveled": "Alternate meadow sweeps with butcher sessions to bank a stack of poultry before raids escalate.【palwiki-chikipi†L29-L35】【palwiki-meat-cleaver†L20-L39】",
+    "resource_shortages": [
+      {
+        "item_id": "chikipi-poultry",
+        "solution": "Cull one captured pair per loop after eggs hatch, then let timers refill ranch slots before the next hunt.【palwiki-chikipi†L63-L72】【palwiki-meat-cleaver†L20-L39】"
+      }
+    ],
+    "time_limited": "Do a quick meadow sweep, butcher the surplus, then refrigerate the cuts so cooking can resume later.【palwiki-chikipi†L63-L72】【palwiki-meat-cleaver†L37-L41】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign a wrangler to kite flocks into bolas while the butcher keeps the cleaver station clear and stocks the fridge.",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-chikipi-poultry:001",
+          "resource-chikipi-poultry:002"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-chikipi-poultry:checkpoint-pen",
+      "label": "Capture Pen Stocked",
+      "includes": [
+        "resource-chikipi-poultry:001"
+      ]
+    },
+    {
+      "id": "resource-chikipi-poultry:checkpoint-cleaver",
+      "label": "Cleaver Station Online",
+      "includes": [
+        "resource-chikipi-poultry:002"
+      ]
+    },
+    {
+      "id": "resource-chikipi-poultry:checkpoint-pantry",
+      "label": "Poultry Pantry Filled",
+      "includes": [
+        "resource-chikipi-poultry:003"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "resource-chikipi-poultry:001",
+      "type": "capture",
+      "summary": "Sweep Palbox meadow for Chikipi",
+      "detail": "Teleport to the Windswept Hills statue (~-42,-498) and loop the grass flats, bolaing docile Chikipi before they flock. Scoop ground eggs while you net four prime layers for the ranch.【palwiki-chikipi†L29-L35】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "chikipi",
+          "qty": 4
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            -42,
+            -498
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Use bolas or Frost Grenades so incidental damage doesn’t snowball into flock aggro.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "wrangler",
+              "tasks": "Tag birds and keep them corralled near the Palbox"
+            },
+            {
+              "role": "collector",
+              "tasks": "Throw Pal Spheres, gather eggs, and rotate catches to base"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "bola"
+        ],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 110,
+        "max": 170
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "egg",
+            "qty": 4
+          }
+        ],
+        "pals": [
+          "chikipi"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-chikipi"
+      ]
+    },
+    {
+      "step_id": "resource-chikipi-poultry:002",
+      "type": "craft",
+      "summary": "Forge the Meat Cleaver and butcher extras",
+      "detail": "Craft the Meat Cleaver at the Primitive Workbench (5 Ingots, 20 Wood, 5 Stone), then use the Pet command wheel to butcher surplus Chikipi. Each culled bird yields guaranteed poultry for stews—stagger culls to avoid wiping the ranch.【palwiki-meat-cleaver†L20-L39】【palwiki-meat-cleaver†L25-L34】【palwiki-chikipi†L69-L76】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "chikipi-poultry",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Back up save birds with Pal Spheres before butchering so a misclick doesn’t delete your only egg layers.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "meat-cleaver"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 30,
+        "max": 40
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "chikipi-poultry",
+            "qty": 6
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-meat-cleaver",
+        "palwiki-chikipi"
+      ]
+    },
+    {
+      "step_id": "resource-chikipi-poultry:003",
+      "type": "base",
+      "summary": "Balance ranch timers and cold storage",
+      "detail": "Assign two Chikipi to the ranch for steady eggs, chill butchered poultry in a Cooler Box, and rotate captures each loop so new birds replace those culled for meat.【palwiki-chikipi†L63-L72】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "chikipi-poultry",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "chikipi"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 10,
+        "max": 30
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "chikipi-poultry",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-chikipi"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "chikipi-poultry",
+      "qty": 18
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "poultry-stockpile"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-cake",
+      "reason": "Cake production relies on poultry for high-quality cooking buffs."
+    }
+  ]
+}
+```
+
 ### Route: Ore Mining Grid
 
 Ore underpins early metal gear, so this grid stakes the Fort Ruins ridge, anchors a Small Settlement cliff mining base, and keeps Ingots smelting out of automated hauls.【40f7a9†L1-L80】【047054†L18-L24】【951c6f†L6-L16】
@@ -21582,6 +21898,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/wiki/Woolipop",
       "access_date": "2025-10-10",
       "notes": "Shows Woolipop drops 1 High Quality Pal Oil alongside Cotton Candy and documents its ranch output.\u3010c81b10\u2020L13-L41\u3011"
+    },
+    "palwiki-meat-cleaver": {
+      "title": "Meat Cleaver \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Meat_Cleaver",
+      "access_date": "2025-10-21",
+      "notes": "Confirms the Meat Cleaver unlocks at level 12, costs 5 Ingots, 20 Wood, and 5 Stone to craft, and that equipping it replaces the Pet command with Butcher for harvesting Pal drops.\u3010palwiki-meat-cleaver\u2020L20-L39\u3011"
     },
     "segmentnext-mozzarina": {
       "title": "Palworld: Mozzarina Location (& Best Breeding Combos)",
