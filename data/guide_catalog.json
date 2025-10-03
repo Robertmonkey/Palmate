@@ -8598,6 +8598,288 @@
       ]
     },
     {
+      "id": "resource-coal",
+      "title": "Coal Run & Smelter Prep",
+      "source_heading": "Coal Run & Smelter Prep",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player can’t craft Refined Ingots, gunpowder, or ammo because Coal reserves are empty.",
+      "keywords": [
+        "coal",
+        "hillside cavern",
+        "desiccated desert",
+        "refined ingot"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Clear **Hillside Cavern (147,-397)** northeast of the Rayne Syndicate Tower, mining every Coal vein before exiting to reset the nodes.",
+          "citations": [
+            "pcgamesn-coal"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "hillside-cavern",
+              "name": "Hillside Cavern",
+              "region": "Windswept Hills"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Rotate through the **Desiccated Desert** ridges and **Astral Mountain** foothills for faster-respawning Coal veins once you have higher-level gear.",
+          "citations": [
+            "pcgamesn-coal"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "desiccated-desert",
+              "name": "Desiccated Desert",
+              "region": "Desiccated Desert"
+            },
+            {
+              "type": "location",
+              "id": "astral-mountain",
+              "name": "Astral Mountain",
+              "region": "Astral Mountain"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Feed the haul into the **Improved Furnace or Crusher** at base to turn Coal and Ore into Refined Ingots before the next combat push.",
+          "citations": [
+            "palwiki-coal"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "improved-furnace",
+              "name": "Improved Furnace"
+            },
+            {
+              "type": "structure",
+              "id": "crusher",
+              "name": "Crusher"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-honey",
+      "title": "Honey Harvest Network",
+      "source_heading": "Honey Harvest Network",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Honey for Cake, Strange Juice, or other cooking lines and lacks a steady stock.",
+      "keywords": [
+        "honey",
+        "cinnamoth",
+        "beegarde",
+        "ranch"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Teleport to **Cinnamoth Forest (-74,-279)** and capture the roaming Cinnamoth packs so each catch drops 6–8 Honey.",
+          "citations": [
+            "pcgamesn-honey"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "cinnamoth-forest",
+              "name": "Cinnamoth Forest",
+              "region": "Sea Breeze Archipelago"
+            },
+            {
+              "type": "pal",
+              "id": "cinnamoth",
+              "name": "Cinnamoth"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Push into **Mossanda Forest (234,-118)** to capture or defeat Beegarde squads and bank another dozen Honey plus workers for automation.",
+          "citations": [
+            "pcgamesn-honey"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "mossanda-forest",
+              "name": "Mossanda Forest",
+              "region": "Forest of Oblivion"
+            },
+            {
+              "type": "pal",
+              "id": "beegarde",
+              "name": "Beegarde"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Assign captured **Beegarde** to a Ranch so Honey trickles in passively between breeding batches and cake crafts.",
+          "citations": [
+            "pcgamesn-honey",
+            "palwiki-honey"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "ranch",
+              "name": "Ranch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-leather-early",
+      "title": "Leather Farming Loop (Early)",
+      "source_heading": "Leather Farming Loop (Early)",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Leather for early armor, saddles, or crafting upgrades and wants a fast refill loop.",
+      "keywords": [
+        "leather",
+        "foxparks",
+        "rushoar",
+        "merchant"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Fast travel to the **Sea Breeze Archipelago Church** or the **Bridge of the Twin Knights** and clear the dense Foxparks, Rushoar, and Fuack spawns for quick Leather drops.",
+          "citations": [
+            "shockbyte-leather-sources"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "sea-breeze-archipelago-church",
+              "name": "Sea Breeze Archipelago Church",
+              "region": "Sea Breeze Archipelago"
+            },
+            {
+              "type": "location",
+              "id": "bridge-of-the-twin-knights",
+              "name": "Bridge of the Twin Knights",
+              "region": "Windswept Hills"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Chain hunts of **Foxparks, Fuack, Rushoar, Melpaca, Vixy, Eikthyrdeer, and Direhowl**—each yields 1–3 Leather, especially when you counter their elements with water and electric pals.",
+          "citations": [
+            "shockbyte-leather-sources",
+            "eikthyrdeer-drops"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "foxparks",
+              "name": "Foxparks"
+            },
+            {
+              "type": "pal",
+              "id": "eikthyrdeer",
+              "name": "Eikthyrdeer"
+            },
+            {
+              "type": "item",
+              "id": "leather",
+              "name": "Leather"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "If the loop stalls, buy Leather from the **Wandering Merchant** for about 150 Gold each before restocking spheres and returning to the hunt.",
+          "citations": [
+            "shockbyte-leather-merchant"
+          ],
+          "links": [
+            {
+              "type": "npc",
+              "id": "wandering-merchant",
+              "name": "Wandering Merchant"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-paldium",
+      "title": "Paldium Fragment Mining Loop",
+      "source_heading": "Paldium Fragment Mining Loop",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player is short on Paldium Fragments for Pal Spheres, tech unlocks, or crafting recipes.",
+      "keywords": [
+        "paldium fragment",
+        "mining",
+        "ore",
+        "primitive furnace"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Run the river south of the **Windswept Hills statue**, mining blue crystal nodes that respawn every few minutes for 2–4 fragments each.",
+          "citations": [
+            "palwiki-paldium"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "windswept-hills-river",
+              "name": "Windswept Hills River",
+              "region": "Windswept Hills"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Circle the northern cliffs and kick protruding Paldium crystals along the ridgeline to pull in another 30+ fragments per lap.",
+          "citations": [
+            "palwiki-paldium"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "windswept-hills-ridge",
+              "name": "Windswept Hills Ridge",
+              "region": "Windswept Hills"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Back at base, smelt Ore in the **Primitive Furnace** and crush leftovers so each batch refunds extra fragments before the next run.",
+          "citations": [
+            "palwiki-paldium"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "primitive-furnace",
+              "name": "Primitive Furnace"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "resource-broncherry-meat",
       "title": "Broncherry Meat Caravan Loop",
       "source_heading": "Broncherry Meat Caravan Loop",
