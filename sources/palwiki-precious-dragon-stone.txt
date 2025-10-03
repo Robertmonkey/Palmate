@@ -1,0 +1,30 @@
+{{Item
+| description   = A gemstone-like ball collected from Pals. Can be sold to a merchant for a high price.
+| type          = Material
+| rarity        = Rare
+
+| weight        = 0
+| durability    = 
+
+| buy           = 10,000
+| sell          = 1,000
+
+| technology    = 
+| required_level = 
+| cost          = 
+| made_at       =
+| workload        = 
+}}
+
+{{Icon|{{PAGENAME}}}} is a [[Material]] item which can be dropped by [[Alpha Pals]]. It can be sold to a [[Wandering Merchant]] for {{Icon|Gold Coin|Gold Coins}}, and has no other use.
+
+==Acquisition==
+*Dropped by:
+{{Drops}}
+
+== History ==
+* [[0.1.2.0]]
+** Introduced.
+
+{{Navbox Materials}}
+[[Category:Materials]]

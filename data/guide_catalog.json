@@ -8143,5 +8143,65 @@
         }
       ]
     }
+    ,
+    {
+      "id": "resource-precious-dragon-stone-alpha-relay",
+      "title": "Precious Dragon Stone Alpha Relay",
+      "source_heading": "Precious Dragon Stone Alpha Relay",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "trigger": "Player asks how to farm Precious Dragon Stones or needs alpha gemstone income",
+      "keywords": [
+        "precious dragon stone",
+        "alpha",
+        "gemstone",
+        "merchant"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Sleep at base to align the in-game day and restock high-tier spheres before departing so overworld Alpha Pals are active and ready to drop Precious Dragon Stones.",
+          "citations": [
+            "palwiki-alpha-pals\u2020L12-L25",
+            "palwiki-precious-dragon-stone\u2020L1-L18"
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Clear daily overworld alphas at (172, -419), (-113, -628), (-222, -669), and (49, -460) to bank Precious Dragon Stones from their guaranteed drop tables.",
+          "citations": [
+            "palwiki-alpha-pals\u2020L40-L72",
+            "palwiki-precious-dragon-stone\u2020L1-L18",
+            "palfandom-precious-dragon-stone\u2020L1-L18"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "precious_dragon_stone",
+              "slug": "precious-dragon-stone",
+              "name": "Precious Dragon Stone"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Run Sealed Realms like Spirits (-19, -264) and the Swordmaster (-117, -490) between daily loops, then sell surplus stones to merchants for 1,000 Gold Coins each.",
+          "citations": [
+            "palwiki-sealed-realms\u2020L7-L29",
+            "palwiki-precious-dragon-stone\u2020L1-L18",
+            "palfandom-precious-dragon-stone\u2020L1-L18",
+            "palwiki-wandering-merchant-raw\u2020L24-L119"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "slug": "small-settlement",
+              "name": "Small Settlement"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

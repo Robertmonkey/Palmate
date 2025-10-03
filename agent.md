@@ -120,6 +120,9 @@ This document describes the responsibilities, workflows and quality assurance st
 *Progress 2025-10-30:* Authored Beautiful Flower Sanctuary Sweep (`resource-beautiful-flower`) covering No. 1 Wildlife Sanctuary entry, node harvesting, and Petallia/Wumpo/Lyleen drop loops, synchronized the bundle and guide catalog, and added fresh sanctuary/flower source transcripts.
   * Next steps: capture second-source coordinates for alternate sanctuary flower clusters, document Strange Juice crafting throughput once additional workstation citations are gathered, and extend coverage to other sanctuary-exclusive drops (e.g., Lyleen Noct hair) as reliable references appear.
 
+*Progress 2025-10-31:* Built Precious Dragon Stone Alpha Relay (`resource-precious-dragon-stone`) spanning overworld alpha loops, sealed realm rotations, and merchant liquidation, synced `guides.md`, `data/guides.bundle.json`, and `data/guide_catalog.json`, and registered new Palworld wiki/Fandom citations plus raw transcripts for gemstone drops, alpha coordinates, and sale prices.
+  * Next steps: source secondary confirmation for sealed realm respawn timers beyond wiki raw dumps, expand alpha coverage with late-game bosses (e.g., Jetragon, Dinossom Lux) once reliable coordinates are archived, and capture merchant restock cadence or alternative buyers to diversify gemstone cash-out options.
+
 ## Performance Notes
 
 * **Chunking** – When creating or updating `guides.md`, generate large JSON blocks in manageable chunks to avoid exceeding context limits.  Use the container tools to build the file incrementally.
