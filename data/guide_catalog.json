@@ -8074,5 +8074,74 @@
         }
       ]
     }
+    ,
+    {
+      "id": "resource-beautiful-flower-sanctuary-sweep",
+      "title": "Beautiful Flower Sanctuary Sweep",
+      "source_heading": "Beautiful Flower Sanctuary Sweep",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "trigger": "Player asks how to farm Beautiful Flowers or references Strange Juice ingredients",
+      "keywords": [
+        "beautiful flower",
+        "sanctuary",
+        "strange juice"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Fly into **No. 1 Wildlife Sanctuary** (90, -735) on a mount to dodge PIDF patrol sightlines and stage an extraction route before touching down.",
+          "citations": [
+            "palwiki-wildlife-sanctuary\u2020L6-L21",
+            "palwiki-wildlife-sanctuary-1\u2020L1-L13"
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Harvest sparkling **Beautiful Flower** nodes along the southern terraces, remounting between clusters to keep trespass heat low.",
+          "citations": [
+            "palwiki-beautiful-flower\u2020L25-L33",
+            "palwiki-wildlife-sanctuary-1\u2020L20-L25"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "beautiful_flower",
+              "slug": "beautiful-flower",
+              "name": "Beautiful Flower"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Hunt **Petallia**, **Wumpo**, and **Lyleen** for burst flower drops, then glide out before reinforcements escalate the trespass response.",
+          "citations": [
+            "pcgamesn-beautiful-flower\u2020L16-L24",
+            "palfandom-beautiful-flower\u2020L17-L27",
+            "palwiki-beautiful-flower\u2020L31-L33"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "petallia",
+              "slug": "petallia",
+              "name": "Petallia"
+            },
+            {
+              "type": "pal",
+              "id": "wumpo",
+              "slug": "wumpo",
+              "name": "Wumpo"
+            },
+            {
+              "type": "pal",
+              "id": "lyleen",
+              "slug": "lyleen",
+              "name": "Lyleen"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

@@ -23260,6 +23260,352 @@ Mozzarina Meat Packing Loop pivots the Swordmaster pasture captures into a cleav
 }
 ```
 
+### Route: Beautiful Flower Sanctuary Sweep
+
+Beautiful Flower Sanctuary Sweep infiltrates No. 1 Wildlife Sanctuary (90,-735) to harvest wild flower clusters and cull Petallia, Wumpo, and Lyleen for bulk drops while dodging PIDF trespass crackdowns.【palwiki-wildlife-sanctuary-1†L1-L25】【palwiki-wildlife-sanctuary†L6-L21】【palwiki-beautiful-flower†L25-L33】【pcgamesn-beautiful-flower†L16-L24】
+
+```json
+{
+  "route_id": "resource-beautiful-flower",
+  "title": "Beautiful Flower Sanctuary Sweep",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "beautiful-flower",
+    "alchemy",
+    "sanctuary"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 25,
+    "max": 38
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [
+      "grappling-gun"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Approach No. 1 Wildlife Sanctuary without drawing full PIDF aggro",
+    "Harvest island flower nodes before patrol heat resets",
+    "Hunt sanctuary Pals for supplemental Beautiful Flower drops"
+  ],
+  "estimated_time_minutes": {
+    "solo": 32,
+    "coop": 24
+  },
+  "estimated_xp_gain": {
+    "min": 360,
+    "max": 520
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Getting tagged by PIDF officers during trespass wipes your haul and sends you back to the nearest fast travel statue.",
+    "hardcore": "Hardcore arrests during trespass can cascade into squad deletions, so bail before heat hits three stars."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Stay airborne over Sanctuary No.1, land briefly to gather nodes, and avoid prolonged firefights with level 20–25 patrols.【palwiki-wildlife-sanctuary†L6-L21】",
+    "overleveled": "Rotate through Sanctuaries No.1–3 in a single outing to restock flowers and rare drops once you can comfortably clear level 50 threats.【palwiki-beautiful-flower†L25-L33】【palwiki-wildlife-sanctuary-3†L1-L23】",
+    "resource_shortages": [
+      {
+        "item_id": "beautiful-flower",
+        "solution": "Alternate node harvests with Petallia and Lyleen hunts—each sweep yields flowers from both spawns and pickup nodes.【palwiki-beautiful-flower†L25-L33】【pcgamesn-beautiful-flower†L16-L24】"
+      }
+    ],
+    "time_limited": "Do a single perimeter glide, grab the southern node clusters, and extract before PIDF reinforcements escalate trespass charges.【palwiki-wildlife-sanctuary†L11-L21】【palwiki-wildlife-sanctuary-1†L1-L13】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign a lookout to kite PIDF patrols while the gatherer sweeps flower nodes, then swap roles each rotation.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-beautiful-flower:001",
+          "resource-beautiful-flower:002"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-beautiful-flower:checkpoint-insert",
+      "summary": "Sanctuary breach staged",
+      "benefits": [
+        "Insertion point cleared",
+        "Escape route marked"
+      ],
+      "related_steps": [
+        "resource-beautiful-flower:001"
+      ]
+    },
+    {
+      "id": "resource-beautiful-flower:checkpoint-nodes",
+      "summary": "Node clusters harvested",
+      "benefits": [
+        "Baseline flower stock",
+        "Trespass timer managed"
+      ],
+      "related_steps": [
+        "resource-beautiful-flower:002"
+      ]
+    },
+    {
+      "id": "resource-beautiful-flower:checkpoint-drops",
+      "summary": "Drop sweep complete",
+      "benefits": [
+        "Rare flower surge",
+        "High-tier pals tagged"
+      ],
+      "related_steps": [
+        "resource-beautiful-flower:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-gold-coin"
+    ],
+    "optional": [
+      "resource-medium-pal-soul"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Escape via glider, wait for trespass heat to decay, then restock spheres before the next insertion run.",
+    "hardcore": "Extract immediately when reinforcements spawn—reset at a mainland base, repair gear, and relaunch once timers clear."
+  },
+  "steps": [
+    {
+      "step_id": "resource-beautiful-flower:001",
+      "type": "travel",
+      "summary": "Slip into Sanctuary No.1",
+      "detail": "Fly south from Windswept Hills and descend onto No. 1 Wildlife Sanctuary (90, -735), staying mounted to avoid PIDF line-of-sight while you scout a safe landing zone.【palwiki-wildlife-sanctuary†L6-L21】【palwiki-wildlife-sanctuary-1†L1-L13】",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "wildlife-sanctuary-1",
+          "coords": [
+            90,
+            -735
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "lookout",
+              "tasks": "Glide overhead and ping PIDF patrol routes"
+            },
+            {
+              "role": "harvester",
+              "tasks": "Touch down, mark nodes, and prep escape gliders"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "grappling-gun",
+          "mega-pal-sphere"
+        ],
+        "pals": [
+          "blazehowl"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-wildlife-sanctuary",
+        "palwiki-wildlife-sanctuary-1"
+      ]
+    },
+    {
+      "step_id": "resource-beautiful-flower:002",
+      "type": "gather",
+      "summary": "Sweep flower nodes",
+      "detail": "Circle the southern terraces, harvesting every sparkling Beautiful Flower cluster before trespass heat stacks, then remount to reset patrol timers.【palwiki-beautiful-flower†L25-L33】【palwiki-wildlife-sanctuary-1†L1-L25】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "beautiful-flower",
+          "qty": 10
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "wildlife-sanctuary-1",
+          "coords": [
+            90,
+            -735
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Stay on a flying mount and pluck nodes without dismounting so PIDF officers can't box you in.【palwiki-wildlife-sanctuary†L11-L21】",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "grappling-gun"
+        ],
+        "pals": [
+          "blazehowl"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 140,
+        "max": 220
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "beautiful-flower",
+            "qty": 10
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-beautiful-flower",
+        "palwiki-wildlife-sanctuary-1",
+        "palwiki-wildlife-sanctuary"
+      ]
+    },
+    {
+      "step_id": "resource-beautiful-flower:003",
+      "type": "combat",
+      "summary": "Cull flower-dropping pals",
+      "detail": "Focus Petallia, Wumpo, and Lyleen spawns for burst drops; burn them down with Blazehowl or Katress Ignis to maximise loot before extracting.【pcgamesn-beautiful-flower†L16-L24】【palfandom-beautiful-flower†L17-L27】【palwiki-beautiful-flower†L31-L33】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "beautiful-flower",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "wildlife-sanctuary-1",
+          "coords": [
+            90,
+            -735
+          ],
+          "time": "night",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "crowd-control",
+              "tasks": "Snare PIDF and stray pals away from the kill zone"
+            },
+            {
+              "role": "finisher",
+              "tasks": "Burst Petallia/Lyleen and collect the drops"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "mega-pal-sphere"
+        ],
+        "pals": [
+          "blazehowl"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 180,
+        "max": 260
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "beautiful-flower",
+            "qty": 6
+          }
+        ],
+        "pals": [
+          "petallia"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "pcgamesn-beautiful-flower",
+        "palfandom-beautiful-flower",
+        "palwiki-beautiful-flower"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "beautiful-flower",
+      "qty": 16
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "strange-juice-batching"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-venom-gland",
+      "reason": "Pair flower stock with Venom Glands to brew Strange Juice batches."
+    },
+    {
+      "route_id": "resource-medium-pal-soul",
+      "reason": "Medium Souls convert sanctuary hunts into Statue upgrades alongside potion crafting."
+    }
+  ]
+}
+```
+
 ## Source Registry
 
 The source registry maps the short citation keys used throughout this file
@@ -23501,31 +23847,31 @@ updating guides, refresh these entries with new dates and pages.
       "title": "Palworld beautiful flower locations",
       "url": "https://www.pcgamesn.com/palworld/beautiful-flower",
       "access_date": "2025-10-07",
-      "notes": "Lists Ribbunny, Petallia, Wumpo, and Lyleen as flower drops and explains Strange Juice crafting at the Medieval Medicine Workbench.\u3010ba24e5\u2020L18-L37\u3011\u30100ed4ae\u2020L1-L12\u3011"
+      "notes": "Lists Ribbunny, Petallia, Wumpo, and Lyleen as Beautiful Flower drops and outlines Strange Juice inputs.\u3010pcgamesn-beautiful-flower\u2020L1-L31\u3011"
     },
     "palwiki-wildlife-sanctuary": {
       "title": "Wildlife Sanctuary \u2013 Palworld Wiki",
       "url": "https://palworld.wiki.gg/wiki/Wildlife_Sanctuary",
       "access_date": "2025-10-07",
-      "notes": "Explains trespassing penalties and that Sanctuary No.1 hosts level 20-25 pals while No.2 and No.3 feature level 50 threats.\u3010f574c5\u2020L5-L24\u3011"
+      "notes": "Explains sanctuary trespassing penalties, PIDF response, and level ranges from 20 in Sanctuary No.1 up to 50 in Sanctuaries No.2 and No.3.\u3010palwiki-wildlife-sanctuary\u2020L6-L21\u3011"
     },
     "palwiki-wildlife-sanctuary-1": {
       "title": "No. 1 Wildlife Sanctuary \u2013 Palworld Wiki",
       "url": "https://palworld.wiki.gg/wiki/No._1_Wildlife_Sanctuary",
       "access_date": "2025-10-07",
-      "notes": "Gives the island\u2019s coordinates (90,-735), highlights resident pals, and confirms Beautiful Flower harvesting there.\u3010fe9924\u2020L1-L20\u3011"
+      "notes": "Lists the island at (90,-735), details local pals, and confirms Beautiful Flowers appear among its materials.\u3010palwiki-wildlife-sanctuary-1\u2020L1-L25\u3011"
     },
     "palwiki-wildlife-sanctuary-2": {
       "title": "No. 2 Wildlife Sanctuary \u2013 Palworld Wiki",
       "url": "https://palworld.wiki.gg/wiki/No._2_Wildlife_Sanctuary",
       "access_date": "2025-10-07",
-      "notes": "Provides coordinates (-675,-113) and lists late-game pals plus Beautiful Flower, Sulfur, and Ore spawns.\u301015adf0\u2020L1-L22\u3011"
+      "notes": "Provides coordinates (-675,-113), highlights island pals, and lists Beautiful Flower, Sulfur, and Ore materials.\u3010palwiki-wildlife-sanctuary-2\u2020L1-L26\u3011"
     },
     "palwiki-wildlife-sanctuary-3": {
       "title": "No. 3 Wildlife Sanctuary \u2013 Palworld Wiki",
       "url": "https://palworld.wiki.gg/wiki/No._3_Wildlife_Sanctuary",
       "access_date": "2025-10-07",
-      "notes": "Locates the island at (669,640) and details Lyleen, Shadowbeak, and other high-level pals alongside Beautiful Flowers.\u3010c5acbe\u2020L1-L19\u3011"
+      "notes": "Locates the island at (669,640) and outlines Lyleen, Shadowbeak, and other high-level pals alongside Beautiful Flower spawns.\u3010palwiki-wildlife-sanctuary-3\u2020L1-L25\u3011"
     },
     "palwiki-ribbuny": {
       "title": "Ribbuny \u2013 Palworld Wiki",
@@ -23543,7 +23889,13 @@ updating guides, refresh these entries with new dates and pages.
       "title": "Beautiful Flower \u2013 Palworld Wiki",
       "url": "https://palworld.wiki.gg/wiki/Beautiful_Flower",
       "access_date": "2025-10-07",
-      "notes": "States the ingredient is harvested in every Wildlife Sanctuary and fuels Strange Juice recipes.\u301021cd8a\u2020L1-L28\u3011"
+      "notes": "Notes the ingredient is harvested across all Wildlife Sanctuaries, dropped by certain pals, and recommends fire-aligned helpers for farming.\u3010palwiki-beautiful-flower\u2020L1-L33\u3011"
+    },
+    "palfandom-beautiful-flower": {
+      "title": "Beautiful Flower \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Beautiful_Flower",
+      "access_date": "2025-10-07",
+      "notes": "Lists Wildlife Sanctuaries alongside Ribbuny, Petallia, Wumpo variants, and other pals as Beautiful Flower sources.\u3010palfandom-beautiful-flower\u2020L17-L35\u3011"
     },
     "pcgamesn-carbon-fiber": {
       "title": "How to get Palworld Carbon Fiber",

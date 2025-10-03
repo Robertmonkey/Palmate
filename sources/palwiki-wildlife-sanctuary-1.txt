@@ -1,0 +1,30 @@
+{{Stub}}
+{{Infobox_Location
+|name = No. 1 Wildlife Sanctuary
+|image = 01._Wildlife_Sanctuary_icon.png
+|type = Island<br/>[[Wildlife Sanctuary]]
+|location = 90, -735
+|inhabitants = [[Penking]]<br/>[[Eikthyrdeer Terra]]<br/>[[Vaelet]]<br/>[[Elphidran]]<br/>[[Azurobe]]<br/>[[Petallia]]<br/>[[Grizzbolt]]
+|map=}}
+
+'''01. Wildlife Sanctuary''' is one of three [[Wildlife Sanctuary]] islands. 
+
+It's located south-southwest of [[Windswept Hills]].
+
+==Pals==
+*{{i|Penking}}
+*{{i|Eikthyrdeer Terra}}
+*{{i|Vaelet}}
+*{{i|Elphidran}}
+*{{i|Azurobe}}
+*{{i|Petallia}}
+*{{i|Grizzbolt}}
+
+==Materials==
+* {{i|Beautiful Flower}}
+
+==See also==
+*[[No. 2 Wildlife Sanctuary]]
+*[[No. 3 Wildlife Sanctuary]]
+
+[[Category:Locations]]

@@ -1,0 +1,35 @@
+{{Stub}}
+{{Infobox_Location
+|image = Wildlife_sanctuaries.png
+|type = Region}}
+
+The Wildlife Sanctuaries are 3 islands on the peripheral of the [[Palpagos Islands]]. Each of the 3 islands contain pals that are only available on the sanctuary.
+
+==Environment==
+The '''Wildlife Sanctuaries''' are strange, possibly artificially-created islands that serve as unique spawn locations for wild versions of [[Alpha Pals]] and Pal subspecies. 
+
+Visiting a Wildlife Sanctuary is considered [[Trespassing]] and will spawn varying levels of [[PIDF|PIDF Officers]]. While on one of these islands, the offending player's screen will display a warning that "Criminal Activity is Underway", and being spotted will warrant a level 1 [[Trespassing]] charge from the [[PIDF]].
+
+==Locations==
+There are currently 3 Wildlife Sanctuaries:
+*[[No. 1 Wildlife Sanctuary]]
+*[[No. 2 Wildlife Sanctuary]]
+*[[No. 3 Wildlife Sanctuary]]
+
+==Local Pals==
+{{PAGENAME}} is home to several pals which are not currently found elsewhere in the wild, like [[Eikthyrdeer Terra]] or [[Orserk]], or are only found as Alpha pals, such as [[Azurobe]] or [[Warsect]]. Pals in Wildlife Sanctuaries vary in levels, from around level 20-25 in No. 1 Wildlife Sanctuary all the way to level 50 in No. 2 and No. 3 Wildlife Sanctuary, but tend to be consistent within sanctuaries, ie there won't be level 50s in No. 1 Wildlife Sanctuary.
+
+==Unique Incidents==
+There are several incidents unique to the {{PAGENAME}}. A list is available on the [[Random Spawns]] page.
+
+==Trivia==
+* The PIDF that spawn at the island give much less XP than they should for their level. This is most likely intentional to prevent players from getting a trespassing charge and perpetually level grinding.
+* Visiting a Wildlife Sanctuary while on a mount, specifically a flying one, will bypass the [[Trespassing]] warning so long as the player does not get off the mount.
+** As of [[0.1.5.0]], this bug has now been fixed.
+
+==Media==
+<gallery widths="150">
+...
+</gallery>
+
+[[Category:Locations]]

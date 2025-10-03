@@ -1,0 +1,44 @@
+{{Stub}}
+{{Infobox Item
+|name = Beautiful Flower
+|image = Beautiful Flower icon.png
+|effects = A plant that blooms colorful flowers.<br/>Can be used to make Suspicious Juice and Strange Juice.
+|type = Other Materials
+|rarity = Common
+|source = [[Pals]]
+|weight = 0.2
+|nutrition = 1
+|san = 5
+|corruption = Never
+|gold_buy=240|gold_sell=24
+}}
+'''Beautiful Flower''' is an [[ingredient]] in {{PW}}.
+
+==Acquisition==
+*[[Ribbuny]]
+*[[No. 1 Wildlife Sanctuary]]
+*[[No. 2 Wildlife Sanctuary]]
+*[[No. 3 Wildlife Sanctuary]]
+*[[Gumoss]] (With red flowers) 
+*[[Petallia]]
+*[[Lyleen]]
+*[[Lyleen Noct]]
+*[[Wumpo]]
+*[[Wumpo Botan]]
+
+== Usage ==
+It's needed to craft:
+
+* [[Flower Bed]] x 20
+* [[Strange Juice]] x 5
+* [[Suspicious Juice]] x 3
+* [[Wumpo Botan Saddle]] x 24
+* [[Memory Wiping Medicine]] x 99
+
+== History ==
+* [[Early Access 0.1.2.0]]
+** Introduced.
+
+{{Navbox Ingredients}}
+
+[[Category:Ingredients]]
