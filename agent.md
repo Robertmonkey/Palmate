@@ -85,6 +85,8 @@ This document describes the responsibilities, workflows and quality assurance st
   * Next steps: document Venom Gland late-game elites (Helzephyr Noct, Menasting) with Feybreak/Suzaku coverage, capture Caprity Noct spawn citations beyond PalNerd, and continue elemental reagent backlog (e.g., Venom Gland merchant restocks, Katress Ignis breeding drops).
 *Progress 2025-10-15:* Added Ore Mining Grid (`resource-ore`) covering Fort Ruins hauls, Small Settlement automation, and Primitive Furnace smelting with synchronized bundle updates plus new Game8 and Palworld wiki citations for ore nodes and ingot recipes.
   * Next steps: extend metal coverage to Refined Ingot/Pal Metal Ingot routes, capture merchant pricing for ore batches, and source additional automation footage for alternative mining pals (e.g., Rushoar, Dumud) to diversify loadouts.
+*Progress 2025-10-16:* Built Wheat Seed Field Logistics (`resource-wheat-seeds`), synchronized the bundle object, integrated PCGamesN merchant/location coverage plus Dinossom drop data, and corrected the tomato seed bundle citation ID typo.
+  * Next steps: capture precise Bridge of the Twin Knights coordinates or map screenshots to reinforce Flopie spawn directions, log merchant restock timing for seed vendors, and continue seed/meat backlog (Caprity meat, plantation throughput benchmarks).
 
 ## Performance Notes
 

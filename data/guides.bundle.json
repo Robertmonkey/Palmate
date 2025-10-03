@@ -15409,6 +15409,676 @@
       ]
     },
     {
+      "route_id": "resource-tomato-seeds",
+      "title": "Tomato Seed Greenhouse Circuit",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "tomato-seeds",
+        "agriculture",
+        "mid-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 20,
+        "max": 35
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture",
+          "resource-berry-seeds"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Purchase tomato seeds from the Small Settlement merchant",
+        "Farm Wumpo Botan and Dinossom Lux for bulk seed drops",
+        "Build and automate a Tomato Plantation"
+      ],
+      "estimated_time_minutes": {
+        "solo": 35,
+        "coop": 25
+      },
+      "estimated_xp_gain": {
+        "min": 240,
+        "max": 380
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Losing seeds or coins to a wipe forces another merchant run before plantations recover.",
+        "hardcore": "Alpha pals in the sanctuary can one-shot lightly geared hunters; retreat rather than risk permadeath."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Stay on the merchant rotation until you can field tier-3 armor; Tomato Seeds stay available for 200 gold each.【4f4102†L1-L4】",
+        "overleveled": "Once your team survives sanctuary patrols, alternate Wumpo Botan loops with the level 47 Dinossom Lux alpha to stock surplus seeds quickly.【fb8f93†L1-L2】【509650†L10-L12】",
+        "resource_shortages": [
+          {
+            "item_id": "tomato-seeds",
+            "solution": "Chain the No. 2 Wildlife Sanctuary Wumpo Botan spawn and the Furthest Mineshaft alpha to refill the seed chest before plantations pause.【ca10a8†L1-L6】【fb8f93†L1-L2】【509650†L10-L12】"
+          },
+          {
+            "item_id": "gold-coin",
+            "solution": "Budget at least 1,200 gold for six seeds per cycle so you can replant after raids without waiting on merchant restocks.【4f4102†L1-L4】"
+          }
+        ],
+        "time_limited": "If you only have a few minutes, buy seeds, place the plantation, and let automation handle harvests until your next session.【4f4102†L1-L4】【c20a5e†L1-L3】",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Assign one partner to merchant logistics while the other clears sanctuary mobs and escorts seeds back to base so downtime stays minimal.【fb8f93†L1-L2】【509650†L10-L12】",
+            "priority": 2,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-tomato-seeds:001",
+              "resource-tomato-seeds:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-tomato-seeds:checkpoint-merchant",
+          "label": "Secure Merchant Stock",
+          "includes": [
+            "resource-tomato-seeds:001"
+          ]
+        },
+        {
+          "id": "resource-tomato-seeds:checkpoint-hunt",
+          "label": "Wild Seed Drops",
+          "includes": [
+            "resource-tomato-seeds:002"
+          ]
+        },
+        {
+          "id": "resource-tomato-seeds:checkpoint-plantation",
+          "label": "Automate Tomatoes",
+          "includes": [
+            "resource-tomato-seeds:003"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "step_id": "resource-tomato-seeds:001",
+          "type": "trade",
+          "summary": "Buy Tomato Seeds from the Small Settlement merchant",
+          "detail": "Fast travel to the Small Settlement (78,-477) and purchase at least six Tomato Seeds for 200 gold apiece so you can cover initial plots and a spare reseed.【4f4102†L1-L4】【c6adb4†L34-L114】【165dd8†L71-L90】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "tomato-seeds",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                78,
+                -477
+              ],
+              "time": "day",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "buyer",
+                  "tasks": "Handle trades and courier seeds home"
+                },
+                {
+                  "role": "scout",
+                  "tasks": "Watch for patrols and stage wood and stone for builds"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": [
+              "gold-coin"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 70
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "tomato-seeds",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-tomato-seeds-fandom",
+            "palwiki-wandering-merchant",
+            "palwiki-small-settlement"
+          ]
+        },
+        {
+          "step_id": "resource-tomato-seeds:002",
+          "type": "hunt",
+          "summary": "Farm Wumpo Botan and Dinossom Lux for bulk seeds",
+          "detail": "Sail to No. 2 Wildlife Sanctuary (-675,-113) to capture or defeat Wumpo Botan for guaranteed Lettuce and Tomato Seed drops, then glide to the Furthest Mineshaft (348,569) to down the level 47 Dinossom Lux alpha for an extra bundle per clear.【ca10a8†L1-L6】【fb8f93†L1-L2】【509650†L10-L12】【15adf0†L1-L22】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "tomato-seeds",
+              "qty": 12
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "wildlife-sanctuary-2",
+              "coords": [
+                -675,
+                -113
+              ],
+              "time": "day",
+              "weather": "any"
+            },
+            {
+              "region_id": "mount-obsidian",
+              "coords": [
+                348,
+                569
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Focus on captures to avoid prolonged brawls with sanctuary elites and bail out if multiple Wumpo Botan converge.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "controller",
+                  "tasks": "Weaken Wumpo Botan and keep them snared"
+                },
+                {
+                  "role": "finisher",
+                  "tasks": "Secure captures and haul seeds to the raft"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 120,
+            "max": 210
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "tomato-seeds",
+                "qty": 12
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-wumpo-botan",
+            "palwiki-wumpo-botan-habitat",
+            "palwiki-dinossom-lux",
+            "palwiki-wildlife-sanctuary-2"
+          ]
+        },
+        {
+          "step_id": "resource-tomato-seeds:003",
+          "type": "build",
+          "summary": "Construct and staff a Tomato Plantation",
+          "detail": "Spend 3 Tomato Seeds, 70 Wood, 50 Stone, and 5 Pal Fluids to place a Tomato Plantation, then assign Pal partners with Planting, Watering, and Gathering to keep tomatoes flowing between hunts.【c20a5e†L1-L3】【6a9b5d†L1-L3】【285b69†L1-L4】",
+          "targets": [
+            {
+              "kind": "station",
+              "id": "tomato-plantation"
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "builder",
+                  "tasks": "Place the plantation and restock building materials"
+                },
+                {
+                  "role": "quartermaster",
+                  "tasks": "Assign Planting and Watering pals and manage the harvest chest"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "wooden-hammer"
+            ],
+            "pals": [
+              "lifmunk"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 100
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {
+              "structures": [
+                "tomato-plantation"
+              ]
+            }
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-tomato-plantation",
+            "palwiki-tomato-seeds",
+            "palwiki-tomato"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "tomato-seeds",
+          "qty": 15
+        },
+        {
+          "type": "build-station",
+          "station_id": "tomato-plantation"
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "tomato-supply"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-lettuce-seeds",
+          "reason": "Pair tomato harvests with lettuce beds to cover every salad and sandwich recipe."
+        }
+      ]
+    },
+    {
+      "route_id": "resource-lettuce-seeds",
+      "title": "Lettuce Seed Hydroponics",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "lettuce-seeds",
+        "agriculture",
+        "mid-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 25,
+        "max": 40
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture",
+          "resource-berry-seeds"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Purchase lettuce seeds from the Small Settlement merchant",
+        "Harvest sanctuary Wumpo Botan and forest Bristla for extra seeds",
+        "Build and automate a Lettuce Plantation"
+      ],
+      "estimated_time_minutes": {
+        "solo": 40,
+        "coop": 28
+      },
+      "estimated_xp_gain": {
+        "min": 260,
+        "max": 420
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Dropping seed stacks to aggressive pals wastes the 200 gold spend and resets plantation cycles.",
+        "hardcore": "Sanctuary elites and alpha bosses can wipe an unprepared crew; disengage rather than risking permanent losses."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Lean on merchant purchases and pacifist Bristla forests until your team can absorb sanctuary hits.【cf6b68†L1-L4】【bb2b70†L1-L7】",
+        "overleveled": "Farm No. 2 Wildlife Sanctuary on repeat; Wumpo Botan provide both Lettuce and Tomato Seeds while Dinossom Lux tops up extras.【fb8f93†L1-L2】【ca10a8†L1-L6】",
+        "resource_shortages": [
+          {
+            "item_id": "lettuce-seeds",
+            "solution": "Rotate between the sanctuary Wumpo Botan spawn and Bristla forest patrols to refill reserves before plantations stall.【ca10a8†L1-L6】【fb8f93†L1-L2】【bb2b70†L1-L7】"
+          }
+        ],
+        "time_limited": "Grab a handful of merchant seeds and drop the plantation; you can return later for sanctuary hunting.【cf6b68†L1-L4】【ec48c2†L1-L5】",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Split duties so one player escorts seeds while the other clears sanctuary packs and keeps the boat ready for extraction.【fb8f93†L1-L2】",
+            "priority": 2,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-lettuce-seeds:001",
+              "resource-lettuce-seeds:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-lettuce-seeds:checkpoint-merchant",
+          "label": "Secure Merchant Supply",
+          "includes": [
+            "resource-lettuce-seeds:001"
+          ]
+        },
+        {
+          "id": "resource-lettuce-seeds:checkpoint-hunt",
+          "label": "Wild Drops",
+          "includes": [
+            "resource-lettuce-seeds:002"
+          ]
+        },
+        {
+          "id": "resource-lettuce-seeds:checkpoint-plantation",
+          "label": "Automate Lettuce",
+          "includes": [
+            "resource-lettuce-seeds:003"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "step_id": "resource-lettuce-seeds:001",
+          "type": "trade",
+          "summary": "Buy Lettuce Seeds from the Small Settlement merchant",
+          "detail": "Visit the Small Settlement vendor to buy Lettuce Seeds for 200 gold each while restocking wood and stone for the plantation build.【cf6b68†L1-L4】【c6adb4†L34-L114】【165dd8†L71-L90】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "lettuce-seeds",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                78,
+                -477
+              ],
+              "time": "day",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "buyer",
+                  "tasks": "Handle trades and haul seeds"
+                },
+                {
+                  "role": "quartermaster",
+                  "tasks": "Pre-stage construction mats and ferry them home"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": [
+              "gold-coin"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 70
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "lettuce-seeds",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-lettuce-seeds-fandom",
+            "palwiki-wandering-merchant",
+            "palwiki-small-settlement"
+          ]
+        },
+        {
+          "step_id": "resource-lettuce-seeds:002",
+          "type": "hunt",
+          "summary": "Loop sanctuary Wumpo Botan and Bristla forests",
+          "detail": "Farm No. 2 Wildlife Sanctuary (-675,-113) for Wumpo Botan, then sweep Verdant Brook forests where Bristla mingle with Cinnamoth to top off Lettuce Seeds without elite pressure.【fb8f93†L1-L2】【ca10a8†L1-L6】【bb2b70†L1-L7】【15adf0†L1-L22】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "lettuce-seeds",
+              "qty": 12
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "wildlife-sanctuary-2",
+              "coords": [
+                -675,
+                -113
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Capture instead of KO to avoid long fights, and evacuate if multiple sanctuary mobs converge.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "controller",
+                  "tasks": "Peel Wumpo Botan away from guards"
+                },
+                {
+                  "role": "runner",
+                  "tasks": "Deliver seed stacks to the boat and scout Bristla groves"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 140,
+            "max": 230
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "lettuce-seeds",
+                "qty": 12
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-wumpo-botan",
+            "palwiki-wumpo-botan-habitat",
+            "palwiki-lettuce-seeds-fandom",
+            "palwiki-bristla",
+            "palwiki-wildlife-sanctuary-2"
+          ]
+        },
+        {
+          "step_id": "resource-lettuce-seeds:003",
+          "type": "build",
+          "summary": "Construct and staff a Lettuce Plantation",
+          "detail": "Invest 3 Lettuce Seeds, 100 Wood, 70 Stone, and 10 Pal Fluids into a Lettuce Plantation, then assign Planting, Watering, and Gathering pals to keep greens flowing.【ec48c2†L1-L5】【23bbf1†L1-L3】【fb8486†L1-L4】",
+          "targets": [
+            {
+              "kind": "station",
+              "id": "lettuce-plantation"
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "builder",
+                  "tasks": "Place the plantation and refresh inputs"
+                },
+                {
+                  "role": "quartermaster",
+                  "tasks": "Assign watering pals and manage produce storage"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "wooden-hammer"
+            ],
+            "pals": [
+              "lifmunk"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 90,
+            "max": 110
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {
+              "structures": [
+                "lettuce-plantation"
+              ]
+            }
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-lettuce-plantation",
+            "palwiki-lettuce-seeds",
+            "palwiki-lettuce"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "lettuce-seeds",
+          "qty": 15
+        },
+        {
+          "type": "build-station",
+          "station_id": "lettuce-plantation"
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "lettuce-supply"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-milk",
+          "reason": "Lettuce pairs with milk and tomatoes for salad and sandwich production once dairies are online."
+        }
+      ]
+    },
+    {
       "route_id": "resource-electric-organ",
       "title": "Electric Organ Relay Circuit",
       "category": "resources",
@@ -15727,6 +16397,364 @@
           "reason": "Fire and electric reagents pair for polymer and generator upgrades."
         }
       ]
+    },
+    {
+      "route_id": "resource-wheat-seeds",
+      "title": "Wheat Seed Field Logistics",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "wheat-seeds",
+        "agriculture",
+        "early-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 14,
+        "max": 28
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture",
+          "resource-berry-seeds"
+        ],
+        "tech": [
+          "wheat-plantation"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Purchase Wheat Seeds from the Small Settlement merchant",
+        "Farm Dinossom and Flopie near Rayne Tower for drops",
+        "Build and automate a Wheat Plantation"
+      ],
+      "estimated_time_minutes": {
+        "solo": 32,
+        "coop": 24
+      },
+      "estimated_xp_gain": {
+        "min": 180,
+        "max": 300
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Dropping seed stacks to aggressive mobs forces another merchant run before plantations recover.",
+        "hardcore": "Bridge-of-the-Twin-Knights patrols hit level 20+, so a wipe can cost your entire seed stock and high-level pals."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Stay on the merchant rotation until you unlock the Wheat Plantation at tech level 15, stocking seeds without provoking the level-20 bridge patrols.【46c54c†L9-L21】",
+        "overleveled": "Chain Dinossom's 50% Wheat Seed drop with Flopie loops beyond the bridge to overstock plantations between tech pushes.【46c54c†L9-L17】【b1cc9c†L1-L2】",
+        "resource_shortages": [
+          {
+            "item_id": "wheat-seeds",
+            "solution": "Alternate between Small Settlement purchases and Rayne tower hunts so plantations never stall on reseed stock.【46c54c†L12-L17】【a05a80†L1-L13】"
+          }
+        ],
+        "time_limited": "Buy a handful of seeds, drop a plantation, and let automation roll while you focus on other objectives.【46c54c†L18-L21】【54c140†L1-L9】",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Assign one player to escort the merchant haul while the other clears Flopie and Dinossom patrols northeast of Rayne Tower for steady drops.【46c54c†L9-L17】",
+            "priority": 2,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-wheat-seeds:001",
+              "resource-wheat-seeds:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-wheat-seeds:checkpoint-merchant",
+          "label": "Merchant Stock Secured",
+          "includes": [
+            "resource-wheat-seeds:001"
+          ]
+        },
+        {
+          "id": "resource-wheat-seeds:checkpoint-hunt",
+          "label": "Field Drops Collected",
+          "includes": [
+            "resource-wheat-seeds:002"
+          ]
+        },
+        {
+          "id": "resource-wheat-seeds:checkpoint-plantation",
+          "label": "Plantation Online",
+          "includes": [
+            "resource-wheat-seeds:003"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "step_id": "resource-wheat-seeds:001",
+          "type": "trade",
+          "summary": "Buy Wheat Seeds from the Small Settlement merchant",
+          "detail": "Fast travel to the Small Settlement (~75,-479) and buy at least nine Wheat Seeds from the wandering merchant for 100 gold each whenever they appear, keeping spare stacks for reseeds.【46c54c†L12-L16】【4d9312†L12-L14】【bda51b†L1-L4】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "wheat-seeds",
+              "qty": 9
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "small-settlement",
+              "coords": [
+                75,
+                -479
+              ],
+              "time": "day",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "buyer",
+                  "tasks": "Handle trades and ferry seeds back to base"
+                },
+                {
+                  "role": "lookout",
+                  "tasks": "Scout for patrols and restock wood and stone"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": [
+              "gold-coin"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 70
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "wheat-seeds",
+                "qty": 9
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-wheat-seeds",
+            "palwiki-wandering-merchant",
+            "palwiki-small-settlement"
+          ]
+        },
+        {
+          "step_id": "resource-wheat-seeds:002",
+          "type": "hunt",
+          "summary": "Farm Dinossom and Flopie for field drops",
+          "detail": "Stage at Rayne Syndicate Tower Entrance (~112,-434), sweep the surrounding Windswept Hills for Dinossom's 50% Wheat Seed drops, then glide northeast across the Bridge of the Twin Knights to capture Flopie packs for additional seeds.【ca82d7†L1-L4】【46c54c†L9-L17】【b1cc9c†L1-L2】【a05a80†L1-L13】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "wheat-seeds",
+              "qty": 12
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                112,
+                -434
+              ],
+              "time": "day",
+              "weather": "any"
+            },
+            {
+              "region_id": "verdant-brook",
+              "coords": [
+                140,
+                -410
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Stick to captures and kite patrols toward the bridge choke point so level-20 mobs can't surround you.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "controller",
+                  "tasks": "Weaken Dinossom and Flopie targets and keep them snared"
+                },
+                {
+                  "role": "courier",
+                  "tasks": "Collect drops and reset patrol paths while monitoring weight"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "crossbow"
+            ],
+            "pals": [
+              "gumoss",
+              "fuddler"
+            ],
+            "consumables": [
+              "pal-sphere"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 120,
+            "max": 200
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "wheat-seeds",
+                "qty": 12
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-bosses",
+            "pcgamesn-wheat-seeds",
+            "palwiki-dinossom",
+            "palwiki-wheat-seeds"
+          ]
+        },
+        {
+          "step_id": "resource-wheat-seeds:003",
+          "type": "build",
+          "summary": "Construct and staff a Wheat Plantation",
+          "detail": "Spend 3 Wheat Seeds, 35 Wood, and 35 Stone to place a Wheat Plantation, then assign Planting and Watering pals to keep grain flowing into mills.【46c54c†L18-L21】【54c140†L1-L9】",
+          "targets": [
+            {
+              "kind": "station",
+              "id": "wheat-plantation"
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "builder",
+                  "tasks": "Place the plantation and restock construction materials"
+                },
+                {
+                  "role": "quartermaster",
+                  "tasks": "Assign planters/waterers and manage grain storage"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "wooden-hammer"
+            ],
+            "pals": [
+              "lamball",
+              "pengullet"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 110
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {
+              "structures": [
+                "wheat-plantation"
+              ]
+            }
+          },
+          "branching": [],
+          "citations": [
+            "pcgamesn-wheat-seeds",
+            "palwiki-wheat-plantation"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "wheat-seeds",
+          "qty": 18
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "wheat-plantation-automation"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-flour",
+          "reason": "Flour Milling Network consumes Wheat harvested here for bakery chains."
+        },
+        {
+          "route_id": "resource-cake",
+          "reason": "Cake Assembly Line requires steady Wheat and Flour stocks for breeding."
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-berry-seeds"
+        ],
+        "optional": [
+          "resource-milk"
+        ]
+      },
+      "failure_recovery": {
+        "normal": "If seed stacks are lost, circle back to the Small Settlement vendor or sweep nearby Dinossom until you restock.",
+        "hardcore": "Bank extra seeds in cold storage before crossing the bridge so a wipe doesn't reset your plantation cycle."
+      }
     },
     {
       "route_id": "resource-flame-organ",
