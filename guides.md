@@ -21904,6 +21904,314 @@ Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settleme
 }
 ```
 
+### Route: Lamball Butchery Circuit
+
+Lamball Butchery Circuit corrals Windswept Hills Lamball, unlocks the Meat Cleaver, and turns the flock into reliable Lamball Mutton for early cooking and merchant trades.【palfandom-lamball†L17-L75】【palwiki-meat-cleaver†L2-L38】【palwiki-lamball-mutton-raw†L1-L27】
+
+```json
+{
+  "route_id": "resource-lamball-mutton",
+  "title": "Lamball Butchery Circuit",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "lamball-mutton",
+    "cooking",
+    "early-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 6,
+    "max": 18
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture",
+      "resource-wool"
+    ],
+    "tech": [
+      "primitive-workbench",
+      "meat-cleaver"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Capture Lamball near the Small Settlement statue",
+    "Unlock the Meat Cleaver and butcher surplus stock for mutton",
+    "Cook or trade finished cuts to keep the pantry supplied"
+  ],
+  "estimated_time_minutes": {
+    "solo": 24,
+    "coop": 16
+  },
+  "estimated_xp_gain": {
+    "min": 160,
+    "max": 240
+  },
+  "risk_profile": "low",
+  "failure_penalties": {
+    "normal": "Butchering the wrong Lamball removes wool producers and delays restocks until respawns arrive.",
+    "hardcore": "Losing breeders in Hardcore forces risky replacement hunts through raider patrols."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Hunt within Palbox range so skittish Lamball leash home if poachers interfere, keeping the capture loop safe.【palfandom-lamball†L28-L33】",
+    "overleveled": "Rotate extra captures through the ranch before culling them so each sweep yields wool and guaranteed mutton.【palfandom-lamball†L10-L12】【palfandom-lamball†L67-L75】",
+    "resource_shortages": [
+      {
+        "item_id": "lamball-mutton",
+        "solution": "Keep two Lamball assigned to the ranch for wool, then butcher the spares for meat to cover both pantry needs.【palfandom-lamball†L10-L12】【palfandom-lamball†L67-L75】"
+      }
+    ],
+    "time_limited": "Cull two Lamball, cook the cuts at a nearby camp kitchen, and store meals before sprinting back to other objectives.【palwiki-lamball-mutton-raw†L1-L27】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Split duties so one player kites and captures Lamball while the partner handles cleaver work and meal prep between raids.",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-lamball-mutton:001",
+          "resource-lamball-mutton:002",
+          "resource-lamball-mutton:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-lamball-mutton:checkpoint-corral",
+      "label": "Breeder Pen Secured",
+      "includes": [
+        "resource-lamball-mutton:001"
+      ]
+    },
+    {
+      "id": "resource-lamball-mutton:checkpoint-cleaver",
+      "label": "Cleaver Rotation Online",
+      "includes": [
+        "resource-lamball-mutton:002"
+      ]
+    },
+    {
+      "id": "resource-lamball-mutton:checkpoint-pantry",
+      "label": "Mutton Pantry Stocked",
+      "includes": [
+        "resource-lamball-mutton:003"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "resource-lamball-mutton:001",
+      "type": "capture",
+      "summary": "Net docile Lamball near the Small Settlement",
+      "detail": "Teleport to the Small Settlement (75,-479) in the Windswept Hills and sweep the surrounding meadow for Lamball packs. Net four breeders before raids roll through so you can separate wool stock from butcher fodder back at base.【palwiki-small-settlement†L1-L8】【palfandom-lamball†L17-L76】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "lamball",
+          "qty": 4
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Drag Lamball away from Syndicate patrols before throwing spheres so stray shots don’t delete your breeders.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "bola"
+        ],
+        "pals": [
+          "lifmunk"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [],
+        "pals": [
+          "lamball"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-small-settlement",
+        "palfandom-lamball"
+      ]
+    },
+    {
+      "step_id": "resource-lamball-mutton:002",
+      "type": "craft",
+      "summary": "Unlock the Meat Cleaver and butcher surplus Lamball",
+      "detail": "Spend 2 Technology Points at level 12 to unlock the Meat Cleaver, craft it at the Primitive Workbench (5 Ingots, 20 Wood, 5 Stone), then butcher extra Lamball to harvest guaranteed mutton while keeping a breeding pair alive.【palwiki-meat-cleaver†L2-L38】【palfandom-lamball†L67-L75】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "lamball-mutton",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Capture backup Lamball before carving so accidents don’t strand you without wool or mutton income.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "meat-cleaver"
+        ],
+        "pals": [],
+        "consumables": [
+          "ingot"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 60
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "lamball-mutton",
+            "qty": 6
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-meat-cleaver",
+        "palfandom-lamball"
+      ]
+    },
+    {
+      "step_id": "resource-lamball-mutton:003",
+      "type": "base",
+      "summary": "Cook, trade, or store the fresh mutton",
+      "detail": "Cook Lamball Mutton at a Campfire, Cooking Pot, or Electric Kitchen to stretch its hunger value, and buy or sell extra cuts through Wandering Merchants for 100/10 gold when you need to balance stockpiles.【palwiki-lamball-mutton-raw†L1-L27】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "lamball-mutton",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "campfire"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 30,
+        "max": 40
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "lamball-mutton",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-lamball-mutton-raw"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "lamball-mutton",
+      "qty": 12
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "pantry-stock"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-chikipi-poultry",
+      "reason": "Pair poultry and mutton harvests so hearty meal recipes stay stocked."
+    },
+    {
+      "route_id": "resource-flour",
+      "reason": "Bakery prep benefits from surplus cooked meals to keep workers fed."
+    }
+  ]
+}
+```
+
 ## Source Registry
 
 The source registry maps the short citation keys used throughout this file
@@ -22050,6 +22358,18 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/wiki/Lamball",
       "access_date": "2025-10-01",
       "notes": "Details Lamball drops, ranch production, and spawn regions in Windswept Hills and Sea Breeze Archipelago.\u30101e15ae\u2020L1-L6\u3011\u30109dc91d\u2020L1-L5\u3011\u3010ca929c\u2020L1-L7\u3011\u30100fa8e2\u2020L1-L4\u3011"
+    },
+    "palfandom-lamball": {
+      "title": "Lamball \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Lamball",
+      "access_date": "2025-10-23",
+      "notes": "Lists Windswept Hills Lamball spawns, ranch wool production, and guaranteed Lamball Mutton drops for each cull.【palfandom-lamball†L17-L75】"
+    },
+    "palwiki-lamball-mutton-raw": {
+      "title": "Lamball Mutton \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Lamball_Mutton&action=raw",
+      "access_date": "2025-10-23",
+      "notes": "Shows Lamball Mutton as an ingredient sold by Wandering Merchants for 100 gold, selling for 10, and cooked at camp kitchens to restore hunger.【palwiki-lamball-mutton-raw†L1-L27】"
     },
     "palwiki-chikipi": {
       "title": "Chikipi \u2013 Palworld Wiki (Fandom)",

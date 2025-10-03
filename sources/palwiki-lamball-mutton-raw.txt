@@ -1,0 +1,37 @@
+{{Item
+| description   = [[Lamball]] meat. Red meat with a unique flavor. Delicious, but takes some getting used to.
+| type          = Ingredient
+| rarity        = Common
+
+| weight        = 1
+
+| buy           = 100
+| sell          = 10
+
+| nutrition     = 37
+| san           = 0
+| corruption    = 600
+
+| technology    = 
+| required_level = 
+| cost          = 
+| made_at       = 
+| workload        = 
+}}
+
+{{Icon|{{PAGENAME}}}} is a [[consumable]] [[ingredient]] item which can be dropped from {{Icon|Lamball}}. It can be consumed to restore [[Hunger]] or cooked at a {{Icon|Campfire}}, {{Icon|Cooking Pot}}, or {{Icon|Electric Kitchen}} to produce one of several different [[Food]] items.
+
+==Acquisition==
+* Bought from [[Wandering Merchant]]s.
+* Dropped by:
+{{Drops}}
+
+==Products==
+{{Products}}
+
+== History ==
+* [[0.1.2.0]]
+** Introduced.
+
+{{Navbox Ingredients}}
+[[Category:Ingredients]]

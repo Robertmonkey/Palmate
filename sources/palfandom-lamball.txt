@@ -1,0 +1,114 @@
+{{Pal Prev/Next |prevPal = Neptilius |prevNo = 155| nextPal = Cattiva | nextNo = 002}}
+{{Pal
+| name = Lamball
+| alphatitle = Big Floof
+| image = Lamball.png
+| no = 001
+| ele1 = Neutral
+| drops = {{i|Wool}}<br/>{{i|Lamball Mutton}}
+| food = 2
+| partnerskill = Fluffy Shield
+| psicon = Defense
+| psdesc = When activated, equips to the player and becomes a shield.<br/>Sometimes drops Wool when assigned to Ranch.
+| handiwork = 1
+| transporting = 1
+| farming = 1
+| breedpower = 1470
+| maps =<gallery>
+Lamball Day Habitat.png|Day
+Lamball Night Habitat.png|Night
+</gallery>
+}}'''Lamball''' (Japanese: '''モコロン''' ''Mokoron'') is a {{i|Neutral}} [[Elements|elemental]] [[Pals|Pal]].
+== Paldeck Entry ==
+{{Paldeck|A walk up a hill tends to end with this Pal tumbling back down. This causes it to become dizzy and unable to move, making it easy to capture and kill. As a result, this Pal has tumbled down to the very bottom of the food chain itself.}}
+==Biology==
+===Appearance===
+Lamball, as their name suggests, is a spherical pal resembling a lamb. They are bipedal and have short stubby arms and legs and shiny golden eyes. The body and long ears of Lamball are a greyish brown with white wool enveloping their body. On the top of a Lamball's head features two small orange horns. They have two gold gems on their chest similar to buttons which, combined with their wool, give off the appearance of a [https://en.wikipedia.org/wiki/Parka parka].
+
+===Behavior===
+Lamballs are curious of the Player when they approach it. If attacked, they will attack back with its signature [[Roly Poly]] Active Skill.
+== Availability ==
+===Wild Spawn=== 
+* [[Windswept Hills]]
+===[[Dungeons]]===
+* [[Dungeons#Grass Dungeons|Grass Dungeon Boss]]
+<div class="mw-collapsible mw-collapsed">
+===[[Breeding]]===
+<div class="mw-collapsible-content">
+{{Cols|2|{{Breeding|Lamball}}}}
+</div>
+</div>
+
+==Stats==
+{{Pal Table Stats
+|hp = 70
+|attack = 70
+|defense = 70
+|min_hp = 2700
+|max_hp = 3277
+|min_attack = 388
+|max_attack = 475
+|min_defense = 338
+|max_defense = 425
+}}
+
+==Elemental Effectiveness==
+{{Pal Element Effect|type=neutral}}
+
+==Utility==
+'''[[Partner Skills|Partner Skill]]:''' 
+*Fluffy Shield - When activated, equips to the player and becomes a shield. Sometimes drops Wool when assigned to ranch.
+
+'''[[Work Suitability]]:'''
+* {{i|Handiwork}} 1
+* {{i|Transporting}} 1
+* {{i|Farming}} 1
+
+'''Possible Drops:''' 
+*Normal
+** 1-3 {{i|Wool}} (100%)
+** 1 {{i|Lamball Mutton}} (100%)
+
+*Boss
+** 1-2 {{i|Ancient Civilization Parts}} (100%)
+** 1-3 {{i|Wool}} (100%)
+** 1 {{i|Lamball Mutton}} (100%)
+** 1-2 {{i|Precious Pelt}} (100%)
+** 1 {{i|Ring of Resistance}} (5%)
+
+'''[[Farming|Farming Produce]]:'''
+* {{i|Wool}}
+
+==Active Skills==
+{{PalSkillListStart}}
+{{PalSkillListEntry+|Roly Poly|level=1}}
+{{PalSkillListEntry+|Air Cannon|level=7}}
+{{PalSkillListEntry+|Power Shot|level=15}}
+{{PalSkillListEntry+|Implode|level=22}}
+{{PalSkillListEntry+|Electric Ball|level=30}}
+{{PalSkillListEntry+|Power Bomb|level=40}}
+{{PalSkillListEntry+|Pal Blast|level=50}}
+{{PalSkillListEnd}}
+
+==Update History==
+*[[Early Access 0.1.2.0]] 
+**Introduced.
+
+==Trivia== 
+*Lamball was featured in the [https://youtu.be/lBeJ9IrAKnw Cooking with Pals - Lamb BBQ] animation.
+*Lamball's name may be a portmanteau of “lamb” and “ball”.
+*Its Japanese name may come from モコモコ ''mokomoko'' (onomatopoeia for fluffiness) and 転んだ ''koronda'' (to tumble) or コロコロ ''korokoro'' (onomatopoeia for round things rolling).
+*Lamball was featured in Paldeck No.007 on PocketPair [https://x.com/Palworld_EN/status/1677286340231327744 X] and [https://www.youtube.com/watch?v=HwaMeE-5MCc youtube channel].
+
+== Gallery ==
+<gallery>
+File:Paldeck - No.007 LAMBALL - Palworld - Gameplay - Pocketpair-2
+File:LamballSlep.png|A Lamball sleeping.
+File:Lambball starving.png|A sad Lamball [[Food|starving]].
+File:Lamball transport.png|A Lamball transporting a piece of [[Ore]] by holding it on its head and walking.
+File:Lamball1.png|Lamball in wild
+File:Lamball2.png|Player shearing Lamball as shown in trailer
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals with exclusive Skills]]
