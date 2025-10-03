@@ -99,6 +99,8 @@ This document describes the responsibilities, workflows and quality assurance st
 
 *Progress 2025-10-21:* Delivered Chikipi Poultry Harvest Loop (`resource-chikipi-poultry`) covering Windswept Hills capture sweeps, Meat Cleaver butchery, and pantry/ranch balancing, synchronized `data/guides.bundle.json`, and logged new source transcripts for the cleaver and Chikipi drops.【palwiki-chikipi†L9-L76】【palwiki-meat-cleaver†L20-L41】
   * Next steps: source sanctuary-specific citations so Woolipop/Cotton Candy automation can ship, identify reliable field locations for Galeclaw poultry and Caprity meat (two independent sources per spawn), and expand the pantry chain with preservation infrastructure once storage references surface.
+*Progress 2025-10-22:* Built Gold Coin Treasury Circuit (`resource-gold-coin`) to chain Mau night hunts, Vixy/Mau ranch automation, and Small Settlement merchant sell loops; synchronized `guides.md` and `data/guides.bundle.json`, registered new wiki citations for Mau and Gold Coin economy coverage, and extracted fresh raw transcripts into `sources/`.【palwiki-mau-raw†L11-L115】【palwiki-gold-coin-raw†L3-L28】【palwiki-gold-coin†L28-L44】【palwiki-wandering-merchant-raw†L1-L119】
+  * Next steps: secure independent coverage for treasure chest coin routes and PIDF incident timers, gather spawn citations for Galeclaw poultry and Caprity meat to unlock their meat guides, and trace merchant restock cadence so the currency loop can feed higher-tier refinery routes.
 
 ## Performance Notes
 
