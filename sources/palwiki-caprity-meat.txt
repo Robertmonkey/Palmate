@@ -1,0 +1,6 @@
+Caprity Meat drop table (printable view).
+Pal | Min | Max | Chance
+Caprity | 2 | 2 | 100%
+Caprity | 2 | 2 | 100%
+Caprity Noct |  |  | %
+Caprity Noct |  |  | %
