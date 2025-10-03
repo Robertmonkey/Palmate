@@ -1,0 +1,31 @@
+{{Stub}}
+{{Infobox_Location
+|name = No. 3 Wildlife Sanctuary
+|image = 03._Wildlife_Sanctuary_icon.png
+|type = Island<br/>[[Wildlife Sanctuary]]
+|location = 669, 640
+|inhabitants = [[Incineram Noct]]<br/>[[Fenglope]]<br/>[[Bushi]]<br/>[[Lyleen]]<br/>[[Blazamut]]}}
+
+'''No. 3 Wildlife Sanctuary''' is one of three [[Wildlife Sanctuary]] islands. 
+
+It's located in the most northeastern part of the [[Palpagos Islands]], to the east of the northern part of [[Dessicated Desert]]. 
+
+==Materials==
+* {{i|Beautiful Flower}}
+
+==Pal Spawns==
+*{{i|Incineram Noct}}
+*{{i|Bushi}}
+*{{i|Fenglope}}
+*{{i|Orserk}}
+*{{i|Lyleen}}
+*{{i|Blazamut}}
+*{{i|Astegon}}
+*{{i|Faleris}}
+*{{i|Shadowbeak}}
+
+== See also==
+*[[No. 1 Wildlife Sanctuary]]
+*[[No. 2 Wildlife Sanctuary]]
+
+[[Category:Locations]]

@@ -1,0 +1,33 @@
+{{Stub}}
+{{Infobox_Location
+|name = No. 2 Wildlife Sanctuary
+|image = 02._Wildlife_Sanctuary_icon.png
+|type = Island<br/>[[Wildlife Sanctuary]]
+|location = -675, -113
+|inhabitants = [[Jormuntide Ignis]]<br/>[[Verdash]]<br/>[[Incineram Noct]]<br/>[[Wumpo Botan]]<br/>[[Kingpaca]]<br/>[[Quivern]]<br/>[[Warsect]]<br/>[[Menasting]]
+|map = 02_wildlife_sanctuary.png}}
+
+'''02. Wildlife Sanctuary''' is one of three [[Wildlife Sanctuary]] islands. 
+
+It's located north of [[Mount Obsidian]] and west of [[Forgotten Island]]. 
+
+==Materials==
+* {{i|Beautiful Flower}}
+* {{i|Sulfur}}
+* {{i|Ore}}
+
+==Pal Spawns==
+*{{i|Jormuntide Ignis}}
+*{{i|Wumpo Botan}}
+*{{i|Incineram Noct}}
+*{{i|Kingpaca}}
+*{{i|Warsect}}
+*{{i|Verdash}}
+*{{i|Quivern}}
+*{{i|Menasting}}
+
+==See also==
+*[[No. 1 Wildlife Sanctuary]]
+*[[No. 3 Wildlife Sanctuary]]
+
+[[Category:Locations]]

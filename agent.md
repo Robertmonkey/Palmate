@@ -117,6 +117,8 @@ This document describes the responsibilities, workflows and quality assurance st
 
 *Progress 2025-10-29:* Rebuilt Berry Seed coverage as Berry Seed Supply Loop (`resource-berry-seeds`), replacing the outdated Lifmunk/Gumoss hunt with merchant+forage routing, refreshing `guides.md`, `data/guides.bundle.json`, and `data/guide_catalog.json`, and adding raw Palworld wiki transcripts plus settlement coordinates to the source registry.
   * Next steps: capture merchant restock timing for berry seeds (second independent source still pending), log plantation yield rates from a secondary farming reference, and continue knocking out remaining meat/seed gaps once trustworthy spawn citations appear (Caprity Meat, Galeclaw Poultry, Lettuce/Tomato seeds).
+*Progress 2025-10-30:* Authored Beautiful Flower Sanctuary Sweep (`resource-beautiful-flower`) covering No. 1 Wildlife Sanctuary entry, node harvesting, and Petallia/Wumpo/Lyleen drop loops, synchronized the bundle and guide catalog, and added fresh sanctuary/flower source transcripts.
+  * Next steps: capture second-source coordinates for alternate sanctuary flower clusters, document Strange Juice crafting throughput once additional workstation citations are gathered, and extend coverage to other sanctuary-exclusive drops (e.g., Lyleen Noct hair) as reliable references appear.
 
 ## Performance Notes
 

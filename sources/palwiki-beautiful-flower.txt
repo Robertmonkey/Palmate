@@ -1,0 +1,43 @@
+{{stub}}
+{{Item
+| description   = A plant that blooms colorful flowers. Can be used to make [[Suspicious Juice]] and [[Strange Juice]].
+| type          = Ingredient
+| rarity        = Common
+
+| weight        = 0.2
+
+| buy           = 240
+| sell          = 24
+
+| nutrition     = 1
+| san           = 5
+| corruption    = 
+
+| technology    = 
+| required_level = 
+| cost          = 
+| made_at       = 
+| workload        = 
+}}
+
+{{PAGENAME}} is an [[ingredient]] used in crafting. It can be acquired from certain [[Pals]].
+
+==Acquisition==
+*Can be harvested in all 3 of the [[Wildlife Sanctuary|Wildlife Sanctuaries]].
+*Dropped by:
+{{Drops}}
+
+=== Tips and Advice ===
+
+* If choosing to farm the flowers via defeating Grass-element Pals, it's recommended to bring a Blazehowl or Katress Ignis along to defeat them, as their unique partner skills make Grass-aligned Pals drop more items. 
+** On a similar note, the best Pal to bring to farm Ribbuny would be Katress or Blazehowl Noct; the best Pal to bring along to farm Wumpo would be Faleris, and the best Pal to bring along to farm Lyleen Noct would be Elphidran.
+
+==Products==
+{{Products}}
+
+== History ==
+* [[0.1.2.0]]
+** Introduced.
+
+{{Navbox Ingredients}}
+[[Category:Ingredients]]
