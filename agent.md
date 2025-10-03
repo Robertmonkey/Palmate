@@ -77,7 +77,7 @@ Key confirmations from the review:
 
 ### Backlog (Confirm Against `routeGuideData.resourceGuideGaps` Before Starting)
 
-* High-priority shortages still missing guides: **Caprity Meat**, **Galeclaw Poultry**, **High Quality Pal Oil**, **Small Pal Soul**, **Medium Pal Soul follow-ups (Crusher automation variants)**, **Sanctuary-exclusive drops (e.g., Lyleen Noct hair, Sibelyx Ignis cloth)**, **Merchant restock timing references**.
+* High-priority shortages still missing guides: **Caprity Meat**, **Galeclaw Poultry**, **High Quality Pal Oil**, **Small Pal Soul**, **Sanctuary-exclusive drops (e.g., Lyleen Noct hair, Sibelyx Ignis cloth)**, **Merchant restock timing references**.
 * Secondary targets once two independent citations are secured: **Milk auxiliary spawns**, **Seed restock timers (Tomato/Lettuce/Berry)**, **Elite alpha respawn timers for gemstone loops**, **Automation throughput benchmarks for Assembly Line/Power Grid resources**.
 
 Update this backlog whenever a guide ships or when a data source becomes available, and archive stale TODOs with reasoning if a resource becomes obsolete or its shortages are resolved by upstream patches.
@@ -174,3 +174,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Secure a second independent citation for non-alpha Broncherry spawns (interactive map export or reputable guide) so future revisions can offer alternative hunt loops beyond the daily alpha kill.
 2. Capture quantitative butcher throughput (meat per hour, raid timers) once playtest data is available to tighten the estimated XP/output ranges in both the route JSON and shortage card.
 3. Audit downstream recipe routes (e.g., Rib Roast, hearty meals) to ensure they now reference the Broncherry Meat loop and surface dependencies appropriately once production bundles rebuild.
+
+### 2025-11-15 Medium Pal Soul automation handoff
+
+* Expanded `resource-medium-pal-soul` with a Crusher automation checkpoint, Watering-pal guidance, and a new `crusher-automation` key unlock so shortages surface base wiring steps alongside hunt loops.
+* Updated `data/guide_catalog.json` and the bundle catalog entry to add a fourth shortage step that highlights wiring storage between the Crusher and Statue of Power with supporting citations.
+
+**Continuation notes:**
+
+1. Capture empirical conversion throughput (Medium souls per minute) for common Watering pals to validate the new automation estimates before publishing dashboard copy.
+2. Monitor shortage cards after the next bundle rebuild to confirm the new automation step renders correctly and references the added `crusher-automation` unlock.
+3. Evaluate linking the automation step directly into `resource-large-pal-soul` once cooperative loadout benchmarks for Watering and Transporting pals are sourced.
