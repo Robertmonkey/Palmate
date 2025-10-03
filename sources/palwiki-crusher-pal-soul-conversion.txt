@@ -1,0 +1,3 @@
+Source: https://palworld.fandom.com/wiki/Crusher (retrieved 2025-10-03)
+
+The Crusher unlocks at Technology Level 8 and lets Watering pals convert materials. Its crafting table includes recipes that swap Pal Souls: crushing 1 Medium Pal Soul yields 2 Small Pal Souls, while crushing 2 Small Pal Souls yields 1 Medium Pal Soul. Subsequent recipes allow conversion between Medium, Large, Giant Pal Souls, and so on.

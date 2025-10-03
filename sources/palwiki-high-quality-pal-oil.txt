@@ -1,0 +1,50 @@
+High Quality Pal Oil — palworld.fandom.com (API wikitext)
+{{Infobox_Item
+|name = High Quality Pal Oil
+|effects = High-quality oil that can be extracted from Pal. Necessary for making Polymer
+|source = [[Wandering Merchant]]<br/>
+<div class="mw-collapsible mw-collapsed">
+Pals
+<div class="mw-collapsible-content">
+{{p|Quivern}}<br/>
+{{p|Relaxaurus}}<br/>
+{{p|Woolipop}}<br/>
+{{p|Elphidran}}<br/>
+{{p|Grintale}}<br/>
+{{p|Mammorest}}<br/>
+{{p|Flambelle}}<br/>
+{{p|Digtoise}}<br/>
+{{p|Dumud}}<br/>
+{{p|Elphidran Aqua}}<br/>
+{{p|Jormuntide Ignis}}<br/>
+{{p|Mammorest Cryst}}<br/>
+{{p|Relaxaurus Lux}}<br/>
+{{p|Quivern Botan}}<br/>
+{{p|Xenogard}}
+</div>
+</div>
+|gold_buy = 300
+|type = Material
+}}
+==Acquisition==
+*It can be purchased from [[Wandering Merchant]]s.
+*Can be collected by defeating or capturing certain [[pals]] such as:{{Cols|2|
+**{{p|Quivern}}
+**{{p|Relaxaurus}}
+**{{p|Woolipop}}
+**{{p|Elphidran}}
+**{{p|Grintale}}
+**{{p|Mammorest}}
+**{{p|Flambelle}}
+**{{p|Digtoise}}
+**{{p|Dumud}}
+**{{p|Elphidran Aqua}}
+**{{p|Jormuntide Ignis}}
+**{{p|Mammorest Cryst}}
+**{{p|Relaxaurus Lux}}
+**{{p|Quivern Botan}}
+**{{p|Xenogard}}
+}}
+
+*[[Ranch]]:
+**{{p|Dumud}}

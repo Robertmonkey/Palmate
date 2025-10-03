@@ -8073,8 +8073,7 @@
           ]
         }
       ]
-    }
-    ,
+    },
     {
       "id": "resource-beautiful-flower-sanctuary-sweep",
       "title": "Beautiful Flower Sanctuary Sweep",
@@ -8142,8 +8141,7 @@
           ]
         }
       ]
-    }
-    ,
+    },
     {
       "id": "resource-precious-dragon-stone-alpha-relay",
       "title": "Precious Dragon Stone Alpha Relay",
@@ -8202,8 +8200,7 @@
           ]
         }
       ]
-    }
-    ,
+    },
     {
       "id": "resource-venom-gland-supply-network",
       "title": "Venom Gland Supply Network",
@@ -8311,6 +8308,121 @@
               "id": "menasting",
               "slug": "menasting",
               "name": "Menasting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-high-quality-pal-oil-sanctuary-circuit",
+      "title": "High Quality Pal Oil Sanctuary Circuit",
+      "source_heading": "High Quality Pal Oil Sanctuary Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs High Quality Pal Oil for polymer, muskets, or elixirs and lacks a reliable supply.",
+      "keywords": [
+        "high quality pal oil",
+        "polymer",
+        "elphidran",
+        "quivern",
+        "merchant"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Fast travel to the **Small Settlement (78,-477)** and **Sea Breeze Archipelago merchant (-190,-600)** each day to buy every High Quality Pal Oil for 300 Gold.",
+          "citations": [
+            "palwiki-wandering-merchant-raw\u2020L24-L39",
+            "palwiki-wandering-merchant-raw\u2020L176-L180"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "location",
+              "id": "sea-breeze-archipelago-merchant",
+              "name": "Sea Breeze Archipelago Merchant",
+              "region": "Sea Breeze Archipelago"
+            },
+            {
+              "type": "item",
+              "id": "high_quality_pal_oil",
+              "slug": "high-quality-pal-oil",
+              "name": "High Quality Pal Oil"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Capture **Elphidran** at **No. 1 Wildlife Sanctuary (90,-735)** for guaranteed 2\u20133 oil drops per capture.",
+          "citations": [
+            "palwiki-wildlife-sanctuary-1\u2020L1-L8",
+            "palwiki-wildlife-sanctuary\u2020L6-L21",
+            "palwiki-high-quality-pal-oil\u2020L9-L36",
+            "palworldgg-elphidran-drops\u2020L1-L2"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "wildlife-sanctuary-1",
+              "name": "No. 1 Wildlife Sanctuary",
+              "region": "Central Sea"
+            },
+            {
+              "type": "pal",
+              "id": "elphidran",
+              "slug": "elphidran",
+              "name": "Elphidran"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Glide over **No. 2 Wildlife Sanctuary (-675,-113)** and cull **Quivern** flights for 3 oil per kill while managing PIDF trespass heat.",
+          "citations": [
+            "palwiki-wildlife-sanctuary-2\u2020L1-L7",
+            "palwiki-wildlife-sanctuary\u2020L6-L21",
+            "palwiki-high-quality-pal-oil\u2020L9-L36",
+            "palworldgg-quivern-drops\u2020L1-L2"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "wildlife-sanctuary-2",
+              "name": "No. 2 Wildlife Sanctuary",
+              "region": "Western Sea"
+            },
+            {
+              "type": "pal",
+              "id": "quivern",
+              "slug": "quivern",
+              "name": "Quivern"
+            }
+          ]
+        },
+        {
+          "order": 4,
+          "instruction": "Station **Dumud** or spare Elphidran at a Ranch so oil trickles in between merchant loops and sanctuary runs.",
+          "citations": [
+            "palwiki-high-quality-pal-oil\u2020L30-L50"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "dumud",
+              "slug": "dumud",
+              "name": "Dumud"
+            },
+            {
+              "type": "item",
+              "id": "high_quality_pal_oil",
+              "slug": "high-quality-pal-oil",
+              "name": "High Quality Pal Oil"
             }
           ]
         }
