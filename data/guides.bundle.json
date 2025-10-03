@@ -23660,6 +23660,359 @@
           "reason": "Woolipop ranching doubles as a High Quality Pal Oil drip once your candy reserve is stable."
         }
       ]
+    },
+    {
+      "route_id": "resource-small-pal-soul",
+      "title": "Small Pal Soul Night Hunts & Crusher Loop",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "pal-soul",
+        "statue-of-power",
+        "night"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 12,
+        "max": 34
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "resource-medium-pal-soul"
+        ],
+        "tech": [
+          "crusher",
+          "statue-of-power"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Hunt nocturnal small-soul drops in Windswept Hills",
+        "Flip medium souls into small stock with the Crusher",
+        "Schedule Statue of Power offerings and storage"
+      ],
+      "estimated_time_minutes": {
+        "solo": 36,
+        "coop": 24
+      },
+      "estimated_xp_gain": {
+        "min": 240,
+        "max": 360
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Missing the night window delays soul drops until the next cycle.",
+        "hardcore": "Night raids or stray alpha aggro can down you and waste Crusher fuel if you wipe."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Stage at the Small Settlement (75,-479), use standard Pal Spheres, and pick off Daedream or Nox after sundown; both stay active until dawn and drop souls even when captured.",
+        "overleveled": "Chain the medium-soul circuit first, then dump every Medium Pal Soul through the Crusher before sunrise to double your small-soul bank for late-game statues.",
+        "resource_shortages": [
+          {
+            "item_id": "medium_pal_soul",
+            "solution": "Run the Medium Pal Soul loop or cull Helzephyr alphas, then convert each medium into two small souls at the Crusher before the next Statue offering."
+          }
+        ],
+        "time_limited": "If you only have one night, sweep the plateau northwest of the Small Settlement for Daedream, tag any Nox you see, then queue Crusher conversions before logging off.",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Assign one hunter to patrol the ridges while the partner shuttles Medium Pal Souls to base for Crusher duty so small-soul output never pauses.",
+            "priority": 2,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-small-pal-soul:001",
+              "resource-small-pal-soul:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-small-pal-soul:checkpoint-night-hunt",
+          "summary": "Night hunt complete",
+          "benefits": [
+            "Initial small-soul stack",
+            "Dark-type pals captured"
+          ],
+          "related_steps": [
+            "resource-small-pal-soul:001"
+          ]
+        },
+        {
+          "id": "resource-small-pal-soul:checkpoint-crusher",
+          "summary": "Crusher conversions queued",
+          "benefits": [
+            "Medium souls converted",
+            "Pal oil usage logged"
+          ],
+          "related_steps": [
+            "resource-small-pal-soul:002"
+          ]
+        },
+        {
+          "id": "resource-small-pal-soul:checkpoint-statue",
+          "summary": "Statue offerings planned",
+          "benefits": [
+            "Upgrade plan set",
+            "Storage buffer ready"
+          ],
+          "related_steps": [
+            "resource-small-pal-soul:003"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "step_id": "resource-small-pal-soul:001",
+          "type": "hunt",
+          "summary": "Sweep Small Settlement ridges for Daedream and Nox",
+          "detail": "Glide to the cliffs around the Small Settlement (75,-479) after sundown, patrolling the tree line for Daedream and Nox; both linger until dawn, drop Small Pal Souls on capture or defeat, and their nocturnal schedule keeps the loop safe for mid-level squads.",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "small_pal_soul",
+              "qty": 10
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                75,
+                -479
+              ],
+              "time": "night",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Rotate torches off to stay hidden, and retreat to the Small Settlement statue if raids trigger during the night sweep.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "spotter",
+                  "tasks": "Marks Daedream spawns and snares them with spheres"
+                },
+                {
+                  "role": "finisher",
+                  "tasks": "Executes Nox captures and shuttles drops to mount"
+                }
+              ],
+              "loot_rules": "Alternate who claims captured pals so both players bank souls and dark pals."
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "bow"
+            ],
+            "pals": [
+              "foxparks"
+            ],
+            "consumables": [
+              "pal-sphere"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 120,
+            "max": 180
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "small_pal_soul",
+                "qty": 10
+              }
+            ],
+            "pals": [
+              "daedream",
+              "nox"
+            ],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-paldium"
+            }
+          ],
+          "citations": [
+            "palwiki-small-settlement-raw",
+            "palwiki-daedream",
+            "palwiki-nox",
+            "palwiki-small-pal-soul"
+          ]
+        },
+        {
+          "step_id": "resource-small-pal-soul:002",
+          "type": "craft",
+          "summary": "Convert medium souls at the Crusher",
+          "detail": "Load the Crusher with Medium Pal Souls before dawn—each crush outputs two Small Pal Souls, letting you stretch sanctuary hauls or dungeon clears into twice the offerings needed for statue upgrades.",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "small_pal_soul",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "processor",
+                  "tasks": "Feeds Crusher and tracks fuel"
+                },
+                {
+                  "role": "runner",
+                  "tasks": "Delivers Medium Pal Souls and banks finished stacks"
+                }
+              ],
+              "loot_rules": "Split converted stacks evenly before spending at statues."
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "small_pal_soul",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-medium-pal-soul"
+            }
+          ],
+          "citations": [
+            "palwiki-crusher-pal-soul-conversion",
+            "palwiki-medium-pal-soul-raw"
+          ]
+        },
+        {
+          "step_id": "resource-small-pal-soul:003",
+          "type": "base",
+          "summary": "Schedule Statue of Power offerings",
+          "detail": "Queue Small Pal Souls at the Statue of Power in 4-soul batches, rotating health, attack, defense, or work speed boosts per pal so upgrades align with your next raid cycle.",
+          "targets": [
+            {
+              "kind": "structure",
+              "id": "statue-of-power",
+              "qty": 1
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Bank an extra stack before raids so wipes do not stall capture power progress.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "small_pal_soul",
+                "qty": 4
+              }
+            ],
+            "pals": [],
+            "unlocks": {
+              "structures": [
+                "statue-of-power"
+              ]
+            }
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-statue-of-power",
+            "palwiki-small-pal-soul"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "small_pal_soul",
+          "qty": 20
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "statue-of-power-upgrades"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-medium-pal-soul",
+          "reason": "Medium Pal Souls backfill Crusher conversions and unlock statue upgrades beyond tier one."
+        },
+        {
+          "route_id": "resource-large-pal-soul",
+          "reason": "Large Pal Souls continue the upgrade chain once small stockpiles are stable."
+        }
+      ]
     }
   ],
   "routeSchema": {

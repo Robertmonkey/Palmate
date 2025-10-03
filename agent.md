@@ -139,3 +139,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Source a field citation for wild Woolipop spawn coordinates (e.g., interactive map export) so the route can offer an alternate capture path for players without cake.
 2. Confirm whether any merchants sell Cotton Candy directly and, if so, add a `trade` branch plus catalog link for rapid restocks.
 3. After production deploy, verify the shortages UI removes Cotton Candy from `resourceGuideGaps`; if not, regenerate the production bundles and investigate parser expectations.
+
+### 2025-11-10 Small Pal Soul circuit delivery
+
+* Authored the `resource-small-pal-soul` route with nocturnal hunts, Crusher conversions, and Statue of Power scheduling plus checkpoints and adaptive guidance tuned for underleveled, overleveled, and coop contexts.
+* Synced the shortages catalog via `resource-small-pal-soul-night-loop` so the UI advertises the loop once bundles refresh, including new keyword coverage for Statue upgrades.
+* Expanded the Source Registry with rendered Palworld wiki pulls for Daedream, Nox, Small Pal Soul, and Crusher conversion specifics, ensuring citations back the night spawn behavior and conversion ratios.
+
+**Continuation notes:**
+
+1. Gather a second independent map citation with explicit Daedream and Nox coordinate clusters (interactive map export or community atlas) to reinforce the hunt step beyond the Small Settlement anchor.
+2. Secure a dungeon-focused citation for Tombat/Felbat Small Pal Soul drops so the route can branch into late-game instanced loops for variety.
+3. Monitor production `resourceGuideGaps`; if Small Pal Soul remains listed post-deploy, inspect bundle ingestion and ensure the new catalog entry flags `shortage_menu: true` in downstream manifests.

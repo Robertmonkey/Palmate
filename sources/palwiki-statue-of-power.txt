@@ -1,0 +1,7 @@
+Source: https://palworld.fandom.com/wiki/Statue_of_Power?action=render (retrieved 2025-11-10)
+
+It is a tier 6 technology item and requires 2 points to unlock. Otherwise, there are several of the statues scattered around the map in certain locations, but the easiest way to gain access to one is for players to simply build one of their own. Naturally-spawning Statues of Power perform identically to built ones, but cannot be deconstructed by players.
+
+The Statue of Power is used to permanently enhance Player and Pal stats. For players, capture power is enhanced using Lifmunk Effigies. The first enhancement costs 1 effigy and each subsequent enhancement costs 4 (3 for the first three levels) more than the last, and capture power can only be enhanced 14 times (as of v0.4.11).
+
+For Pals, one can permanently increase an individual Pal's Max Health, Attack, Defense, or Work Speed. Unlike player enhancements, these cost Small Pal Soul, Medium Pal Soul, and Large Pal Soul, converted via the Crusher as needed (4 Small Pal Souls = 2 Medium Pal Souls = 1 Large Pal Soul).
