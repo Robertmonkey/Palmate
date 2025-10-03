@@ -89,9 +89,30 @@ Update this backlog whenever a guide ships or when a data source becomes availab
 
 By adhering to these guidelines, the Palmate agent will produce reliable, comprehensive guides that help players enjoy Palworld while keeping pace with the game’s rapid evolution.
 
+### 2025-10-31 High Quality Pal Oil supply circuit
+
+* Replaced the outdated Mossanda lava ravine hunt with the **High Quality Pal Oil Sanctuary Circuit**, wiring merchant loops, Sanctuary Nos. 1–2 captures, and Dumud ranch automation into the route library and bundle.
+* Synced the guide catalog shortage entry so the shortages UI can surface the new sanctuary-focused path, and added drop-rate/source registry stubs for palworld.gg payloads.
+
+**Continuation notes:**
+
+1. Gather first-hand coordinates or merchant data for reliable Dumud acquisition (desert spawn or pal merchant) so the automation step can cite a capture path instead of assuming ownership.
+2. Capture PIDF respawn and trespass timer data for Sanctuaries to improve the adaptive guidance risk modelling before expanding to Sanctuary No.3 follow-ups.
+3. Validate polymer automation dependencies after the next content patch—route currently pushes polymer and carbon fiber, but Assembly Line throughput benchmarks still need sourcing.
+
 ### 2025-10-31 Venom Gland coverage sync
 
 * Added the `resource-venom-gland-supply-network` catalog entry with shortage flag, merchant/dungeon/alpha context, and wired citations so the shortages UI can surface the route immediately.
 * Verified `index.html` relies entirely on parsed guide data for `resourceGuideGaps`; no hard-coded Venom Gland references required updates after the new route synced into `guides.md` and `data/guides.bundle.json`.
 * Expanded the Source Registry with `palwiki-killamari`, `palwiki-menasting`, and `palfandom-venom-gland` to clear unresolved citations for the new route JSON blocks.
 * Next agent touchpoint: confirm the shortages drawer surfaces the Venom Gland guide once bundles regenerate in production, then continue with the remaining backlog targets above (Caprity Meat, Galeclaw Poultry, etc.).
+### 2025-11-03 Small Pal Soul sourcing groundwork
+
+* Collected primary citations for Small Pal Soul acquisition, including Fandom documentation on drop sources (Daedream, Nox, Cawgnito, Maraith, Felbat, Tombat), overworld spawn behavior, and Crusher-based soul conversions.
+* Logged nocturnal behavior notes for Daedream and Nox to support night-hunt routing and base automation planning for future guide steps.
+
+**Continuation notes:**
+
+1. Translate the new sources into a full `resource-small-pal-soul` route covering early-game night hunts, mid-game Crusher conversion loops, and late-game statue offering automation; wire the guide into `data/guides.bundle.json` and `data/guide_catalog.json` once coordinates are verified.
+2. Secure at least one citation with explicit coordinates or dungeon references for Daedream/Nox farming hotspots (e.g., Windswept Hills nighttime patrols or low-level dungeons) to anchor the step-by-step capture path.
+3. Identify efficient Medium/Large Pal Soul feedstock chains (alphas, raids, or breeding) so the Crusher conversions can scale without starving other statue upgrades; gather throughput benchmarks before drafting late-game automation steps.

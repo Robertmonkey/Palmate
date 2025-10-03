@@ -12983,18 +12983,18 @@
     },
     {
       "route_id": "resource-high-quality-pal-oil",
-      "title": "High Quality Pal Oil Hunts",
+      "title": "High Quality Pal Oil Sanctuary Circuit",
       "category": "resources",
       "tags": [
         "resource-farm",
         "high-quality-pal-oil",
-        "mid-game",
-        "combat-farm"
+        "merchant",
+        "sanctuary"
       ],
       "progression_role": "support",
       "recommended_level": {
-        "min": 21,
-        "max": 35
+        "min": 28,
+        "max": 42
       },
       "modes": {
         "normal": true,
@@ -13004,70 +13004,54 @@
       },
       "prerequisites": {
         "routes": [
-          "starter-base-capture"
+          "resource-gold-coin"
         ],
         "tech": [
-          "musket"
+          "ranch"
         ],
-        "items": [
-          "heat-resistant-armor"
-        ],
+        "items": [],
         "pals": []
       },
       "objectives": [
-        "Establish a safe camp at the Mossanda Forest lava ravine",
-        "Chain Flambelle clears for High Quality Pal Oil drops",
-        "Supplement drops with merchant buys and Dumud ranching"
+        "Sweep fixed wandering merchants for High Quality Pal Oil every restock",
+        "Capture Elphidran in Wildlife Sanctuary No. 1 for guaranteed oil drops",
+        "Cull Quivern flights in Wildlife Sanctuary No. 2 for bulk oil and souls",
+        "Stage oil producers at base and schedule merchant rotations"
       ],
       "estimated_time_minutes": {
-        "solo": 35,
-        "coop": 25
+        "solo": 38,
+        "coop": 28
       },
       "estimated_xp_gain": {
-        "min": 260,
-        "max": 380
+        "min": 520,
+        "max": 780
       },
-      "risk_profile": "medium",
+      "risk_profile": "high",
       "failure_penalties": {
-        "normal": "Heat damage and level 30 patrols near Mossanda Forest can down you, wasting oil runs.",
-        "hardcore": "Hardcore wipes in the lava ravine risk permanent loss of Water counters and Polymer fuel stock."
+        "normal": "PIDF arrests confiscate sanctuary hauls and send you back to the last statue.",
+        "hardcore": "Hardcore trespass wipes can snowball into gear loss and pal deaths, so extract before heat spikes."
       },
       "adaptive_guidance": {
-        "underleveled": "Stay near the statue-side ridge and kite level 10 Flambelle with Water pals until you can push deeper into the ravine.\u30109cc14d\u2020L17-L21\u3011",
-        "overleveled": "Add Woolipop rotations east of Rayne Syndicate Tower between runs to keep oil income ahead of Polymer demand.\u30109cc14d\u2020L21-L24\u3011\u3010c81b10\u2020L13-L41\u3011",
+        "underleveled": "Lean on merchant stockpiles until level 30, then hit Sanctuary No.1 with burst captures before patrols escalate.\u3010palwiki-wandering-merchant-raw\u2020L24-L39\u3011\u3010palwiki-wildlife-sanctuary\u2020L6-L21\u3011",
+        "overleveled": "Chain Sanctuaries No.1 and No.2 in a single sortie, emptying oil pals then resupplying merchants on the way home.\u3010palwiki-high-quality-pal-oil\u2020L1-L50\u3011\u3010palwiki-wildlife-sanctuary-2\u2020L1-L7\u3011",
         "resource_shortages": [
           {
-            "item_id": "high-quality-pal-oil",
-            "solution": "Alternate Flambelle clears with merchant purchases before starting Polymer batches so stock never bottoms out.\u30109cc14d\u2020L17-L24\u3011"
+            "item_id": "high_quality_pal_oil",
+            "solution": "Buy out settlement merchants first, then fill gaps with Elphidran and Quivern runs so polymer recipes stay fed.\u3010palwiki-wandering-merchant-raw\u2020L24-L39\u3011\u3010palworldgg-quivern-drops\u2020L1-L2\u3011"
           }
         ],
-        "time_limited": "Hit the lava ravine for a single ten-minute sweep, bank the drops, then fast travel home before heat attrition stacks.",
+        "time_limited": "Do the merchant loop only, banking 600 gold and 6 oil in five minutes before logging off.\u3010palwiki-wandering-merchant-raw\u2020L24-L39\u3011\u3010palwiki-wandering-merchant-raw\u2020L176-L180\u3011",
         "dynamic_rules": [
           {
             "signal": "mode:coop",
             "condition": "mode.coop === true",
-            "adjustment": "Assign a vanguard to clear Flambelle while a runner ferries oil to the chest at the statue between pulls.",
+            "adjustment": "Split the squad so one rider handles both merchants while the partner ferries captured sanctuary pals home.",
             "priority": 1,
             "mode_scope": [
               "coop"
             ],
             "related_steps": [
               "resource-high-quality-pal-oil:001",
-              "resource-high-quality-pal-oil:002"
-            ]
-          },
-          {
-            "signal": "resource_gap:polymer_high",
-            "condition": "resource_gaps['polymer'] >= 10",
-            "adjustment": "Route oil immediately into Polymer queues once stock exceeds 10 to keep late-game weapons online.\u3010efa13d\u2020L1-L16\u3011",
-            "priority": 2,
-            "mode_scope": [
-              "normal",
-              "hardcore",
-              "solo",
-              "coop"
-            ],
-            "related_steps": [
               "resource-high-quality-pal-oil:004"
             ]
           }
@@ -13075,115 +13059,80 @@
       },
       "checkpoints": [
         {
-          "id": "resource-high-quality-pal-oil:checkpoint-ravine",
-          "summary": "Lava ravine staging secured",
+          "id": "resource-high-quality-pal-oil:checkpoint-merchants",
+          "summary": "Merchant stock secured",
           "benefits": [
-            "Fast travel anchor established",
-            "Heat mitigation checked"
+            "Baseline oil buffer",
+            "Daily coin spend logged"
           ],
           "related_steps": [
             "resource-high-quality-pal-oil:001"
           ]
         },
         {
-          "id": "resource-high-quality-pal-oil:checkpoint-flambelle",
-          "summary": "Flambelle loop profitable",
+          "id": "resource-high-quality-pal-oil:checkpoint-sanctuary-haul",
+          "summary": "Sanctuary drops banked",
           "benefits": [
-            "High Quality Pal Oil banked",
-            "Water pal rotation tuned"
+            "Elphidran captured",
+            "Quivern cleared"
           ],
           "related_steps": [
-            "resource-high-quality-pal-oil:002"
+            "resource-high-quality-pal-oil:002",
+            "resource-high-quality-pal-oil:003"
           ]
         },
         {
-          "id": "resource-high-quality-pal-oil:checkpoint-supply",
-          "summary": "Supplemental supply online",
+          "id": "resource-high-quality-pal-oil:checkpoint-automation",
+          "summary": "Automation loop online",
           "benefits": [
-            "Merchant restock secured",
-            "Dumud ranch producing"
+            "Ranch output scheduled",
+            "Merchant cadence committed"
           ],
           "related_steps": [
-            "resource-high-quality-pal-oil:003",
             "resource-high-quality-pal-oil:004"
           ]
         }
       ],
       "supporting_routes": {
         "recommended": [
-          "resource-polymer"
+          "resource-gold-coin"
         ],
-        "optional": [
-          "resource-sulfur"
-        ]
+        "optional": []
       },
       "failure_recovery": {
-        "normal": "Fast travel back to Mossanda Forest, restock Water pals, and rebuild drops before another push.",
-        "hardcore": "Withdraw once patrol timers overlap; swap in expendable pals until you re-stabilise oil reserves."
+        "normal": "If patrols down you, fast travel back to the nearest statue, rest until dawn, and redo the merchant loop before re-entering sanctuaries.",
+        "hardcore": "Bail out once trespass heat hits two stars; reset at Small Settlement, restock medicine, then return with a fresh glider."
       },
       "steps": [
         {
           "step_id": "resource-high-quality-pal-oil:001",
-          "type": "travel",
-          "summary": "Scout the Mossanda lava ravine",
-          "detail": "Glide from the Mossanda Forest statue to the lava ravine at (231,-119), clear stray patrols, and stage storage near the cliff edge to minimise heat exposure.\u30109cc14d\u2020L17-L21\u3011",
-          "targets": [],
-          "locations": [
-            {
-              "region_id": "verdant-brook",
-              "coords": [
-                231,
-                -119
-              ],
-              "time": "any",
-              "weather": "any"
-            }
-          ],
-          "mode_adjustments": {},
-          "recommended_loadout": {
-            "gear": [
-              "heat-resistant-armor",
-              "water-grenade"
-            ],
-            "pals": [
-              "pengullet"
-            ],
-            "consumables": []
-          },
-          "xp_award_estimate": {
-            "min": 140,
-            "max": 180
-          },
-          "outputs": {
-            "items": [],
-            "pals": [],
-            "unlocks": {}
-          },
-          "branching": [],
-          "citations": [
-            "pcgamesn-high-quality-pal-oil"
-          ]
-        },
-        {
-          "step_id": "resource-high-quality-pal-oil:002",
-          "type": "combat",
-          "summary": "Farm Flambelle packs",
-          "detail": "Pull level 10 Flambelle into the cliff bowl, burst them with Water damage, and scoop guaranteed oil drops before respawns tick back in.\u30109cc14d\u2020L17-L21\u3011\u3010c3b8c9\u2020L23-L37\u3011",
+          "type": "trade",
+          "summary": "Clear settlement merchants",
+          "detail": "Teleport to the Small Settlement (78,-477) and Sea Breeze Archipelago merchant (-190,-600) every morning, buying every High Quality Pal Oil for 300 Gold before stock rotates.\u3010palwiki-wandering-merchant-raw\u2020L24-L39\u3011\u3010palwiki-wandering-merchant-raw\u2020L176-L180\u3011",
           "targets": [
             {
               "kind": "item",
-              "id": "high-quality-pal-oil",
-              "qty": 8
+              "id": "high_quality_pal_oil",
+              "qty": 6
             }
           ],
           "locations": [
             {
-              "region_id": "verdant-brook",
+              "region_id": "small-settlement",
               "coords": [
-                231,
-                -119
+                78,
+                -477
               ],
-              "time": "any",
+              "time": "day",
+              "weather": "any"
+            },
+            {
+              "region_id": "sea-breeze-archipelago",
+              "coords": [
+                -190,
+                -600
+              ],
+              "time": "day",
               "weather": "any"
             }
           ],
@@ -13191,95 +13140,37 @@
             "coop": {
               "role_splits": [
                 {
-                  "role": "vanguard",
-                  "tasks": "Tank patrols and mark spawn cycles"
+                  "role": "runner",
+                  "tasks": "Fast travel, buy out stock, and signal respawn timers"
                 },
                 {
-                  "role": "collector",
-                  "tasks": "Finish Flambelle with Water skills and loot oil"
+                  "role": "quartermaster",
+                  "tasks": "Track inventory, stage coins, and prep outbound mounts"
                 }
               ],
-              "loot_rules": "Evenly split oil before leaving the ravine so Polymer queues stay balanced."
+              "mode_scope": [
+                "coop"
+              ]
             }
           },
-          "recommended_loadout": {
-            "gear": [
-              "metal-spear"
-            ],
-            "pals": [
-              "fuack",
-              "surfent"
-            ],
-            "consumables": [
-              {
-                "item_id": "pal-sphere",
-                "qty": 5
-              }
-            ]
-          },
-          "xp_award_estimate": {
-            "min": 160,
-            "max": 220
-          },
-          "outputs": {
-            "items": [
-              {
-                "item_id": "high-quality-pal-oil",
-                "qty": 8
-              }
-            ],
-            "pals": [],
-            "unlocks": {}
-          },
-          "branching": [],
-          "citations": [
-            "pcgamesn-high-quality-pal-oil",
-            "palwiki-flambelle"
-          ]
-        },
-        {
-          "step_id": "resource-high-quality-pal-oil:003",
-          "type": "trade",
-          "summary": "Restock from merchants",
-          "detail": "Fast travel to the Small Settlement (75,-479) and buy spare oil from the Wandering Merchant whenever stock appears to cover polymer spikes.\u30109cc14d\u2020L19-L24\u3011\u3010165dd8\u2020L71-L90\u3011",
-          "targets": [
-            {
-              "kind": "item",
-              "id": "high-quality-pal-oil",
-              "qty": 4
-            }
-          ],
-          "locations": [
-            {
-              "region_id": "windswept-hills",
-              "coords": [
-                75,
-                -479
-              ],
-              "time": "any",
-              "weather": "any"
-            }
-          ],
-          "mode_adjustments": {},
           "recommended_loadout": {
             "gear": [],
-            "pals": [],
+            "pals": [
+              "direhowl"
+            ],
             "consumables": [
-              {
-                "item_id": "gold-coin",
-                "qty": 600
-              }
+              "gold_coin"
             ]
           },
           "xp_award_estimate": {
-            "min": 40,
-            "max": 60
+            "min": 80,
+            "max": 120
           },
           "outputs": {
             "items": [
               {
-                "item_id": "high-quality-pal-oil",
-                "qty": 4
+                "item_id": "high_quality_pal_oil",
+                "qty": 6
               }
             ],
             "pals": [],
@@ -13287,24 +13178,159 @@
           },
           "branching": [
             {
-              "subroute_ref": "capture-base-merchant"
+              "type": "route",
+              "subroute_ref": "resource-gold-coin"
             }
           ],
           "citations": [
-            "pcgamesn-high-quality-pal-oil",
-            "palwiki-small-settlement"
+            "palwiki-wandering-merchant-raw\u2020L24-L39",
+            "palwiki-wandering-merchant-raw\u2020L176-L180"
+          ]
+        },
+        {
+          "step_id": "resource-high-quality-pal-oil:002",
+          "type": "capture",
+          "summary": "Capture Elphidran in Sanctuary No. 1",
+          "detail": "Glide into No. 1 Wildlife Sanctuary (90,-735), snag Elphidran with Mega or Giga Spheres, and bank the guaranteed 2\u20133 oil per capture before PIDF patrols close in.\u3010palwiki-wildlife-sanctuary-1\u2020L1-L8\u3011\u3010palwiki-wildlife-sanctuary\u2020L6-L21\u3011\u3010palwiki-high-quality-pal-oil\u2020L9-L36\u3011\u3010palworldgg-elphidran-drops\u2020L1-L2\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "high_quality_pal_oil",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "wildlife-sanctuary-1",
+              "coords": [
+                90,
+                -735
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Stay airborne on entry, tag Elphidran from range, and extract once heat hits two stars.\u3010palwiki-wildlife-sanctuary\u2020L6-L21\u3011",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "grappling-gun",
+              "mega-pal-sphere"
+            ],
+            "pals": [
+              "blazehowl"
+            ],
+            "consumables": [
+              "low_grade_medical_supplies"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 220,
+            "max": 320
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "high_quality_pal_oil",
+                "qty": 6
+              }
+            ],
+            "pals": [
+              "elphidran"
+            ],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-wildlife-sanctuary-1\u2020L1-L8",
+            "palwiki-wildlife-sanctuary\u2020L6-L21",
+            "palwiki-high-quality-pal-oil\u2020L9-L36",
+            "palworldgg-elphidran-drops\u2020L1-L2"
+          ]
+        },
+        {
+          "step_id": "resource-high-quality-pal-oil:003",
+          "type": "combat",
+          "summary": "Cull Quivern flights in Sanctuary No. 2",
+          "detail": "Sail to No. 2 Wildlife Sanctuary (-675,-113), ground Quivern patrols with electric or ice pals, and scoop the 3-stack oil drops before withdrawing.\u3010palwiki-wildlife-sanctuary-2\u2020L1-L7\u3011\u3010palwiki-wildlife-sanctuary\u2020L6-L21\u3011\u3010palwiki-high-quality-pal-oil\u2020L9-L36\u3011\u3010palworldgg-quivern-drops\u2020L1-L2\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "high_quality_pal_oil",
+              "qty": 9
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "wildlife-sanctuary-2",
+              "coords": [
+                -675,
+                -113
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Rotate aerial mounts to stay above PIDF aggro cones and disengage after each Quivern down.\u3010palwiki-wildlife-sanctuary\u2020L6-L21\u3011",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "grappling-gun",
+              "mega-pal-sphere"
+            ],
+            "pals": [
+              "blazehowl"
+            ],
+            "consumables": [
+              "high_grade_medical_supplies"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 260,
+            "max": 360
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "high_quality_pal_oil",
+                "qty": 9
+              }
+            ],
+            "pals": [
+              "quivern"
+            ],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-wildlife-sanctuary-2\u2020L1-L7",
+            "palwiki-wildlife-sanctuary\u2020L6-L21",
+            "palwiki-high-quality-pal-oil\u2020L9-L36",
+            "palworldgg-quivern-drops\u2020L1-L2"
           ]
         },
         {
           "step_id": "resource-high-quality-pal-oil:004",
-          "type": "assign",
-          "summary": "Ranch Dumud for passive oil",
-          "detail": "Capture or breed a Dumud and assign it to your ranch so it produces High Quality Pal Oil while you craft and explore.\u30109e983e\u2020L1-L26\u3011",
+          "type": "base",
+          "summary": "Automate oil at base",
+          "detail": "Assign Dumud or spare Elphidran to a Ranch so they drip High Quality Pal Oil between merchant loops, then stash at least 30 units for polymer and elixir batches.\u3010palwiki-high-quality-pal-oil\u2020L30-L50\u3011",
           "targets": [
             {
-              "kind": "pal",
-              "id": "dumud",
-              "qty": 1
+              "kind": "item",
+              "id": "high_quality_pal_oil",
+              "qty": 10
             }
           ],
           "locations": [
@@ -13320,45 +13346,45 @@
           ],
           "mode_adjustments": {},
           "recommended_loadout": {
-            "gear": [],
+            "gear": [
+              "grappling-gun"
+            ],
             "pals": [
               "dumud"
             ],
             "consumables": []
           },
           "xp_award_estimate": {
-            "min": 60,
-            "max": 90
+            "min": 120,
+            "max": 180
           },
           "outputs": {
             "items": [
               {
-                "item_id": "high-quality-pal-oil",
-                "qty": 2
+                "item_id": "high_quality_pal_oil",
+                "qty": 10
               }
             ],
-            "pals": [
-              "dumud"
-            ],
+            "pals": [],
             "unlocks": {}
           },
           "branching": [],
           "citations": [
-            "palwiki-high-quality-pal-oil"
+            "palwiki-high-quality-pal-oil\u2020L30-L50"
           ]
         }
       ],
       "completion_criteria": [
         {
           "type": "have-item",
-          "item_id": "high-quality-pal-oil",
-          "qty": 16
+          "item_id": "high_quality_pal_oil",
+          "qty": 30
         }
       ],
       "yields": {
         "levels_estimate": "+0 to +1",
         "key_unlocks": [
-          "polymer-crafting"
+          "polymer-batching"
         ]
       },
       "metrics": {
@@ -13369,11 +13395,11 @@
       "next_routes": [
         {
           "route_id": "resource-polymer",
-          "reason": "Polymer consumes High Quality Pal Oil, so stabilising oil feeds advanced weapon crafting."
+          "reason": "Polymer requires steady High Quality Pal Oil plus circuitry to push firearm upgrades."
         },
         {
           "route_id": "resource-carbon-fiber",
-          "reason": "Carbon Fiber runs share assembly infrastructure; pairing them keeps late-game armor rolling."
+          "reason": "Pair oil with carbon fiber to keep late-game weapon lines fueled."
         }
       ]
     },
@@ -15994,12 +16020,12 @@
         "hardcore": "Hardcore arrests during trespass can cascade into squad deletions, so bail before heat hits three stars."
       },
       "adaptive_guidance": {
-        "underleveled": "Stay airborne over Sanctuary No.1, land briefly to gather nodes, and avoid prolonged firefights with level 20–25 patrols.",
-        "overleveled": "Rotate through Sanctuaries No.1–3 in a single outing to restock flowers and rare drops once you can comfortably clear level 50 threats.",
+        "underleveled": "Stay airborne over Sanctuary No.1, land briefly to gather nodes, and avoid prolonged firefights with level 20\u201325 patrols.",
+        "overleveled": "Rotate through Sanctuaries No.1\u20133 in a single outing to restock flowers and rare drops once you can comfortably clear level 50 threats.",
         "resource_shortages": [
           {
             "item_id": "beautiful-flower",
-            "solution": "Alternate node harvests with Petallia and Lyleen hunts—each sweep yields flowers from both spawns and pickup nodes."
+            "solution": "Alternate node harvests with Petallia and Lyleen hunts\u2014each sweep yields flowers from both spawns and pickup nodes."
           }
         ],
         "time_limited": "Do a single perimeter glide, grab the southern node clusters, and extract before PIDF reinforcements escalate trespass charges.",
@@ -16064,7 +16090,7 @@
       },
       "failure_recovery": {
         "normal": "Escape via glider, wait for trespass heat to decay, then restock spheres before the next insertion run.",
-        "hardcore": "Extract immediately when reinforcements spawn—reset at a mainland base, repair gear, and relaunch once timers clear."
+        "hardcore": "Extract immediately when reinforcements spawn\u2014reset at a mainland base, repair gear, and relaunch once timers clear."
       },
       "steps": [
         {
