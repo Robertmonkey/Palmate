@@ -1,0 +1,53 @@
+{{Stub}}
+{{Infobox Item
+|name = Gold Coin
+|image = Gold_Coin_icon.png 
+|effects = Currency traded on Palpagos Island. Can be exchanged for items or Pals with merchants.
+|type = [[Material]]
+|source = [[Treasure Chest]]<br/>
+Trading<br/>
+<div class="mw-collapsible mw-collapsed">
+Pal drops
+<div class="mw-collapsible-content">
+{{p|Direhowl}}<br/>
+{{p|Vanwyrm}}<br/>
+{{p|Mau}}<br/>
+{{p|Mimog}}<br/>
+</div>
+Ranch
+<div class="mw-collapsible-content">
+{{p|Mau}}<br/>
+{{p|Mau Cryst}}<br/>
+{{p|Vixy}}<br/>
+</div>
+</div>
+|weight = 0
+|rarity = Common}}
+'''Gold Coin''' is a [[material]] in {{PW}}.
+
+==Acquisition==
+
+* Opening chests 
+* Selling items to [[Wandering Merchant|merchants]]. 
+* [https://palworld.fandom.com/wiki/Rayne_Syndicate Syndicate Thugs] can drop them. 
+=== Pal drops ===
+The following [[pals]] can drop this item:
+*{{p|Direhowl}}
+*{{p|Vanwyrm}}
+*{{p|Mau}}
+*{{p|Mimog}}
+
+=== Ranch === 
+The following [[pals]] can give this item when assigned to a [[ranch]]:
+*{{p|Mau}}
+*{{p|Mau Cryst}}
+*{{p|Vixy}}
+
+=== Production ===
+* {{p|Gold Coin Assembly Line}}
+
+==Gallery==
+<gallery>
+File:Gold Coin icon Old.png|Old icon
+</gallery>{{Navbox Materials}}
+[[Category:Materials]]

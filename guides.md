@@ -21518,6 +21518,392 @@ help players understand why a route is suggested.
 }
 ```
 
+### Route: Gold Coin Treasury Circuit
+
+Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settlement sell runs so your economy keeps pace with merchant schematics and tech unlocks.【palwiki-mau-raw†L11-L115】【palwiki-vixy†L118-L176】【palwiki-gold-coin-raw†L20-L28】【palwiki-wandering-merchant-raw†L1-L119】
+
+```json
+{
+  "route_id": "resource-gold-coin",
+  "title": "Gold Coin Treasury Circuit",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "gold-coin",
+    "currency",
+    "economy"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 12,
+    "max": 30
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "starter-base-capture"
+    ],
+    "tech": [
+      "ranch"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Hunt Windswept Hills camps for Mau captures and coin drops",
+    "Assign Mau and Vixy to ranch slots for passive coin income",
+    "Sell surplus loot to settlement merchants and sweep chests between payouts"
+  ],
+  "estimated_time_minutes": {
+    "solo": 38,
+    "coop": 26
+  },
+  "estimated_xp_gain": {
+    "min": 220,
+    "max": 340
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Getting downed by faction patrols drops coin hauls and consumables needed for later merchant buys.",
+    "hardcore": "Hardcore wipes while escorting merchants can delete Mau/Vixy producers and stall your entire economy for hours."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Stage near the Small Settlement statue and focus on Vixy captures before pushing into night camps for Mau coins.【palwiki-small-settlement†L1-L9】【palwiki-vixy†L118-L176】",
+    "overleveled": "Chain dungeon clears with settlement sell runs so every patrol and chest becomes coin yield, not wasted time.【palwiki-mau-raw†L109-L114】【palwiki-gold-coin-raw†L20-L28】",
+    "resource_shortages": [
+      {
+        "item_id": "gold-coin",
+        "solution": "Rotate Mau and Vixy through the ranch before departing so Gold Digger and Dig Here! keep banking coins between raids.【palwiki-mau-raw†L11-L115】【palwiki-vixy†L118-L176】"
+      }
+    ],
+    "time_limited": "Sell high-value drops at the Small Settlement merchant each pass, then sprint back to base before raids hit.【palwiki-wandering-merchant-raw†L24-L119】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign one player to escort merchants while the partner clears patrols and ferries loot to storage.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-gold-coin:003",
+          "resource-gold-coin:004"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-gold-coin:checkpoint-captures",
+      "label": "Mau Captured and Routed",
+      "includes": [
+        "resource-gold-coin:001"
+      ]
+    },
+    {
+      "id": "resource-gold-coin:checkpoint-ranch",
+      "label": "Ranch Automation Paying Out",
+      "includes": [
+        "resource-gold-coin:002"
+      ]
+    },
+    {
+      "id": "resource-gold-coin:checkpoint-ledger",
+      "label": "Merchant Sales Loop",
+      "includes": [
+        "resource-gold-coin:003",
+        "resource-gold-coin:004"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "resource-gold-coin:001",
+      "type": "capture",
+      "summary": "Sweep Windswept Hills nights for Mau",
+      "detail": "Teleport to the Small Settlement (75,-479), clear nearby faction camps, and dive Windswept Hills dungeons at night to capture at least two Mau for coin production and drops.【palwiki-small-settlement†L1-L9】【palwiki-mau-raw†L11-L115】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "mau",
+          "qty": 2
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "night",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Use higher-tier spheres and disengage if multiple patrol waves stack to avoid losing coin drops.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "mega-sphere"
+        ],
+        "pals": [
+          "rushoar"
+        ],
+        "consumables": [
+          "paldium-fragment"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 140,
+        "max": 210
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "gold-coin",
+            "qty": 200
+          }
+        ],
+        "pals": [
+          "mau"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-small-settlement",
+        "palwiki-mau-raw"
+      ]
+    },
+    {
+      "step_id": "resource-gold-coin:002",
+      "type": "assign",
+      "summary": "Automate Mau and Vixy at the ranch",
+      "detail": "Assign Mau and Vixy to ranch slots so Gold Digger and Dig Here! continuously dig coins, spheres, and arrows between field runs.【palwiki-mau-raw†L11-L115】【palwiki-vixy†L118-L176】【palwiki-gold-coin-raw†L20-L27】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "gold-coin",
+          "qty": 120
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "mau",
+          "vixy"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 50,
+        "max": 80
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "gold-coin",
+            "qty": 120
+          }
+        ],
+        "pals": [
+          "mau",
+          "vixy"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-mau-raw",
+        "palwiki-vixy",
+        "palwiki-gold-coin-raw"
+      ]
+    },
+    {
+      "step_id": "resource-gold-coin:003",
+      "type": "trade",
+      "summary": "Sell loot to settlement merchants",
+      "detail": "Haul crafted goods, spare bones, and excess pals to the Small Settlement merchants to convert inventory into gold coins before the next hunt.【palwiki-gold-coin-raw†L20-L28】【palwiki-gold-coin†L28-L44】【palwiki-wandering-merchant-raw†L1-L119】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "gold-coin",
+          "qty": 300
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "quartermaster",
+              "tasks": "Handle trades and track merchant inventory"
+            },
+            {
+              "role": "runner",
+              "tasks": "Escort goods and restock ranch pals"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "inventory-pouch"
+        ],
+        "pals": [
+          "mau"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 60
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "gold-coin",
+            "qty": 300
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-gold-coin-raw",
+        "palwiki-gold-coin",
+        "palwiki-wandering-merchant-raw"
+      ]
+    },
+    {
+      "step_id": "resource-gold-coin:004",
+      "type": "combat",
+      "summary": "Clear patrols and open chests along the circuit",
+      "detail": "Sweep the crossroads between merchant stops, eliminate Syndicate patrols, and crack open treasure chests to top off coins between ranch payouts.【palwiki-gold-coin-raw†L20-L28】【palwiki-wandering-merchant-raw†L12-L18】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "gold-coin",
+          "qty": 80
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            60,
+            -440
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Break line of sight after each incident to avoid overlapping patrol aggro before regrouping.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "metal-spear"
+        ],
+        "pals": [
+          "anubis"
+        ],
+        "consumables": [
+          "medical-supplies"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 90
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "gold-coin",
+            "qty": 80
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-gold-coin-raw",
+        "palwiki-wandering-merchant-raw"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "gold-coin",
+      "qty": 500
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "merchant-funding"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-refined-ingot",
+      "reason": "Refined ingot upgrades demand heavy merchant spending, so a coin surplus keeps furnaces online."
+    },
+    {
+      "route_id": "resource-milk",
+      "reason": "Milk and bakery chains buy daily from settlement merchants; bank coins to keep dairies stocked."
+    }
+  ]
+}
+```
+
 ## Source Registry
 
 The source registry maps the short citation keys used throughout this file
@@ -22180,6 +22566,24 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/wiki/Vixy",
       "access_date": "2025-10-18",
       "notes": "Shows Dig Here! produces items at the ranch and that Vixy drops Bone and Leather at 100% rates.【palwiki-vixy†L9-L49】"
+    },
+    "palwiki-mau-raw": {
+      "title": "Mau – Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Mau",
+      "access_date": "2025-10-21",
+      "notes": "Confirms Mau’s Gold Digger partner skill digs coins, lists coin drop amounts, and notes it spawns in Windswept Hills dungeons or faction camps.【palwiki-mau-raw†L11-L115】"
+    },
+    "palwiki-gold-coin-raw": {
+      "title": "Gold Coin – Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Gold_Coin",
+      "access_date": "2025-10-21",
+      "notes": "States Gold Coins are traded currency and can be earned by selling items or pals, defeating human mobs, opening chests, or ranching Mau, Mau Cryst, and Vixy.【palwiki-gold-coin-raw†L3-L28】"
+    },
+    "palwiki-gold-coin": {
+      "title": "Gold Coin – Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Gold_Coin",
+      "access_date": "2025-10-21",
+      "notes": "Lists merchant sales, Syndicate drops, and ranch producers (Mau, Mau Cryst, Vixy) for Gold Coins.【palwiki-gold-coin†L28-L44】"
     },
     "palwiki-nail": {
       "title": "Nail \u2013 Palworld Wiki",

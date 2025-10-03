@@ -1,0 +1,43 @@
+{{stub}}
+{{Item
+| description   = Currency traded on Palpagos Island. Can be exchanged for items or Pals with merchants.
+| type          = Material
+| rarity        = Common
+
+| weight        = 0
+| durability    = 
+
+| buy           = 1
+| sell          = 1
+
+| technology    = 
+| required_level = 
+| cost          = 
+| made_at       =
+| workload        =
+}}
+
+{{I|{{PAGENAME}}}} is a [[Material]] which is used as currency to trade with various characters, such as the [[Wandering Merchant]], [[Pal Merchant]], and [[Black Marketeer]]. Gold Coins can be obtained by selling [[Item]]s and [[Pal]]s to these merchants, by killing human mobs, or found in [[Treasure Chest]]s, or produced at a {{i|Ranch}} by {{i|Mau}}, {{i|Mau Cryst}}, or {{i|Vixy}}.
+
+==Acquisition==
+* [[Farming]]:
+**{{I|Vixy}}
+**{{I|Mau}}
+**{{I|Mau Cryst}}
+*Possible drop from [[Treasure Chest|Treasure Chests]].
+*Dropped by:
+{{Drops}}
+
+== History ==
+* [[0.2.0.6]]
+** Icon got updated.
+* [[0.1.2.0]]
+** Introduced.
+
+== Gallery ==
+<gallery>
+File:Gold Coin icon old.png|Old icon
+</gallery>
+
+{{Navbox Materials}}
+[[Category:Materials]]

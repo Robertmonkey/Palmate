@@ -1,0 +1,138 @@
+{{Pal Prev/Next | prevPal =  Killamari Primo | prevNo = 023b | nextPal =  Mau Cryst | nextNo = 024b}}
+{{Pal
+
+|name                   =Mau
+|no                     =024
+|title                  =Noble Glimmer
+
+|ele1                   =Dark
+|ele2                   =
+
+|partnerskill           =Gold Digger
+|partnerskill_desc      =Sometimes digs up [[Gold Coin]] when assigned to a [[Ranch]].
+|partnerskill_icon      =Farming
+
+| hp                     = 70
+| attack                 = 60
+| attack_melee           = 70
+| defense                = 70
+| support                = 100
+
+| slow_walk_speed        = 52
+| walk_speed             = 105
+| run_speed              = 475
+| ride_sprint_speed      = 550
+| transport_speed        = 317
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 1000
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.48
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 1480
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Sand Blast
+| activeskill7           = Dark Ball
+| activeskill15          = Shadow Burst
+| activeskill22          = Sand Tornado
+| activeskill30          = Spirit Flame
+| activeskill40          = Nightmare Ball
+| activeskill50          = Dark Laser
+
+|kindling               =
+|watering               =
+|planting               =
+|generating_electricity =
+|handiwork              =
+|gathering              =
+|lumbering              =
+|mining                 =
+|medicine_production    =
+|cooling                =
+|transport              =
+|farming                =1
+
+| food                  = 1
+| nocturnal             = Yes
+
+|drop1=Gold Coin 
+|drop1_min=100
+|drop1_max=200
+|drop1_chance=50
+|drop2                  = 
+|drop2_min              = 
+|drop2_max              = 
+|drop2_chance           = 
+|drop3                  = 
+|drop3_min              = 
+|drop3_max              = 
+|drop3_chance           = 
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=1
+|alphadrop1_max=2
+|alphadrop1_chance=100
+|alphadrop2=Gold Coin 
+|alphadrop2_min=100
+|alphadrop2_max=200
+|alphadrop2_chance=50
+|alphadrop4=Precious Claw
+|alphadrop4_min=1
+|alphadrop4_max=2
+|alphadrop4_chance=100
+|alphadrop5=Ring of Dark Resistance
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=5
+
+}}{{paldeck|Its hard tail does not deteriorate even when cut off. Some believed these severed tails to be good luck but, for the innumerable Mau who where poached as a result, they where anything but.}}
+'''Mau''' (Japanese: '''ニャオテト''' ''Nyaotet'') is a {{i|Dark}} [[Elements|element]] [[Pals|Pal]]. It has an {{i|Ice}} [[Elements|element]] [[Breeding|variation]], [[Mau Cryst]].
+
+== Appearance ==
+Mau is a small cat-like Pal with ebony fur and gold markings across its body. It has a gold ornament at the tip of its tail, and it has a gold collar around its neck. It has two gold bands around each of its ears and legs.
+
+== Behavior and habitat ==
+It can be found within dungeons in the [[Windswept Hills]] or captured in the camps of a [[Enemies|faction]].
+
+
+== Utility ==
+Mau digs up [[Gold Coins]] while assigned to a [[Ranch]].
+
+== History ==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.4 to 0.48.
+* [[0.1.2.0]]
+** Introduced.
+
+== Variant(s) ==
+* [[Mau Cryst]]
+
+== Trivia ==
+* This Pal was named by the community during a [[Name This Pal]] event.
+* Mau’s name and Egyptian theme are inspired by the Egyptian Mau cat breed. In the game files, Mau is called “Bastet.” Its tail tip, shaped like a sistrum, reinforces this connection, as the Egyptian cat deity often holds one.
+* The Japanese name might be from ニャオ “Nyao” (the sound a cat) and “Bastet.”
+* This Pal is #041 in Paldeck on PocketPair [https://x.com/Palworld_EN/status/1720410507713085442 X].
+
+== Media ==
+{{#ev:youtube|n4XaI8_1EEo|410|inline|Paldeck No.041 MAU - Palworld Gameplay Pocketpair||autoplay=false}}
+<gallery widths="150">
+File:Mau2.png|A Mau sleeping
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]
