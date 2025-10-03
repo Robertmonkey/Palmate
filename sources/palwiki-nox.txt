@@ -1,3 +1,11 @@
-Source: https://palworld.fandom.com/wiki/Nox (retrieved 2025-10-03)
+Source: https://palworld.fandom.com/wiki/Nox?action=render (retrieved 2025-11-10)
 
-Nox is a nocturnal Dark-type Pal whose possible drops include Leather and Small Pal Souls. According to its behavior notes, Nox only spawns at night (lingering briefly after dawn) and may flee unless provoked. Like other nocturnal pals, it keeps working through the night if assigned at base and does not need beds.
+Dusken Aristocrat
+
+Nox (Japanese: ルナティ Lunati ) is a Dark element Pal.
+
+Nox resembles an ambiguously vulpine-, canine-, or feline-like creature with pale lavender-coloured fur and large red eyes. Its cheeks and mouth area, as well as the fuzzy collar around the neck, are white in colour, as is the tip of its tail and paws. It wears a dark purple cape on its back with a lavender trim, secured on the front by a large purple gem on its chest. The inside of the ears are also a dark purple.
+
+This Pal, being a nocturnal species, can only be found at night but is rare to find. It will still be able to spawn for a while after the break of dawn, and won't completely disappear until the sun is actually visibly rising in the horizon. It is generally solitary and may run away from the player until attacked. There is actually a small chance of encountering Nox soundly slumbering in crevices or caves during the daytime.
+
+If employed as a Base Pal, Nox will still continue working through the night, and won't need beds to accommodate it, as it never sleeps. If not tasked with anything, this Pal will simply wander about the base playfully. These traits are shared with all nocturnal Pals.

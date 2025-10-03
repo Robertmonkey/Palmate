@@ -8596,6 +8596,84 @@
           ]
         }
       ]
+    },
+    {
+      "id": "resource-small-pal-soul-night-loop",
+      "title": "Small Pal Soul Night Hunts & Crusher Loop",
+      "source_heading": "Small Pal Soul Night Hunts & Crusher Loop",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Small Pal Souls for Statue of Power upgrades and wants a reliable farm-and-convert loop.",
+      "keywords": [
+        "small pal soul",
+        "statue of power",
+        "crusher",
+        "daedream",
+        "nox"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Night-farm **Daedream and Nox** around the **Small Settlement (75,-479)** to bank Small Pal Souls from captures or defeats.",
+          "citations": [
+            "palwiki-small-settlement-raw",
+            "palwiki-daedream",
+            "palwiki-nox",
+            "palwiki-small-pal-soul"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "pal",
+              "id": "daedream",
+              "slug": "daedream",
+              "name": "Daedream"
+            },
+            {
+              "type": "pal",
+              "id": "nox",
+              "slug": "nox",
+              "name": "Nox"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Feed **Medium Pal Souls into the Crusher** before dawn so every medium converts into two small souls for statue offerings.",
+          "citations": [
+            "palwiki-crusher-pal-soul-conversion",
+            "palwiki-medium-pal-soul-raw"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "crusher",
+              "name": "Crusher"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Queue **Statue of Power** upgrades in 4-soul batches, rotating health, attack, defense, and work-speed boosts per pal.",
+          "citations": [
+            "palwiki-statue-of-power",
+            "palwiki-small-pal-soul"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "statue-of-power",
+              "name": "Statue of Power"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

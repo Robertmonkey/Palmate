@@ -1,3 +1,11 @@
-Source: https://palworld.fandom.com/wiki/Daedream (retrieved 2025-10-03)
+Source: https://palworld.fandom.com/wiki/Daedream?action=render (retrieved 2025-11-10)
 
-Daedream is a Dark-type Pal that drops Small Pal Souls and Venom Glands. Its behavior notes that the species is nocturnal, spawning only at night or inside dungeons before fading with sunrise. Daedreams remain docile until attacked and continue working overnight if assigned at base, never requiring beds.
+Dream Eater
+
+Daedream (Japanese: ネムラム Nemuram ) is a Dark element Pal.
+
+Daedream is a floating imp-like Pal that is black to dark purple in colour. It has two long ears and two small blue horns on the top of its head. The eyes are a reddish-pink with light eyelashes and are shaped to appear sinister- or malicious-looking, while its mouth bears a couple of exposed fangs. The hands and feet are of a lighter purple that somewhat resemble hooves. Around its neck features a woolly collar that is blue, like its horns. The flowing, woolly hair of Daedream is bright and colourful, featuring a cosmic starry pattern that moves and illuminates in varying gradients of pink, blue, and purple. This hair is clearly visible during the deep nighttime hours when the Pal is active (it ignores any lighting effects), extending to over twice the length of this Pal's body.
+
+This Pal, being a nocturnal species, can only be found at night or in dungeons. They will still be able to spawn for a while after the break of dawn, and won't completely disappear until the sun is actually visibly rising in the horizon. They are generally quite docile, curious creatures until attacked.
+
+If employed as a Base Pal, Daedreams will still continue working through the night, and won't need beds to accommodate them, as they never sleep. If not tasked with anything, they'll simply wander about the base playfully. These traits are shared with all nocturnal Pals.
