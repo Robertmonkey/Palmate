@@ -1,0 +1,46 @@
+{{Stub}}
+{{Structure
+| description    = Small food vault. Assign an Ice Pal to help prevent food stored inside from spoiling.
+| category       = Storage
+| hit_points     = 2,000
+| capacity       = 10
+| supporting     = No
+
+| workload       = 50
+| mat1           = Ingot
+| qty1           = 20
+| mat2           = Stone
+| qty2           = 20
+| mat3           = Ice Organ
+| qty3           = 5
+
+| tech_name      = Cooler Box
+| required_level = 13
+| cost      = 2
+}}
+
+'''Cooler Box''' is a [[structure]].
+
+==Acquisition==
+It's a tier 13 [[technology]] item and requires 2 point to unlock.
+
+==Crafting==
+{{Recipe
+|mat1=Ingot
+|mat1qty=20
+|mat2=Stone
+|mat2qty=20
+|mat3=Ice Organ
+|mat3qty=5
+|output1=Cooler Box
+|output1qty=1
+}}
+
+==Usage==
+Used to store up to 10 Items. When maintained by a Pal with the {{i|Cooling}} Work Suitability, keeps food products fresh from decaying.
+
+==History==
+*[[0.1.2.0]]
+**Introduced.
+
+[[Category:Structures]]

@@ -1,0 +1,142 @@
+{{Pal Prev/Next | prevPal =  Flopie | prevNo = 028 | nextPal =  Bristla | nextNo = 030}}
+{{Pal
+
+|name                   ={{PAGENAME}}
+|no                     =029
+|title                  =Grade A Beef
+
+|ele1                   =Neutral
+|ele2                   =
+
+|partnerskill           =Milk Maker
+|partnerskill_desc      =Sometimes produces [[Milk]] when assigned to a [[Ranch]].
+|partnerskill_icon      =Farming
+
+| hp                     = 90
+| attack                 = 50
+| attack_melee           = 100
+| defense                = 80
+| support                = 100
+
+| slow_walk_speed        = 55
+| walk_speed             = 55
+| run_speed              = 580
+| ride_sprint_speed      = 700
+| transport_speed        = 317
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 2620
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 910
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Power Shot
+| activeskill7           = Sand Blast
+| activeskill15          = Air Cannon
+| activeskill22          = Stone Blast
+| activeskill30          = Stone Cannon
+| activeskill40          = Power Bomb
+| activeskill50          = Pal Blast
+
+|kindling               =
+|watering               =
+|planting               =
+|generating_electricity =
+|handiwork              =
+|gathering              =
+|lumbering              =
+|mining                 =
+|medicine_production    =
+|cooling                =
+|transport              =
+|farming                =1
+
+| food                  = 3
+| nocturnal             = No
+
+|drop1=Mozzarina Meat 
+|drop1_min=2
+|drop1_max=3
+|drop1_chance=100
+|drop2=Milk
+|drop2_min=1
+|drop2_max=1
+|drop2_chance=100
+|drop3                  = 
+|drop3_min              = 
+|drop3_max              = 
+|drop3_chance           = 
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=1
+|alphadrop1_max=2
+|alphadrop1_chance=100
+|alphadrop2=Mozzarina Meat
+|alphadrop2_min=2
+|alphadrop2_max=3
+|alphadrop2_chance=100
+|alphadrop3=Milk
+|alphadrop3_min=1
+|alphadrop3_max=1
+|alphadrop3_chance=100
+|alphadrop4=Precious Pelt
+|alphadrop4_min=1
+|alphadrop4_max=2
+|alphadrop4_chance=100
+|alphadrop5=Ring of Resistance +1
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=3
+
+}}{{paldeck|Milk pours from this Pal like water from an open faucet, regardless of its gender. It's truly a mystery of life, although this mystery may be better left unsolved.}}
+'''Mozzarina''' (Japanese: '''ミルカルビ''' ''Milkalbi'') is a {{i|Neutral}} [[Elements|element]] [[Pals|Pal]].
+
+==Appearance==
+Mozzarina is a black-and-white cow-like Pal, whose torso and head are two round balls, with four stumpy legs as well as a pair of pink udders barely visible underneath. Its face has two closed eyes, two slightly curved tan horns, and a curved smile with two visible fangs.
+
+==Behavior and habitat==
+It wont attack unless attacked.
+[[File:Mozzarina_Day_Habitat.webp|thumb|Daytime Mozzarina Spawns]]
+[[File:Mozzarina_Night_Habitat.webp|thumb|Nightime Mozzarina Spawns]]
+
+== Utility ==
+Mozzarina's [[Partner Skill]], Milk Maker, causes it to produce [[Milk]] when assigned to a [[Ranch]].
+
+Mozzarina's mediocre combat capabilities are almost always ignored in favor of its sole work suitability, [[Farming]]. While assigned to a ranch, Mozzarina will produce Milk, which can be used at a [[Campfire]] to make [[Hot Milk]] or at a [[Cooking Pot]] to produce a variety of high-SAN foods such as [[Pancake|Pancakes]].
+
+==History==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.2 to 0.24.
+* [[0.1.2.0]]
+** Introduced.
+
+==Trivia==
+* Their name may come from the word ''mozzarella''.
+* Its Japanese name may come from ''milk'' and ''kalbi'' (Korean grilled ribs).
+* Mozzarina does not have a gender ratio of 1-to-1 Male to Female.  Mozzarina has a 20% chance to spawn as a male and an 80% chance to spawn as a female; this is in contrast with most other Pals, which have an equal chance to spawn with either gender. Other Pals with uneven gender ratios include [[Beegarde]], [[Elizabee]], [[Dazzi]], [[Lovander]], [[Kingpaca]], [[Kingpaca Cryst]], [[Warsect]], [[Lyleen]], and [[Lyleen Noct]].
+
+==Media==
+<gallery widths="150">
+File:Mozzarina old.png|Mozzarina's old model.
+File:Mozzarina Sleeping.png|Mozzarina sleeping
+File:MozzarinaGettingAttackedScreenshotFromRandomRamVid.webp
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]

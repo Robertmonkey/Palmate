@@ -7918,6 +7918,75 @@
           ]
         }
       ]
+    },
+    {
+      "id": "resource-mozzarina-meat-packing-loop",
+      "title": "Mozzarina Meat Packing Loop",
+      "source_heading": "Mozzarina Meat Packing Loop",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "trigger": "Player asks how to farm Mozzarina Meat or automate Mozzarina butchery",
+      "keywords": [
+        "mozzarina meat",
+        "butcher",
+        "cooler box"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Glide to the **Sealed Realm of the Swordmaster** pasture (\u2212117, \u2212490) and capture Mozzarina pairs at day or night using Dark pals to stagger the herd.",
+          "citations": [
+            "segmentnext-mozzarina\u2020L3-L8",
+            "segmentnext-mozzarina\u2020L21-L24",
+            "palwiki-sealed-realms\u2020L57-L61"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "mozzarina",
+              "slug": "mozzarina",
+              "name": "Mozzarina"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Unlock the **Meat Cleaver** at level 12 and the **Cooler Box** at level 13 to carve Mozzarina and chill prime cuts before they spoil.",
+          "citations": [
+            "palwiki-meat-cleaver\u2020L20-L39",
+            "palwiki-cooler-box-raw\u2020L1-L24"
+          ],
+          "links": [
+            {
+              "type": "tech",
+              "id": "meat-cleaver",
+              "slug": "meat-cleaver",
+              "name": "Meat Cleaver"
+            },
+            {
+              "type": "tech",
+              "id": "cooler-box",
+              "slug": "cooler-box",
+              "name": "Cooler Box"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Cull surplus Mozzarina with the cleaver\u2014each butchered Pal yields 2\u20133 Mozzarina Meat at a guaranteed rate for high-value meals.",
+          "citations": [
+            "palwiki-mozzarina-raw\u2020L65-L93"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "mozzarina_meat",
+              "slug": "mozzarina-meat",
+              "name": "Mozzarina Meat"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
