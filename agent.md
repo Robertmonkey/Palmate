@@ -196,3 +196,13 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Secure at least one overworld spawn citation with coordinates for repeatable Caprity hunts (interactive map export or atlas scrape) so the route can anchor a farming loop instead of relying on anecdotal positions.
 2. Cross-check sanctuary and ranch outputs for Caprity Noct to confirm whether nocturnal variants deliver meat alongside venom so the route can branch into automation once location data lands.
 3. Once coordinates are sourced, draft the `resource-caprity-meat` route with early capture, alpha clears, and ranch processing before wiring it into `data/guides.bundle.json` and `data/guide_catalog.json`.
+
+### 2025-11-17 Coverage diagnostics automation
+
+* Added `scripts/resource_coverage_report.py` to diff resource routes in `guides.md` against `data/guide_catalog.json`, producing a concise list of catalog entries that still lack JSON coverage (or vice versa). Running the tool shows the catalog is complete but highlights four existing resource routes (`resource-leather-early`, `resource-paldium`, `resource-honey`, `resource-coal`) that never received shortage cards, so shortages UI still treats them as gaps.【scripts/resource_coverage_report.py†L1-L109】【2890e0†L1-L9】
+
+**Continuation notes:**
+
+1. Backfill catalog records for the four orphaned resource routes so the shortages drawer can surface them; ensure `shortage_menu: true` where appropriate and re-export bundles.
+2. Extend the script to optionally emit CSV/markdown output so progress snapshots can drop directly into PR descriptions and Ops dashboards.
+3. Expand the detector with citation linting (e.g., flag resource routes missing at least two independent sources) once coordinate exports for Caprity/Galeclaw land, so future backlog passes can validate evidence alongside coverage.
