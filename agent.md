@@ -77,7 +77,7 @@ Key confirmations from the review:
 
 ### Backlog (Confirm Against `routeGuideData.resourceGuideGaps` Before Starting)
 
-* High-priority shortages still missing guides: **Caprity Meat**, **Galeclaw Poultry**, **Broncherry Meat**, **Cotton Candy**, **High Quality Pal Oil**, **Venom Gland**, **Small Pal Soul**, **Medium Pal Soul follow-ups (Crusher automation variants)**, **Sanctuary-exclusive drops (e.g., Lyleen Noct hair, Sibelyx Ignis cloth)**, **Merchant restock timing references**.
+* High-priority shortages still missing guides: **Caprity Meat**, **Galeclaw Poultry**, **Broncherry Meat**, **Cotton Candy**, **High Quality Pal Oil**, **Small Pal Soul**, **Medium Pal Soul follow-ups (Crusher automation variants)**, **Sanctuary-exclusive drops (e.g., Lyleen Noct hair, Sibelyx Ignis cloth)**, **Merchant restock timing references**.
 * Secondary targets once two independent citations are secured: **Milk auxiliary spawns**, **Seed restock timers (Tomato/Lettuce/Berry)**, **Elite alpha respawn timers for gemstone loops**, **Automation throughput benchmarks for Assembly Line/Power Grid resources**.
 
 Update this backlog whenever a guide ships or when a data source becomes available, and archive stale TODOs with reasoning if a resource becomes obsolete or its shortages are resolved by upstream patches.
@@ -88,3 +88,10 @@ Update this backlog whenever a guide ships or when a data source becomes availab
 * **Selective re‑generation** – When a patch only affects a subset of routes (e.g. a recipe change for a single saddle), regenerate only that route and its dependent subroutes instead of rebuilding the entire file.  This minimises the risk of introducing unrelated errors.
 
 By adhering to these guidelines, the Palmate agent will produce reliable, comprehensive guides that help players enjoy Palworld while keeping pace with the game’s rapid evolution.
+
+### 2025-10-31 Venom Gland coverage sync
+
+* Added the `resource-venom-gland-supply-network` catalog entry with shortage flag, merchant/dungeon/alpha context, and wired citations so the shortages UI can surface the route immediately.
+* Verified `index.html` relies entirely on parsed guide data for `resourceGuideGaps`; no hard-coded Venom Gland references required updates after the new route synced into `guides.md` and `data/guides.bundle.json`.
+* Expanded the Source Registry with `palwiki-killamari`, `palwiki-menasting`, and `palfandom-venom-gland` to clear unresolved citations for the new route JSON blocks.
+* Next agent touchpoint: confirm the shortages drawer surfaces the Venom Gland guide once bundles regenerate in production, then continue with the remaining backlog targets above (Caprity Meat, Galeclaw Poultry, etc.).

@@ -8203,5 +8203,118 @@
         }
       ]
     }
+    ,
+    {
+      "id": "resource-venom-gland-supply-network",
+      "title": "Venom Gland Supply Network",
+      "source_heading": "Venom Gland Supply Network",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player reports running out of Venom Glands for Strange Juice, poison ammo, or antidote stock.",
+      "keywords": [
+        "venom gland",
+        "poison",
+        "helzephyr",
+        "killamari",
+        "menasting"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Fast travel to the **Small Settlement (78,-477)** and **Sea Breeze Archipelago merchant (-190,-600)** to buy every Venom Gland for 100 Gold before the daily reset.",
+          "citations": [
+            "palwiki-wandering-merchant-raw\u2020L31-L34",
+            "palwiki-wandering-merchant-raw\u2020L176-L181"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "location",
+              "id": "sea-breeze-archipelago-merchant",
+              "name": "Sea Breeze Archipelago Merchant",
+              "region": "Sea Breeze Archipelago"
+            },
+            {
+              "type": "item",
+              "id": "venom_gland",
+              "slug": "venom-gland",
+              "name": "Venom Gland"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Clear level 15-20 Windswept Hills dungeons at night, focusing on **Killamari** packs for repeat Venom Gland drops and extra jelly.",
+          "citations": [
+            "palwiki-killamari\u2020L240-L240",
+            "palfandom-venom-gland\u2020L11-L34"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "windswept-hills",
+              "name": "Windswept Hills",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "pal",
+              "id": "killamari",
+              "slug": "killamari",
+              "name": "Killamari"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Hunt **Helzephyr** along the Bridge of the Twin Knights cliffs each night cycle to bank Medium Pal Souls and Venom Glands together.",
+          "citations": [
+            "palwiki-helzephyr-raw\u2020L247-L247",
+            "palfandom-venom-gland\u2020L11-L34"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "bridge-of-the-twin-knights",
+              "name": "Bridge of the Twin Knights",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "pal",
+              "id": "helzephyr",
+              "slug": "helzephyr",
+              "name": "Helzephyr"
+            }
+          ]
+        },
+        {
+          "order": 4,
+          "instruction": "Rotate into the **Desiccated Mineshaft (493,79)** to defeat the Menasting alpha for guaranteed late-game Venom Glands and Precious Plumes.",
+          "citations": [
+            "palwiki-menasting\u2020L245-L245",
+            "palfandom-venom-gland\u2020L16-L34"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "desiccated-mineshaft",
+              "name": "Desiccated Mineshaft",
+              "region": "Dessicated Desert"
+            },
+            {
+              "type": "pal",
+              "id": "menasting",
+              "slug": "menasting",
+              "name": "Menasting"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
