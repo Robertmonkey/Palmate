@@ -1,0 +1,220 @@
+{{Pal Prev/Next | prevPal =  Gumoss | prevNo = 013 | nextPal =  Hoocrates | nextNo = 015}}
+{{Pal
+
+|name                   ={{PAGENAME}}
+|no                     =014
+|title                  =Star of the Steppe
+
+|ele1                   = Neutral
+|ele2                   =
+
+|partnerskill           = Dig Here!
+|partnerskill_desc      = Sometimes digs up items from the ground when assigned to a [[Ranch]].
+|partnerskill_icon      = Farming
+
+| hp                     = 70
+| attack                 = 70
+| attack_melee           = 70
+| defense                = 70
+| support                = 140
+
+| slow_walk_speed        = 30
+| walk_speed             = 60
+| run_speed              = 350
+| ride_sprint_speed      = 450
+| transport_speed        = 190
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 1000
+| receive_damage_rate    = 1.7
+| receive_damage_rate_a  = 0.48
+| capture_rate_correct   = 1.3
+| capture_rate_correct_a = 0.91
+| breeding_rank          = 1450
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Air Cannon
+| activeskill7           = Sand Blast
+| activeskill15          = Power Shot
+| activeskill22          = Wind Cutter
+| activeskill30          = Seed Machine Gun
+| activeskill40          = Power Bomb
+| activeskill50          = Pal Blast
+
+|kindling               =
+|watering               =
+|planting               =
+|generating_electricity =
+|handiwork              =
+|gathering              = 1
+|lumbering              =
+|mining                 =
+|medicine_production    =
+|cooling                =
+|transport              =
+|farming                = 1
+
+|food                   = 1
+| nocturnal             =No
+
+|drop1=Leather 
+|drop1_min=1
+|drop1_max=1
+|drop1_chance=100
+|drop2=Bone 
+|drop2_min=1
+|drop2_max=1
+|drop2_chance=100
+|drop3                  = 
+|drop3_min              = 
+|drop3_max              = 
+|drop3_chance           = 
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=1
+|alphadrop1_max=2
+|alphadrop1_chance=100
+|alphadrop2=Leather 
+|alphadrop2_min=1
+|alphadrop2_max=1
+|alphadrop2_chance=100
+|alphadrop3=Bone 
+|alphadrop3_min=1
+|alphadrop3_max=1
+|alphadrop3_chance=100
+|alphadrop4=Precious Pelt
+|alphadrop4_min=1
+|alphadrop4_max=2
+|alphadrop4_chance=100
+|alphadrop5=Ring of Resistance
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=5
+
+}}{{paldeck|The idol of [[Palpagos Islands]]. If you bully a Vixy, you best be prepared to become enemies with the whole world.}}
+'''Vixy''' (Japanese: '''タマモ''' ''Tamamo'') is a {{i|Neutral}} [[Elements|element]] [[Pals|Pal]].
+
+==Appearance==
+Vixy is a small fox-like Pal. The majority of its fur is a blonde color, with white on its face, the tip of its tail and its paws. There is a large section of fur in front that is a cream color. The bangs to the side of its head and the front have yellow tips.
+
+==Behavior and habitat==
+It’s peaceful and ideal to use for early game due to its innate ability to quickly locate Pal Spheres.
+[[File:Vixy_Day_Habitat.webp|thumb|Daytime Vixy Spawns]]
+[[File:Vixy_Night_Habitat.webp|thumb|Nightime Vixy Spawns]]
+
+==Utility==
+{{PAGENAME}} is able to dig for items in the [[Ranch]]. Within the Ranch it will produce [[Pal Sphere|Pal Spheres]], [[Gold Coins]] and [[Arrow|arrows]].
+
+They say it releases a powerful pheromone that causes confusion and impedes one's ability to make decisions.
+
+==={{i|Farming}} Produce===
+
+This is based on the [[Partner Skills|partner skill]] leveling up when using a [[Pal Essence Condenser]].
+
+{| class="wikitable"
+!Item
+!Weight
+!Est. Chance
+!Min
+!Max
+|-
+! colspan="5" |Rank 1
+|-
+|{{I|Pal Sphere}} || 5 || 59.5238% || 1 || 1
+|-
+|{{I|Arrow}} || 2 || 23.8095% || 1 || 1
+|-
+|{{I|Gold Coin}} || 1 || 11.9048% || 10 || 10
+|-
+|{{I|Bone}} || 0.4 || 4.7619% || 1 || 1
+|-
+! colspan="5" |Rank 2
+|-
+|{{I|Pal Sphere}} || 5 || 58.8235% || 2 || 2
+|-
+|{{I|Arrow}} || 2 || 23.5294% || 1 || 2
+|-
+|{{I|Gold Coin}} || 1 || 11.7647% || 20 || 20
+|-
+|{{I|Bone}} || 0.5 || 5.8824% || 1 || 2
+|-
+! colspan="5" |Rank 3
+|-
+|{{I|Pal Sphere}} || 4 || 47.0588% || 2 || 3
+|-
+|{{I|Mega Sphere}} || 1 || 11.7647% || 1 || 1
+|-
+|{{I|Arrow}} || 2 || 23.5294% || 2 || 3
+|-
+|{{I|Gold Coin}} || 1 || 11.7647% || 30 || 30
+|-
+|{{I|Bone}} || 0.5 || 5.8824% || 1 || 3
+|-
+! colspan="5" |Rank 4
+|-
+|{{I|Pal Sphere}} || 3 || 35.2941% || 2 || 3
+|-
+|{{I|Mega Sphere}} || 1.5 || 17.6471% || 1 || 1
+|-
+|{{I|Giga Sphere}} || 0.5 || 5.8824% || 1 || 1
+|-
+|{{I|Arrow}} || 2 || 23.5294% || 3 || 4
+|-
+|{{I|Gold Coin}} || 1 || 11.7647% || 40 || 40
+|-
+|{{I|Bone}} || 0.5 || 5.8824% || 1 || 4
+|-
+! colspan="5" |Rank 5
+|-
+|{{I|Pal Sphere}} || 2 || 21.3904% || 2 || 3
+|-
+|{{I|Mega Sphere}} || 3 || 32.0856% || 1 || 1
+|-
+|{{I|Giga Sphere}} || 0.8 || 8.5561% || 1 || 1
+|-
+|{{I|Hyper Sphere}} || 0.05 || 0.5348% || 1 || 1
+|-
+|{{I|Arrow}} || 2 || 21.3904% || 4 || 5
+|-
+|{{I|Gold Coin}} || 1 || 10.6952% || 50 || 50
+|-
+|{{I|Bone}} || 0.5 || 5.3476% || 1 || 5
+|}
+
+==History==
+* [[0.3.1.0]]
+** Vixy can now produce {{i|Bone}} at the [[Ranch]].
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.4 to 0.48.
+* [[0.2.0.6]]
+** Vixy can now produce {{i|Giga Sphere}} and {{i|Hyper Sphere}} at the [[Ranch]].
+* [[0.1.2.0]]
+** Introduced.
+
+==Trivia==
+* [[Depresso]]'s Paldeck entry mentions it feeding lone Vixy.
+* Vixy's name may come from the word vixen, a female fox.
+* Its Japanese name might be inspired by 玉藻前 “Tamamo-no-Mae,” a legendary figure in Japanese mythology. She was a beautiful and intelligent courtesan of Emperor Konoe, who, according to legend, was actually a magical fox disguised as a human.
+* This Pal is #045 in Paldeck on PocketPair [https://x.com/Palworld_EN/status/1730557370600943709 X].
+
+==Media==
+{{#ev:youtube|gHOxkpyZE3c|410|inline|Paldeck - No.045 VIXY - Palworld - Gameplay - Pocketpair-2||autoplay=false}}
+<gallery widths="150">
+File:Vixy bis.png
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]

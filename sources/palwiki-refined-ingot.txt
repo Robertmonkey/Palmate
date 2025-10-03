@@ -1,0 +1,6 @@
+Refined Ingot is an intermediate crafting material used in many mid-game recipes. Refined ingots can be crafted using 2 ore and 2 Coal at an Improved Furnace.
+This item unlocks with the Improved Furnace at Tier 34 with 4 Technology points.
+Ore — 2
+Coal — 2
+Refined Ingot — 1
+Source: https://palworld.wiki.gg/wiki/Refined_Ingot (retrieved 2025-10-20)

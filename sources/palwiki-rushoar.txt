@@ -1,0 +1,144 @@
+{{Pal Prev/Next | prevPal =  Daedream | prevNo = 019 | nextPal =  Nox | nextNo = 021}}
+{{Pal
+
+|name                   ={{PAGENAME}}
+|no                     =020
+|title                  =Woodland Ruffian
+
+|ele1                   =Ground
+|ele2                   =
+
+|partnerskill           =Hard Head
+|partnerskill_desc      =Can be [[ridden]]. Increases efficiency of destroying boulders while mounted.
+|partnerskill_icon      =Mount
+
+| hp                     = 80
+| attack                 = 70
+| attack_melee           = 100
+| defense                = 70
+| support                = 100
+
+| slow_walk_speed        = 70
+| walk_speed             = 150
+| run_speed              = 450
+| ride_sprint_speed      = 700
+| transport_speed        = 300
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 1680
+| receive_damage_rate    = 1.1
+| receive_damage_rate_a  = 0.48
+| capture_rate_correct   = 1.1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 1130
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Reckless Charge
+| activeskill7           = Sand Blast
+| activeskill15          = Power Shot
+| activeskill22          = Stone Blast
+| activeskill30          = Power Bomb
+| activeskill40          = Rock Lance
+| activeskill50          = Pal Blast
+
+|kindling               =
+|watering               =
+|planting               =
+|generating_electricity =
+|handiwork              =
+|gathering              =
+|lumbering              =
+|mining                 =1
+|medicine_production    =
+|cooling                =
+|transport              =
+|farming                =
+
+| food                  = 3
+| nocturnal             =No
+
+|drop1=Rushoar Pork 
+|drop1_min=1
+|drop1_max=2
+|drop1_chance=100
+|drop2=Leather 
+|drop2_min=1
+|drop2_max=1
+|drop2_chance=100
+|drop3=Bone 
+|drop3_min=1
+|drop3_max=1
+|drop3_chance=100
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=1
+|alphadrop1_max=2
+|alphadrop1_chance=100
+|alphadrop2=Rushoar Pork
+|alphadrop2_min=1
+|alphadrop2_max=2
+|alphadrop2_chance=100
+|alphadrop3=Leather 
+|alphadrop3_min=1
+|alphadrop3_max=1
+|alphadrop3_chance=100
+|alphadrop4=Precious Claw
+|alphadrop4_min=1
+|alphadrop4_max=2
+|alphadrop4_chance=100
+|alphadrop5=Ring of Earth Resistance
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=5
+
+}}{{paldeck|Being an extremely aggressive Pal, it often picks fights before gauging its opponent's strength. Though small, its powerful charge can even send boulders flying. }}
+'''Rushoar''' (Japanese: '''ノイボウ''' ''Noibou'') is a {{i|Ground}} [[Elements|element]] [[Pals|Pal]].
+
+== Appearance ==
+Rushoar is a medium-sized, stylized boar with long black legs and a short, black tail. It has large blue grumpy eyes, a long snout and huge tusks. Rushoar has three vertical white stripes on his back and a very short black mohawk haircut. It has small hips and wide shoulders. Curiously, Rushoar doesn't appear to have any ears at all.
+
+== Behavior and habitat ==
+Rushoar appears in small groups, usually of 2-3 individuals, and attacks the player on sight. It appears to be carnivorous and will eat the corpses of fallen Pals.  
+
+Rushoar's signature dash attack is much slower than that of [https://palworld.wiki.gg/wiki/Melpaca Melpaca] or [https://palworld.wiki.gg/wiki/Direhowl Direhowl], but it also sends enemies flying and briefly stuns them. As of early access, Rushoar's dash has the tendency to knock poachers into level geometry. 
+[[File:Rushoar_Day_Habitat.webp|thumb|Daytime Rushoar Spawns]]
+[[File:Rushoar_Night_Habitat.webp|thumb|Nightime Rushoar Spawns]]
+
+== Utility ==
+Rushoar can mine rocks at the base. However, [[Cattiva]] has the same level in mining and eats much less food.
+
+You can use Rushoar's charge skill to mine rocks and ore quite efficiently. 
+
+== History ==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.4 to 0.48.
+* [[0.1.2.0]]
+** Introduced.
+
+== Trivia ==
+* Rushoar first appeared in the "[https://youtu.be/EY4lyOH1_0o?si=eR18HoaYgyfZGV8C&t=69 Palworld | 1st Official Trailer 2021]" at 1:09 
+* Their name may come from the words ''rush'' and ''boar''.
+
+== Media ==
+<gallery widths="150">
+File:Rushoar 2.png|Rushoar getting obliterated with a bazooka.
+File:Rushoar bis.png
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]
+[[Category:Rideable Pals]]
+[[Category:Pals with exclusive Skills]]

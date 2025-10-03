@@ -1,0 +1,48 @@
+{{stub}}
+{{Item
+| description   = Bone collected from Pals. Used in the creation of high quality Paldium.
+| type          = Material
+| rarity        = Common
+
+| weight        = 1
+| durability    = 
+
+| buy           = 100
+| sell          = 10
+
+| technology    = 
+| required_level = 
+| cost          = 
+| made_at       = 
+| workload        = 
+}}
+
+'''Bone''' is a [[material]] used to make [[Cement]], [[Medical Supplies]], [[High Grade Medical Supplies|High-Grade Medical Supplies]], [[Suspicious Juice]], [[Strange Juice]], [[Mind Control Meds]], and [[Memory Wiping Medicine]].
+
+You can obtain bone from various [[Pals]], though the most efficient method is to buy if from the [[Wandering Merchant]], for 100G each.
+
+==Acquisition==
+*It can be bought from a [[Wandering Merchant]].
+*[[Sootseer]] can produce bones at the [[Ranch]] using its partner skill.
+*Although infrequent, [[Vixy]] can dig up bones at the [[Ranch]] using its partner skill.
+*Dropped by:
+{{Drops}}
+
+==Products==
+{{Products}}
+
+== History ==
+* [[0.3.1.0]]
+** {{i|Vixy}} and {{i|Sootseer}} can now produce Bone at the [[Ranch]].
+* [[0.2.0.6]]
+** Icon got updated.
+* [[0.1.2.0]]
+** Introduced.
+
+== Gallery ==
+<gallery>
+File:Bone icon old.png|Old Version of Bone.
+</gallery>
+
+{{Navbox Materials}}
+[[Category:Materials]]

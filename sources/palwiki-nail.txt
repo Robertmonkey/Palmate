@@ -1,0 +1,49 @@
+{{stub}}
+{{Item
+| description   = Necessary for building various facilities. Can be made with a [[Primitive Workbench]].
+| type          = Material
+| rarity        = Common
+
+| weight        = 2
+| durability    = 
+
+| buy           = 200
+| sell          = 20
+
+| technology    = Nail
+| required_level = 10
+| cost          = 1
+| made_at       = Primitive Workbench
+| workload        = 30
+}}
+
+'''Nail''' is a [[material]]. It is used as a material in the crafting of other items.
+
+It's a tier 10 [[technology]] item and requires 1 technology point to unlock. It requires a [[Primitive Workbench]] or better to craft.
+
+==Acquisition== 
+* [[Crafting]]:
+**{{I|Primitive Workbench}}
+
+==Crafting==
+{{Recipe
+|mat1=Ingot
+|mat1qty=1
+|output1=Nail
+|output1qty=2
+}}
+
+==Products==
+{{Products}}
+
+==History==
+* [[0.1.5.0]]
+** Fixed the abnormally high selling price of nails.
+* [[0.1.2.0]]
+** Introduced.
+
+==Trivia==
+{{I|Nail}} used to have a sell price of 160 {{I|Gold Coin|Gold Coins}} instead of 20{{I|Gold Coin|Gold Coins}}, which was changed in v0.1.5.0.
+
+{{Navbox Materials}}
+[[Category:Materials]]

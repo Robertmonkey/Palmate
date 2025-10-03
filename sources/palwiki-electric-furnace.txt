@@ -1,0 +1,4 @@
+Electric Furnace infobox — palworld.wiki.gg (retrieved 2025-10-20)
+Level requirement: 44 (Technology cost 5 points in the Production category).
+Construction materials: Refined Ingot ×50, Circuit Board ×10, Polymer ×20, Carbon Fiber ×20.
+Workload 1,000; requires electricity and still needs a fire-suitable Pal for operation.

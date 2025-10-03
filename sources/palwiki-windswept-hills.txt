@@ -1,0 +1,34 @@
+{{stub}}
+{{Infobox_Location
+|name = Windswept Hills
+|image = Windswept Hills.png
+|type = Region}}
+
+The '''Windswept Hills''' are located on the South Eastern side of the [[Palpagos Islands]] to the south west of the Marsh Island. This is the region a player first spawns in. 
+
+== Environment ==
+It is the first area players appear in upon starting the game. The area is a sprawling grassland that features plenty of towering mountains, flowing rivers, and small forests, along with some ancient ruins appearing sporadically in certain parts of the region.
+
+== Points of Interest ==
+
+* Plateau of Beginnings - players initially spawn in atop the Plateau of Beginnings. The plateau contains many low level pals and is where many players capture their first [[Pals|Pal]] and build their first [[base]]. (fast travel/respawn point)
+* Flying Fish Coast (fast travel/respawn point)
+* [[Tower]] of the [[Rayne Syndicate]] - This tower is home to the first boss most players will face - [[Zoe and Grizzbolt]]. 
+* [[Small Settlement]] - Located centrally in the hills, the Small Settlement is home to several humans including both a [[Pal Merchant]] and a [[Wandering Merchant]]. 
+* [[Desolate Church]]
+
+== Local Pals ==
+There are many pals that can be found in the Windswept hills at mostly levels between 1 and 15. 
+
+== Unique Incidents ==
+There are several incidents unique to the Windswept Hills. A list is available on the [[Random Spawns]] page.
+
+== Alpha Pals ==
+There are several [[Alpha Pals]] that are located in the Windswept Hills. 
+
+* [[Mammorest]] (Level 38) - Located near the Grassy Behemoth Hills [[Great Eagle Statue]].
+* [[Chillet]] (Level 11) - Located to the south of the Fort Ruins atop a hill.
+* [[Penking]] (Level 15) - Located in the [[Sealed Realm of the Frozen Wings]] on the north side of the Windswept Hills.
+* [[Kingpaca]] (Level 23) - Located to the north west of the [[Small Settlement]].
+
+[[Category:Locations]]

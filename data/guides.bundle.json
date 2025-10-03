@@ -16104,6 +16104,1559 @@
       ]
     },
     {
+      "route_id": "resource-bone",
+      "title": "Bone Forager Loop",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "bone",
+        "crafting-material",
+        "early-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 8,
+        "max": 25
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture"
+        ],
+        "tech": [],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Stage Windswept Hills bone hunts around the Small Settlement",
+        "Capture ranch pals that produce bones automatically",
+        "Use merchants to top off bone stockpiles for cement and medicine"
+      ],
+      "estimated_time_minutes": {
+        "solo": 35,
+        "coop": 25
+      },
+      "estimated_xp_gain": {
+        "min": 200,
+        "max": 320
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Death on hill patrols wastes bones and gold, forcing you to restock before cement batches resume.",
+        "hardcore": "Hardcore wipes while farming Sakurajima elites cost irreplaceable ranch producers and stall medicine crafting."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Loop the Plateau of Beginnings near the Small Settlement and focus on Vixy or Rushoar pairs until you can safely branch into night hunts.【palwiki-windswept-hills†L14-L21】【palfandom-bone†L36-L55】",
+        "overleveled": "Layer in Sakurajima Sootseer sweeps at night before returning to the hills so ranch automation keeps up with late-game demand.【palwiki-sootseer†L12-L16】【palwiki-sootseer†L114-L114】",
+        "resource_shortages": [
+          {
+            "item_id": "bone",
+            "solution": "Keep at least one ranch slot staffed with a bone producer before launching long expeditions.【palwiki-bone†L20-L27】"
+          }
+        ],
+        "time_limited": "Buy merchant bones on each Small Settlement pass, then bank the haul before leaving for tower runs.【palwiki-small-settlement†L3-L15】【palwiki-bone†L22-L27】",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Have one player tag Rushoar aggro while the partner finishes captures and ferries bones to storage.",
+            "priority": 1,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-bone:001"
+            ]
+          },
+          {
+            "signal": "resource_gap:cement_high",
+            "condition": "resource_gaps['cement'] >= 5",
+            "adjustment": "Push merchant buys to hit at least 30 bones before swapping back to building queues.【palwiki-bone†L20-L27】",
+            "priority": 2,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "resource-bone:003"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-bone:checkpoint-hunt",
+          "summary": "Hill patrol loop established",
+          "benefits": [
+            "Reliable bone drops online",
+            "Merchant access secured"
+          ],
+          "related_steps": [
+            "resource-bone:001"
+          ]
+        },
+        {
+          "id": "resource-bone:checkpoint-ranch",
+          "summary": "Ranch automation producing",
+          "benefits": [
+            "Vixy or Sootseer assigned",
+            "Passive bones flowing"
+          ],
+          "related_steps": [
+            "resource-bone:002"
+          ]
+        },
+        {
+          "id": "resource-bone:checkpoint-stockpile",
+          "summary": "Stockpile topped off",
+          "benefits": [
+            "Merchant bones stashed",
+            "Cement queue unblocked"
+          ],
+          "related_steps": [
+            "resource-bone:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-ore"
+        ],
+        "optional": []
+      },
+      "failure_recovery": {
+        "normal": "Restock healing items, revisit the Small Settlement statue, and resume short Rushoar loops before venturing farther.",
+        "hardcore": "Retreat once patrol timers overlap; rely on ranch output until Hardcore-safe escorts are ready."
+      },
+      "steps": [
+        {
+          "step_id": "resource-bone:001",
+          "type": "travel",
+          "summary": "Stage Small Settlement bone hunts",
+          "detail": "Fast travel to the Small Settlement (75,-479), clear poachers, then circle the surrounding Plateau of Beginnings to defeat or capture Rushoar and Vixy for guaranteed bones.【palwiki-small-settlement†L3-L15】【palwiki-windswept-hills†L14-L21】【palwiki-rushoar†L65-L76】【palfandom-bone†L36-L55】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "bone",
+              "qty": 8
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                75,
+                -479
+              ],
+              "time": "day",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "vanguard",
+                  "tasks": "Tag Rushoar packs and keep aggro off the merchant camp"
+                },
+                {
+                  "role": "collector",
+                  "tasks": "Capture weakened pals and ferry bones to storage"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "metal-spear"
+            ],
+            "pals": [
+              "lamball"
+            ],
+            "consumables": [
+              {
+                "item_id": "pal-sphere",
+                "qty": 6
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 90,
+            "max": 140
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "bone",
+                "qty": 8
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-ore"
+            }
+          ],
+          "citations": [
+            "palwiki-small-settlement",
+            "palwiki-windswept-hills",
+            "palwiki-rushoar",
+            "palfandom-bone"
+          ]
+        },
+        {
+          "step_id": "resource-bone:002",
+          "type": "assign",
+          "summary": "Put ranch pals on bone duty",
+          "detail": "Bring captured Vixy back to base so Dig Here! feeds bones and arrows, then add a Sakurajima Sootseer once you can handle night patrols for guaranteed ranch bones.【palwiki-vixy†L9-L49】【palfandom-bone†L36-L55】【palwiki-sootseer†L12-L16】【palwiki-sootseer†L114-L114】",
+          "targets": [
+            {
+              "kind": "pal",
+              "id": "vixy",
+              "qty": 1
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Capture rather than KO night spawns and retreat if patrol overlap stacks heat and dark damage.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "vixy"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "bone",
+                "qty": 4
+              }
+            ],
+            "pals": [
+              "vixy"
+            ],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-vixy",
+            "palfandom-bone",
+            "palwiki-sootseer",
+            "palwiki-bone"
+          ]
+        },
+        {
+          "step_id": "resource-bone:003",
+          "type": "trade",
+          "summary": "Buy out wandering merchants",
+          "detail": "Spend spare gold at the Small Settlement wandering merchant for 100G bones whenever you bank a hunt, keeping cement queues topped up.【palwiki-small-settlement†L3-L15】【palwiki-bone†L20-L27】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "bone",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                75,
+                -479
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "quartermaster",
+                  "tasks": "Handle trades and refresh gold"
+                },
+                {
+                  "role": "runner",
+                  "tasks": "Escort merchant goods back to base"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": [
+              {
+                "item_id": "gold-coin",
+                "qty": 600
+              }
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 40,
+            "max": 70
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "bone",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "capture-base-merchant"
+            }
+          ],
+          "citations": [
+            "palwiki-small-settlement",
+            "palwiki-bone"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "bone",
+          "qty": 30
+        },
+        {
+          "type": "have-pal",
+          "pal_id": "vixy",
+          "qty": 1
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "cement-batches"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "purposeful-arc-early-foundation",
+          "reason": "Bones fuel Cement and medicine stockpiles that power the early base expansion chain."
+        }
+      ]
+    },
+    {
+      "route_id": "resource-nail",
+      "title": "Nail Fabrication Chain",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "nail",
+        "construction",
+        "mid-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 10,
+        "max": 30
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture",
+          "resource-ore"
+        ],
+        "tech": [
+          "primitive-furnace",
+          "primitive-workbench"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Unlock Nail tech at level 10 and stock an ingot backlog",
+        "Craft nails at workbenches using the 1 ingot to 2 nails recipe",
+        "Scale into Production Assembly Line batches for construction projects"
+      ],
+      "estimated_time_minutes": {
+        "solo": 40,
+        "coop": 28
+      },
+      "estimated_xp_gain": {
+        "min": 180,
+        "max": 260
+      },
+      "risk_profile": "low",
+      "failure_penalties": {
+        "normal": "Losing ores or ingots slows early building unlocks until mines are restocked.",
+        "hardcore": "Hardcore deaths while hauling ore can wipe tech unlock progress and stall weapon upgrades."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Prioritise the level 10 tech unlock, then smelt a starter batch of ingots before expanding the queue.【palwiki-nail†L13-L22】【game8-nail†L118-L124】",
+        "overleveled": "Unlock the Production Assembly Line as soon as you have spare power cores so nail batches keep up with mid-game structures.【game8-nail†L111-L117】",
+        "resource_shortages": [
+          {
+            "item_id": "nail",
+            "solution": "Maintain a 2:1 ingot-to-nail conversion cycle so base expansions never stall.【palwiki-nail†L3-L33】"
+          }
+        ],
+        "time_limited": "Craft nails in short workbench bursts each time you return from ore runs to avoid idle furnaces.【game8-nail†L118-L124】",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Split roles so one player smelts ingots while the other queues nails and delivers materials to construction sites.",
+            "priority": 1,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-nail:001",
+              "resource-nail:002"
+            ]
+          },
+          {
+            "signal": "resource_gap:ingot_low",
+            "condition": "resource_gaps['ingot'] <= 10",
+            "adjustment": "Pause workbench crafting until the furnace rebuilds at least 20 spare ingots for the next batch.【game8-nail†L118-L124】",
+            "priority": 2,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "resource-nail:001"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-nail:checkpoint-furnace",
+          "summary": "Ingot backlog secured",
+          "benefits": [
+            "Primitive Furnace running",
+            "Ore supply stabilised"
+          ],
+          "related_steps": [
+            "resource-nail:001"
+          ]
+        },
+        {
+          "id": "resource-nail:checkpoint-workbench",
+          "summary": "Workbench production online",
+          "benefits": [
+            "Nail batches crafted",
+            "Construction queue primed"
+          ],
+          "related_steps": [
+            "resource-nail:002"
+          ]
+        },
+        {
+          "id": "resource-nail:checkpoint-assembly",
+          "summary": "Assembly line scaling",
+          "benefits": [
+            "Production Assembly Line placed",
+            "Automation powered"
+          ],
+          "related_steps": [
+            "resource-nail:003"
+          ]
+        }
+      ],
+      "supporting_routes": {
+        "recommended": [
+          "resource-ore"
+        ],
+        "optional": []
+      },
+      "failure_recovery": {
+        "normal": "Run quick ore hauls and rebuild ingot stacks before queuing more nails.",
+        "hardcore": "Deposit ingots between batches and rotate spare builders so Hardcore wipes do not reset progress."
+      },
+      "steps": [
+        {
+          "step_id": "resource-nail:001",
+          "type": "craft",
+          "summary": "Unlock Nail tech and smelt ingots",
+          "detail": "Reach level 10, spend the tech point on Nail, and keep a Primitive Furnace smelting ore into ingots for upcoming batches.【palwiki-nail†L13-L22】【game8-nail†L118-L124】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "ingot",
+              "qty": 20
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "smelter",
+                  "tasks": "Feed ore into the furnace and monitor fuel"
+                },
+                {
+                  "role": "hauler",
+                  "tasks": "Deliver ore from storage and bank finished ingots"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 70,
+            "max": 100
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "ingot",
+                "qty": 20
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-ore"
+            }
+          ],
+          "citations": [
+            "palwiki-nail",
+            "game8-nail"
+          ]
+        },
+        {
+          "step_id": "resource-nail:002",
+          "type": "craft",
+          "summary": "Forge nails at workbenches",
+          "detail": "Queue nails at a Primitive or High Quality Workbench, converting one ingot into two nails per recipe cycle.【palwiki-nail†L3-L33】【game8-nail†L102-L124】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "nail",
+              "qty": 40
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "crafter",
+                  "tasks": "Operate the workbench and manage tech point spend"
+                },
+                {
+                  "role": "supplier",
+                  "tasks": "Refill ingots and haul finished nails to storage"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 110
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "nail",
+                "qty": 40
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-nail",
+            "game8-nail"
+          ]
+        },
+        {
+          "step_id": "resource-nail:003",
+          "type": "build",
+          "summary": "Automate nails with an assembly line",
+          "detail": "Place a Production Assembly Line once unlocked so ingot deliveries turn into bulk nail batches without tying up handcrafting time.【game8-nail†L111-L117】【palwiki-nail†L3-L17】",
+          "targets": [
+            {
+              "kind": "station",
+              "id": "production-assembly-line"
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "builder",
+                  "tasks": "Place the line and power sources"
+                },
+                {
+                  "role": "engineer",
+                  "tasks": "Assign handiwork pals and route ingot deliveries"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "wooden-hammer"
+            ],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 90
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {
+              "structures": [
+                "production-assembly-line"
+              ]
+            }
+          },
+          "branching": [],
+          "citations": [
+            "game8-nail",
+            "palwiki-nail"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "nail",
+          "qty": 80
+        },
+        {
+          "type": "build-station",
+          "station_id": "production-assembly-line"
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "base-construction"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "purposeful-arc-mid-expansion",
+          "reason": "Nail throughput feeds the mid-expansion building chain for walls, chests, and automation benches."
+        }
+      ]
+    },
+    {
+      "route_id": "resource-refined-ingot",
+      "title": "Refined Ingot Forge Cycle",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "refined-ingot",
+        "metal",
+        "mid-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 34,
+        "max": 48
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "resource-ore",
+          "resource-coal"
+        ],
+        "tech": [
+          "improved-furnace"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Unlock Improved Furnace and Refined Ingot tech at level 34",
+        "Stage a mining outpost at (191,-36) that feeds ore and coal simultaneously",
+        "Smelt refined ingots continuously to buffer mid-game upgrades"
+      ],
+      "estimated_time_minutes": {
+        "solo": 55,
+        "coop": 38
+      },
+      "estimated_xp_gain": {
+        "min": 280,
+        "max": 380
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Letting the furnace go dark wastes mined ore and slows construction unlocks until stockpiles recover.",
+        "hardcore": "Hardcore wipes in the desert ridge cost mining pals and tech progress, delaying improved furnace output."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Rush level 34, then drop your Improved Furnace on the (191,-36) ridge so you can mine coal and ore without deep desert fights.【segmentnext-refined-ingot†L2-L5】",
+        "overleveled": "Chain multiple Improved Furnaces and maintain a 2:2 ore-to-coal delivery loop so refined ingot batches stay ahead of building demand.【palwiki-refined-ingot†L1-L6】【segmentnext-refined-ingot†L4-L5】",
+        "resource_shortages": [
+          {
+            "item_id": "coal",
+            "solution": "Keep a hauler rota working the ridge at (191,-36) before queueing more furnace batches.【segmentnext-refined-ingot†L5-L5】"
+          },
+          {
+            "item_id": "refined-ingot",
+            "solution": "Each refined ingot consumes 2 Ore and 2 Coal—rebuild the ratio before resuming hand-ins.【palwiki-refined-ingot†L1-L6】"
+          }
+        ],
+        "time_limited": "Smelt in short bursts every time you return to the ridge so the furnace never idles between expeditions.【segmentnext-refined-ingot†L4-L4】",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Assign one player to cycle ore/coal hauls while the partner runs furnace queues and maintenance.",
+            "priority": 1,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-refined-ingot:001",
+              "resource-refined-ingot:003"
+            ]
+          },
+          {
+            "signal": "resource_gap:coal_low",
+            "condition": "resource_gaps['coal'] <= 20",
+            "adjustment": "Trigger the resource-coal subroute or rotate fresh mining pals before resuming furnace work.【segmentnext-refined-ingot†L5-L5】",
+            "priority": 2,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "resource-refined-ingot:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-refined-ingot:checkpoint-site",
+          "summary": "Ridge outpost established",
+          "benefits": [
+            "Improved Furnace frame placed",
+            "Hauler pals staged"
+          ],
+          "related_steps": [
+            "resource-refined-ingot:001"
+          ]
+        },
+        {
+          "id": "resource-refined-ingot:checkpoint-feed",
+          "summary": "Ore and coal loop stabilised",
+          "benefits": [
+            "Dual-node mining active",
+            "Storage buffers topped"
+          ],
+          "related_steps": [
+            "resource-refined-ingot:002"
+          ]
+        },
+        {
+          "id": "resource-refined-ingot:checkpoint-stockpile",
+          "summary": "Refined ingots banked",
+          "benefits": [
+            "Mid-game upgrades funded",
+            "Assembly inputs secured"
+          ],
+          "related_steps": [
+            "resource-refined-ingot:003"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "step_id": "resource-refined-ingot:001",
+          "type": "build",
+          "summary": "Unlock and place an Improved Furnace",
+          "detail": "Hit level 34, spend tech points on both Refined Ingot and the Improved Furnace, then blueprint the furnace on the ore/coal ridge. Bring 100 Stone, 30 Cement, and 15 Flame Organs to finish construction.【segmentnext-refined-ingot†L2-L3】",
+          "targets": [
+            {
+              "kind": "station",
+              "id": "improved-furnace"
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "desiccated-desert",
+              "coords": [
+                191,
+                -36
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "builder",
+                  "tasks": "Place the furnace frame and handle tech spend"
+                },
+                {
+                  "role": "supplier",
+                  "tasks": "Ferry stone, cement, and flame organs from base"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "metal-pickaxe"
+            ],
+            "pals": [
+              "digtoise",
+              "tombat"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 120,
+            "max": 160
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {
+              "stations": [
+                "improved-furnace"
+              ]
+            }
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-coal"
+            }
+          ],
+          "citations": [
+            "segmentnext-refined-ingot"
+          ]
+        },
+        {
+          "step_id": "resource-refined-ingot:002",
+          "type": "gather",
+          "summary": "Mine ore and coal from the ridge",
+          "detail": "Cycle mining pals through the (191,-36) plateau so coal nodes and ore boulders refill storage between furnace batches.【segmentnext-refined-ingot†L5-L5】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "ore",
+              "qty": 120
+            },
+            {
+              "kind": "item",
+              "id": "coal",
+              "qty": 120
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "desiccated-desert",
+              "coords": [
+                191,
+                -36
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "miner",
+                  "tasks": "Break nodes and rotate pals"
+                },
+                {
+                  "role": "hauler",
+                  "tasks": "Keep storage chests clear and feed the furnace"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "metal-pickaxe"
+            ],
+            "pals": [
+              "digtoise",
+              "tombat"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 130,
+            "max": 180
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "ore",
+                "qty": 120
+              },
+              {
+                "item_id": "coal",
+                "qty": 120
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-ore"
+            },
+            {
+              "subroute_ref": "resource-coal"
+            }
+          ],
+          "citations": [
+            "segmentnext-refined-ingot"
+          ]
+        },
+        {
+          "step_id": "resource-refined-ingot:003",
+          "type": "craft",
+          "summary": "Smelt refined ingots in batches",
+          "detail": "Queue refined ingots at the Improved Furnace, feeding 2 Ore and 2 Coal per bar so construction stockpiles stay ahead of blueprints.【palwiki-refined-ingot†L1-L6】【segmentnext-refined-ingot†L4-L4】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "refined-ingot",
+              "qty": 60
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "desiccated-desert",
+              "coords": [
+                191,
+                -36
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "stoker",
+                  "tasks": "Assign Kindling pals and refresh fuel"
+                },
+                {
+                  "role": "quartermaster",
+                  "tasks": "Balance ore and coal inputs between furnaces"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "jormuntide-ignis"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 150,
+            "max": 200
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "refined-ingot",
+                "qty": 60
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-refined-ingot",
+            "segmentnext-refined-ingot"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-station",
+          "station_id": "improved-furnace"
+        },
+        {
+          "type": "have-item",
+          "item_id": "refined-ingot",
+          "qty": 60
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "refined-ingot-supply"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "purposeful-arc-late-expansion",
+          "reason": "Late-expansion structures consume refined ingots in bulk for automation benches."
+        },
+        {
+          "route_id": "resource-pal-metal-ingot",
+          "reason": "Pal Metal Ingots demand refined stockpiles to build the Electric Furnace frame."
+        }
+      ]
+    },
+    {
+      "route_id": "resource-pal-metal-ingot",
+      "title": "Pal Metal Alloy Grid",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "pal-metal-ingot",
+        "late-game",
+        "metal"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 44,
+        "max": 55
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "resource-refined-ingot",
+          "resource-paldium"
+        ],
+        "tech": [
+          "electric-furnace",
+          "power-generator"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Construct and power the Electric Furnace at level 44",
+        "Stabilise ore and Paldium fragment supply for alloying",
+        "Smelt Pal Metal Ingots and reinforce stock with elite Pal drops"
+      ],
+      "estimated_time_minutes": {
+        "solo": 60,
+        "coop": 42
+      },
+      "estimated_xp_gain": {
+        "min": 320,
+        "max": 450
+      },
+      "risk_profile": "high",
+      "failure_penalties": {
+        "normal": "Losing alloy stockpiles forces another long Paldium and ore grind before late-game gear resumes.",
+        "hardcore": "Hardcore wipes while farming Pal Metal drops risk irreplaceable high-level pals and generator repairs."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Bank refined ingots and tech points before level 44 so the Electric Furnace and generator frame go up in one trip.【palwiki-electric-furnace†L1-L4】",
+        "overleveled": "Once alloy batches flow, rotate into Astegon or Necromus hunts to add guaranteed Pal Metal drops for legendary queues.【fandom-pal-metal-ingot†L1-L4】",
+        "resource_shortages": [
+          {
+            "item_id": "paldium-fragment",
+            "solution": "Trigger the resource-paldium subroute or run riverbank loops until you refill at least 80 fragments.【palwiki-paldium†L42-L71】"
+          },
+          {
+            "item_id": "pal-metal-ingot",
+            "solution": "Each bar consumes 4 Ore and 2 Paldium fragments—balance smelts with mining runs before queueing late-game gear.【palwiki-pal-metal-ingot†L1-L3】"
+          }
+        ],
+        "time_limited": "Craft Pal Metal Ingots in bursts while the generator is fuelled to avoid power waste between batches.【palwiki-pal-metal-ingot†L1-L3】",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Split duties so one player manages generators and electricity while the other smelts and ferries alloy stock.",
+            "priority": 1,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-pal-metal-ingot:001",
+              "resource-pal-metal-ingot:003"
+            ]
+          },
+          {
+            "signal": "resource_gap:paldium-fragment_low",
+            "condition": "resource_gaps['paldium-fragment'] <= 20",
+            "adjustment": "Pause smelting and rerun resource-paldium to rebuild fragments before draining ore stock.【palwiki-paldium†L42-L71】",
+            "priority": 2,
+            "mode_scope": [
+              "normal",
+              "hardcore",
+              "solo",
+              "coop"
+            ],
+            "related_steps": [
+              "resource-pal-metal-ingot:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-pal-metal-ingot:checkpoint-electric",
+          "summary": "Electric Furnace online",
+          "benefits": [
+            "Generator wired",
+            "Fire pals assigned"
+          ],
+          "related_steps": [
+            "resource-pal-metal-ingot:001"
+          ]
+        },
+        {
+          "id": "resource-pal-metal-ingot:checkpoint-alloy",
+          "summary": "Alloy feed secured",
+          "benefits": [
+            "Ore buffer stabilised",
+            "Paldium fragments stocked"
+          ],
+          "related_steps": [
+            "resource-pal-metal-ingot:002"
+          ]
+        },
+        {
+          "id": "resource-pal-metal-ingot:checkpoint-drops",
+          "summary": "Pal Metal drops unlocked",
+          "benefits": [
+            "Elite hunts on rotation",
+            "Legendary craft queue primed"
+          ],
+          "related_steps": [
+            "resource-pal-metal-ingot:004"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "step_id": "resource-pal-metal-ingot:001",
+          "type": "build",
+          "summary": "Construct and power the Electric Furnace",
+          "detail": "Spend level-44 tech points on the Electric Furnace, deliver 50 Refined Ingots, 10 Circuit Boards, 20 Polymer, and 20 Carbon Fiber, then wire it into a Power Generator and assign a high-tier fire Pal to light it.【palwiki-electric-furnace†L1-L4】",
+          "targets": [
+            {
+              "kind": "station",
+              "id": "electric-furnace"
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "engineer",
+                  "tasks": "Place the furnace, run cables, and manage generators"
+                },
+                {
+                  "role": "quartermaster",
+                  "tasks": "Deliver refined ingots, polymer, and boards"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 160,
+            "max": 210
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {
+              "stations": [
+                "electric-furnace"
+              ]
+            }
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-refined-ingot"
+            }
+          ],
+          "citations": [
+            "palwiki-electric-furnace"
+          ]
+        },
+        {
+          "step_id": "resource-pal-metal-ingot:002",
+          "type": "gather",
+          "summary": "Stockpile ore and Paldium fragments",
+          "detail": "Loop the desert ridge for ore while triggering resource-paldium runs so fragment reserves stay ahead of 4 Ore + 2 Paldium alloy batches.【segmentnext-refined-ingot†L5-L5】【palwiki-paldium†L42-L71】【palwiki-pal-metal-ingot†L1-L3】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "ore",
+              "qty": 160
+            },
+            {
+              "kind": "item",
+              "id": "paldium-fragment",
+              "qty": 80
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "desiccated-desert",
+              "coords": [
+                191,
+                -36
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "miner",
+                  "tasks": "Harvest ore and refill generators"
+                },
+                {
+                  "role": "runner",
+                  "tasks": "Complete Paldium fragment loops and resupply the furnace"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "metal-pickaxe"
+            ],
+            "pals": [
+              "digtoise",
+              "tombat"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 150,
+            "max": 200
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "ore",
+                "qty": 160
+              },
+              {
+                "item_id": "paldium-fragment",
+                "qty": 80
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-ore"
+            },
+            {
+              "subroute_ref": "resource-paldium"
+            }
+          ],
+          "citations": [
+            "segmentnext-refined-ingot",
+            "palwiki-paldium",
+            "palwiki-pal-metal-ingot"
+          ]
+        },
+        {
+          "step_id": "resource-pal-metal-ingot:003",
+          "type": "craft",
+          "summary": "Smelt Pal Metal Ingots",
+          "detail": "Feed 4 Ore and 2 Paldium Fragments into the Electric Furnace per bar, keeping generators powered so late-game armor and weapon blueprints stay supplied.【palwiki-pal-metal-ingot†L1-L3】【fandom-pal-metal-ingot†L1-L4】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "pal-metal-ingot",
+              "qty": 40
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "smelter",
+                  "tasks": "Queue alloy batches and manage power"
+                },
+                {
+                  "role": "logistics",
+                  "tasks": "Refill ore, fragments, and cooling supplies"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 180,
+            "max": 240
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "pal-metal-ingot",
+                "qty": 40
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-pal-metal-ingot",
+            "fandom-pal-metal-ingot"
+          ]
+        },
+        {
+          "step_id": "resource-pal-metal-ingot:004",
+          "type": "hunt",
+          "summary": "Farm elite Pal Metal drops",
+          "detail": "Rotate Astegon, Necromus, Paladius, and Shadowbeak hunts so guaranteed Pal Metal drops top off alloy storage between furnace cycles.【fandom-pal-metal-ingot†L1-L4】",
+          "targets": [
+            {
+              "kind": "pal",
+              "id": "astegon",
+              "qty": 1
+            },
+            {
+              "kind": "pal",
+              "id": "necromus",
+              "qty": 1
+            },
+            {
+              "kind": "pal",
+              "id": "paladius",
+              "qty": 1
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "astral-mountain",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Bring ranged pals and heavy shields to mitigate alpha burst damage while farming drops.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 220,
+            "max": 300
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "pal-metal-ingot",
+                "qty": 20
+              }
+            ],
+            "pals": [
+              "astegon"
+            ],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "fandom-pal-metal-ingot"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-station",
+          "station_id": "electric-furnace"
+        },
+        {
+          "type": "have-item",
+          "item_id": "pal-metal-ingot",
+          "qty": 40
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "pal-metal-stockpile"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 4,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "purposeful-arc-legendary-push",
+          "reason": "Legendary push plans consume large Pal Metal batches for endgame armor and weapons."
+        },
+        {
+          "route_id": "purposeful-arc-late-expansion",
+          "reason": "Late expansion automation benches rely on Pal Metal alloys and powered factories."
+        }
+      ]
+    },
+    {
       "route_id": "resource-electric-organ",
       "title": "Electric Organ Relay Circuit",
       "category": "resources",
@@ -26598,8 +28151,8 @@
         "palwiki-small-settlement": {
           "title": "Small Settlement \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Small_Settlement",
-          "access_date": "2025-09-30",
-          "notes": "Gives the Small Settlement coordinates (~75,-479) and lists the Pal Merchant and Wandering Merchant inhabitants available to capture.\u3010165dd8\u2020L71-L90\u3011"
+          "access_date": "2025-10-18",
+          "notes": "Provides the Small Settlement coordinates (75,-479) and lists resident merchants for early-game trade routes.【palwiki-small-settlement†L3-L15】"
         },
         "palwiki-paldium": {
           "title": "Paldium Fragment \u2013 Palworld Wiki",
@@ -26744,6 +28297,84 @@
           "url": "https://palworld.fandom.com/wiki/Anubis",
           "access_date": "2025-10-17",
           "notes": "States Anubis spawns as an Alpha at Twilight Dunes (-134,-95).\u301028a64e\u2020L300-L303\u3011"
+        },
+        "palwiki-bone": {
+          "title": "Bone \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Bone",
+          "access_date": "2025-10-18",
+          "notes": "Lists Wandering Merchant pricing, notes Sootseer and Vixy produce bones at the ranch, and summarizes bone crafting uses.【palwiki-bone†L1-L37】"
+        },
+        "palfandom-bone": {
+          "title": "Bone \u2013 Palworld Wiki (Fandom)",
+          "url": "https://palworld.fandom.com/wiki/Bone",
+          "access_date": "2025-10-18",
+          "notes": "Provides the full drop list, confirms ranch production from Sootseer and Vixy, and reiterates the 100G merchant price.【palfandom-bone†L1-L55】"
+        },
+        "palwiki-sootseer": {
+          "title": "Sootseer \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Sootseer",
+          "access_date": "2025-10-18",
+          "notes": "Documents the Grave Robber partner skill digging bones at the ranch, guaranteed bone drops, and night spawns across Sakurajima.【palwiki-sootseer†L12-L116】"
+        },
+        "palwiki-rushoar": {
+          "title": "Rushoar \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Rushoar",
+          "access_date": "2025-10-18",
+          "notes": "Confirms Rushoar drops Bone alongside Pork and Leather and describes its aggressive hill patrol behaviour.【palwiki-rushoar†L65-L116】"
+        },
+        "palwiki-windswept-hills": {
+          "title": "Windswept Hills \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Windswept_Hills",
+          "access_date": "2025-10-18",
+          "notes": "Explains the region is the starting zone with low-level pals and lists the Small Settlement as a key point of interest.【palwiki-windswept-hills†L7-L22】"
+        },
+        "palwiki-vixy": {
+          "title": "Vixy \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Vixy",
+          "access_date": "2025-10-18",
+          "notes": "Shows Dig Here! produces items at the ranch and that Vixy drops Bone and Leather at 100% rates.【palwiki-vixy†L9-L49】"
+        },
+        "palwiki-nail": {
+          "title": "Nail \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Nail",
+          "access_date": "2025-10-18",
+          "notes": "Details the level 10 tech unlock, Primitive Workbench crafting requirement, and 1 Ingot to 2 Nail recipe.【palwiki-nail†L3-L33】"
+        },
+        "game8-nail": {
+          "title": "How to Get Nail: All Recipes and Effects  | Palworld\u3010Game8\u3011",
+          "url": "https://game8.co/games/Palworld/archives/440158",
+          "access_date": "2025-10-18",
+          "notes": "Explains reaching level 10 to unlock Nail tech, crafting nails from ingots at workbenches and assembly lines, and the need for a Primitive Furnace to feed the recipe.【game8-nail†L100-L124】"
+        },
+        "palwiki-refined-ingot": {
+          "title": "Refined Ingot \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Refined_Ingot",
+          "access_date": "2025-10-20",
+          "notes": "Confirms refined ingots are crafted from 2 Ore and 2 Coal at an Improved Furnace unlocked at tech level 34.【palwiki-refined-ingot†L1-L5】"
+        },
+        "segmentnext-refined-ingot": {
+          "title": "How To Get Refined Ingots In Palworld",
+          "url": "https://segmentnext.com/palworld-refined-ingot/",
+          "access_date": "2025-10-20",
+          "notes": "Describes unlocking refined ingots and the Improved Furnace at level 34, notes each bar costs Ore \u00d72 and Coal \u00d72, and recommends the (191,-36) mining outpost with Digtoise/Tombat automation.【segmentnext-refined-ingot†L1-L5】"
+        },
+        "palwiki-electric-furnace": {
+          "title": "Electric Furnace \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Electric_Furnace",
+          "access_date": "2025-10-20",
+          "notes": "Shows the Electric Furnace unlocks at level 44, costs 50 Refined Ingots, 10 Circuit Boards, 20 Polymer, 20 Carbon Fiber, and still needs electricity plus a fire Pal to operate.【palwiki-electric-furnace†L1-L4】"
+        },
+        "palwiki-pal-metal-ingot": {
+          "title": "Pal Metal Ingot \u2013 Palworld Wiki",
+          "url": "https://palworld.wiki.gg/wiki/Pal_Metal_Ingot",
+          "access_date": "2025-10-20",
+          "notes": "States Pal Metal Ingots are crafted at the Electric Furnace with a 4 Ore + 2 Paldium Fragment recipe and notes their late-game usage and drops.【palwiki-pal-metal-ingot†L1-L3】"
+        },
+        "fandom-pal-metal-ingot": {
+          "title": "Pal Metal Ingot \u2013 Palworld Wiki (Fandom)",
+          "url": "https://palworld.fandom.com/wiki/Pal_Metal_Ingot",
+          "access_date": "2025-10-20",
+          "notes": "Provides the Electric Furnace recipe, reiterates 4 Ore + 2 Paldium Fragment cost, and lists Astegon, Necromus, Paladius, and Shadowbeak as drop sources.【fandom-pal-metal-ingot†L1-L4】"
         }
       }
     }

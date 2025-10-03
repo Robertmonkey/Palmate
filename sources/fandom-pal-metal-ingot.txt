@@ -1,0 +1,4 @@
+Pal Metal Ingot — Palworld Fandom (retrieved 2025-10-20)
+Description: Material required to create weapons and armor using Pal Metal. Made stronger by creating an alloy from metal and Paldium.
+Crafting: Can be crafted at the Electric Furnace. Recipe requires Ore ×4 and Paldium Fragment ×2 and yields Pal Metal Ingot ×1.
+Drops: Listed Pal drops include Astegon, Necromus, Paladius, and Shadowbeak.
