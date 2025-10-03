@@ -14178,6 +14178,317 @@
       ]
     },
     {
+      "route_id": "resource-chikipi-poultry",
+      "title": "Chikipi Poultry Harvest Loop",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "chikipi-poultry",
+        "cooking",
+        "early-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 12,
+        "max": 22
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture",
+          "resource-egg"
+        ],
+        "tech": [
+          "primitive-workbench"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Capture Chikipi near the starter Palbox",
+        "Craft a Meat Cleaver and butcher excess birds for poultry",
+        "Stage ranch rotations and cold storage to keep poultry flowing"
+      ],
+      "estimated_time_minutes": {
+        "solo": 26,
+        "coop": 18
+      },
+      "estimated_xp_gain": {
+        "min": 150,
+        "max": 240
+      },
+      "risk_profile": "low",
+      "failure_penalties": {
+        "normal": "Culling the wrong Pal wastes partner passives and delays poultry restocks until respawns catch up.",
+        "hardcore": "Misusing the cleaver can trigger base morale loss and raids, costing you captured layers."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Work within sight of the Palbox so aggroed flocks leash and you can reset without burning spheres.\u3010palwiki-chikipi\u2020L29-L35\u3011",
+        "overleveled": "Alternate meadow sweeps with butcher sessions to bank a stack of poultry before raids escalate.\u3010palwiki-chikipi\u2020L29-L35\u3011\u3010palwiki-meat-cleaver\u2020L20-L39\u3011",
+        "resource_shortages": [
+          {
+            "item_id": "chikipi-poultry",
+            "solution": "Cull one captured pair per loop after eggs hatch, then let timers refill ranch slots before the next hunt.\u3010palwiki-chikipi\u2020L63-L72\u3011\u3010palwiki-meat-cleaver\u2020L20-L39\u3011"
+          }
+        ],
+        "time_limited": "Do a quick meadow sweep, butcher the surplus, then refrigerate the cuts so cooking can resume later.\u3010palwiki-chikipi\u2020L63-L72\u3011\u3010palwiki-meat-cleaver\u2020L37-L41\u3011",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Assign a wrangler to kite flocks into bolas while the butcher keeps the cleaver station clear and stocks the fridge.",
+            "priority": 2,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-chikipi-poultry:001",
+              "resource-chikipi-poultry:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-chikipi-poultry:checkpoint-pen",
+          "label": "Capture Pen Stocked",
+          "includes": [
+            "resource-chikipi-poultry:001"
+          ]
+        },
+        {
+          "id": "resource-chikipi-poultry:checkpoint-cleaver",
+          "label": "Cleaver Station Online",
+          "includes": [
+            "resource-chikipi-poultry:002"
+          ]
+        },
+        {
+          "id": "resource-chikipi-poultry:checkpoint-pantry",
+          "label": "Poultry Pantry Filled",
+          "includes": [
+            "resource-chikipi-poultry:003"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "step_id": "resource-chikipi-poultry:001",
+          "type": "capture",
+          "summary": "Sweep Palbox meadow for Chikipi",
+          "detail": "Teleport to the Windswept Hills statue (~-42,-498) and loop the grass flats, bolaing docile Chikipi before they flock. Scoop ground eggs while you net four prime layers for the ranch.\u3010palwiki-chikipi\u2020L29-L35\u3011",
+          "targets": [
+            {
+              "kind": "pal",
+              "id": "chikipi",
+              "qty": 4
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                -42,
+                -498
+              ],
+              "time": "day",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Use bolas or Frost Grenades so incidental damage doesn\u2019t snowball into flock aggro.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            },
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "wrangler",
+                  "tasks": "Tag birds and keep them corralled near the Palbox"
+                },
+                {
+                  "role": "collector",
+                  "tasks": "Throw Pal Spheres, gather eggs, and rotate catches to base"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "bola"
+            ],
+            "pals": [
+              "lifmunk"
+            ],
+            "consumables": [
+              "pal-sphere"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 110,
+            "max": 170
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "egg",
+                "qty": 4
+              }
+            ],
+            "pals": [
+              "chikipi"
+            ],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-chikipi"
+          ]
+        },
+        {
+          "step_id": "resource-chikipi-poultry:002",
+          "type": "craft",
+          "summary": "Forge the Meat Cleaver and butcher extras",
+          "detail": "Craft the Meat Cleaver at the Primitive Workbench (5 Ingots, 20 Wood, 5 Stone), then use the Pet command wheel to butcher surplus Chikipi. Each culled bird yields guaranteed poultry for stews\u2014stagger culls to avoid wiping the ranch.\u3010palwiki-meat-cleaver\u2020L20-L39\u3011\u3010palwiki-meat-cleaver\u2020L25-L34\u3011\u3010palwiki-chikipi\u2020L69-L76\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "chikipi-poultry",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Back up save birds with Pal Spheres before butchering so a misclick doesn\u2019t delete your only egg layers.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "meat-cleaver"
+            ],
+            "pals": [],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 30,
+            "max": 40
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "chikipi-poultry",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-meat-cleaver",
+            "palwiki-chikipi"
+          ]
+        },
+        {
+          "step_id": "resource-chikipi-poultry:003",
+          "type": "base",
+          "summary": "Balance ranch timers and cold storage",
+          "detail": "Assign two Chikipi to the ranch for steady eggs, chill butchered poultry in a Cooler Box, and rotate captures each loop so new birds replace those culled for meat.\u3010palwiki-chikipi\u2020L63-L72\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "chikipi-poultry",
+              "qty": 12
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "windswept-hills",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "chikipi"
+            ],
+            "consumables": [
+              "cooler-box"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 10,
+            "max": 30
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "chikipi-poultry",
+                "qty": 12
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-chikipi"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "chikipi-poultry",
+          "qty": 18
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "poultry-stockpile"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-cake",
+          "reason": "Cake production relies on poultry for high-quality cooking buffs."
+        }
+      ]
+    },
+    {
       "route_id": "resource-ore",
       "title": "Ore Mining Grid",
       "category": "resources",
@@ -16151,15 +16462,15 @@
         "hardcore": "Hardcore wipes while farming Sakurajima elites cost irreplaceable ranch producers and stall medicine crafting."
       },
       "adaptive_guidance": {
-        "underleveled": "Loop the Plateau of Beginnings near the Small Settlement and focus on Vixy or Rushoar pairs until you can safely branch into night hunts.【palwiki-windswept-hills†L14-L21】【palfandom-bone†L36-L55】",
-        "overleveled": "Layer in Sakurajima Sootseer sweeps at night before returning to the hills so ranch automation keeps up with late-game demand.【palwiki-sootseer†L12-L16】【palwiki-sootseer†L114-L114】",
+        "underleveled": "Loop the Plateau of Beginnings near the Small Settlement and focus on Vixy or Rushoar pairs until you can safely branch into night hunts.\u3010palwiki-windswept-hills\u2020L14-L21\u3011\u3010palfandom-bone\u2020L36-L55\u3011",
+        "overleveled": "Layer in Sakurajima Sootseer sweeps at night before returning to the hills so ranch automation keeps up with late-game demand.\u3010palwiki-sootseer\u2020L12-L16\u3011\u3010palwiki-sootseer\u2020L114-L114\u3011",
         "resource_shortages": [
           {
             "item_id": "bone",
-            "solution": "Keep at least one ranch slot staffed with a bone producer before launching long expeditions.【palwiki-bone†L20-L27】"
+            "solution": "Keep at least one ranch slot staffed with a bone producer before launching long expeditions.\u3010palwiki-bone\u2020L20-L27\u3011"
           }
         ],
-        "time_limited": "Buy merchant bones on each Small Settlement pass, then bank the haul before leaving for tower runs.【palwiki-small-settlement†L3-L15】【palwiki-bone†L22-L27】",
+        "time_limited": "Buy merchant bones on each Small Settlement pass, then bank the haul before leaving for tower runs.\u3010palwiki-small-settlement\u2020L3-L15\u3011\u3010palwiki-bone\u2020L22-L27\u3011",
         "dynamic_rules": [
           {
             "signal": "mode:coop",
@@ -16176,7 +16487,7 @@
           {
             "signal": "resource_gap:cement_high",
             "condition": "resource_gaps['cement'] >= 5",
-            "adjustment": "Push merchant buys to hit at least 30 bones before swapping back to building queues.【palwiki-bone†L20-L27】",
+            "adjustment": "Push merchant buys to hit at least 30 bones before swapping back to building queues.\u3010palwiki-bone\u2020L20-L27\u3011",
             "priority": 2,
             "mode_scope": [
               "normal",
@@ -16240,7 +16551,7 @@
           "step_id": "resource-bone:001",
           "type": "travel",
           "summary": "Stage Small Settlement bone hunts",
-          "detail": "Fast travel to the Small Settlement (75,-479), clear poachers, then circle the surrounding Plateau of Beginnings to defeat or capture Rushoar and Vixy for guaranteed bones.【palwiki-small-settlement†L3-L15】【palwiki-windswept-hills†L14-L21】【palwiki-rushoar†L65-L76】【palfandom-bone†L36-L55】",
+          "detail": "Fast travel to the Small Settlement (75,-479), clear poachers, then circle the surrounding Plateau of Beginnings to defeat or capture Rushoar and Vixy for guaranteed bones.\u3010palwiki-small-settlement\u2020L3-L15\u3011\u3010palwiki-windswept-hills\u2020L14-L21\u3011\u3010palwiki-rushoar\u2020L65-L76\u3011\u3010palfandom-bone\u2020L36-L55\u3011",
           "targets": [
             {
               "kind": "item",
@@ -16317,7 +16628,7 @@
           "step_id": "resource-bone:002",
           "type": "assign",
           "summary": "Put ranch pals on bone duty",
-          "detail": "Bring captured Vixy back to base so Dig Here! feeds bones and arrows, then add a Sakurajima Sootseer once you can handle night patrols for guaranteed ranch bones.【palwiki-vixy†L9-L49】【palfandom-bone†L36-L55】【palwiki-sootseer†L12-L16】【palwiki-sootseer†L114-L114】",
+          "detail": "Bring captured Vixy back to base so Dig Here! feeds bones and arrows, then add a Sakurajima Sootseer once you can handle night patrols for guaranteed ranch bones.\u3010palwiki-vixy\u2020L9-L49\u3011\u3010palfandom-bone\u2020L36-L55\u3011\u3010palwiki-sootseer\u2020L12-L16\u3011\u3010palwiki-sootseer\u2020L114-L114\u3011",
           "targets": [
             {
               "kind": "pal",
@@ -16379,7 +16690,7 @@
           "step_id": "resource-bone:003",
           "type": "trade",
           "summary": "Buy out wandering merchants",
-          "detail": "Spend spare gold at the Small Settlement wandering merchant for 100G bones whenever you bank a hunt, keeping cement queues topped up.【palwiki-small-settlement†L3-L15】【palwiki-bone†L20-L27】",
+          "detail": "Spend spare gold at the Small Settlement wandering merchant for 100G bones whenever you bank a hunt, keeping cement queues topped up.\u3010palwiki-small-settlement\u2020L3-L15\u3011\u3010palwiki-bone\u2020L20-L27\u3011",
           "targets": [
             {
               "kind": "item",
@@ -16529,15 +16840,15 @@
         "hardcore": "Hardcore deaths while hauling ore can wipe tech unlock progress and stall weapon upgrades."
       },
       "adaptive_guidance": {
-        "underleveled": "Prioritise the level 10 tech unlock, then smelt a starter batch of ingots before expanding the queue.【palwiki-nail†L13-L22】【game8-nail†L118-L124】",
-        "overleveled": "Unlock the Production Assembly Line as soon as you have spare power cores so nail batches keep up with mid-game structures.【game8-nail†L111-L117】",
+        "underleveled": "Prioritise the level 10 tech unlock, then smelt a starter batch of ingots before expanding the queue.\u3010palwiki-nail\u2020L13-L22\u3011\u3010game8-nail\u2020L118-L124\u3011",
+        "overleveled": "Unlock the Production Assembly Line as soon as you have spare power cores so nail batches keep up with mid-game structures.\u3010game8-nail\u2020L111-L117\u3011",
         "resource_shortages": [
           {
             "item_id": "nail",
-            "solution": "Maintain a 2:1 ingot-to-nail conversion cycle so base expansions never stall.【palwiki-nail†L3-L33】"
+            "solution": "Maintain a 2:1 ingot-to-nail conversion cycle so base expansions never stall.\u3010palwiki-nail\u2020L3-L33\u3011"
           }
         ],
-        "time_limited": "Craft nails in short workbench bursts each time you return from ore runs to avoid idle furnaces.【game8-nail†L118-L124】",
+        "time_limited": "Craft nails in short workbench bursts each time you return from ore runs to avoid idle furnaces.\u3010game8-nail\u2020L118-L124\u3011",
         "dynamic_rules": [
           {
             "signal": "mode:coop",
@@ -16555,7 +16866,7 @@
           {
             "signal": "resource_gap:ingot_low",
             "condition": "resource_gaps['ingot'] <= 10",
-            "adjustment": "Pause workbench crafting until the furnace rebuilds at least 20 spare ingots for the next batch.【game8-nail†L118-L124】",
+            "adjustment": "Pause workbench crafting until the furnace rebuilds at least 20 spare ingots for the next batch.\u3010game8-nail\u2020L118-L124\u3011",
             "priority": 2,
             "mode_scope": [
               "normal",
@@ -16619,7 +16930,7 @@
           "step_id": "resource-nail:001",
           "type": "craft",
           "summary": "Unlock Nail tech and smelt ingots",
-          "detail": "Reach level 10, spend the tech point on Nail, and keep a Primitive Furnace smelting ore into ingots for upcoming batches.【palwiki-nail†L13-L22】【game8-nail†L118-L124】",
+          "detail": "Reach level 10, spend the tech point on Nail, and keep a Primitive Furnace smelting ore into ingots for upcoming batches.\u3010palwiki-nail\u2020L13-L22\u3011\u3010game8-nail\u2020L118-L124\u3011",
           "targets": [
             {
               "kind": "item",
@@ -16685,7 +16996,7 @@
           "step_id": "resource-nail:002",
           "type": "craft",
           "summary": "Forge nails at workbenches",
-          "detail": "Queue nails at a Primitive or High Quality Workbench, converting one ingot into two nails per recipe cycle.【palwiki-nail†L3-L33】【game8-nail†L102-L124】",
+          "detail": "Queue nails at a Primitive or High Quality Workbench, converting one ingot into two nails per recipe cycle.\u3010palwiki-nail\u2020L3-L33\u3011\u3010game8-nail\u2020L102-L124\u3011",
           "targets": [
             {
               "kind": "item",
@@ -16747,7 +17058,7 @@
           "step_id": "resource-nail:003",
           "type": "build",
           "summary": "Automate nails with an assembly line",
-          "detail": "Place a Production Assembly Line once unlocked so ingot deliveries turn into bulk nail batches without tying up handcrafting time.【game8-nail†L111-L117】【palwiki-nail†L3-L17】",
+          "detail": "Place a Production Assembly Line once unlocked so ingot deliveries turn into bulk nail batches without tying up handcrafting time.\u3010game8-nail\u2020L111-L117\u3011\u3010palwiki-nail\u2020L3-L17\u3011",
           "targets": [
             {
               "kind": "station",
@@ -16886,19 +17197,19 @@
         "hardcore": "Hardcore wipes in the desert ridge cost mining pals and tech progress, delaying improved furnace output."
       },
       "adaptive_guidance": {
-        "underleveled": "Rush level 34, then drop your Improved Furnace on the (191,-36) ridge so you can mine coal and ore without deep desert fights.【segmentnext-refined-ingot†L2-L5】",
-        "overleveled": "Chain multiple Improved Furnaces and maintain a 2:2 ore-to-coal delivery loop so refined ingot batches stay ahead of building demand.【palwiki-refined-ingot†L1-L6】【segmentnext-refined-ingot†L4-L5】",
+        "underleveled": "Rush level 34, then drop your Improved Furnace on the (191,-36) ridge so you can mine coal and ore without deep desert fights.\u3010segmentnext-refined-ingot\u2020L2-L5\u3011",
+        "overleveled": "Chain multiple Improved Furnaces and maintain a 2:2 ore-to-coal delivery loop so refined ingot batches stay ahead of building demand.\u3010palwiki-refined-ingot\u2020L1-L6\u3011\u3010segmentnext-refined-ingot\u2020L4-L5\u3011",
         "resource_shortages": [
           {
             "item_id": "coal",
-            "solution": "Keep a hauler rota working the ridge at (191,-36) before queueing more furnace batches.【segmentnext-refined-ingot†L5-L5】"
+            "solution": "Keep a hauler rota working the ridge at (191,-36) before queueing more furnace batches.\u3010segmentnext-refined-ingot\u2020L5-L5\u3011"
           },
           {
             "item_id": "refined-ingot",
-            "solution": "Each refined ingot consumes 2 Ore and 2 Coal—rebuild the ratio before resuming hand-ins.【palwiki-refined-ingot†L1-L6】"
+            "solution": "Each refined ingot consumes 2 Ore and 2 Coal\u2014rebuild the ratio before resuming hand-ins.\u3010palwiki-refined-ingot\u2020L1-L6\u3011"
           }
         ],
-        "time_limited": "Smelt in short bursts every time you return to the ridge so the furnace never idles between expeditions.【segmentnext-refined-ingot†L4-L4】",
+        "time_limited": "Smelt in short bursts every time you return to the ridge so the furnace never idles between expeditions.\u3010segmentnext-refined-ingot\u2020L4-L4\u3011",
         "dynamic_rules": [
           {
             "signal": "mode:coop",
@@ -16916,7 +17227,7 @@
           {
             "signal": "resource_gap:coal_low",
             "condition": "resource_gaps['coal'] <= 20",
-            "adjustment": "Trigger the resource-coal subroute or rotate fresh mining pals before resuming furnace work.【segmentnext-refined-ingot†L5-L5】",
+            "adjustment": "Trigger the resource-coal subroute or rotate fresh mining pals before resuming furnace work.\u3010segmentnext-refined-ingot\u2020L5-L5\u3011",
             "priority": 2,
             "mode_scope": [
               "normal",
@@ -16970,7 +17281,7 @@
           "step_id": "resource-refined-ingot:001",
           "type": "build",
           "summary": "Unlock and place an Improved Furnace",
-          "detail": "Hit level 34, spend tech points on both Refined Ingot and the Improved Furnace, then blueprint the furnace on the ore/coal ridge. Bring 100 Stone, 30 Cement, and 15 Flame Organs to finish construction.【segmentnext-refined-ingot†L2-L3】",
+          "detail": "Hit level 34, spend tech points on both Refined Ingot and the Improved Furnace, then blueprint the furnace on the ore/coal ridge. Bring 100 Stone, 30 Cement, and 15 Flame Organs to finish construction.\u3010segmentnext-refined-ingot\u2020L2-L3\u3011",
           "targets": [
             {
               "kind": "station",
@@ -17038,7 +17349,7 @@
           "step_id": "resource-refined-ingot:002",
           "type": "gather",
           "summary": "Mine ore and coal from the ridge",
-          "detail": "Cycle mining pals through the (191,-36) plateau so coal nodes and ore boulders refill storage between furnace batches.【segmentnext-refined-ingot†L5-L5】",
+          "detail": "Cycle mining pals through the (191,-36) plateau so coal nodes and ore boulders refill storage between furnace batches.\u3010segmentnext-refined-ingot\u2020L5-L5\u3011",
           "targets": [
             {
               "kind": "item",
@@ -17120,7 +17431,7 @@
           "step_id": "resource-refined-ingot:003",
           "type": "craft",
           "summary": "Smelt refined ingots in batches",
-          "detail": "Queue refined ingots at the Improved Furnace, feeding 2 Ore and 2 Coal per bar so construction stockpiles stay ahead of blueprints.【palwiki-refined-ingot†L1-L6】【segmentnext-refined-ingot†L4-L4】",
+          "detail": "Queue refined ingots at the Improved Furnace, feeding 2 Ore and 2 Coal per bar so construction stockpiles stay ahead of blueprints.\u3010palwiki-refined-ingot\u2020L1-L6\u3011\u3010segmentnext-refined-ingot\u2020L4-L4\u3011",
           "targets": [
             {
               "kind": "item",
@@ -17266,19 +17577,19 @@
         "hardcore": "Hardcore wipes while farming Pal Metal drops risk irreplaceable high-level pals and generator repairs."
       },
       "adaptive_guidance": {
-        "underleveled": "Bank refined ingots and tech points before level 44 so the Electric Furnace and generator frame go up in one trip.【palwiki-electric-furnace†L1-L4】",
-        "overleveled": "Once alloy batches flow, rotate into Astegon or Necromus hunts to add guaranteed Pal Metal drops for legendary queues.【fandom-pal-metal-ingot†L1-L4】",
+        "underleveled": "Bank refined ingots and tech points before level 44 so the Electric Furnace and generator frame go up in one trip.\u3010palwiki-electric-furnace\u2020L1-L4\u3011",
+        "overleveled": "Once alloy batches flow, rotate into Astegon or Necromus hunts to add guaranteed Pal Metal drops for legendary queues.\u3010fandom-pal-metal-ingot\u2020L1-L4\u3011",
         "resource_shortages": [
           {
             "item_id": "paldium-fragment",
-            "solution": "Trigger the resource-paldium subroute or run riverbank loops until you refill at least 80 fragments.【palwiki-paldium†L42-L71】"
+            "solution": "Trigger the resource-paldium subroute or run riverbank loops until you refill at least 80 fragments.\u3010palwiki-paldium\u2020L42-L71\u3011"
           },
           {
             "item_id": "pal-metal-ingot",
-            "solution": "Each bar consumes 4 Ore and 2 Paldium fragments—balance smelts with mining runs before queueing late-game gear.【palwiki-pal-metal-ingot†L1-L3】"
+            "solution": "Each bar consumes 4 Ore and 2 Paldium fragments\u2014balance smelts with mining runs before queueing late-game gear.\u3010palwiki-pal-metal-ingot\u2020L1-L3\u3011"
           }
         ],
-        "time_limited": "Craft Pal Metal Ingots in bursts while the generator is fuelled to avoid power waste between batches.【palwiki-pal-metal-ingot†L1-L3】",
+        "time_limited": "Craft Pal Metal Ingots in bursts while the generator is fuelled to avoid power waste between batches.\u3010palwiki-pal-metal-ingot\u2020L1-L3\u3011",
         "dynamic_rules": [
           {
             "signal": "mode:coop",
@@ -17296,7 +17607,7 @@
           {
             "signal": "resource_gap:paldium-fragment_low",
             "condition": "resource_gaps['paldium-fragment'] <= 20",
-            "adjustment": "Pause smelting and rerun resource-paldium to rebuild fragments before draining ore stock.【palwiki-paldium†L42-L71】",
+            "adjustment": "Pause smelting and rerun resource-paldium to rebuild fragments before draining ore stock.\u3010palwiki-paldium\u2020L42-L71\u3011",
             "priority": 2,
             "mode_scope": [
               "normal",
@@ -17350,7 +17661,7 @@
           "step_id": "resource-pal-metal-ingot:001",
           "type": "build",
           "summary": "Construct and power the Electric Furnace",
-          "detail": "Spend level-44 tech points on the Electric Furnace, deliver 50 Refined Ingots, 10 Circuit Boards, 20 Polymer, and 20 Carbon Fiber, then wire it into a Power Generator and assign a high-tier fire Pal to light it.【palwiki-electric-furnace†L1-L4】",
+          "detail": "Spend level-44 tech points on the Electric Furnace, deliver 50 Refined Ingots, 10 Circuit Boards, 20 Polymer, and 20 Carbon Fiber, then wire it into a Power Generator and assign a high-tier fire Pal to light it.\u3010palwiki-electric-furnace\u2020L1-L4\u3011",
           "targets": [
             {
               "kind": "station",
@@ -17413,7 +17724,7 @@
           "step_id": "resource-pal-metal-ingot:002",
           "type": "gather",
           "summary": "Stockpile ore and Paldium fragments",
-          "detail": "Loop the desert ridge for ore while triggering resource-paldium runs so fragment reserves stay ahead of 4 Ore + 2 Paldium alloy batches.【segmentnext-refined-ingot†L5-L5】【palwiki-paldium†L42-L71】【palwiki-pal-metal-ingot†L1-L3】",
+          "detail": "Loop the desert ridge for ore while triggering resource-paldium runs so fragment reserves stay ahead of 4 Ore + 2 Paldium alloy batches.\u3010segmentnext-refined-ingot\u2020L5-L5\u3011\u3010palwiki-paldium\u2020L42-L71\u3011\u3010palwiki-pal-metal-ingot\u2020L1-L3\u3011",
           "targets": [
             {
               "kind": "item",
@@ -17497,7 +17808,7 @@
           "step_id": "resource-pal-metal-ingot:003",
           "type": "craft",
           "summary": "Smelt Pal Metal Ingots",
-          "detail": "Feed 4 Ore and 2 Paldium Fragments into the Electric Furnace per bar, keeping generators powered so late-game armor and weapon blueprints stay supplied.【palwiki-pal-metal-ingot†L1-L3】【fandom-pal-metal-ingot†L1-L4】",
+          "detail": "Feed 4 Ore and 2 Paldium Fragments into the Electric Furnace per bar, keeping generators powered so late-game armor and weapon blueprints stay supplied.\u3010palwiki-pal-metal-ingot\u2020L1-L3\u3011\u3010fandom-pal-metal-ingot\u2020L1-L4\u3011",
           "targets": [
             {
               "kind": "item",
@@ -17559,7 +17870,7 @@
           "step_id": "resource-pal-metal-ingot:004",
           "type": "hunt",
           "summary": "Farm elite Pal Metal drops",
-          "detail": "Rotate Astegon, Necromus, Paladius, and Shadowbeak hunts so guaranteed Pal Metal drops top off alloy storage between furnace cycles.【fandom-pal-metal-ingot†L1-L4】",
+          "detail": "Rotate Astegon, Necromus, Paladius, and Shadowbeak hunts so guaranteed Pal Metal drops top off alloy storage between furnace cycles.\u3010fandom-pal-metal-ingot\u2020L1-L4\u3011",
           "targets": [
             {
               "kind": "pal",
@@ -28152,7 +28463,7 @@
           "title": "Small Settlement \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Small_Settlement",
           "access_date": "2025-10-18",
-          "notes": "Provides the Small Settlement coordinates (75,-479) and lists resident merchants for early-game trade routes.【palwiki-small-settlement†L3-L15】"
+          "notes": "Provides the Small Settlement coordinates (75,-479) and lists resident merchants for early-game trade routes.\u3010palwiki-small-settlement\u2020L3-L15\u3011"
         },
         "palwiki-paldium": {
           "title": "Paldium Fragment \u2013 Palworld Wiki",
@@ -28302,79 +28613,79 @@
           "title": "Bone \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Bone",
           "access_date": "2025-10-18",
-          "notes": "Lists Wandering Merchant pricing, notes Sootseer and Vixy produce bones at the ranch, and summarizes bone crafting uses.【palwiki-bone†L1-L37】"
+          "notes": "Lists Wandering Merchant pricing, notes Sootseer and Vixy produce bones at the ranch, and summarizes bone crafting uses.\u3010palwiki-bone\u2020L1-L37\u3011"
         },
         "palfandom-bone": {
           "title": "Bone \u2013 Palworld Wiki (Fandom)",
           "url": "https://palworld.fandom.com/wiki/Bone",
           "access_date": "2025-10-18",
-          "notes": "Provides the full drop list, confirms ranch production from Sootseer and Vixy, and reiterates the 100G merchant price.【palfandom-bone†L1-L55】"
+          "notes": "Provides the full drop list, confirms ranch production from Sootseer and Vixy, and reiterates the 100G merchant price.\u3010palfandom-bone\u2020L1-L55\u3011"
         },
         "palwiki-sootseer": {
           "title": "Sootseer \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Sootseer",
           "access_date": "2025-10-18",
-          "notes": "Documents the Grave Robber partner skill digging bones at the ranch, guaranteed bone drops, and night spawns across Sakurajima.【palwiki-sootseer†L12-L116】"
+          "notes": "Documents the Grave Robber partner skill digging bones at the ranch, guaranteed bone drops, and night spawns across Sakurajima.\u3010palwiki-sootseer\u2020L12-L116\u3011"
         },
         "palwiki-rushoar": {
           "title": "Rushoar \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Rushoar",
           "access_date": "2025-10-18",
-          "notes": "Confirms Rushoar drops Bone alongside Pork and Leather and describes its aggressive hill patrol behaviour.【palwiki-rushoar†L65-L116】"
+          "notes": "Confirms Rushoar drops Bone alongside Pork and Leather and describes its aggressive hill patrol behaviour.\u3010palwiki-rushoar\u2020L65-L116\u3011"
         },
         "palwiki-windswept-hills": {
           "title": "Windswept Hills \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Windswept_Hills",
           "access_date": "2025-10-18",
-          "notes": "Explains the region is the starting zone with low-level pals and lists the Small Settlement as a key point of interest.【palwiki-windswept-hills†L7-L22】"
+          "notes": "Explains the region is the starting zone with low-level pals and lists the Small Settlement as a key point of interest.\u3010palwiki-windswept-hills\u2020L7-L22\u3011"
         },
         "palwiki-vixy": {
           "title": "Vixy \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Vixy",
           "access_date": "2025-10-18",
-          "notes": "Shows Dig Here! produces items at the ranch and that Vixy drops Bone and Leather at 100% rates.【palwiki-vixy†L9-L49】"
+          "notes": "Shows Dig Here! produces items at the ranch and that Vixy drops Bone and Leather at 100% rates.\u3010palwiki-vixy\u2020L9-L49\u3011"
         },
         "palwiki-nail": {
           "title": "Nail \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Nail",
           "access_date": "2025-10-18",
-          "notes": "Details the level 10 tech unlock, Primitive Workbench crafting requirement, and 1 Ingot to 2 Nail recipe.【palwiki-nail†L3-L33】"
+          "notes": "Details the level 10 tech unlock, Primitive Workbench crafting requirement, and 1 Ingot to 2 Nail recipe.\u3010palwiki-nail\u2020L3-L33\u3011"
         },
         "game8-nail": {
           "title": "How to Get Nail: All Recipes and Effects  | Palworld\u3010Game8\u3011",
           "url": "https://game8.co/games/Palworld/archives/440158",
           "access_date": "2025-10-18",
-          "notes": "Explains reaching level 10 to unlock Nail tech, crafting nails from ingots at workbenches and assembly lines, and the need for a Primitive Furnace to feed the recipe.【game8-nail†L100-L124】"
+          "notes": "Explains reaching level 10 to unlock Nail tech, crafting nails from ingots at workbenches and assembly lines, and the need for a Primitive Furnace to feed the recipe.\u3010game8-nail\u2020L100-L124\u3011"
         },
         "palwiki-refined-ingot": {
           "title": "Refined Ingot \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Refined_Ingot",
           "access_date": "2025-10-20",
-          "notes": "Confirms refined ingots are crafted from 2 Ore and 2 Coal at an Improved Furnace unlocked at tech level 34.【palwiki-refined-ingot†L1-L5】"
+          "notes": "Confirms refined ingots are crafted from 2 Ore and 2 Coal at an Improved Furnace unlocked at tech level 34.\u3010palwiki-refined-ingot\u2020L1-L5\u3011"
         },
         "segmentnext-refined-ingot": {
           "title": "How To Get Refined Ingots In Palworld",
           "url": "https://segmentnext.com/palworld-refined-ingot/",
           "access_date": "2025-10-20",
-          "notes": "Describes unlocking refined ingots and the Improved Furnace at level 34, notes each bar costs Ore \u00d72 and Coal \u00d72, and recommends the (191,-36) mining outpost with Digtoise/Tombat automation.【segmentnext-refined-ingot†L1-L5】"
+          "notes": "Describes unlocking refined ingots and the Improved Furnace at level 34, notes each bar costs Ore \u00d72 and Coal \u00d72, and recommends the (191,-36) mining outpost with Digtoise/Tombat automation.\u3010segmentnext-refined-ingot\u2020L1-L5\u3011"
         },
         "palwiki-electric-furnace": {
           "title": "Electric Furnace \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Electric_Furnace",
           "access_date": "2025-10-20",
-          "notes": "Shows the Electric Furnace unlocks at level 44, costs 50 Refined Ingots, 10 Circuit Boards, 20 Polymer, 20 Carbon Fiber, and still needs electricity plus a fire Pal to operate.【palwiki-electric-furnace†L1-L4】"
+          "notes": "Shows the Electric Furnace unlocks at level 44, costs 50 Refined Ingots, 10 Circuit Boards, 20 Polymer, 20 Carbon Fiber, and still needs electricity plus a fire Pal to operate.\u3010palwiki-electric-furnace\u2020L1-L4\u3011"
         },
         "palwiki-pal-metal-ingot": {
           "title": "Pal Metal Ingot \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Pal_Metal_Ingot",
           "access_date": "2025-10-20",
-          "notes": "States Pal Metal Ingots are crafted at the Electric Furnace with a 4 Ore + 2 Paldium Fragment recipe and notes their late-game usage and drops.【palwiki-pal-metal-ingot†L1-L3】"
+          "notes": "States Pal Metal Ingots are crafted at the Electric Furnace with a 4 Ore + 2 Paldium Fragment recipe and notes their late-game usage and drops.\u3010palwiki-pal-metal-ingot\u2020L1-L3\u3011"
         },
         "fandom-pal-metal-ingot": {
           "title": "Pal Metal Ingot \u2013 Palworld Wiki (Fandom)",
           "url": "https://palworld.fandom.com/wiki/Pal_Metal_Ingot",
           "access_date": "2025-10-20",
-          "notes": "Provides the Electric Furnace recipe, reiterates 4 Ore + 2 Paldium Fragment cost, and lists Astegon, Necromus, Paladius, and Shadowbeak as drop sources.【fandom-pal-metal-ingot†L1-L4】"
+          "notes": "Provides the Electric Furnace recipe, reiterates 4 Ore + 2 Paldium Fragment cost, and lists Astegon, Necromus, Paladius, and Shadowbeak as drop sources.\u3010fandom-pal-metal-ingot\u2020L1-L4\u3011"
         }
       }
     }

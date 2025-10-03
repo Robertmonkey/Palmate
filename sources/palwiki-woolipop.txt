@@ -1,0 +1,138 @@
+Woolipop — palworld.wiki.gg (raw wikitext)
+{{Pal Prev/Next | prevPal =  Mossanda Lux | prevNo = 033b | nextPal =  Caprity | nextNo = 035}}
+{{Pal
+
+|name                   ={{PAGENAME}}
+|no                     =034
+|title                  =Giant Cotton Candy
+
+|ele1                   =Neutral
+|ele2                   =
+
+|partnerskill           =Candy Pop
+|partnerskill_desc      =Sometimes drop [[Cotton Candy]] when assigned to a [[Ranch]].
+|partnerskill_icon      =Drop Boost
+
+| hp                     = 70
+| attack                 = 70
+| attack_melee           = 70
+| defense                = 90
+| support                = 100
+
+| slow_walk_speed        = 50
+| walk_speed             = 100
+| run_speed              = 300
+| ride_sprint_speed      = 400
+| transport_speed        = 200
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 1450
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 1190
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Air Cannon
+| activeskill7           = Sand Blast
+| activeskill15          = Power Shot
+| activeskill22          = Wind Cutter
+| activeskill30          = Bubble Blast
+| activeskill40          = Power Bomb
+| activeskill50          = Pal Blast
+
+|kindling               =
+|watering               =
+|planting               =
+|generating_electricity =
+|handiwork              =
+|gathering              =
+|lumbering              =
+|mining                 =
+|medicine_production    =
+|cooling                =
+|transport              =
+|farming                =1
+
+| food                  = 2
+| nocturnal             = No
+
+|drop1=Cotton Candy 
+|drop1_min=1
+|drop1_max=2
+|drop1_chance=100
+|drop2=High Quality Pal Oil 
+|drop2_min=1
+|drop2_max=1
+|drop2_chance=100
+|drop3                  = 
+|drop3_min              = 
+|drop3_max              = 
+|drop3_chance           = 
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=1
+|alphadrop1_max=2
+|alphadrop1_chance=100
+|alphadrop2=Cotton Candy
+|alphadrop2_min=1
+|alphadrop2_max=2
+|alphadrop2_chance=100
+|alphadrop3=High Quality Pal Oil 
+|alphadrop3_min=1
+|alphadrop3_max=1
+|alphadrop3_chance=100
+|alphadrop4=Precious Pelt
+|alphadrop4_min=1
+|alphadrop4_max=2
+|alphadrop4_chance=100
+|alphadrop5=Ring of Resistance
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=5
+
+}}{{paldeck|Its entire body is 18,000 times sweeter then sugar. Carnivorous Pals lured by its scent will find themselves overwhelmed by sweetness and even pass out should they take a bite of this Pal.}}
+'''Woolipop''' (Japanese: '''メリポップ''' ''Meripop'') is a {{i|Neutral}} [[Elements|element]] [[Pals|Pal]].
+
+== Appearance ==
+Woolipop is a small sheep-like Pal with bright pink wool and curled horns.
+
+== Behavior and habitat ==
+Woolipop is peaceful and will only fight back when provoked. It can be found alone or in pairs.
+[[File:Woolipop_Day_Habitat.webp|thumb|Daytime Woolipop Spawns]]
+[[File:Woolipop_Night_Habitat.webp|thumb|Nightime Woolipop Spawns]]
+
+== Utility ==
+{{PAGENAME}} drops [[Cotton Candy]] while assigned to a [[Ranch]].
+
+== History ==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.2 to 0.24.
+* [[0.1.2.0]]
+** Introduced.
+
+== Trivia ==
+* "Woolipop" may come from the words ''wool'' and ''lollipop.''
+* This Pal's Japanese name may come from 莫大小 ''meriyasu'' (knitwear) and ''lollipop''.
+
+== Media ==
+<gallery widths="150">
+File:Woolipop bis.png
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]
