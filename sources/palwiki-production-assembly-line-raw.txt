@@ -1,0 +1,60 @@
+{{Stub}}
+{{Structure
+| description    = A [[High Quality Workbench]] for producing items and gear. By splitting Pals into groups, production speeds have somewhat increased. Requires Pals that can work with their hands.
+| category       = Production
+| hit_points     = 4,000
+| supporting     = No
+
+| workload       = 100
+| mat1           = Ingot
+| qty1           = 100
+| mat2           = Wood
+| qty2           = 50
+| mat3           = Nail
+| qty3           = 20
+| mat4           = Cement
+| qty4           = 10
+
+| tech_name      = Production Assembly Line
+| required_level = 28
+| cost      = 3
+}}
+
+'''Production Assembly Line''' is a [[production]] [[structure]].
+
+An upgrade to the [[High Quality Workbench]], the Production Assembly Line is capable of producing even higher level [[Items]] and [[Equipment]], at a greater speed thanks to the ability for multiple [[Pals]] to work together. It is not capable of crafting [[Spheres]] or [[Weapons]] that the High Quality Workbench cannot, however.
+
+[[Pals]] with the {{I|Handiwork}} suitability can craft items that are queued here. Up to 3 Pals may work at this station at the same time.
+
+The [[Production Assembly Line II]] is the direct upgrade to this crafting station.
+
+== Acquisition ==
+It's a tier 28 [[technology]] item and requires 3 points to unlock.
+
+==Crafting==
+{{Recipe
+|mat1=Ingot
+|mat1qty=100
+|mat2=Wood
+|mat2qty=50
+|mat3=Nail
+|mat3qty=20
+|mat4=Cement
+|mat4qty=10
+|output1=Production Assembly Line
+|output1qty=1
+}}
+
+==Usage==
+It is used to craft tools, and ammo.
+
+== See Also ==
+*[[Weapon Assembly Line]]
+*[[Sphere Assembly Line]]
+
+==History==
+*[[0.1.2.0]]
+**Introduced.
+
+[[Category:Structures]]
+[[Category:Crafting Stations]]

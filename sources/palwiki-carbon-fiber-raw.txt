@@ -1,0 +1,51 @@
+{{stub}}
+{{Item
+| description    = A lightweight yet sturdy material. Used to create armor among other equipment.
+| type           = Material
+| rarity         = Common
+
+| weight         = 0.2
+| durability    = 
+
+| buy            = 120
+| sell           = 12
+
+| technology    = Carbon Fiber
+| required_level = 35
+| cost           = 2
+| made_at        = Production Assembly Line
+| workload        = 100
+}}
+
+'''Carbon Fiber''' is a [[material]].
+
+==Acquisition== 
+* [[Crafting]]:
+**{{I|Production Assembly Line}}
+*Dropped by:
+{{Drops}}
+
+==Crafting==
+{{Recipe
+|mat1=Coal
+|mat1qty=2
+|output1=Carbon Fiber
+|output1qty=1
+}}
+
+{{Recipe
+|mat1=Charcoal
+|mat1qty=5
+|output1=Carbon Fiber
+|output1qty=1
+}}
+
+==Products==
+{{Products}}
+
+== History ==
+* [[0.1.2.0]]
+** Introduced.
+
+{{Navbox Materials}}
+[[Category:Materials]]

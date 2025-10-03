@@ -13034,329 +13034,6 @@
       ]
     },
     {
-      "route_id": "resource-carbon-fiber",
-      "title": "Carbon Fiber Fabrication",
-      "category": "resources",
-      "tags": [
-        "resource-farm",
-        "carbon-fiber",
-        "production-line",
-        "late-game"
-      ],
-      "progression_role": "support",
-      "recommended_level": {
-        "min": 33,
-        "max": 50
-      },
-      "modes": {
-        "normal": true,
-        "hardcore": true,
-        "solo": true,
-        "coop": true
-      },
-      "prerequisites": {
-        "routes": [
-          "resource-coal"
-        ],
-        "tech": [
-          "production-assembly-line"
-        ],
-        "items": [],
-        "pals": []
-      },
-      "objectives": [
-        "Construct a powered Production Assembly Line",
-        "Stockpile Coal or Charcoal inputs",
-        "Batch-craft Carbon Fiber and secure legendary drop backups"
-      ],
-      "estimated_time_minutes": {
-        "solo": 30,
-        "coop": 20
-      },
-      "estimated_xp_gain": {
-        "min": 260,
-        "max": 380
-      },
-      "risk_profile": "medium",
-      "failure_penalties": {
-        "normal": "Power outages or raids halt batches and waste coal unless you babysit the line.",
-        "hardcore": "If the base falls during production you lose high-tier mats and handiwork pals."
-      },
-      "adaptive_guidance": {
-        "underleveled": "Stick to Coal-to-Charcoal conversions until level 35, then unlock the Production Assembly Line for bulk crafting.",
-        "overleveled": "Automate dual assembly lines and feed them via conveyor chests for uninterrupted output.",
-        "resource_shortages": [
-          {
-            "item_id": "coal",
-            "solution": "Loop the Hillside Cavern run from resource-coal before starting new Carbon Fiber batches."
-          }
-        ],
-        "time_limited": "Queue short 10-coal batches so you can log off after each completes without wasting furnace fuel.",
-        "dynamic_rules": [
-          {
-            "signal": "mode:coop",
-            "condition": "mode.coop === true",
-            "adjustment": "Have one player feed furnaces and generators while the partner manages assembly line queues.",
-            "priority": 1,
-            "mode_scope": [
-              "coop"
-            ],
-            "related_steps": [
-              "resource-carbon-fiber:002",
-              "resource-carbon-fiber:003"
-            ]
-          },
-          {
-            "signal": "resource_gap:polymer_high",
-            "condition": "resource_gaps['polymer'] >= 20",
-            "adjustment": "Convert half the coal input into Charcoal so Polymer batches stay supplied alongside Carbon Fiber runs.",
-            "priority": 2,
-            "mode_scope": [
-              "normal",
-              "hardcore",
-              "solo",
-              "coop"
-            ],
-            "related_steps": [
-              "resource-carbon-fiber:002"
-            ]
-          }
-        ]
-      },
-      "checkpoints": [
-        {
-          "id": "resource-carbon-fiber:checkpoint-line",
-          "summary": "Assembly line placed",
-          "benefits": [
-            "Handiwork station unlocked",
-            "Power routing verified"
-          ],
-          "related_steps": [
-            "resource-carbon-fiber:001"
-          ]
-        },
-        {
-          "id": "resource-carbon-fiber:checkpoint-stockpile",
-          "summary": "Fuel stock secured",
-          "benefits": [
-            "Coal/Charcoal bins filled",
-            "Generators topped"
-          ],
-          "related_steps": [
-            "resource-carbon-fiber:002"
-          ]
-        },
-        {
-          "id": "resource-carbon-fiber:checkpoint-batch",
-          "summary": "Carbon Fiber batch complete",
-          "benefits": [
-            "Base upgrades ready",
-            "Legendary drop backup planned"
-          ],
-          "related_steps": [
-            "resource-carbon-fiber:003"
-          ]
-        }
-      ],
-      "supporting_routes": {
-        "recommended": [
-          "resource-coal"
-        ],
-        "optional": [
-          "resource-pure-quartz"
-        ]
-      },
-      "failure_recovery": {
-        "normal": "Repair generators, restock coal, and restart shorter crafting queues to avoid further resource loss.",
-        "hardcore": "Shift production to a backup base with spare handiwork pals until raids subside."
-      },
-      "steps": [
-        {
-          "step_id": "resource-carbon-fiber:001",
-          "type": "build",
-          "summary": "Unlock and place the Production Assembly Line",
-          "detail": "Spend level 28 tech points to unlock the Production Assembly Line, then craft it with 100 Ingots, 50 Wood, 20 Nails, and 10 Cement before wiring it to a generator.\u30105d3253\u2020L1-L33\u3011",
-          "targets": [
-            {
-              "kind": "tech",
-              "id": "production-assembly-line"
-            }
-          ],
-          "locations": [
-            {
-              "region_id": "windswept-hills",
-              "coords": [
-                0,
-                0
-              ],
-              "time": "any",
-              "weather": "any"
-            }
-          ],
-          "mode_adjustments": {},
-          "recommended_loadout": {
-            "gear": [],
-            "pals": [
-              "grizzbolt"
-            ],
-            "consumables": []
-          },
-          "xp_award_estimate": {
-            "min": 100,
-            "max": 140
-          },
-          "outputs": {
-            "items": [],
-            "pals": [],
-            "unlocks": {
-              "tech": [
-                "production-assembly-line"
-              ]
-            }
-          },
-          "branching": [],
-          "citations": [
-            "palwiki-production-assembly-line"
-          ]
-        },
-        {
-          "step_id": "resource-carbon-fiber:002",
-          "type": "gather",
-          "summary": "Stock Coal or Charcoal feedstock",
-          "detail": "Gather at least 40 Coal or convert Wood into Charcoal so each batch has 2 Coal or 5 Charcoal per Carbon Fiber craft; balance inputs against other smelting needs.\u30102b82ab\u2020L138-L145\u3011",
-          "targets": [
-            {
-              "kind": "item",
-              "id": "coal",
-              "qty": 40
-            }
-          ],
-          "locations": [
-            {
-              "region_id": "mount-obsidian",
-              "coords": [
-                -587,
-                -517
-              ],
-              "time": "any",
-              "weather": "any"
-            }
-          ],
-          "mode_adjustments": {},
-          "recommended_loadout": {
-            "gear": [
-              "metal-pickaxe"
-            ],
-            "pals": [
-              "cattiva"
-            ],
-            "consumables": []
-          },
-          "xp_award_estimate": {
-            "min": 80,
-            "max": 120
-          },
-          "outputs": {
-            "items": [
-              {
-                "item_id": "coal",
-                "qty": 40
-              }
-            ],
-            "pals": [],
-            "unlocks": {}
-          },
-          "branching": [
-            {
-              "subroute_ref": "resource-coal"
-            }
-          ],
-          "citations": [
-            "pcgamesn-carbon-fiber"
-          ]
-        },
-        {
-          "step_id": "resource-carbon-fiber:003",
-          "type": "craft",
-          "summary": "Batch Carbon Fiber and plan legendary drops",
-          "detail": "Queue Carbon Fiber on the Production Assembly Line using the stocked fuel. If demand spikes, supplement with legendary boss drops from Jetragon or Shadowbeak runs.\u30102b82ab\u2020L141-L145\u3011\u3010278868\u2020L31-L60\u3011\u3010eac1d9\u2020L33-L62\u3011",
-          "targets": [
-            {
-              "kind": "item",
-              "id": "carbon-fiber",
-              "qty": 20
-            }
-          ],
-          "locations": [
-            {
-              "region_id": "windswept-hills",
-              "coords": [
-                0,
-                0
-              ],
-              "time": "any",
-              "weather": "any"
-            }
-          ],
-          "mode_adjustments": {},
-          "recommended_loadout": {
-            "gear": [],
-            "pals": [
-              "grizzbolt",
-              "jetragon"
-            ],
-            "consumables": [
-              "power-gel"
-            ]
-          },
-          "xp_award_estimate": {
-            "min": 120,
-            "max": 140
-          },
-          "outputs": {
-            "items": [
-              {
-                "item_id": "carbon-fiber",
-                "qty": 20
-              }
-            ],
-            "pals": [],
-            "unlocks": {}
-          },
-          "branching": [],
-          "citations": [
-            "pcgamesn-carbon-fiber",
-            "palwiki-jetragon",
-            "palwiki-shadowbeak"
-          ]
-        }
-      ],
-      "completion_criteria": [
-        {
-          "type": "have-item",
-          "item_id": "carbon-fiber",
-          "qty": 40
-        }
-      ],
-      "yields": {
-        "levels_estimate": "+0 to +1",
-        "key_unlocks": [
-          "advanced-armor"
-        ]
-      },
-      "metrics": {
-        "progress_segments": 3,
-        "boss_targets": 0,
-        "quest_nodes": 0
-      },
-      "next_routes": [
-        {
-          "route_id": "resource-polymer",
-          "reason": "Polymer production shares assembly inputs; stabilised Carbon Fiber keeps tech upgrades flowing."
-        }
-      ]
-    },
-    {
       "route_id": "resource-high-quality-pal-oil",
       "title": "High Quality Pal Oil Hunts",
       "category": "resources",
@@ -14994,7 +14671,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Drag Lamball away from Syndicate patrols before throwing spheres so stray shots don’t delete your breeders.",
+              "tactics": "Drag Lamball away from Syndicate patrols before throwing spheres so stray shots don\u2019t delete your breeders.",
               "mode_scope": [
                 "hardcore"
               ]
@@ -15053,7 +14730,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Capture backup Lamball before carving so accidents don’t strand you without wool or mutton income.",
+              "tactics": "Capture backup Lamball before carving so accidents don\u2019t strand you without wool or mutton income.",
               "mode_scope": [
                 "hardcore"
               ]
@@ -18638,12 +18315,347 @@
       },
       "next_routes": [
         {
+          "route_id": "resource-carbon-fiber",
+          "reason": "Production Assembly Lines and carbon fiber stockpiles consume refined alloy frames."
+        },
+        {
           "route_id": "purposeful-arc-legendary-push",
           "reason": "Legendary push plans consume large Pal Metal batches for endgame armor and weapons."
         },
         {
           "route_id": "purposeful-arc-late-expansion",
           "reason": "Late expansion automation benches rely on Pal Metal alloys and powered factories."
+        }
+      ]
+    },
+    {
+      "route_id": "resource-carbon-fiber",
+      "title": "Carbon Fiber Filament Works",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "carbon-fiber",
+        "manufacturing",
+        "late-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 34,
+        "max": 44
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "resource-refined-ingot",
+          "resource-coal",
+          "resource-gunpowder"
+        ],
+        "tech": [
+          "production-assembly-line"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Unlock and build the Production Assembly Line",
+        "Stabilise coal and charcoal inputs for filament batches",
+        "Automate carbon fiber production and top up with legendary drops"
+      ],
+      "estimated_time_minutes": {
+        "solo": 55,
+        "coop": 38
+      },
+      "estimated_xp_gain": {
+        "min": 280,
+        "max": 420
+      },
+      "risk_profile": "medium",
+      "failure_penalties": {
+        "normal": "Letting the assembly line sit idle wastes ingots, nails, and cement that took hours to stockpile.",
+        "hardcore": "Hardcore wipes during ridge mining can strand your coal haulers and stall the entire fiber supply chain."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Bank the 100 Ingots, 20 Nails, and 10 Cement before hitting level 28 so the line goes up in one construction cycle.\u3010palwiki-production-assembly-line\u2020L8-L45\u3011",
+        "overleveled": "Rotate Jetragon or Shadowbeak hunts between craft batches so their guaranteed drops patch any coal shortages.\u3010palfandom-carbon-fiber\u2020L108-L110\u3011",
+        "resource_shortages": [
+          {
+            "item_id": "carbon-fiber",
+            "solution": "Each craft costs 2 Coal or 5 Charcoal\u2014match queue sizes to your mining throughput before loading the hopper.\u3010palwiki-carbon-fiber\u2020L13-L40\u3011\u3010palfandom-carbon-fiber\u2020L86-L110\u3011"
+          }
+        ],
+        "time_limited": "Burn through a stored Charcoal crate for a 20-piece batch when you only have minutes before a raid.\u3010palwiki-carbon-fiber\u2020L37-L40\u3011\u3010palwiki-charcoal\u2020L22-L31\u3011",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Assign one player to the Astral ridge mining loop while another staffs the assembly line and ferries wood for Charcoal.",
+            "priority": 1,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-carbon-fiber:002",
+              "resource-carbon-fiber:003"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-carbon-fiber:checkpoint-line",
+          "label": "Assembly Line Framed",
+          "includes": [
+            "resource-carbon-fiber:001"
+          ]
+        },
+        {
+          "id": "resource-carbon-fiber:checkpoint-feedstock",
+          "label": "Coal & Charcoal Stocked",
+          "includes": [
+            "resource-carbon-fiber:002"
+          ]
+        },
+        {
+          "id": "resource-carbon-fiber:checkpoint-batch",
+          "label": "Fiber Batches Queued",
+          "includes": [
+            "resource-carbon-fiber:003"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "step_id": "resource-carbon-fiber:001",
+          "type": "build",
+          "summary": "Construct the Production Assembly Line",
+          "detail": "Spend 3 tech points at level 28 to unlock the Production Assembly Line, then deliver 100 Ingots, 50 Wood, 20 Nails, and 10 Cement so three handiwork pals can staff the station without downtime.\u3010palwiki-production-assembly-line\u2020L8-L35\u3011",
+          "targets": [
+            {
+              "kind": "station",
+              "id": "production-assembly-line"
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "wooden-hammer"
+            ],
+            "pals": [
+              "anubis"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 120,
+            "max": 180
+          },
+          "outputs": {
+            "items": [],
+            "pals": [],
+            "unlocks": {
+              "structures": [
+                "production-assembly-line"
+              ]
+            }
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-production-assembly-line"
+          ]
+        },
+        {
+          "step_id": "resource-carbon-fiber:002",
+          "type": "gather",
+          "summary": "Mine Astral ridge coal and cook backup Charcoal",
+          "detail": "Set Digtoise and Tombat crews on the (191,-36) ridge so ore and coal flow together, then keep furnaces burning Wood at a 2:1 ratio for Charcoal to buffer outages.\u3010segmentnext-refined-ingot\u2020L2-L5\u3011\u3010palwiki-charcoal\u2020L22-L31\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "coal",
+              "qty": 60
+            },
+            {
+              "kind": "item",
+              "id": "charcoal",
+              "qty": 40
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "astral-mountain",
+              "coords": [
+                191,
+                -36
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Rotate shielded pals to soak alpha breath attacks while miners ferry loads back to base.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "metal-pickaxe"
+            ],
+            "pals": [
+              "digtoise",
+              "tombat",
+              "blazamut"
+            ],
+            "consumables": [
+              "wood"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 200,
+            "max": 260
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "coal",
+                "qty": 60
+              },
+              {
+                "item_id": "charcoal",
+                "qty": 40
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "resource-coal"
+            }
+          ],
+          "citations": [
+            "segmentnext-refined-ingot",
+            "palwiki-charcoal"
+          ]
+        },
+        {
+          "step_id": "resource-carbon-fiber:003",
+          "type": "craft",
+          "summary": "Queue carbon fiber batches",
+          "detail": "Assign handiwork pals to the Assembly Line, feed it 2 Coal or 5 Charcoal per craft, and backfill with Jetragon or Shadowbeak drops when queues spike for late-game weapons.\u3010palwiki-carbon-fiber\u2020L13-L40\u3011\u3010palfandom-carbon-fiber\u2020L86-L110\u3011",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "carbon-fiber",
+              "qty": 60
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "role_splits": [
+                {
+                  "role": "crafter",
+                  "tasks": "Manage queues and swap handiwork pals"
+                },
+                {
+                  "role": "supplier",
+                  "tasks": "Refuel coal crates and stage Charcoal"
+                }
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "anubis",
+              "grizzbolt"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 160,
+            "max": 220
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "carbon-fiber",
+                "qty": 60
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [
+            {
+              "subroute_ref": "purposeful-arc-legendary-push"
+            }
+          ],
+          "citations": [
+            "palwiki-carbon-fiber",
+            "palfandom-carbon-fiber"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-station",
+          "station_id": "production-assembly-line"
+        },
+        {
+          "type": "have-item",
+          "item_id": "carbon-fiber",
+          "qty": 60
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+0 to +1",
+        "key_unlocks": [
+          "carbon-fiber-stockpile"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 3,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "purposeful-arc-legendary-push",
+          "reason": "Legendary weapon and armor queues consume large carbon fiber stacks."
+        },
+        {
+          "route_id": "purposeful-arc-late-expansion",
+          "reason": "Factory expansions rely on carbon fiber components once assembly lines are online."
         }
       ]
     },
@@ -20742,15 +20754,15 @@
         "hardcore": "Death while hauling souls deletes the stack and risks losing late-game pals needed for Crusher automation."
       },
       "adaptive_guidance": {
-        "underleveled": "Stay near the Bridge of the Twin Knights waypoint and chip Helzephyr with rifles from cliffs instead of chasing into syndicate camps.【palwiki-helzephyr-raw†L68-L116】",
-        "overleveled": "Rotate between Helzephyr ridges and Sakurajima camps every in-game night to keep the Crusher stocked before statue upgrades spike demand.【palwiki-helzephyr-raw†L65-L116】【palwiki-sootseer†L65-L114】",
+        "underleveled": "Stay near the Bridge of the Twin Knights waypoint and chip Helzephyr with rifles from cliffs instead of chasing into syndicate camps.\u3010palwiki-helzephyr-raw\u2020L68-L116\u3011",
+        "overleveled": "Rotate between Helzephyr ridges and Sakurajima camps every in-game night to keep the Crusher stocked before statue upgrades spike demand.\u3010palwiki-helzephyr-raw\u2020L65-L116\u3011\u3010palwiki-sootseer\u2020L65-L114\u3011",
         "resource_shortages": [
           {
             "item_id": "medium-pal-soul",
-            "solution": "Run Crusher conversions each time Small Pal Souls exceed 40 so the statue never stalls.【palwiki-medium-pal-soul-raw†L31-L42】"
+            "solution": "Run Crusher conversions each time Small Pal Souls exceed 40 so the statue never stalls.\u3010palwiki-medium-pal-soul-raw\u2020L31-L42\u3011"
           }
         ],
-        "time_limited": "Fast travel to Duneshelter, sweep the nearest Desiccated Desert chests, then smash spare Small Souls at the Crusher before logging off.【palwiki-medium-pal-soul-raw†L22-L36】【palfandom-medium-pal-soul-raw†L27-L38】",
+        "time_limited": "Fast travel to Duneshelter, sweep the nearest Desiccated Desert chests, then smash spare Small Souls at the Crusher before logging off.\u3010palwiki-medium-pal-soul-raw\u2020L22-L36\u3011\u3010palfandom-medium-pal-soul-raw\u2020L27-L38\u3011",
         "dynamic_rules": [
           {
             "signal": "mode:coop",
@@ -20807,7 +20819,7 @@
           "step_id": "resource-medium-pal-soul:001",
           "type": "hunt",
           "summary": "Intercept Helzephyr above the twin bridges",
-          "detail": "Glide up from the Bridge of the Twin Knights waypoint (~113,-352) after dusk and tag the Helzephyr flock as it circles the northern mesas. Its Medium Pal Soul drop rate is low, so use chain bolas or rifles to secure repeated captures and harvest rare souls along with Venom Glands.【palwiki-helzephyr-raw†L65-L116】",
+          "detail": "Glide up from the Bridge of the Twin Knights waypoint (~113,-352) after dusk and tag the Helzephyr flock as it circles the northern mesas. Its Medium Pal Soul drop rate is low, so use chain bolas or rifles to secure repeated captures and harvest rare souls along with Venom Glands.\u3010palwiki-helzephyr-raw\u2020L65-L116\u3011",
           "targets": [
             {
               "kind": "item",
@@ -20833,7 +20845,7 @@
           ],
           "mode_adjustments": {
             "hardcore": {
-              "tactics": "Anchor a Grappling Gun or flying mount before engaging so a fall from the mesas doesn’t end the run.",
+              "tactics": "Anchor a Grappling Gun or flying mount before engaging so a fall from the mesas doesn\u2019t end the run.",
               "mode_scope": [
                 "hardcore"
               ]
@@ -20881,7 +20893,7 @@
           "step_id": "resource-medium-pal-soul:002",
           "type": "hunt",
           "summary": "Purge Sakurajima Sootseer camps",
-          "detail": "Swoop into Sakurajima’s crater camps after midnight, luring Sootseer pairs out of the purple flame pits. Every takedown yields guaranteed Medium Pal Souls plus Bones and Crude Oil—kite them through open lava channels to avoid getting cornered.【palwiki-sootseer†L65-L114】",
+          "detail": "Swoop into Sakurajima\u2019s crater camps after midnight, luring Sootseer pairs out of the purple flame pits. Every takedown yields guaranteed Medium Pal Souls plus Bones and Crude Oil\u2014kite them through open lava channels to avoid getting cornered.\u3010palwiki-sootseer\u2020L65-L114\u3011",
           "targets": [
             {
               "kind": "item",
@@ -20954,7 +20966,7 @@
           "step_id": "resource-medium-pal-soul:003",
           "type": "explore",
           "summary": "Sweep Desiccated Desert treasure chains",
-          "detail": "Teleport to Duneshelter (357,347) and circuit the nearby wrecked convoys and cliff ruins; Medium Pal Souls frequently spawn loose or in chests throughout the desert, so clear each lap before raids reset.【palwiki-medium-pal-soul-raw†L22-L29】【palfandom-medium-pal-soul-raw†L27-L30】【palwiki-duneshelter†L506-L516】",
+          "detail": "Teleport to Duneshelter (357,347) and circuit the nearby wrecked convoys and cliff ruins; Medium Pal Souls frequently spawn loose or in chests throughout the desert, so clear each lap before raids reset.\u3010palwiki-medium-pal-soul-raw\u2020L22-L29\u3011\u3010palfandom-medium-pal-soul-raw\u2020L27-L30\u3011\u3010palwiki-duneshelter\u2020L506-L516\u3011",
           "targets": [
             {
               "kind": "item",
@@ -21011,7 +21023,7 @@
           "step_id": "resource-medium-pal-soul:004",
           "type": "craft",
           "summary": "Convert souls at the Crusher",
-          "detail": "Feed surplus Small Pal Souls into the Crusher for Medium conversions and down-convert spare Large souls when raids oversupply them, keeping the statue queue flush before raid prep sessions.【palwiki-medium-pal-soul-raw†L31-L42】",
+          "detail": "Feed surplus Small Pal Souls into the Crusher for Medium conversions and down-convert spare Large souls when raids oversupply them, keeping the statue queue flush before raid prep sessions.\u3010palwiki-medium-pal-soul-raw\u2020L31-L42\u3011",
           "targets": [
             {
               "kind": "item",
@@ -29723,19 +29735,19 @@
           "notes": "Shows Dig Here! produces items at the ranch and that Vixy drops Bone and Leather at 100% rates.\u3010palwiki-vixy\u2020L9-L49\u3011"
         },
         "palwiki-mau-raw": {
-          "title": "Mau – Palworld Wiki",
+          "title": "Mau \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Mau",
           "access_date": "2025-10-21",
-          "notes": "Confirms Mau’s Gold Digger partner skill digs coins, lists coin drop amounts, and notes it spawns in Windswept Hills dungeons or faction camps.\u3010palwiki-mau-raw\u2020L11-L115\u3011"
+          "notes": "Confirms Mau\u2019s Gold Digger partner skill digs coins, lists coin drop amounts, and notes it spawns in Windswept Hills dungeons or faction camps.\u3010palwiki-mau-raw\u2020L11-L115\u3011"
         },
         "palwiki-gold-coin-raw": {
-          "title": "Gold Coin – Palworld Wiki",
+          "title": "Gold Coin \u2013 Palworld Wiki",
           "url": "https://palworld.wiki.gg/wiki/Gold_Coin",
           "access_date": "2025-10-21",
           "notes": "States Gold Coins are traded currency and can be earned by selling items or pals, defeating human mobs, opening chests, or ranching Mau, Mau Cryst, and Vixy.\u3010palwiki-gold-coin-raw\u2020L3-L28\u3011"
         },
         "palwiki-gold-coin": {
-          "title": "Gold Coin – Palworld Wiki (Fandom)",
+          "title": "Gold Coin \u2013 Palworld Wiki (Fandom)",
           "url": "https://palworld.fandom.com/wiki/Gold_Coin",
           "access_date": "2025-10-21",
           "notes": "Lists merchant sales, Syndicate drops, and ranch producers (Mau, Mau Cryst, Vixy) for Gold Coins.\u3010palwiki-gold-coin\u2020L28-L44\u3011"

@@ -106,6 +106,8 @@ This document describes the responsibilities, workflows and quality assurance st
   * Next steps: capture second-source confirmations for Lamball merchant pricing or preservation infrastructure, source reliable spawn references for Caprity/Galeclaw meat routes, and expand meat coverage to Broncherry and Caprity once dual citations are secured.
 *Progress 2025-10-24:* Authored Medium Pal Soul Harmonization (`resource-medium-pal-soul`), aligned `data/guides.bundle.json`, and registered new Helzephyr/Sootseer/Medium Soul citations (Palworld wiki raw + Fandom raw) covering drop tables, spawn regions, and Crusher conversions.
   * Next steps: backfill Small Pal Soul and sanctuary feather routes so Crusher branching can reference live guides, capture numeric Helzephyr patrol coordinates from a second source, and validate Desiccated Desert chest respawn timers for tighter loop scheduling.
+*Progress 2025-10-25:* Rebuilt Carbon Fiber coverage with the Carbon Fiber Filament Works route (`resource-carbon-fiber`), refreshed bundle/catalog data, and added Production Assembly Line, coal ridge, and Jetragon/Shadowbeak source transcripts to support late-game manufacturing. Synced `data/guides.bundle.json`, appended the quick reference entry in `guide_catalog.json`, and retired the outdated fabrication block so only the new assembly-line workflow remains.
+  * Next steps: extend metallurgic follow-ups by documenting Carbon Fiber consumption chains (e.g., Legendary weapon kits), secure a second merchant citation for Charcoal bulk purchases, and audit existing automation routes for references that should now point to the Filament Works rewrite.
 
 ## Performance Notes
 
