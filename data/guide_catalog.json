@@ -8354,9 +8354,91 @@
               "id": "high_quality_pal_oil",
               "slug": "high-quality-pal-oil",
               "name": "High Quality Pal Oil"
+        }
+      ]
+    },
+    {
+      "id": "resource-galeclaw-poultry-skyridge",
+      "title": "Galeclaw Poultry Skyridge Circuit",
+      "source_heading": "Galeclaw Poultry Skyridge Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Galeclaw Poultry for mid-game cooking buffs and basic Chikipi runs are too slow.",
+      "keywords": [
+        "galeclaw poultry",
+        "meat cleaver",
+        "small settlement",
+        "cooler box"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Fast travel to the **Small Settlement (75,-479)** and sweep the western ridge to capture Galeclaw flights.",
+          "citations": [
+            "palwiki-small-settlement\u2020L3-L15",
+            "palfandom-windswept-hills-raw\u2020L24-L40"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "pal",
+              "id": "galeclaw",
+              "slug": "galeclaw",
+              "name": "Galeclaw"
             }
           ]
         },
+        {
+          "order": 2,
+          "instruction": "Craft the **Meat Cleaver** and butcher captured Galeclaw—each yields one Galeclaw Poultry at 100%.",
+          "citations": [
+            "palwiki-meat-cleaver\u2020L20-L39",
+            "palwiki-galeclaw-raw\u2020L6-L33"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "meat-cleaver",
+              "slug": "meat-cleaver",
+              "name": "Meat Cleaver"
+            },
+            {
+              "type": "item",
+              "id": "galeclaw_poultry",
+              "slug": "galeclaw-poultry",
+              "name": "Galeclaw Poultry"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Unlock a **Cooler Box** and assign a Cooling Pal so butchered poultry stays fresh between hunts.",
+          "citations": [
+            "palwiki-cooler-box-raw\u2020L1-L24",
+            "palwiki-galeclaw-raw\u2020L6-L33"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "cooler-box",
+              "name": "Cooler Box"
+            },
+            {
+              "type": "pal",
+              "id": "penking",
+              "slug": "penking",
+              "name": "Penking"
+            }
+          ]
+        }
+      ]
+    },
         {
           "order": 2,
           "instruction": "Capture **Elphidran** at **No. 1 Wildlife Sanctuary (90,-735)** for guaranteed 2\u20133 oil drops per capture.",

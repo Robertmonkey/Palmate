@@ -1,0 +1,154 @@
+{{Pal Prev/Next | prevPal =  Loupmoon | prevNo = 046 | nextPal =  Robinquill | nextNo = 048}}
+{{Pal
+
+|name                   ={{PAGENAME}}
+|no                     =047
+|title                  =Proud Courier
+
+|ele1                   =Neutral
+|ele2                   =
+
+|partnerskill           =Galeclaw Rider
+|partnerskill_desc      =While in team, can be summoned and used instead of a [[glider]]. Allows you to fire a gun while gliding with this Pal.
+|partnerskill_icon      =Glider
+
+| hp                     = 75
+| attack                 = 85
+| attack_melee           = 120
+| defense                = 60
+| support                = 100
+
+| slow_walk_speed        = 100
+| walk_speed             = 200
+| run_speed              = 600
+| ride_sprint_speed      = 700
+| transport_speed        = 400
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 2010
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 1030
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Gale Claw
+| activeskill7           = Air Cannon
+| activeskill15          = Sand Blast
+| activeskill22          = Wind Cutter
+| activeskill30          = Sand Tornado
+| activeskill40          = Grass Tornado
+| activeskill50          = Pal Blast
+
+|kindling               =
+|watering               =
+|planting               =
+|generating_electricity =
+|handiwork              =
+|gathering              =2
+|lumbering              =
+|mining                 =
+|medicine_production    =
+|cooling                =
+|transporting           =
+|farming                =
+
+| food                  = 4
+| nocturnal             = No
+
+|drop1=Galeclaw Poultry 
+|drop1_min=1
+|drop1_max=1
+|drop1_chance=100
+|drop2=Leather 
+|drop2_min=1
+|drop2_max=1
+|drop2_chance=100
+|drop3                  = 
+|drop3_min              = 
+|drop3_max              = 
+|drop3_chance           = 
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=2
+|alphadrop1_max=4
+|alphadrop1_chance=100
+|alphadrop2=Galeclaw Poultry
+|alphadrop2_min=1
+|alphadrop2_max=1
+|alphadrop2_chance=100
+|alphadrop3=Leather 
+|alphadrop3_min=1
+|alphadrop3_max=1
+|alphadrop3_chance=100
+|alphadrop4=Precious Plume
+|alphadrop4_min=2
+|alphadrop4_max=4
+|alphadrop4_chance=100
+|alphadrop5=Ring of Resistance
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=5
+
+}}{{paldeck|A pal that can easily take flight even when grasping a human. it is, however, prone to letting go when tired, which has led to the sudden demise of more then a few souls.}}
+'''Galeclaw''' (Japanese: '''エアムルグ''' Aimurgh) is a {{i|Neutral}} [[Elements|element]] [[Pals|Pal]].
+
+== Appearance ==
+Galeclaw is a small bird-like pal, its feathers are mainly brown and white with light blue highlights, the top sides of its wings also bear a chartreuse colouring, along with the tips of its eyebrows.
+
+== Behavior and habitat ==
+It spawn in groups of three or more.
+
+[[File:Galeclaw_Day_Habitat.webp|thumb|Daytime Galeclaw Spawns]]
+[[File:Galeclaw_Night_Habitat.webp|thumb|Nightime Galeclaw Spawns]]
+
+== Utility ==
+Galeclaw when used with its [[Galeclaw's Gloves]] is currently the fastest glider pal and glider in general. 
+
+It offers great mobility and range for an early game technology easily beating all (non pal-) gliders that can be unlocked. 
+
+A [[Grappling Guns|Grappling Gun]] can be used to launch the player at high speed and cover distances very fast. Aim your grappling gun at the ground as far away as possible to maximize your speed. Opening your glider right at the end of the grappling rope (or before touching the ground) will maintain your horizontal speed. 
+
+'''[[Passive Skills]] that increase movement speed (Swift, Runner, Legend and Nimble) ''DO NOT'' increase galeclaw's speed as a glider. Passive Skills that increase stamina (Eternal Engine, Fit as a Fiddle and Infinite Stamina) ''DO NOT'' increase galeclaw's range as a glider (gliders use the players stamina).'''
+
+Galeclaw's speed and range when used as a glider can be increased through [[Condensing]]. 
+
+== History ==
+* [[0.6.0]]
+** No Longer attacks players on sight
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.2 to 0.24.
+* [[0.1.2.0]]
+** Introduced.
+
+== Trivia ==
+* Galeclaw is the Pal displayed as the fast travel point statue, referred to as “Great Eagle Statues” in the in-game Survival Guide.
+* Its Japanese name may come from ''air'' and मुरग़ा। ''murgh'' (chicken in Hindi).
+*This Pal is #021 in Paldeck on PocketPair [https://x.com/Palworld_EN/status/1695043353941881231 X].
+
+== Media ==
+{{#ev:youtube|7BvCtjcbgmw|410|inline|HOW TO PREPARE ROTISSERIE CHICKEN - Palworld Gameplay Paldeck No.21 Pocketpair||autoplay=false}}
+<gallery widths="150">
+File:Galeclaw2.png
+File:Galeclaw3.png
+File:Galeclaw bis.png
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]
+[[Category:Rideable Pals]]
+[[Category:Pals with exclusive Skills]]
