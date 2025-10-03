@@ -1,0 +1,146 @@
+{{Pal Prev/Next | prevPal = Blazamut Ryu | prevNo = 096b | nextPal = Helzephyr Lux | nextNo = 097b}}
+{{Pal
+
+|name                   ={{PAGENAME}}
+| no                     =097
+| title                  =Wings of Death
+
+| ele1                   =Dark
+| ele2                   =
+
+| partnerskill           =Wings of Death
+| partnerskill_desc      =Can be [[ridden]] as a flying mount. Applies {{i|Dark}} damage to the [[player]]'s [[attacks]] while mounted.
+| partnerskill_icon      =Flying Mount
+
+| hp                     = 100
+| attack                 = 125
+| attack_melee           = 100
+| defense                = 100
+| support                = 100
+
+| slow_walk_speed        = 100
+| walk_speed             = 100
+| run_speed              = 700
+| ride_sprint_speed      = 1100
+| transport_speed        = 450
+| stamina                = 170
+| work_speed             = 100
+
+| price                  = 7840
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 190
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Spirit Fire
+| activeskill7           = Dark Ball
+| activeskill15          = Shadow Burst
+| activeskill22          = Flare Storm
+| activeskill30          = Spirit Flame
+| activeskill40          = Nightmare Ball
+| activeskill50          = Dark Laser
+
+| kindling               =
+| watering               =
+| planting               =
+| generating_electricity =
+| handiwork              =
+| gathering              =
+| lumbering              =
+| mining                 =
+| medicine_production    =
+| cooling                =
+| transporting           =3
+| farming                =
+
+| food                  =8 
+| nocturnal             =Yes
+
+|drop1=Venom Gland 
+|drop1_min=1
+|drop1_max=3
+|drop1_chance=100
+|drop2=Medium Pal Soul 
+|drop2_min=1
+|drop2_max=1
+|drop2_chance=3
+|drop3                  = 
+|drop3_min              = 
+|drop3_max              = 
+|drop3_chance           = 
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=4
+|alphadrop1_max=6
+|alphadrop1_chance=100
+|alphadrop2=Venom Gland 
+|alphadrop2_min=1
+|alphadrop2_max=3
+|alphadrop2_chance=100
+|alphadrop3=Medium Pal Soul 
+|alphadrop3_min=1
+|alphadrop3_max=1
+|alphadrop3_chance=3
+|alphadrop4=Precious Plume
+|alphadrop4_min=4
+|alphadrop4_max=6
+|alphadrop4_chance=100
+|alphadrop5=Ring of Dark Resistance +1
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=3
+
+}}{{paldeck|It calls forth lightning from the depths of hell. One who dies from {{PAGENAME}}'s inferno is sure to be sent to the underworld.}}
+'''Helzephyr''' (Japanese: '''ヘルガルダ''' ''Hellgaruda'') is a {{i|Dark}} [[Elements|element]] [[Pals|Pal]]. It has an {{i|Electric}} [[Elements|element]] [[Breeding|variation]], [[Helzephyr Lux]].
+
+== Appearance ==
+Helzephyr is a medium sized bird-like Pal sharing similarities in body shape with [[Ragnahawk]] and [[Beakon]] despite bearing no relation to either Pal species, with largely pure black feathers that have light blue lightning bolt markings across the wings and tail. Helzephyr's face is a darker light blue with a bright purple flame emitting from the top of its head. The markings and flame glow faintly in the dark.
+
+== Behavior and habitat ==
+Helzephyr generally spawns in the land masses north of the Bridge of the Twin Knights and Islandhopper Coast waypoints, with the exception of the mountain peak the Tower of the Free Pal Alliance is situated on. It roams some distance above the ground. While it only spawns at night and never during the day, its markings and flame glow in the dark, making it easy to spot.
+
+It is aggressive and will attack the player on sight.
+[[File:Helzephyr_Night_Habitat.webp|thumb|Nightime Helzephyr Spawns]]
+
+== Utility ==
+{{PAGENAME}} is able to transport [[items]] around the [[base]]. Due to being Dark-type, it is naturally nocturnal, and does not need the [[Nocturnal]] passive to work overnight.
+
+== History ==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.2 to 0.24.
+* [[0.2.0.6]]
+** The increased attack power multiplier of partner skills that increase the player's attack power while riding has been uniformly reduced from 2.0 to 1.2.
+* [[0.1.2.0]]
+** Introduced.
+
+== Variant(s) ==
+* [[Helzephyr Lux]]
+
+== Trivia ==
+* “Hel” refers to the Norse Goddess of Death, while “Zephyr” is a Greek term meaning “west wind.”
+* In Japanese, its name might be inspired by “hell” and “Garuda,” a large mythical bird from Hindu and Buddhist mythology.
+*This Pal is #063 in Paldeck on PocketPair [https://x.com/Palworld_EN/status/1761360325843296659 X].
+
+== Media ==
+{{#ev:youtube|E-ElbMWYsaY|410|inline|Paldeck No.063 HELZEPHYR - Palworld Gameplay Pocketpair||autoplay=false}}
+<gallery widths="150">
+...
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]
+[[Category:Rideable Pals]]

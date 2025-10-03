@@ -104,6 +104,8 @@ This document describes the responsibilities, workflows and quality assurance st
 
 *Progress 2025-10-23:* Authored Lamball Butchery Circuit (`resource-lamball-mutton`), synchronized the bundled dataset, and added Fandom/raw Palworld citations covering Lamball spawns, Meat Cleaver unlock requirements, and Lamball Mutton cooking/merchant economics. Guidance now covers safe Palbox corralling, cleaver rotations, and pantry management for meat loops.
   * Next steps: capture second-source confirmations for Lamball merchant pricing or preservation infrastructure, source reliable spawn references for Caprity/Galeclaw meat routes, and expand meat coverage to Broncherry and Caprity once dual citations are secured.
+*Progress 2025-10-24:* Authored Medium Pal Soul Harmonization (`resource-medium-pal-soul`), aligned `data/guides.bundle.json`, and registered new Helzephyr/Sootseer/Medium Soul citations (Palworld wiki raw + Fandom raw) covering drop tables, spawn regions, and Crusher conversions.
+  * Next steps: backfill Small Pal Soul and sanctuary feather routes so Crusher branching can reference live guides, capture numeric Helzephyr patrol coordinates from a second source, and validate Desiccated Desert chest respawn timers for tighter loop scheduling.
 
 ## Performance Notes
 

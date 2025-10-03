@@ -1,0 +1,42 @@
+{{Stub}}
+{{Infobox Item
+|name = Medium Pal Soul
+|image = Medium Pal Soul icon.png
+|effects = A spirit left behind by a Pal. It can draw out hidden abilities if offered to a Statue of Power.
+|type = Material
+|source = [[Crafting]]
+[[Treasure Chest]]<br/>
+<div class="mw-collapsible mw-collapsed">
+Pals
+<div class="mw-collapsible-content">
+{{p|Helzephyr}}<br/>
+{{p|Bushi Noct}}<br/>
+{{p|Wixen Noct}}<br/>
+{{p|Sootseer}}<br/>
+{{p|Helzephyr Lux}}<br/>
+{{p|Blazamut Ryu}}
+</div>
+</div>
+|weight = 0.15
+|rarity = Rare
+|gold_sell = 10}}
+'''Medium Pal Soul''' is a [[material]] in {{PW}}.
+
+==Acquisition==
+
+*Medium Pal Souls are most commonly found lying on the ground randomly throughout the map.
+
+* They are also pretty common in [[Treasure Chest]] throughout the [[Dessicated Desert]].
+* Can be crafted using the [[Crusher]].
+
+*Some Pals can also drop Medium Pal Souls when captured or defeated.
+**{{p|Helzephyr}}
+**{{p|Bushi Noct}}
+**{{p|Wixen Noct}}
+**{{p|Sootseer}}
+**{{p|Helzephyr Lux}}
+**{{p|Blazamut Ryu}}
+
+==Use ==
+Pal Souls can be offered to a [[Statue of Power]] to upgrade your pals' statistics.{{Navbox Materials}}
+[[Category:Materials]]
