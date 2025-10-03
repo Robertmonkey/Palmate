@@ -1,0 +1,47 @@
+{{Stub}}
+{{Structure
+| description    = A farm that can grow [[Red Berries]]. Harvest time is quick, but eating them doesn't provide much sustenance. Requires a few Pals to plant seeds, water, and harvest the crops.
+| category       = Food
+| hit_points     = 2,000
+| supporting     = No
+
+| workload       = 30
+| mat1           = Berry Seeds
+| qty1           = 3
+| mat2           = Wood
+| qty2           = 20
+| mat3           = Stone
+| qty3           = 20
+
+| tech_name      = Berry Plantation
+| required_level = 5
+| cost      = 2
+}}
+
+'''Berry Plantation''' is a [[Building]] which can produce [[Red Berries]]. This can be done manually by the player, or through the use of [[Pals]] with the proper work suitabilities ([[Planting]], [[Watering]], and [[Gathering]]).
+
+Note that [[Berry Seeds]] are not required to produce Berries, only to construct the Plantation itself.
+
+==Acquisition==
+It's a tier 5 [[technology]] item and requires 2 points to unlock.
+
+==Crafting==
+{{Recipe
+|mat1=Berry Seeds
+|mat1qty=3
+|mat2=Wood
+|mat2qty=20
+|mat3=Stone
+|mat3qty=20
+|output1=Berry Plantation
+|output1qty=1
+}}
+
+== Usage ==
+It grows {{i|Red Berries}} from {{i|Berry Seeds}}. To automate things, you may want a few [[Pals]] to plant seeds, water, and harvest the crops.
+
+== History ==
+* [[0.1.2.0]]
+** Introduced.
+
+[[Category:Structures]]

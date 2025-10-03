@@ -4979,25 +4979,25 @@ Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sw
 }
 ```
 
-### Route: Berry Seed Supply Chain
+### Route: Berry Seed Supply Loop
 
-Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and Gumoss for their guaranteed seed drops, sweeps berry bushes for backup seeds, and spins up a Berry Plantation so production continues between hunts.【zilliongamer-berry-seeds†L11-L28】【palwiki-berry-seeds†L1-L8】
+Berry Seed Supply Loop stitches Windswept Hills foraging with settlement merchant rotations so plantations stay seeded for early food chains.【palwiki-berry-seeds-raw†L1-L18】【palwiki-wandering-merchant-raw†L197-L252】【palwiki-small-settlement-raw†L1-L11】【palwiki-duneshelter-raw†L1-L7】
 
 ```json
 {
   "route_id": "resource-berry-seeds",
-  "title": "Berry Seed Supply Chain",
+  "title": "Berry Seed Supply Loop",
   "category": "resources",
   "tags": [
     "resource-farm",
     "berry-seeds",
     "agriculture",
-    "early-mid-game"
+    "starter"
   ],
   "progression_role": "support",
   "recommended_level": {
-    "min": 5,
-    "max": 16
+    "min": 1,
+    "max": 18
   },
   "modes": {
     "normal": true,
@@ -5009,68 +5009,51 @@ Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and
     "routes": [
       "starter-base-capture"
     ],
-    "tech": [],
+    "tech": [
+      "berry-plantation"
+    ],
     "items": [],
     "pals": []
   },
   "objectives": [
-    "Farm Lifmunk and Gumoss for Berry Seed drops",
-    "Harvest wild berry bushes for emergency seeds",
-    "Build a Berry Plantation and assign planters"
+    "Harvest Red Berry bushes around the Small Settlement",
+    "Purchase Berry Seeds from settlement merchants",
+    "Build and automate a Berry Plantation"
   ],
   "estimated_time_minutes": {
     "solo": 24,
-    "coop": 16
+    "coop": 18
   },
   "estimated_xp_gain": {
-    "min": 160,
-    "max": 260
+    "min": 100,
+    "max": 160
   },
   "risk_profile": "low",
   "failure_penalties": {
-    "normal": "Burning Pal Spheres on skittish targets slows early upgrades.",
-    "hardcore": "Knockouts around Investigator's Fork risk losing starter gear; regroup before re-engaging."
+    "normal": "Getting downed near the berry patches only costs a short jog back to the Small Settlement.",
+    "hardcore": "Drawing PIDF aggro at Duneshelter can snowball into squad wipes and merchant lockouts."
   },
   "adaptive_guidance": {
-    "underleveled": "Kite Lifmunk north of the Rayne Tower statue and let a fire Pal soften them before throws; every drop yields Berry Seeds to restock quickly.【b765fb†L12-L17】【zilliongamer-berry-seeds†L11-L18】",
-    "overleveled": "Rotate to Gumoss near Investigator's Fork, then leave both planters on a Berry Plantation so berries and seeds build passively between sorties.【7da1bf†L8-L18】【palwiki-berry-seeds†L1-L8】",
+    "underleveled": "Stick to the Small Settlement loop until you have spare seeds and tech unlocked before pushing into the desert merchants.【palwiki-berry-seeds-raw†L1-L18】【palwiki-small-settlement-raw†L1-L11】",
+    "overleveled": "Run the full Small Settlement to Duneshelter rotation to overstock seeds for multiple plantations.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-duneshelter-raw†L1-L7】",
     "resource_shortages": [
       {
-        "item_id": "berry",
-        "solution": "Clear the berry bushes flanking the Small Settlement while plantations cycle to keep kitchens stocked.【palwiki-berry-seeds†L1-L4】【palwiki-small-settlement†L71-L90】"
-      },
-      {
         "item_id": "berry-seeds",
-        "solution": "Repeat step :001 focusing on the Gumoss spawn at 208,-476 so the guaranteed drops refill ranch input.【7da1bf†L8-L18】【zilliongamer-berry-seeds†L11-L18】"
+        "solution": "Alternate between harvesting local berry bushes and buying merchant stock each respawn to keep 30+ seeds banked.【palwiki-berry-seeds-raw†L1-L18】【palwiki-wandering-merchant-raw†L197-L252】【palwiki-small-settlement-raw†L1-L11】"
       }
     ],
-    "time_limited": "Skip the bush sweep and run one Lifmunk/Gumoss circuit for 10–12 seeds, then build the plantation after returning home.",
+    "time_limited": "Sweep merchants for quick seed purchases, drop them into base storage, and let the plantation churn while you work on other goals.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-berry-plantation-raw†L1-L34】",
     "dynamic_rules": [
       {
         "signal": "mode:coop",
         "condition": "mode.coop === true",
-        "adjustment": "Split duties so one player tags Lifmunk near Rayne Tower while the partner clears Gumoss at Investigator's Fork, then regroup to seed the plantation chest.",
+        "adjustment": "Assign one partner to forage bushes while the other handles merchant runs and base deliveries each cycle.",
         "priority": 1,
         "mode_scope": [
           "coop"
         ],
         "related_steps": [
           "resource-berry-seeds:001",
-          "resource-berry-seeds:003"
-        ]
-      },
-      {
-        "signal": "resource_gap:berry_high",
-        "condition": "resource_gaps contains berry >= 20",
-        "adjustment": "Loop step :002 twice before leaving the Small Settlement so the base pantry refills.",
-        "priority": 2,
-        "mode_scope": [
-          "normal",
-          "hardcore",
-          "solo",
-          "coop"
-        ],
-        "related_steps": [
           "resource-berry-seeds:002"
         ]
       }
@@ -5078,22 +5061,22 @@ Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and
   },
   "checkpoints": [
     {
-      "id": "resource-berry-seeds:checkpoint-lifmunk",
-      "summary": "Lifmunk circuit cleared",
+      "id": "resource-berry-seeds:checkpoint-forage",
+      "summary": "Berry bush circuit mapped",
       "benefits": [
-        "Guaranteed seeds banked",
-        "Rayne tower loop mapped"
+        "Seed drip unlocked",
+        "Starter XP gathered"
       ],
       "related_steps": [
         "resource-berry-seeds:001"
       ]
     },
     {
-      "id": "resource-berry-seeds:checkpoint-bush",
-      "summary": "Berry bush cache stripped",
+      "id": "resource-berry-seeds:checkpoint-merchant",
+      "summary": "Merchant stock secured",
       "benefits": [
-        "Emergency seeds secured",
-        "Fresh berries hauled"
+        "Bulk seed reserve",
+        "Gold conversion planned"
       ],
       "related_steps": [
         "resource-berry-seeds:002"
@@ -5101,10 +5084,10 @@ Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and
     },
     {
       "id": "resource-berry-seeds:checkpoint-plantation",
-      "summary": "Berry Plantation online",
+      "summary": "Plantation online",
       "benefits": [
-        "Automation running",
-        "Planters assigned"
+        "Automated berry supply",
+        "Base labor assigned"
       ],
       "related_steps": [
         "resource-berry-seeds:003"
@@ -5116,107 +5099,19 @@ Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and
       "starter-base-capture"
     ],
     "optional": [
-      "resource-egg",
-      "resource-honey"
+      "resource-chikipi-poultry"
     ]
   },
   "failure_recovery": {
-    "normal": "Fast travel back to Rayne Tower, restock Pal Spheres, and resume the Lifmunk sweep if patrols scatter the herd.",
-    "hardcore": "Cache valuables before revisiting Investigator's Fork so a downed run does not delete key tools."
+    "normal": "Revisit nearby bushes or the Small Settlement vendor to restock seeds if a death drops your stash.",
+    "hardcore": "Stash surplus seeds in base chests before traveling to Duneshelter so a wipe doesn't halt automation."
   },
   "steps": [
     {
       "step_id": "resource-berry-seeds:001",
-      "type": "combat",
-      "summary": "Tag Lifmunk and Gumoss spawns",
-      "detail": "Warp to Rayne Syndicate Tower Entrance and sweep north around (117,-405) for Lifmunk, then glide east toward Investigator's Fork (208,-476) to pick off Gumoss. Defeat or capture each group for guaranteed Berry Seed drops before returning to base.【b765fb†L12-L17】【7da1bf†L8-L18】【zilliongamer-berry-seeds†L11-L18】【palwiki-berry-seeds†L1-L4】【palwiki-lifmunk†L1-L18】【palwiki-gumoss†L1-L4】",
-      "targets": [
-        {
-          "kind": "item",
-          "id": "berry-seeds",
-          "qty": 15
-        }
-      ],
-      "locations": [
-        {
-          "region_id": "windswept-hills",
-          "coords": [
-            117,
-            -405
-          ],
-          "time": "day",
-          "weather": "any"
-        },
-        {
-          "region_id": "small-settlement",
-          "coords": [
-            208,
-            -476
-          ],
-          "time": "any",
-          "weather": "any"
-        }
-      ],
-      "mode_adjustments": {
-        "coop": {
-          "role_splits": [
-            {
-              "role": "kite",
-              "tasks": "Gather Lifmunk into capture range"
-            },
-            {
-              "role": "finisher",
-              "tasks": "Burst Gumoss and loot seeds"
-            }
-          ],
-          "loot_rules": "Split seed stacks evenly before heading home"
-        }
-      },
-      "recommended_loadout": {
-        "gear": [
-          "bow"
-        ],
-        "pals": [
-          "foxparks"
-        ],
-        "consumables": [
-          "pal-sphere"
-        ]
-      },
-      "xp_award_estimate": {
-        "min": 90,
-        "max": 140
-      },
-      "outputs": {
-        "items": [
-          {
-            "item_id": "berry-seeds",
-            "qty": 15
-          }
-        ],
-        "pals": [],
-        "unlocks": {}
-      },
-      "branching": [
-        {
-          "condition": "player lacks berry-seeds >= 15",
-          "action": "repeat"
-        }
-      ],
-      "citations": [
-        "zilliongamer-berry-seeds",
-        "palwiki-berry-seeds",
-        "gamesfuze-lifmunk",
-        "dexerto-gumoss",
-        "palwiki-lifmunk",
-        "palwiki-gumoss"
-      ]
-    },
-    {
-      "step_id": "resource-berry-seeds:002",
       "type": "gather",
-      "summary": "Strip berry bushes for backup seeds",
-      "detail": "Jog the path circling the Small Settlement (75,-479) and harvest every berry bush; each harvest has a chance to drop extra Berry Seeds while topping off raw berries for cooking.【palwiki-berry-seeds†L1-L4】【palwiki-small-settlement†L71-L90】",
+      "summary": "Harvest wild berry bushes",
+      "detail": "Fast travel to the Small Settlement (~75,-479) and loop the surrounding berry patches, interacting with Red Berry bushes for free seed drops while clearing low-level mobs for XP.【palwiki-berry-seeds-raw†L1-L18】【palwiki-small-settlement-raw†L1-L11】",
       "targets": [
         {
           "kind": "item",
@@ -5235,33 +5130,16 @@ Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and
           "weather": "any"
         }
       ],
-      "mode_adjustments": {
-        "coop": {
-          "role_splits": [
-            {
-              "role": "harvester",
-              "tasks": "Clear bushes and loot seeds"
-            },
-            {
-              "role": "scout",
-              "tasks": "Watch for Syndicate patrols and reset spawns"
-            }
-          ],
-          "loot_rules": "Dump seeds into a shared chest before splitting"
-        }
-      },
       "recommended_loadout": {
-        "gear": [
-          "stone-axe"
-        ],
+        "gear": [],
         "pals": [
-          "lifmunk"
+          "lamball"
         ],
         "consumables": []
       },
       "xp_award_estimate": {
-        "min": 40,
-        "max": 80
+        "min": 30,
+        "max": 50
       },
       "outputs": {
         "items": [
@@ -5273,22 +5151,95 @@ Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and
         "pals": [],
         "unlocks": {}
       },
-      "branching": [
+      "branching": [],
+      "citations": [
+        "palwiki-berry-seeds-raw",
+        "palwiki-small-settlement-raw"
+      ]
+    },
+    {
+      "step_id": "resource-berry-seeds:002",
+      "type": "trade",
+      "summary": "Buy out settlement merchants",
+      "detail": "Rotate between the Small Settlement and Duneshelter merchants, buying Berry Seeds for 50 gold each whenever they restock so plantations never stall.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-small-settlement-raw†L1-L11】【palwiki-duneshelter-raw†L1-L7】",
+      "targets": [
         {
-          "condition": "player lacks berry-seeds >= 20",
-          "action": "repeat"
+          "kind": "item",
+          "id": "berry-seeds",
+          "qty": 12
         }
       ],
+      "locations": [
+        {
+          "region_id": "small-settlement",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "duneshelter",
+          "coords": [
+            357,
+            347
+          ],
+          "time": "any",
+          "weather": "clear"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "buyer",
+              "tasks": "Handle trades and ferry seeds home"
+            },
+            {
+              "role": "scout",
+              "tasks": "Watch for PIDF patrols and escort cargo"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "stone-spear"
+        ],
+        "pals": [
+          "chikipi"
+        ],
+        "consumables": [
+          "gold-coin"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 70
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "berry-seeds",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
       "citations": [
-        "palwiki-berry-seeds",
-        "palwiki-small-settlement"
+        "palwiki-wandering-merchant-raw",
+        "palwiki-small-settlement-raw",
+        "palwiki-duneshelter-raw"
       ]
     },
     {
       "step_id": "resource-berry-seeds:003",
       "type": "build",
       "summary": "Construct and staff a Berry Plantation",
-      "detail": "Spend 3 Berry Seeds, 20 Wood, and 20 Stone to place a Berry Plantation, then assign Lifmunk or Gumoss so Planting work keeps berries and new seeds flowing automatically.【palwiki-berry-seeds†L1-L8】【palwiki-lifmunk†L1-L18】【palwiki-gumoss†L1-L8】",
+      "detail": "Spend 3 Berry Seeds, 20 Wood, and 20 Stone to place a Berry Plantation, then assign Planting, Watering, and Gathering pals so berries flow automatically.【palwiki-berry-plantation-raw†L1-L34】",
       "targets": [
         {
           "kind": "station",
@@ -5297,7 +5248,7 @@ Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and
       ],
       "locations": [
         {
-          "region_id": "windswept-hills",
+          "region_id": "base",
           "coords": [
             0,
             0
@@ -5311,14 +5262,13 @@ Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and
           "role_splits": [
             {
               "role": "builder",
-              "tasks": "Place the plantation and craft feed chests"
+              "tasks": "Place the plantation and restock building materials"
             },
             {
-              "role": "quartermaster",
-              "tasks": "Assign planters and balance wood/stone reserves"
+              "role": "foreman",
+              "tasks": "Assign planters and monitor berry output"
             }
-          ],
-          "loot_rules": "Keep at least half the seeds in a shared box for replants"
+          ]
         }
       },
       "recommended_loadout": {
@@ -5326,29 +5276,27 @@ Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and
           "wooden-hammer"
         ],
         "pals": [
-          "gumoss",
-          "lifmunk"
+          "lamball",
+          "pengullet"
         ],
         "consumables": []
       },
       "xp_award_estimate": {
-        "min": 80,
-        "max": 110
+        "min": 50,
+        "max": 80
       },
       "outputs": {
         "items": [],
         "pals": [],
         "unlocks": {
-          "stations": [
+          "structures": [
             "berry-plantation"
           ]
         }
       },
       "branching": [],
       "citations": [
-        "palwiki-berry-seeds",
-        "palwiki-lifmunk",
-        "palwiki-gumoss"
+        "palwiki-berry-plantation-raw"
       ]
     }
   ],
@@ -5356,13 +5304,13 @@ Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and
     {
       "type": "have-item",
       "item_id": "berry-seeds",
-      "qty": 20
+      "qty": 18
     }
   ],
   "yields": {
     "levels_estimate": "+0 to +1",
     "key_unlocks": [
-      "berry-plantation"
+      "berry-plantation-automation"
     ]
   },
   "metrics": {
@@ -5372,16 +5320,17 @@ Berry Seeds keep early farms and kitchens stocked. This loop targets Lifmunk and
   },
   "next_routes": [
     {
-      "route_id": "resource-honey",
-      "reason": "Combine berries with honey for Strange Juice and cake recipes."
+      "route_id": "resource-wheat-seeds",
+      "reason": "Wheat fields rely on a steady berry economy to cover ranch food and base diets."
     },
     {
-      "route_id": "resource-egg",
-      "reason": "Pair steady eggs with berries to keep cake and bakery queues running."
+      "route_id": "resource-tomato-seeds",
+      "reason": "Greenhouse rotations scale smoothly once berry plantations keep stamina food stocked."
     }
   ]
 }
 ```
+
 
 ### Route: Pal Fluid Condenser
 
@@ -23607,6 +23556,30 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/wiki/Carbon_Fiber",
       "access_date": "2025-10-07",
       "notes": "Lists Production Assembly Line recipes converting Coal or Charcoal into Carbon Fiber and documents unlock requirements.\u3010f7ee05\u2020L1-L28\u3011"
+    },
+    "palwiki-berry-plantation-raw": {
+      "title": "Berry Plantation \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Berry_Plantation&action=raw",
+      "access_date": "2025-10-29",
+      "notes": "Raw wikitext lists the Berry Plantation cost of 3 Berry Seeds, 20 Wood, and 20 Stone and confirms it unlocks at technology level 5.【palwiki-berry-plantation-raw†L1-L37】"
+    },
+    "palwiki-berry-seeds-raw": {
+      "title": "Berry Seeds \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Berry_Seeds&action=raw",
+      "access_date": "2025-10-29",
+      "notes": "States that Berry Seeds drop when harvesting berry bushes and are used to build Berry Plantations.【palwiki-berry-seeds-raw†L3-L24】"
+    },
+    "palwiki-small-settlement-raw": {
+      "title": "Small Settlement \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Small_Settlement&action=raw",
+      "access_date": "2025-10-29",
+      "notes": "Confirms the Small Settlement sits at approximately (75,-479) in Windswept Hills and hosts both Pal and Wandering Merchants.【palwiki-small-settlement-raw†L3-L16】"
+    },
+    "palwiki-duneshelter-raw": {
+      "title": "Duneshelter \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Duneshelter&action=raw",
+      "access_date": "2025-10-29",
+      "notes": "Notes Duneshelter sits at (357,347) in the desert and includes two Wandering Merchants and a Pal Merchant inside the palace ruins.【palwiki-duneshelter-raw†L1-L7】"
     },
     "palwiki-production-assembly-line": {
       "title": "Production Assembly Line \u2013 Palworld Wiki",
