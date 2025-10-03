@@ -50,23 +50,40 @@ def parse_resource_routes(markdown: str) -> List[ResourceRoute]:
     return routes
 
 
+def _extract_entries(raw_entries: Iterable[dict]) -> Iterable[CatalogEntry]:
+    for item in raw_entries:
+        entry_id = item.get("id")
+        if not isinstance(entry_id, str):
+            continue
+        if not entry_id.startswith("resource-"):
+            continue
+        yield CatalogEntry(
+            entry_id=entry_id,
+            title=item.get("title", ""),
+            shortage_menu=bool(item.get("shortage_menu", False)),
+        )
+
+
 def load_catalog_entries() -> List[CatalogEntry]:
+    """Return all resource-oriented catalog entries.
+
+    Historic builds of the catalog grouped entries into ``sections``.  The
+    current bundle flattens everything under ``guides`` instead.  To keep the
+    coverage report resilient we examine both shapes.
+    """
+
     catalog = json.loads(CATALOG_PATH.read_text())
     entries: List[CatalogEntry] = []
-    for section in catalog.get("sections", []):
-        for item in section.get("entries", []):
-            entry_id = item.get("id")
-            if not isinstance(entry_id, str):
-                continue
-            if not entry_id.startswith("resource-"):
-                continue
-            entries.append(
-                CatalogEntry(
-                    entry_id=entry_id,
-                    title=item.get("title", ""),
-                    shortage_menu=bool(item.get("shortage_menu", False)),
-                )
-            )
+
+    # Legacy structure with named sections.
+    for section in catalog.get("sections", []) or []:
+        section_entries = section.get("entries", [])
+        entries.extend(_extract_entries(section_entries))
+
+    # Flat structure emitted by the latest bundle.
+    if "guides" in catalog:
+        entries.extend(_extract_entries(catalog["guides"]))
+
     return entries
 
 

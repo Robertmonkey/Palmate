@@ -206,3 +206,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Backfill catalog records for the four orphaned resource routes so the shortages drawer can surface them; ensure `shortage_menu: true` where appropriate and re-export bundles.
 2. Extend the script to optionally emit CSV/markdown output so progress snapshots can drop directly into PR descriptions and Ops dashboards.
 3. Expand the detector with citation linting (e.g., flag resource routes missing at least two independent sources) once coordinate exports for Caprity/Galeclaw land, so future backlog passes can validate evidence alongside coverage.
+
+### 2025-11-18 Resource shortage catalog backfill
+
+* Inserted shortage catalog entries for `resource-leather-early`, `resource-paldium`, `resource-honey`, and `resource-coal` inside `data/guide_catalog.json` and the mirrored bundle payload so the shortages UI can surface the early-game leather loop, Paldium fragment circuit, Honey ranch automation, and Coal smelter prep alongside newer additions.  Entries preserve the same spawn, merchant, and processing citations used in the full routes so cross-links stay authoritative.【data/guide_catalog.json†L8597-L8884】【data/guides.bundle.json†L24782-L25131】
+* Updated the bundle metadata `verified_at_utc` to `2025-11-18T00:00:00Z` and bumped the catalog `guide_count` to 203 to reflect the expanded coverage snapshot.【data/guides.bundle.json†L2-L9】【data/guides.bundle.json†L24780-L24788】
+* Hardened `scripts/resource_coverage_report.py` so it recognises both the legacy `sections[].entries[]` structure and the current flat `guides[]` layout, preventing false positives now that the shortage catalog omits the old section wrapper.【scripts/resource_coverage_report.py†L1-L118】
+
+**Continuation notes:**
+
+1. Use the refreshed coverage report to prioritise the remaining backlog of resource routes lacking catalog cards (e.g., wool, egg, refined ingot).  Draft catalog entries in batches so the shortages UI gains broad early/mid-game parity.
+2. Extend `resource_coverage_report.py` with optional CSV or Markdown exports to drop straight into Ops status threads once the remaining catalog debt shrinks.
+3. After the next bundle deployment, spot-check the production shortages drawer to confirm Leather, Paldium Fragments, Honey, and Coal disappear from `resourceGuideGaps`; if they linger, audit downstream ingestion for case-sensitivity or bundle cache issues.
