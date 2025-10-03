@@ -8598,6 +8598,86 @@
       ]
     },
     {
+      "id": "resource-broncherry-meat",
+      "title": "Broncherry Meat Caravan Loop",
+      "source_heading": "Broncherry Meat Caravan Loop",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Broncherry Meat for high-tier meals and wants a dependable daily alpha route.",
+      "keywords": [
+        "broncherry meat",
+        "alpha pal",
+        "meat cleaver",
+        "tomato seeds"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "**Unlock the Meat Cleaver** at level 12 for 2 Tech Points, craft it at a Primitive Workbench, and equip it so the Butcher command appears for captured pals.",
+          "citations": [
+            "palwiki-meat-cleaver\u2020L2-L38"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "meat-cleaver",
+              "name": "Meat Cleaver"
+            },
+            {
+              "type": "structure",
+              "id": "primitive-workbench",
+              "name": "Primitive Workbench"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "**Clear or capture the level 23 Alpha Broncherry (-222,-669)** each in-game day to secure two guaranteed meat drops and a chance at Tomato Seeds.",
+          "citations": [
+            "palwiki-alpha-pals\u2020L31-L104",
+            "palwiki-broncherry-raw\u2020L66-L103"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "broncherry",
+              "slug": "broncherry",
+              "name": "Broncherry"
+            },
+            {
+              "type": "location",
+              "id": "broncherry-alpha",
+              "name": "Broncherry Alpha Ridge",
+              "region": "Palpagos Overworld"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "**Butcher captured Broncherry at base** to double the meat haul and bank Tomato Seeds for plantations before the next daily respawn.",
+          "citations": [
+            "palwiki-broncherry-raw\u2020L66-L103",
+            "palwiki-meat-cleaver\u2020L2-L38"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "broncherry_meat",
+              "slug": "broncherry-meat",
+              "name": "Broncherry Meat"
+            },
+            {
+              "type": "item",
+              "id": "tomato_seeds",
+              "slug": "tomato-seeds",
+              "name": "Tomato Seeds"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "resource-small-pal-soul-night-loop",
       "title": "Small Pal Soul Night Hunts & Crusher Loop",
       "source_heading": "Small Pal Soul Night Hunts & Crusher Loop",

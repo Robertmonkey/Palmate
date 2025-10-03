@@ -1,0 +1,151 @@
+{{Pal Prev/Next | prevPal = Relaxaurus Lux | prevNo = 085b | nextPal =  Broncherry Aqua | nextNo = 086b}}
+{{Pal
+
+|name                   ={{PAGENAME}}
+|no                     =086
+|title                  =Winds of Spring
+
+|ele1                   =Grass
+|ele2                   =
+
+|partnerskill           =Overaffectionate
+|partnerskill_desc      =Can be [[ridden]].
+While in team, Broncherry helps carry supplies, increasing the [[player]]'s max [[carrying capacity]].
+|partnerskill_icon      =Mount
+
+| hp                     = 120
+| attack                 = 90
+| attack_melee           = 80
+| defense                = 100
+| support                = 120
+
+| slow_walk_speed        = 50
+| walk_speed             = 75
+| run_speed              = 350
+| ride_sprint_speed      = 500
+| transport_speed        = 200
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 2920
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 860
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Wind Cutter
+| activeskill7           = Sand Blast
+| activeskill15          = Muscle Slam
+| activeskill22          = Seed Mine
+| activeskill30          = Grass Tornado
+| activeskill40          = Spine Vine
+| activeskill50          = Solar Blast
+
+|kindling               =
+|watering               =
+|planting               =3
+|generating_electricity =
+|handiwork              =
+|gathering              =
+|lumbering              =
+|mining                 =
+|medicine_production    =
+|cooling                =
+|transport              =
+|farming                =
+
+| food                  = 7
+| nocturnal             = No
+
+|drop1=Broncherry Meat 
+|drop1_min=2
+|drop1_max=2
+|drop1_chance=100
+|drop2=Tomato Seeds 
+|drop2_min=1
+|drop2_max=2
+|drop2_chance=50
+|drop3                  = Potato Seeds
+|drop3_min              = 1
+|drop3_max              = 1
+|drop3_chance           = 50
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=1
+|alphadrop1_max=3
+|alphadrop1_chance=100
+|alphadrop2=Broncherry Meat
+|alphadrop2_min=2
+|alphadrop2_max=2
+|alphadrop2_chance=100
+|alphadrop3=Tomato Seeds 
+|alphadrop3_min=1
+|alphadrop3_max=2
+|alphadrop3_chance=50
+|alphadrop4=Precious Dragon Stone
+|alphadrop4_min=1
+|alphadrop4_max=3
+|alphadrop4_chance=100
+|alphadrop5=Ring of Grass Resistance +1
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=3
+
+}}{{paldeck|Its scent drastically changes before and after pairing. It exudes a pleasing aroma after finding a partner, which is called the "scent of first love."}}
+'''Broncherry''' (Japanese: '''ラブラドン''' ''Loveladon'') is a {{i|Grass}} [[Elements|element]] [[Pals|Pal]]. It has an {{i|Water}} [[Elements|element]] [[Breeding|variation]], [[Broncherry Aqua]].
+
+== Appearance ==
+Broncherry is a large sauropod Pal whose body primarily consists of greens, with a pink flower-like structure around the base of the neck and petal-like structures going up it.
+
+== Behavior and habitat==
+Broncherry are usually calm and only become aggressive when attacked. 
+[[File:Broncherry_Day_Habitat.webp|thumb|Daytime Broncherry Spawns]]
+[[File:Broncherry_Night_Habitat.webp|thumb|Nightime Broncherry Spawns]]
+
+== Utility ==
+Broncherry has a base Stamina of 100 and a Mount Speed of 500, making it the slowest Mount in the game, on par with [[Sweepa]] and [[Broncherry Aqua]]. 
+
+Its [[Partner Skill]], Overaffectionate, offers two benefits. The passive benefit, which requires the Broncherry Saddle, increases the player’s Carrying capacity by +100/+110/+120/+130/+140, depending on the Partner Skill Level. This bonus is cumulative with other Pals in the party, providing a significant boost.
+
+This passive bonus is the second highest in the game, matched by [[Broncherry Aqua]], [[Kingpaca]], and [[Kingpaca Cryst]], and only surpassed by [[Wumpo]] and [[Wumpo Botan]].
+
+== History ==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.2 to 0.24.
+* [[0.1.2.0]]
+** Introduced.
+
+== Variant(s) ==
+* [[Broncherry Aqua]]
+
+== Trivia ==
+* Broncherry’s name might be a blend of “brontosaurus” and “cherry.” Interestingly, it also resembles the French phrase “Mon Chéri” (my dear), which is used to show affection, fitting the love theme of this Pal.
+* The Japanese name might originate from ラブラブ “raburabu” (a Wasei-eigo term meaning “love-love”), which describes being affectionate or infatuated. It likely also includes the suffix “-odon,” commonly found in the scientific names of large animals.
+* Despite its English name, Broncherry more closely resembles an ''[https://en.wikipedia.org/wiki/Amargasaurus Amargasaurus]'', namely due to the petal-like structures its head and neck being similar to the spines seen on the skeleton.
+*This Pal is #048 in Paldeck  on PocketPair [https://x.com/Palworld_EN/status/1738167508719271951 X].
+
+== Media ==
+{{#ev:youtube|yYsc3bmKu80|410|inline|Paldeck No.048 BRONCHERRY - Palworld Gameplay Pocketpair||autoplay=false}}
+<gallery widths="150">
+File:Broncherry wild.png|A wild Broncherry being captured.
+File:Broncherry bis.png
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]
+[[Category:Rideable Pals]]
+[[Category:Pals with exclusive Skills]]

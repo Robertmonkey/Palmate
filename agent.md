@@ -77,7 +77,7 @@ Key confirmations from the review:
 
 ### Backlog (Confirm Against `routeGuideData.resourceGuideGaps` Before Starting)
 
-* High-priority shortages still missing guides: **Caprity Meat**, **Galeclaw Poultry**, **Broncherry Meat**, **Cotton Candy**, **High Quality Pal Oil**, **Small Pal Soul**, **Medium Pal Soul follow-ups (Crusher automation variants)**, **Sanctuary-exclusive drops (e.g., Lyleen Noct hair, Sibelyx Ignis cloth)**, **Merchant restock timing references**.
+* High-priority shortages still missing guides: **Caprity Meat**, **Galeclaw Poultry**, **High Quality Pal Oil**, **Small Pal Soul**, **Medium Pal Soul follow-ups (Crusher automation variants)**, **Sanctuary-exclusive drops (e.g., Lyleen Noct hair, Sibelyx Ignis cloth)**, **Merchant restock timing references**.
 * Secondary targets once two independent citations are secured: **Milk auxiliary spawns**, **Seed restock timers (Tomato/Lettuce/Berry)**, **Elite alpha respawn timers for gemstone loops**, **Automation throughput benchmarks for Assembly Line/Power Grid resources**.
 
 Update this backlog whenever a guide ships or when a data source becomes available, and archive stale TODOs with reasoning if a resource becomes obsolete or its shortages are resolved by upstream patches.
@@ -162,3 +162,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Add a secondary Helzephyr coordinate citation (interactive atlas or official map) so future updates can display exact patrol loops alongside the bridge landmark.
 2. Document medium-soul chest hotspots beyond Duneshelter once reliable coordinates or screenshots land; wire them into the catalog entry for parity with the route JSON.
 3. Audit downstream clients once bundles rebuild to ensure the new catalog record clears Medium Pal Soul from `resourceGuideGaps` and respects existing shortage sort order.
+
+### 2025-11-13 Broncherry Meat caravan loop
+
+* Authored the `resource-broncherry-meat` route covering the (-222,-669) Alpha Broncherry loop and Meat Cleaver butchery so shortages can surface a guaranteed daily meat circuit.【palwiki-alpha-pals†L31-L104】【palwiki-broncherry-raw†L66-L103】【palwiki-meat-cleaver†L2-L38】
+* Synced the bundles and catalog entry so the shortage menu flags Broncherry Meat, including keywords and linkouts for Meat Cleaver crafting and Tomato Seed byproducts.
+* Registered `palwiki-broncherry-raw` in the source registry and refreshed `guides.bundle.json` metadata (`verified_at_utc` now 2025-11-13) to keep downstream clients in sync.
+
+**Continuation notes:**
+
+1. Secure a second independent citation for non-alpha Broncherry spawns (interactive map export or reputable guide) so future revisions can offer alternative hunt loops beyond the daily alpha kill.
+2. Capture quantitative butcher throughput (meat per hour, raid timers) once playtest data is available to tighten the estimated XP/output ranges in both the route JSON and shortage card.
+3. Audit downstream recipe routes (e.g., Rib Roast, hearty meals) to ensure they now reference the Broncherry Meat loop and surface dependencies appropriately once production bundles rebuild.
