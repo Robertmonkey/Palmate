@@ -1,0 +1,46 @@
+{{stub}}
+{{Item
+| description    = High Quality Cloth woven from a large amount of [[Wool]]. Required to create high quality [[armor]].
+| type           = Material
+| rarity         = Uncommon
+
+| weight         = 1
+| durability    = 
+
+| buy            = 400
+| sell           = 40
+
+| technology    = High Quality Cloth
+| required_level = 36
+| cost           = 2
+| made_at        = High Quality Workbench
+| workload        = 50
+}}
+
+'''High Quality Cloth''' is a [[material]]. It can be obtained by crafting or dropped by [[Sibelyx]]. When Sibelyx is assigned to the [[ranch]], it can create high quality cloth.
+
+==Acquisition==
+* [[Crafting]]:
+** Can be crafted with the [[High Quality Workbench]] and [[Production Assembly Line]]s
+* [[Farming]]:
+** [[Sibelyx]]
+* Dropped by:
+{{Drops}}
+
+==Crafting==
+{{Recipe
+|mat1=Wool
+|mat1qty=10
+|output1=High Quality Cloth
+|output1qty=1
+}}
+
+==Products==
+{{Products}}
+
+== History ==
+* [[0.1.2.0]]
+** Introduced.
+
+{{Navbox Materials}}
+[[Category:Materials]]

@@ -109,6 +109,9 @@ This document describes the responsibilities, workflows and quality assurance st
 *Progress 2025-10-25:* Rebuilt Carbon Fiber coverage with the Carbon Fiber Filament Works route (`resource-carbon-fiber`), refreshed bundle/catalog data, and added Production Assembly Line, coal ridge, and Jetragon/Shadowbeak source transcripts to support late-game manufacturing. Synced `data/guides.bundle.json`, appended the quick reference entry in `guide_catalog.json`, and retired the outdated fabrication block so only the new assembly-line workflow remains.
   * Next steps: extend metallurgic follow-ups by documenting Carbon Fiber consumption chains (e.g., Legendary weapon kits), secure a second merchant citation for Charcoal bulk purchases, and audit existing automation routes for references that should now point to the Filament Works rewrite.
 
+*Progress 2025-10-26:* Authored High Quality Cloth Loom Circuit (`resource-high-quality-cloth`) covering the Sealed Realm of the Pristine Sibelyx clear, ranch automation, and 10-wool weaving batches; synchronized `guides.md`, `data/guides.bundle.json`, and `data/guide_catalog.json`, and registered new Palworld wiki citations for the cloth recipe, Sibelyx drops, and sealed realm coordinates.
+  * Next steps: capture supplemental merchant pricing or alternative cloth sources (e.g., Sibelyx Ignis if added in future patches), gather second-source confirmation for Sealed Realm level requirements, and expand tailoring coverage to Cotton Candy supply loops once reliable Woolipop field spawn citations are accessible.
+
 ## Performance Notes
 
 * **Chunking** – When creating or updating `guides.md`, generate large JSON blocks in manageable chunks to avoid exceeding context limits.  Use the container tools to build the file incrementally.

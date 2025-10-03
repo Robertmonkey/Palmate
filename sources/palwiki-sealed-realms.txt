@@ -1,0 +1,80 @@
+'''Sealed Realms''' are locations in ''[[Palworld]]''.
+
+== Overview ==
+Sealed Realms are special dungeons scattered throughout the [[Palpagos Islands]], with each one containing a single room with a specific [[Alpha Pals|Alpha Pal]]. Inside the Sealed Realm, the player will be able to battle the Alpha Pal in question.
+
+== List of Sealed Realms ==
+{| class="wikitable sortable"
+|+
+!Sealed Realm
+!Alpha Pal
+!Level
+!Coordinates
+|-
+|Sealed Realm of Spirits
+|[[Petallia]]
+|28
+| -19, -264
+|-
+|Sealed Realm of the Abyssal Nights
+|[[Felbat]]
+|23
+| -411, -54
+|-
+|Sealed Realm of the Esoteric
+|[[Lunaris]]
+|32
+| -147, -660
+|-
+|Sealed Realm of the Frozen Wings
+|[[Penking]]
+|15
+|113, -353
+|-
+|Sealed Realm of the Guardian
+|[[Vaelet]]
+|38
+|TBD
+|-
+|Sealed Realm of the Invincible
+|[[Katress]]
+|23
+|TBD
+|-
+|Sealed Realm of the Pristine
+|[[Sibelyx]]
+|40
+|250, 70
+|-
+|Sealed Realm of the Stalwart
+|[[Warsect]]
+|30
+|160, -220
+|-
+|Sealed Realm of the Swift
+|[[Verdash]]
+|35
+|290, 10
+|-
+|Sealed Realm of the Swordmaster
+|[[Bushi]]
+|23
+| -117, -490
+|-
+|Sealed Realm of the Thunder Dragon
+|[[Relaxaurus Lux]]
+|31
+| -200, -344
+|-
+|Sealed Realm of the Winged Tyrant
+|[[Quivern]]
+|23
+| -256, -131
+|}
+
+== Notes ==
+* Like Alpha Pals found in the overworld, Alpha Pals in Sealed Realms respawn exactly 1 hour after being defeated.
+
+== History ==
+* [[0.1.2.0]]
+** Introduced

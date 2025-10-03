@@ -7879,6 +7879,45 @@
           ]
         }
       ]
+    },
+    {
+      "id": "resource-high-quality-cloth-loom-circuit",
+      "title": "High Quality Cloth Loom Circuit",
+      "source_heading": "High Quality Cloth Loom Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "trigger": "Player asks how to farm High Quality Cloth or mentions Sibelyx ranch drops",
+      "keywords": [
+        "high quality cloth",
+        "sibelyx",
+        "tailor",
+        "cloth"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Unlock the **High Quality Cloth** tech at level 36 and place a High Quality Workbench with wool ready for batching.",
+          "citations": [
+            "palwiki-high-quality-cloth\u2020L1-L26"
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Clear the **Sealed Realm of the Pristine** (250,70) to capture Sibelyx for guaranteed cloth drops and the Silk Maker passive.",
+          "citations": [
+            "palwiki-sealed-realms\u2020L44-L48",
+            "palwiki-sibelyx\u2020L1-L64"
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Assign Sibelyx to a Ranch, then craft extra cloth in 10-wool batches so armor benches stay stocked.",
+          "citations": [
+            "palwiki-sibelyx\u2020L1-L64",
+            "palwiki-high-quality-cloth\u2020L17-L24"
+          ]
+        }
+      ]
     }
   ]
 }
