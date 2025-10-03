@@ -151,3 +151,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Gather a second independent map citation with explicit Daedream and Nox coordinate clusters (interactive map export or community atlas) to reinforce the hunt step beyond the Small Settlement anchor.
 2. Secure a dungeon-focused citation for Tombat/Felbat Small Pal Soul drops so the route can branch into late-game instanced loops for variety.
 3. Monitor production `resourceGuideGaps`; if Small Pal Soul remains listed post-deploy, inspect bundle ingestion and ensure the new catalog entry flags `shortage_menu: true` in downstream manifests.
+
+### 2025-11-12 Medium Pal Soul shortage sync
+
+* Promoted `resource-medium-pal-soul` into the shortage catalog so adaptive menus now surface Helzephyr raids, Sakurajima Sootseer clears, and Crusher balancing when Medium Pal Souls fall short.
+* Regenerated `data/guides.bundle.json` metadata so the embedded `guideCatalog` mirrors the new entry and updates the published guide count.
+
+**Continuation notes:**
+
+1. Add a secondary Helzephyr coordinate citation (interactive atlas or official map) so future updates can display exact patrol loops alongside the bridge landmark.
+2. Document medium-soul chest hotspots beyond Duneshelter once reliable coordinates or screenshots land; wire them into the catalog entry for parity with the route JSON.
+3. Audit downstream clients once bundles rebuild to ensure the new catalog record clears Medium Pal Soul from `resourceGuideGaps` and respects existing shortage sort order.

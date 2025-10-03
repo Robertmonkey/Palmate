@@ -8640,9 +8640,51 @@
               "id": "nox",
               "slug": "nox",
               "name": "Nox"
-            }
+        }
+      ]
+    },
+    {
+      "id": "resource-medium-pal-soul-harmonization",
+      "title": "Medium Pal Soul Harmonization",
+      "source_heading": "Medium Pal Soul Harmonization",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Medium Pal Souls to sustain Statue of Power upgrades or upscale Small Pal Soul production.",
+      "keywords": [
+        "medium pal soul",
+        "statue of power",
+        "crusher",
+        "helzephyr",
+        "sootseer"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Sweep the **Helzephyr ridges north of Bridge of the Twin Knights** after dusk to harvest rare Medium Pal Soul drops alongside Venom Glands.",
+          "citations": [
+            "palwiki-helzephyr-raw"
           ]
         },
+        {
+          "order": 2,
+          "instruction": "Raid **Sakurajima Sootseer camps at night**\u2014each kill guarantees Medium Pal Souls plus Bones and Crude Oil for statue stockpiles.",
+          "citations": [
+            "palwiki-sootseer"
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Teleport to **Duneshelter (357,347)**, loot desert chests, and run the **Crusher** so spare Small or Large souls convert into Medium Pal Souls between hunts.",
+          "citations": [
+            "palwiki-duneshelter-raw",
+            "palwiki-medium-pal-soul-raw",
+            "palfandom-medium-pal-soul-raw",
+            "palwiki-crusher-pal-soul-conversion"
+          ]
+        }
+      ]
+    },
         {
           "order": 2,
           "instruction": "Feed **Medium Pal Souls into the Crusher** before dawn so every medium converts into two small souls for statue offerings.",

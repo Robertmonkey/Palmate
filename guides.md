@@ -1173,7 +1173,7 @@ citations preserved where they existed in the source material).
 {
   "guide_catalog": {
     "path": "data/guide_catalog.json",
-    "guide_count": 201,
+    "guide_count": 202,
     "fields": [
       "id",
       "title",
