@@ -1,0 +1,132 @@
+{{Pal Prev/Next | prevPal = Kikit | prevNo = 117 | nextPal = Prixter | nextNo = 119}}
+{{Pal
+
+| name                   = {{PAGENAME}}
+| no                     = 118
+| title                  = Flickering Flame
+
+| ele1                   = Dark
+| ele2                   = Fire
+
+| partnerskill           = Grave Robber
+| partnerskill_desc      = Sometimes digs up {{i|Bone}} when assigned to {{i|Ranch}}.
+| partnerskill_icon      = Farming
+
+| hp                     = 105
+| attack                 = 125
+| attack_melee           = 100
+| defense                = 90
+| support                = 100
+
+| slow_walk_speed        = 100
+| walk_speed             = 250
+| run_speed              = 800
+| ride_sprint_speed      = 1000
+| transport_speed        = 450
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 4890
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 545
+
+| passiveskill1          = 
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Ignis Blast
+| activeskill7           = Dark Ball
+| activeskill15          = Spirit Fire
+| activeskill22          = Spirit Flame
+| activeskill30          = Nightmare Ball
+| activeskill40          = Flame Funnel
+| activeskill50          = Volcanic Rain
+
+| kindling               = 3
+| watering               = 
+| planting               = 
+| generating_electricity = 
+| handiwork              = 2
+| gathering              = 1
+| lumbering              = 
+| mining                 = 2
+| medicine_production    = 
+| cooling                = 
+| transporting           = 
+| farming                = 1
+
+| food                   = 7
+| nocturnal              = Yes
+
+| drop1                  = Medium Pal Soul
+| drop1_min              = 1
+| drop1_max              = 2
+| drop1_chance           = 100
+| drop2                  = Bone
+| drop2_min              = 1
+| drop2_max              = 2
+| drop2_chance           = 100
+| drop3                  = Crude Oil
+| drop3_min              = 1
+| drop3_max              = 1
+| drop3_chance           = 50
+| drop4                  = 
+| drop4_min              = 
+| drop4_max              = 
+| drop4_chance           = 
+| drop5                  = 
+| drop5_min              = 
+| drop5_max              = 
+| drop5_chance           = 
+
+| alphadrop1             = Ancient Civilization Parts
+| alphadrop1_min         = 2
+| alphadrop1_max         = 3
+| alphadrop1_chance      = 100
+| alphadrop2             = Medium Pal Soul
+| alphadrop2_min         = 1
+| alphadrop2_max         = 2
+| alphadrop2_chance      = 100
+| alphadrop3             = Bone
+| alphadrop3_min         = 1
+| alphadrop3_max         = 2
+| alphadrop3_chance      = 30
+| alphadrop4             = Precious Entrails
+| alphadrop4_min         = 2
+| alphadrop4_max         = 3
+| alphadrop4_chance      = 100
+| alphadrop5             = Ring of Grass Resistance +1
+| alphadrop5_min         = 1
+| alphadrop5_max         = 1
+| alphadrop5_chance      = 3
+
+}}{{paldeck|It was once believed that as the world approached its end, the flame would weaken. Doomsayers would repeatedly rejoice when the flame began to weaken, but in the end, it turned out to be a prank by Sootseer. At least, for now.}}
+'''Sootseer''' is a {{i|Dark}} and {{i|Fire}} [[Pals|Pal]]. It was first shown in the Sakurajima Update trailer.
+
+== Appearance ==
+Sootseer resembles a ghost, with purple flames emerging from its hands. It has a skull for a face and has purple fiery hair.
+
+== Behavior and habitat ==
+Can be found at night in [[Sakurajima]].
+
+== Utility ==
+{{PAGENAME}} is able to ???.
+
+== History ==
+* [[0.3.1.0]]
+** Introduced.
+
+== Trivia ==
+* Sootseer’s name is a play on “Soothsayer,” someone who predicts the future.
+
+== Media ==
+<gallery widths=150>
+...
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]

@@ -1,0 +1,81 @@
+{{Infobox Item
+|name = Bone
+|image = Bone icon.png
+|effects = Bone collected from Pals.<br/>A valuable source of premium calcium.
+|type = [[Material]]
+|rarity = Common
+|source = [[Wandering Merchant]]<br/>
+<div class="mw-collapsible mw-collapsed">
+Pals
+<div class="mw-collapsible-content">
+{{p|Vixy}}<br/>
+{{p|Rushoar}}<br/>
+{{p|Cawgnito}}<br/>
+{{p|Loupmoon}}<br/>
+{{p|Gorirat}}<br/>
+{{p|Maraith}}<br/>
+{{p|Vanwyrm}}<br/>
+{{p|Vanwyrm Cryst}}<br/>
+{{p|Bushi}}<br/>
+{{p|Verdash}}<br/>
+{{p|Anubis}}<br/>
+{{P|Sootseer}}<br/>
+{{p|Dogen}}<br/>
+{{p|Dazemu}}<br/>
+{{p|Gorirat Terra}}<br/>
+{{p|Kikit}}<br/>
+</div>
+</div>
+|weight = 1
+|gold_buy = 100
+|gold_sell = 10}}
+'''Bone''' is a [[material]] in {{PW}}.
+
+==Acquisition==
+
+*Bones can be purchased from [[Wandering Merchant]] for 100G each.
+*Can be farmed at a [[ranch]] by employing {{p|Sootseer}}, additionally, {{p|Vixy}} may sometimes dig them up.
+*Some Pals can also drop Bone when captured or defeated.{{Cols|2|
+**{{p|Vixy}}
+**{{p|Rushoar}}
+**{{p|Cawgnito}}
+**{{p|Loupmoon}}
+**{{p|Gorirat}}
+**{{p|Maraith}}
+**{{p|Vanwyrm}}
+**{{p|Vanwyrm Cryst}}
+**{{p|Bushi}}
+**{{p|Verdash}}
+**{{p|Anubis}}
+**{{P|Sootseer}}
+**{{p|Dogen}} 
+**{{p|Dazemu}}
+**{{p|Gorirat Terra}}
+**{{p|Kikit}}
+}}
+==Use==
+It's required to craft:
+*[[Cement]]
+*[[Mega Glider]]
+
+Medicines:
+*[[Strange Juice]]
+*[[Suspicious Juice]]
+*[[Medical Supplies]]
+*[[High Grade Medical Supplies]]
+*[[Mind Control Meds]]
+*[[Memory Wiping Medicine]]
+
+==Update History==
+*[[Early Access 0.2.0.6]]
+**Icon got updated.
+*[[Early Access 0.1.2.0]]
+**Introduced.
+
+==Gallery==
+<gallery>
+Bone OLD.png | Old Version of Bone.
+</gallery>
+
+{{Navbox Materials}}
+[[Category:Materials]]

@@ -1,0 +1,4 @@
+Pal Metal Ingot is a material crafted by the player. It can also be dropped by select late-game Pals and is used for various items.
+Pal Metal Ingots are made at the Electric Furnace with a workload of 500.
+The crafting recipe consumes Ore ×4 and Paldium Fragment ×2 to output Pal Metal Ingot ×1.
+Source: https://palworld.wiki.gg/wiki/Pal_Metal_Ingot (retrieved 2025-10-20)

@@ -1,0 +1,5 @@
+How To Get Refined Ingots In Palworld — SegmentNext (retrieved 2025-10-20)
+Refined Ingots require both Ore and Coal alongside an Improved Furnace; you unlock both recipes from the Technology menu after reaching level 34.
+Building an Improved Furnace costs 100 Stones, 30 Cement, and 15 Flame Organs, so stock the materials before heading to the ridge.
+SegmentNext recommends assigning high-Kindling pals like Jormuntide Ignis and notes each refined ingot consumes Ore ×2 and Coal ×2.
+The guide points to coordinates (191, -36) because the cliff hosts both ore and coal nodes, suggesting three Digtoises, three Tombats, and hauler pals to automate the loop.
