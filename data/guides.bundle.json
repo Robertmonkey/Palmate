@@ -20690,6 +20690,403 @@
       ]
     },
     {
+      "route_id": "resource-medium-pal-soul",
+      "title": "Medium Pal Soul Harmonization",
+      "category": "resources",
+      "tags": [
+        "resource-farm",
+        "medium-pal-soul",
+        "statue-upgrades",
+        "mid-game"
+      ],
+      "progression_role": "support",
+      "recommended_level": {
+        "min": 35,
+        "max": 48
+      },
+      "modes": {
+        "normal": true,
+        "hardcore": true,
+        "solo": true,
+        "coop": true
+      },
+      "prerequisites": {
+        "routes": [
+          "starter-base-capture",
+          "resource-bone"
+        ],
+        "tech": [
+          "statue-of-power",
+          "crusher"
+        ],
+        "items": [],
+        "pals": []
+      },
+      "objectives": [
+        "Ambush Helzephyr patrols for rare Medium Pal Soul drops",
+        "Clear Sakurajima Sootseer camps for guaranteed Medium Pal Souls",
+        "Loot Desiccated Desert treasure chests for loose Medium Pal Souls",
+        "Convert excess Small or Large souls in the Crusher to balance demand"
+      ],
+      "estimated_time_minutes": {
+        "solo": 45,
+        "coop": 32
+      },
+      "estimated_xp_gain": {
+        "min": 480,
+        "max": 720
+      },
+      "risk_profile": "high",
+      "failure_penalties": {
+        "normal": "Falling during aerial pursuits or over-pulling Sakurajima camps can result in squad wipes and lost souls.",
+        "hardcore": "Death while hauling souls deletes the stack and risks losing late-game pals needed for Crusher automation."
+      },
+      "adaptive_guidance": {
+        "underleveled": "Stay near the Bridge of the Twin Knights waypoint and chip Helzephyr with rifles from cliffs instead of chasing into syndicate camps.【palwiki-helzephyr-raw†L68-L116】",
+        "overleveled": "Rotate between Helzephyr ridges and Sakurajima camps every in-game night to keep the Crusher stocked before statue upgrades spike demand.【palwiki-helzephyr-raw†L65-L116】【palwiki-sootseer†L65-L114】",
+        "resource_shortages": [
+          {
+            "item_id": "medium-pal-soul",
+            "solution": "Run Crusher conversions each time Small Pal Souls exceed 40 so the statue never stalls.【palwiki-medium-pal-soul-raw†L31-L42】"
+          }
+        ],
+        "time_limited": "Fast travel to Duneshelter, sweep the nearest Desiccated Desert chests, then smash spare Small Souls at the Crusher before logging off.【palwiki-medium-pal-soul-raw†L22-L36】【palfandom-medium-pal-soul-raw†L27-L38】",
+        "dynamic_rules": [
+          {
+            "signal": "mode:coop",
+            "condition": "mode.coop === true",
+            "adjustment": "Assign one hunter to kite Helzephyr while the other nets Sootseer drops, then swap roles after each night cycle to balance soul income.",
+            "priority": 2,
+            "mode_scope": [
+              "coop"
+            ],
+            "related_steps": [
+              "resource-medium-pal-soul:001",
+              "resource-medium-pal-soul:002"
+            ]
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "id": "resource-medium-pal-soul:checkpoint-helzephyr",
+          "summary": "Helzephyr ridge secured",
+          "benefits": [
+            "Flying patrol cleared",
+            "Initial Medium Pal Souls banked"
+          ],
+          "related_steps": [
+            "resource-medium-pal-soul:001"
+          ]
+        },
+        {
+          "id": "resource-medium-pal-soul:checkpoint-sakurajima",
+          "summary": "Sootseer camps rotated",
+          "benefits": [
+            "Guaranteed drops harvested",
+            "Night raids stabilized"
+          ],
+          "related_steps": [
+            "resource-medium-pal-soul:002"
+          ]
+        },
+        {
+          "id": "resource-medium-pal-soul:checkpoint-processor",
+          "summary": "Crusher conversions online",
+          "benefits": [
+            "Soul stock buffered",
+            "Statue queue ready"
+          ],
+          "related_steps": [
+            "resource-medium-pal-soul:004"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "step_id": "resource-medium-pal-soul:001",
+          "type": "hunt",
+          "summary": "Intercept Helzephyr above the twin bridges",
+          "detail": "Glide up from the Bridge of the Twin Knights waypoint (~113,-352) after dusk and tag the Helzephyr flock as it circles the northern mesas. Its Medium Pal Soul drop rate is low, so use chain bolas or rifles to secure repeated captures and harvest rare souls along with Venom Glands.【palwiki-helzephyr-raw†L65-L116】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "medium-pal-soul",
+              "qty": 2
+            },
+            {
+              "kind": "pal",
+              "id": "helzephyr",
+              "qty": 1
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "verdant-brook",
+              "coords": [
+                113,
+                -352
+              ],
+              "time": "night",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "hardcore": {
+              "tactics": "Anchor a Grappling Gun or flying mount before engaging so a fall from the mesas doesn’t end the run.",
+              "mode_scope": [
+                "hardcore"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "assault-rifle",
+              "grappling-gun"
+            ],
+            "pals": [
+              "helzephyr",
+              "ragnahawk"
+            ],
+            "consumables": [
+              "large-bandage"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 160,
+            "max": 220
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "medium-pal-soul",
+                "qty": 2
+              },
+              {
+                "item_id": "venom-gland",
+                "qty": 2
+              }
+            ],
+            "pals": [
+              "helzephyr"
+            ],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-helzephyr-raw"
+          ]
+        },
+        {
+          "step_id": "resource-medium-pal-soul:002",
+          "type": "hunt",
+          "summary": "Purge Sakurajima Sootseer camps",
+          "detail": "Swoop into Sakurajima’s crater camps after midnight, luring Sootseer pairs out of the purple flame pits. Every takedown yields guaranteed Medium Pal Souls plus Bones and Crude Oil—kite them through open lava channels to avoid getting cornered.【palwiki-sootseer†L65-L114】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "medium-pal-soul",
+              "qty": 4
+            },
+            {
+              "kind": "pal",
+              "id": "sootseer",
+              "qty": 2
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "sakurajima",
+              "coords": [
+                450,
+                -360
+              ],
+              "time": "night",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {
+            "coop": {
+              "tactics": "Have one player freeze Sootseer aggro with Shock Pals while the other focuses fire to keep the lava arena manageable.",
+              "mode_scope": [
+                "coop"
+              ]
+            }
+          },
+          "recommended_loadout": {
+            "gear": [
+              "rocket-launcher"
+            ],
+            "pals": [
+              "jetragon",
+              "anubis"
+            ],
+            "consumables": [
+              "fire-tonic"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 180,
+            "max": 260
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "medium-pal-soul",
+                "qty": 4
+              },
+              {
+                "item_id": "bone",
+                "qty": 4
+              }
+            ],
+            "pals": [
+              "sootseer"
+            ],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-sootseer"
+          ]
+        },
+        {
+          "step_id": "resource-medium-pal-soul:003",
+          "type": "explore",
+          "summary": "Sweep Desiccated Desert treasure chains",
+          "detail": "Teleport to Duneshelter (357,347) and circuit the nearby wrecked convoys and cliff ruins; Medium Pal Souls frequently spawn loose or in chests throughout the desert, so clear each lap before raids reset.【palwiki-medium-pal-soul-raw†L22-L29】【palfandom-medium-pal-soul-raw†L27-L30】【palwiki-duneshelter†L506-L516】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "medium-pal-soul",
+              "qty": 3
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "desiccated-desert",
+              "coords": [
+                357,
+                347
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [
+              "lantern"
+            ],
+            "pals": [
+              "mammorest",
+              "pyrin"
+            ],
+            "consumables": [
+              "heat-resistant-armor"
+            ]
+          },
+          "xp_award_estimate": {
+            "min": 80,
+            "max": 120
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "medium-pal-soul",
+                "qty": 3
+              }
+            ],
+            "pals": [],
+            "unlocks": {}
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-medium-pal-soul-raw",
+            "palfandom-medium-pal-soul-raw",
+            "palwiki-duneshelter"
+          ]
+        },
+        {
+          "step_id": "resource-medium-pal-soul:004",
+          "type": "craft",
+          "summary": "Convert souls at the Crusher",
+          "detail": "Feed surplus Small Pal Souls into the Crusher for Medium conversions and down-convert spare Large souls when raids oversupply them, keeping the statue queue flush before raid prep sessions.【palwiki-medium-pal-soul-raw†L31-L42】",
+          "targets": [
+            {
+              "kind": "item",
+              "id": "medium-pal-soul",
+              "qty": 6
+            }
+          ],
+          "locations": [
+            {
+              "region_id": "base",
+              "coords": [
+                0,
+                0
+              ],
+              "time": "any",
+              "weather": "any"
+            }
+          ],
+          "mode_adjustments": {},
+          "recommended_loadout": {
+            "gear": [],
+            "pals": [
+              "anubis"
+            ],
+            "consumables": []
+          },
+          "xp_award_estimate": {
+            "min": 60,
+            "max": 120
+          },
+          "outputs": {
+            "items": [
+              {
+                "item_id": "medium-pal-soul",
+                "qty": 6
+              }
+            ],
+            "pals": [],
+            "unlocks": {
+              "statue-upgrades": true
+            }
+          },
+          "branching": [],
+          "citations": [
+            "palwiki-medium-pal-soul-raw"
+          ]
+        }
+      ],
+      "completion_criteria": [
+        {
+          "type": "have-item",
+          "item_id": "medium-pal-soul",
+          "qty": 20
+        }
+      ],
+      "yields": {
+        "levels_estimate": "+1 to +2",
+        "key_unlocks": [
+          "medium-pal-soul-buffer",
+          "statue-upgrade-pipeline"
+        ]
+      },
+      "metrics": {
+        "progress_segments": 4,
+        "boss_targets": 0,
+        "quest_nodes": 0
+      },
+      "next_routes": [
+        {
+          "route_id": "resource-large-pal-soul",
+          "reason": "Large Pal Souls convert from Mediums and fuel the same Statue upgrades once mid-tier queues stabilize."
+        }
+      ]
+    },
+    {
       "route_id": "resource-large-pal-soul",
       "title": "Large Pal Soul Resonance",
       "category": "resources",

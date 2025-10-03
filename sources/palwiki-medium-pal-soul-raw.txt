@@ -1,0 +1,55 @@
+{{stub}}
+{{Item
+| description   = A spirit left behind by a Pal. It can draw out hidden abilities if offered to a [[Statue of Power]].
+| type          = Material
+| rarity        = Rare
+
+| weight        = 0.15
+| durability    = 
+
+| buy           = 10
+| sell          = 1
+
+| technology    = 
+| required_level = 
+| cost          = 
+| made_at       = Crusher
+| workload        = 10
+}}
+
+'''{{PAGENAME}}''' is a [[material]]. It can be offered to a [[Statue of Power]] to upgrade your pals' statistics.
+
+Medium Pal Souls are an [[Items|item]] that can be used at a [[Power Statue]] in the [[Pal Enhancement]] process to increase the stats of your [[Pals]]. They are the middle form of [[Pal Souls]]. Medium Pal Souls are obtainable from chests and dropped by certain Pals such as [[Helzephyr]]. They are also pretty common in [[chests]] throughout the [[Dessicated Desert]].
+
+==Acquisition==
+* Medium Pal Souls are most commonly found lying on the ground randomly throughout the map.
+* [[Crafting]]:
+**{{I|Crusher}}
+*Dropped by:
+{{Drops}}
+
+==Crafting==
+{{Recipe
+| mat1 = Small Pal Soul
+| mat1qty = 2
+| output1 = Medium Pal Soul
+| output1qty = 1
+}}
+{{Recipe
+| mat1 = Large Pal Soul
+| mat1qty = 1
+| output1 = Medium Pal Soul
+| output1qty = 2
+}}
+
+==Products==
+{{Products}}
+
+== History ==
+* [[0.2.0.6]]
+** Can now be converted at the [[Crusher]].
+* [[0.1.2.0]]
+** Introduced.
+
+{{Navbox Materials}}
+[[Category:Materials]]
