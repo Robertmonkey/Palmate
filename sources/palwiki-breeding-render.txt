@@ -1,0 +1,3 @@
+Breeding overview — palworld.fandom.com (rendered HTML)
+To breed Pals together you will need a Breeding Farm. Once you place the Breeding Farm you must assign a male and female Pal. The Breeding Farm also needs to be supplied with Cake. After some time they will produce a Pal Egg which can then be incubated.
+Breeding eggs now have a slight chance to produce an Alpha Pal.

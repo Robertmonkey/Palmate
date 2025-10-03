@@ -24437,6 +24437,334 @@ High Quality Pal Oil Sanctuary Circuit stitches settlement merchant restocks wit
 }
 ```
 
+### Route: Cotton Candy Woolipop Confection Loop
+
+Cotton Candy Woolipop Confection Loop uses breeding-farm automation to hatch a steady Woolipop line, then stations the flock on your ranch so cotton candy stockpiles never expire between dessert batches.【palwiki-breeding-render†L1-L3】【palwiki-woolipop†L12-L120】【palwiki-cotton-candy†L4-L24】
+
+```json
+{
+  "route_id": "resource-cotton-candy",
+  "title": "Cotton Candy Woolipop Confection Loop",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "cotton-candy",
+    "dessert",
+    "support"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 14,
+    "max": 32
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "resource-cake",
+      "resource-lamball-mutton",
+      "resource-milk"
+    ],
+    "tech": [
+      "breeding-farm",
+      "ranch"
+    ],
+    "items": [
+      "cake"
+    ],
+    "pals": []
+  },
+  "objectives": [
+    "Stage breeding farm cake reserves and parent pals",
+    "Hatch Woolipop eggs from Lamball + Mozzarina pairs",
+    "Assign Woolipop to the ranch and warehouse surplus cotton candy"
+  ],
+  "estimated_time_minutes": {
+    "solo": 38,
+    "coop": 26
+  },
+  "estimated_xp_gain": {
+    "min": 180,
+    "max": 300
+  },
+  "risk_profile": "low",
+  "failure_penalties": {
+    "normal": "Losing the cake to idle parents stalls breeding until another batch is baked.",
+    "hardcore": "If raids kill Woolipop or parents you lose both cotton candy output and your breeding seed pair."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Run the Lamball Mutton and Milk routes to capture Lamball and Mozzarina parents, then feed one cake into the Breeding Farm to produce a first Woolipop without hunting high-level zones.【palwiki-breeding-render†L1-L3】【palwiki-woolipop-breeding†L2-L9】",
+    "overleveled": "Breed multiple Woolipop pairs so their guaranteed cotton candy and High Quality Pal Oil drops keep late-game confectionery and polymer lines humming.【palwiki-woolipop†L66-L100】",
+    "resource_shortages": [
+      {
+        "item_id": "cotton_candy",
+        "solution": "Assign each Woolipop to the ranch—Candy Pop guarantees 1–2 cotton candy per cycle and stock never spoils, so fill a chest before logging off.【palwiki-woolipop†L12-L120】【palwiki-cotton-candy†L4-L24】"
+      }
+    ],
+    "time_limited": "Queue cakes ahead of time and let Woolipop work the ranch overnight—the candy never expires, making it ideal for weekend prep.【palwiki-cotton-candy†L4-L24】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Have one player babysit incubators while the other rotates ranch assignments and restocks cake so eggs and candy flow in parallel.",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-cotton-candy:001",
+          "resource-cotton-candy:002",
+          "resource-cotton-candy:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-cotton-candy:checkpoint-cake",
+      "label": "Breeding Farm Stocked",
+      "includes": [
+        "resource-cotton-candy:001"
+      ]
+    },
+    {
+      "id": "resource-cotton-candy:checkpoint-incubator",
+      "label": "Woolipop Hatchery Online",
+      "includes": [
+        "resource-cotton-candy:002"
+      ]
+    },
+    {
+      "id": "resource-cotton-candy:checkpoint-ranch",
+      "label": "Candy Ranch Output Stable",
+      "includes": [
+        "resource-cotton-candy:003"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "resource-cotton-candy:001",
+      "type": "prepare",
+      "summary": "Stage cake and Breeding Farm staffing",
+      "detail": "Unlock the Breeding Farm, drop at least one cake into its chest, and assign a male and female parent so the queue can begin as soon as you deliver Lamball and Mozzarina.【palwiki-breeding-render†L1-L3】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "cake",
+          "qty": 2
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "adjustment": "Stock an extra cake and keep parents in the Palbox until raids end to avoid losing breeding bait.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": [
+          "cake"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 60
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-cake"
+        }
+      ],
+      "citations": [
+        "palwiki-breeding-render†L1-L3"
+      ]
+    },
+    {
+      "step_id": "resource-cotton-candy:002",
+      "type": "base",
+      "summary": "Pair Lamball and Mozzarina to hatch Woolipop",
+      "detail": "Pull a Lamball and Mozzarina from storage, assign them to the Breeding Farm with cake, and incubate the resulting Woolipop eggs; the combo is guaranteed and keeps you in early-game zones.【palwiki-woolipop-breeding†L2-L9】【palwiki-breeding-render†L1-L3】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "woolipop",
+          "qty": 2
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "breeder",
+              "tasks": "Cycles parents and cake"
+            },
+            {
+              "role": "runner",
+              "tasks": "Monitors incubators and shuttles hatchlings to the ranch"
+            }
+          ],
+          "loot_rules": "Alternate ownership of hatched Woolipop so both players unlock the ranch drop."
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "lamball",
+          "mozzarina"
+        ],
+        "consumables": [
+          "cake"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 120
+      },
+      "outputs": {
+        "items": [],
+        "pals": [
+          "woolipop"
+        ],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-lamball-mutton"
+        },
+        {
+          "subroute_ref": "resource-milk"
+        }
+      ],
+      "citations": [
+        "palwiki-woolipop-breeding†L2-L9",
+        "palwiki-breeding-render†L1-L3"
+      ]
+    },
+    {
+      "step_id": "resource-cotton-candy:003",
+      "type": "assign",
+      "summary": "Staff Woolipop on the Ranch for cotton candy",
+      "detail": "Drop Woolipop onto the ranch: Candy Pop guarantees 1–2 cotton candy plus High Quality Pal Oil per cycle, and the sweets never spoil, so funnel output into chests for long-term buffs.【palwiki-woolipop†L12-L100】【palwiki-cotton-candy†L4-L24】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "cotton_candy",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Pen Woolipop behind walls or capture a Pal Merchant so raids cannot snipe your candy source.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "woolipop"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 60,
+        "max": 90
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "cotton_candy",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-high-quality-pal-oil"
+        }
+      ],
+      "citations": [
+        "palwiki-woolipop†L12-L100",
+        "palwiki-cotton-candy†L4-L24"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "cotton_candy",
+      "qty": 15
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "cotton-candy-stockpile"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-high-quality-pal-oil",
+      "reason": "Woolipop ranching doubles as a High Quality Pal Oil drip once your candy reserve is stable."
+    }
+  ]
+}
+```
+
 ## Source Registry
 
 The source registry maps the short citation keys used throughout this file
@@ -24847,6 +25175,18 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/index.php?title=Mozzarina&action=raw",
       "access_date": "2025-10-27",
       "notes": "Shows Mozzarina Meat dropping in 2\u20133 piece bundles at 100% alongside guaranteed milk for both normal and alpha variants.\u3010palwiki-mozzarina-raw\u2020L65-L105\u3011"
+    },
+    "palwiki-breeding-render": {
+      "title": "Breeding \u2013 Palworld Wiki (rendered)",
+      "url": "https://palworld.fandom.com/wiki/Breeding?action=render",
+      "access_date": "2025-11-07",
+      "notes": "Rendered page states the Breeding Farm needs a male and female Pal plus Cake to produce eggs.\u3010palwiki-breeding-render\u2020L1-L3\u3011"
+    },
+    "palwiki-woolipop-breeding": {
+      "title": "Woolipop \u2013 Palworld Wiki (breeding render)",
+      "url": "https://palworld.fandom.com/wiki/Woolipop?action=render",
+      "access_date": "2025-11-07",
+      "notes": "Lists breeding combinations including Lamball + Mozzarina yielding Woolipop eggs.\u3010palwiki-woolipop-breeding\u2020L2-L9\u3011"
     },
     "palwiki-gumoss": {
       "title": "Gumoss \u2013 Palworld Wiki (Fandom)",
