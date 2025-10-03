@@ -87,6 +87,10 @@ This document describes the responsibilities, workflows and quality assurance st
   * Next steps: extend metal coverage to Refined Ingot/Pal Metal Ingot routes, capture merchant pricing for ore batches, and source additional automation footage for alternative mining pals (e.g., Rushoar, Dumud) to diversify loadouts.
 *Progress 2025-10-16:* Built Wheat Seed Field Logistics (`resource-wheat-seeds`), synchronized the bundle object, integrated PCGamesN merchant/location coverage plus Dinossom drop data, and corrected the tomato seed bundle citation ID typo.
   * Next steps: capture precise Bridge of the Twin Knights coordinates or map screenshots to reinforce Flopie spawn directions, log merchant restock timing for seed vendors, and continue seed/meat backlog (Caprity meat, plantation throughput benchmarks).
+*Progress 2025-10-17:* Authored Large Pal Soul Resonance (`resource-large-pal-soul`) covering Statue of Power/Crusher prep, Anubis alpha loops, Crusher conversions, and sanctuary raid sweeps. Synced bundle data, created supporting source excerpts, and expanded the source registry with Game8, Palworld wiki, and Fandom citations.
+  * Next steps: source dependable locations for Necromus and Frostallion Noct field spawns to diversify soul farming, document medium/giant Pal Soul routes, and capture Executioner raid spawn timing for automated defenses.
+*Progress 2025-10-18:* Expanded Tomato Seed Greenhouse Circuit with Duneshelter merchant loops, Oasis Isle Braloha sweeps, and Sealed Realm Vaelet clears; refreshed automation guidance, rebuilt bundle JSON via script sync, and registered new printable/raw wiki sources for every citation.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-braloha-raw†L121-L125】【palwiki-sealed-guardian†L631-L660】
+  * Next steps: capture reliable coordinate references for Oasis Isle proper (beyond Duneshelter staging), document Dinossom Lux alternatives if future patches shift alpha rotations, and monitor merchant restock timers for gold budgeting guidance.
 
 ## Performance Notes
 

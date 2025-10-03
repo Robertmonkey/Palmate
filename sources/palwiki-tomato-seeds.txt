@@ -1,0 +1,1345 @@
+
+
+
+
+
+
+
+
+Tomato Seeds - The Palworld Wiki
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Create account
+
+
+Log in
+
+
+
+
+
+
+
+
+
+
+Toggle personal tools menu
+
+
+
+
+
+
+
+
+Create account
+
+
+Log in
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Navigation menu
+
+
+
+
+
+
+
+
+
+
+Namespaces
+
+
+
+
+
+
+
+
+Page
+Discussion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+English
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Views
+
+
+
+
+
+
+
+
+Read
+Sign up to edit
+View source
+View history
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+More
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Search
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Navigation
+
+
+
+
+
+
+
+
+Main page
+Recent changes
+Random page
+
+
+
+
+
+
+
+
+
+
+
+
+The Basics
+
+
+
+
+
+
+
+
+Players
+Pals
+Elements
+Technology
+Bases
+
+
+
+
+
+
+
+
+
+
+
+
+Pals
+
+
+
+
+
+
+
+
+Partner Skills
+Active Skills
+Passive Skills
+Mounts
+Breeding
+Condensation
+Enhancement
+Alpha Pals
+
+
+
+
+
+
+
+
+
+
+
+
+Items
+
+
+
+
+
+
+
+
+Items
+Weapons
+Ingredients
+Materials
+
+
+
+
+
+
+
+
+
+
+
+
+World
+
+
+
+
+
+
+
+
+Palpagos Islands
+Factions
+Bosses
+Dungeons
+Raids
+
+
+
+
+
+
+
+
+
+
+
+
+Wiki Maintenance
+
+
+
+
+
+
+
+
+Templates
+Page Templates
+Cargo tables
+
+
+
+
+
+
+
+
+
+
+
+
+Tools
+
+
+
+
+
+
+
+
+What links here
+Related changes
+New page
+Special pages
+Page information
+Database data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tomato Seeds
+
+
+
+
+From Palworld Wiki
+
+
+
+
+
+
+
+
+Jump to navigation
+
+
+Jump to search
+
+
+The printable version is no longer supported and may have rendering errors. Please update your browser bookmarks and please use the default browser print function instead.
+Stub
+This article is a 
+stub
+. You can help Palworld Wiki by 
+expanding it
+.
+
+
+Tomato Seeds 
+
+
+
+
+
+
+
+
+Material
+
+
+Common
+
+
+
+
+
+
+Seeds that produce 
+Tomato
+. Necessary for starting a farm. Can be purchased from a merchant.
+
+
+Properties
+
+
+ Weight
+
+
+0.05
+
+
+
+
+
+
+ Buy Price
+
+
+ Sell Price
+
+
+
+
+
+
+200
+
+
+20
+
+
+
+
+
+
+Tomato Seeds
+ is a 
+material
+. Tomato seeds are used to grow tomatoes. They can be bought from a wandering merchant with gold coins or dropped by certain Pals. 
+
+
+
+Acquisition
+
+
+Dropped by:
+
+
+
+
+
+
+Pal
+
+
+
+Min
+
+
+
+Max
+
+
+
+Chance
+
+
+
+
+
+ 
+Braloha
+
+
+
+
+1
+
+
+
+1
+
+
+
+50%
+
+
+
+
+
+ 
+Braloha
+ 
+
+
+
+
+1
+
+
+
+1
+
+
+
+50%
+
+
+
+
+
+ 
+Broncherry
+
+
+
+
+1
+
+
+
+2
+
+
+
+50%
+
+
+
+
+
+ 
+Broncherry
+ 
+
+
+
+
+1
+
+
+
+2
+
+
+
+50%
+
+
+
+
+
+ 
+Dinossom Lux
+
+
+
+
+1
+
+
+
+2
+
+
+
+50%
+
+
+
+
+
+ 
+Dinossom Lux
+ 
+
+
+
+
+1
+
+
+
+2
+
+
+
+50%
+
+
+
+
+
+ 
+Mossanda
+
+
+
+
+1
+
+
+
+1
+
+
+
+50%
+
+
+
+
+
+ 
+Vaelet
+
+
+
+
+1
+
+
+
+1
+
+
+
+50%
+
+
+
+
+
+ 
+Vaelet
+ 
+
+
+
+
+1
+
+
+
+1
+
+
+
+50%
+
+
+
+
+
+ 
+Wumpo Botan
+
+
+
+
+1
+
+
+
+1
+
+
+
+100%
+
+
+
+
+
+ 
+Wumpo Botan
+ 
+
+
+
+
+1
+
+
+
+1
+
+
+
+100%
+
+
+
+Products
+
+
+
+
+
+
+Item
+
+
+Materials
+
+
+
+
+
+ 
+Tomato Plantation
+
+
+
+
+Tomato Plantation
+
+
+
+
+3 × 
+ 
+Tomato Seeds
+70 × 
+ 
+Wood
+50 × 
+ 
+Stone
+5 × 
+ 
+Pal Fluids
+
+
+
+
+
+
+
+
+
+
+History
+
+
+0.1.2.0
+
+
+Introduced.
+
+
+View or edit this template
+Materials
+ in 
+Palworld
+Basic Materials
+
+
+ 
+Wood
+
+
+ 
+Stone
+
+
+ 
+Fiber
+
+
+ 
+Berry Seeds
+
+
+ 
+Wheat Seeds
+
+
+ 
+Tomato Seeds
+
+
+ 
+Lettuce Seeds
+
+
+ 
+Flame Organ
+
+
+ 
+Electric Organ
+
+
+ 
+Ice Organ
+
+
+ 
+Venom Gland
+
+
+ 
+Pal Fluids
+
+
+ 
+Bone
+
+
+ 
+Horn
+
+
+ 
+Leather
+
+
+ 
+Wool
+
+
+ 
+High Quality Pal Oil
+
+
+Pal Materials
+
+
+ 
+Pal Eggs
+
+
+ 
+Dazzi Cloud
+
+
+ 
+Gumoss Leaf
+
+
+ 
+Katress Hair
+
+
+ 
+Killamari Tentacle
+
+
+ 
+Leezpunk Crest
+
+
+ 
+Penking Plume
+
+
+ 
+Ribbuny Ribbon
+
+
+ 
+Swee Hair
+
+
+ 
+Tocotoco Feather
+
+
+Ores & Ingots
+
+
+ 
+Ore
+
+
+ 
+Ingot
+
+
+ 
+Refined Ingot
+
+
+ 
+Pal Metal Ingot
+
+
+ 
+Plasteel
+
+
+ 
+Paldium Fragment
+
+
+ 
+Meteorite Fragment
+
+
+ 
+Charcoal
+
+
+ 
+Coal
+
+
+ 
+Sulfur
+
+
+ 
+Pure Quartz
+
+
+ 
+Crude Oil
+
+
+Production Goods
+
+
+ 
+Carbon Fiber
+
+
+ 
+Cement
+
+
+ 
+Circuit Board
+
+
+ 
+Cloth
+
+
+ 
+Gunpowder
+
+
+ 
+High Quality Cloth
+
+
+ 
+Nail
+
+
+ 
+Polymer
+
+
+High-tier Materials
+
+
+ 
+Small Pal Soul
+
+
+ 
+Medium Pal Soul
+
+
+ 
+Large Pal Soul
+
+
+ 
+Ancient Civilization Parts
+
+
+ 
+Ancient Civilization Core
+
+
+ 
+Life Lotus (S)
+
+
+ 
+Stamina Lotus (S)
+
+
+ 
+Power Lotus (S)
+
+
+ 
+Speed Lotus (S)
+
+
+ 
+Carrying Lotus (S)
+
+
+ 
+Life Lotus (L)
+
+
+ 
+Stamina Lotus (L)
+
+
+ 
+Power Lotus (L)
+
+
+ 
+Speed Lotus (L)
+
+
+ 
+Carrying Lotus (L)
+
+
+Valuables
+
+
+ 
+Gold Coin
+
+
+ 
+Dog Coin
+
+
+ 
+Diamond
+
+
+ 
+Emerald
+
+
+ 
+Ruby
+
+
+ 
+Sapphire
+
+
+ 
+Precious Claw
+
+
+ 
+Precious Dragon Stone
+
+
+ 
+Precious Entrails
+
+
+ 
+Precious Pelt
+
+
+ 
+Precious Plume
+
+
+Unreleased Content
+
+
+ 
+Animal Skin
+
+
+Dung
+
+
+ 
+Fang
+
+
+Huge Dung Pile
+
+
+Paldium Clump
+
+
+Plastic
+
+
+Silicon
+
+
+
+
+
+
+
+
+
+
+
+
+Retrieved from "
+https://palworld.wiki.gg/wiki/Tomato_Seeds?oldid=14899
+"
+
+
+Categories
+: 
+Stubs
+Items
+Materials
+Hidden category: 
+Pages with navboxes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Report bad advertisement
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cookies help us deliver our services. By using our services, you agree to our use of cookies.
+More information
+OK
+
+
+
+
+
+
+
+
+ This page was last edited on 18 May 2024, at 07:42.
+
+
+Pages that were created prior to October 2023 are adapted from the Fandom Palworld wiki.
+Page content is under 
+Creative Commons Attribution-ShareAlike 4.0 License
+ unless otherwise noted.
+
+
+
+
+
+
+Terms of Service
+
+
+Privacy policy
+
+
+Support Wiki
+
+
+Send a ticket to wiki.gg
+
+
+Status page
+
+
+Manage cookie settings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

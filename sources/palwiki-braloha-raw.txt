@@ -1,0 +1,142 @@
+{{Pal Prev/Next | prevPal = Palumba | prevNo = 144 | nextPal = Munchill | nextNo = 146}}
+{{Pal
+
+| name                   = {{PAGENAME}}
+| no                     = 145
+| title                  = Ancient Bloombringer
+
+| ele1                   = Grass
+| ele2                   = Ground
+
+| partnerskill           = Balmy Weather
+| partnerskill_desc      = While at a base, shortens the time it takes Pals assigned to Breeding Farm to produce eggs.(Effect does not stack.)
+| partnerskill_icon      = Drop Boost
+
+| hp                     = 130
+| attack                 = 95
+| attack_melee           = 100
+| defense                = 120
+| support                = 100
+
+| slow_walk_speed        = 70
+| walk_speed             = 95
+| run_speed              = 600
+| ride_sprint_speed      = 1020
+| transport_speed        = -1
+| swimspeed              = 180
+| swimdashspeed          = 306
+| stamina                = 100
+
+| price                  = 6500
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 335
+
+| passiveskill1          = 
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Bog Blast
+| activeskill7           = Seed Mine
+| activeskill15          = Grass Tornado
+| activeskill22          = Spine Vine
+| activeskill30          = Deep Breath
+| activeskill40          = Solar Blast
+| activeskill50          = Stone Beat
+
+| kindling               = 
+| watering               = 
+| planting               = 4
+| generating_electricity = 
+| handiwork              = 
+| gathering              = 4
+| lumbering              = 
+| mining                 = 2
+| medicine_production    = 
+| cooling                = 
+| transporting           = 
+| farming                = 
+
+| food                   = 7
+| nocturnal              = No
+
+| drop1                  = Leather
+| drop1_min              = 1
+| drop1_max              = 1
+| drop1_chance           = 100
+| drop2                  = Red Berries
+| drop2_min              = 1
+| drop2_max              = 2
+| drop2_chance           = 60
+| drop3                  = Lettuce Seeds
+| drop3_min              = 1
+| drop3_max              = 2
+| drop3_chance           = 50
+| drop4                  = Tomato Seeds
+| drop4_min              = 1
+| drop4_max              = 1
+| drop4_chance           = 50
+| drop5                  = 
+| drop5_min              = 
+| drop5_max              = 
+| drop5_chance           = 
+
+| alphadrop1             = Ancient Civilizaion Parts
+| alphadrop1_min         = 2
+| alphadrop1_max         = 3
+| alphadrop1_chance      = 100
+| alphadrop2             = Leather
+| alphadrop2_min         = 1
+| alphadrop2_max         = 1
+| alphadrop2_chance      = 100
+| alphadrop3             = Red Berries
+| alphadrop3_min         = 1
+| alphadrop3_max         = 2
+| alphadrop3_chance      = 60
+| alphadrop4             = Lettuce Seeds
+| alphadrop4_min         = 1
+| alphadrop4_max         = 2
+| alphadrop4_chance      = 50
+| alphadrop5             = Tomato Seeds
+| alphadrop5_min         = 1
+| alphadrop5_max         = 1
+| alphadrop5_chance      = 50
+| alphadrop6             = Precious Dragonstone
+| alphadrop6_min         = 2
+| alphadrop6_max         = 3
+| alphadrop6_chance      = 100
+| alphadrop7             = Grass Support Whistle +1
+| alphadrop7_min         = 1
+| alphadrop7_max         = 1
+| alphadrop7_chance      = 3
+}}{{paldeck|Its breath carries a miraculous, pollen-like substance that pollinates any plant it touches. For plant-based Pals, being near it can be a bit… complicated.}}
+'''{{PAGENAME}}''' is a {{I|Grass}}/{{I|Ground}}-[[Elements|element]] [[Pals|Pal]].
+
+== Appearance ==
+TBD
+
+== Habitat ==
+It can be found exclusively on Oasis Isle (East of the Desiccated Desert, near the tip of the long peninsula).
+
+== Behavior ==
+This Pal is Neutral and will not the attack Player but will fight back if engaged.
+
+== Utility ==
+TBD
+
+== History ==
+
+* This Pal was first introduced in v.0.6.0 of Palworld.
+
+== Trivia ==
+* This Pal was featured in [[Paldeck]] #??? on ??/??/2025: 
+
+== Media ==
+<gallery widths=150>
+...
+</gallery>
+
+[[Category:Pals]]
