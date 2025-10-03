@@ -8354,91 +8354,91 @@
               "id": "high_quality_pal_oil",
               "slug": "high-quality-pal-oil",
               "name": "High Quality Pal Oil"
-        }
-      ]
-    },
-    {
-      "id": "resource-galeclaw-poultry-skyridge",
-      "title": "Galeclaw Poultry Skyridge Circuit",
-      "source_heading": "Galeclaw Poultry Skyridge Circuit",
-      "category": "Resources",
-      "category_group": "Resources & Crafting",
-      "shortage_menu": true,
-      "trigger": "Player needs Galeclaw Poultry for mid-game cooking buffs and basic Chikipi runs are too slow.",
-      "keywords": [
-        "galeclaw poultry",
-        "meat cleaver",
-        "small settlement",
-        "cooler box"
-      ],
-      "steps": [
-        {
-          "order": 1,
-          "instruction": "Fast travel to the **Small Settlement (75,-479)** and sweep the western ridge to capture Galeclaw flights.",
-          "citations": [
-            "palwiki-small-settlement\u2020L3-L15",
-            "palfandom-windswept-hills-raw\u2020L24-L40"
-          ],
-          "links": [
-            {
-              "type": "location",
-              "id": "small-settlement",
-              "name": "Small Settlement",
-              "region": "Windswept Hills"
-            },
-            {
-              "type": "pal",
-              "id": "galeclaw",
-              "slug": "galeclaw",
-              "name": "Galeclaw"
             }
           ]
         },
         {
-          "order": 2,
-          "instruction": "Craft the **Meat Cleaver** and butcher captured Galeclaw—each yields one Galeclaw Poultry at 100%.",
-          "citations": [
-            "palwiki-meat-cleaver\u2020L20-L39",
-            "palwiki-galeclaw-raw\u2020L6-L33"
+          "id": "resource-galeclaw-poultry-skyridge",
+          "title": "Galeclaw Poultry Skyridge Circuit",
+          "source_heading": "Galeclaw Poultry Skyridge Circuit",
+          "category": "Resources",
+          "category_group": "Resources & Crafting",
+          "shortage_menu": true,
+          "trigger": "Player needs Galeclaw Poultry for mid-game cooking buffs and basic Chikipi runs are too slow.",
+          "keywords": [
+            "galeclaw poultry",
+            "meat cleaver",
+            "small settlement",
+            "cooler box"
           ],
-          "links": [
+          "steps": [
             {
-              "type": "item",
-              "id": "meat-cleaver",
-              "slug": "meat-cleaver",
-              "name": "Meat Cleaver"
+              "order": 1,
+              "instruction": "Fast travel to the **Small Settlement (75,-479)** and sweep the western ridge to capture Galeclaw flights.",
+              "citations": [
+                "palwiki-small-settlement\u2020L3-L15",
+                "palfandom-windswept-hills-raw\u2020L24-L40"
+              ],
+              "links": [
+                {
+                  "type": "location",
+                  "id": "small-settlement",
+                  "name": "Small Settlement",
+                  "region": "Windswept Hills"
+                },
+                {
+                  "type": "pal",
+                  "id": "galeclaw",
+                  "slug": "galeclaw",
+                  "name": "Galeclaw"
+                }
+              ]
             },
             {
-              "type": "item",
-              "id": "galeclaw_poultry",
-              "slug": "galeclaw-poultry",
-              "name": "Galeclaw Poultry"
+              "order": 2,
+              "instruction": "Craft the **Meat Cleaver** and butcher captured Galeclaw\u2014each yields one Galeclaw Poultry at 100%.",
+              "citations": [
+                "palwiki-meat-cleaver\u2020L20-L39",
+                "palwiki-galeclaw-raw\u2020L6-L33"
+              ],
+              "links": [
+                {
+                  "type": "item",
+                  "id": "meat-cleaver",
+                  "slug": "meat-cleaver",
+                  "name": "Meat Cleaver"
+                },
+                {
+                  "type": "item",
+                  "id": "galeclaw_poultry",
+                  "slug": "galeclaw-poultry",
+                  "name": "Galeclaw Poultry"
+                }
+              ]
+            },
+            {
+              "order": 3,
+              "instruction": "Unlock a **Cooler Box** and assign a Cooling Pal so butchered poultry stays fresh between hunts.",
+              "citations": [
+                "palwiki-cooler-box-raw\u2020L1-L24",
+                "palwiki-galeclaw-raw\u2020L6-L33"
+              ],
+              "links": [
+                {
+                  "type": "structure",
+                  "id": "cooler-box",
+                  "name": "Cooler Box"
+                },
+                {
+                  "type": "pal",
+                  "id": "penking",
+                  "slug": "penking",
+                  "name": "Penking"
+                }
+              ]
             }
           ]
         },
-        {
-          "order": 3,
-          "instruction": "Unlock a **Cooler Box** and assign a Cooling Pal so butchered poultry stays fresh between hunts.",
-          "citations": [
-            "palwiki-cooler-box-raw\u2020L1-L24",
-            "palwiki-galeclaw-raw\u2020L6-L33"
-          ],
-          "links": [
-            {
-              "type": "structure",
-              "id": "cooler-box",
-              "name": "Cooler Box"
-            },
-            {
-              "type": "pal",
-              "id": "penking",
-              "slug": "penking",
-              "name": "Penking"
-            }
-          ]
-        }
-      ]
-    },
         {
           "order": 2,
           "instruction": "Capture **Elphidran** at **No. 1 Wildlife Sanctuary (90,-735)** for guaranteed 2\u20133 oil drops per capture.",
@@ -8505,6 +8505,93 @@
               "id": "high_quality_pal_oil",
               "slug": "high-quality-pal-oil",
               "name": "High Quality Pal Oil"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-cotton-candy-woolipop",
+      "title": "Cotton Candy Woolipop Confection Loop",
+      "source_heading": "Cotton Candy Woolipop Confection Loop",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Cotton Candy for desserts or trade stock and lacks a reliable ranch supply.",
+      "keywords": [
+        "cotton candy",
+        "woolipop",
+        "breeding",
+        "cake"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "**Bake cake and unlock the Breeding Farm** so you can load at least one cake and assign a male and female parent before hatching begins.",
+          "citations": [
+            "palwiki-breeding-render\u2020L1-L3",
+            "palwiki-cotton-candy\u2020L4-L24"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "breeding-farm",
+              "name": "Breeding Farm"
+            },
+            {
+              "type": "item",
+              "id": "cake",
+              "slug": "cake",
+              "name": "Cake"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "**Breed Lamball + Mozzarina** at the farm to hatch Woolipop eggs without leaving Windswept Hills.",
+          "citations": [
+            "palwiki-woolipop-breeding\u2020L2-L9"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "lamball",
+              "slug": "lamball",
+              "name": "Lamball"
+            },
+            {
+              "type": "pal",
+              "id": "mozzarina",
+              "slug": "mozzarina",
+              "name": "Mozzarina"
+            },
+            {
+              "type": "pal",
+              "id": "woolipop",
+              "slug": "woolipop",
+              "name": "Woolipop"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "**Assign Woolipop to a Ranch** to harvest 1\u20132 Cotton Candy per cycle and bank the sweets since they never expire.",
+          "citations": [
+            "palwiki-woolipop\u2020L12-L120",
+            "palwiki-cotton-candy\u2020L4-L24"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "woolipop",
+              "slug": "woolipop",
+              "name": "Woolipop"
+            },
+            {
+              "type": "item",
+              "id": "cotton_candy",
+              "slug": "cotton-candy",
+              "name": "Cotton Candy"
             }
           ]
         }

@@ -127,3 +127,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Locate a second independent map citation with explicit Galeclaw spawn coordinates (e.g., interactive map exports) to strengthen location guidance beyond the Fandom listing.
 2. Audit late-game cooking routes (Cake, Luxury Meals) to ensure they reference Galeclaw poultry in their prerequisites now that the supply loop exists.
 3. Prototype a sanctuary/alpha follow-up once reliable Caprity citations land so higher-tier poultry inputs (Caprity Meat) can chain directly from this route.
+
+### 2025-11-07 Cotton Candy ranch automation
+
+* Added the `resource-cotton-candy` route with breeding-focused steps, checkpoints, and adaptive guidance so shortages now surface a Woolipop ranch loop.
+* Synced `data/guides.bundle.json` and `data/guide_catalog.json` to expose the new resource in the client shortage menu, including merchant/breeding metadata.
+* Captured new rendered citations (`palwiki-breeding-render`, `palwiki-woolipop-breeding`) and registered them in the source registry alongside existing cotton candy/woolipop entries.
+
+**Continuation notes:**
+
+1. Source a field citation for wild Woolipop spawn coordinates (e.g., interactive map export) so the route can offer an alternate capture path for players without cake.
+2. Confirm whether any merchants sell Cotton Candy directly and, if so, add a `trade` branch plus catalog link for rapid restocks.
+3. After production deploy, verify the shortages UI removes Cotton Candy from `resourceGuideGaps`; if not, regenerate the production bundles and investigate parser expectations.
