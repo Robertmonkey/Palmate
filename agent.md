@@ -102,6 +102,9 @@ This document describes the responsibilities, workflows and quality assurance st
 *Progress 2025-10-22:* Built Gold Coin Treasury Circuit (`resource-gold-coin`) to chain Mau night hunts, Vixy/Mau ranch automation, and Small Settlement merchant sell loops; synchronized `guides.md` and `data/guides.bundle.json`, registered new wiki citations for Mau and Gold Coin economy coverage, and extracted fresh raw transcripts into `sources/`.【palwiki-mau-raw†L11-L115】【palwiki-gold-coin-raw†L3-L28】【palwiki-gold-coin†L28-L44】【palwiki-wandering-merchant-raw†L1-L119】
   * Next steps: secure independent coverage for treasure chest coin routes and PIDF incident timers, gather spawn citations for Galeclaw poultry and Caprity meat to unlock their meat guides, and trace merchant restock cadence so the currency loop can feed higher-tier refinery routes.
 
+*Progress 2025-10-23:* Authored Lamball Butchery Circuit (`resource-lamball-mutton`), synchronized the bundled dataset, and added Fandom/raw Palworld citations covering Lamball spawns, Meat Cleaver unlock requirements, and Lamball Mutton cooking/merchant economics. Guidance now covers safe Palbox corralling, cleaver rotations, and pantry management for meat loops.
+  * Next steps: capture second-source confirmations for Lamball merchant pricing or preservation infrastructure, source reliable spawn references for Caprity/Galeclaw meat routes, and expand meat coverage to Broncherry and Caprity once dual citations are secured.
+
 ## Performance Notes
 
 * **Chunking** – When creating or updating `guides.md`, generate large JSON blocks in manageable chunks to avoid exceeding context limits.  Use the container tools to build the file incrementally.
