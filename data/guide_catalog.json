@@ -7371,10 +7371,12 @@
         },
         {
           "order": 3,
-          "instruction": "Schedule overworld Alpha hunts on an in-game day cadence and plan Sealed Realm re-clears one hour after completion to keep rare drops flowing.",
+          "instruction": "Chain daily overworld clears on Alpha Broncherry (-222,-669) and Anubis (-134,-94), then book Bushi (-117,-490) and Penking (113,-353) Sealed Realms for one-hour resets so rare drops stay stocked.",
           "citations": [
-            "palwiki-alpha-pals†L8-L8",
-            "palwiki-sealed-realms†L76-L76"
+            "palwiki-alpha-pals†L98-L110",
+            "palwiki-alpha-pals†L281-L287",
+            "palwiki-sealed-realms†L29-L33",
+            "palwiki-sealed-realms†L59-L62"
           ]
         }
       ]

@@ -8,11 +8,14 @@ prioritise new work quickly.
 """
 from __future__ import annotations
 
+import argparse
+import csv
+import io
 import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable, List, Set
+from typing import Iterable, List, Sequence, Set
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 GUIDES_PATH = REPO_ROOT / "guides.md"
@@ -87,25 +90,23 @@ def load_catalog_entries() -> List[CatalogEntry]:
     return entries
 
 
-def format_report(missing_routes: Iterable[CatalogEntry], missing_catalog: Iterable[ResourceRoute]) -> str:
-    lines = ["Resource Coverage Report"]
-    lines.append("========================\n")
-
-    missing_route_list = list(missing_routes)
-    if missing_route_list:
-        lines.append("Catalog entries without matching routes:")
-        for entry in missing_route_list:
+def format_text_report(
+    missing_routes: Sequence[CatalogEntry],
+    missing_catalog: Sequence[ResourceRoute],
+) -> str:
+    lines = ["Resource Coverage Report", "========================", ""]
+    lines.append(f"Catalog entries without matching routes: {len(missing_routes)}")
+    if missing_routes:
+        for entry in missing_routes:
             status = "shortage-menu" if entry.shortage_menu else "catalog-only"
             lines.append(f"  - {entry.entry_id} ({entry.title or 'untitled'}) [{status}]")
     else:
         lines.append("All catalogued resources have matching routes.")
 
     lines.append("")
-
-    missing_catalog_list = list(missing_catalog)
-    if missing_catalog_list:
-        lines.append("Routes missing catalog entries:")
-        for route in missing_catalog_list:
+    lines.append(f"Routes missing catalog entries: {len(missing_catalog)}")
+    if missing_catalog:
+        for route in missing_catalog:
             lines.append(f"  - {route.route_id} ({route.title or 'untitled'})")
     else:
         lines.append("All resource routes are present in the catalog.")
@@ -113,7 +114,99 @@ def format_report(missing_routes: Iterable[CatalogEntry], missing_catalog: Itera
     return "\n".join(lines)
 
 
-def main() -> None:
+def format_markdown_report(
+    missing_routes: Sequence[CatalogEntry],
+    missing_catalog: Sequence[ResourceRoute],
+) -> str:
+    lines = ["# Resource Coverage Report", ""]
+    lines.append(f"- Catalog entries without matching routes: **{len(missing_routes)}**")
+    lines.append(f"- Routes missing catalog entries: **{len(missing_catalog)}**")
+    lines.append("")
+
+    if missing_routes:
+        lines.append("## Catalog entries without matching routes")
+        for entry in missing_routes:
+            status = "shortage menu" if entry.shortage_menu else "catalog only"
+            lines.append(f"- `{entry.entry_id}` – {entry.title or 'untitled'} ({status})")
+        lines.append("")
+    else:
+        lines.append("All catalogued resources have matching routes.")
+        lines.append("")
+
+    if missing_catalog:
+        lines.append("## Routes missing catalog entries")
+        for route in missing_catalog:
+            lines.append(f"- `{route.route_id}` – {route.title or 'untitled'}")
+    else:
+        lines.append("All resource routes are present in the catalog.")
+
+    return "\n".join(lines)
+
+
+def format_csv_report(
+    missing_routes: Sequence[CatalogEntry],
+    missing_catalog: Sequence[ResourceRoute],
+) -> str:
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(["type", "id", "title", "shortage_menu"])
+    for entry in missing_routes:
+        writer.writerow(
+            [
+                "catalog_without_route",
+                entry.entry_id,
+                entry.title,
+                "true" if entry.shortage_menu else "false",
+            ]
+        )
+    for route in missing_catalog:
+        writer.writerow([
+            "route_without_catalog",
+            route.route_id,
+            route.title,
+            "",
+        ])
+    return buffer.getvalue().rstrip("\n")
+
+
+def format_report(
+    missing_routes: Iterable[CatalogEntry],
+    missing_catalog: Iterable[ResourceRoute],
+    report_format: str,
+) -> str:
+    missing_routes_list = list(missing_routes)
+    missing_catalog_list = list(missing_catalog)
+
+    if report_format == "markdown":
+        return format_markdown_report(missing_routes_list, missing_catalog_list)
+    if report_format == "csv":
+        return format_csv_report(missing_routes_list, missing_catalog_list)
+    return format_text_report(missing_routes_list, missing_catalog_list)
+
+
+def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Summarise resource coverage gaps between guides.md and the shortage catalog."
+        )
+    )
+    parser.add_argument(
+        "--format",
+        choices=("text", "markdown", "csv"),
+        default="text",
+        help="Output format. Defaults to human-readable text.",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="Optional file path to write the report instead of printing to stdout.",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    args = parse_args(argv)
+
     markdown = GUIDES_PATH.read_text(encoding="utf-8")
     routes = parse_resource_routes(markdown)
     entries = load_catalog_entries()
@@ -124,8 +217,14 @@ def main() -> None:
     missing_routes = [entry for entry in entries if entry.entry_id not in route_ids]
     missing_catalog = [route for route in routes if route.route_id not in catalog_ids]
 
-    report = format_report(missing_routes, missing_catalog)
-    print(report)
+    report = format_report(missing_routes, missing_catalog, args.format)
+
+    if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        output_text = report if report.endswith("\n") else report + "\n"
+        args.output.write_text(output_text, encoding="utf-8")
+    else:
+        print(report)
 
 
 if __name__ == "__main__":
