@@ -3408,7 +3408,7 @@ options to convert Ore into fragments when nodes are depleted.
       "step_id": "resource-paldium:001",
       "type": "gather",
       "summary": "Mine riverbed nodes",
-      "detail": "Follow the river south of the Windswept Hills fast travel statue.  Blue crystalline nodes respawn every few minutes and yield 2–4 fragments each【palwiki-paldium†L42-L71】.",
+      "detail": "Follow the river south of the Windswept Hills fast travel statue.  Blue crystalline nodes respawn every few minutes and yield 2–4 fragments each; scoop the stray shards on the ground and focus on the gray rocks shot through with blue veins described in the official materials compendium for consistent drops.【palwiki-paldium†L42-L71】【palwiki-paldium-raw†L17-L29】",
       "targets": [
         {
           "kind": "item",
@@ -3476,14 +3476,15 @@ options to convert Ore into fragments when nodes are depleted.
       },
       "branching": [],
       "citations": [
-        "palwiki-paldium"
+        "palwiki-paldium",
+        "palwiki-paldium-raw"
       ]
     },
     {
       "step_id": "resource-paldium:002",
       "type": "explore",
       "summary": "Hit cliffside outcrops",
-      "detail": "Circle the cliff ring northwest of the starting valley.  Surface fragments protrude from the ground and can be kicked for bonus drops, netting ~30 fragments per lap【palwiki-paldium†L86-L115】.",
+      "detail": "Circle the cliff ring northwest of the starting valley.  Surface fragments protrude from the ground and can be kicked for bonus drops, and any remaining stone piles may still cough up fragments as the wiki notes, keeping runs around ~30 shards per lap.【palwiki-paldium†L86-L115】【palwiki-paldium-raw†L21-L29】",
       "targets": [
         {
           "kind": "item",
@@ -3528,14 +3529,15 @@ options to convert Ore into fragments when nodes are depleted.
       },
       "branching": [],
       "citations": [
-        "palwiki-paldium"
+        "palwiki-paldium",
+        "palwiki-paldium-raw"
       ]
     },
     {
       "step_id": "resource-paldium:003",
       "type": "craft",
       "summary": "Refine fragments from Ore",
-      "detail": "Back at base, smelt spare Ore into Ingots, then crush the leftovers to convert into extra fragments.  Each smelting cycle produces 2 fragments as a by-product when using the Primitive Furnace【palwiki-paldium†L118-L140】.",
+      "detail": "Back at base, smelt spare Ore into Ingots, then crush the leftovers to convert into extra fragments.  Each smelting cycle produces 2 fragments as a by-product when using the Primitive Furnace, and the Crusher recipe turns spare Stone into fragments so you never leave empty-handed.【palwiki-paldium†L118-L140】【palwiki-paldium-raw†L23-L33】",
       "targets": [
         {
           "kind": "item",
@@ -3578,7 +3580,8 @@ options to convert Ore into fragments when nodes are depleted.
       },
       "branching": [],
       "citations": [
-        "palwiki-paldium"
+        "palwiki-paldium",
+        "palwiki-paldium-raw"
       ]
     }
   ],
@@ -4783,7 +4786,7 @@ Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sw
       "step_id": "resource-egg:001",
       "type": "capture",
       "summary": "Gather Chikipi in Windswept Hills",
-      "detail": "Circle the grassy flats below the Palbox. Chikipi roam here constantly, lay eggs on the ground, and rarely fight back, so you can secure four layers quickly.【palwiki-chikipi†L1850-L1859】",
+      "detail": "Circle the grassy flats below the Palbox. Chikipi roam here constantly, lay eggs on the ground, and rarely fight back, so you can secure four layers quickly while scooping any loose ingredients you spot.【palwiki-chikipi†L1850-L1859】【palwiki-egg-raw†L19-L24】",
       "targets": [
         {
           "kind": "pal",
@@ -4846,14 +4849,15 @@ Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sw
       },
       "branching": [],
       "citations": [
-        "palwiki-chikipi"
+        "palwiki-chikipi",
+        "palwiki-egg-raw"
       ]
     },
     {
       "step_id": "resource-egg:002",
       "type": "base",
       "summary": "Assign layers to the ranch",
-      "detail": "Place two captured Chikipi on the Ranch. Their Egg Layer partner skill produces eggs over time, so stagger assignments to keep timers rolling.【palwiki-chikipi†L1667-L1693】",
+      "detail": "Place two captured Chikipi on the Ranch. Their Egg Layer partner skill produces eggs over time, so stagger assignments to keep timers rolling and let the ranch act as the guaranteed farming source noted in the ingredient catalog.【palwiki-chikipi†L1667-L1693】【palwiki-egg-raw†L19-L28】",
       "targets": [
         {
           "kind": "item",
@@ -4900,14 +4904,15 @@ Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sw
       },
       "branching": [],
       "citations": [
-        "palwiki-chikipi"
+        "palwiki-chikipi",
+        "palwiki-egg-raw"
       ]
     },
     {
       "step_id": "resource-egg:003",
       "type": "gather",
       "summary": "Scoop loose eggs while timers reset",
-      "detail": "Jog a perimeter lap through the same fields, collecting freshly laid eggs and watching for respawned Chikipi to top off your ranch roster.【palwiki-chikipi†L1850-L1859】",
+      "detail": "Jog a perimeter lap through the same fields, collecting freshly laid eggs and watching for respawned Chikipi to top off your ranch roster; if the ground spawns run dry, buy a few from the merchants listed in the ingredient entry to bridge timers.【palwiki-chikipi†L1850-L1859】【palwiki-egg-raw†L24-L31】",
       "targets": [
         {
           "kind": "item",
@@ -4948,7 +4953,8 @@ Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sw
       },
       "branching": [],
       "citations": [
-        "palwiki-chikipi"
+        "palwiki-chikipi",
+        "palwiki-egg-raw"
       ]
     }
   ],
@@ -26020,6 +26026,12 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-09-30",
       "notes": "Lists river, cliff and smelting sources for Paldium Fragments including respawn timers and conversion tips\u3010palwiki-paldium\u2020L42-L71\u3011\u3010palwiki-paldium\u2020L86-L115\u3011\u3010palwiki-paldium\u2020L118-L140\u3011."
     },
+    "palwiki-paldium-raw": {
+      "title": "Paldium Fragment \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Paldium_Fragment&action=raw",
+      "access_date": "2025-11-26",
+      "notes": "Explains fragments come from gray rocks with blue coloration, drop while mining regular stone, can be collected on the ground or bought from Wandering Merchants, and are crafted via the Crusher recipe.【palwiki-paldium-raw†L17-L33】"
+    },
     "palwiki-lamball": {
       "title": "Lamball \u2013 The Palworld Wiki",
       "url": "https://palworld.wiki.gg/wiki/Lamball",
@@ -26049,6 +26061,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.fandom.com/wiki/Chikipi",
       "access_date": "2025-10-01",
       "notes": "States that Chikipi roam the Windswept Hills, lay eggs on the ground, and their Egg Layer partner skill produces eggs at the ranch.\u30107b6ddf\u2020L1-L27\u3011\u3010c48565\u2020L1-L10\u3011\u3010cca570\u2020L1-L2\u3011"
+    },
+    "palwiki-egg-raw": {
+      "title": "Egg \u2013 Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Egg&action=raw",
+      "access_date": "2025-11-26",
+      "notes": "Notes that Eggs are produced by Chikipi at the Ranch, found in the wild, purchased from Wandering Merchants, and cooked at base stations for food.【palwiki-egg-raw†L13-L31】"
     },
     "palwiki-galeclaw-raw": {
       "title": "Galeclaw \u2013 palworld.wiki.gg (raw wikitext)",

@@ -312,3 +312,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Backfill a second independent source for `resource-paldium` (e.g., a post-patch mining route breakdown or dev note covering node respawn rates) and `resource-egg` (such as merchant inventory documentation or latest breeding drop tables), then rerun the coverage report to confirm the warnings clear.
 2. Consider promoting the citation warnings into CI once the outstanding sources are added, ensuring future resource routes and revisions maintain the two-source minimum without manual review.
 3. Evaluate whether the shortage catalog should display citation counts or badges so planners can quickly gauge sourcing strength directly from the UI when triaging resource deficits.
+
+### 2025-11-27 Dual-source reinforcement for paldium and egg routes
+
+* Augmented the `resource-paldium` route (and bundle snapshot) with explicit guidance to gather ground spawns, target the gray-and-blue paldium rocks, and leverage Crusher conversions, pairing the existing Fandom entry with the official wiki.gg item sheet so every step cites two independent sources.【F:guides.md†L3411-L3544】【F:data/guides.bundle.json†L1352-L1493】
+* Expanded the `resource-egg` route/bundle text to reference the ingredient compendium’s ranch and merchant notes, ensuring each capture, ranch, and field sweep step now carries dual sourcing for passive egg production and emergency purchases.【F:guides.md†L4811-L4920】【F:data/guides.bundle.json†L2011-L2090】
+* Registered the new wiki.gg references in the source registry, unblocking the coverage report’s citation lint and keeping provenance explicit for both resource loops.【F:guides.md†L26025-L26035】【F:guides.md†L26041-L26048】
+
+**Continuation notes:**
+
+1. Monitor future patches for changes to wandering merchant egg pricing or Crusher conversion yields so the new wiki.gg citations stay accurate; update both routes and registry entries if values shift.
+2. Now that citation lint passes, integrate the `resource_coverage_report.py` warning channel into automation (CI or nightly export) to prevent future single-source regressions.
+3. For deeper resilience, consider sourcing a community farming guide with respawn timings for the river circuit and meadow egg lap to complement the official references, improving context for planner adjustments.
