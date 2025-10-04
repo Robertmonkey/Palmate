@@ -241,3 +241,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Prioritise the next wave of backlog items flagged by the coverage report (ore, flour, bone, nail, refined ingot, pal metal, etc.) so metalworking and mid-game crafting shortages receive catalog parity.【c2fb2d†L16-L35】
 2. Resolve remaining catalog aliases (e.g., `resource-berry-seed-supply-loop` vs. `resource-berry-seeds`) or extend the coverage script with an alias map so legitimate matches stop appearing as catalog-only stragglers.【c2fb2d†L5-L13】
 3. Capture explicit documentation for the Lettuce Plantation source (or replace the hashed citations with a named registry entry) before publishing the next bundle to keep provenance transparent for lettuce automation guidance.
+
+### 2025-11-21 Resource shortage parity surge
+
+* Normalised outstanding resource catalog IDs to match their route slugs so Berry Seeds, Carbon Fiber, High Quality Cloth, Mozzarina Meat, Beautiful Flower, Venom Gland, High Quality Pal Oil, Cotton Candy, Small Pal Soul, and Precious Dragon Stone now link straight to their guide JSON without alias debt.【data/guide_catalog.json†L8187-L9046】【data/guides.bundle.json†L30704-L31832】
+* Authored shortage cards for Gunpowder, Ore, Flour, Bone, Nail, and Refined Ingots and synced the bundle `guide_count` to 221 so shortages cover the full mid-game crafting spine.【data/guide_catalog.json†L8673-L9146】【data/guides.bundle.json†L30762-L31856】
+* Re-ran `resource_coverage_report.py`; only ten resources remain without shortage cards, giving a focused follow-up backlog (Pal Metal Ingot, organ drops, medium/large souls, gold coin, lamball mutton, etc.).【272826†L1-L12】
+
+**Continuation notes:**
+
+1. Draft catalog cards for the remaining ten resources flagged by the coverage report—prioritise Pal Metal Ingot, Electric/Flame/Ice Organs, Medium/Large Pal Souls, and Gold Coin so core combat upgrades are represented alongside crafting loops.【272826†L3-L11】
+2. When authoring the soul routes, confirm whether additional automation steps (Crusher conversions, Statue wiring) warrant dedicated unlock callouts similar to the medium soul entry added on 2025-11-15; reuse the existing citations where possible and capture new ones for overworld spawn coordinates.
+3. After each batch, bump `guideCatalog.guide_count` and rerun `resource_coverage_report.py` to maintain telemetry parity, then smoke-test the shortages UI for the new cards to ensure recommended level text and keywords render correctly.
