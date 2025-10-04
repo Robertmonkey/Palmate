@@ -34,6 +34,15 @@ This document describes the responsibilities, workflows and quality assurance st
 
 6. **Publishing Updates** – Once QA passes, increment the `schema_version` if necessary, update `verified_at_utc` to the current UTC timestamp, and commit the changes.  Document all changes in the `CHANGELOG` file, including new routes, modified recipes, balance tweaks and any removed content.
 
+### Guide bundle guardrails
+
+1. **Always start from the canonical snapshot** – copy `data/Guide.bundle.backup.JSON` to `data/guides.bundle.json` before applying edits so the full 37k-line dataset is preserved. Never rebuild the bundle from scratch in the editor.
+2. **Edit surgically** – update only the specific route objects and catalog metadata that correspond to the change. Avoid formatting the file or re-emitting the JSON wholesale, since that rewrites thousands of unaffected lines.
+3. **Validate before committing** – run `python scripts/check_guides_bundle.py` and confirm it reports “guides.bundle.json passed validation” with `guide_count` matching the number of guides.
+4. **Spot-check size parity** – run `wc -l data/guides.bundle.json` (expect roughly 37,000 lines) and ensure `git diff` only shows intentional deltas. If the line count nosedives, restore from the backup before proceeding.
+5. **Sync catalog updates** – keep `guides.md`, `data/guides.bundle.json`, and `data/guide_catalog.json` aligned. Update all three files together or roll back to avoid partial states.
+6. **Line-of-defense validation** – the bundle check script now compares the active bundle with `data/Guide.bundle.backup.JSON` and will fail if route counts or line counts regress toward truncation. It also verifies that every route and catalog entry from the canonical backup still exists, blocks commits that rewrite more than ~40% of canonical records, and requires the overall file similarity to remain above 99%. These layered checks catch wholesale rewrites or silent deletions even when counts appear intact. Do not bypass this safeguard; if a legitimate removal is required, update the backup snapshot in the same commit with reviewer approval.
+
 ## Update Policy
 
 * **Patch cadence** – Palworld updates frequently during early access.  The agent checks for patches at least once per month (or more often if significant gameplay updates are announced).  Minor hotfixes that only fix bugs without altering mechanics generally do not require route changes but may update the `game_version` and `verified_at_utc`.
@@ -301,3 +310,26 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Plumb bundle metadata (e.g., recommended phases or art IDs) into the new helper cards so future revisions can render custom thumbnails without re-querying the main route lookup.
 2. Audit the `resourceGuideEntries` source once more routes adopt multi-step outputs; consider injecting explicit `primary_resource_id` metadata into the schema to avoid relying solely on output detection.
 3. Expand the backlog preview copy to surface more than two queued resources when the coverage debt grows, potentially with a tooltip that links back to the coverage report export.
+
+### 2025-11-26 Relic parity sweep & shortage sync
+
+* Authored the `resource-ancient-civilization-part` route covering alpha rotations, dungeon chains, and lucky pal patrols so Ancient Civilization Parts stay stocked with coop-aware timers and respawn branching.【F:guides.md†L22225-L22665】
+* Synced the shortage catalog card and bundle metadata, bumping the shortage `guide_count` to 230 and wiring keywords/triggers for coverage exports.【F:data/guides.bundle.json†L14780-L15136】【F:data/guides.bundle.json†L24770-L24784】【F:data/guide_catalog.json†L11129-L11172】
+* Added Palworld Fandom sources for Ancient Civilization Parts and Dungeons and advanced verification timestamps to the current research pass.【F:guides.md†L26726-L26745】
+
+**Continuation notes:**
+
+1. Gather precise lucky pal spawn coordinates and respawn cadence to enrich Step :004 once verified, adding dedicated citations before the next bundle promotion.
+2. Monitor future patches for new relic bosses or towers—split the route into early/late variants if drop tables diverge so shortage copy can branch by phase.
+3. Re-run the shortages UI smoke test post-deploy to confirm the new card renders correct iconography, keywords, and timer copy with live bundle data.
+
+### 2025-11-27 Relic dungeon routing & bundle safeguards
+
+* Added sealed realm coordinates and rotation timing to Step :003 of the Ancient Civilization Part route, chaining Swordmaster (-117,-490), Abyssal Nights (-410,-55), and Frozen Wings (113,-353) between alpha respawns.【F:guides.md†L22522-L22561】【F:data/guides.bundle.json†L15066-L15122】【F:data/guide_catalog.json†L11159-L11182】
+* Logged guide bundle guardrails covering backup restoration, validation scripts, and line-count spot checks so future agents avoid truncating the 37k-line dataset.【F:agent.md†L36-L45】
+
+**Continuation notes:**
+
+1. Source lucky pal spawn clusters with coordinates (e.g., Sanctuary patrols) to extend Step :004’s location list once verified.
+2. Evaluate Felbat’s Abyssal Nights arena for dark-damage mitigation guidance (torches, dark resist armor) before updating loadout recommendations.
+3. Automate a CI guard that fails when `scripts/check_guides_bundle.py` or a file-size sanity check detects truncation to enforce the new guardrails.

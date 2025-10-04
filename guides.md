@@ -25,7 +25,7 @@ system used for map references, and the supported difficulty/party modes.
 { 
   "schema_version": 2,
   "game_version": "v0.6.7 (build 1.079.736)",
-  "verified_at_utc": "2025-10-03T00:00:00Z",
+  "verified_at_utc": "2025-11-26T00:00:00Z",
   "world_map_reference": "Palworld uses a two‑dimensional coordinate system where the X axis runs east–west and the Y axis runs north–south.  Coordinates may be positive or negative.  (0,0) lies near the initial spawn area on the main island.",
   "difficulty_modes": ["normal", "hardcore"],
   "party_modes": ["solo", "coop"]
@@ -22222,6 +22222,479 @@ help players understand why a route is suggested.
 }
 ```
 
+### Route: Ancient Civilization Part Relic Network
+
+Ancient Civilization Part Relic Network strings overworld alpha hunts, dungeon clears, and lucky pal scouting so the rare relic shards needed for late-game tech stay stocked.【palwiki-ancient-civilization-parts†L1-L27】【palwiki-alpha-pals†L1-L29】【palwiki-dungeons†L1-L9】
+
+```json
+{
+  "route_id": "resource-ancient-civilization-part",
+  "title": "Ancient Civilization Part Relic Network",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "ancient-civilization-part",
+    "relic",
+    "dungeon"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 20,
+    "max": 50
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "resource-gold-coin",
+      "resource-respawn-timers"
+    ],
+    "tech": [
+      "grappling-gun"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Stage relic hunting kit and travel anchors for alpha and dungeon loops",
+    "Clear a four-boss overworld rotation for guaranteed Ancient Civilization Parts",
+    "Chain dungeon bosses and chest clears between respawns",
+    "Sweep lucky pals and rare chests while timers reset"
+  ],
+  "estimated_time_minutes": {
+    "solo": 55,
+    "coop": 40
+  },
+  "estimated_xp_gain": {
+    "min": 900,
+    "max": 1600
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Getting downed wastes daily alpha resets and chest timers, delaying part income until they respawn again.【palwiki-alpha-pals†L6-L10】【palwiki-dungeons†L1-L5】",
+    "hardcore": "Hardcore wipes can delete your hunting team and forfeit a full cycle of guaranteed drops, forcing a long rebuild.【palwiki-alpha-pals†L6-L10】【palwiki-ancient-civilization-parts†L7-L18】"
+  },
+  "adaptive_guidance": {
+    "underleveled": "Focus on early alphas like Chillet and Gumoss in the Windswept Hills before pushing deeper into sealed realms.【palwiki-alpha-pals†L42-L55】",
+    "overleveled": "Add Penking’s Frozen Wings arena and Anubis in the desert so high-level drops keep legendary crafting stocked.【palwiki-alpha-pals†L71-L75】【palwiki-alpha-pals†L281-L287】",
+    "resource_shortages": [
+      {
+        "item_id": "ancient-civilization-part",
+        "solution": "Rotate daily overworld alphas first, then run dungeon bosses and lucky pals to keep parts flowing while timers reset.【palwiki-ancient-civilization-parts†L7-L18】【palwiki-dungeons†L1-L5】"
+      }
+    ],
+    "time_limited": "Clear overworld alphas before they roll to the next in-game day, then spend remaining time on dungeon chests that respawn as new instances open.【palwiki-alpha-pals†L6-L10】【palwiki-dungeons†L1-L5】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Have one hunter tag alpha bosses while the partner resets dungeons and scouts lucky pals to maximize timers.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-ancient-civilization-part:002",
+          "resource-ancient-civilization-part:003",
+          "resource-ancient-civilization-part:004"
+        ]
+      },
+      {
+        "signal": "resource_gap:ancient-civilization-part_high",
+        "condition": "resource_gaps['ancient-civilization-part'] >= 15",
+        "adjustment": "Add an extra dungeon cycle before banking drops to recover the deficit.",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-ancient-civilization-part:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-ancient-civilization-part:checkpoint-prep",
+      "label": "Relic kit staged",
+      "includes": [
+        "resource-ancient-civilization-part:001"
+      ]
+    },
+    {
+      "id": "resource-ancient-civilization-part:checkpoint-alpha",
+      "label": "Overworld alphas cleared",
+      "includes": [
+        "resource-ancient-civilization-part:002"
+      ]
+    },
+    {
+      "id": "resource-ancient-civilization-part:checkpoint-dungeon",
+      "label": "Dungeon bosses cleared",
+      "includes": [
+        "resource-ancient-civilization-part:003"
+      ]
+    },
+    {
+      "id": "resource-ancient-civilization-part:checkpoint-lucky",
+      "label": "Lucky pals and chests swept",
+      "includes": [
+        "resource-ancient-civilization-part:004"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "resource-ancient-civilization-part:001",
+      "type": "prep",
+      "summary": "Stage relic hunting kit and fast travel points",
+      "detail": "Craft Mega Spheres, repair the Grappling Gun, and pin fast travel statues near alpha arenas and high-tier dungeons so legendary recipes can be crafted as soon as parts arrive.【palwiki-ancient-civilization-parts†L7-L27】",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "quartermaster",
+              "tasks": "Craft spheres and restock healing items"
+            },
+            {
+              "role": "scout",
+              "tasks": "Plot the alpha route and activate nearby fast travel"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "mega-sphere",
+          "grappling-gun"
+        ],
+        "pals": [],
+        "consumables": [
+          "medical-supplies"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-ancient-civilization-parts"
+      ]
+    },
+    {
+      "step_id": "resource-ancient-civilization-part:002",
+      "type": "combat",
+      "summary": "Clear the overworld alpha rotation",
+      "detail": "Start in the Windswept Hills by defeating Chillet (172,-419) and Gumoss (-113,-628), then rotate to Penking’s Frozen Wings sealed realm at (113,-351) and Anubis in the Desiccated Desert (-134,-94) for guaranteed parts and schematics.【palwiki-alpha-pals†L42-L75】【palwiki-alpha-pals†L281-L287】【palwiki-ancient-civilization-parts†L7-L16】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "chillet",
+          "qty": 1
+        },
+        {
+          "kind": "pal",
+          "id": "gumoss",
+          "qty": 1
+        },
+        {
+          "kind": "pal",
+          "id": "penking",
+          "qty": 1
+        },
+        {
+          "kind": "pal",
+          "id": "anubis",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            172,
+            -419
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "ice-wind-island",
+          "coords": [
+            113,
+            -351
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "desiccated-desert",
+          "coords": [
+            -134,
+            -94
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "vanguard",
+              "tasks": "Engage alphas and manage aggro"
+            },
+            {
+              "role": "finisher",
+              "tasks": "Capture or execute low health targets and gather drops"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "mega-sphere",
+          "grappling-gun"
+        ],
+        "pals": [],
+        "consumables": [
+          "medical-supplies"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 600,
+        "max": 900
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient-civilization-part",
+            "qty": 6
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-alpha-pals",
+        "palwiki-ancient-civilization-parts"
+      ]
+    },
+    {
+      "step_id": "resource-ancient-civilization-part:003",
+      "type": "dungeon",
+      "summary": "Chain dungeon bosses and chests",
+      "detail": "Cycle the Sealed Realm of the Swordmaster (-117,-490) for Bushi, sweep the Abyssal Nights portal (-410,-55), then reset at Frozen Wings (113,-353) so each timer yields a guaranteed alpha drop and two chests.【palwiki-dungeons†L1-L9】【palwiki-alpha-pals†L105-L118】【palwiki-alpha-pals†L70-L75】【palwiki-ancient-civilization-parts†L9-L18】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "ancient-civilization-part",
+          "qty": 4
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "desiccated-desert",
+          "label": "Sealed Realm of the Swordmaster",
+          "coords": [
+            -117,
+            -490
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "desiccated-desert",
+          "label": "Sealed Realm of the Abyssal Nights",
+          "coords": [
+            -410,
+            -55
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "ice-wind-island",
+          "label": "Sealed Realm of the Frozen Wings",
+          "coords": [
+            113,
+            -353
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Retreat if healing falls behind—losing the run costs both chests and the hour-long alpha respawn.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "mega-sphere"
+        ],
+        "pals": [],
+        "consumables": [
+          "medical-supplies",
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 200,
+        "max": 400
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient-civilization-part",
+            "qty": 4
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "condition": "player struggles to track respawn timers",
+          "action": "include_subroute",
+          "subroute_ref": "resource-respawn-timers"
+        }
+      ],
+      "citations": [
+        "palwiki-dungeons",
+        "palwiki-alpha-pals",
+        "palwiki-ancient-civilization-parts"
+      ]
+    },
+    {
+      "step_id": "resource-ancient-civilization-part:004",
+      "type": "patrol",
+      "summary": "Scout lucky pals and rare chests between timers",
+      "detail": "Sweep known lucky pal spawn points and elite chest routes while waiting on resets, bringing Vixy to sniff out dig spots before banking the run.【palwiki-ancient-civilization-parts†L7-L18】【palwiki-vixy†L118-L176】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "ancient-civilization-part",
+          "qty": 2
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            60,
+            -440
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "spotter",
+              "tasks": "Scout lucky pals and call targets"
+            },
+            {
+              "role": "runner",
+              "tasks": "Break chests and haul drops back to base"
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "mega-sphere"
+        ],
+        "pals": [
+          "vixy"
+        ],
+        "consumables": [
+          "pal-sphere"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 200
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient-civilization-part",
+            "qty": 2
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-ancient-civilization-parts",
+        "palwiki-vixy"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "ancient-civilization-part",
+      "qty": 12
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1 to +1",
+    "key_unlocks": [
+      "legendary-crafting-ready"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 3,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-polymer",
+      "reason": "Polymer batches consume Ancient Civilization Parts for legendary weapon schematics."
+    },
+    {
+      "route_id": "tower-feybreak",
+      "reason": "Tower rematches spend Ancient Technology Points earned with these parts and unlock new relic gear."
+    }
+  ]
+}
+```
+
 ### Route: Gold Coin Treasury Circuit
 
 Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settlement sell runs so your economy keeps pace with merchant schematics and tech unlocks.【palwiki-mau-raw†L11-L115】【palwiki-vixy†L118-L176】【palwiki-gold-coin-raw†L20-L28】【palwiki-wandering-merchant-raw†L1-L119】
@@ -26721,6 +27194,18 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/wiki/Alpha_Pals",
       "access_date": "2025-10-31",
       "notes": "Details alpha respawn timing, overworld boss coordinates, and sealed realm encounters that drop Precious Dragon Stones.【palwiki-alpha-pals†L1-L108】"
+    },
+    "palwiki-ancient-civilization-parts": {
+      "title": "Ancient Civilization Parts \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Ancient_Civilization_Parts",
+      "access_date": "2025-11-26",
+      "notes": "Lists Ancient Civilization Part sources from alpha bosses, dungeon bosses, lucky pals, and rare chests along with the legendary gear they craft.【palwiki-ancient-civilization-parts†L1-L40】"
+    },
+    "palwiki-dungeons": {
+      "title": "Dungeons \u2013 Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Dungeons",
+      "access_date": "2025-11-26",
+      "notes": "Explains dungeon rotation rules, guaranteed alpha encounters, and the twin chest rewards at each completion.【palwiki-dungeons†L1-L20】"
     },
     "palwiki-helzephyr-raw": {
       "title": "Helzephyr \u2013 Palworld Wiki (raw)",
