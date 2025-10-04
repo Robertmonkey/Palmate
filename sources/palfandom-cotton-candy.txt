@@ -1,0 +1,33 @@
+{{Infobox_Item
+|name = Cotton Candy
+|image = Cotton Candy icon.png
+|effects = Cotton Candy collected from Woolipop.<br/>Its sweetness fluffily melts away in your mouth.
+|type = [[Ingredient]]
+|rarity = Common
+|source = {{p|Woolipop}}
+|weight = 0.2
+|nutrition = 5
+|san = 5
+|corruption = Never
+|gold_buy=250|gold_sell=25
+}}
+'''Cotton Candy''' is a consumable [[ingredient]] in {{PW}}.
+
+== Acquisition ==
+Collected from slaying {{p|Woolipop}} and can also be received from {{p|Woolipop}} when assigned to the [[Ranch]].
+Unlike most other ingredients, cotton candy does not expire.
+
+== Usage ==
+It's required to craft:
+*[[Recovery Meds]]
+*[[High Quality Recovery Meds]]
+*[[Advanced Recovery Meds]]
+*[[Burden Remedy]]
+*[[Revival Potion]]
+
+== Update History ==
+* [[Early Access 0.1.2.0]]
+** Introduced.
+
+{{Navbox Ingredients}}
+[[Category:Ingredients]]

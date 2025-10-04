@@ -1,0 +1,35 @@
+{{Infobox_Item
+|name = Honey
+|image = Honey icon.png
+|effects = Honey harvested from Beegarde.<br/>It's sweet and tasty.
+|type = [[Ingredients]]
+|rarity = Common
+|source = {{P|Warsect}}<br/>{{P|Elizabee}}<br/>{{P|Beegarde}}<br/>{{P|Cinnamoth}}
+|weight = 0.2
+|nutrition = 10
+|san = 3
+|corruption = Never
+|gold_buy=250|gold_sell=25
+}}
+'''Honey''' is a consumable [[Ingredients]] in {{PW}}.
+
+==Acquisition==
+Can be dropped from [[Warsect]], [[Cinnamoth]], [[Beegarde]], and [[Elizabee]] upon death.
+
+Will be dropped by Beegarde when put into the [[Ranch]].
+
+== History ==
+* [[Early Access 0.1.2.0]]
+** Introduced.
+
+== Trivia ==
+The lack of an expiry timer like other Food items may be attributed to the fact that in the real world, uncontaminated properly stored honey does not become unsafe to eat for potentially years.
+
+== Gallery ==
+
+=== Video ===
+
+{{#ev:youtube|1rtE2wQm0WI}}
+
+{{Navbox Ingredients}}
+[[Category:Ingredients]]
