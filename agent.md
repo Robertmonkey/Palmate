@@ -277,3 +277,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Layer in precise overworld coordinates for the recommended alpha and sealed realm rotations once sourced so Step :004 gains location-grade guidance.【F:guides.md†L25783-L25807】
 2. Gather empirical respawn timing data for desert ore and late-game biomes to see if additional banded advice is warranted in the route’s adaptive guidance.【F:guides.md†L25568-L25596】
 3. Smoke-test the shortages UI after the next bundle promotion to ensure the new mechanics card appears in the Stats & Mechanics filter with correct keywords and trigger text.【F:data/guides.bundle.json†L85-L140】
+
+### 2025-11-24 Respawn rotation detailing & reporting exports
+
+* Plotted Alpha Broncherry, Anubis, Bushi, and Penking coordinates plus respawn cadence notes directly inside Step :004 so planners can anchor daily and hourly loops without leaving the route.【F:guides.md†L25777-L25816】
+* Synced the shortage bundle and catalog instructions to the new coordinate guidance, updating citations so shortages mirror the route’s precise rotation advice.【F:data/guides.bundle.json†L107-L128】【F:data/guide_catalog.json†L7346-L7370】
+* Added `--format` and `--output` options to `resource_coverage_report.py`, enabling text, Markdown, or CSV exports for ops threads while preserving the default console summary.【F:scripts/resource_coverage_report.py†L1-L164】
+
+**Continuation notes:**
+
+1. Extend the coverage report with citation linting so resource routes missing two independent sources raise actionable warnings alongside the coverage diff.【F:scripts/resource_coverage_report.py†L114-L149】
+2. Consider serialising the new coordinate blocks into the bundle metadata for UI map overlays once design finalises the shortages tooltip layout.【F:guides.md†L25777-L25816】【F:data/guides.bundle.json†L107-L128】
+3. After the next data refresh, spot-check `--format markdown --output` exports to confirm automated Ops digests ingest without additional formatting fixes.【F:scripts/resource_coverage_report.py†L131-L149】

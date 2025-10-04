@@ -25777,9 +25777,50 @@ Resource Respawn Timer Field Guide maps the default 30-minute node respawns, doc
       "step_id": "resource-respawn-timers:004",
       "type": "plan",
       "summary": "Schedule dungeon and alpha resets",
-      "detail": "Add overworld alpha routes to your calendar on an in-game day cadence and pencil Sealed Realm re-clears for one hour after completion so rare drop farming stays on schedule.【palwiki-alpha-pals†L8-L8】【palwiki-sealed-realms†L76-L76】",
+      "detail": "Block daily overworld clears on Alpha Broncherry (-222,-669) and Anubis (-134,-94), then queue Bushi (-117,-490) and Penking (113,-353) Sealed Realms for their one-hour resets so rare drop rotations stay on schedule.【palwiki-alpha-pals†L98-L110】【palwiki-alpha-pals†L281-L287】【palwiki-sealed-realms†L29-L33】【palwiki-sealed-realms†L59-L62】",
       "targets": [],
-      "locations": [],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            -222,
+            -669
+          ],
+          "time": "any",
+          "weather": "any",
+          "notes": "Alpha Broncherry respawns every in-game day."
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            -134,
+            -94
+          ],
+          "time": "any",
+          "weather": "any",
+          "notes": "Alpha Anubis respawns every in-game day."
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            -117,
+            -490
+          ],
+          "time": "any",
+          "weather": "any",
+          "notes": "Sealed Realm of the Swordmaster refreshes one hour after completion."
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            113,
+            -353
+          ],
+          "time": "any",
+          "weather": "any",
+          "notes": "Sealed Realm of the Frozen Wings refreshes one hour after completion."
+        }
+      ],
       "mode_adjustments": {},
       "recommended_loadout": {
         "gear": [],
