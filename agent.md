@@ -324,3 +324,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Monitor future patches for changes to wandering merchant egg pricing or Crusher conversion yields so the new wiki.gg citations stay accurate; update both routes and registry entries if values shift.
 2. Now that citation lint passes, integrate the `resource_coverage_report.py` warning channel into automation (CI or nightly export) to prevent future single-source regressions.
 3. For deeper resilience, consider sourcing a community farming guide with respawn timings for the river circuit and meadow egg lap to complement the official references, improving context for planner adjustments.
+
+### 2025-11-27 guides.bundle.json truncation postmortem
+
+* Authored a dedicated postmortem (`docs/guides-bundle-truncation-postmortem.md`) capturing how commit `870a419` overwrote the bundle with only the shortage catalog payload, shrinking the file from ~37k lines to 703 and shipping invalid JSON until `58c3a85` restored the backup and hardened validation.【F:docs/guides-bundle-truncation-postmortem.md†L1-L44】
+* Logged the root cause (scripting dumped `guideCatalog.data.guides` instead of the full bundle) plus contributing factors like insufficient validation and the lack of a temp-file workflow, along with preventive actions to avoid future truncations.【F:docs/guides-bundle-truncation-postmortem.md†L46-L86】
+
+**Continuation notes:**
+
+1. Implement the strict mode and temporary-file editing workflow outlined in the postmortem so future bundle edits run against scratch copies before replacing production data.【F:docs/guides-bundle-truncation-postmortem.md†L70-L86】
+2. Build the proposed `scripts/update_guide_catalog.py` helper to encapsulate safe mutations and automatically validate before writing live bundles.【F:docs/guides-bundle-truncation-postmortem.md†L88-L92】
+3. Wire the stricter bundle checks into CI (line-count guard + validator) so truncation attempts fail fast without manual review.【F:docs/guides-bundle-truncation-postmortem.md†L88-L92】
