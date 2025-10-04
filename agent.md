@@ -301,3 +301,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Plumb bundle metadata (e.g., recommended phases or art IDs) into the new helper cards so future revisions can render custom thumbnails without re-querying the main route lookup.
 2. Audit the `resourceGuideEntries` source once more routes adopt multi-step outputs; consider injecting explicit `primary_resource_id` metadata into the schema to avoid relying solely on output detection.
 3. Expand the backlog preview copy to surface more than two queued resources when the coverage debt grows, potentially with a tooltip that links back to the coverage report export.
+
+### 2025-11-26 Relic parity sweep & shortage sync
+
+* Authored the `resource-ancient-civilization-part` route covering alpha rotations, dungeon chains, and lucky pal patrols so Ancient Civilization Parts stay stocked with coop-aware timers and respawn branching.【F:guides.md†L22225-L22665】
+* Synced the shortage catalog card and bundle metadata, bumping the shortage `guide_count` to 230 and wiring keywords/triggers for coverage exports.【F:data/guides.bundle.json†L14780-L15136】【F:data/guides.bundle.json†L24770-L24784】【F:data/guide_catalog.json†L11129-L11172】
+* Added Palworld Fandom sources for Ancient Civilization Parts and Dungeons and advanced verification timestamps to the current research pass.【F:guides.md†L26726-L26745】
+
+**Continuation notes:**
+
+1. Gather precise lucky pal spawn coordinates and respawn cadence to enrich Step :004 once verified, adding dedicated citations before the next bundle promotion.
+2. Monitor future patches for new relic bosses or towers—split the route into early/late variants if drop tables diverge so shortage copy can branch by phase.
+3. Re-run the shortages UI smoke test post-deploy to confirm the new card renders correct iconography, keywords, and timer copy with live bundle data.

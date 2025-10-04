@@ -11126,6 +11126,88 @@
       ]
     },
     {
+      "id": "resource-ancient-civilization-part",
+      "title": "Ancient Civilization Part Relic Network",
+      "source_heading": "Ancient Civilization Part Relic Network",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Legendary schematics require more Ancient Civilization Parts than the stash currently holds.",
+      "keywords": [
+        "ancient civilization part",
+        "alpha",
+        "dungeon",
+        "lucky pal"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Prep **Mega Spheres**, your **Grappling Gun**, and fast travel anchors before starting the relic loop.",
+          "citations": [
+            "palwiki-ancient-civilization-parts†L7-L27"
+          ],
+          "links": [
+            {
+              "type": "tech",
+              "id": "grappling-gun",
+              "name": "Grappling Gun"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Clear **Chillet**, **Gumoss**, **Penking**, and **Anubis** each day for guaranteed Ancient Civilization Parts.",
+          "citations": [
+            "palwiki-alpha-pals†L42-L75",
+            "palwiki-alpha-pals†L281-L287",
+            "palwiki-ancient-civilization-parts†L7-L16"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "chillet",
+              "name": "Chillet"
+            },
+            {
+              "type": "pal",
+              "id": "gumoss",
+              "name": "Gumoss"
+            },
+            {
+              "type": "pal",
+              "id": "penking",
+              "name": "Penking"
+            },
+            {
+              "type": "pal",
+              "id": "anubis",
+              "name": "Anubis"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Run dungeon bosses, loot the two guaranteed chests, then scout lucky pals while timers reset.",
+          "citations": [
+            "palwiki-dungeons†L1-L9",
+            "palwiki-ancient-civilization-parts†L9-L18"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "vixy",
+              "name": "Vixy"
+            },
+            {
+              "type": "route",
+              "id": "resource-respawn-timers",
+              "name": "Resource Respawn Timer Field Guide"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "resource-gold-coin",
       "title": "Gold Coin Treasury Circuit",
       "source_heading": "Gold Coin Treasury Circuit",
