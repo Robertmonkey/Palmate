@@ -7781,7 +7781,7 @@
       ]
     },
     {
-      "id": "resource-berry-seed-supply-loop",
+      "id": "resource-berry-seeds",
       "title": "Berry Seed Supply Loop",
       "source_heading": "Berry Seed Supply Loop",
       "category": "Resources",
@@ -7867,7 +7867,7 @@
       ]
     },
     {
-      "id": "resource-carbon-fiber-filament-works",
+      "id": "resource-carbon-fiber",
       "title": "Carbon Fiber Filament Works",
       "source_heading": "Carbon Fiber Filament Works",
       "category": "Resources",
@@ -7967,7 +7967,7 @@
       ]
     },
     {
-      "id": "resource-high-quality-cloth-loom-circuit",
+      "id": "resource-high-quality-cloth",
       "title": "High Quality Cloth Loom Circuit",
       "source_heading": "High Quality Cloth Loom Circuit",
       "category": "Resources",
@@ -8006,7 +8006,7 @@
       ]
     },
     {
-      "id": "resource-mozzarina-meat-packing-loop",
+      "id": "resource-mozzarina-meat",
       "title": "Mozzarina Meat Packing Loop",
       "source_heading": "Mozzarina Meat Packing Loop",
       "category": "Resources",
@@ -8075,7 +8075,7 @@
       ]
     },
     {
-      "id": "resource-beautiful-flower-sanctuary-sweep",
+      "id": "resource-beautiful-flower",
       "title": "Beautiful Flower Sanctuary Sweep",
       "source_heading": "Beautiful Flower Sanctuary Sweep",
       "category": "Resources",
@@ -8143,7 +8143,7 @@
       ]
     },
     {
-      "id": "resource-precious-dragon-stone-alpha-relay",
+      "id": "resource-precious-dragon-stone",
       "title": "Precious Dragon Stone Alpha Relay",
       "source_heading": "Precious Dragon Stone Alpha Relay",
       "category": "Resources",
@@ -8202,7 +8202,7 @@
       ]
     },
     {
-      "id": "resource-venom-gland-supply-network",
+      "id": "resource-venom-gland",
       "title": "Venom Gland Supply Network",
       "source_heading": "Venom Gland Supply Network",
       "category": "Resources",
@@ -8314,7 +8314,7 @@
       ]
     },
     {
-      "id": "resource-high-quality-pal-oil-sanctuary-circuit",
+      "id": "resource-high-quality-pal-oil",
       "title": "High Quality Pal Oil Sanctuary Circuit",
       "source_heading": "High Quality Pal Oil Sanctuary Circuit",
       "category": "Resources",
@@ -8511,7 +8511,7 @@
       ]
     },
     {
-      "id": "resource-cotton-candy-woolipop",
+      "id": "resource-cotton-candy",
       "title": "Cotton Candy Woolipop Confection Loop",
       "source_heading": "Cotton Candy Woolipop Confection Loop",
       "category": "Resources",
@@ -8664,6 +8664,550 @@
               "type": "structure",
               "id": "crusher",
               "name": "Crusher"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-gunpowder",
+      "title": "Gunpowder Arsenal Chain",
+      "source_heading": "Gunpowder Arsenal Chain",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Gunpowder to restock firearms or ammo benches and has run out of crafted batches.",
+      "keywords": [
+        "gunpowder",
+        "sulfur",
+        "charcoal",
+        "ammo"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Farm **Sulfur at Mossanda Forest (234,-118)** and sweep **Hillside Cavern (147,-397)** for Coal in one loop before returning to base.",
+          "citations": [
+            "pcgamesn-sulfur†L13-L19",
+            "pcgamesn-coal†L135-L138"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "mossanda-forest",
+              "name": "Mossanda Forest",
+              "region": "Forest of Oblivion"
+            },
+            {
+              "type": "location",
+              "id": "hillside-cavern",
+              "name": "Hillside Cavern",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "item",
+              "id": "sulfur",
+              "slug": "sulfur",
+              "name": "Sulfur"
+            },
+            {
+              "type": "item",
+              "id": "coal",
+              "slug": "coal",
+              "name": "Coal"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Keep **Improved Furnaces** staffed with Kindling pals so Wood converts into Charcoal between mining runs.",
+          "citations": [
+            "palwiki-charcoal†L1-L7"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "improved-furnace",
+              "name": "Improved Furnace"
+            },
+            {
+              "type": "item",
+              "id": "charcoal",
+              "slug": "charcoal",
+              "name": "Charcoal"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Batch **Gunpowder** at the **High Quality Workbench**, combining 2 Charcoal with 1 Sulfur until ammo queues are full.",
+          "citations": [
+            "palwiki-gunpowder†L1-L1"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "high-quality-workbench",
+              "name": "High Quality Workbench"
+            },
+            {
+              "type": "item",
+              "id": "gunpowder",
+              "slug": "gunpowder",
+              "name": "Gunpowder"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-ore",
+      "title": "Ore Mining Grid",
+      "source_heading": "Ore Mining Grid",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Ore and Ingots for metal crafts and lacks a reliable mining loop.",
+      "keywords": [
+        "ore",
+        "mining",
+        "fort ruins",
+        "ingot"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Clear the **Fort Ruins (155,-394)** ridge each cycle, breaking the four ore nodes and stashing loads in a drop chest to avoid encumbrance.",
+          "citations": [
+            "40f7a9†L1-L36",
+            "game8-ore-farming"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "fort-ruins",
+              "name": "Fort Ruins",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "item",
+              "id": "ore",
+              "slug": "ore",
+              "name": "Ore"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Build a **Palbox** and chest on the **Small Settlement cliff (11,-523)** so every haul dumps straight into storage for fast resets.",
+          "citations": [
+            "40f7a9†L36-L60"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "palbox",
+              "name": "Palbox"
+            },
+            {
+              "type": "structure",
+              "id": "wooden-chest",
+              "name": "Wooden Chest"
+            },
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Assign **Digtoise or other Mining pals** to the ridge and smelt ore batches in a **Primitive Furnace** so Ingots refill weapon queues.",
+          "citations": [
+            "d070f4†L1-L24",
+            "951c6f†L6-L16"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "digtoise",
+              "name": "Digtoise"
+            },
+            {
+              "type": "structure",
+              "id": "primitive-furnace",
+              "name": "Primitive Furnace"
+            },
+            {
+              "type": "item",
+              "id": "ingot",
+              "slug": "ingot",
+              "name": "Ingot"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-flour",
+      "title": "Flour Milling Network",
+      "source_heading": "Flour Milling Network",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player wants steady Flour for cooking and breeding recipes but plantations aren’t producing enough.",
+      "keywords": [
+        "flour",
+        "wheat",
+        "plantation",
+        "mill"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Buy **Wheat Seeds** and grain from the **Small Settlement (75,-479)** wandering merchant so plantations can start immediately.",
+          "citations": [
+            "c6adb4†L70-L87",
+            "palwiki-wandering-merchant"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "npc",
+              "id": "wandering-merchant",
+              "name": "Wandering Merchant"
+            },
+            {
+              "type": "item",
+              "id": "wheat-seeds",
+              "slug": "wheat-seeds",
+              "name": "Wheat Seeds"
+            },
+            {
+              "type": "item",
+              "id": "wheat",
+              "slug": "wheat",
+              "name": "Wheat"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Place **Wheat Plantations** at base and assign Planting, Watering, and Gathering pals so grain cycles without supervision.",
+          "citations": [
+            "af5fcd†L1-L12",
+            "palwiki-wheat-plantation"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "wheat-plantation",
+              "name": "Wheat Plantation"
+            },
+            {
+              "type": "pal",
+              "id": "bristla",
+              "name": "Bristla"
+            },
+            {
+              "type": "pal",
+              "id": "fuack",
+              "name": "Fuack"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Build a **Mill** and feed harvested wheat in batches of three to grind Flour, keeping sacks stored for bakeries.",
+          "citations": [
+            "palwiki-mill",
+            "bfc9eb†L1-L17"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "mill",
+              "name": "Mill"
+            },
+            {
+              "type": "item",
+              "id": "flour",
+              "slug": "flour",
+              "name": "Flour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-bone",
+      "title": "Bone Forager Loop",
+      "source_heading": "Bone Forager Loop",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player is out of Bones for Cement, medicine, or ammo and needs a repeatable supply.",
+      "keywords": [
+        "bone",
+        "small settlement",
+        "ranch",
+        "merchant"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Run the **Small Settlement (75,-479)** plateau, capturing or defeating Rushoar and Vixy packs for guaranteed bone drops.",
+          "citations": [
+            "palwiki-small-settlement†L3-L15",
+            "palwiki-rushoar†L65-L76",
+            "palfandom-bone†L36-L55"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "pal",
+              "id": "rushoar",
+              "name": "Rushoar"
+            },
+            {
+              "type": "pal",
+              "id": "vixy",
+              "name": "Vixy"
+            },
+            {
+              "type": "item",
+              "id": "bone",
+              "slug": "bone",
+              "name": "Bone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Assign **Vixy** to a Ranch and add a **Sootseer** once unlocked so passive bones flow between hunt loops.",
+          "citations": [
+            "palwiki-vixy†L9-L49",
+            "palwiki-sootseer†L12-L16",
+            "palwiki-bone†L20-L27"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "vixy",
+              "name": "Vixy"
+            },
+            {
+              "type": "pal",
+              "id": "sootseer",
+              "name": "Sootseer"
+            },
+            {
+              "type": "structure",
+              "id": "ranch",
+              "name": "Ranch"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "After each sweep, buy extra bones from the **Small Settlement** wandering merchant for 100 gold each to top off Cement queues.",
+          "citations": [
+            "palwiki-small-settlement†L3-L15",
+            "palwiki-bone†L20-L27"
+          ],
+          "links": [
+            {
+              "type": "npc",
+              "id": "wandering-merchant",
+              "name": "Wandering Merchant"
+            },
+            {
+              "type": "item",
+              "id": "bone",
+              "slug": "bone",
+              "name": "Bone"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-nail",
+      "title": "Nail Fabrication Chain",
+      "source_heading": "Nail Fabrication Chain",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Nails for construction upgrades and wants to keep batches ahead of building demand.",
+      "keywords": [
+        "nail",
+        "ingot",
+        "workbench",
+        "assembly line"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Unlock the **Nail** tech at level 10 and keep a **Primitive Furnace** smelting ore into ingots for upcoming batches.",
+          "citations": [
+            "palwiki-nail†L13-L22",
+            "game8-nail†L118-L124"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "primitive-furnace",
+              "name": "Primitive Furnace"
+            },
+            {
+              "type": "item",
+              "id": "ingot",
+              "slug": "ingot",
+              "name": "Ingot"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Craft nails at a **Primitive or High Quality Workbench**, converting one ingot into two nails per recipe cycle.",
+          "citations": [
+            "palwiki-nail†L3-L33",
+            "game8-nail†L102-L124"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "primitive-workbench",
+              "name": "Primitive Workbench"
+            },
+            {
+              "type": "structure",
+              "id": "high-quality-workbench",
+              "name": "High Quality Workbench"
+            },
+            {
+              "type": "item",
+              "id": "nail",
+              "slug": "nail",
+              "name": "Nail"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Scale into a **Production Assembly Line** so ingot deliveries churn out bulk nail stacks without handcrafting downtime.",
+          "citations": [
+            "game8-nail†L111-L117",
+            "palwiki-nail†L3-L17"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "production-assembly-line",
+              "name": "Production Assembly Line"
+            },
+            {
+              "type": "item",
+              "id": "nail",
+              "slug": "nail",
+              "name": "Nail"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-refined-ingot",
+      "title": "Refined Ingot Forge Cycle",
+      "source_heading": "Refined Ingot Forge Cycle",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Refined Ingots for mid-game upgrades and wants an efficient furnace loop.",
+      "keywords": [
+        "refined ingot",
+        "improved furnace",
+        "ore",
+        "coal"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Unlock **Improved Furnace** at level 34 and blueprint it on the (191,-36) ridge so ore and coal feeds enter the same hub.",
+          "citations": [
+            "segmentnext-refined-ingot†L2-L3"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "improved-furnace",
+              "name": "Improved Furnace"
+            },
+            {
+              "type": "location",
+              "id": "desiccated-desert",
+              "name": "Desiccated Desert",
+              "region": "Desiccated Desert"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Cycle mining pals across the ridge to stockpile equal stacks of Ore and Coal before each furnace batch.",
+          "citations": [
+            "segmentnext-refined-ingot†L5-L5"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "ore",
+              "slug": "ore",
+              "name": "Ore"
+            },
+            {
+              "type": "item",
+              "id": "coal",
+              "slug": "coal",
+              "name": "Coal"
+            },
+            {
+              "type": "location",
+              "id": "desiccated-desert",
+              "name": "Desiccated Desert",
+              "region": "Desiccated Desert"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Smelt **Refined Ingots** in the Improved Furnace, feeding 2 Ore and 2 Coal per bar until upgrade stockpiles are full.",
+          "citations": [
+            "palwiki-refined-ingot†L1-L6",
+            "segmentnext-refined-ingot†L4-L4"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "refined-ingot",
+              "slug": "refined-ingot",
+              "name": "Refined Ingot"
+            },
+            {
+              "type": "structure",
+              "id": "improved-furnace",
+              "name": "Improved Furnace"
             }
           ]
         }
@@ -8960,7 +9504,7 @@
       ]
     },
     {
-      "id": "resource-small-pal-soul-night-loop",
+      "id": "resource-small-pal-soul",
       "title": "Small Pal Soul Night Hunts & Crusher Loop",
       "source_heading": "Small Pal Soul Night Hunts & Crusher Loop",
       "category": "Resources",
@@ -9006,7 +9550,7 @@
           ]
         },
         {
-          "id": "resource-medium-pal-soul-harmonization",
+          "id": "resource-medium-pal-soul",
           "title": "Medium Pal Soul Harmonization",
           "source_heading": "Medium Pal Soul Harmonization",
           "category": "Resources",
