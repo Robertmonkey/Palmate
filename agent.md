@@ -301,3 +301,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Plumb bundle metadata (e.g., recommended phases or art IDs) into the new helper cards so future revisions can render custom thumbnails without re-querying the main route lookup.
 2. Audit the `resourceGuideEntries` source once more routes adopt multi-step outputs; consider injecting explicit `primary_resource_id` metadata into the schema to avoid relying solely on output detection.
 3. Expand the backlog preview copy to surface more than two queued resources when the coverage debt grows, potentially with a tooltip that links back to the coverage report export.
+
+### 2025-11-26 Data rollback & integrity guardrails
+
+* Reverted the citation linting experiment so the shortages catalog and bundle snapshots retain the full 239 resource entries instead of the truncated dataset introduced by the regression.【F:data/guide_catalog.json†L1-L239】【F:data/guides.bundle.json†L1-L140】
+* Authored `scripts/check_data_integrity.py` and an accompanying baseline to monitor line and entry counts for every high-risk dataset, catching mass deletions before they reach PR review.【F:scripts/check_data_integrity.py†L1-L126】【F:scripts/data_integrity_baseline.json†L1-L17】
+* Added a manual validation step to the workflow—`python scripts/check_data_integrity.py`—so data integrity checks run alongside the coverage report until the automation is wired into CI.
+
+**Continuation notes:**
+
+1. Integrate `scripts/check_data_integrity.py` into the pre-commit hooks or CI pipeline so large deletions fail fast instead of relying on manual review.【F:scripts/check_data_integrity.py†L15-L66】
+2. Extend the baseline to cover additional assets (e.g., source registry, shortages UI metadata) and set per-resource guardrails before reinstating automated bundle refreshes.【F:scripts/data_integrity_baseline.json†L1-L17】
+3. Reintroduce the citation linting enhancements after validating that the rollback and guardrails prevent further dataset truncation incidents.
