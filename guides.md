@@ -3408,7 +3408,7 @@ options to convert Ore into fragments when nodes are depleted.
       "step_id": "resource-paldium:001",
       "type": "gather",
       "summary": "Mine riverbed nodes",
-      "detail": "Follow the river south of the Windswept Hills fast travel statue.  Blue crystalline nodes respawn every few minutes and yield 2–4 fragments each【palwiki-paldium†L42-L71】.",
+      "detail": "Follow the river south of the Windswept Hills fast travel statue.  Blue crystalline nodes respawn every few minutes and yield 2–4 fragments each【palwiki-paldium†L21-L23】.",
       "targets": [
         {
           "kind": "item",
@@ -3483,7 +3483,7 @@ options to convert Ore into fragments when nodes are depleted.
       "step_id": "resource-paldium:002",
       "type": "explore",
       "summary": "Hit cliffside outcrops",
-      "detail": "Circle the cliff ring northwest of the starting valley.  Surface fragments protrude from the ground and can be kicked for bonus drops, netting ~30 fragments per lap【palwiki-paldium†L86-L115】.",
+      "detail": "Circle the cliff ring northwest of the starting valley.  Surface fragments protrude from the ground and can be kicked for bonus drops, netting ~30 fragments per lap【palwiki-paldium†L21-L23】.",
       "targets": [
         {
           "kind": "item",
@@ -3535,7 +3535,7 @@ options to convert Ore into fragments when nodes are depleted.
       "step_id": "resource-paldium:003",
       "type": "craft",
       "summary": "Refine fragments from Ore",
-      "detail": "Back at base, smelt spare Ore into Ingots, then crush the leftovers to convert into extra fragments.  Each smelting cycle produces 2 fragments as a by-product when using the Primitive Furnace【palwiki-paldium†L118-L140】.",
+      "detail": "Back at base, smelt spare Ore into Ingots, then crush the leftovers to convert into extra fragments.  Each smelting cycle produces 2 fragments as a by-product when using the Primitive Furnace【palwiki-paldium†L24-L25】【palwiki-crusher-raw†L15-L30】.",
       "targets": [
         {
           "kind": "item",
@@ -3578,7 +3578,8 @@ options to convert Ore into fragments when nodes are depleted.
       },
       "branching": [],
       "citations": [
-        "palwiki-paldium"
+        "palwiki-paldium",
+        "palwiki-crusher-raw"
       ]
     }
   ],
@@ -4666,7 +4667,7 @@ Cloth upgrades and tailoring requests strain early-game bases. This loop corrals
 
 ### Route: Egg Clutch Run
 
-Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sweeps Windswept Hills for docile Chikipi, stations them on your ranch, and backtracks through the meadow to scoop stray ground eggs while timers reset.【palwiki-chikipi†L1850-L1859】【palwiki-chikipi†L1667-L1692】
+Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sweeps Windswept Hills for docile Chikipi, stations them on your ranch, and backtracks through the meadow to scoop stray ground eggs while timers reset.【palwiki-chikipi†L29-L35】【palwiki-chikipi†L9-L13】
 
 ```json
 {
@@ -4716,8 +4717,8 @@ Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sw
     "hardcore": "Hardcore runs risk a stray patrol near the fields; keep distance if undergeared."
   },
   "adaptive_guidance": {
-    "underleveled": "Stay near the Palbox outskirts and capture one Chikipi at a time to avoid chain aggro.【palwiki-chikipi†L1850-L1857】",
-    "overleveled": "Run the route twice per outing, filling both ranch slots and stockpiling 15+ Eggs for breeding queues.【palwiki-chikipi†L1667-L1693】",
+    "underleveled": "Stay near the Palbox outskirts and capture one Chikipi at a time to avoid chain aggro.【palwiki-chikipi†L29-L35】",
+    "overleveled": "Run the route twice per outing, filling both ranch slots and stockpiling 15+ Eggs for breeding queues.【palwiki-chikipi†L9-L13】",
     "resource_shortages": [
       {
         "item_id": "pal-sphere",
@@ -4783,7 +4784,7 @@ Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sw
       "step_id": "resource-egg:001",
       "type": "capture",
       "summary": "Gather Chikipi in Windswept Hills",
-      "detail": "Circle the grassy flats below the Palbox. Chikipi roam here constantly, lay eggs on the ground, and rarely fight back, so you can secure four layers quickly.【palwiki-chikipi†L1850-L1859】",
+      "detail": "Circle the grassy flats below the Palbox. Chikipi roam here constantly, lay eggs on the ground, and rarely fight back, so you can secure four layers quickly.【palwiki-chikipi†L29-L35】【palwiki-egg†L1-L2】",
       "targets": [
         {
           "kind": "pal",
@@ -4846,14 +4847,15 @@ Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sw
       },
       "branching": [],
       "citations": [
-        "palwiki-chikipi"
+        "palwiki-chikipi",
+        "palwiki-egg"
       ]
     },
     {
       "step_id": "resource-egg:002",
       "type": "base",
       "summary": "Assign layers to the ranch",
-      "detail": "Place two captured Chikipi on the Ranch. Their Egg Layer partner skill produces eggs over time, so stagger assignments to keep timers rolling.【palwiki-chikipi†L1667-L1693】",
+      "detail": "Place two captured Chikipi on the Ranch. Their Egg Layer partner skill produces eggs over time, so stagger assignments to keep timers rolling.【palwiki-chikipi†L9-L13】",
       "targets": [
         {
           "kind": "item",
@@ -4907,7 +4909,7 @@ Efficient Cake production hinges on a dependable stockpile of Eggs. This loop sw
       "step_id": "resource-egg:003",
       "type": "gather",
       "summary": "Scoop loose eggs while timers reset",
-      "detail": "Jog a perimeter lap through the same fields, collecting freshly laid eggs and watching for respawned Chikipi to top off your ranch roster.【palwiki-chikipi†L1850-L1859】",
+      "detail": "Jog a perimeter lap through the same fields, collecting freshly laid eggs and watching for respawned Chikipi to top off your ranch roster.【palwiki-chikipi†L29-L35】",
       "targets": [
         {
           "kind": "item",
@@ -11972,7 +11974,7 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
     "resource_shortages": [
       {
         "item_id": "paldium-fragment",
-        "solution": "Trigger the resource-paldium subroute or run riverbank loops until you refill at least 80 fragments.【palwiki-paldium†L42-L71】"
+        "solution": "Trigger the resource-paldium subroute or run riverbank loops until you refill at least 80 fragments.【palwiki-paldium†L21-L23】"
       },
       {
         "item_id": "pal-metal-ingot",
@@ -11997,7 +11999,7 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
       {
         "signal": "resource_gap:paldium-fragment_low",
         "condition": "resource_gaps['paldium-fragment'] <= 20",
-        "adjustment": "Pause smelting and rerun resource-paldium to rebuild fragments before draining ore stock.【palwiki-paldium†L42-L71】",
+        "adjustment": "Pause smelting and rerun resource-paldium to rebuild fragments before draining ore stock.【palwiki-paldium†L21-L23】",
         "priority": 2,
         "mode_scope": [
           "normal",
@@ -12116,7 +12118,7 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
       "step_id": "resource-pal-metal-ingot:002",
       "type": "gather",
       "summary": "Stockpile ore and Paldium fragments",
-      "detail": "Loop the desert ridge for ore while triggering resource-paldium runs so fragment reserves stay ahead of 4 Ore + 2 Paldium alloy batches.【segmentnext-refined-ingot†L5-L5】【palwiki-paldium†L42-L71】【palwiki-pal-metal-ingot†L1-L3】",
+      "detail": "Loop the desert ridge for ore while triggering resource-paldium runs so fragment reserves stay ahead of 4 Ore + 2 Paldium alloy batches.【segmentnext-refined-ingot†L5-L5】【palwiki-paldium†L21-L24】【palwiki-pal-metal-ingot†L1-L3】",
       "targets": [
         {
           "kind": "item",

@@ -1,0 +1,28 @@
+Stub
+This article is a stub. You can help Palworld Wiki by expanding it.
+Paldium Fragment
+Information
+Type
+Material
+Description
+Crystallized energy from the World Tree. Capable of creating supernatural items and structures.
+Source
+Crafting
+Mining
+Paldium rocks
+Lunaris
+Weight
+1
+Prices
+Sell
+1
+Paldium Fragment is a material in Palworld.
+Acquisition
+It can be obtained by:
+Mining Paldium rocks.
+Random drop while mining regular rocks.
+A Crusher can process Stone into Paldium Fragments.
+Some Pals can also drop Paldium Fragment when captured or defeated.
+Use
+It's primarily needed to craft Pal Spheres.
+It is required to craft many structures and gear pieces.

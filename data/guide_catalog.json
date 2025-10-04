@@ -9762,7 +9762,8 @@
           "order": 1,
           "instruction": "**Circle the Palbox meadows in Windswept Hills** to capture four Chikipi and scoop their ground eggs while respawns are constant.",
           "citations": [
-            "palwiki-chikipi†L1850-L1859"
+            "palwiki-chikipi†L29-L35",
+            "palwiki-egg†L1-L2"
           ],
           "links": [
             {
@@ -9783,7 +9784,7 @@
           "order": 2,
           "instruction": "**Station two Chikipi on the Ranch** so they lay Eggs passively while you process earlier harvests.",
           "citations": [
-            "palwiki-chikipi†L1667-L1693"
+            "palwiki-chikipi†L9-L13"
           ],
           "links": [
             {
@@ -9797,7 +9798,7 @@
           "order": 3,
           "instruction": "**Jog a perimeter lap for loose Eggs** between timers, topping off the stack before returning to base crafts.",
           "citations": [
-            "palwiki-chikipi†L1850-L1859"
+            "palwiki-chikipi†L29-L35"
           ],
           "links": [
             {
@@ -10594,7 +10595,7 @@
           "instruction": "Mine desert ore veins and rerun the **resource-paldium** loop so every batch covers the 4 Ore + 2 Paldium Fragment ratio each Pal Metal Ingot consumes.",
           "citations": [
             "segmentnext-refined-ingot†L5-L5",
-            "palwiki-paldium†L42-L71",
+            "palwiki-paldium†L21-L23",
             "palwiki-pal-metal-ingot†L1-L3"
           ],
           "links": [

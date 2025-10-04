@@ -22,12 +22,14 @@ GUIDES_PATH = REPO_ROOT / "guides.md"
 CATALOG_PATH = REPO_ROOT / "data" / "guide_catalog.json"
 
 ROUTE_BLOCK_PATTERN = re.compile(r"```json\s*(\{.*?\})\s*```", re.DOTALL)
+CITATION_INLINE_PATTERN = re.compile(r"【([^】]+)】")
 
 
 @dataclass(frozen=True)
 class ResourceRoute:
     route_id: str
     title: str
+    citation_keys: frozenset[str]
 
 
 @dataclass(frozen=True)
@@ -35,6 +37,52 @@ class CatalogEntry:
     entry_id: str
     title: str
     shortage_menu: bool
+
+
+def _normalise_citation(raw: str) -> str | None:
+    """Return the canonical citation identifier if ``raw`` is usable."""
+
+    if not isinstance(raw, str):
+        return None
+    key = raw.split("\u2020", 1)[0]  # strip †-style suffixes if present
+    key = key.split("†", 1)[0]  # defensive in case plain ASCII dagger is used
+    key = key.strip()
+    return key or None
+
+
+def extract_citations(payload: object) -> Set[str]:
+    """Recursively gather citation identifiers from a JSON payload."""
+
+    collected: Set[str] = set()
+
+    def walk(node: object) -> None:
+        if isinstance(node, dict):
+            for key, value in node.items():
+                if key == "citations" and isinstance(value, list):
+                    for entry in value:
+                        normalised = _normalise_citation(entry)
+                        if normalised:
+                            collected.add(normalised)
+                walk(value)
+        elif isinstance(node, list):
+            for item in node:
+                walk(item)
+        elif isinstance(node, str):
+            for match in CITATION_INLINE_PATTERN.finditer(node):
+                raw_key = match.group(1)
+                normalised = _normalise_citation(raw_key)
+                if normalised:
+                    collected.add(normalised)
+
+    walk(payload)
+    return collected
+
+
+@dataclass(frozen=True)
+class CitationWarning:
+    route_id: str
+    title: str
+    citation_count: int
 
 
 def parse_resource_routes(markdown: str) -> List[ResourceRoute]:
@@ -49,7 +97,10 @@ def parse_resource_routes(markdown: str) -> List[ResourceRoute]:
         route_id = payload.get("route_id")
         if isinstance(route_id, str) and route_id.startswith("resource-"):
             title = payload.get("title", "")
-            routes.append(ResourceRoute(route_id=route_id, title=title))
+            citations = frozenset(extract_citations(payload))
+            routes.append(
+                ResourceRoute(route_id=route_id, title=title, citation_keys=citations)
+            )
     return routes
 
 
@@ -93,6 +144,7 @@ def load_catalog_entries() -> List[CatalogEntry]:
 def format_text_report(
     missing_routes: Sequence[CatalogEntry],
     missing_catalog: Sequence[ResourceRoute],
+    citation_warnings: Sequence[CitationWarning],
 ) -> str:
     lines = ["Resource Coverage Report", "========================", ""]
     lines.append(f"Catalog entries without matching routes: {len(missing_routes)}")
@@ -111,12 +163,27 @@ def format_text_report(
     else:
         lines.append("All resource routes are present in the catalog.")
 
+    lines.append("")
+    lines.append(
+        f"Resource routes lacking at least two citations: {len(citation_warnings)}"
+    )
+    if citation_warnings:
+        for warning in citation_warnings:
+            count = warning.citation_count
+            plural = "citation" if count == 1 else "citations"
+            lines.append(
+                f"  - {warning.route_id} ({warning.title or 'untitled'}) – {count} {plural}"
+            )
+    else:
+        lines.append("All resource routes include at least two citations.")
+
     return "\n".join(lines)
 
 
 def format_markdown_report(
     missing_routes: Sequence[CatalogEntry],
     missing_catalog: Sequence[ResourceRoute],
+    citation_warnings: Sequence[CitationWarning],
 ) -> str:
     lines = ["# Resource Coverage Report", ""]
     lines.append(f"- Catalog entries without matching routes: **{len(missing_routes)}**")
@@ -137,8 +204,21 @@ def format_markdown_report(
         lines.append("## Routes missing catalog entries")
         for route in missing_catalog:
             lines.append(f"- `{route.route_id}` – {route.title or 'untitled'}")
+        lines.append("")
     else:
         lines.append("All resource routes are present in the catalog.")
+        lines.append("")
+
+    if citation_warnings:
+        lines.append("## Citation coverage warnings")
+        for warning in citation_warnings:
+            count = warning.citation_count
+            plural = "citation" if count == 1 else "citations"
+            lines.append(
+                f"- `{warning.route_id}` – {warning.title or 'untitled'} ({count} {plural})"
+            )
+    else:
+        lines.append("All resource routes include at least two citations.")
 
     return "\n".join(lines)
 
@@ -146,6 +226,7 @@ def format_markdown_report(
 def format_csv_report(
     missing_routes: Sequence[CatalogEntry],
     missing_catalog: Sequence[ResourceRoute],
+    citation_warnings: Sequence[CitationWarning],
 ) -> str:
     buffer = io.StringIO()
     writer = csv.writer(buffer)
@@ -160,28 +241,47 @@ def format_csv_report(
             ]
         )
     for route in missing_catalog:
-        writer.writerow([
-            "route_without_catalog",
-            route.route_id,
-            route.title,
-            "",
-        ])
+        writer.writerow(
+            [
+                "route_without_catalog",
+                route.route_id,
+                route.title,
+                "",
+            ]
+        )
+    for warning in citation_warnings:
+        writer.writerow(
+            [
+                "citation_warning",
+                warning.route_id,
+                warning.title,
+                str(warning.citation_count),
+            ]
+        )
     return buffer.getvalue().rstrip("\n")
 
 
 def format_report(
     missing_routes: Iterable[CatalogEntry],
     missing_catalog: Iterable[ResourceRoute],
+    citation_warnings: Iterable[CitationWarning],
     report_format: str,
 ) -> str:
     missing_routes_list = list(missing_routes)
     missing_catalog_list = list(missing_catalog)
+    citation_warnings_list = list(citation_warnings)
 
     if report_format == "markdown":
-        return format_markdown_report(missing_routes_list, missing_catalog_list)
+        return format_markdown_report(
+            missing_routes_list, missing_catalog_list, citation_warnings_list
+        )
     if report_format == "csv":
-        return format_csv_report(missing_routes_list, missing_catalog_list)
-    return format_text_report(missing_routes_list, missing_catalog_list)
+        return format_csv_report(
+            missing_routes_list, missing_catalog_list, citation_warnings_list
+        )
+    return format_text_report(
+        missing_routes_list, missing_catalog_list, citation_warnings_list
+    )
 
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
@@ -217,7 +317,17 @@ def main(argv: Sequence[str] | None = None) -> None:
     missing_routes = [entry for entry in entries if entry.entry_id not in route_ids]
     missing_catalog = [route for route in routes if route.route_id not in catalog_ids]
 
-    report = format_report(missing_routes, missing_catalog, args.format)
+    citation_warnings = [
+        CitationWarning(
+            route_id=route.route_id,
+            title=route.title,
+            citation_count=len(route.citation_keys),
+        )
+        for route in routes
+        if len(route.citation_keys) < 2
+    ]
+
+    report = format_report(missing_routes, missing_catalog, citation_warnings, args.format)
 
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

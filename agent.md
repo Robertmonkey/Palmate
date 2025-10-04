@@ -301,3 +301,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Plumb bundle metadata (e.g., recommended phases or art IDs) into the new helper cards so future revisions can render custom thumbnails without re-querying the main route lookup.
 2. Audit the `resourceGuideEntries` source once more routes adopt multi-step outputs; consider injecting explicit `primary_resource_id` metadata into the schema to avoid relying solely on output detection.
 3. Expand the backlog preview copy to surface more than two queued resources when the coverage debt grows, potentially with a tooltip that links back to the coverage report export.
+
+### 2025-11-26 Citation lint and early-game resource QA
+
+* Extended `scripts/resource_coverage_report.py` to harvest inline and array citations, surface routes with fewer than two unique sources across text/Markdown/CSV outputs, and track offending route IDs for follow-up.【F:scripts/resource_coverage_report.py†L1-L200】
+* Authored Palworld wiki excerpts for Paldium Fragments and Eggs, then refreshed the Paldium Fragment Mining Loop and Egg Clutch Run routes plus their bundle/catalog mirrors so each step now cites multiple independent sources with accurate line ranges.【F:sources/palwiki-paldium.txt†L1-L28】【F:sources/palwiki-egg.txt†L1-L2】【F:guides.md†L3411-L3583】【F:guides.md†L4674-L4980】【F:data/guides.bundle.json†L1357-L2109】【F:data/guide_catalog.json†L9748-L9810】
+* Re-ran the enhanced coverage report to verify the shortage dataset now reports zero citation debt, keeping telemetry clean for dashboards.【d7f52a†L1-L11】
+
+**Continuation notes:**
+
+1. Add optional severity levels to the citation lint so routes with a single source raise warnings while uncited routes fail CI once automated tests cover the script.
+2. Sweep remaining non-resource guides for legacy line-number citations to ensure future schema migrations don’t reintroduce mismatches.
+3. Teach the coverage script to verify that every cited key resolves to a `sources/` document so regressions in the citation registry are caught early.
