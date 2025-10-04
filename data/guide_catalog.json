@@ -10529,6 +10529,707 @@
           ]
         }
       ]
+    },
+    {
+      "id": "resource-pal-metal-ingot",
+      "title": "Pal Metal Alloy Grid",
+      "source_heading": "Pal Metal Alloy Grid",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Late-game smithing stalled because Pal Metal Ingots are missing and the Electric Furnace is offline.",
+      "keywords": [
+        "pal metal ingot",
+        "electric furnace",
+        "paldium",
+        "late game"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Spend level 44 tech points on the **Electric Furnace**, deliver the refined ingots, boards, polymer, and carbon fiber, and wire it to a Power Generator before smelting runs begin.",
+          "citations": [
+            "palwiki-electric-furnace†L1-L5"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "electric-furnace",
+              "name": "Electric Furnace"
+            },
+            {
+              "type": "structure",
+              "id": "power-generator",
+              "name": "Power Generator"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Mine desert ore veins and rerun the **resource-paldium** loop so every batch covers the 4 Ore + 2 Paldium Fragment ratio each Pal Metal Ingot consumes.",
+          "citations": [
+            "segmentnext-refined-ingot†L5-L5",
+            "palwiki-paldium†L42-L71",
+            "palwiki-pal-metal-ingot†L1-L3"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "ore",
+              "slug": "ore",
+              "name": "Ore"
+            },
+            {
+              "type": "item",
+              "id": "paldium-fragment",
+              "slug": "paldium-fragment",
+              "name": "Paldium Fragment"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Queue **Pal Metal Ingots** in the Electric Furnace, then rotate Astegon and Necromus hunts to top off drops between smelting cycles.",
+          "citations": [
+            "palwiki-pal-metal-ingot†L1-L3",
+            "fandom-pal-metal-ingot†L1-L4"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "pal-metal-ingot",
+              "slug": "pal-metal-ingot",
+              "name": "Pal Metal Ingot"
+            },
+            {
+              "type": "pal",
+              "id": "astegon",
+              "name": "Astegon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-electric-organ",
+      "title": "Electric Organ Relay Circuit",
+      "source_heading": "Electric Organ Relay Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Power infrastructure is waiting on Electric Organs and Sparkit patrols aren’t on a loop yet.",
+      "keywords": [
+        "electric organ",
+        "sparkit",
+        "bridge of the twin knights",
+        "small settlement"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Set a fast-travel anchor at **Rayne Syndicate Tower Entrance (112,-434)** and map the Bridge of the Twin Knights patrol so Sparkit chains reset quickly.",
+          "citations": [
+            "9565e9†L3-L14"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "rayne-syndicate-tower",
+              "name": "Rayne Syndicate Tower Entrance",
+              "region": "Windswept Hills"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Loop **Sparkit and Jolthog packs** across the bridge ridge, fast travelling after each clear until you’ve banked at least a dozen Electric Organs.",
+          "citations": [
+            "9565e9†L11-L14",
+            "9565e9†L60-L66",
+            "eec516†L5-L14"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "sparkit",
+              "name": "Sparkit"
+            },
+            {
+              "type": "pal",
+              "id": "jolthog",
+              "name": "Jolthog"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Buy out the **Small Settlement merchant’s** 200-gold Electric Organ stock after each hunt to buffer crafting queues.",
+          "citations": [
+            "9565e9†L6-L8",
+            "eec516†L9-L14"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-wheat-seeds",
+      "title": "Wheat Seed Field Logistics",
+      "source_heading": "Wheat Seed Field Logistics",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Wheat Plantations are idle because seed stock ran out after early harvests.",
+      "keywords": [
+        "wheat seeds",
+        "small settlement",
+        "dinossom",
+        "flopie"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Teleport to the **Small Settlement (75,-479)**, purchase every Wheat Seed from the wandering merchant, and stash them before patrols reset.",
+          "citations": [
+            "pcgamesn-wheat-seeds†L1-L7",
+            "palwiki-wandering-merchant†L1-L27",
+            "palwiki-small-settlement†L1-L9"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Hunt **Dinossom and Flopie** around Rayne Tower and the Bridge of the Twin Knights to refill drops between merchant visits.",
+          "citations": [
+            "46c54c†L9-L17",
+            "a05a80†L1-L13",
+            "b1cc9c†L1-L2",
+            "ca82d7†L1-L4"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "dinossom",
+              "name": "Dinossom"
+            },
+            {
+              "type": "pal",
+              "id": "flopie",
+              "name": "Flopie"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Build a **Wheat Plantation**, assign Planting and Watering pals, and let automation keep flour production on track.",
+          "citations": [
+            "54c140†L1-L9",
+            "46c54c†L18-L21"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "wheat-plantation",
+              "name": "Wheat Plantation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-flame-organ",
+      "title": "Flame Organ Kiln Loop",
+      "source_heading": "Flame Organ Kiln Loop",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Furnaces and cooking pots are short on Flame Organs after early-game crafting spikes.",
+      "keywords": [
+        "flame organ",
+        "foxparks",
+        "flambelle",
+        "merchant"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Circle the **Rayne Syndicate Tower** ridge, clearing Foxparks for rapid Flame Organ drops before they scatter.",
+          "citations": [
+            "5531dc†L2-L6",
+            "cf6c22†L3-L8",
+            "progameguides-flame-organ†L5-L13"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "foxparks",
+              "name": "Foxparks"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Capture a **Flambelle** from Mount Obsidian and station it on the Ranch so Magma Tears generate passive organs.",
+          "citations": [
+            "5531dc†L7-L9",
+            "cf6c22†L8-L8",
+            "game8-flame-organ†L1-L7"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "flambelle",
+              "name": "Flambelle"
+            },
+            {
+              "type": "structure",
+              "id": "ranch",
+              "name": "Ranch"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Stop at the **Small Settlement vendor** after each sweep and spend 100 gold per organ to smooth out unlucky drops.",
+          "citations": [
+            "cf6c22†L6-L6"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-ice-organ",
+      "title": "Ice Organ Chill Chain",
+      "source_heading": "Ice Organ Chill Chain",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Refrigerators and ice saddles are waiting on Ice Organs and the Penking arena loop isn’t set up yet.",
+      "keywords": [
+        "ice organ",
+        "penking",
+        "pengullet",
+        "duneshelter"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Unlock the **Sealed Realm of the Frozen Wings** teleport so you can dive the dungeon without a long approach run.",
+          "citations": [
+            "4307f5†L3-L11"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "sealed-realm-frozen-wings",
+              "name": "Sealed Realm of the Frozen Wings",
+              "region": "Ice Wind Island"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Clear **Pengullet waves** inside the Penking arena, exiting before the boss falls so respawns stay immediate.",
+          "citations": [
+            "4307f5†L9-L11",
+            "game8-ice-organ†L1-L9"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "pengullet",
+              "name": "Pengullet"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Whenever you route through the desert, buy the **Duneshelter merchant’s** 100-gold Ice Organ stock to cover downtime.",
+          "citations": [
+            "955051†L5-L8",
+            "0e4eda†L6-L83"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "duneshelter",
+              "name": "Duneshelter",
+              "region": "Twilight Dunes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-katress-hair",
+      "title": "Katress Weaving Circuit",
+      "source_heading": "Katress Weaving Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Katress Caps and speed remedies are blocked because Katress Hair stockpiles are empty.",
+      "keywords": [
+        "katress hair",
+        "moonless shore",
+        "alpha katress",
+        "breeding"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Run **Moonless Shore and Verdant Brook night patrols** to capture or defeat roaming Katress for immediate hair drops.",
+          "citations": [
+            "gameleap-katress†L7-L20"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "katress",
+              "name": "Katress"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Clear the **Sealed Realm of the Invincible** alpha for guaranteed hair stacks and a fast travel anchor.",
+          "citations": [
+            "segmentnext-katress†L1-L12",
+            "gameleap-katress†L20-L32"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "sealed-realm-invincible",
+              "name": "Sealed Realm of the Invincible",
+              "region": "Verdant Brook"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Breed backup Katress pairs and craft the **Katress Cap** so hair keeps flowing while patrols respawn.",
+          "citations": [
+            "gameleap-katress†L20-L32",
+            "palnerd-katress-hair†L20-L36",
+            "palwiki-katress-hair†L1-L13"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "breeding-farm",
+              "name": "Breeding Farm"
+            },
+            {
+              "type": "item",
+              "id": "katress-cap",
+              "slug": "katress-cap",
+              "name": "Katress Cap"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-medium-pal-soul",
+      "title": "Medium Pal Soul Harmonization",
+      "source_heading": "Medium Pal Soul Harmonization",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Statue of Power upgrades need Medium Pal Souls and the Crusher loop is not yet automated.",
+      "keywords": [
+        "medium pal soul",
+        "helzephyr",
+        "sootseer",
+        "crusher"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Glide between **Bridge of the Twin Knights** cliffs at night and ambush Helzephyr to collect rare Medium Pal Soul drops.",
+          "citations": [
+            "palwiki-helzephyr-raw†L65-L116"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "helzephyr",
+              "name": "Helzephyr"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Alternate **Sakurajima Sootseer raids** with Desiccated Desert chest laps so guaranteed drops refill the stash between hunts.",
+          "citations": [
+            "palwiki-sootseer†L65-L114",
+            "palwiki-medium-pal-soul-raw†L22-L36",
+            "palfandom-medium-pal-soul-raw†L27-L38",
+            "palwiki-duneshelter†L506-L516"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "sootseer",
+              "name": "Sootseer"
+            },
+            {
+              "type": "location",
+              "id": "duneshelter",
+              "name": "Duneshelter",
+              "region": "Desiccated Desert"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Keep **Crusher automation** running beside the Statue of Power so spare Small or Large souls convert into Medium stock without manual babysitting.",
+          "citations": [
+            "palwiki-crusher-raw†L15-L48",
+            "palwiki-medium-pal-soul-raw†L31-L42",
+            "palwiki-statue-of-power†L3-L12"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "crusher",
+              "name": "Crusher"
+            },
+            {
+              "type": "structure",
+              "id": "statue-of-power",
+              "name": "Statue of Power"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-large-pal-soul",
+      "title": "Large Pal Soul Resonance",
+      "source_heading": "Large Pal Soul Resonance",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Late-game Statue of Power ranks are blocked by missing Large Pal Souls.",
+      "keywords": [
+        "large pal soul",
+        "anubis",
+        "crusher",
+        "sanctuary"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Unlock and fuel the **Statue of Power + Crusher hub** so Large soul conversions can start immediately.",
+          "citations": [
+            "game8-large-pal-soul†L87-L118",
+            "palwiki-crusher†L159-L179"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "statue-of-power",
+              "name": "Statue of Power"
+            },
+            {
+              "type": "structure",
+              "id": "crusher",
+              "name": "Crusher"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Farm **Anubis in Twilight Dunes** every night for guaranteed Large Pal Soul drops and high XP.",
+          "citations": [
+            "game8-large-pal-soul†L113-L156",
+            "palwiki-large-pal-soul†L116-L160"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "anubis",
+              "name": "Anubis"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Convert surplus Medium or Giant souls at the **Crusher** and sweep Wildlife Sanctuary No. 2 between hunts to keep reserves topped off.",
+          "citations": [
+            "game8-large-pal-soul†L117-L156",
+            "palwiki-large-pal-soul†L125-L160",
+            "palwiki-wildlife-sanctuary-2†L1-L15"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "crusher",
+              "name": "Crusher"
+            },
+            {
+              "type": "location",
+              "id": "wildlife-sanctuary-2",
+              "name": "Wildlife Sanctuary No. 2",
+              "region": "Palpagos Islands"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-gold-coin",
+      "title": "Gold Coin Treasury Circuit",
+      "source_heading": "Gold Coin Treasury Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Merchants and schematics require more Gold Coins than the ranch is currently producing.",
+      "keywords": [
+        "gold coin",
+        "mau",
+        "vixy",
+        "merchant"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Night-farm **Mau camps** around the Small Settlement to capture producers and scoop loose coin drops.",
+          "citations": [
+            "palwiki-small-settlement†L1-L9",
+            "palwiki-mau-raw†L11-L115"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "mau",
+              "name": "Mau"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Assign **Mau and Vixy** to ranch slots so Gold Digger and Dig Here! payouts land passively while you hunt.",
+          "citations": [
+            "palwiki-mau-raw†L109-L115",
+            "palwiki-vixy†L118-L176"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "vixy",
+              "name": "Vixy"
+            },
+            {
+              "type": "structure",
+              "id": "ranch",
+              "name": "Ranch"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Sell crafted goods and spare drops to **Small Settlement merchants**, then sweep nearby patrols and chests for bonus coins before restocking the ranch.",
+          "citations": [
+            "palwiki-gold-coin-raw†L20-L28",
+            "palwiki-gold-coin†L28-L44",
+            "palwiki-wandering-merchant-raw†L1-L119"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-lamball-mutton",
+      "title": "Lamball Butchery Circuit",
+      "source_heading": "Lamball Butchery Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Camp kitchens are missing Lamball Mutton after ranch stock was exhausted.",
+      "keywords": [
+        "lamball mutton",
+        "meat cleaver",
+        "windswept hills",
+        "cooking"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Capture a flock of **Lamball near the Small Settlement** so the ranch stays stocked with breeders and wool.",
+          "citations": [
+            "palwiki-small-settlement†L1-L9",
+            "palfandom-lamball†L17-L75"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "lamball",
+              "name": "Lamball"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Unlock the **Meat Cleaver**, craft it at a Primitive Workbench, and butcher surplus Lamball for guaranteed mutton drops.",
+          "citations": [
+            "palwiki-meat-cleaver†L2-L38",
+            "palfandom-lamball†L67-L75"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "meat-cleaver",
+              "slug": "meat-cleaver",
+              "name": "Meat Cleaver"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Cook cuts at a **Campfire or Cooking Pot** or sell spares to wandering merchants so pantry reserves stay fresh.",
+          "citations": [
+            "palwiki-lamball-mutton-raw†L1-L27"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "campfire",
+              "name": "Campfire"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
