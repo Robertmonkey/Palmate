@@ -289,3 +289,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Extend the coverage report with citation linting so resource routes missing two independent sources raise actionable warnings alongside the coverage diff.【F:scripts/resource_coverage_report.py†L114-L149】
 2. Consider serialising the new coordinate blocks into the bundle metadata for UI map overlays once design finalises the shortages tooltip layout.【F:guides.md†L25777-L25816】【F:data/guides.bundle.json†L107-L128】
 3. After the next data refresh, spot-check `--format markdown --output` exports to confirm automated Ops digests ingest without additional formatting fixes.【F:scripts/resource_coverage_report.py†L131-L149】
+
+### 2025-11-25 Resource shortages panel polish & coverage surfacing
+
+* Re-themed the route context “Resource shortages” block so it inherits the cosmic gradient, halo lighting, and stat chips used by Tonight’s Goals. The refreshed banner now spotlights total coverage, pending backlog, and the next queued resources while staying responsive on narrow layouts.【F:index.html†L14086-L14118】【F:css/styles.css†L401-L468】
+* Enriched the helper drawer with full guide cards that show level ranges, time estimates, and shortage notes pulled directly from adaptive guidance, replacing the old flat chip list. Each card opens the preview modal via existing interactions to keep the flow consistent.【F:index.html†L14326-L14474】【F:css/styles.css†L415-L447】
+* Wired chip badges and dropdown metadata into the coverage map so selected shortages show their matched guide counts, clarifying when a resource is fully supported versus queued for the backlog.【F:index.html†L14107-L14115】【F:index.html†L14480-L14492】【F:css/styles.css†L451-L462】
+
+**Continuation notes:**
+
+1. Plumb bundle metadata (e.g., recommended phases or art IDs) into the new helper cards so future revisions can render custom thumbnails without re-querying the main route lookup.
+2. Audit the `resourceGuideEntries` source once more routes adopt multi-step outputs; consider injecting explicit `primary_resource_id` metadata into the schema to avoid relying solely on output detection.
+3. Expand the backlog preview copy to surface more than two queued resources when the coverage debt grows, potentially with a tooltip that links back to the coverage report export.

@@ -10721,10 +10721,26 @@
           ? Array.from(resourceRoutes.get(itemId))
           : [];
         const orderedRoutes = sortResourceGuideRoutes(routesForItem, routeLookup);
-        const entries = orderedRoutes.map(routeId => ({
-          id: routeId,
-          title: routeLookup?.[routeId]?.title || niceName(routeId)
-        }));
+        const entries = orderedRoutes.map(routeId => {
+          const routeEntry = routeLookup?.[routeId];
+          const objectives = Array.isArray(routeEntry?.objectives) ? routeEntry.objectives : [];
+          const shortages = Array.isArray(routeEntry?.adaptive_guidance?.resource_shortages)
+            ? routeEntry.adaptive_guidance.resource_shortages.filter(shortage => shortage && (shortage.solution || shortage.note))
+            : [];
+          return {
+            id: routeId,
+            title: routeEntry?.title || niceName(routeId),
+            level: routeEntry?.recommended_level || null,
+            levelLabel: formatLevelRangeLabel(routeEntry?.recommended_level) || '',
+            time: routeEntry?.estimated_time_minutes || null,
+            timeLabel: formatTimeLabel(routeEntry?.estimated_time_minutes) || '',
+            summary: objectives.length ? objectives[0] : '',
+            shortageNotes: shortages
+              .map(shortage => cleanGuideText(shortage.solution || shortage.note || ''))
+              .filter(Boolean)
+              .slice(0, 2)
+          };
+        });
         resourceGuides[itemId] = entries;
         if(!entries.length){
           missingResourceGuides.push(itemId);
@@ -14101,6 +14117,42 @@
       }
       const resourceOptions = Array.isArray(guide?.keyResources) ? guide.keyResources : [];
       const resourceGuideMap = guide?.resourceGuides || {};
+      const resourceGuideGaps = Array.isArray(guide?.resourceGuideGaps) ? guide.resourceGuideGaps : [];
+      const totalResources = resourceOptions.length;
+      let coveredResources = 0;
+      resourceOptions.forEach(itemId => {
+        const guides = Array.isArray(resourceGuideMap[itemId]) ? resourceGuideMap[itemId] : [];
+        if(guides.length){
+          coveredResources += 1;
+        }
+      });
+      const missingResources = Math.max(0, totalResources - coveredResources);
+      const backlogClass = missingResources
+        ? ' route-context__resource-stat--pending'
+        : ' route-context__resource-stat--success';
+      const backlogLabel = missingResources
+        ? (kidMode ? 'Coming soon' : 'Queued next')
+        : (kidMode ? 'All covered' : 'Backlog clear');
+      const backlogValueHtml = missingResources
+        ? escapeHTML(String(missingResources))
+        : '<i class="fa-solid fa-check" aria-hidden="true"></i>';
+      const coverageSummary = missingResources
+        ? (kidMode
+          ? `${coveredResources} guides ready · ${missingResources} coming soon`
+          : `${coveredResources} of ${totalResources} shortages wired · ${missingResources} queued next`)
+        : (kidMode
+          ? 'Guides ready for every tracked resource.'
+          : `Coverage complete for all ${coveredResources} tracked resources.`);
+      const backlogPreview = missingResources
+        ? resourceGuideGaps
+            .filter(itemId => resourceOptions.includes(itemId))
+            .slice(0, 2)
+            .map(itemId => itemDisplayName(itemId))
+            .filter(Boolean)
+        : [];
+      const backlogPreviewHtml = backlogPreview.length
+        ? `<span class="route-context__resource-next">${escapeHTML(kidMode ? `Next: ${backlogPreview.join(', ')}` : `Queued: ${backlogPreview.join(', ')}`)}</span>`
+        : '';
       const goalTiles = tags.length
         ? renderGoalDrawer(tags, context.goals)
         : `<p class="route-context__empty">${escapeHTML(kidMode ? 'Goals load soon.' : 'No goals available yet.')}</p>`;
@@ -14141,8 +14193,26 @@
               <label class="route-context__label">${escapeHTML(kidMode ? 'Goals' : 'Focus goals')}</label>
               <div class="route-context__goals">${goalTiles}</div>
             </div>
-            <div class="route-context__field">
+            <div class="route-context__field route-context__field--resources">
               <label class="route-context__label">${escapeHTML(kidMode ? 'Resource gaps' : 'Resource shortages')}</label>
+              <div class="route-context__resource-banner">
+                <div class="route-context__resource-icon" aria-hidden="true"><i class="fa-solid fa-seedling"></i></div>
+                <div class="route-context__resource-copy">
+                  <p class="route-context__resource-title">${escapeHTML(kidMode ? 'Match a farming route' : 'Match a farming route')}</p>
+                  <p class="route-context__resource-text">${escapeHTML(coverageSummary)}</p>
+                  ${backlogPreviewHtml}
+                </div>
+                <div class="route-context__resource-stats">
+                  <div class="route-context__resource-stat">
+                    <span class="route-context__resource-stat-value">${escapeHTML(String(coveredResources))}</span>
+                    <span class="route-context__resource-stat-label">${escapeHTML(kidMode ? 'Guides ready' : 'Guides ready')}</span>
+                  </div>
+                  <div class="route-context__resource-stat${backlogClass}">
+                    <span class="route-context__resource-stat-value">${backlogValueHtml}</span>
+                    <span class="route-context__resource-stat-label">${escapeHTML(backlogLabel)}</span>
+                  </div>
+                </div>
+              </div>
               <div class="route-context__resources">
                 <div class="route-context__resource-add">
                   <select id="routeResourceSelect">
@@ -14312,23 +14382,97 @@
 
     function renderResourceGuideHelp(itemId){
       const entries = resourceGuideEntries(itemId);
+      const guideGaps = new Set(Array.isArray(routeGuideData?.resourceGuideGaps) ? routeGuideData.resourceGuideGaps : []);
+      const allResources = Array.isArray(routeGuideData?.keyResources) ? routeGuideData.keyResources : [];
+      const totalTracked = allResources.length;
+      const coveredCount = Object.values(routeGuideData?.resourceGuides || {}).reduce((acc, list) => {
+        if(Array.isArray(list) && list.length){
+          return acc + 1;
+        }
+        return acc;
+      }, 0);
+      const missingCount = guideGaps.size;
       if(!itemId){
-        return `<p class="route-context__resource-hint-text">${escapeHTML(kidMode ? 'Pick a resource to see farming guides.' : 'Select a resource to see gathering guides.')}</p>`;
+        const intro = missingCount
+          ? (kidMode
+            ? `${coveredCount} guides ready · ${missingCount} on the way.`
+            : `${coveredCount} of ${totalTracked} shortages wired · ${missingCount} queued next.`)
+          : (kidMode
+            ? 'Every tracked shortage has a matching adventure.'
+            : `Every tracked shortage now has a matching plan. Pick one to dive in.`);
+        const prompt = kidMode
+          ? 'Choose a resource from the list above to see its guides.'
+          : 'Pick a resource from the list above to preview the matching farming plans.';
+        return `
+          <div class="route-resource-guides route-resource-guides--empty">
+            <p class="route-resource-guides__intro">${escapeHTML(intro)}</p>
+            <p class="route-resource-guides__hint">${escapeHTML(prompt)}</p>
+          </div>
+        `;
       }
       if(!entries.length){
-        return `<p class="route-context__resource-hint-text route-context__resource-hint-text--empty">${escapeHTML(kidMode ? 'No guide yet — more coming soon.' : 'No dedicated guide yet. Flag this for the next update!')}</p>`;
+        const queued = guideGaps.has(itemId);
+        const message = queued
+          ? (kidMode
+            ? 'This farming adventure is already on our to-do list. Check back after the next update!'
+            : 'This shortage is queued for the next coverage sprint. It will be published in the upcoming batch.')
+          : (kidMode
+            ? 'No guide yet — let a teammate know you need it!'
+            : 'No dedicated guide yet. Flag this shortage so the team can prioritise it.');
+        return `
+          <div class="route-resource-guides route-resource-guides--empty">
+            <p class="route-resource-guides__intro route-resource-guides__intro--empty">${escapeHTML(message)}</p>
+          </div>
+        `;
       }
-      const limited = entries.slice(0, 3);
-      const buttons = limited.map(entry => `<button type="button" class="chip route-resource-guide-link" data-resource-guide="${escapeHTML(entry.id)}">${escapeHTML(entry.title)}</button>`).join('');
+      const name = itemDisplayName(itemId);
+      const safeName = name ? escapeHTML(name) : escapeHTML('this resource');
+      const introLabel = kidMode ? 'Pick a guide to refill ' : 'Pick a plan to restock ';
+      const introHtml = `${escapeHTML(introLabel)}${safeName}.`;
+      const limited = entries.slice(0, 4);
+      const cards = limited.map(entry => {
+        const metaParts = [];
+        if(entry.levelLabel){
+          metaParts.push(entry.levelLabel);
+        }
+        if(entry.timeLabel){
+          metaParts.push(entry.timeLabel);
+        }
+        const meta = metaParts.length
+          ? `<span class="route-resource-guide-card__meta">${escapeHTML(metaParts.join(' • '))}</span>`
+          : '';
+        const summary = entry.summary
+          ? `<p class="route-resource-guide-card__summary">${escapeHTML(entry.summary)}</p>`
+          : '';
+        const notes = Array.isArray(entry.shortageNotes) && entry.shortageNotes.length
+          ? `<div class="route-resource-guide-card__notes">${entry.shortageNotes.map(note => `<span class="route-resource-guide-card__note">${escapeHTML(note)}</span>`).join('')}</div>`
+          : '';
+        const ctaLabel = kidMode ? 'Open plan' : 'Preview guide';
+        return `
+          <li>
+            <button type="button" class="route-resource-guide-card" data-resource-guide="${escapeHTML(entry.id)}">
+              <div class="route-resource-guide-card__header">
+                <span class="route-resource-guide-card__title">${escapeHTML(entry.title)}</span>
+                ${meta}
+              </div>
+              ${summary}
+              ${notes}
+              <div class="route-resource-guide-card__footer">
+                <span class="route-resource-guide-card__cta">${escapeHTML(ctaLabel)} <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </button>
+          </li>
+        `;
+      }).join('');
       const extra = entries.length - limited.length;
       const extraLabel = extra > 0
-        ? `<span class="route-context__resource-hint-extra">${escapeHTML(kidMode ? `+${extra} more guide${extra === 1 ? '' : 's'}` : `+${extra} more guide${extra === 1 ? '' : 's'}`)}</span>`
+        ? `<p class="route-resource-guides__more">${escapeHTML(kidMode ? `+${extra} more guide${extra === 1 ? '' : 's'} ready in the library.` : `+${extra} additional guide${extra === 1 ? '' : 's'} available in the library.`)}</p>`
         : '';
-      const intro = kidMode ? 'Guides that can help:' : 'Guides covering this resource:';
       return `
-        <div class="route-context__resource-hint-body">
-          <p class="route-context__resource-hint-text">${escapeHTML(intro)}</p>
-          <div class="route-context__resource-hint-list">${buttons}${extraLabel}</div>
+        <div class="route-resource-guides">
+          <p class="route-resource-guides__intro">${introHtml}</p>
+          <ul class="route-resource-guide-list">${cards}</ul>
+          ${extraLabel}
         </div>
       `;
     }
@@ -14338,11 +14482,15 @@
       if(!itemId) return '';
       const qty = entry?.qty != null ? Number(entry.qty) : null;
       const qtyLabel = qty != null && !Number.isNaN(qty) ? ` ×${qty}` : '';
-      const guideTitles = resourceGuideEntries(itemId).slice(0, 2).map(entry => entry.title);
+      const guidesForItem = resourceGuideEntries(itemId);
+      const guideTitles = guidesForItem.slice(0, 2).map(entry => entry.title);
       const titleAttr = guideTitles.length
         ? ` title="${escapeHTML((kidMode ? 'Guides: ' : 'Guides: ') + guideTitles.join(', '))}"`
         : '';
-      return `<button type="button" class="chip route-resource-chip" data-resource-id="${escapeHTML(itemId)}"${titleAttr}>${escapeHTML(itemDisplayName(itemId))}${escapeHTML(qtyLabel)}<span class="route-resource-chip__remove" aria-hidden="true">&times;</span></button>`;
+      const guideBadge = guidesForItem.length
+        ? `<span class="route-resource-chip__badge" aria-hidden="true">${escapeHTML(String(guidesForItem.length))}</span>`
+        : '';
+      return `<button type="button" class="chip route-resource-chip" data-resource-id="${escapeHTML(itemId)}"${titleAttr}>${escapeHTML(itemDisplayName(itemId))}${escapeHTML(qtyLabel)}${guideBadge}<span class="route-resource-chip__remove" aria-hidden="true">&times;</span></button>`;
     }
 
     let routeRecommendationsAbort = null;
@@ -14883,6 +15031,24 @@
         return steps.find(step => !routeState[step.id]) || null;
       }
       return null;
+    }
+
+    function formatLevelRangeLabel(level){
+      if(!level || typeof level !== 'object') return '';
+      const min = level.min != null ? Number(level.min) : null;
+      const max = level.max != null ? Number(level.max) : null;
+      const hasMin = Number.isFinite(min);
+      const hasMax = Number.isFinite(max);
+      if(hasMin && hasMax){
+        return `Lv ${min}-${max}`;
+      }
+      if(hasMin){
+        return `Lv ${min}+`;
+      }
+      if(hasMax){
+        return `Up to Lv ${max}`;
+      }
+      return '';
     }
 
     function formatTimeLabel(time){
