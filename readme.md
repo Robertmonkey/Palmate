@@ -111,7 +111,7 @@ The fallback bundle at `data/guides.bundle.json` must remain a complete, parseab
 python scripts/check_guides_bundle.py
 ```
 
-The validator now prints a summary of the route and catalog counts and compares the new bundle to the baseline snapshot stored at `data/Guide.bundle.backup.JSON`.  If a change unexpectedly removes a large slice of the bundle—such as dropping many routes, catalog entries, or shrinking the file size by more than 10%—the script fails with a clear error so the regression can be caught before commit.  Once you have verified the update, refresh the baseline with:
+The validator now prints a summary of the route and catalog counts and compares the new bundle to the baseline snapshot stored at `data/Guide.bundle.backup.JSON`.  Beyond raw counts it verifies that every `route_id`, every embedded `step_id`, and every catalog `id` from the baseline still exists in the new bundle and that each entry retains its required fields (non-empty steps, objectives, checkpoints, catalog copy, etc.).  If a change unexpectedly removes a route, a route step, a catalog entry, or shrinks the file size by more than 10%, the script fails with a clear error so the regression can be caught before commit.  When a removal is intentional (e.g., deprecating an obsolete route), re-run the validator with `--allow-route-removals`, `--allow-step-removals`, and/or `--allow-guide-removals` and document the rationale in the changelog.  Once you have verified the update, refresh the baseline with:
 
 ```
 python scripts/check_guides_bundle.py --update-backup
