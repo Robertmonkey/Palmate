@@ -6,6 +6,13 @@ import json
 import sys
 from pathlib import Path
 
+
+MIN_LINE_RATIO = 0.98
+MIN_ROUTE_RATIO = 0.98
+BACKUP_PATH = (
+    Path(__file__).resolve().parent.parent / "data" / "Guide.bundle.backup.JSON"
+)
+
 BUNDLE_PATH = Path(__file__).resolve().parent.parent / "data" / "guides.bundle.json"
 
 REQUIRED_TOP_LEVEL_KEYS = {
@@ -76,6 +83,51 @@ def main() -> int:
     for field in ("schema_version", "verified_at_utc", "game_version"):
         if field not in metadata:
             return fail(f"metadata missing '{field}'")
+
+    bundle_route_count = len(bundle["routes"])
+    with BUNDLE_PATH.open("r", encoding="utf-8") as handle:
+        bundle_line_count = sum(1 for _ in handle)
+
+    if BACKUP_PATH.exists():
+        try:
+            with BACKUP_PATH.open("r", encoding="utf-8") as handle:
+                backup_bundle = json.load(handle)
+        except json.JSONDecodeError as exc:
+            return fail(f"backup bundle is not valid JSON: {exc}")
+
+        if not isinstance(backup_bundle.get("routes"), list) or not backup_bundle["routes"]:
+            return fail("backup bundle has no routes to compare against")
+
+        backup_route_count = len(backup_bundle["routes"])
+        backup_guides = backup_bundle.get("guideCatalog", {}).get("data", {}).get(
+            "guides", []
+        )
+        backup_guide_count = len(backup_guides) if isinstance(backup_guides, list) else 0
+
+        if backup_route_count:
+            allowed_route_drop = int(backup_route_count * (1 - MIN_ROUTE_RATIO))
+            if bundle_route_count + allowed_route_drop < backup_route_count:
+                return fail(
+                    "route count dropped below backup snapshot "
+                    f"({bundle_route_count} vs {backup_route_count})"
+                )
+
+        if backup_guide_count:
+            allowed_guide_drop = int(backup_guide_count * (1 - MIN_ROUTE_RATIO))
+            if len(guides) + allowed_guide_drop < backup_guide_count:
+                return fail(
+                    "guide catalog count dropped below backup snapshot "
+                    f"({len(guides)} vs {backup_guide_count})"
+                )
+
+        with BACKUP_PATH.open("r", encoding="utf-8") as handle:
+            backup_line_count = sum(1 for _ in handle)
+        min_allowed_lines = int(backup_line_count * MIN_LINE_RATIO)
+        if bundle_line_count < min_allowed_lines:
+            return fail(
+                "bundle line count dropped significantly compared to backup "
+                f"({bundle_line_count} vs {backup_line_count})"
+            )
 
     print("guides.bundle.json passed validation")
     return 0
