@@ -301,3 +301,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Plumb bundle metadata (e.g., recommended phases or art IDs) into the new helper cards so future revisions can render custom thumbnails without re-querying the main route lookup.
 2. Audit the `resourceGuideEntries` source once more routes adopt multi-step outputs; consider injecting explicit `primary_resource_id` metadata into the schema to avoid relying solely on output detection.
 3. Expand the backlog preview copy to surface more than two queued resources when the coverage debt grows, potentially with a tooltip that links back to the coverage report export.
+
+### 2025-11-26 Citation linting in coverage tooling
+
+* Extended `resource_coverage_report.py` to aggregate citations across each resource route and flag entries with fewer than two unique sources across all nested steps and checkpoints. The text, Markdown, and CSV outputs now surface the citation deficit alongside catalog/route gaps so shortages work can prioritise sourcing debt in lockstep with coverage parity.【F:scripts/resource_coverage_report.py†L28-L39】【F:scripts/resource_coverage_report.py†L66-L164】
+* Verified the new linting against the current data bundle; the script highlights `resource-paldium` and `resource-egg` as the only routes still lacking dual citations, confirming the rest of the shortages library meets the sourcing baseline.【0298a3†L1-L4】【04aa13†L1-L12】
+
+**Continuation notes:**
+
+1. Backfill a second independent source for `resource-paldium` (e.g., a post-patch mining route breakdown or dev note covering node respawn rates) and `resource-egg` (such as merchant inventory documentation or latest breeding drop tables), then rerun the coverage report to confirm the warnings clear.
+2. Consider promoting the citation warnings into CI once the outstanding sources are added, ensuring future resource routes and revisions maintain the two-source minimum without manual review.
+3. Evaluate whether the shortage catalog should display citation counts or badges so planners can quickly gauge sourcing strength directly from the UI when triaging resource deficits.
