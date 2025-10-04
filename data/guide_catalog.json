@@ -9522,6 +9522,469 @@
           ]
         }
       ]
+    },
+    {
+      "id": "resource-milk",
+      "title": "Mozzarina Dairy Loop",
+      "source_heading": "Mozzarina Dairy Loop",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Milk for cakes or sanity food and wants a reliable ranch supply with merchant top-ups.",
+      "keywords": [
+        "milk",
+        "mozzarina",
+        "ranch",
+        "merchant"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "**Unlock the Ranch** at level 5 for 2 Tech Points and build it beside your pantry so milk bottles drop straight into storage.",
+          "citations": [
+            "palwiki-ranch†L1-L16"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "ranch",
+              "name": "Ranch"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Capture **Mozzarina in the Bamboo Groves (-117,-490)** just north of the Sealed Realm of the Swordmaster to staff your dairy.",
+          "citations": [
+            "segmentnext-mozzarina†L1-L6",
+            "palwiki-sealed-realms†L57-L61"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "sealed-realm-swordmaster",
+              "name": "Sealed Realm of the Swordmaster",
+              "region": "Bamboo Groves"
+            },
+            {
+              "type": "pal",
+              "id": "mozzarina",
+              "name": "Mozzarina"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Assign Mozzarina to the Ranch for guaranteed **Milk** output and buy extra bottles from the Small Settlement merchant (75,-479) between harvests.",
+          "citations": [
+            "palwiki-mozzarina-raw†L11-L121",
+            "pcgamesn-milk†L1-L14",
+            "palwiki-wandering-merchant-raw†L229-L251"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "milk",
+              "name": "Milk"
+            },
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-chikipi-poultry",
+      "title": "Chikipi Poultry Harvest Loop",
+      "source_heading": "Chikipi Poultry Harvest Loop",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player is short on poultry for early cooking and needs a repeatable Chikipi loop.",
+      "keywords": [
+        "poultry",
+        "chikipi",
+        "meat cleaver",
+        "ranch"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Sweep the **Windswept Hills meadow (-42,-498)** around the starter Palbox to capture Chikipi for egg and meat rotations.",
+          "citations": [
+            "palwiki-chikipi†L29-L35"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "windswept-hills",
+              "name": "Windswept Hills",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "pal",
+              "id": "chikipi",
+              "name": "Chikipi"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Craft the **Meat Cleaver** (5 Ingots, 20 Wood, 5 Stone) and butcher surplus Chikipi to harvest guaranteed poultry when eggs backlog.",
+          "citations": [
+            "palwiki-meat-cleaver†L20-L39",
+            "palwiki-chikipi†L69-L76"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "meat-cleaver",
+              "name": "Meat Cleaver"
+            },
+            {
+              "type": "structure",
+              "id": "primitive-workbench",
+              "name": "Primitive Workbench"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Keep two Chikipi on the Ranch and rotate fresh captures into storage so poultry stacks stay ahead of cooking queues.",
+          "citations": [
+            "palwiki-chikipi†L63-L72"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "ranch",
+              "name": "Ranch"
+            },
+            {
+              "type": "pal",
+              "id": "chikipi",
+              "name": "Chikipi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-galeclaw-poultry",
+      "title": "Galeclaw Poultry Skyridge Circuit",
+      "source_heading": "Galeclaw Poultry Skyridge Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Galeclaw Poultry for mid-tier cooking and wants a reliable ridge hunt and butcher loop.",
+      "keywords": [
+        "galeclaw",
+        "poultry",
+        "meat cleaver",
+        "cooler box"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Climb the **Small Settlement ridge (75,-479)** and capture Galeclaw patrols circling the cliffs before they reset.",
+          "citations": [
+            "palwiki-small-settlement†L3-L15",
+            "palfandom-windswept-hills-raw†L24-L40"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "pal",
+              "id": "galeclaw",
+              "name": "Galeclaw"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Use the **Meat Cleaver** to butcher spare Galeclaw at base—each yields one Galeclaw Poultry at a 100% rate.",
+          "citations": [
+            "palwiki-meat-cleaver†L20-L39",
+            "palwiki-galeclaw-raw†L6-L33"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "meat-cleaver",
+              "name": "Meat Cleaver"
+            },
+            {
+              "type": "item",
+              "id": "galeclaw_poultry",
+              "name": "Galeclaw Poultry"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Craft a **Cooler Box** and assign a Cooling pal so harvested Galeclaw Poultry stays fresh between ridge runs.",
+          "citations": [
+            "palwiki-cooler-box-raw†L1-L24",
+            "palwiki-galeclaw-raw†L6-L33"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "cooler-box",
+              "name": "Cooler Box"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-cake",
+      "title": "Cake Assembly Line",
+      "source_heading": "Cake Assembly Line",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Cakes for breeding and wants to automate ingredient production and cooking.",
+      "keywords": [
+        "cake",
+        "breeding",
+        "cooking pot",
+        "automation"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Set up **Berry** and **Wheat Plantations** with staffed planters and waterers so berries and flour inputs stay automated.",
+          "citations": [
+            "palwiki-berry-plantation†L1-L11",
+            "palwiki-wheat-plantation†L1-L12"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "berry-plantation",
+              "name": "Berry Plantation"
+            },
+            {
+              "type": "structure",
+              "id": "wheat-plantation",
+              "name": "Wheat Plantation"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Keep **Chikipi, Mozzarina, and Beegarde** on ranch duty so eggs, milk, and honey stockpiles stay ahead of baking demand.",
+          "citations": [
+            "palwiki-cake†L1-L20"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "chikipi",
+              "name": "Chikipi"
+            },
+            {
+              "type": "pal",
+              "id": "mozzarina",
+              "name": "Mozzarina"
+            },
+            {
+              "type": "pal",
+              "id": "beegarde",
+              "name": "Beegarde"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Use the **Cooking Pot** to bake Cakes (5 Flour, 8 Red Berries, 7 Milk, 8 Eggs, 2 Honey) and store them at the Breeding Farm.",
+          "citations": [
+            "palwiki-cooking-pot†L1-L12",
+            "palwiki-cake†L1-L20"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "cooking-pot",
+              "name": "Cooking Pot"
+            },
+            {
+              "type": "item",
+              "id": "cake",
+              "name": "Cake"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-tomato-seeds",
+      "title": "Tomato Seed Greenhouse Circuit",
+      "source_heading": "Tomato Seed Greenhouse Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player wants Tomato Seeds for plantations and sandwich recipes and needs a repeatable farming loop.",
+      "keywords": [
+        "tomato seeds",
+        "merchant",
+        "sanctuary",
+        "plantation"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Buy **Tomato Seeds** from the Small Settlement (75,-479) and Duneshelter (357,347) wandering merchants for 200 gold each.",
+          "citations": [
+            "palwiki-wandering-merchant-raw†L197-L252",
+            "palwiki-duneshelter†L506-L516"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "tomato_seeds",
+              "name": "Tomato Seeds"
+            },
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "location",
+              "id": "duneshelter",
+              "name": "Duneshelter",
+              "region": "Sand Dunes"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Loop **Wumpo Botan**, **Braloha**, and **Vaelet** sanctuary spawns to top off Tomato Seed drops between merchant restocks.",
+          "citations": [
+            "palwiki-wumpo-botan-raw†L109-L116",
+            "palwiki-braloha-raw†L74-L125",
+            "palwiki-vaelet-raw†L108-L116",
+            "palwiki-tomato-seeds†L608-L826"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "wumpo-botan",
+              "name": "Wumpo Botan"
+            },
+            {
+              "type": "pal",
+              "id": "braloha",
+              "name": "Braloha"
+            },
+            {
+              "type": "pal",
+              "id": "vaelet",
+              "name": "Vaelet"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Build a **Tomato Plantation** (3 seeds, 70 Wood, 50 Stone, 5 Pal Fluids) and assign Planting and Watering pals for automated harvests.",
+          "citations": [
+            "palwiki-tomato-plantation-raw†L1-L34",
+            "palwiki-tomato-seeds†L847-L868"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "tomato-plantation",
+              "name": "Tomato Plantation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-lettuce-seeds",
+      "title": "Lettuce Seed Hydroponics",
+      "source_heading": "Lettuce Seed Hydroponics",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Lettuce Seeds for salads and sandwiches and wants a repeatable source beyond merchant restocks.",
+      "keywords": [
+        "lettuce seeds",
+        "merchant",
+        "wumpo botan",
+        "plantation"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Buy **Lettuce Seeds** from the Small Settlement wandering merchant for 200 gold whenever the inventory refreshes.",
+          "citations": [
+            "palwiki-wandering-merchant-raw†L229-L251"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "lettuce_seeds",
+              "name": "Lettuce Seeds"
+            },
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Farm **Wumpo Botan** in Wildlife Sanctuary No. 2 and clear Oasis Isle **Braloha** packs to backfill lettuce-seed drops between vendor runs.",
+          "citations": [
+            "palwiki-wumpo-botan-raw†L66-L94",
+            "palwiki-braloha-raw†L74-L125"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "wumpo-botan",
+              "name": "Wumpo Botan"
+            },
+            {
+              "type": "pal",
+              "id": "braloha",
+              "name": "Braloha"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Unlock a **Lettuce Plantation** (level 25, 3 Lettuce Seeds, 100 Wood, 70 Stone, 10 Pal Fluids) and assign Planting, Watering, and Gathering pals to automate harvests.",
+          "citations": [
+            "ec48c2†L1-L5",
+            "23bbf1†L1-L3",
+            "fb8486†L1-L4"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "lettuce-plantation",
+              "name": "Lettuce Plantation"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
