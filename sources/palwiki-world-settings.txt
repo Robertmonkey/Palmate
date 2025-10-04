@@ -1,0 +1,2 @@
+The World Settings article documents the gatherable object sliders players can adjust when creating a world. It states that Gatherable Objects Respawn Interval keeps trees and resource nodes on a roughly 30-minute respawn by default, even when the slider is changed, and notes that reloading a single-player world forces trees to respawn immediately, bypassing the timer.
+Source: https://palworld.wiki.gg/wiki/World_Settings (retrieved 2025-11-23)

@@ -25515,6 +25515,329 @@ conversions so Statue of Power offerings stay stocked for pal upgrades.【palwik
 }
 ```
 
+### Route: Resource Respawn Timer Field Guide
+
+Resource Respawn Timer Field Guide maps the default 30-minute node respawns, documents slider and config multipliers, and schedules dungeon and alpha resets so rare drops return on time.【palwiki-world-settings†L1-L1】【palwiki-palworldsettings-ini†L1-L1】【palwiki-alpha-pals†L8-L8】【palwiki-sealed-realms†L76-L76】
+
+```json
+{
+  "route_id": "resource-respawn-timers",
+  "title": "Resource Respawn Timer Field Guide",
+  "category": "resources",
+  "tags": [
+    "resource-planning",
+    "respawn",
+    "mechanics",
+    "routing"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 10,
+    "max": 50
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Document respawn baselines for wood, ore, and berry nodes near your base",
+    "Adjust world and server respawn modifiers to match your throughput goals",
+    "Schedule dungeon and alpha resets so rare drops re-enter rotation on time"
+  ],
+  "estimated_time_minutes": {
+    "solo": 35,
+    "coop": 25
+  },
+  "estimated_xp_gain": {
+    "min": 120,
+    "max": 220
+  },
+  "risk_profile": "low",
+  "failure_penalties": {
+    "normal": "Letting nodes sit empty wastes crafting downtime and delays resource loops.",
+    "hardcore": "Hardcore wipes from over-extending while nodes are barren erase progress toward your timed harvests."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Stay near your base and track tree respawns in safe starter biomes until you can comfortably clear desert ore routes.【palwiki-world-settings†L1-L1】",
+    "overleveled": "Rotate between your ore quarries and alpha circuits while timers run so you always re-enter with full tools and stockpiles.【palwiki-alpha-pals†L8-L8】",
+    "resource_shortages": [
+      {
+        "item_id": "wood",
+        "solution": "Log at least two clusters before timers start so you have 100 wood on hand when the 30-minute respawn window finishes.【palwiki-world-settings†L1-L1】"
+      },
+      {
+        "item_id": "ore",
+        "solution": "Mine adjacent ore veins and note their completion time, then return after 30 minutes or when your respawn multiplier indicates.【palwiki-palworldsettings-ini†L1-L1】"
+      }
+    ],
+    "time_limited": "If you only have a few minutes, clear nodes, save, and reload the world to trigger instant tree respawns before logging out.【palwiki-world-settings†L1-L1】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign one player to timer logging while the other clears nodes and resets dungeons so you gather data and drops simultaneously.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-respawn-timers:001",
+          "resource-respawn-timers:004"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-respawn-timers:checkpoint-baseline",
+      "summary": "Baseline timers recorded",
+      "benefits": [
+        "Tree and ore respawn schedule mapped"
+      ],
+      "related_steps": [
+        "resource-respawn-timers:001",
+        "resource-respawn-timers:002"
+      ]
+    },
+    {
+      "id": "resource-respawn-timers:checkpoint-settings",
+      "summary": "Server sliders tuned",
+      "benefits": [
+        "Respawn multiplier documented"
+      ],
+      "related_steps": [
+        "resource-respawn-timers:003"
+      ]
+    },
+    {
+      "id": "resource-respawn-timers:checkpoint-rotation",
+      "summary": "Dungeon reset cadence planned",
+      "benefits": [
+        "Rare drop timers aligned",
+        "Alpha hunts scheduled"
+      ],
+      "related_steps": [
+        "resource-respawn-timers:004"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "resource-respawn-timers:001",
+      "type": "gather",
+      "summary": "Clear nearby trees and ore nodes to start the clock",
+      "detail": "Harvest two clusters of trees, berry bushes, and ore veins near your base, note the completion time, and stash at least 100 wood and 60 ore while the default ~30 minute respawn window begins.【palwiki-world-settings†L1-L1】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "wood",
+          "qty": 100
+        },
+        {
+          "kind": "item",
+          "id": "ore",
+          "qty": 60
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "logger",
+              "tasks": "Fell trees and berry bushes, capture timestamps"
+            },
+            {
+              "role": "miner",
+              "tasks": "Clear ore veins and cart ore to storage"
+            }
+          ]
+        },
+        "hardcore": {
+          "tactics": "Stay inside defended base perimeters to avoid unnecessary combat while nodes are down.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "stone-axe",
+          "stone-pickaxe"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 80,
+        "max": 140
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "wood",
+            "qty": 100
+          },
+          {
+            "item_id": "ore",
+            "qty": 60
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-world-settings"
+      ]
+    },
+    {
+      "step_id": "resource-respawn-timers:002",
+      "type": "plan",
+      "summary": "Maintain a respawn log",
+      "detail": "Record respawn timestamps in a logbook or spreadsheet and mark which nodes reset early when you reload the world so you can prioritise high-yield spawns.【palwiki-world-settings†L1-L1】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {
+        "solo": {
+          "tactics": "Set phone or desktop alarms that match your recorded intervals so you re-enter loops promptly."
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 0,
+        "max": 0
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-world-settings"
+      ]
+    },
+    {
+      "step_id": "resource-respawn-timers:003",
+      "type": "plan",
+      "summary": "Tune world and server respawn modifiers",
+      "detail": "For dedicated servers edit PalWorldSettings.ini or adjust the in-game slider so CollectionObjectRespawnSpeedRate matches your desired cadence, documenting the multiplier you settle on.【palwiki-palworldsettings-ini†L1-L1】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {
+        "coop": {
+          "tactics": "Vote on multipliers with your guild so harvesters and builders agree on the resource cadence."
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 0,
+        "max": 0
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "tech": []
+        }
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-palworldsettings-ini"
+      ]
+    },
+    {
+      "step_id": "resource-respawn-timers:004",
+      "type": "plan",
+      "summary": "Schedule dungeon and alpha resets",
+      "detail": "Add overworld alpha routes to your calendar on an in-game day cadence and pencil Sealed Realm re-clears for one hour after completion so rare drop farming stays on schedule.【palwiki-alpha-pals†L8-L8】【palwiki-sealed-realms†L76-L76】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 80
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-alpha-pals",
+        "palwiki-sealed-realms"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "wood",
+      "qty": 100
+    },
+    {
+      "type": "have-item",
+      "item_id": "ore",
+      "qty": 60
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "respawn-schedule-documented"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-ore",
+      "reason": "Use your documented timers to optimise ore re-runs without overcutting veins."
+    },
+    {
+      "route_id": "resource-carbon-fiber",
+      "reason": "Stable respawn scheduling feeds the coal and wood inputs needed for carbon fiber batches."
+    }
+  ]
+}
+```
+
 ## Source Registry
 
 The source registry maps the short citation keys used throughout this file
@@ -26292,6 +26615,12 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-18",
       "notes": "Explains the region is the starting zone with low-level pals and lists the Small Settlement as a key point of interest.【palwiki-windswept-hills†L7-L22】"
     },
+    "palwiki-world-settings": {
+      "title": "World Settings \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/World_Settings",
+      "access_date": "2025-11-23",
+      "notes": "Documents gatherable object respawn sliders, noting trees reset around every 30 minutes by default and that reloading single-player worlds bypasses the timer.【palwiki-world-settings†L1-L1】"
+    },
     "palwiki-vixy": {
       "title": "Vixy \u2013 Palworld Wiki",
       "url": "https://palworld.wiki.gg/wiki/Vixy",
@@ -26381,6 +26710,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/wiki/Pal_Metal_Ingot",
       "access_date": "2025-10-20",
       "notes": "States Pal Metal Ingots are crafted at the Electric Furnace with a 4 Ore + 2 Paldium Fragment recipe and notes their late-game usage and drops.【palwiki-pal-metal-ingot†L1-L3】"
+    },
+    "palwiki-palworldsettings-ini": {
+      "title": "PalWorldSettings.ini \u2013 Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/PalWorldSettings.ini",
+      "access_date": "2025-11-23",
+      "notes": "Details the CollectionObjectRespawnSpeedRate slider, noting 1.0 as the default resource node respawn multiplier and faster timers at lower values.【palwiki-palworldsettings-ini†L1-L1】"
     },
     "palwiki-precious-dragon-stone": {
       "title": "Precious Dragon Stone \u2013 Palworld Wiki",

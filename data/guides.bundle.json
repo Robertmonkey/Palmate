@@ -82,6 +82,67 @@
           ]
         },
         {
+          "id": "resource-respawn-timers",
+          "title": "Resource Respawn Timer Field Guide",
+          "source_heading": "Resource Respawn Timer Field Guide",
+          "category": "Mechanics",
+          "category_group": "Stats & Mechanics",
+          "shortage_menu": true,
+          "trigger": "Players need to know when trees, ore, and dungeons reset so farming loops stay efficient.",
+          "keywords": [
+            "respawn timer",
+            "resource nodes",
+            "collectionobjectrespawnspeedrate",
+            "dungeon reset"
+          ],
+          "steps": [
+            {
+              "order": 1,
+              "instruction": "Clear nearby trees, berry bushes, and ore veins, noting the completion time and banking 100 Wood and 60 Ore while the default ~30 minute respawn window starts.",
+              "citations": [
+                "palwiki-world-settings†L1-L1"
+              ],
+              "links": [
+                {
+                  "type": "item",
+                  "id": "wood",
+                  "slug": "wood",
+                  "name": "Wood"
+                },
+                {
+                  "type": "item",
+                  "id": "ore",
+                  "slug": "ore",
+                  "name": "Ore"
+                }
+              ]
+            },
+            {
+              "order": 2,
+              "instruction": "Log respawn intervals and adjust the Gatherable Objects slider or **PalWorldSettings.ini** CollectionObjectRespawnSpeedRate multiplier to match your desired cadence.",
+              "citations": [
+                "palwiki-world-settings†L1-L1",
+                "palwiki-palworldsettings-ini†L1-L1"
+              ],
+              "links": [
+                {
+                  "type": "document",
+                  "id": "palworldsettings-ini",
+                  "name": "PalWorldSettings.ini"
+                }
+              ]
+            },
+            {
+              "order": 3,
+              "instruction": "Schedule overworld Alpha re-clears on an in-game day cadence and plan Sealed Realm runs one hour after completion so rare drops stay in rotation.",
+              "citations": [
+                "palwiki-alpha-pals†L8-L8",
+                "palwiki-sealed-realms†L76-L76"
+              ]
+            }
+          ]
+        },
+        {
           "id": "resource-electric-organ",
           "title": "Electric Organ Relay Circuit",
           "source_heading": "Electric Organ Relay Circuit",
