@@ -1,0 +1,22 @@
+{
+  "files": {
+    "guides.md": {
+      "min_line_count": 26811
+    },
+    "data/guides.bundle.json": {
+      "min_line_count": 37272,
+      "json_path": ["routes"],
+      "min_entry_count": 64
+    },
+    "data/Guide.bundle.backup.JSON": {
+      "min_line_count": 37272,
+      "json_path": ["routes"],
+      "min_entry_count": 64
+    },
+    "data/guide_catalog.json": {
+      "min_line_count": 11260,
+      "json_path": ["guides"],
+      "min_entry_count": 239
+    }
+  }
+}

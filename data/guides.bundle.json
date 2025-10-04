@@ -17,3 +17,20 @@
                 "palwiki-chikipi†L9-L13"
                 "palwiki-chikipi†L29-L35"
         "notes": "Lists river, cliff and smelting sources for Paldium Fragments including respawn timers and conversion tips【palwiki-paldium†L21-L24】【palwiki-crusher-raw†L15-L30】."
+          "detail": "Follow the river south of the Windswept Hills fast travel statue.  Blue crystalline nodes respawn every few minutes and yield 2–4 fragments each【palwiki-paldium†L42-L71】.",
+          "detail": "Circle the cliff ring northwest of the starting valley.  Surface fragments protrude from the ground and can be kicked for bonus drops, netting ~30 fragments per lap【palwiki-paldium†L86-L115】.",
+          "detail": "Back at base, smelt spare Ore into Ingots, then crush the leftovers to convert into extra fragments.  Each smelting cycle produces 2 fragments as a by-product when using the Primitive Furnace【palwiki-paldium†L118-L140】.",
+            "palwiki-paldium"
+        "underleveled": "Stay near the Palbox outskirts and capture one Chikipi at a time to avoid chain aggro.【palwiki-chikipi†L1850-L1857】",
+        "overleveled": "Run the route twice per outing, filling both ranch slots and stockpiling 15+ Eggs for breeding queues.【palwiki-chikipi†L1667-L1693】",
+          "detail": "Circle the grassy flats below the Palbox. Chikipi roam here constantly, lay eggs on the ground, and rarely fight back, so you can secure four layers quickly.【palwiki-chikipi†L1850-L1859】",
+            "palwiki-chikipi"
+          "detail": "Place two captured Chikipi on the Ranch. Their Egg Layer partner skill produces eggs over time, so stagger assignments to keep timers rolling.【palwiki-chikipi†L1667-L1693】",
+          "detail": "Jog a perimeter lap through the same fields, collecting freshly laid eggs and watching for respawned Chikipi to top off your ranch roster.【palwiki-chikipi†L1850-L1859】",
+            "solution": "Trigger the resource-paldium subroute or run riverbank loops until you refill at least 80 fragments.【palwiki-paldium†L42-L71】"
+            "adjustment": "Pause smelting and rerun resource-paldium to rebuild fragments before draining ore stock.【palwiki-paldium†L42-L71】",
+          "detail": "Loop the desert ridge for ore while triggering resource-paldium runs so fragment reserves stay ahead of 4 Ore + 2 Paldium alloy batches.【segmentnext-refined-ingot†L5-L5】【palwiki-paldium†L42-L71】【palwiki-pal-metal-ingot†L1-L3】",
+                "palwiki-chikipi†L1850-L1859"
+                "palwiki-chikipi†L1667-L1693"
+                "palwiki-chikipi†L1850-L1859"
+          "notes": "Lists river, cliff and smelting sources for Paldium Fragments including respawn timers and conversion tips【palwiki-paldium†L42-L71】【palwiki-paldium†L86-L115】【palwiki-paldium†L118-L140】."
