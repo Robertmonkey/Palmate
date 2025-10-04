@@ -230,3 +230,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Next coverage targets are the ranching and ingredient loops that still appear in the report (`resource-milk`, `resource-chikipi-poultry`, `resource-galeclaw-poultry`, `resource-cake`, etc.); draft paired catalog cards so kitchen and breeding shortages surface properly.
 2. Align naming between routes and catalog cards where IDs still diverge (e.g., `resource-medium-pal-soul` vs. `resource-medium-pal-soul-harmonization`) or extend the coverage script to treat curated aliases as resolved so they no longer flag as missing.
 3. After authoring each batch, rerun `scripts/resource_coverage_report.py` and verify `guideCatalog.guide_count` updates in `data/guides.bundle.json` before committing to keep telemetry accurate.
+
+### 2025-11-20 Dairy, poultry, and greenhouse shortage uplift
+
+* Authored shortage catalog cards for the existing Milk, Chikipi Poultry, Galeclaw Poultry, Cake, Tomato Seed, and Lettuce Seed routes so shortages now surface dairy, kitchen protein, and plantation loops with the same step structure and citations as the full guides.【data/guide_catalog.json†L9527-L9980】【data/guides.bundle.json†L24760-L24784】
+* Bumped the bundle snapshot to `2025-11-20T00:00:00Z`, increasing `guideCatalog.guide_count` to 215 and confirming via `resource_coverage_report.py` that these six resources no longer appear in the missing-card backlog.【data/guides.bundle.json†L1-L36】【c2fb2d†L1-L30】
+
+**Continuation notes:**
+
+1. Prioritise the next wave of backlog items flagged by the coverage report (ore, flour, bone, nail, refined ingot, pal metal, etc.) so metalworking and mid-game crafting shortages receive catalog parity.【c2fb2d†L16-L35】
+2. Resolve remaining catalog aliases (e.g., `resource-berry-seed-supply-loop` vs. `resource-berry-seeds`) or extend the coverage script with an alias map so legitimate matches stop appearing as catalog-only stragglers.【c2fb2d†L5-L13】
+3. Capture explicit documentation for the Lettuce Plantation source (or replace the hashed citations with a named registry entry) before publishing the next bundle to keep provenance transparent for lettuce automation guidance.
