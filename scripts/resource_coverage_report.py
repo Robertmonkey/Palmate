@@ -87,11 +87,27 @@ def load_catalog_entries() -> List[CatalogEntry]:
     return entries
 
 
-def format_report(missing_routes: Iterable[CatalogEntry], missing_catalog: Iterable[ResourceRoute]) -> str:
+def format_report(
+    entries: Iterable[CatalogEntry],
+    routes: Iterable[ResourceRoute],
+    missing_routes: Iterable[CatalogEntry],
+    missing_catalog: Iterable[ResourceRoute],
+) -> str:
+    entry_list = list(entries)
+    route_list = list(routes)
+    missing_route_list = list(missing_routes)
+    missing_catalog_list = list(missing_catalog)
+
+    shortage_cards = sum(1 for entry in entry_list if entry.shortage_menu)
+
     lines = ["Resource Coverage Report"]
     lines.append("========================\n")
+    lines.append(
+        f"Catalog resource entries: {len(entry_list)} (shortage cards: {shortage_cards})"
+    )
+    lines.append(f"Resource routes: {len(route_list)}")
+    lines.append("")
 
-    missing_route_list = list(missing_routes)
     if missing_route_list:
         lines.append("Catalog entries without matching routes:")
         for entry in missing_route_list:
@@ -100,9 +116,6 @@ def format_report(missing_routes: Iterable[CatalogEntry], missing_catalog: Itera
     else:
         lines.append("All catalogued resources have matching routes.")
 
-    lines.append("")
-
-    missing_catalog_list = list(missing_catalog)
     if missing_catalog_list:
         lines.append("Routes missing catalog entries:")
         for route in missing_catalog_list:
@@ -124,7 +137,7 @@ def main() -> None:
     missing_routes = [entry for entry in entries if entry.entry_id not in route_ids]
     missing_catalog = [route for route in routes if route.route_id not in catalog_ids]
 
-    report = format_report(missing_routes, missing_catalog)
+    report = format_report(entries, routes, missing_routes, missing_catalog)
     print(report)
 
 

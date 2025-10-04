@@ -253,3 +253,24 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Draft catalog cards for the remaining ten resources flagged by the coverage report—prioritise Pal Metal Ingot, Electric/Flame/Ice Organs, Medium/Large Pal Souls, and Gold Coin so core combat upgrades are represented alongside crafting loops.【272826†L3-L11】
 2. When authoring the soul routes, confirm whether additional automation steps (Crusher conversions, Statue wiring) warrant dedicated unlock callouts similar to the medium soul entry added on 2025-11-15; reuse the existing citations where possible and capture new ones for overworld spawn coordinates.
 3. After each batch, bump `guideCatalog.guide_count` and rerun `resource_coverage_report.py` to maintain telemetry parity, then smoke-test the shortages UI for the new cards to ensure recommended level text and keywords render correctly.
+
+### 2025-11-22 Resource shortage backlog burn-down
+
+* Added shortage catalog coverage for the final ten backlog routes (`resource-electric-organ`, `resource-flame-organ`, `resource-ice-organ`, `resource-wheat-seeds`, `resource-katress-hair`, `resource-pal-metal-ingot`, `resource-medium-pal-soul`, `resource-large-pal-soul`, `resource-gold-coin`, and `resource-lamball-mutton`) in both `data/guide_catalog.json` and `data/guides.bundle.json`, raising `guideCatalog.guide_count` to 239 and updating the bundle snapshot to `2025-11-22T00:00:00Z`.【data/guide_catalog.json†L10462-L11181】【data/guides.bundle.json†L35240-L37057】
+* Verified `resource_coverage_report.py` now reports zero missing resource routes; the only remaining mismatch is the catalog-only `resource-respawn-timers` card, which still lacks a matching route implementation.【b17220†L1-L7】
+
+**Continuation notes:**
+
+1. Decide whether to draft a full `resource-respawn-timers` route or retire the catalog card so coverage tooling returns a clean slate.
+2. Rebuild and spot-check the shortages UI once the updated bundle deploys to confirm all ten resources surface with the expected triggers, keywords, and mode tags.
+3. If downstream teams require CSV snapshots, extend `scripts/resource_coverage_report.py` with an export flag while the backlog context is fresh.
+
+### 2025-11-23 Coverage telemetry hardening
+
+* Augmented `scripts/resource_coverage_report.py` to emit catalog and route totals (including a shortage-card breakdown) before listing gaps. The counts provide reviewers with immediate confirmation that bundle updates are purely additive—answering concerns about accidental deletions inside `data/guides.bundle.json`.【scripts/resource_coverage_report.py†L81-L115】
+
+**Continuation notes:**
+
+1. Wire the script into CI once available so PRs surface regressions (e.g., guide-count drops) automatically instead of relying on manual inspection.
+2. Extend the formatter with an optional `--json` flag so Ops can ingest the counts and gap lists without scraping stdout.
+3. Bundle a quick-reference snippet in PR templates summarising the catalog/route totals to streamline reviewer verification until automation lands.
