@@ -18,6 +18,7 @@ This document describes the responsibilities, workflows and quality assurance st
    * Confirm that Hardcore and Co‑Op mode adjustments are present wherever relevant.
    * Check that level ranges are reasonable given the difficulty and that resource requirements match the latest recipes.
    * Verify that all citation keys in routes correspond to entries in the source registry.
+   * Run `python scripts/check_guides_bundle.py` to validate both `data/guides.bundle.json` and `data/Guide.bundle.backup.JSON` stay in lockstep with the canonical source registry and guide catalog metadata.
    * Ensure no placeholder text remains; uncertain information must be explicitly labelled and sourced.
 
 ## Research Workflow

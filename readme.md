@@ -111,7 +111,7 @@ The fallback bundle at `data/guides.bundle.json` must remain a complete, parseab
 python scripts/check_guides_bundle.py
 ```
 
-The script fails fast if the bundle becomes truncated, if required sections (`metadata`, `routes`, `guideCatalog`, etc.) disappear, or if the declared catalog counts drift from the actual data.  Fix any reported issues before committing.  This validation is required for every bundle update.
+The script fails fast if the bundle becomes truncated, if required sections (`metadata`, `routes`, `guideCatalog`, etc.) disappear, if the declared catalog counts drift from the actual data, or if the `sourceRegistry` block falls out of sync with the canonical copy in `guides.md`.  Fix any reported issues before committing.  This validation is required for every bundle update.
 
 ## Versioning and Changelog
 
