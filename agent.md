@@ -253,3 +253,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Draft catalog cards for the remaining ten resources flagged by the coverage report—prioritise Pal Metal Ingot, Electric/Flame/Ice Organs, Medium/Large Pal Souls, and Gold Coin so core combat upgrades are represented alongside crafting loops.【272826†L3-L11】
 2. When authoring the soul routes, confirm whether additional automation steps (Crusher conversions, Statue wiring) warrant dedicated unlock callouts similar to the medium soul entry added on 2025-11-15; reuse the existing citations where possible and capture new ones for overworld spawn coordinates.
 3. After each batch, bump `guideCatalog.guide_count` and rerun `resource_coverage_report.py` to maintain telemetry parity, then smoke-test the shortages UI for the new cards to ensure recommended level text and keywords render correctly.
+
+### 2025-11-22 Final backlog sweep: souls, organs, and currency
+
+* Added shortage catalog cards for Pal Metal Ingots, Electric/Flame/Ice Organs, Wheat Seeds, Katress Hair, Medium/Large Pal Souls, Gold Coins, and Lamball Mutton so every outstanding resource route now has a shortages-menu entry.【data/guide_catalog.json†L9079-L9608】
+* Synced the same ten entries into `data/guides.bundle.json`, bumped the bundle snapshot to `2025-11-22T00:00:00Z`, and raised `guideCatalog.guide_count` to 239 to reflect full resource coverage.【data/guides.bundle.json†L24780-L24905】【data/guides.bundle.json†L35200-L36270】
+* Re-ran `scripts/resource_coverage_report.py`; only the catalog-only `resource-respawn-timers` utility remains unmatched, confirming resource parity between guides and the shortages menu.【dd2a14†L1-L8】
+
+**Continuation notes:**
+
+1. Audit the shortages UI once the bundle deploys to ensure the ten new cards surface with correct keywords, recommended levels, and iconography—particularly for the soul and organ entries that reuse Crusher automation art.
+2. Decide whether to backfill a real route for `resource-respawn-timers` or reclassify the catalog entry so the coverage script can treat it as an intentional helper card.
+3. Capture updated throughput metrics for Medium/Large soul Crusher automation (souls per minute with Watering/Transport pals) so future dashboard copy reflects the new automation emphasis.
