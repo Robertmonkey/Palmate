@@ -218,3 +218,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Use the refreshed coverage report to prioritise the remaining backlog of resource routes lacking catalog cards (e.g., wool, egg, refined ingot).  Draft catalog entries in batches so the shortages UI gains broad early/mid-game parity.
 2. Extend `resource_coverage_report.py` with optional CSV or Markdown exports to drop straight into Ops status threads once the remaining catalog debt shrinks.
 3. After the next bundle deployment, spot-check the production shortages drawer to confirm Leather, Paldium Fragments, Honey, and Coal disappear from `resourceGuideGaps`; if they linger, audit downstream ingestion for case-sensitivity or bundle cache issues.
+
+### 2025-11-19 Resource coverage expansion batch
+
+* Authored shortage catalog cards for the existing Wool, Egg, Pal Fluids, Sulfur, Pure Quartz, and Polymer routes so the shortages UI now surfaces early tailoring, ranching, condenser, explosive, electronics, and late-game manufacturing loops with accurate triggers and citations.【data/guide_catalog.json†L8890-L9123】
+* Synced the same six entries into `data/guides.bundle.json`, bumping the catalog `guide_count` to 209 so downstream bundles stay aligned with the new coverage snapshot.【data/guides.bundle.json†L24780-L25190】
+* Re-ran `scripts/resource_coverage_report.py` to confirm the newly added resources drop out of the backlog and to capture the remaining priority list for follow-up passes.【2845fa†L1-L34】
+
+**Continuation notes:**
+
+1. Next coverage targets are the ranching and ingredient loops that still appear in the report (`resource-milk`, `resource-chikipi-poultry`, `resource-galeclaw-poultry`, `resource-cake`, etc.); draft paired catalog cards so kitchen and breeding shortages surface properly.
+2. Align naming between routes and catalog cards where IDs still diverge (e.g., `resource-medium-pal-soul` vs. `resource-medium-pal-soul-harmonization`) or extend the coverage script to treat curated aliases as resolved so they no longer flag as missing.
+3. After authoring each batch, rerun `scripts/resource_coverage_report.py` and verify `guideCatalog.guide_count` updates in `data/guides.bundle.json` before committing to keep telemetry accurate.

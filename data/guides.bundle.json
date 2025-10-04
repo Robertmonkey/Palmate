@@ -24779,7 +24779,7 @@
   },
   "guideCatalog": {
     "path": "data/guide_catalog.json",
-    "guide_count": 203,
+    "guide_count": 209,
     "fields": [
       "id",
       "title",
@@ -31115,6 +31115,429 @@
                   "id": "tomato_seeds",
                   "slug": "tomato-seeds",
                   "name": "Tomato Seeds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "resource-wool",
+          "title": "Wool Ranch Loop",
+          "source_heading": "Wool Ranch Loop",
+          "category": "Resources",
+          "category_group": "Resources & Crafting",
+          "shortage_menu": true,
+          "trigger": "Player is out of Wool for cloth, Cake, or tailoring upgrades and needs a fast refill loop.",
+          "keywords": [
+            "wool",
+            "lamball",
+            "ranch",
+            "cloth"
+          ],
+          "steps": [
+            {
+              "order": 1,
+              "instruction": "**Capture Lamball pairs around the Windswept Hills statue** to restock ranch slots and pull 1–3 Wool per catch before patrols arrive.",
+              "citations": [
+                "palwiki-lamball†L575-L623",
+                "goleap-region-levels†L131-L147"
+              ],
+              "links": [
+                {
+                  "type": "location",
+                  "id": "windswept-hills",
+                  "name": "Windswept Hills",
+                  "region": "Windswept Hills"
+                },
+                {
+                  "type": "pal",
+                  "id": "lamball",
+                  "slug": "lamball",
+                  "name": "Lamball"
+                }
+              ]
+            },
+            {
+              "order": 2,
+              "instruction": "**Glide to the Sea Breeze Archipelago pastures** north of the church and sweep the coastal fields for backup Lamball and extra Wool stacks.",
+              "citations": [
+                "palwiki-lamball†L620-L623"
+              ],
+              "links": [
+                {
+                  "type": "location",
+                  "id": "sea-breeze-archipelago",
+                  "name": "Sea Breeze Archipelago",
+                  "region": "Sea Breeze Archipelago"
+                }
+              ]
+            },
+            {
+              "order": 3,
+              "instruction": "**Assign two Lamball to the Ranch and queue Cloth crafts** so passive Wool production continues between loops.",
+              "citations": [
+                "palwiki-lamball†L433-L623"
+              ],
+              "links": [
+                {
+                  "type": "structure",
+                  "id": "ranch",
+                  "name": "Ranch"
+                },
+                {
+                  "type": "item",
+                  "id": "cloth",
+                  "slug": "cloth",
+                  "name": "Cloth"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "resource-egg",
+          "title": "Egg Clutch Run",
+          "source_heading": "Egg Clutch Run",
+          "category": "Resources",
+          "category_group": "Resources & Crafting",
+          "shortage_menu": true,
+          "trigger": "Player needs Eggs for Cake, mayonnaise, or cooking orders and the ranch supply ran dry.",
+          "keywords": [
+            "egg",
+            "chikipi",
+            "ranch",
+            "cake"
+          ],
+          "steps": [
+            {
+              "order": 1,
+              "instruction": "**Circle the Palbox meadows in Windswept Hills** to capture four Chikipi and scoop their ground eggs while respawns are constant.",
+              "citations": [
+                "palwiki-chikipi†L1850-L1859"
+              ],
+              "links": [
+                {
+                  "type": "location",
+                  "id": "windswept-hills",
+                  "name": "Windswept Hills",
+                  "region": "Windswept Hills"
+                },
+                {
+                  "type": "pal",
+                  "id": "chikipi",
+                  "slug": "chikipi",
+                  "name": "Chikipi"
+                }
+              ]
+            },
+            {
+              "order": 2,
+              "instruction": "**Station two Chikipi on the Ranch** so they lay Eggs passively while you process earlier harvests.",
+              "citations": [
+                "palwiki-chikipi†L1667-L1693"
+              ],
+              "links": [
+                {
+                  "type": "structure",
+                  "id": "ranch",
+                  "name": "Ranch"
+                }
+              ]
+            },
+            {
+              "order": 3,
+              "instruction": "**Jog a perimeter lap for loose Eggs** between timers, topping off the stack before returning to base crafts.",
+              "citations": [
+                "palwiki-chikipi†L1850-L1859"
+              ],
+              "links": [
+                {
+                  "type": "item",
+                  "id": "egg",
+                  "slug": "egg",
+                  "name": "Egg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "resource-pal-fluids",
+          "title": "Pal Fluid Condenser",
+          "source_heading": "Pal Fluid Condenser",
+          "category": "Resources",
+          "category_group": "Resources & Crafting",
+          "shortage_menu": true,
+          "trigger": "Player is short on Pal Fluids for medicine, polymer, or condenser recipes and needs a replenishment loop.",
+          "keywords": [
+            "pal fluids",
+            "pengullet",
+            "fuack",
+            "water"
+          ],
+          "steps": [
+            {
+              "order": 1,
+              "instruction": "**Sweep the Windswept Hills shoreline** east of the statue to capture Pengullet clusters for Watering pals and immediate Pal Fluid drops.",
+              "citations": [
+                "palwiki-pengullet-fandom†L1868-L1872",
+                "palwiki-pengullet†L575-L619"
+              ],
+              "links": [
+                {
+                  "type": "location",
+                  "id": "windswept-hills",
+                  "name": "Windswept Hills",
+                  "region": "Windswept Hills"
+                },
+                {
+                  "type": "pal",
+                  "id": "pengullet",
+                  "slug": "pengullet",
+                  "name": "Pengullet"
+                }
+              ]
+            },
+            {
+              "order": 2,
+              "instruction": "**Cut inland to the freshwater ponds** and tag Fuack packs for additional Pal Fluids and Watering specialists.",
+              "citations": [
+                "palwiki-fuack†L1853-L1859",
+                "palwiki-fuack†L1667-L1667"
+              ],
+              "links": [
+                {
+                  "type": "pal",
+                  "id": "fuack",
+                  "slug": "fuack",
+                  "name": "Fuack"
+                }
+              ]
+            },
+            {
+              "order": 3,
+              "instruction": "**Assign captured Pengullet or Fuack at base** to Watering posts or butcher extras so Pal Fluid bottles restock between expeditions.",
+              "citations": [
+                "palwiki-pengullet†L575-L619",
+                "palwiki-fuack†L1667-L1667"
+              ],
+              "links": [
+                {
+                  "type": "structure",
+                  "id": "ranch",
+                  "name": "Ranch"
+                },
+                {
+                  "type": "item",
+                  "id": "pal-fluids",
+                  "slug": "pal-fluids",
+                  "name": "Pal Fluids"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "resource-sulfur",
+          "title": "Sulfur Flow Loop",
+          "source_heading": "Sulfur Flow Loop",
+          "category": "Resources",
+          "category_group": "Resources & Crafting",
+          "shortage_menu": true,
+          "trigger": "Player needs Sulfur for Gunpowder and explosives and wants a dependable mining and refining route.",
+          "keywords": [
+            "sulfur",
+            "gunpowder",
+            "mount obsidian",
+            "mining"
+          ],
+          "steps": [
+            {
+              "order": 1,
+              "instruction": "**Mine the lava ravine northeast of the Mossanda Forest statue** for early Sulfur nodes before heat stacks up.",
+              "citations": [
+                "pcgamesn-sulfur†L13-L19"
+              ],
+              "links": [
+                {
+                  "type": "location",
+                  "id": "mossanda-forest",
+                  "name": "Mossanda Forest",
+                  "region": "Verdant Brook"
+                }
+              ]
+            },
+            {
+              "order": 2,
+              "instruction": "**Fast travel to the Brothers of the Eternal Pyre Tower** and loop the Mount Obsidian lava flows while a hauler Pal ferries ore to a staging chest.",
+              "citations": [
+                "pcgamesn-sulfur†L15-L20",
+                "pcgamesn-bosses†L7-L9",
+                "palwiki-sulfur†L5-L8"
+              ],
+              "links": [
+                {
+                  "type": "location",
+                  "id": "brothers-of-the-eternal-pyre",
+                  "name": "Brothers of the Eternal Pyre Tower",
+                  "region": "Mount Obsidian"
+                }
+              ]
+            },
+            {
+              "order": 3,
+              "instruction": "**Combine Sulfur with Coal at the High Quality Workbench** to craft Gunpowder batches before the next mining run.",
+              "citations": [
+                "pcgamesn-sulfur†L11-L15",
+                "palwiki-sulfur†L5-L8"
+              ],
+              "links": [
+                {
+                  "type": "structure",
+                  "id": "high-quality-workbench",
+                  "name": "High Quality Workbench"
+                },
+                {
+                  "type": "item",
+                  "id": "gunpowder",
+                  "slug": "gunpowder",
+                  "name": "Gunpowder"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "resource-pure-quartz",
+          "title": "Astral Quartz Expedition",
+          "source_heading": "Astral Quartz Expedition",
+          "category": "Resources",
+          "category_group": "Resources & Crafting",
+          "shortage_menu": true,
+          "trigger": "Player needs Pure Quartz for circuits or tech unlocks and hasn’t secured an Astral Mountain loop.",
+          "keywords": [
+            "pure quartz",
+            "astral mountain",
+            "circuit board",
+            "late game"
+          ],
+          "steps": [
+            {
+              "order": 1,
+              "instruction": "**Activate the PAL Research Tower fast travel point** to open a safe approach into Astral Mountain.",
+              "citations": [
+                "pcgamesn-bosses†L11-L13"
+              ],
+              "links": [
+                {
+                  "type": "location",
+                  "id": "pal-research-tower",
+                  "name": "PAL Research Tower",
+                  "region": "Astral Mountain"
+                }
+              ]
+            },
+            {
+              "order": 2,
+              "instruction": "**Mine the Astral Mountain ridges** for dark Pure Quartz nodes using upgraded pickaxes while a lookout kites elites.",
+              "citations": [
+                "pcgamesn-pure-quartz†L15-L19",
+                "palwiki-pure-quartz†L1-L3"
+              ],
+              "links": [
+                {
+                  "type": "location",
+                  "id": "astral-mountain",
+                  "name": "Astral Mountain",
+                  "region": "Astral Mountain"
+                }
+              ]
+            },
+            {
+              "order": 3,
+              "instruction": "**Anchor a ridge base with mining and transport pals** so Pure Quartz replenishes storage between manual expeditions.",
+              "citations": [
+                "pcgamesn-pure-quartz†L19-L23"
+              ],
+              "links": [
+                {
+                  "type": "structure",
+                  "id": "palbox",
+                  "name": "Palbox"
+                },
+                {
+                  "type": "item",
+                  "id": "pure-quartz",
+                  "slug": "pure-quartz",
+                  "name": "Pure Quartz"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "resource-polymer",
+          "title": "Polymer Assembly Workflow",
+          "source_heading": "Polymer Assembly Workflow",
+          "category": "Resources",
+          "category_group": "Resources & Crafting",
+          "shortage_menu": true,
+          "trigger": "Player needs Polymer for firearms, circuits, or late-game armor and wants an automated production plan.",
+          "keywords": [
+            "polymer",
+            "assembly line",
+            "high quality pal oil",
+            "late game"
+          ],
+          "steps": [
+            {
+              "order": 1,
+              "instruction": "**Unlock and build the Production Assembly Line** so Polymer crafts become available at tech level 33+.",
+              "citations": [
+                "pcgamesn-polymer†L9-L16"
+              ],
+              "links": [
+                {
+                  "type": "structure",
+                  "id": "production-assembly-line",
+                  "name": "Production Assembly Line"
+                }
+              ]
+            },
+            {
+              "order": 2,
+              "instruction": "**Secure High Quality Pal Oil** via Dumud ranching and merchant buyouts before starting long crafting queues.",
+              "citations": [
+                "palwiki-high-quality-pal-oil†L1-L8"
+              ],
+              "links": [
+                {
+                  "type": "pal",
+                  "id": "dumud",
+                  "slug": "dumud",
+                  "name": "Dumud"
+                },
+                {
+                  "type": "item",
+                  "id": "high-quality-pal-oil",
+                  "slug": "high-quality-pal-oil",
+                  "name": "High Quality Pal Oil"
+                }
+              ]
+            },
+            {
+              "order": 3,
+              "instruction": "**Queue Polymer batches on the assembly line** using 2 High Quality Pal Oil per craft while handiwork pals keep the station running.",
+              "citations": [
+                "pcgamesn-polymer†L9-L16",
+                "palwiki-polymer†L5-L11"
+              ],
+              "links": [
+                {
+                  "type": "item",
+                  "id": "polymer",
+                  "slug": "polymer",
+                  "name": "Polymer"
                 }
               ]
             }
