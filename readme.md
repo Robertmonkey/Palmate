@@ -111,7 +111,13 @@ The fallback bundle at `data/guides.bundle.json` must remain a complete, parseab
 python scripts/check_guides_bundle.py
 ```
 
-The script fails fast if the bundle becomes truncated, if required sections (`metadata`, `routes`, `guideCatalog`, etc.) disappear, or if the declared catalog counts drift from the actual data.  Fix any reported issues before committing.  This validation is required for every bundle update.
+The validator now prints a summary of the route and catalog counts and compares the new bundle to the baseline snapshot stored at `data/Guide.bundle.backup.JSON`.  If a change unexpectedly removes a large slice of the bundle—such as dropping many routes, catalog entries, or shrinking the file size by more than 10%—the script fails with a clear error so the regression can be caught before commit.  Once you have verified the update, refresh the baseline with:
+
+```
+python scripts/check_guides_bundle.py --update-backup
+```
+
+This copies the validated bundle over the snapshot so future runs measure drift against the latest good state.  Fix any reported issues before committing; this validation remains mandatory for every bundle update.
 
 ## Versioning and Changelog
 
