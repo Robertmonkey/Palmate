@@ -1,0 +1,2 @@
+The PalWorldSettings.ini reference explains that CollectionObjectRespawnSpeedRate controls how quickly trees, rocks, and other resource nodes reappear, with 1.0 as the default multiplier and lower values respawning nodes faster.
+Source: https://palworld.wiki.gg/wiki/PalWorldSettings.ini (retrieved 2025-11-23)

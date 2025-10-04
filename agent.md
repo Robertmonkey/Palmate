@@ -265,3 +265,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Audit the shortages UI once the bundle deploys to ensure the ten new cards surface with correct keywords, recommended levels, and iconography—particularly for the soul and organ entries that reuse Crusher automation art.
 2. Decide whether to backfill a real route for `resource-respawn-timers` or reclassify the catalog entry so the coverage script can treat it as an intentional helper card.
 3. Capture updated throughput metrics for Medium/Large soul Crusher automation (souls per minute with Watering/Transport pals) so future dashboard copy reflects the new automation emphasis.
+
+### 2025-11-23 Resource respawn instrumentation
+
+* Authored the full `resource-respawn-timers` route with adaptive guidance, checkpoints, and completion criteria so planners can document 30-minute node resets, slider tuning, and alpha/dungeon cadences without leaving shortages unsourced.【F:guides.md†L25560-L25836】
+* Added the mechanics-focused shortage card to `data/guides.bundle.json`, keeping the bundle aligned with the new knowledge route and stocking shortages UI with respawn context.【F:data/guides.bundle.json†L85-L140】
+* Replaced the legacy catalog stub with sourced instructions and re-ran the coverage report to confirm no resource mismatches remain.【F:data/guide_catalog.json†L7323-L7378】【77c923†L1-L7】
+
+**Continuation notes:**
+
+1. Layer in precise overworld coordinates for the recommended alpha and sealed realm rotations once sourced so Step :004 gains location-grade guidance.【F:guides.md†L25783-L25807】
+2. Gather empirical respawn timing data for desert ore and late-game biomes to see if additional banded advice is warranted in the route’s adaptive guidance.【F:guides.md†L25568-L25596】
+3. Smoke-test the shortages UI after the next bundle promotion to ensure the new mechanics card appears in the Stats & Mechanics filter with correct keywords and trigger text.【F:data/guides.bundle.json†L85-L140】

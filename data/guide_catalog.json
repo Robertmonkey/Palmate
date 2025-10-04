@@ -7321,21 +7321,31 @@
     },
     {
       "id": "resource-respawn-timers",
-      "title": "Resource Respawn & Timers",
-      "source_heading": "Resource Respawn & Timers",
+      "title": "Resource Respawn Timer Field Guide",
+      "source_heading": "Resource Respawn Timer Field Guide",
       "category": "Mechanics",
       "category_group": "Stats & Mechanics",
-      "trigger": "When players wonder when resources respawn",
+      "trigger": "Players need a schedule for when nodes and dungeons return so they can plan loops.",
       "keywords": [
         "respawn timer",
-        "resources"
+        "resource nodes",
+        "ini settings",
+        "dungeon reset"
       ],
       "steps": [
         {
           "order": 1,
-          "instruction": "Trees, ore nodes and berry bushes respawn after an in-game day or more.",
-          "citations": [],
+          "instruction": "Clear nearby trees, berry bushes and ore veins, log the completion time, and bank at least 100 Wood and 60 Ore while the default ~30 minute respawn window starts.",
+          "citations": [
+            "palwiki-world-settings†L1-L1"
+          ],
           "links": [
+            {
+              "type": "item",
+              "id": "wood",
+              "slug": "wood",
+              "name": "Wood"
+            },
             {
               "type": "item",
               "id": "ore",
@@ -7346,13 +7356,26 @@
         },
         {
           "order": 2,
-          "instruction": "Rare resources take longer to respawn; plan resource runs accordingly.",
-          "citations": []
+          "instruction": "Track respawn intervals and tune the Gatherable Objects slider or **PalWorldSettings.ini** CollectionObjectRespawnSpeedRate multiplier to match your cadence.",
+          "citations": [
+            "palwiki-world-settings†L1-L1",
+            "palwiki-palworldsettings-ini†L1-L1"
+          ],
+          "links": [
+            {
+              "type": "document",
+              "id": "palworldsettings-ini",
+              "name": "PalWorldSettings.ini"
+            }
+          ]
         },
         {
           "order": 3,
-          "instruction": "Dungeons reset after a set period, allowing you to re-farm them.",
-          "citations": []
+          "instruction": "Schedule overworld Alpha hunts on an in-game day cadence and plan Sealed Realm re-clears one hour after completion to keep rare drops flowing.",
+          "citations": [
+            "palwiki-alpha-pals†L8-L8",
+            "palwiki-sealed-realms†L76-L76"
+          ]
         }
       ]
     },
