@@ -103,6 +103,16 @@ Contributions are welcome!  To add or update a route:
 4. **Sane level ranges** – Choose recommended level ranges that match the difficulty of the content.  Ensure Hardcore adjustments are present for dangerous encounters and that Co‑Op steps divide roles logically.
 5. **Update metadata** – If a new patch changes game mechanics (e.g. recipe ingredients), update the global metadata and affected routes.  Note the new game version and update `verified_at_utc`.
 
+### Bundle Integrity Checklist
+
+The fallback bundle at `data/guides.bundle.json` must remain a complete, parseable snapshot of the guide library.  Before pushing changes, run the automated guardrail:
+
+```
+python scripts/check_guides_bundle.py
+```
+
+The script fails fast if the bundle becomes truncated, if required sections (`metadata`, `routes`, `guideCatalog`, etc.) disappear, or if the declared catalog counts drift from the actual data.  Fix any reported issues before committing.  This validation is required for every bundle update.
+
 ## Versioning and Changelog
 
 The `schema_version` in `guides.md` increments whenever the route schema changes in a way that would break existing clients.  The `game_version` tracks the latest verified Palworld build (current: **v0.6.7**, patch `1.079.736` released September 29 2025【353245298505537†L150-L168】).  See the `CHANGELOG` file for a history of updates.
