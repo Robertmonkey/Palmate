@@ -9529,6 +9529,86 @@
       ]
     },
     {
+      "id": "resource-caprity-meat",
+      "title": "Caprity Meat Pasture Circuit",
+      "source_heading": "Caprity Meat Pasture Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Caprity Meat for early cooking chains and wants a repeatable Windswept Hills loop.",
+      "keywords": [
+        "caprity meat",
+        "ranching",
+        "meat cleaver",
+        "small settlement"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "**Unlock the Meat Cleaver and Ranch** so captured Caprity can be butchered and assigned for passive drops.",
+          "citations": [
+            "palwiki-meat-cleaver†L2-L38",
+            "palwiki-ranch†L12-L38"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "meat-cleaver",
+              "name": "Meat Cleaver"
+            },
+            {
+              "type": "structure",
+              "id": "ranch",
+              "name": "Ranch"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "**Loop the Plateau of Beginnings and Small Settlement herds** at (75,-479) to net three Caprity per pass before patrols rotate in.",
+          "citations": [
+            "palwiki-small-settlement†L3-L15",
+            "palfandom-caprity-habitat†L1-L12"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "caprity",
+              "slug": "caprity",
+              "name": "Caprity"
+            },
+            {
+              "type": "location",
+              "id": "small-settlement",
+              "name": "Small Settlement",
+              "region": "Windswept Hills"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "**Butcher two captures and staff the ranch** so four guaranteed meat cuts bank while a breeder keeps the passive drip flowing.",
+          "citations": [
+            "palwiki-caprity†L135-L182",
+            "palwiki-caprity-meat†L1-L22"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "caprity_meat",
+              "name": "Caprity Meat"
+            },
+            {
+              "type": "pal",
+              "id": "caprity",
+              "slug": "caprity",
+              "name": "Caprity"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "resource-small-pal-soul",
       "title": "Small Pal Soul Night Hunts & Crusher Loop",
       "source_heading": "Small Pal Soul Night Hunts & Crusher Loop",
