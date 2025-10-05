@@ -1,0 +1,25 @@
+{{Infobox_Item
+|name = Lettuce Plantation
+|image = Lettuce Plantation.png
+|type = Food
+|effects = A farm that can grow Lettuce.<br/>It requires a great amount of time to harvest.
+|source = build
+|tech_type = tech
+|tech_tier = 25
+|points_cost = 3
+|workload = 400
+|materials = 3 {{i|Lettuce Seeds}}<br/>100 {{i|Wood}}<br/>70 {{i|Stone}}<br/>10 {{i|Pal Fluids}}
+}}
+
+'''Lettuce Plantation''' is a food structure in {{PW}}.
+
+== Acquisition==
+It is available at level 25 in the [[Technology]] tree, and requires 3 Technology Points to unlock.
+
+==Usage==
+The Lettuce Plantation can grow [[Lettuce]]. To automate things, you may want a few [[Pals]] with {{i|gathering}}, {{i|watering}}, and {{i|planting}} traits to farm efficiently.
+
+Harvest Yield: 15
+
+Growth Time: 4 Minutes.
+[[Category:Structures]]

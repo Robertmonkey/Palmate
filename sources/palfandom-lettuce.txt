@@ -1,0 +1,37 @@
+{{Infobox_Item
+|name = Lettuce
+|image = Lettuce_icon.png
+|effects = A leafy green. When it comes to salad, this is a must.<br/>It has an exquisitely crunchy texture and refreshing taste.
+|type = [[Ingredient]]
+|rarity = Common
+|source = [[Lettuce Plantation]]<br/>[[Wandering Merchant]]
+|weight = 1
+|nutrition = 15
+|san = 0
+|corruption = 600 seconds
+|gold_buy = 150|gold_sell = 15
+}}
+'''Lettuce''' is a consumable [[ingredient]] in {{PW}}.
+
+It can be farmed via a [[Lettuce Plantation]] or bought from a [[Wandering Merchant]].
+
+== Usage ==
+{| class="fandom-table article-table mw-collapsible mw-collapsed"
+|+[[Cooking Pot|Cooking]]
+!Item !!Name
+|-
+| [[File:Grilled Lamball icon.png|75px|center]] 
+| [[Grilled Lamball]]
+|-
+| [[File:Salad icon.png|75px|center]] 
+| [[Salad]]
+
+|}
+
+== History ==
+* [[Early Access 0.1.2.0]]
+** Introduced.
+
+{{Navbox Ingredients}}
+
+[[Category:Ingredients]]

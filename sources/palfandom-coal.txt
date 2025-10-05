@@ -1,0 +1,43 @@
+{{Stub}}
+{{Infobox Item
+|name = Coal
+|image = Coal icon.png
+|effects = Coal often found in caves and other places.<br/>Required to create high quality metal.
+|type = [[Material]]
+|source = [[Mining]]<br/>
+Coal Rocks<br/>
+{{S|Coal Mine}}<br/>
+{{p|Blazamut}}<br/>
+{{p|Menasting}}<br/>
+{{p|Blazamut Ryu}}
+|weight = 5
+|tech_type = 
+|points_cost = 
+|materials = 
+|rarity = Common
+|tech_tier = 
+|workload = 
+|gold_sell = 2}}
+'''Coal''' is a [[material]] in {{PW}}.
+
+== Acquisition ==
+*Mining:
+**Coal Rocks (Pals require Work Suitability: [[Mining]] 3 to attempt to mine coal rocks).
+**Can be found and harvested in the Anubis desert.
+**{{S|Coal Mine}}
+*Some Pals can also drop Coal when captured or defeated.
+**{{p|Blazamut}}
+**{{p|Menasting}}
+**{{p|Blazamut Ryu}}
+
+==Use== 
+*Can be used with [[Ore]] to create [[Refined Ingot]]s in an [[Improved Furnace]]. It's also required to craft [[Carbon Fiber]] and {{S|Coal Mine}}.
+
+== Gallery ==
+
+=== Video ===
+
+{{#ev:youtube|FvEceKxGNwc}}
+
+{{Navbox Materials}}
+[[Category:Materials]]

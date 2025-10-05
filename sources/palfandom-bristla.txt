@@ -1,0 +1,100 @@
+{{Pal Prev/Next | prevPal = Mozzarina | prevNo = 029 | nextPal = Gobfin | nextNo = 031}}
+{{Pal
+| name = Bristla
+| alphatitle = Thorny Rose
+| image = Bristla.png
+| no = 030
+| ele1 = Grass
+| drops = {{i|Wheat Seeds}}<br/>{{i|Lettuce Seeds}}
+| food = 5
+| partnerskill = Princess Gaze
+| psicon =Grass 
+| psdesc = While in team, increases attack power of Grass Pals.
+| planting = 1
+| handiwork = 1
+| gathering = 1
+| med_prod = 2
+| transporting = 1
+| breedpower = 910
+|maps=<gallery>
+Bristla Day Habitat.png|Day
+Bristla Night Habitat.png|Night
+</gallery>}}'''Bristla''' (Japanese: '''イバラヒメ''' ''Ibarahime'') is a {{i|Grass}} [[Elements|element]] [[Pals|Pal]].
+== Paldeck Entry ==
+{{paldeck|This prickly Pal's thorns are highly poisonous. It is friendly with [[Cinnamoth]] and only smiles when [[Cinnamoth]] is drinking its nectar.}}
+
+==Biology==
+===Appearance===
+Bristla resembles a greenish humanoid thorny plant, possessing in its lower half some light and dark green branches that form the shape of a bouffant skirt, and on its head a long hairdo made out of red bramble. It has a green body and red hair, both of which have thorns dotted across them. The top of its head has three yellow stamen sticking out from within the hair.
+
+===Behavior===
+Can be often found roaming in forests near groups of [[Cinnamoth]], Wild Bristla are normally pacific and will flee from the player. Like most Pals, it will retaliate when attacked.
+
+== Availability ==
+===Wild Spawn=== 
+Missing Information.
+
+<div class="mw-collapsible mw-collapsed">
+=== [[Breeding]] ===
+<div class="mw-collapsible-content">
+{{Cols|2|{{Breeding|Bristla}}}}
+</div></div>
+
+==Stats==
+{{Pal Table Stats
+|hp = 80
+|attack = 80
+|defense = 80
+|min_hp = 3425
+|max_hp = 4205
+|min_attack = 490
+|max_attack = 607
+|min_defense = 440
+|max_defense = 557
+}}
+
+==Elemental Effectiveness==
+{{Pal Element Effect|type=grass}}
+
+==Utility==
+'''[[Partner Skills|Partner Skill]]:''' 
+* Princess Gaze - While in team, increases attack power of Grass Pals.
+
+'''[[Work Suitability]]:'''
+* {{i|Planting}} 1
+* {{i|Handiwork}} 1
+* {{i|Medicine Production}} 2
+* {{i|Transporting}} 1
+* {{i|Gathering}} 1
+
+'''Possible Drops:''' 
+* Normal
+** {{i|Wheat Seeds}}
+** {{i|Lettuce Seeds}}
+** Carrot Seeds
+
+==Active Skills==
+{{PalSkillListStart}}
+{{PalSkillListEntry+|Wind Cutter|level=1}}
+{{PalSkillListEntry+|Seed Machine Gun|level=7}}
+{{PalSkillListEntry+|Ice Missile|level=15}}
+{{PalSkillListEntry+|Grass Tornado|level=22}}
+{{PalSkillListEntry+|Iceberg|level=30}}
+{{PalSkillListEntry+|Spine Vine|level=40}}
+{{PalSkillListEntry+|Solar Blast|level=50}}
+{{PalSkillListEnd}}
+
+==Update History==
+* [[Early Access 0.1.2.0]]
+** Introduced.
+
+==Trivia== 
+* Their name may come from bristle.
+* Its Japanese name seems to come from いばら姫 ''ibarahime'' ("Briar princess"), this being one of the Japanese titles for the fairy tale known in English as Sleeping Beauty.
+
+== Gallery ==
+<gallery>
+File:Lucky Bristla.png|A Lucky Bristla
+</gallery>
+
+{{Navbox Pals}}

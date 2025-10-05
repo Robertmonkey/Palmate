@@ -1,0 +1,27 @@
+{{Infobox Item
+|name = Lettuce Seeds
+|type = [[Material]]
+|image = Lettuce Seeds icon.png
+|effects = Seeds that produce Lettuce
+|source = [[Wandering Merchant]]<br/>
+{{p|Bristla}}<br/>
+{{p|Broncherry Aqua}}<br/>
+{{p|Cinnamoth}}<br/>
+{{p|Wumpo Botan}}
+|weight = 0.15
+|gold_buy = 200
+|gold_sell = 20}}
+'''Lettuce Seeds''' is a [[material]] in {{PW}}.
+
+==Acquisition==
+
+*[https://palworld.fandom.com/wiki/Wandering_Merchant Merchants] found around settlements sells Lettuce Seeds for 200 gold each.
+
+*Some Pals may also drop them such as:
+**{{p|Bristla}}
+**{{p|Broncherry Aqua}}
+**{{p|Cinnamoth}}
+**{{p|Wumpo Botan}}
+
+{{Navbox Materials}}
+[[Category:Materials]]
