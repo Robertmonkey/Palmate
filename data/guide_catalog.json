@@ -9609,6 +9609,110 @@
       ]
     },
     {
+      "id": "resource-innovative-technical-manual",
+      "title": "Innovative Technical Manual Vault Sweep",
+      "source_heading": "Innovative Technical Manual Vault Sweep",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Innovative Technical Manuals to unlock late-tier schematics and tech benches.",
+      "keywords": [
+        "innovative technical manual",
+        "tech points",
+        "iceberg cave",
+        "anubis"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "**Stage inventory space and high-tier spheres** so manuals can be banked immediately after each hunt.",
+          "citations": [
+            "palfandom-innovative-technical-manual†L1-L12"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "innovative_technical_manual",
+              "name": "Innovative Technical Manual"
+            },
+            {
+              "type": "gear",
+              "id": "legendary-sphere",
+              "name": "Legendary Sphere"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "**Clear Iceberg Cave (-169,343) to capture Lyleen Noct** and secure the guaranteed manual drop before moving on.",
+          "citations": [
+            "palfandom-lyleen-noct†L1-L2",
+            "palfandom-innovative-technical-manual†L1-L12",
+            "palwiki-alpha-pals†L309-L315"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "lyleen-noct",
+              "slug": "lyleen-noct",
+              "name": "Lyleen Noct"
+            },
+            {
+              "type": "location",
+              "id": "iceberg-cave",
+              "name": "Iceberg Cave",
+              "region": "Astral Mountain"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "**Sweep No. 3 Wildlife Sanctuary (669,640)** for Shadowbeak and Lyleen spawns while managing PIDF heat.",
+          "citations": [
+            "palwiki-wildlife-sanctuary-3†L1-L25",
+            "palwiki-wildlife-sanctuary†L6-L21",
+            "palfandom-innovative-technical-manual†L1-L12"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "shadowbeak",
+              "slug": "shadowbeak",
+              "name": "Shadowbeak"
+            },
+            {
+              "type": "location",
+              "id": "wildlife-sanctuary-3",
+              "name": "No. 3 Wildlife Sanctuary",
+              "region": "Palpagos Islands"
+            }
+          ]
+        },
+        {
+          "order": 4,
+          "instruction": "**Cycle the Anubis alpha at (-134,-94)** to top off manuals before returning to base.",
+          "citations": [
+            "palwiki-alpha-pals†L281-L287",
+            "palfandom-innovative-technical-manual†L1-L12"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "anubis",
+              "slug": "anubis",
+              "name": "Anubis"
+            },
+            {
+              "type": "location",
+              "id": "twilight-dunes",
+              "name": "Twilight Dunes",
+              "region": "Dessicated Desert"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "resource-small-pal-soul",
       "title": "Small Pal Soul Night Hunts & Crusher Loop",
       "source_heading": "Small Pal Soul Night Hunts & Crusher Loop",

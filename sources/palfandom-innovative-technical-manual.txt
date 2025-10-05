@@ -1,0 +1,12 @@
+Innovative Technical Manual drop excerpt from Palworld Wiki (Fandom).
+|source = [[Treasure Chest]]<br/>
+[[Dungeons]] chests<br/>
+<div class="mw-collapsible mw-collapsed">
+Pals
+<div class="mw-collapsible-content">
+{{p|Anubis}}<br/>
+{{p|Lyleen}}<br/>
+{{p|Lyleen Noct}}<br/>
+{{p|Shadowbeak}}
+</div>
+</div>
