@@ -218,7 +218,7 @@ skills are taken from the Palworld Wiki and community guides【142053078936299�
       "weather_modifiers": null,
       "drops": [
         { "item_id": "leather", "avg_qty": 1.0, "drop_rate": 1.0 },
-        { "item_id": "flame-organ", "avg_qty": 1.0, "drop_rate": 1.0 }
+        { "item_id": "flame_organ", "avg_qty": 1.0, "drop_rate": 1.0 }
       ],
       "partner_skill": "Huggy Fire – can be equipped to the player to act as a flamethrower【513843636763139†L117-L170】.",
       "work_suitability": [ { "type": "kindling", "rank": 1 } ],
@@ -364,9 +364,9 @@ relevant Pals above.
   "items": [
     { "id": "wood", "name": "Wood", "type": "material", "rarity": "common", "stack": 999, "buy_price": null, "sell_price": 1, "sources": [ { "type": "gather", "reference_id": "wood-tree" } ] },
     { "id": "stone", "name": "Stone", "type": "material", "rarity": "common", "stack": 999, "buy_price": null, "sell_price": 1, "sources": [ { "type": "gather", "reference_id": "stone-node" } ] },
-    { "id": "paldium-fragment", "name": "Paldium Fragment", "type": "material", "rarity": "common", "stack": 999, "buy_price": null, "sell_price": 2, "sources": [ { "type": "gather", "reference_id": "paldium-node" } ] },
+    { "id": "paldium_fragment", "name": "Paldium Fragment", "type": "material", "rarity": "common", "stack": 999, "buy_price": null, "sell_price": 2, "sources": [ { "type": "gather", "reference_id": "paldium-node" } ] },
     { "id": "leather", "name": "Leather", "type": "material", "rarity": "common", "stack": 999, "buy_price": 150, "sell_price": 15, "sources": [ { "type": "drop", "reference_id": "foxparks" }, { "type": "drop", "reference_id": "fuack" }, { "type": "drop", "reference_id": "rushoar" }, { "type": "drop", "reference_id": "vixy" }, { "type": "drop", "reference_id": "melpaca" }, { "type": "drop", "reference_id": "eikthyrdeer" }, { "type": "drop", "reference_id": "direhowl" }, { "type": "drop", "reference_id": "nitewing" }, { "type": "shop", "reference_id": "wandering-merchant" } ] },
-    { "id": "flame-organ", "name": "Flame Organ", "type": "material", "rarity": "common", "stack": 999, "buy_price": null, "sell_price": 10, "sources": [ { "type": "drop", "reference_id": "foxparks" } ] },
+    { "id": "flame_organ", "name": "Flame Organ", "type": "material", "rarity": "common", "stack": 999, "buy_price": null, "sell_price": 10, "sources": [ { "type": "drop", "reference_id": "foxparks" } ] },
     { "id": "fiber", "name": "Fiber", "type": "material", "rarity": "common", "stack": 999, "buy_price": null, "sell_price": 1, "sources": [ { "type": "gather", "reference_id": "fiber-bush" } ] },
     { "id": "ingot", "name": "Ingot", "type": "material", "rarity": "common", "stack": 999, "buy_price": null, "sell_price": 20, "sources": [ { "type": "craft", "reference_id": "smelter" } ] },
     { "id": "horn", "name": "Horn", "type": "material", "rarity": "uncommon", "stack": 999, "buy_price": null, "sell_price": 15, "sources": [ { "type": "drop", "reference_id": "eikthyrdeer" } ] },
@@ -376,9 +376,9 @@ relevant Pals above.
     ,{ "id": "ancient-civilization-part", "name": "Ancient Civilization Part", "type": "material", "rarity": "rare", "stack": 999, "buy_price": null, "sell_price": 100, "sources": [ { "type": "drop", "reference_id": "tower-rayne-syndicate" } ] }
     ,{ "id": "ancient-technology-point", "name": "Ancient Technology Point", "type": "currency", "rarity": "rare", "stack": 999, "buy_price": null, "sell_price": null, "sources": [ { "type": "boss_reward", "reference_id": "rayne-syndicate-tower" } ] }
     ,{ "id": "grappling-gun", "name": "Grappling Gun", "type": "gear", "rarity": "uncommon", "stack": 1, "buy_price": null, "sell_price": 200, "sources": [ { "type": "craft", "reference_id": "grappling-gun" } ] }
-    ,{ "id": "tomato-seeds", "name": "Tomato Seeds", "type": "material", "rarity": "common", "stack": 999, "buy_price": 200, "sell_price": 20, "sources": [ { "type": "shop", "reference_id": "wandering-merchant" } ] }
+    ,{ "id": "tomato_seeds", "name": "Tomato Seeds", "type": "material", "rarity": "common", "stack": 999, "buy_price": 200, "sell_price": 20, "sources": [ { "type": "shop", "reference_id": "wandering-merchant" } ] }
     ,{ "id": "tomato", "name": "Tomato", "type": "consumable", "rarity": "common", "stack": 50, "buy_price": 150, "sell_price": 15, "sources": [ { "type": "farm", "reference_id": "tomato-plantation" }, { "type": "shop", "reference_id": "wandering-merchant" } ] }
-    ,{ "id": "lettuce-seeds", "name": "Lettuce Seeds", "type": "material", "rarity": "common", "stack": 999, "buy_price": 200, "sell_price": 20, "sources": [ { "type": "shop", "reference_id": "wandering-merchant" } ] }
+    ,{ "id": "lettuce_seeds", "name": "Lettuce Seeds", "type": "material", "rarity": "common", "stack": 999, "buy_price": 200, "sell_price": 20, "sources": [ { "type": "shop", "reference_id": "wandering-merchant" } ] }
     ,{ "id": "lettuce", "name": "Lettuce", "type": "consumable", "rarity": "common", "stack": 50, "buy_price": 150, "sell_price": 15, "sources": [ { "type": "farm", "reference_id": "lettuce-plantation" }, { "type": "shop", "reference_id": "wandering-merchant" } ] }
   ]
 }
@@ -409,7 +409,7 @@ guides and the Palworld Wiki【353245298505537†L150-L180】【963225160620124�
       "product_item_id": "pal-gear-workbench",
       "required_player_level": 6,
       "required_tech_id": "tech-pal-gear-workbench",
-      "inputs": [ { "item_id": "paldium-fragment", "qty": 10 }, { "item_id": "wood", "qty": 30 }, { "item_id": "cloth", "qty": 2 } ],
+      "inputs": [ { "item_id": "paldium_fragment", "qty": 10 }, { "item_id": "wood", "qty": 30 }, { "item_id": "cloth", "qty": 2 } ],
       "station_id": "primitive-workbench",
       "craft_time_s": 60
     },
@@ -418,7 +418,7 @@ guides and the Palworld Wiki【353245298505537†L150-L180】【963225160620124�
       "product_item_id": "foxparks-harness",
       "required_player_level": 6,
       "required_tech_id": "tech-foxparks-harness",
-      "inputs": [ { "item_id": "leather", "qty": 3 }, { "item_id": "flame-organ", "qty": 5 }, { "item_id": "paldium-fragment", "qty": 5 } ],
+      "inputs": [ { "item_id": "leather", "qty": 3 }, { "item_id": "flame_organ", "qty": 5 }, { "item_id": "paldium_fragment", "qty": 5 } ],
       "station_id": "pal-gear-workbench",
       "craft_time_s": 60
     },
@@ -427,7 +427,7 @@ guides and the Palworld Wiki【353245298505537†L150-L180】【963225160620124�
       "product_item_id": "direhowl-harness",
       "required_player_level": 9,
       "required_tech_id": "tech-direhowl-harness",
-      "inputs": [ { "item_id": "leather", "qty": 10 }, { "item_id": "wood", "qty": 20 }, { "item_id": "fiber", "qty": 15 }, { "item_id": "paldium-fragment", "qty": 10 } ],
+      "inputs": [ { "item_id": "leather", "qty": 10 }, { "item_id": "wood", "qty": 20 }, { "item_id": "fiber", "qty": 15 }, { "item_id": "paldium_fragment", "qty": 10 } ],
       "station_id": "pal-gear-workbench",
       "craft_time_s": 80
     },
@@ -436,7 +436,7 @@ guides and the Palworld Wiki【353245298505537†L150-L180】【963225160620124�
       "product_item_id": "eikthyrdeer-saddle",
       "required_player_level": 12,
       "required_tech_id": "tech-eikthyrdeer-saddle",
-      "inputs": [ { "item_id": "leather", "qty": 5 }, { "item_id": "fiber", "qty": 20 }, { "item_id": "ingot", "qty": 10 }, { "item_id": "horn", "qty": 3 }, { "item_id": "paldium-fragment", "qty": 15 } ],
+      "inputs": [ { "item_id": "leather", "qty": 5 }, { "item_id": "fiber", "qty": 20 }, { "item_id": "ingot", "qty": 10 }, { "item_id": "horn", "qty": 3 }, { "item_id": "paldium_fragment", "qty": 15 } ],
       "station_id": "pal-gear-workbench",
       "craft_time_s": 90
     },
@@ -445,7 +445,7 @@ guides and the Palworld Wiki【353245298505537†L150-L180】【963225160620124�
       "product_item_id": "nitewing-saddle",
       "required_player_level": 15,
       "required_tech_id": "tech-nitewing-saddle",
-      "inputs": [ { "item_id": "leather", "qty": 20 }, { "item_id": "cloth", "qty": 10 }, { "item_id": "ingot", "qty": 15 }, { "item_id": "fiber", "qty": 20 }, { "item_id": "paldium-fragment", "qty": 20 } ],
+      "inputs": [ { "item_id": "leather", "qty": 20 }, { "item_id": "cloth", "qty": 10 }, { "item_id": "ingot", "qty": 15 }, { "item_id": "fiber", "qty": 20 }, { "item_id": "paldium_fragment", "qty": 20 } ],
       "station_id": "pal-gear-workbench",
       "craft_time_s": 120
     },
@@ -454,7 +454,7 @@ guides and the Palworld Wiki【353245298505537†L150-L180】【963225160620124�
       "product_item_id": "grappling-gun",
       "required_player_level": 12,
       "required_tech_id": "tech-grappling-gun",
-      "inputs": [ { "item_id": "paldium-fragment", "qty": 10 }, { "item_id": "ingot", "qty": 10 }, { "item_id": "fiber", "qty": 30 }, { "item_id": "ancient-civilization-part", "qty": 1 } ],
+      "inputs": [ { "item_id": "paldium_fragment", "qty": 10 }, { "item_id": "ingot", "qty": 10 }, { "item_id": "fiber", "qty": 30 }, { "item_id": "ancient-civilization-part", "qty": 1 } ],
       "station_id": "primitive-workbench",
       "craft_time_s": 90
     }
@@ -542,7 +542,7 @@ Stations are structures where players craft items and refine materials.
     {
       "id": "pal-gear-workbench",
       "name": "Pal Gear Workbench",
-      "requirements": [ { "item_id": "paldium-fragment", "qty": 10 }, { "item_id": "wood", "qty": 30 }, { "item_id": "cloth", "qty": 2 } ],
+      "requirements": [ { "item_id": "paldium_fragment", "qty": 10 }, { "item_id": "wood", "qty": 30 }, { "item_id": "cloth", "qty": 2 } ],
       "power_required": false,
       "pal_work_types_needed": ["handiwork"],
       "station_tier": 1
@@ -551,10 +551,10 @@ Stations are structures where players craft items and refine materials.
       "id": "tomato-plantation",
       "name": "Tomato Plantation",
       "requirements": [
-        { "item_id": "tomato-seeds", "qty": 3 },
+        { "item_id": "tomato_seeds", "qty": 3 },
         { "item_id": "wood", "qty": 70 },
         { "item_id": "stone", "qty": 50 },
-        { "item_id": "pal-fluids", "qty": 5 }
+        { "item_id": "pal_fluids", "qty": 5 }
       ],
       "power_required": false,
       "pal_work_types_needed": ["planting", "watering", "gathering"],
@@ -564,10 +564,10 @@ Stations are structures where players craft items and refine materials.
       "id": "lettuce-plantation",
       "name": "Lettuce Plantation",
       "requirements": [
-        { "item_id": "lettuce-seeds", "qty": 3 },
+        { "item_id": "lettuce_seeds", "qty": 3 },
         { "item_id": "wood", "qty": 100 },
         { "item_id": "stone", "qty": 70 },
-        { "item_id": "pal-fluids", "qty": 10 }
+        { "item_id": "pal_fluids", "qty": 10 }
       ],
       "power_required": false,
       "pal_work_types_needed": ["planting", "watering", "gathering"],
@@ -756,7 +756,7 @@ approximate.
     {
       "id": "paldium-node",
       "name": "Paldium Ore",
-      "yields": [ { "item_id": "paldium-fragment", "avg_qty": 1.5 } ],
+      "yields": [ { "item_id": "paldium_fragment", "avg_qty": 1.5 } ],
       "respawn_minutes": 15,
       "best_regions": [ "sea-breeze-archipelago", "windswept-hills" ],
       "notes": "Glowing blue ore clusters near water."
@@ -1250,7 +1250,7 @@ basic stations, create Pal Spheres and capture their first companions.
     "overleveled": "If you arrive above level 6, prioritize step :003 and transition directly into harness crafting to avoid redundant farming.",
     "resource_shortages": [
       {
-        "item_id": "paldium-fragment",
+        "item_id": "paldium_fragment",
         "solution": "Trigger the resource-paldium subroute from step :003 or mine blue ore veins along the riverbank."
       },
       {
@@ -1789,7 +1789,7 @@ This long-form route condenses the updated mission walkthrough from `Newguides.m
     "overleveled": "Skip optional capture padding and sprint to tower encounters; convert extra mats into ammo and medkits.",
     "resource_shortages": [
       {
-        "item_id": "paldium-fragment",
+        "item_id": "paldium_fragment",
         "solution": "Farm riverside ore after step :007 or trigger resource-paldium subroute."
       },
       {
@@ -2203,7 +2203,7 @@ This long-form route condenses the updated mission walkthrough from `Newguides.m
       "targets": [
         {
           "kind": "item",
-          "id": "paldium-fragment",
+          "id": "paldium_fragment",
           "qty": 20
         },
         {
@@ -2228,7 +2228,7 @@ This long-form route condenses the updated mission walkthrough from `Newguides.m
           "tactics": "Craft extra shields to replace durability loss mid-run.",
           "safety_buffer_items": [
             {
-              "item_id": "paldium-fragment",
+              "item_id": "paldium_fragment",
               "qty": 10
             }
           ]
@@ -2259,7 +2259,7 @@ This long-form route condenses the updated mission walkthrough from `Newguides.m
       "targets": [
         {
           "kind": "item",
-          "id": "paldium-fragment",
+          "id": "paldium_fragment",
           "qty": 10
         },
         {
@@ -2420,7 +2420,7 @@ This long-form route condenses the updated mission walkthrough from `Newguides.m
             "qty": 20
           },
           {
-            "item_id": "paldium-fragment",
+            "item_id": "paldium_fragment",
             "qty": 20
           },
           {
@@ -3317,7 +3317,7 @@ options to convert Ore into fragments when nodes are depleted.
         "solution": "Craft a backup Stone Pickaxe at the Workbench before leaving base."
       },
       {
-        "item_id": "paldium-fragment",
+        "item_id": "paldium_fragment",
         "solution": "Crush Ore at the Primitive Furnace for 2 fragments per ingot batch."
       }
     ],
@@ -3412,7 +3412,7 @@ options to convert Ore into fragments when nodes are depleted.
       "targets": [
         {
           "kind": "item",
-          "id": "paldium-fragment",
+          "id": "paldium_fragment",
           "qty": 20
         }
       ],
@@ -3467,7 +3467,7 @@ options to convert Ore into fragments when nodes are depleted.
       "outputs": {
         "items": [
           {
-            "item_id": "paldium-fragment",
+            "item_id": "paldium_fragment",
             "qty": 20
           }
         ],
@@ -3488,7 +3488,7 @@ options to convert Ore into fragments when nodes are depleted.
       "targets": [
         {
           "kind": "item",
-          "id": "paldium-fragment",
+          "id": "paldium_fragment",
           "qty": 30
         }
       ],
@@ -3520,7 +3520,7 @@ options to convert Ore into fragments when nodes are depleted.
       "outputs": {
         "items": [
           {
-            "item_id": "paldium-fragment",
+            "item_id": "paldium_fragment",
             "qty": 30
           }
         ],
@@ -3541,7 +3541,7 @@ options to convert Ore into fragments when nodes are depleted.
       "targets": [
         {
           "kind": "item",
-          "id": "paldium-fragment",
+          "id": "paldium_fragment",
           "qty": 10
         }
       ],
@@ -3571,7 +3571,7 @@ options to convert Ore into fragments when nodes are depleted.
       "outputs": {
         "items": [
           {
-            "item_id": "paldium-fragment",
+            "item_id": "paldium_fragment",
             "qty": 10
           }
         ],
@@ -3588,7 +3588,7 @@ options to convert Ore into fragments when nodes are depleted.
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "paldium-fragment",
+      "item_id": "paldium_fragment",
       "qty": 50
     }
   ],
@@ -4241,7 +4241,7 @@ Coal unlocks Refined Ingot fuel for improved furnaces and automation upgrades. T
       "targets": [
         {
           "kind": "item",
-          "id": "refined-ingot",
+          "id": "refined_ingot",
           "qty": 10
         }
       ],
@@ -4269,7 +4269,7 @@ Coal unlocks Refined Ingot fuel for improved furnaces and automation upgrades. T
       "outputs": {
         "items": [
           {
-            "item_id": "refined-ingot",
+            "item_id": "refined_ingot",
             "qty": 10
           }
         ],
@@ -5044,7 +5044,7 @@ Berry Seed Supply Loop stitches Windswept Hills foraging with settlement merchan
     "overleveled": "Run the full Small Settlement to Duneshelter rotation to overstock seeds for multiple plantations.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-duneshelter-raw†L1-L7】",
     "resource_shortages": [
       {
-        "item_id": "berry-seeds",
+        "item_id": "berry_seeds",
         "solution": "Alternate between harvesting local berry bushes and buying merchant stock each respawn to keep 30+ seeds banked.【palwiki-berry-seeds-raw†L1-L18】【palwiki-wandering-merchant-raw†L197-L252】【palwiki-small-settlement-raw†L1-L11】"
       }
     ],
@@ -5121,7 +5121,7 @@ Berry Seed Supply Loop stitches Windswept Hills foraging with settlement merchan
       "targets": [
         {
           "kind": "item",
-          "id": "berry-seeds",
+          "id": "berry_seeds",
           "qty": 6
         }
       ],
@@ -5150,7 +5150,7 @@ Berry Seed Supply Loop stitches Windswept Hills foraging with settlement merchan
       "outputs": {
         "items": [
           {
-            "item_id": "berry-seeds",
+            "item_id": "berry_seeds",
             "qty": 6
           }
         ],
@@ -5171,7 +5171,7 @@ Berry Seed Supply Loop stitches Windswept Hills foraging with settlement merchan
       "targets": [
         {
           "kind": "item",
-          "id": "berry-seeds",
+          "id": "berry_seeds",
           "qty": 12
         }
       ],
@@ -5227,7 +5227,7 @@ Berry Seed Supply Loop stitches Windswept Hills foraging with settlement merchan
       "outputs": {
         "items": [
           {
-            "item_id": "berry-seeds",
+            "item_id": "berry_seeds",
             "qty": 12
           }
         ],
@@ -5309,7 +5309,7 @@ Berry Seed Supply Loop stitches Windswept Hills foraging with settlement merchan
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "berry-seeds",
+      "item_id": "berry_seeds",
       "qty": 18
     }
   ],
@@ -5460,7 +5460,7 @@ Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along 
       "targets": [
         {
           "kind": "item",
-          "id": "pal-fluids",
+          "id": "pal_fluids",
           "qty": 10
         }
       ],
@@ -5504,7 +5504,7 @@ Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along 
       "outputs": {
         "items": [
           {
-            "item_id": "pal-fluids",
+            "item_id": "pal_fluids",
             "qty": 10
           }
         ],
@@ -5527,7 +5527,7 @@ Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along 
       "targets": [
         {
           "kind": "item",
-          "id": "pal-fluids",
+          "id": "pal_fluids",
           "qty": 12
         }
       ],
@@ -5561,7 +5561,7 @@ Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along 
       "outputs": {
         "items": [
           {
-            "item_id": "pal-fluids",
+            "item_id": "pal_fluids",
             "qty": 12
           }
         ],
@@ -5583,7 +5583,7 @@ Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along 
       "targets": [
         {
           "kind": "item",
-          "id": "pal-fluids",
+          "id": "pal_fluids",
           "qty": 10
         }
       ],
@@ -5614,7 +5614,7 @@ Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along 
       "outputs": {
         "items": [
           {
-            "item_id": "pal-fluids",
+            "item_id": "pal_fluids",
             "qty": 15
           }
         ],
@@ -5631,7 +5631,7 @@ Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along 
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "pal-fluids",
+      "item_id": "pal_fluids",
       "qty": 30
     }
   ],
@@ -6196,7 +6196,7 @@ Circuit boards and late-game electronics hinge on Pure Quartz. This expedition s
       "targets": [
         {
           "kind": "item",
-          "id": "pure-quartz",
+          "id": "pure_quartz",
           "qty": 40
         }
       ],
@@ -6240,7 +6240,7 @@ Circuit boards and late-game electronics hinge on Pure Quartz. This expedition s
       "outputs": {
         "items": [
           {
-            "item_id": "pure-quartz",
+            "item_id": "pure_quartz",
             "qty": 40
           }
         ],
@@ -6261,7 +6261,7 @@ Circuit boards and late-game electronics hinge on Pure Quartz. This expedition s
       "targets": [
         {
           "kind": "item",
-          "id": "pure-quartz",
+          "id": "pure_quartz",
           "qty": 60
         }
       ],
@@ -6291,7 +6291,7 @@ Circuit boards and late-game electronics hinge on Pure Quartz. This expedition s
       "outputs": {
         "items": [
           {
-            "item_id": "pure-quartz",
+            "item_id": "pure_quartz",
             "qty": 60
           }
         ],
@@ -6307,7 +6307,7 @@ Circuit boards and late-game electronics hinge on Pure Quartz. This expedition s
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "pure-quartz",
+      "item_id": "pure_quartz",
       "qty": 80
     }
   ],
@@ -7125,7 +7125,7 @@ Wildlife sanctuaries hide the only reliable wild sources of Beautiful Flowers, b
     "overleveled": "Once you shrug off level-50 threats, rotate Sanctuaries No. 2 and No. 3 to chain guaranteed Petallia and Lyleen drops.",
     "resource_shortages": [
       {
-        "item_id": "beautiful-flower",
+        "item_id": "beautiful_flower",
         "solution": "Lean on step :002 captures—Petallia guarantees 2-3 Beautiful Flowers per defeat, stabilising stock quickly."
       }
     ],
@@ -7257,7 +7257,7 @@ Wildlife sanctuaries hide the only reliable wild sources of Beautiful Flowers, b
       "targets": [
         {
           "kind": "item",
-          "id": "beautiful-flower",
+          "id": "beautiful_flower",
           "qty": 15
         }
       ],
@@ -7306,7 +7306,7 @@ Wildlife sanctuaries hide the only reliable wild sources of Beautiful Flowers, b
       "outputs": {
         "items": [
           {
-            "item_id": "beautiful-flower",
+            "item_id": "beautiful_flower",
             "qty": 15
           }
         ],
@@ -7330,7 +7330,7 @@ Wildlife sanctuaries hide the only reliable wild sources of Beautiful Flowers, b
       "targets": [
         {
           "kind": "item",
-          "id": "beautiful-flower",
+          "id": "beautiful_flower",
           "qty": 25
         }
       ],
@@ -7374,7 +7374,7 @@ Wildlife sanctuaries hide the only reliable wild sources of Beautiful Flowers, b
       "outputs": {
         "items": [
           {
-            "item_id": "beautiful-flower",
+            "item_id": "beautiful_flower",
             "qty": 25
           }
         ],
@@ -7393,7 +7393,7 @@ Wildlife sanctuaries hide the only reliable wild sources of Beautiful Flowers, b
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "beautiful-flower",
+      "item_id": "beautiful_flower",
       "qty": 30
     }
   ],
@@ -7481,7 +7481,7 @@ High Quality Cloth Loom Circuit clears the Sealed Realm of the Pristine for Sibe
         "solution": "Run the resource-wool route again to refill bales before queueing 10-wool crafts for each cloth batch.【palwiki-high-quality-cloth†L17-L24】"
       },
       {
-        "item_id": "high-quality-cloth",
+        "item_id": "high_quality_cloth",
         "solution": "Assign Sibelyx to a ranch so its Silk Maker passive produces cloth while workshops finish the remaining workload.【palwiki-sibelyx†L1-L64】"
       }
     ],
@@ -7546,7 +7546,7 @@ High Quality Cloth Loom Circuit clears the Sealed Realm of the Pristine for Sibe
       "targets": [
         {
           "kind": "tech",
-          "id": "high-quality-cloth"
+          "id": "high_quality_cloth"
         }
       ],
       "locations": [
@@ -7652,7 +7652,7 @@ High Quality Cloth Loom Circuit clears the Sealed Realm of the Pristine for Sibe
       "outputs": {
         "items": [
           {
-            "item_id": "high-quality-cloth",
+            "item_id": "high_quality_cloth",
             "qty": 1
           }
         ],
@@ -7675,7 +7675,7 @@ High Quality Cloth Loom Circuit clears the Sealed Realm of the Pristine for Sibe
       "targets": [
         {
           "kind": "item",
-          "id": "high-quality-cloth",
+          "id": "high_quality_cloth",
           "qty": 12
         }
       ],
@@ -7713,7 +7713,7 @@ High Quality Cloth Loom Circuit clears the Sealed Realm of the Pristine for Sibe
       "outputs": {
         "items": [
           {
-            "item_id": "high-quality-cloth",
+            "item_id": "high_quality_cloth",
             "qty": 12
           }
         ],
@@ -7735,7 +7735,7 @@ High Quality Cloth Loom Circuit clears the Sealed Realm of the Pristine for Sibe
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "high-quality-cloth",
+      "item_id": "high_quality_cloth",
       "qty": 20
     }
   ],
@@ -8029,7 +8029,7 @@ Milk powers cakes, hot drinks, and early-game sanity food, so this loop builds a
       "outputs": {
         "items": [
           {
-            "item_id": "mozzarina-meat",
+            "item_id": "mozzarina_meat",
             "qty": 4
           }
         ],
@@ -8255,7 +8255,7 @@ Chikipi Poultry Harvest Loop corrals the starter meadow flocks, adds a Meat Clea
     "overleveled": "Alternate meadow sweeps with butcher sessions to bank a stack of poultry before raids escalate.【palwiki-chikipi†L29-L35】【palwiki-meat-cleaver†L20-L39】",
     "resource_shortages": [
       {
-        "item_id": "chikipi-poultry",
+        "item_id": "chikipi_poultry",
         "solution": "Cull one captured pair per loop after eggs hatch, then let timers refill ranch slots before the next hunt.【palwiki-chikipi†L63-L72】【palwiki-meat-cleaver†L20-L39】"
       }
     ],
@@ -8383,7 +8383,7 @@ Chikipi Poultry Harvest Loop corrals the starter meadow flocks, adds a Meat Clea
       "targets": [
         {
           "kind": "item",
-          "id": "chikipi-poultry",
+          "id": "chikipi_poultry",
           "qty": 6
         }
       ],
@@ -8420,7 +8420,7 @@ Chikipi Poultry Harvest Loop corrals the starter meadow flocks, adds a Meat Clea
       "outputs": {
         "items": [
           {
-            "item_id": "chikipi-poultry",
+            "item_id": "chikipi_poultry",
             "qty": 6
           }
         ],
@@ -8441,7 +8441,7 @@ Chikipi Poultry Harvest Loop corrals the starter meadow flocks, adds a Meat Clea
       "targets": [
         {
           "kind": "item",
-          "id": "chikipi-poultry",
+          "id": "chikipi_poultry",
           "qty": 12
         }
       ],
@@ -8471,7 +8471,7 @@ Chikipi Poultry Harvest Loop corrals the starter meadow flocks, adds a Meat Clea
       "outputs": {
         "items": [
           {
-            "item_id": "chikipi-poultry",
+            "item_id": "chikipi_poultry",
             "qty": 12
           }
         ],
@@ -8487,7 +8487,7 @@ Chikipi Poultry Harvest Loop corrals the starter meadow flocks, adds a Meat Clea
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "chikipi-poultry",
+      "item_id": "chikipi_poultry",
       "qty": 18
     }
   ],
@@ -9289,7 +9289,7 @@ Flour Milling Network turns the Small Settlement merchant's grain stock into aut
     "overleveled": "Expand to two Wheat Plantations and assign higher-tier planters to keep the mill busy between combat outings.\u3010af5fcd\u2020L1-L12\u3011",
     "resource_shortages": [
       {
-        "item_id": "wheat-seeds",
+        "item_id": "wheat_seeds",
         "solution": "Trigger the resource-berry-seeds subroute or re-buy Wheat Seeds from the Small Settlement merchant when the stock refreshes every day.\u3010c6adb4\u2020L70-L85\u3011",
         "subroute_ref": "resource-berry-seeds"
       },
@@ -9346,7 +9346,7 @@ Flour Milling Network turns the Small Settlement merchant's grain stock into aut
       "targets": [
         {
           "kind": "item",
-          "id": "wheat-seeds",
+          "id": "wheat_seeds",
           "qty": 9
         },
         {
@@ -9398,7 +9398,7 @@ Flour Milling Network turns the Small Settlement merchant's grain stock into aut
       "outputs": {
         "items": [
           {
-            "item_id": "wheat-seeds",
+            "item_id": "wheat_seeds",
             "qty": 9
           },
           {
@@ -9812,7 +9812,7 @@ Cake Assembly Line coordinates plantations, ranch automation, and the Cooking Po
       "outputs": {
         "items": [
           {
-            "item_id": "red-berries",
+            "item_id": "red_berries",
             "qty": 40
           },
           {
@@ -10016,7 +10016,7 @@ Cake Assembly Line coordinates plantations, ranch automation, and the Cooking Po
         ],
         "consumables": [
           {
-            "item_id": "flame-organ",
+            "item_id": "flame_organ",
             "qty": 3
           }
         ]
@@ -10136,11 +10136,11 @@ Tomato Seed Greenhouse Circuit chains the Small Settlement and Duneshelter merch
     "overleveled": "Once you're comfortable in sanctuaries, alternate Wumpo Botan circuits with Sealed Realm of the Guardian clears to stockpile seeds fast.【palwiki-wumpo-botan-raw†L109-L116】【palwiki-vaelet-raw†L108-L116】【palwiki-tomato-seeds†L608-L826】",
     "resource_shortages": [
       {
-        "item_id": "tomato-seeds",
+        "item_id": "tomato_seeds",
         "solution": "Rotate Wumpo Botan, Oasis Braloha, and the Vaelet alpha before plantations stall to refill the chest in one sweep.【palwiki-wumpo-botan-raw†L109-L116】【palwiki-braloha-raw†L121-L125】【palwiki-vaelet-raw†L108-L116】【palwiki-tomato-seeds†L608-L826】"
       },
       {
-        "item_id": "gold-coin",
+        "item_id": "gold_coin",
         "solution": "Carry at least 1,200 gold per loop so you can buy six seeds from both merchants without waiting on restocks.【palwiki-wandering-merchant-raw†L197-L252】【palwiki-tomato-seeds†L552-L565】"
       }
     ],
@@ -10193,7 +10193,7 @@ Tomato Seed Greenhouse Circuit chains the Small Settlement and Duneshelter merch
       "targets": [
         {
           "kind": "item",
-          "id": "tomato-seeds",
+          "id": "tomato_seeds",
           "qty": 6
         }
       ],
@@ -10227,7 +10227,7 @@ Tomato Seed Greenhouse Circuit chains the Small Settlement and Duneshelter merch
         "pals": [],
         "consumables": [
           {
-            "item_id": "gold-coin",
+            "item_id": "gold_coin",
             "qty": 1200
           }
         ]
@@ -10239,7 +10239,7 @@ Tomato Seed Greenhouse Circuit chains the Small Settlement and Duneshelter merch
       "outputs": {
         "items": [
           {
-            "item_id": "tomato-seeds",
+            "item_id": "tomato_seeds",
             "qty": 6
           }
         ],
@@ -10261,7 +10261,7 @@ Tomato Seed Greenhouse Circuit chains the Small Settlement and Duneshelter merch
       "targets": [
         {
           "kind": "item",
-          "id": "tomato-seeds",
+          "id": "tomato_seeds",
           "qty": 14
         }
       ],
@@ -10337,7 +10337,7 @@ Tomato Seed Greenhouse Circuit chains the Small Settlement and Duneshelter merch
       "outputs": {
         "items": [
           {
-            "item_id": "tomato-seeds",
+            "item_id": "tomato_seeds",
             "qty": 14
           }
         ],
@@ -10422,7 +10422,7 @@ Tomato Seed Greenhouse Circuit chains the Small Settlement and Duneshelter merch
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "tomato-seeds",
+      "item_id": "tomato_seeds",
       "qty": 15
     },
     {
@@ -10508,7 +10508,7 @@ Lettuce Seed Hydroponics buys Small Settlement stock, loops Wumpo Botan sanctuar
     "overleveled": "Farm No. 2 Wildlife Sanctuary on repeat; Wumpo Botan provide both Lettuce and Tomato Seeds while Dinossom Lux tops up extras.【fb8f93†L1-L2】【ca10a8†L1-L6】",
     "resource_shortages": [
       {
-        "item_id": "lettuce-seeds",
+        "item_id": "lettuce_seeds",
         "solution": "Rotate between the sanctuary Wumpo Botan spawn and Bristla forest patrols to refill reserves before plantations stall.【ca10a8†L1-L6】【fb8f93†L1-L2】【bb2b70†L1-L7】"
       }
     ],
@@ -10561,7 +10561,7 @@ Lettuce Seed Hydroponics buys Small Settlement stock, loops Wumpo Botan sanctuar
       "targets": [
         {
           "kind": "item",
-          "id": "lettuce-seeds",
+          "id": "lettuce_seeds",
           "qty": 6
         }
       ],
@@ -10604,7 +10604,7 @@ Lettuce Seed Hydroponics buys Small Settlement stock, loops Wumpo Botan sanctuar
       "outputs": {
         "items": [
           {
-            "item_id": "lettuce-seeds",
+            "item_id": "lettuce_seeds",
             "qty": 6
           }
         ],
@@ -10626,7 +10626,7 @@ Lettuce Seed Hydroponics buys Small Settlement stock, loops Wumpo Botan sanctuar
       "targets": [
         {
           "kind": "item",
-          "id": "lettuce-seeds",
+          "id": "lettuce_seeds",
           "qty": 12
         }
       ],
@@ -10673,7 +10673,7 @@ Lettuce Seed Hydroponics buys Small Settlement stock, loops Wumpo Botan sanctuar
       "outputs": {
         "items": [
           {
-            "item_id": "lettuce-seeds",
+            "item_id": "lettuce_seeds",
             "qty": 12
           }
         ],
@@ -10758,7 +10758,7 @@ Lettuce Seed Hydroponics buys Small Settlement stock, loops Wumpo Botan sanctuar
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "lettuce-seeds",
+      "item_id": "lettuce_seeds",
       "qty": 15
     },
     {
@@ -11105,7 +11105,7 @@ Bone Forager Loop hunts Windswept Hills Rushoar packs, spins up ranch pals, and 
         "pals": [],
         "consumables": [
           {
-            "item_id": "gold-coin",
+            "item_id": "gold_coin",
             "qty": 600
           }
         ]
@@ -11596,7 +11596,7 @@ Refined Ingot Forge Cycle anchors an Improved Furnace hub on the Desiccated Dese
         "solution": "Keep a hauler rota working the ridge at (191,-36) before queueing more furnace batches.【segmentnext-refined-ingot†L5-L5】"
       },
       {
-        "item_id": "refined-ingot",
+        "item_id": "refined_ingot",
         "solution": "Each refined ingot consumes 2 Ore and 2 Coal—rebuild the ratio before resuming hand-ins.【palwiki-refined-ingot†L1-L6】"
       }
     ],
@@ -11826,7 +11826,7 @@ Refined Ingot Forge Cycle anchors an Improved Furnace hub on the Desiccated Dese
       "targets": [
         {
           "kind": "item",
-          "id": "refined-ingot",
+          "id": "refined_ingot",
           "qty": 60
         }
       ],
@@ -11867,7 +11867,7 @@ Refined Ingot Forge Cycle anchors an Improved Furnace hub on the Desiccated Dese
       "outputs": {
         "items": [
           {
-            "item_id": "refined-ingot",
+            "item_id": "refined_ingot",
             "qty": 60
           }
         ],
@@ -11888,7 +11888,7 @@ Refined Ingot Forge Cycle anchors an Improved Furnace hub on the Desiccated Dese
     },
     {
       "type": "have-item",
-      "item_id": "refined-ingot",
+      "item_id": "refined_ingot",
       "qty": 60
     }
   ],
@@ -11977,11 +11977,11 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
     "overleveled": "Once alloy batches flow, rotate into Astegon or Necromus hunts to add guaranteed Pal Metal drops for legendary queues.【fandom-pal-metal-ingot†L1-L4】",
     "resource_shortages": [
       {
-        "item_id": "paldium-fragment",
+        "item_id": "paldium_fragment",
         "solution": "Trigger the resource-paldium subroute or run riverbank loops until you refill at least 80 fragments.【palwiki-paldium†L42-L71】"
       },
       {
-        "item_id": "pal-metal-ingot",
+        "item_id": "pal_metal_ingot",
         "solution": "Each bar consumes 4 Ore and 2 Paldium fragments—balance smelts with mining runs before queueing late-game gear.【palwiki-pal-metal-ingot†L1-L3】"
       }
     ],
@@ -12131,7 +12131,7 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
         },
         {
           "kind": "item",
-          "id": "paldium-fragment",
+          "id": "paldium_fragment",
           "qty": 80
         }
       ],
@@ -12181,7 +12181,7 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
             "qty": 160
           },
           {
-            "item_id": "paldium-fragment",
+            "item_id": "paldium_fragment",
             "qty": 80
           }
         ],
@@ -12210,7 +12210,7 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
       "targets": [
         {
           "kind": "item",
-          "id": "pal-metal-ingot",
+          "id": "pal_metal_ingot",
           "qty": 40
         }
       ],
@@ -12251,7 +12251,7 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
       "outputs": {
         "items": [
           {
-            "item_id": "pal-metal-ingot",
+            "item_id": "pal_metal_ingot",
             "qty": 40
           }
         ],
@@ -12317,7 +12317,7 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
       "outputs": {
         "items": [
           {
-            "item_id": "pal-metal-ingot",
+            "item_id": "pal_metal_ingot",
             "qty": 20
           }
         ],
@@ -12339,7 +12339,7 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
     },
     {
       "type": "have-item",
-      "item_id": "pal-metal-ingot",
+      "item_id": "pal_metal_ingot",
       "qty": 40
     }
   ],
@@ -12432,7 +12432,7 @@ Carbon Fiber Filament Works unlocks the Production Assembly Line, pipelines coal
     "overleveled": "Rotate Jetragon or Shadowbeak hunts between craft batches so their guaranteed drops patch any coal shortages.【palfandom-carbon-fiber†L108-L110】",
     "resource_shortages": [
       {
-        "item_id": "carbon-fiber",
+        "item_id": "carbon_fiber",
         "solution": "Each craft costs 2 Coal or 5 Charcoal—match queue sizes to your mining throughput before loading the hopper.【palwiki-carbon-fiber†L13-L40】【palfandom-carbon-fiber†L86-L110】"
       }
     ],
@@ -12612,7 +12612,7 @@ Carbon Fiber Filament Works unlocks the Production Assembly Line, pipelines coal
       "targets": [
         {
           "kind": "item",
-          "id": "carbon-fiber",
+          "id": "carbon_fiber",
           "qty": 60
         }
       ],
@@ -12656,7 +12656,7 @@ Carbon Fiber Filament Works unlocks the Production Assembly Line, pipelines coal
       "outputs": {
         "items": [
           {
-            "item_id": "carbon-fiber",
+            "item_id": "carbon_fiber",
             "qty": 60
           }
         ],
@@ -12681,7 +12681,7 @@ Carbon Fiber Filament Works unlocks the Production Assembly Line, pipelines coal
     },
     {
       "type": "have-item",
-      "item_id": "carbon-fiber",
+      "item_id": "carbon_fiber",
       "qty": 60
     }
   ],
@@ -12766,7 +12766,7 @@ Electric Organ Relay Circuit strings together Rayne Syndicate Tower hunting loop
     "overleveled": "Rotate a Twilight Dunes sweep between bridge runs so higher-level Sparkit chains keep pace with late-game conductor crafting.【eec516†L5-L7】",
     "resource_shortages": [
       {
-        "item_id": "electric-organ",
+        "item_id": "electric_organ",
         "solution": "Buy the merchant’s 200-gold stock after every hunt to buffer against unlucky Sparkit drops.【9565e9†L6-L8】【eec516†L9-L14】"
       }
     ],
@@ -12885,7 +12885,7 @@ Electric Organ Relay Circuit strings together Rayne Syndicate Tower hunting loop
       "targets": [
         {
           "kind": "item",
-          "id": "electric-organ",
+          "id": "electric_organ",
           "qty": 10
         }
       ],
@@ -12937,7 +12937,7 @@ Electric Organ Relay Circuit strings together Rayne Syndicate Tower hunting loop
       "outputs": {
         "items": [
           {
-            "item_id": "electric-organ",
+            "item_id": "electric_organ",
             "qty": 10
           }
         ],
@@ -12958,7 +12958,7 @@ Electric Organ Relay Circuit strings together Rayne Syndicate Tower hunting loop
       "targets": [
         {
           "kind": "item",
-          "id": "electric-organ",
+          "id": "electric_organ",
           "qty": 6
         }
       ],
@@ -12979,7 +12979,7 @@ Electric Organ Relay Circuit strings together Rayne Syndicate Tower hunting loop
         "pals": [],
         "consumables": [
           {
-            "item_id": "gold-coin",
+            "item_id": "gold_coin",
             "qty": 1200
           }
         ]
@@ -12991,7 +12991,7 @@ Electric Organ Relay Circuit strings together Rayne Syndicate Tower hunting loop
       "outputs": {
         "items": [
           {
-            "item_id": "electric-organ",
+            "item_id": "electric_organ",
             "qty": 6
           }
         ],
@@ -13012,7 +13012,7 @@ Electric Organ Relay Circuit strings together Rayne Syndicate Tower hunting loop
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "electric-organ",
+      "item_id": "electric_organ",
       "qty": 20
     }
   ],
@@ -13096,7 +13096,7 @@ Wheat Seed Field Logistics threads merchant buys with Dinossom and Flopie patrol
     "overleveled": "Chain Dinossom's 50% Wheat Seed drop with Flopie loops beyond the bridge to overstock plantations between tech pushes.【46c54c†L9-L17】【b1cc9c†L1-L2】",
     "resource_shortages": [
       {
-        "item_id": "wheat-seeds",
+        "item_id": "wheat_seeds",
         "solution": "Alternate between Small Settlement purchases and Rayne tower hunts so plantations never stall on reseed stock.【46c54c†L12-L17】【a05a80†L1-L13】"
       }
     ],
@@ -13149,7 +13149,7 @@ Wheat Seed Field Logistics threads merchant buys with Dinossom and Flopie patrol
       "targets": [
         {
           "kind": "item",
-          "id": "wheat-seeds",
+          "id": "wheat_seeds",
           "qty": 9
         }
       ],
@@ -13192,7 +13192,7 @@ Wheat Seed Field Logistics threads merchant buys with Dinossom and Flopie patrol
       "outputs": {
         "items": [
           {
-            "item_id": "wheat-seeds",
+            "item_id": "wheat_seeds",
             "qty": 9
           }
         ],
@@ -13214,7 +13214,7 @@ Wheat Seed Field Logistics threads merchant buys with Dinossom and Flopie patrol
       "targets": [
         {
           "kind": "item",
-          "id": "wheat-seeds",
+          "id": "wheat_seeds",
           "qty": 12
         }
       ],
@@ -13277,7 +13277,7 @@ Wheat Seed Field Logistics threads merchant buys with Dinossom and Flopie patrol
       "outputs": {
         "items": [
           {
-            "item_id": "wheat-seeds",
+            "item_id": "wheat_seeds",
             "qty": 12
           }
         ],
@@ -13361,7 +13361,7 @@ Wheat Seed Field Logistics threads merchant buys with Dinossom and Flopie patrol
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "wheat-seeds",
+      "item_id": "wheat_seeds",
       "qty": 18
     }
   ],
@@ -13460,7 +13460,7 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
     "overleveled": "Add Mount Obsidian Flambelle sweeps to feed ranch assignments as you scale into mid-game heat tech.【5531dc†L7-L8】",
     "resource_shortages": [
       {
-        "item_id": "flame-organ",
+        "item_id": "flame_organ",
         "solution": "Cycle Foxparks runs, restock merchants, and keep a Flambelle grazing so you always have backup drops.【cf6c22†L5-L8】"
       }
     ],
@@ -13537,7 +13537,7 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
       "targets": [
         {
           "kind": "item",
-          "id": "flame-organ",
+          "id": "flame_organ",
           "qty": 8
         }
       ],
@@ -13574,7 +13574,7 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
       "outputs": {
         "items": [
           {
-            "item_id": "flame-organ",
+            "item_id": "flame_organ",
             "qty": 8
           }
         ],
@@ -13594,7 +13594,7 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
       "targets": [
         {
           "kind": "item",
-          "id": "flame-organ",
+          "id": "flame_organ",
           "qty": 4
         }
       ],
@@ -13626,7 +13626,7 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
       "outputs": {
         "items": [
           {
-            "item_id": "flame-organ",
+            "item_id": "flame_organ",
             "qty": 4
           }
         ],
@@ -13649,7 +13649,7 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
       "targets": [
         {
           "kind": "item",
-          "id": "flame-organ",
+          "id": "flame_organ",
           "qty": 5
         }
       ],
@@ -13670,7 +13670,7 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
         "pals": [],
         "consumables": [
           {
-            "item_id": "gold-coin",
+            "item_id": "gold_coin",
             "qty": 500
           }
         ]
@@ -13682,7 +13682,7 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
       "outputs": {
         "items": [
           {
-            "item_id": "flame-organ",
+            "item_id": "flame_organ",
             "qty": 5
           }
         ],
@@ -13702,7 +13702,7 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "flame-organ",
+      "item_id": "flame_organ",
       "qty": 18
     }
   ],
@@ -13783,7 +13783,7 @@ Ice Organ Chill Chain leans on the Penking alpha dungeon and Duneshelter merchan
     "overleveled": "Rotate additional Ice-type drops like Reindrix or Foxcicle between dungeon runs to accelerate legendary saddle crafting.【4307f5†L58-L64】",
     "resource_shortages": [
       {
-        "item_id": "ice-organ",
+        "item_id": "ice_organ",
         "solution": "Buy Duneshelter stock for 100 gold whenever you pass through the desert to buffer against slow dungeon respawns.【4307f5†L6-L7】【955051†L5-L8】"
       }
     ],
@@ -13903,7 +13903,7 @@ Ice Organ Chill Chain leans on the Penking alpha dungeon and Duneshelter merchan
       "targets": [
         {
           "kind": "item",
-          "id": "ice-organ",
+          "id": "ice_organ",
           "qty": 12
         }
       ],
@@ -13950,7 +13950,7 @@ Ice Organ Chill Chain leans on the Penking alpha dungeon and Duneshelter merchan
       "outputs": {
         "items": [
           {
-            "item_id": "ice-organ",
+            "item_id": "ice_organ",
             "qty": 12
           }
         ],
@@ -13970,7 +13970,7 @@ Ice Organ Chill Chain leans on the Penking alpha dungeon and Duneshelter merchan
       "targets": [
         {
           "kind": "item",
-          "id": "ice-organ",
+          "id": "ice_organ",
           "qty": 6
         }
       ],
@@ -13991,7 +13991,7 @@ Ice Organ Chill Chain leans on the Penking alpha dungeon and Duneshelter merchan
         "pals": [],
         "consumables": [
           {
-            "item_id": "gold-coin",
+            "item_id": "gold_coin",
             "qty": 600
           }
         ]
@@ -14003,7 +14003,7 @@ Ice Organ Chill Chain leans on the Penking alpha dungeon and Duneshelter merchan
       "outputs": {
         "items": [
           {
-            "item_id": "ice-organ",
+            "item_id": "ice_organ",
             "qty": 6
           }
         ],
@@ -14024,7 +14024,7 @@ Ice Organ Chill Chain leans on the Penking alpha dungeon and Duneshelter merchan
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "ice-organ",
+      "item_id": "ice_organ",
       "qty": 20
     }
   ],
@@ -14105,7 +14105,7 @@ Harvest enough Venom Glands to sustain poison ammo, dark saddles, and antidote s
     "overleveled": "Players running rocket or shotgun builds can skip Step :002 after tagging 10 glands and move straight to ranch automation.",
     "resource_shortages": [
       {
-        "item_id": "venom-gland",
+        "item_id": "venom_gland",
         "solution": "Trigger Step :003 to restock from the Small Settlement merchant before repeating night loops."
       }
     ],
@@ -14218,7 +14218,7 @@ Harvest enough Venom Glands to sustain poison ammo, dark saddles, and antidote s
       "targets": [
         {
           "kind": "item",
-          "id": "venom-gland",
+          "id": "venom_gland",
           "qty": 12
         }
       ],
@@ -14269,7 +14269,7 @@ Harvest enough Venom Glands to sustain poison ammo, dark saddles, and antidote s
       "outputs": {
         "items": [
           {
-            "item_id": "venom-gland",
+            "item_id": "venom_gland",
             "qty": 12
           }
         ],
@@ -14291,7 +14291,7 @@ Harvest enough Venom Glands to sustain poison ammo, dark saddles, and antidote s
       "targets": [
         {
           "kind": "item",
-          "id": "venom-gland",
+          "id": "venom_gland",
           "qty": 5
         }
       ],
@@ -14321,7 +14321,7 @@ Harvest enough Venom Glands to sustain poison ammo, dark saddles, and antidote s
       "outputs": {
         "items": [
           {
-            "item_id": "venom-gland",
+            "item_id": "venom_gland",
             "qty": 5
           }
         ],
@@ -14390,7 +14390,7 @@ Harvest enough Venom Glands to sustain poison ammo, dark saddles, and antidote s
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "venom-gland",
+      "item_id": "venom_gland",
       "qty": 20
     }
   ],
@@ -14472,7 +14472,7 @@ Secure Katress Hair for witch gear and speed remedies by chaining Moonless Shore
     "overleveled": "Players above 35 can farm the alpha first, then loop Moonless Shore to minimize travel time.",
     "resource_shortages": [
       {
-        "item_id": "katress-hair",
+        "item_id": "katress_hair",
         "solution": "Run Step :003 breeding while Moonless Shore respawns reset."
       }
     ],
@@ -14537,7 +14537,7 @@ Secure Katress Hair for witch gear and speed remedies by chaining Moonless Shore
       "targets": [
         {
           "kind": "item",
-          "id": "katress-hair",
+          "id": "katress_hair",
           "qty": 8
         }
       ],
@@ -14589,7 +14589,7 @@ Secure Katress Hair for witch gear and speed remedies by chaining Moonless Shore
       "outputs": {
         "items": [
           {
-            "item_id": "katress-hair",
+            "item_id": "katress_hair",
             "qty": 8
           }
         ],
@@ -14768,7 +14768,7 @@ Secure Katress Hair for witch gear and speed remedies by chaining Moonless Shore
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "katress-hair",
+      "item_id": "katress_hair",
       "qty": 15
     }
   ],
@@ -14856,7 +14856,7 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
     "overleveled": "Rotate between Helzephyr ridges and Sakurajima camps every in-game night to keep the Crusher stocked before statue upgrades spike demand.【palwiki-helzephyr-raw†L65-L116】【palwiki-sootseer†L65-L114】",
     "resource_shortages": [
       {
-        "item_id": "medium-pal-soul",
+        "item_id": "medium_pal_soul",
         "solution": "Run Crusher conversions each time Small Pal Souls exceed 40 so the statue never stalls.【palwiki-medium-pal-soul-raw†L31-L42】"
       }
     ],
@@ -14932,7 +14932,7 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       "targets": [
         {
           "kind": "item",
-          "id": "medium-pal-soul",
+          "id": "medium_pal_soul",
           "qty": 2
         },
         {
@@ -14980,11 +14980,11 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       "outputs": {
         "items": [
           {
-            "item_id": "medium-pal-soul",
+            "item_id": "medium_pal_soul",
             "qty": 2
           },
           {
-            "item_id": "venom-gland",
+            "item_id": "venom_gland",
             "qty": 2
           }
         ],
@@ -15006,7 +15006,7 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       "targets": [
         {
           "kind": "item",
-          "id": "medium-pal-soul",
+          "id": "medium_pal_soul",
           "qty": 4
         },
         {
@@ -15053,7 +15053,7 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       "outputs": {
         "items": [
           {
-            "item_id": "medium-pal-soul",
+            "item_id": "medium_pal_soul",
             "qty": 4
           },
           {
@@ -15079,7 +15079,7 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       "targets": [
         {
           "kind": "item",
-          "id": "medium-pal-soul",
+          "id": "medium_pal_soul",
           "qty": 3
         }
       ],
@@ -15114,7 +15114,7 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       "outputs": {
         "items": [
           {
-            "item_id": "medium-pal-soul",
+            "item_id": "medium_pal_soul",
             "qty": 3
           }
         ],
@@ -15136,7 +15136,7 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       "targets": [
         {
           "kind": "item",
-          "id": "medium-pal-soul",
+          "id": "medium_pal_soul",
           "qty": 6
         }
       ],
@@ -15166,7 +15166,7 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       "outputs": {
         "items": [
           {
-            "item_id": "medium-pal-soul",
+            "item_id": "medium_pal_soul",
             "qty": 6
           }
         ],
@@ -15231,7 +15231,7 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       "outputs": {
         "items": [
           {
-            "item_id": "medium-pal-soul",
+            "item_id": "medium_pal_soul",
             "qty": 8
           }
         ],
@@ -15253,7 +15253,7 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "medium-pal-soul",
+      "item_id": "medium_pal_soul",
       "qty": 20
     }
   ],
@@ -15337,7 +15337,7 @@ Large Pal Souls fuel Statue of Power upgrades for late-game builds, so this circ
     "overleveled": "Chain Steps :002 and :004 in a single loop—clear Anubis, fast travel to the sanctuary, then intercept raids to bank 4+ souls per lap.【palwiki-large-pal-soul†L125-L160】",
     "resource_shortages": [
       {
-        "item_id": "large-pal-soul",
+        "item_id": "large_pal_soul",
         "solution": "Run Step :003 to convert two Medium Pal Souls or split one Giant Pal Soul into two Large souls whenever drops lag behind Statue demands.【game8-large-pal-soul†L117-L156】【palwiki-crusher†L159-L179】"
       }
     ],
@@ -15509,7 +15509,7 @@ Large Pal Souls fuel Statue of Power upgrades for late-game builds, so this circ
         },
         {
           "kind": "item",
-          "id": "large-pal-soul",
+          "id": "large_pal_soul",
           "qty": 1
         }
       ],
@@ -15562,7 +15562,7 @@ Large Pal Souls fuel Statue of Power upgrades for late-game builds, so this circ
       "outputs": {
         "items": [
           {
-            "item_id": "large-pal-soul",
+            "item_id": "large_pal_soul",
             "qty": 1
           }
         ],
@@ -15590,7 +15590,7 @@ Large Pal Souls fuel Statue of Power upgrades for late-game builds, so this circ
       "targets": [
         {
           "kind": "item",
-          "id": "large-pal-soul",
+          "id": "large_pal_soul",
           "qty": 2
         }
       ],
@@ -15634,7 +15634,7 @@ Large Pal Souls fuel Statue of Power upgrades for late-game builds, so this circ
       "outputs": {
         "items": [
           {
-            "item_id": "large-pal-soul",
+            "item_id": "large_pal_soul",
             "qty": 2
           }
         ],
@@ -15655,7 +15655,7 @@ Large Pal Souls fuel Statue of Power upgrades for late-game builds, so this circ
       "targets": [
         {
           "kind": "item",
-          "id": "large-pal-soul",
+          "id": "large_pal_soul",
           "qty": 2
         }
       ],
@@ -15713,7 +15713,7 @@ Large Pal Souls fuel Statue of Power upgrades for late-game builds, so this circ
       "outputs": {
         "items": [
           {
-            "item_id": "large-pal-soul",
+            "item_id": "large_pal_soul",
             "qty": 2
           }
         ],
@@ -15730,7 +15730,7 @@ Large Pal Souls fuel Statue of Power upgrades for late-game builds, so this circ
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "large-pal-soul",
+      "item_id": "large_pal_soul",
       "qty": 6
     }
   ],
@@ -15815,7 +15815,7 @@ merchant to your workforce.
     "overleveled": "Players above level 18 can skip step :001 if they already stock Mega Pal Spheres and move straight to isolating the merchant.",
     "resource_shortages": [
       {
-        "item_id": "paldium-fragment",
+        "item_id": "paldium_fragment",
         "solution": "Trigger resource-paldium from step :001 to restock fragments for higher-grade spheres."
       }
     ],
@@ -16219,7 +16219,7 @@ player lacks materials.
         "solution": "Invoke resource-leather-early via step :003’s branching."
       },
       {
-        "item_id": "flame-organ",
+        "item_id": "flame_organ",
         "solution": "Farm Rushoar in the Sea Breeze Archipelago while Foxparks respawn."
       }
     ],
@@ -16441,12 +16441,12 @@ player lacks materials.
         },
         {
           "kind": "item",
-          "id": "flame-organ",
+          "id": "flame_organ",
           "qty": 5
         },
         {
           "kind": "item",
-          "id": "paldium-fragment",
+          "id": "paldium_fragment",
           "qty": 5
         }
       ],
@@ -16512,11 +16512,11 @@ player lacks materials.
             "qty": 3
           },
           {
-            "item_id": "flame-organ",
+            "item_id": "flame_organ",
             "qty": 5
           },
           {
-            "item_id": "paldium-fragment",
+            "item_id": "paldium_fragment",
             "qty": 5
           }
         ],
@@ -16949,7 +16949,7 @@ provides a speed boost, double jump and improved logging【142053078936299†L12
         },
         {
           "kind": "item",
-          "id": "paldium-fragment",
+          "id": "paldium_fragment",
           "qty": 15
         }
       ],
@@ -17031,7 +17031,7 @@ provides a speed boost, double jump and improved logging【142053078936299†L12
             "qty": 3
           },
           {
-            "item_id": "paldium-fragment",
+            "item_id": "paldium_fragment",
             "qty": 15
           }
         ],
@@ -17462,7 +17462,7 @@ Direhowl provides a faster ground mount than Eikthyrdeer but lacks logging bonus
         },
         {
           "kind": "item",
-          "id": "paldium-fragment",
+          "id": "paldium_fragment",
           "qty": 10
         }
       ],
@@ -17531,7 +17531,7 @@ Direhowl provides a faster ground mount than Eikthyrdeer but lacks logging bonus
             "qty": 15
           },
           {
-            "item_id": "paldium-fragment",
+            "item_id": "paldium_fragment",
             "qty": 10
           }
         ],
@@ -17734,7 +17734,7 @@ This route enables players to obtain their first flying mount by capturing Nitew
         "solution": "Queue extra Cloth at the Workbench before leaving for Ice Wind Island."
       },
       {
-        "item_id": "paldium-fragment",
+        "item_id": "paldium_fragment",
         "solution": "Mine volcanic nodes while mounted on Eikthyrdeer."
       }
     ],
@@ -17967,7 +17967,7 @@ This route enables players to obtain their first flying mount by capturing Nitew
         },
         {
           "kind": "item",
-          "id": "paldium-fragment",
+          "id": "paldium_fragment",
           "qty": 20
         }
       ],
@@ -18040,7 +18040,7 @@ This route enables players to obtain their first flying mount by capturing Nitew
             "qty": 20
           },
           {
-            "item_id": "paldium-fragment",
+            "item_id": "paldium_fragment",
             "qty": 20
           }
         ],
@@ -18418,7 +18418,7 @@ The Grappling Gun allows players to traverse cliffs and gaps quickly.  Unlocking
       "targets": [
         {
           "kind": "item",
-          "id": "paldium-fragment",
+          "id": "paldium_fragment",
           "qty": 10
         },
         {
@@ -18453,7 +18453,7 @@ The Grappling Gun allows players to traverse cliffs and gaps quickly.  Unlocking
           "tactics": "Gather a 10 % buffer of each resource",
           "safety_buffer_items": [
             {
-              "item_id": "paldium-fragment",
+              "item_id": "paldium_fragment",
               "qty": 1
             }
           ]
@@ -18494,7 +18494,7 @@ The Grappling Gun allows players to traverse cliffs and gaps quickly.  Unlocking
       "outputs": {
         "items": [
           {
-            "item_id": "paldium-fragment",
+            "item_id": "paldium_fragment",
             "qty": 10
           },
           {
@@ -18833,7 +18833,7 @@ The first tower challenge pits you against Zoe and her electric Pal Grizzbolt.  
           "tactics": "Bring two Ground Pals and keep distance when Grizzbolt powers up",
           "safety_buffer_items": [
             {
-              "item_id": "paldium-fragment",
+              "item_id": "paldium_fragment",
               "qty": 5
             }
           ]
@@ -19172,7 +19172,7 @@ This advanced route details how to capture Jetragon, a level 50 legendary Pal f
           "tactics": "Ensure all gear is upgraded and carry backup mounts",
           "safety_buffer_items": [
             {
-              "item_id": "paldium-fragment",
+              "item_id": "paldium_fragment",
               "qty": 10
             }
           ]
@@ -19446,7 +19446,7 @@ entire flow as a single experience.
         "solution": "Repeat the leather loop in step :002 until at least 20 Leather are banked."
       },
       {
-        "item_id": "paldium-fragment",
+        "item_id": "paldium_fragment",
         "solution": "Trigger the resource-paldium subroute between steps :002 and :003 if you drop below 15 fragments."
       }
     ],
@@ -22313,7 +22313,7 @@ Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settleme
     "overleveled": "Chain dungeon clears with settlement sell runs so every patrol and chest becomes coin yield, not wasted time.【palwiki-mau-raw†L109-L114】【palwiki-gold-coin-raw†L20-L28】",
     "resource_shortages": [
       {
-        "item_id": "gold-coin",
+        "item_id": "gold_coin",
         "solution": "Rotate Mau and Vixy through the ranch before departing so Gold Digger and Dig Here! keep banking coins between raids.【palwiki-mau-raw†L11-L115】【palwiki-vixy†L118-L176】"
       }
     ],
@@ -22408,7 +22408,7 @@ Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settleme
       "outputs": {
         "items": [
           {
-            "item_id": "gold-coin",
+            "item_id": "gold_coin",
             "qty": 200
           }
         ],
@@ -22431,7 +22431,7 @@ Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settleme
       "targets": [
         {
           "kind": "item",
-          "id": "gold-coin",
+          "id": "gold_coin",
           "qty": 120
         }
       ],
@@ -22462,7 +22462,7 @@ Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settleme
       "outputs": {
         "items": [
           {
-            "item_id": "gold-coin",
+            "item_id": "gold_coin",
             "qty": 120
           }
         ],
@@ -22487,7 +22487,7 @@ Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settleme
       "targets": [
         {
           "kind": "item",
-          "id": "gold-coin",
+          "id": "gold_coin",
           "qty": 300
         }
       ],
@@ -22532,7 +22532,7 @@ Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settleme
       "outputs": {
         "items": [
           {
-            "item_id": "gold-coin",
+            "item_id": "gold_coin",
             "qty": 300
           }
         ],
@@ -22554,7 +22554,7 @@ Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settleme
       "targets": [
         {
           "kind": "item",
-          "id": "gold-coin",
+          "id": "gold_coin",
           "qty": 80
         }
       ],
@@ -22595,7 +22595,7 @@ Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settleme
       "outputs": {
         "items": [
           {
-            "item_id": "gold-coin",
+            "item_id": "gold_coin",
             "qty": 80
           }
         ],
@@ -22612,7 +22612,7 @@ Gold Coin Treasury Circuit chains Mau night raids, Vixy ranch digs, and settleme
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "gold-coin",
+      "item_id": "gold_coin",
       "qty": 500
     }
   ],
@@ -22698,7 +22698,7 @@ Precious Dragon Stone Alpha Relay chains daily overworld alpha hunts with sealed
     "overleveled": "Add Warsect, Quivern, Verdash, and other late-game alphas to the loop so every respawn cycle yields extra stones and schematics.【palwiki-alpha-pals†L72-L104】",
     "resource_shortages": [
       {
-        "item_id": "precious-dragon-stone",
+        "item_id": "precious_dragon_stone",
         "solution": "Chain sealed realm clears between overworld sweeps; each fight rolls the alpha drop table and feeds additional gemstones before the hour-long reset.【palwiki-precious-dragon-stone†L1-L18】【palwiki-sealed-realms†L7-L29】"
       }
     ],
@@ -22858,7 +22858,7 @@ Precious Dragon Stone Alpha Relay chains daily overworld alpha hunts with sealed
       "targets": [
         {
           "kind": "item",
-          "id": "precious-dragon-stone",
+          "id": "precious_dragon_stone",
           "qty": 4
         }
       ],
@@ -22936,7 +22936,7 @@ Precious Dragon Stone Alpha Relay chains daily overworld alpha hunts with sealed
       "outputs": {
         "items": [
           {
-            "item_id": "precious-dragon-stone",
+            "item_id": "precious_dragon_stone",
             "qty": 4
           }
         ],
@@ -22958,7 +22958,7 @@ Precious Dragon Stone Alpha Relay chains daily overworld alpha hunts with sealed
       "targets": [
         {
           "kind": "item",
-          "id": "precious-dragon-stone",
+          "id": "precious_dragon_stone",
           "qty": 3
         }
       ],
@@ -23021,7 +23021,7 @@ Precious Dragon Stone Alpha Relay chains daily overworld alpha hunts with sealed
       "outputs": {
         "items": [
           {
-            "item_id": "precious-dragon-stone",
+            "item_id": "precious_dragon_stone",
             "qty": 3
           }
         ],
@@ -23043,7 +23043,7 @@ Precious Dragon Stone Alpha Relay chains daily overworld alpha hunts with sealed
       "targets": [
         {
           "kind": "item",
-          "id": "gold-coin",
+          "id": "gold_coin",
           "qty": 4000
         }
       ],
@@ -23079,7 +23079,7 @@ Precious Dragon Stone Alpha Relay chains daily overworld alpha hunts with sealed
       "outputs": {
         "items": [
           {
-            "item_id": "gold-coin",
+            "item_id": "gold_coin",
             "qty": 4000
           }
         ],
@@ -23102,7 +23102,7 @@ Precious Dragon Stone Alpha Relay chains daily overworld alpha hunts with sealed
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "precious-dragon-stone",
+      "item_id": "precious_dragon_stone",
       "qty": 6
     }
   ],
@@ -23191,7 +23191,7 @@ Lamball Butchery Circuit corrals Windswept Hills Lamball, unlocks the Meat Cleav
     "overleveled": "Rotate extra captures through the ranch before culling them so each sweep yields wool and guaranteed mutton.【palfandom-lamball†L10-L12】【palfandom-lamball†L67-L75】",
     "resource_shortages": [
       {
-        "item_id": "lamball-mutton",
+        "item_id": "lamball_mutton",
         "solution": "Keep two Lamball assigned to the ranch for wool, then butcher the spares for meat to cover both pantry needs.【palfandom-lamball†L10-L12】【palfandom-lamball†L67-L75】"
       }
     ],
@@ -23304,7 +23304,7 @@ Lamball Butchery Circuit corrals Windswept Hills Lamball, unlocks the Meat Cleav
       "targets": [
         {
           "kind": "item",
-          "id": "lamball-mutton",
+          "id": "lamball_mutton",
           "qty": 6
         }
       ],
@@ -23343,7 +23343,7 @@ Lamball Butchery Circuit corrals Windswept Hills Lamball, unlocks the Meat Cleav
       "outputs": {
         "items": [
           {
-            "item_id": "lamball-mutton",
+            "item_id": "lamball_mutton",
             "qty": 6
           }
         ],
@@ -23364,7 +23364,7 @@ Lamball Butchery Circuit corrals Windswept Hills Lamball, unlocks the Meat Cleav
       "targets": [
         {
           "kind": "item",
-          "id": "lamball-mutton",
+          "id": "lamball_mutton",
           "qty": 12
         }
       ],
@@ -23394,7 +23394,7 @@ Lamball Butchery Circuit corrals Windswept Hills Lamball, unlocks the Meat Cleav
       "outputs": {
         "items": [
           {
-            "item_id": "lamball-mutton",
+            "item_id": "lamball_mutton",
             "qty": 12
           }
         ],
@@ -23410,7 +23410,7 @@ Lamball Butchery Circuit corrals Windswept Hills Lamball, unlocks the Meat Cleav
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "lamball-mutton",
+      "item_id": "lamball_mutton",
       "qty": 12
     }
   ],
@@ -23499,7 +23499,7 @@ Mozzarina Meat Packing Loop pivots the Swordmaster pasture captures into a cleav
     "overleveled": "Rotate hunts day and night—herds respawn in pairs so you can chain captures into a cull cycle.【segmentnext-mozzarina†L4-L8】",
     "resource_shortages": [
       {
-        "item_id": "mozzarina-meat",
+        "item_id": "mozzarina_meat",
         "solution": "Cull two Mozzarina per loop with the cleaver; each yields 2–3 meat at a 100% rate so chill the cuts immediately.【palwiki-mozzarina-raw†L65-L93】【palwiki-cooler-box-raw†L1-L27】"
       }
     ],
@@ -23629,7 +23629,7 @@ Mozzarina Meat Packing Loop pivots the Swordmaster pasture captures into a cleav
       "targets": [
         {
           "kind": "item",
-          "id": "mozzarina-meat",
+          "id": "mozzarina_meat",
           "qty": 6
         }
       ],
@@ -23671,7 +23671,7 @@ Mozzarina Meat Packing Loop pivots the Swordmaster pasture captures into a cleav
       "outputs": {
         "items": [
           {
-            "item_id": "mozzarina-meat",
+            "item_id": "mozzarina_meat",
             "qty": 6
           }
         ],
@@ -23698,7 +23698,7 @@ Mozzarina Meat Packing Loop pivots the Swordmaster pasture captures into a cleav
       "targets": [
         {
           "kind": "item",
-          "id": "mozzarina-meat",
+          "id": "mozzarina_meat",
           "qty": 12
         }
       ],
@@ -23731,7 +23731,7 @@ Mozzarina Meat Packing Loop pivots the Swordmaster pasture captures into a cleav
       "outputs": {
         "items": [
           {
-            "item_id": "mozzarina-meat",
+            "item_id": "mozzarina_meat",
             "qty": 12
           }
         ],
@@ -23748,7 +23748,7 @@ Mozzarina Meat Packing Loop pivots the Swordmaster pasture captures into a cleav
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "mozzarina-meat",
+      "item_id": "mozzarina_meat",
       "qty": 12
     }
   ],
@@ -23835,7 +23835,7 @@ Beautiful Flower Sanctuary Sweep infiltrates No. 1 Wildlife Sanctuary (90,-735) 
     "overleveled": "Rotate through Sanctuaries No.1–3 in a single outing to restock flowers and rare drops once you can comfortably clear level 50 threats.【palwiki-beautiful-flower†L25-L33】【palwiki-wildlife-sanctuary-3†L1-L23】",
     "resource_shortages": [
       {
-        "item_id": "beautiful-flower",
+        "item_id": "beautiful_flower",
         "solution": "Alternate node harvests with Petallia and Lyleen hunts—each sweep yields flowers from both spawns and pickup nodes.【palwiki-beautiful-flower†L25-L33】【pcgamesn-beautiful-flower†L16-L24】"
       }
     ],
@@ -23968,7 +23968,7 @@ Beautiful Flower Sanctuary Sweep infiltrates No. 1 Wildlife Sanctuary (90,-735) 
       "targets": [
         {
           "kind": "item",
-          "id": "beautiful-flower",
+          "id": "beautiful_flower",
           "qty": 10
         }
       ],
@@ -24007,7 +24007,7 @@ Beautiful Flower Sanctuary Sweep infiltrates No. 1 Wildlife Sanctuary (90,-735) 
       "outputs": {
         "items": [
           {
-            "item_id": "beautiful-flower",
+            "item_id": "beautiful_flower",
             "qty": 10
           }
         ],
@@ -24029,7 +24029,7 @@ Beautiful Flower Sanctuary Sweep infiltrates No. 1 Wildlife Sanctuary (90,-735) 
       "targets": [
         {
           "kind": "item",
-          "id": "beautiful-flower",
+          "id": "beautiful_flower",
           "qty": 6
         }
       ],
@@ -24074,7 +24074,7 @@ Beautiful Flower Sanctuary Sweep infiltrates No. 1 Wildlife Sanctuary (90,-735) 
       "outputs": {
         "items": [
           {
-            "item_id": "beautiful-flower",
+            "item_id": "beautiful_flower",
             "qty": 6
           }
         ],
@@ -24094,7 +24094,7 @@ Beautiful Flower Sanctuary Sweep infiltrates No. 1 Wildlife Sanctuary (90,-735) 
   "completion_criteria": [
     {
       "type": "have-item",
-      "item_id": "beautiful-flower",
+      "item_id": "beautiful_flower",
       "qty": 16
     }
   ],
