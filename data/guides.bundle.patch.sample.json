@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "verified_at_utc": "2025-12-01T00:00:00Z"
+  },
+  "routes": {
+    "merge": {
+      "resource-paldium": {
+        "estimated_time_minutes": { "solo": 20, "coop": 15 }
+      }
+    },
+    "add": [
+      {
+        "route_id": "example-new-route",
+        "title": "Example Route",
+        "category": "resource",
+        "tags": ["example", "template"],
+        "progression_role": "template",
+        "recommended_level": {
+          "normal": { "min": 1, "max": 3 },
+          "hardcore": { "min": 1, "max": 3 }
+        },
+        "modes": { "normal": true, "hardcore": true, "solo": true, "coop": true },
+        "prerequisites": { "routes": [], "tech": [], "items": [], "pals": [] },
+        "objectives": ["Replace with actual objectives for the new content."],
+        "estimated_time_minutes": { "solo": 10, "coop": 8 },
+        "estimated_xp_gain": { "min": 120, "max": 180 },
+        "risk_profile": "low",
+        "failure_penalties": { "normal": "Describe material losses", "hardcore": "Describe permadeath handling" },
+        "adaptive_guidance": { "default": "Document dynamic adjustments once known." },
+        "checkpoints": [
+          {
+            "id": "example-new-route:checkpoint-1",
+            "summary": "Replace with checkpoint summary.",
+            "related_steps": ["example-new-route:001"],
+            "benefits": ["Document the tangible benefit of reaching this checkpoint."]
+          }
+        ],
+        "supporting_routes": {},
+        "failure_recovery": { "default": "Explain how to recover if a step fails." },
+        "steps": [
+          {
+            "step_id": "example-new-route:001",
+            "type": "instruction",
+            "summary": "Replace with the first actionable step.",
+            "detail": "Provide the detailed instructions, coordinates, and sourcing.",
+            "citations": [],
+            "branching": []
+          }
+        ],
+        "completion_criteria": [
+          { "type": "custom", "description": "State the actual completion trigger." }
+        ],
+        "yields": {
+          "levels_estimate": "Replace with XP estimate",
+          "resources": ["List notable resource gains"],
+          "key_unlocks": []
+        },
+        "metrics": { "notes": "Track metrics or additional context." },
+        "next_routes": []
+      }
+    ]
+  },
+  "guideCatalog": {
+    "set": {
+      "source": "patch-workflow"
+    },
+    "guides": {
+      "merge": {
+        "resource-paldium": {
+          "trigger": "Updated trigger copy"
+        }
+      },
+      "add": [
+        {
+          "id": "example-new-route",
+          "title": "Example Route",
+          "source_heading": "Patch Workflow",
+          "category": "resource",
+          "category_group": "template",
+          "trigger": "Use this entry as a template for new guides.",
+          "keywords": ["example", "template"],
+          "steps": [
+            "Document the real instructions for your new content.",
+            "Run scripts/update_guides_bundle.py with your patch file.",
+            "Validate with scripts/check_guides_bundle.py."
+          ],
+          "shortage_menu": false
+        }
+      ]
+    },
+    "expected_final_count": 240
+  }
+}

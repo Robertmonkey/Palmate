@@ -103,6 +103,27 @@ Contributions are welcome!  To add or update a route:
 4. **Sane level ranges** – Choose recommended level ranges that match the difficulty of the content.  Ensure Hardcore adjustments are present for dangerous encounters and that Co‑Op steps divide roles logically.
 5. **Update metadata** – If a new patch changes game mechanics (e.g. recipe ingredients), update the global metadata and affected routes.  Note the new game version and update `verified_at_utc`.
 
+### Patch-Based Editing Workflow
+
+Updating `data/guides.bundle.json` directly is painful and risky because the
+file is large and highly structured.  Use the new helper to stage changes in a
+small patch file and let the script merge them safely:
+
+```bash
+python scripts/update_guides_bundle.py path/to/your_patch.json --dry-run
+```
+
+The script loads the existing bundle, applies your patch (add, merge, replace
+or remove operations) and runs the same structural and loss guards as the
+validator.  Use `--dry-run` to confirm the diff and counts before writing; omit
+it once you are satisfied and, if appropriate, follow up with
+`--update-backup` to refresh the baseline snapshot.
+
+Patch files accept partial updates—for example, merging new copy into an
+existing route or appending a fresh guide catalog entry.  See
+`data/guides.bundle.patch.sample.json` for a template that demonstrates the
+supported operations and expected schema fragments.
+
 ### Bundle Integrity Checklist
 
 The fallback bundle at `data/guides.bundle.json` must remain a complete, parseable snapshot of the guide library.  Before pushing changes, run the automated guardrail:
