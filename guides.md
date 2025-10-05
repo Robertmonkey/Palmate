@@ -25506,6 +25506,415 @@ Caprity Meat Pasture Circuit loops the Plateau of Beginnings and Small Settlemen
 }
 ```
 
+### Route: Innovative Technical Manual Vault Sweep
+
+Innovative Technical Manual Vault Sweep chains Iceberg Cave, No. 3 Wildlife Sanctuary, and the Anubis badlands so late-game bases never run out of tech books for end-tier benches and schematic unlocks.【palfandom-lyleen-noct†L1-L2】【palfandom-innovative-technical-manual†L1-L12】【palwiki-alpha-pals†L281-L315】【palwiki-wildlife-sanctuary†L6-L21】
+
+```json
+{
+  "route_id": "resource-innovative-technical-manual",
+  "title": "Innovative Technical Manual Vault Sweep",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "innovative-technical-manual",
+    "tech-points",
+    "alpha"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 45,
+    "max": 55
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Stage capture gear and free inventory slots for tech manuals",
+    "Clear Iceberg Cave for Lyleen Noct and guaranteed manual drops",
+    "Sweep No. 3 Wildlife Sanctuary for Shadowbeak and Lyleen rotations",
+    "Cycle Anubis alpha runs and bank manuals for future tech unlocks"
+  ],
+  "estimated_time_minutes": {
+    "solo": 55,
+    "coop": 40
+  },
+  "estimated_xp_gain": {
+    "min": 1100,
+    "max": 1600
+  },
+  "risk_profile": "very-high",
+  "failure_penalties": {
+    "normal": "Losing the Iceberg Cave run wastes a manual spawn and risks PIDF fines on sanctuary rotations.",
+    "hardcore": "Hardcore wipes inside Iceberg Cave or No.3 Sanctuary can cost legendary kits and the manuals you came for."
+  },
+  "adaptive_guidance": {
+    "underleveled": "If the Iceberg Cave alpha overwhelms you, rotate Sanctuary No.3 first for Lyleen captures until level 50 gear is online.【palfandom-innovative-technical-manual†L1-L12】【palwiki-wildlife-sanctuary†L6-L21】",
+    "overleveled": "Combine all three loops in one sortie—Iceberg Cave, Sanctuary No.3, and the Anubis badlands—to walk away with four manuals per hour.【palfandom-innovative-technical-manual†L1-L12】【palwiki-alpha-pals†L281-L315】",
+    "resource_shortages": [
+      {
+        "item_id": "innovative_technical_manual",
+        "solution": "Prioritise Lyleen Noct captures first, then clean up Shadowbeak and Anubis to guarantee manuals for late-tier schematics.【palfandom-lyleen-noct†L1-L2】【palfandom-innovative-technical-manual†L1-L12】"
+      }
+    ],
+    "time_limited": "Only have ten minutes? Run Iceberg Cave once, capture Lyleen Noct, and cash in the manual before logging out.【palfandom-lyleen-noct†L1-L2】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign one player to kite PIDF in the sanctuary while the other captures and ferries manuals back to base.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-innovative-technical-manual:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-innovative-technical-manual:checkpoint-kit",
+      "summary": "Manual kit staged",
+      "benefits": [
+        "Inventory cleared",
+        "Capture gear prepped"
+      ],
+      "related_steps": [
+        "resource-innovative-technical-manual:001"
+      ]
+    },
+    {
+      "id": "resource-innovative-technical-manual:checkpoint-iceberg",
+      "summary": "Iceberg Cave cleared",
+      "benefits": [
+        "Guaranteed manual secured",
+        "Lyleen Noct captured"
+      ],
+      "related_steps": [
+        "resource-innovative-technical-manual:002"
+      ]
+    },
+    {
+      "id": "resource-innovative-technical-manual:checkpoint-sanctuary",
+      "summary": "Sanctuary sweep complete",
+      "benefits": [
+        "Shadowbeak stock acquired",
+        "Manual count topped up"
+      ],
+      "related_steps": [
+        "resource-innovative-technical-manual:003",
+        "resource-innovative-technical-manual:004"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "resource-innovative-technical-manual:001",
+      "type": "prepare",
+      "summary": "Stage capture kit and storage",
+      "detail": "Empty your inventory, slot high-tier spheres, and confirm you have space to hold multiple Innovative Technical Manuals before leaving base—they are consumed immediately when used.【palfandom-innovative-technical-manual†L1-L12】",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "quartermaster",
+              "tasks": "Reserve inventory slots and carry capture supplies."
+            },
+            {
+              "role": "striker",
+              "tasks": "Carry cold and heat resist gear for the field runs."
+            }
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "legendary-sphere",
+          "cold_resistant_armor",
+          "heat_resistant_armor"
+        ],
+        "pals": [
+          "jetragon"
+        ],
+        "consumables": [
+          "high_grade_medical_supplies"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 0,
+        "max": 0
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palfandom-innovative-technical-manual†L1-L12"
+      ]
+    },
+    {
+      "step_id": "resource-innovative-technical-manual:002",
+      "type": "combat",
+      "summary": "Clear Iceberg Cave for Lyleen Noct",
+      "detail": "Glide into Iceberg Cave (-169,343), break the alpha Lyleen Noct’s shield inside the frozen chamber, and capture it to guarantee an Innovative Technical Manual drop alongside high-tier healing supplies.【palfandom-lyleen-noct†L1-L2】【palfandom-innovative-technical-manual†L1-L12】【palwiki-alpha-pals†L309-L315】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "lyleen-noct",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "astral-mountain",
+          "coords": [
+            -169,
+            343
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Keep a barrier pal active and kite Blizzard Spike around pillars to avoid Hardcore burst damage.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "legendary-sphere",
+          "cold_resistant_armor"
+        ],
+        "pals": [
+          "kitsun",
+          "jormuntide-ignis"
+        ],
+        "consumables": [
+          "hot-drink"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 420,
+        "max": 620
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "innovative_technical_manual",
+            "qty": 1
+          }
+        ],
+        "pals": [
+          "lyleen-noct"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palfandom-lyleen-noct†L1-L2",
+        "palfandom-innovative-technical-manual†L1-L12",
+        "palwiki-alpha-pals†L309-L315"
+      ]
+    },
+    {
+      "step_id": "resource-innovative-technical-manual:003",
+      "type": "capture",
+      "summary": "Sweep No. 3 Wildlife Sanctuary",
+      "detail": "Fly to No. 3 Wildlife Sanctuary (669,640), capture Shadowbeak or Lyleen spawns, and extract before PIDF escalates to keep the manual flow steady.【palwiki-wildlife-sanctuary-3†L1-L25】【palwiki-wildlife-sanctuary†L6-L21】【palfandom-innovative-technical-manual†L1-L12】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "innovative_technical_manual",
+          "qty": 2
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "wildlife-sanctuary-3",
+          "coords": [
+            669,
+            640
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "crowd-control",
+              "tasks": "Draw PIDF attention and keep heat low."
+            },
+            {
+              "role": "collector",
+              "tasks": "Capture target pals and ferry manuals to storage."
+            }
+          ],
+          "loot_rules": "Split manuals evenly before leaving the island."
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "grappling-gun",
+          "mega-pal-sphere"
+        ],
+        "pals": [
+          "rayhound"
+        ],
+        "consumables": [
+          "stamina-food"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 380,
+        "max": 520
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "innovative_technical_manual",
+            "qty": 2
+          }
+        ],
+        "pals": [
+          "shadowbeak",
+          "lyleen"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-wildlife-sanctuary-3†L1-L25",
+        "palwiki-wildlife-sanctuary†L6-L21",
+        "palfandom-innovative-technical-manual†L1-L12"
+      ]
+    },
+    {
+      "step_id": "resource-innovative-technical-manual:004",
+      "type": "combat",
+      "summary": "Hunt Anubis in the badlands",
+      "detail": "Warp to the Twilight Dunes fast-travel, defeat or capture the Anubis alpha at (-134,-94), and loot the manual drop before respawn to round out the rotation.【palwiki-alpha-pals†L281-L287】【palfandom-innovative-technical-manual†L1-L12】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "innovative_technical_manual",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "twilight-dunes",
+          "coords": [
+            -134,
+            -94
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Bring a tank pal to soak Sand Tornado and keep medical supplies ready for spike damage.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "assault-rifle",
+          "heat_resistant_armor"
+        ],
+        "pals": [
+          "faleris"
+        ],
+        "consumables": [
+          "high_grade_medical_supplies"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 300,
+        "max": 460
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "innovative_technical_manual",
+            "qty": 1
+          }
+        ],
+        "pals": [
+          "anubis"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-alpha-pals†L281-L287",
+        "palfandom-innovative-technical-manual†L1-L12"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "innovative_technical_manual",
+      "qty": 4
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1 to +2",
+    "key_unlocks": [
+      "tech-points-stockpile"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 3,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-carbon-fiber",
+      "reason": "Spend manuals to unlock carbon fiber automation schematics."
+    },
+    {
+      "route_id": "resource-polymer",
+      "reason": "Pair tech point stockpiles with polymer batches for late-game weaponry."
+    }
+  ]
+}
+```
+
 ### Route: Small Pal Soul Night Hunts & Crusher Loop
 
 Small Pal Soul Night Hunts & Crusher Loop combines nocturnal Daedream and Nox sweeps near the Small Settlement with Crusher
