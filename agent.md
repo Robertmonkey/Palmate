@@ -340,8 +340,8 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 
 **Continuation notes:**
 
-1. Implement the strict mode and temporary-file editing workflow outlined in the postmortem so future bundle edits run against scratch copies before replacing production data.【F:docs/guides-bundle-truncation-postmortem.md†L70-L86】
-2. Build the proposed `scripts/update_guide_catalog.py` helper to encapsulate safe mutations and automatically validate before writing live bundles.【F:docs/guides-bundle-truncation-postmortem.md†L88-L92】
+1. ✅ Implemented the strict mode validator workflow so bundle edits run against scratch copies before replacing production data (see `check_guides_bundle.py --strict`).【F:docs/guides-bundle-truncation-postmortem.md†L70-L86】【F:scripts/check_guides_bundle.py†L1-L423】
+2. ✅ Added `scripts/update_guide_catalog.py` to encapsulate safe catalog mutations with strict validation and loss guards.【F:docs/guides-bundle-truncation-postmortem.md†L88-L92】【F:scripts/update_guide_catalog.py†L1-L312】
 3. Wire the stricter bundle checks into CI (line-count guard + validator) so truncation attempts fail fast without manual review.【F:docs/guides-bundle-truncation-postmortem.md†L88-L92】
 
 ### 2025-11-28 Caprity meat shortage coverage

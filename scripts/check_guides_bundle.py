@@ -13,6 +13,7 @@ import json
 import sys
 from collections import Counter
 from pathlib import Path
+from typing import Any
 
 BUNDLE_PATH = Path(__file__).resolve().parent.parent / "data" / "guides.bundle.json"
 BACKUP_PATH = (
@@ -298,6 +299,31 @@ MAX_GUIDE_DROP = 2
 MIN_SIZE_RATIO = 0.9
 
 
+ALLOWED_STEP_TYPES = {
+    "assign",
+    "base",
+    "build",
+    "capture",
+    "combat",
+    "craft",
+    "deliver",
+    "explore",
+    "farm",
+    "fight",
+    "gather",
+    "hunt",
+    "plan",
+    "prepare",
+    "quest",
+    "trade",
+    "travel",
+    "unlock-tech",
+}
+
+ALLOWED_TARGET_KINDS = {"boss", "item", "pal", "station", "structure", "tech"}
+ALLOWED_MODES = {"normal", "hardcore", "solo", "coop"}
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Validate the fallback guide bundle and guard against inadvertent data loss.",
@@ -341,6 +367,13 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         action="store_true",
         help=(
             "Permit removing existing route steps when intentionally restructuring them."
+        ),
+    )
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help=(
+            "Enable deep validation of routes, catalog entries, and the source registry."
         ),
     )
     return parser.parse_args(argv)
@@ -559,6 +592,669 @@ def refresh_backup(bundle_path: Path, backup_path: Path) -> None:
     print(f"Updated baseline snapshot at {backup_path}")
 
 
+def _ensure(condition: bool, message: str, errors: list[str]) -> None:
+    if not condition:
+        errors.append(message)
+
+
+def _validate_route(route: dict, errors: list[str]) -> None:
+    route_id = route.get("route_id", "<missing id>")
+
+    recommended_level = route.get("recommended_level")
+    if isinstance(recommended_level, dict):
+        min_level = recommended_level.get("min")
+        max_level = recommended_level.get("max")
+        _ensure(
+            isinstance(min_level, int) and isinstance(max_level, int),
+            f"route {route_id} recommended_level must define integer 'min' and 'max' fields",
+            errors,
+        )
+        if isinstance(min_level, int) and isinstance(max_level, int):
+            _ensure(
+                min_level <= max_level,
+                f"route {route_id} recommended_level min ({min_level}) exceeds max ({max_level})",
+                errors,
+            )
+    else:
+        errors.append(f"route {route_id} recommended_level must be an object")
+
+    estimated_xp = route.get("estimated_xp_gain")
+    if isinstance(estimated_xp, dict):
+        xp_min = estimated_xp.get("min")
+        xp_max = estimated_xp.get("max")
+        _ensure(
+            isinstance(xp_min, int) and isinstance(xp_max, int),
+            f"route {route_id} estimated_xp_gain must define integer 'min' and 'max' fields",
+            errors,
+        )
+        if isinstance(xp_min, int) and isinstance(xp_max, int):
+            _ensure(
+                xp_min <= xp_max,
+                f"route {route_id} estimated_xp_gain min ({xp_min}) exceeds max ({xp_max})",
+                errors,
+            )
+    else:
+        errors.append(f"route {route_id} estimated_xp_gain must be an object")
+
+    estimated_time = route.get("estimated_time_minutes")
+    if isinstance(estimated_time, dict):
+        for mode in ("solo", "coop"):
+            value = estimated_time.get(mode)
+            _ensure(
+                isinstance(value, int) and value > 0,
+                f"route {route_id} estimated_time_minutes['{mode}'] must be a positive integer",
+                errors,
+            )
+    else:
+        errors.append(f"route {route_id} estimated_time_minutes must be an object")
+
+    modes = route.get("modes")
+    if isinstance(modes, dict):
+        missing_modes = ALLOWED_MODES.difference(modes)
+        _ensure(
+            not missing_modes,
+            f"route {route_id} modes missing keys: {', '.join(sorted(missing_modes))}",
+            errors,
+        )
+        for mode_key, value in modes.items():
+            _ensure(
+                mode_key in ALLOWED_MODES,
+                f"route {route_id} modes includes unsupported key '{mode_key}'",
+                errors,
+            )
+            _ensure(
+                isinstance(value, bool),
+                f"route {route_id} modes['{mode_key}'] must be a boolean",
+                errors,
+            )
+    else:
+        errors.append(f"route {route_id} modes must be an object")
+
+    prerequisites = route.get("prerequisites")
+    if isinstance(prerequisites, dict):
+        for field in ("routes", "tech", "items", "pals"):
+            collection = prerequisites.get(field)
+            _ensure(
+                isinstance(collection, list),
+                f"route {route_id} prerequisites['{field}'] must be a list",
+                errors,
+            )
+            if isinstance(collection, list):
+                invalid = [value for value in collection if not isinstance(value, str)]
+                _ensure(
+                    not invalid,
+                    f"route {route_id} prerequisites['{field}'] must contain only strings",
+                    errors,
+                )
+    else:
+        errors.append(f"route {route_id} prerequisites must be an object")
+
+    failure_penalties = route.get("failure_penalties")
+    if isinstance(failure_penalties, dict):
+        for mode in ("normal", "hardcore"):
+            penalty = failure_penalties.get(mode)
+            _ensure(
+                isinstance(penalty, str) and penalty.strip(),
+                f"route {route_id} failure_penalties['{mode}'] must be a non-empty string",
+                errors,
+            )
+    else:
+        errors.append(f"route {route_id} failure_penalties must be an object")
+
+    failure_recovery = route.get("failure_recovery")
+    if failure_recovery is not None:
+        if isinstance(failure_recovery, dict):
+            for mode in ("normal", "hardcore"):
+                recovery = failure_recovery.get(mode)
+                if recovery is None:
+                    continue
+                _ensure(
+                    isinstance(recovery, str) and recovery.strip(),
+                    f"route {route_id} failure_recovery['{mode}'] must be a non-empty string",
+                    errors,
+                )
+        else:
+            errors.append(f"route {route_id} failure_recovery must be an object when present")
+
+    supporting_routes = route.get("supporting_routes")
+    if supporting_routes is not None:
+        if isinstance(supporting_routes, dict):
+            for bucket in ("recommended", "optional"):
+                entries = supporting_routes.get(bucket, [])
+                _ensure(
+                    isinstance(entries, list),
+                    f"route {route_id} supporting_routes['{bucket}'] must be a list",
+                    errors,
+                )
+                if isinstance(entries, list):
+                    invalid_entries = [value for value in entries if not isinstance(value, str)]
+                    _ensure(
+                        not invalid_entries,
+                        f"route {route_id} supporting_routes['{bucket}'] must contain only strings",
+                        errors,
+                    )
+        else:
+            errors.append(f"route {route_id} supporting_routes must be an object when present")
+
+    adaptive_guidance = route.get("adaptive_guidance")
+    if isinstance(adaptive_guidance, dict):
+        for key in ("underleveled", "overleveled", "time_limited"):
+            guidance = adaptive_guidance.get(key)
+            _ensure(
+                isinstance(guidance, str) and guidance.strip(),
+                f"route {route_id} adaptive_guidance['{key}'] must be a non-empty string",
+                errors,
+            )
+
+        shortages = adaptive_guidance.get("resource_shortages", [])
+        if shortages is not None:
+            _ensure(
+                isinstance(shortages, list),
+                f"route {route_id} adaptive_guidance.resource_shortages must be a list when present",
+                errors,
+            )
+            if isinstance(shortages, list):
+                for shortage in shortages:
+                    _ensure(
+                        isinstance(shortage, dict),
+                        f"route {route_id} resource shortage entries must be objects",
+                        errors,
+                    )
+                    if not isinstance(shortage, dict):
+                        continue
+                    _ensure(
+                        isinstance(shortage.get("item_id"), str) and shortage.get("item_id"),
+                        f"route {route_id} resource shortage entries must include a non-empty item_id",
+                        errors,
+                    )
+                    _ensure(
+                        isinstance(shortage.get("solution"), str) and shortage.get("solution"),
+                        f"route {route_id} resource shortage entries must include a non-empty solution",
+                        errors,
+                    )
+                    subroute_ref = shortage.get("subroute_ref")
+                    if subroute_ref is not None:
+                        _ensure(
+                            isinstance(subroute_ref, str) and subroute_ref,
+                            f"route {route_id} resource shortage subroute_ref must be a non-empty string",
+                            errors,
+                        )
+
+        dynamic_rules = adaptive_guidance.get("dynamic_rules", [])
+        if dynamic_rules is not None:
+            _ensure(
+                isinstance(dynamic_rules, list),
+                f"route {route_id} adaptive_guidance.dynamic_rules must be a list when present",
+                errors,
+            )
+            if isinstance(dynamic_rules, list):
+                for rule in dynamic_rules:
+                    _ensure(
+                        isinstance(rule, dict),
+                        f"route {route_id} dynamic rule entries must be objects",
+                        errors,
+                    )
+                    if not isinstance(rule, dict):
+                        continue
+                    for field in ("signal", "condition", "adjustment"):
+                        _ensure(
+                            isinstance(rule.get(field), str) and rule.get(field),
+                            f"route {route_id} dynamic rule must include non-empty '{field}'",
+                            errors,
+                        )
+                    _ensure(
+                        isinstance(rule.get("priority"), int) and rule.get("priority") > 0,
+                        f"route {route_id} dynamic rule priority must be a positive integer",
+                        errors,
+                    )
+                    mode_scope = rule.get("mode_scope")
+                    _ensure(
+                        isinstance(mode_scope, list) and mode_scope,
+                        f"route {route_id} dynamic rule mode_scope must be a non-empty list",
+                        errors,
+                    )
+                    if isinstance(mode_scope, list):
+                        invalid_modes = [mode for mode in mode_scope if mode not in ALLOWED_MODES]
+                        _ensure(
+                            not invalid_modes,
+                            f"route {route_id} dynamic rule references unsupported modes: {', '.join(invalid_modes)}",
+                            errors,
+                        )
+                    related_steps = rule.get("related_steps")
+                    _ensure(
+                        isinstance(related_steps, list) and related_steps,
+                        f"route {route_id} dynamic rule related_steps must be a non-empty list",
+                        errors,
+                    )
+                    if isinstance(related_steps, list):
+                        invalid_refs = [step for step in related_steps if not isinstance(step, str)]
+                        _ensure(
+                            not invalid_refs,
+                            f"route {route_id} dynamic rule related_steps must contain only strings",
+                            errors,
+                        )
+                    follow_up = rule.get("follow_up_routes")
+                    if follow_up is not None:
+                        _ensure(
+                            isinstance(follow_up, list),
+                            f"route {route_id} dynamic rule follow_up_routes must be a list when present",
+                            errors,
+                        )
+                        if isinstance(follow_up, list):
+                            invalid_follow = [value for value in follow_up if not isinstance(value, str)]
+                            _ensure(
+                                not invalid_follow,
+                                f"route {route_id} dynamic rule follow_up_routes must contain only strings",
+                                errors,
+                            )
+    else:
+        errors.append(f"route {route_id} adaptive_guidance must be an object")
+
+    checkpoints = route.get("checkpoints", [])
+    for checkpoint in checkpoints:
+        identifier = checkpoint.get("id")
+        _ensure(
+            isinstance(identifier, str) and identifier,
+            "route {route_id} checkpoints must include non-empty ids".format(route_id=route_id),
+            errors,
+        )
+        summary_value = checkpoint.get("summary") or checkpoint.get("label")
+        _ensure(
+            isinstance(summary_value, str) and summary_value,
+            "route {route_id} checkpoint {identifier} must include a non-empty summary or label".format(
+                route_id=route_id, identifier=identifier
+            ),
+            errors,
+        )
+        benefits = checkpoint.get("benefits")
+        if benefits is not None:
+            _ensure(
+                isinstance(benefits, list),
+                "route {route_id} checkpoint {identifier} benefits must be a list when present".format(
+                    route_id=route_id, identifier=identifier
+                ),
+                errors,
+            )
+            if isinstance(benefits, list):
+                invalid = [entry for entry in benefits if not isinstance(entry, str)]
+                _ensure(
+                    not invalid,
+                    "route {route_id} checkpoint {identifier} benefits must contain only strings".format(
+                        route_id=route_id, identifier=identifier
+                    ),
+                    errors,
+                )
+        related = checkpoint.get("related_steps")
+        includes = checkpoint.get("includes")
+        _ensure(
+            (isinstance(related, list) and related)
+            or (isinstance(includes, list) and includes),
+            "route {route_id} checkpoint {identifier} must reference related steps via 'related_steps' or 'includes'".format(
+                route_id=route_id, identifier=identifier
+            ),
+            errors,
+        )
+        for collection, label in ((related, "related_steps"), (includes, "includes")):
+            if collection is None:
+                continue
+            _ensure(
+                isinstance(collection, list) and collection,
+                "route {route_id} checkpoint {identifier} {label} must be a non-empty list".format(
+                    route_id=route_id, identifier=identifier, label=label
+                ),
+                errors,
+            )
+            if isinstance(collection, list):
+                invalid = [entry for entry in collection if not isinstance(entry, str)]
+                _ensure(
+                    not invalid,
+                    "route {route_id} checkpoint {identifier} {label} must contain only strings".format(
+                        route_id=route_id, identifier=identifier, label=label
+                    ),
+                    errors,
+                )
+
+    for index, step in enumerate(route.get("steps", [])):
+        step_id = step.get("step_id", f"index {index}")
+        _ensure(
+            isinstance(step.get("summary"), str) and step.get("summary"),
+            f"route {route_id} step {step_id} must include a non-empty summary",
+            errors,
+        )
+        _ensure(
+            isinstance(step.get("detail"), str) and step.get("detail"),
+            f"route {route_id} step {step_id} must include a non-empty detail",
+            errors,
+        )
+        step_type = step.get("type")
+        _ensure(
+            isinstance(step_type, str) and step_type in ALLOWED_STEP_TYPES,
+            f"route {route_id} step {step_id} has unsupported type '{step_type}'",
+            errors,
+        )
+
+        targets = step.get("targets")
+        _ensure(
+            isinstance(targets, list),
+            f"route {route_id} step {step_id} targets must be a list",
+            errors,
+        )
+        if isinstance(targets, list):
+            for target in targets:
+                _ensure(
+                    isinstance(target, dict),
+                    f"route {route_id} step {step_id} targets must be objects",
+                    errors,
+                )
+                if not isinstance(target, dict):
+                    continue
+                kind = target.get("kind")
+                _ensure(
+                    isinstance(kind, str) and kind in ALLOWED_TARGET_KINDS,
+                    f"route {route_id} step {step_id} target has unsupported kind '{kind}'",
+                    errors,
+                )
+                identifier = target.get("id")
+                _ensure(
+                    isinstance(identifier, str) and identifier,
+                    f"route {route_id} step {step_id} targets must include a non-empty id",
+                    errors,
+                )
+                if "qty" in target:
+                    qty = target.get("qty")
+                    _ensure(
+                        isinstance(qty, int) and qty > 0,
+                        f"route {route_id} step {step_id} target qty must be a positive integer",
+                        errors,
+                    )
+
+        locations = step.get("locations", [])
+        if locations:
+            _ensure(
+                isinstance(locations, list),
+                f"route {route_id} step {step_id} locations must be a list",
+                errors,
+            )
+            if isinstance(locations, list):
+                for loc in locations:
+                    _ensure(
+                        isinstance(loc, dict),
+                        f"route {route_id} step {step_id} locations must be objects",
+                        errors,
+                    )
+                    if not isinstance(loc, dict):
+                        continue
+                    coords = loc.get("coords")
+                    _ensure(
+                        isinstance(coords, list)
+                        and len(coords) == 2
+                        and all(isinstance(value, (int, float)) for value in coords),
+                        f"route {route_id} step {step_id} location coords must be a two-element list of numbers",
+                        errors,
+                    )
+                    for field in ("region_id", "time", "weather"):
+                        value = loc.get(field)
+                        _ensure(
+                            isinstance(value, str) and value,
+                            f"route {route_id} step {step_id} location must include non-empty '{field}'",
+                            errors,
+                        )
+                    notes = loc.get("notes")
+                    if notes is not None:
+                        _ensure(
+                            isinstance(notes, str) and notes,
+                            f"route {route_id} step {step_id} location notes must be a non-empty string when present",
+                            errors,
+                        )
+
+        mode_adjustments = step.get("mode_adjustments")
+        if mode_adjustments is not None:
+            _ensure(
+                isinstance(mode_adjustments, dict),
+                f"route {route_id} step {step_id} mode_adjustments must be an object",
+                errors,
+            )
+            if isinstance(mode_adjustments, dict):
+                for mode_key, payload in mode_adjustments.items():
+                    _ensure(
+                        mode_key in ALLOWED_MODES,
+                        f"route {route_id} step {step_id} mode_adjustments contains unsupported mode '{mode_key}'",
+                        errors,
+                    )
+                    _ensure(
+                        isinstance(payload, dict) and payload,
+                        f"route {route_id} step {step_id} mode_adjustments['{mode_key}'] must be a non-empty object",
+                        errors,
+                    )
+
+
+def _validate_catalog_steps(
+    steps: list[Any], guide_id: str, errors: list[str]
+) -> None:
+    for step in steps:
+        if not isinstance(step, dict):
+            errors.append(
+                f"guide {guide_id} steps must be objects; encountered {type(step).__name__}"
+            )
+            continue
+        if "order" in step:
+            _ensure(
+                isinstance(step.get("order"), int) and step.get("order") > 0,
+                f"guide {guide_id} steps must define a positive integer order",
+                errors,
+            )
+            _ensure(
+                isinstance(step.get("instruction"), str) and step.get("instruction"),
+                f"guide {guide_id} step order {step.get('order')} must include a non-empty instruction",
+                errors,
+            )
+            citations = step.get("citations")
+            _ensure(
+                isinstance(citations, list),
+                f"guide {guide_id} step order {step.get('order')} citations must be a list",
+                errors,
+            )
+            if isinstance(citations, list):
+                invalid_citations = [value for value in citations if not isinstance(value, str)]
+                _ensure(
+                    not invalid_citations,
+                    f"guide {guide_id} step order {step.get('order')} citations must contain only strings",
+                    errors,
+                )
+            links = step.get("links")
+            if links is not None:
+                _ensure(
+                    isinstance(links, list),
+                    f"guide {guide_id} step order {step.get('order')} links must be a list",
+                    errors,
+                )
+                if isinstance(links, list):
+                    for link in links:
+                        _ensure(
+                            isinstance(link, dict),
+                            f"guide {guide_id} step order {step.get('order')} links must be objects",
+                            errors,
+                        )
+                        if not isinstance(link, dict):
+                            continue
+                        _ensure(
+                            isinstance(link.get("type"), str) and link.get("type"),
+                            f"guide {guide_id} step order {step.get('order')} link type must be a non-empty string",
+                            errors,
+                        )
+                        identifier = link.get("id")
+                        if identifier is not None:
+                            _ensure(
+                                isinstance(identifier, str) and identifier,
+                                f"guide {guide_id} step order {step.get('order')} link id must be a non-empty string",
+                                errors,
+                            )
+        elif "id" in step and "steps" in step:
+            nested_id = step.get("id")
+            _ensure(
+                isinstance(nested_id, str) and nested_id,
+                f"guide {guide_id} embedded guide entries must include a non-empty id",
+                errors,
+            )
+            for field in ("title", "trigger"):
+                if field in step:
+                    _ensure(
+                        isinstance(step.get(field), str) and step.get(field),
+                        f"embedded guide {nested_id} field '{field}' must be a non-empty string",
+                        errors,
+                    )
+            nested_steps = step.get("steps")
+            _ensure(
+                isinstance(nested_steps, list) and nested_steps,
+                f"embedded guide {nested_id} must include a non-empty steps list",
+                errors,
+            )
+            if isinstance(nested_steps, list):
+                _validate_catalog_steps(nested_steps, nested_id or guide_id, errors)
+        else:
+            errors.append(
+                f"guide {guide_id} contains an unrecognised step structure: {sorted(step.keys())}"
+            )
+
+
+def _validate_catalog(catalog: dict, errors: list[str]) -> None:
+    guides = catalog.get("guides")
+    if not isinstance(guides, list) or not guides:
+        errors.append("guide_catalog.json must contain a non-empty 'guides' array")
+        return
+
+    seen_ids: set[str] = set()
+    for guide in guides:
+        guide_id = guide.get("id", "<missing id>")
+        _ensure(isinstance(guide, dict), "guide entries must be objects", errors)
+        if not isinstance(guide, dict):
+            continue
+        _ensure(
+            isinstance(guide.get("id"), str) and guide.get("id"),
+            "guide entries must include a non-empty id",
+            errors,
+        )
+        if isinstance(guide.get("id"), str):
+            if guide["id"] in seen_ids:
+                errors.append(f"duplicate guide id encountered in guide_catalog.json: {guide['id']}")
+            else:
+                seen_ids.add(guide["id"])
+        for field in ("title", "source_heading", "trigger", "category", "category_group"):
+            _ensure(
+                isinstance(guide.get(field), str) and guide.get(field),
+                f"guide {guide_id} field '{field}' must be a non-empty string",
+                errors,
+            )
+        keywords = guide.get("keywords")
+        _ensure(
+            isinstance(keywords, list) and keywords,
+            f"guide {guide_id} keywords must be a non-empty list",
+            errors,
+        )
+        if isinstance(keywords, list):
+            invalid_keywords = [value for value in keywords if not isinstance(value, str) or not value]
+            _ensure(
+                not invalid_keywords,
+                f"guide {guide_id} keywords must contain only non-empty strings",
+                errors,
+            )
+
+        steps = guide.get("steps")
+        _ensure(
+            isinstance(steps, list) and steps,
+            f"guide {guide_id} steps must be a non-empty list",
+            errors,
+        )
+        if isinstance(steps, list):
+            _validate_catalog_steps(steps, guide_id, errors)
+
+
+def _validate_source_registry(source_registry: dict, errors: list[str]) -> None:
+    _ensure(
+        isinstance(source_registry, dict) and source_registry,
+        "sourceRegistry must be a non-empty object",
+        errors,
+    )
+    if not isinstance(source_registry, dict):
+        return
+    for source_id, entry in source_registry.items():
+        _ensure(
+            isinstance(entry, dict),
+            f"source registry entry '{source_id}' must be an object",
+            errors,
+        )
+        if not isinstance(entry, dict):
+            continue
+        for field in ("title", "url", "access_date"):
+            _ensure(
+                isinstance(entry.get(field), str) and entry.get(field),
+                f"source registry entry '{source_id}' must include a non-empty '{field}'",
+                errors,
+            )
+        notes = entry.get("notes")
+        if notes is not None:
+            _ensure(
+                isinstance(notes, str) and notes,
+                f"source registry entry '{source_id}' notes must be a non-empty string when present",
+                errors,
+            )
+
+
+def run_strict_checks(bundle: dict) -> None:
+    errors: list[str] = []
+
+    metadata = bundle.get("metadata", {})
+    _ensure(
+        isinstance(metadata.get("schema_version"), int),
+        "metadata.schema_version must be an integer",
+        errors,
+    )
+    for field in ("game_version", "verified_at_utc"):
+        _ensure(
+            isinstance(metadata.get(field), str) and metadata.get(field),
+            f"metadata.{field} must be a non-empty string",
+            errors,
+        )
+    difficulty_modes = metadata.get("difficulty_modes")
+    _ensure(
+        isinstance(difficulty_modes, list) and {"normal", "hardcore"}.issubset(difficulty_modes),
+        "metadata.difficulty_modes must include 'normal' and 'hardcore'",
+        errors,
+    )
+    party_modes = metadata.get("party_modes")
+    _ensure(
+        isinstance(party_modes, list) and {"solo", "coop"}.issubset(party_modes),
+        "metadata.party_modes must include 'solo' and 'coop'",
+        errors,
+    )
+
+    routes = bundle.get("routes", [])
+    for route in routes:
+        _validate_route(route, errors)
+
+    guide_catalog = bundle.get("guideCatalog", {})
+    data = guide_catalog.get("data", {})
+    if isinstance(data, dict):
+        _validate_catalog(data, errors)
+    else:
+        errors.append("guideCatalog.data must be an object for strict validation")
+
+    source_registry = bundle.get("sourceRegistry")
+    if source_registry is not None:
+        _validate_source_registry(source_registry, errors)
+    else:
+        errors.append("bundle is missing sourceRegistry section")
+
+    if errors:
+        joined = "\n - ".join(errors[:20])
+        message = (
+            f"Strict validation failed with {len(errors)} issue(s):\n - {joined}"
+        )
+        if len(errors) > 20:
+            message += "\n - ... (additional issues truncated)"
+        raise ValueError(message)
+
+
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     bundle_path = args.bundle.resolve()
@@ -582,6 +1278,12 @@ def main(argv: list[str] | None = None) -> int:
         ) = check_structure(bundle)
     except ValueError as exc:
         return fail(str(exc))
+
+    if args.strict:
+        try:
+            run_strict_checks(bundle)
+        except ValueError as exc:
+            return fail(str(exc))
 
     bundle_size = bundle_path.stat().st_size
 
