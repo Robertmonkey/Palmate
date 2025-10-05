@@ -10142,55 +10142,61 @@
     },
     {
       "id": "resource-pure-quartz",
-      "title": "Astral Quartz Expedition",
-      "source_heading": "Astral Quartz Expedition",
+      "title": "Pure Quartz Astral Mining Expedition",
+      "source_heading": "Pure Quartz Astral Mining Expedition",
       "category": "Resources",
       "category_group": "Resources & Crafting",
       "shortage_menu": true,
       "trigger": "Player needs Pure Quartz for circuits or tech unlocks and hasn’t secured an Astral Mountain loop.",
       "keywords": [
         "pure quartz",
-        "astral mountain",
+        "astral mountains",
         "circuit board",
         "late game"
       ],
       "steps": [
         {
           "order": 1,
-          "instruction": "**Activate the PAL Research Tower fast travel point** to open a safe approach into Astral Mountain.",
+          "instruction": "**Equip cold-resistant armor and a Refined Metal Pickaxe** before traveling so Astral Mountain runs don't fail to the cold debuff.",
           "citations": [
-            "pcgamesn-bosses†L11-L13"
+            "progameguides-pure-quartz†L5776-L5794"
           ],
           "links": [
             {
-              "type": "location",
-              "id": "pal-research-tower",
-              "name": "PAL Research Tower",
-              "region": "Astral Mountain"
+              "type": "gear",
+              "id": "cold-resistant-armor",
+              "name": "Cold Resistant Armor"
+            },
+            {
+              "type": "item",
+              "id": "refined-metal-pickaxe",
+              "slug": "refined-metal-pickaxe",
+              "name": "Refined Metal Pickaxe"
             }
           ]
         },
         {
           "order": 2,
-          "instruction": "**Mine the Astral Mountain ridges** for dark Pure Quartz nodes using upgraded pickaxes while a lookout kites elites.",
+          "instruction": "**Warp to the Astral Mountains ridges** and clear the shining Pure Quartz nodes while watching cold timers.",
           "citations": [
-            "pcgamesn-pure-quartz†L15-L19",
-            "palwiki-pure-quartz†L1-L3"
+            "progameguides-pure-quartz†L5776-L5794",
+            "palfandom-pure-quartz†L5-L25"
           ],
           "links": [
             {
               "type": "location",
-              "id": "astral-mountain",
-              "name": "Astral Mountain",
-              "region": "Astral Mountain"
+              "id": "astral-mountains",
+              "name": "Astral Mountains",
+              "region": "Astral Mountains"
             }
           ]
         },
         {
           "order": 3,
-          "instruction": "**Anchor a ridge base with mining and transport pals** so Pure Quartz replenishes storage between manual expeditions.",
+          "instruction": "**Assign mining and transport pals at a ridge Palbox** so Astegon, Anubis, Mossanda, or Quivern keep quartz flowing between sorties.",
           "citations": [
-            "pcgamesn-pure-quartz†L19-L23"
+            "progameguides-pure-quartz†L5776-L5794",
+            "palfandom-pure-quartz†L5-L25"
           ],
           "links": [
             {
@@ -10199,10 +10205,16 @@
               "name": "Palbox"
             },
             {
-              "type": "item",
-              "id": "pure-quartz",
-              "slug": "pure-quartz",
-              "name": "Pure Quartz"
+              "type": "pal",
+              "id": "astagon",
+              "slug": "astagon",
+              "name": "Astegon"
+            },
+            {
+              "type": "pal",
+              "id": "anubis",
+              "slug": "anubis",
+              "name": "Anubis"
             }
           ]
         }
@@ -10271,6 +10283,113 @@
               "id": "polymer",
               "slug": "polymer",
               "name": "Polymer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-ancient-civilization-parts",
+      "title": "Ancient Civilization Part Recovery Circuit",
+      "source_heading": "Ancient Civilization Part Recovery Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Ancient Civilization Parts for ancient tech and equipment but lacks a reliable alpha and dungeon rotation.",
+      "keywords": [
+        "ancient civilization parts",
+        "alpha pals",
+        "dungeon bosses",
+        "ancient technology"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "**Stage a ranged boss loadout** with high-tier firearms, medicine, and durable combat pals before starting the rotation.",
+          "citations": [
+            "palworldstatus-ancient-parts†L16-L24",
+            "palwiki-alpha-pals†L11-L32"
+          ],
+          "links": [
+            {
+              "type": "gear",
+              "id": "assault-rifle",
+              "name": "Assault Rifle"
+            },
+            {
+              "type": "pal",
+              "id": "anubis",
+              "slug": "anubis",
+              "name": "Anubis"
+            },
+            {
+              "type": "pal",
+              "id": "grizzbolt",
+              "slug": "grizzbolt",
+              "name": "Grizzbolt"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "**Loop overworld alpha spawns around Windswept Hills** to defeat Chillet, Gumoss, Broncherry, and Kingpaca for guaranteed Ancient Civilization Part drops.",
+          "citations": [
+            "palwiki-alpha-pals†L23-L72",
+            "gamesradar-ancient-parts†L1-L14"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "windswept-hills",
+              "name": "Windswept Hills",
+              "region": "Windswept Hills"
+            },
+            {
+              "type": "pal",
+              "id": "chillet",
+              "slug": "chillet",
+              "name": "Chillet"
+            },
+            {
+              "type": "pal",
+              "id": "broncherry",
+              "slug": "broncherry",
+              "name": "Broncherry"
+            },
+            {
+              "type": "pal",
+              "id": "kingpaca",
+              "slug": "kingpaca",
+              "name": "Kingpaca"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "**Clear sealed realms or night dungeons** such as Penking’s Frozen Wings and Bushi’s Swordmaster arenas, looting Lucky Pals or gold chests for bonus parts.",
+          "citations": [
+            "palworldstatus-ancient-parts†L16-L27",
+            "gamesradar-ancient-parts†L1-L14",
+            "palfandom-ancient-civilization-parts-render†L21-L28"
+          ],
+          "links": [
+            {
+              "type": "pal",
+              "id": "penking",
+              "slug": "penking",
+              "name": "Penking"
+            },
+            {
+              "type": "pal",
+              "id": "bushi",
+              "slug": "bushi",
+              "name": "Bushi"
+            },
+            {
+              "type": "item",
+              "id": "ancient_civilization_parts",
+              "slug": "ancient-civilization-parts",
+              "name": "Ancient Civilization Parts"
             }
           ]
         }

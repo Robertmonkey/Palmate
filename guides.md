@@ -6005,25 +6005,25 @@ Sulfur powers gunpowder and every ballistic upgrade, so this loop opens with the
 }
 ```
 
-### Route: Astral Quartz Expedition
+### Route: Pure Quartz Astral Mining Expedition
 
-Circuit boards and late-game electronics hinge on Pure Quartz. This expedition secures the PAL Research Tower fast travel, mines the Astral Mountain ridges, and anchors a base so mining Pals keep the ore flowing.【pcgamesn-pure-quartz†L15-L23】【palwiki-pure-quartz†L1-L3】
+Pure Quartz Astral Mining Expedition pushes into the Astral Mountains’ level 35–60 ridges to mine quartz veins, secure drop insurance from late-game pals, and wire an automated ridge camp for circuit production.【palfandom-astral-mountains†L5-L35】【palfandom-pure-quartz†L5-L25】【progameguides-pure-quartz†L5776-L5794】
 
 ```json
 {
   "route_id": "resource-pure-quartz",
-  "title": "Astral Quartz Expedition",
+  "title": "Pure Quartz Astral Mining Expedition",
   "category": "resources",
   "tags": [
     "resource-farm",
     "pure-quartz",
-    "electronics",
-    "late-mid-game"
+    "astral-mountains",
+    "late-game"
   ],
   "progression_role": "support",
   "recommended_level": {
-    "min": 32,
-    "max": 46
+    "min": 38,
+    "max": 55
   },
   "modes": {
     "normal": true,
@@ -6033,244 +6033,226 @@ Circuit boards and late-game electronics hinge on Pure Quartz. This expedition s
   },
   "prerequisites": {
     "routes": [
-      "resource-sulfur"
+      "resource-sulfur",
+      "resource-ice-organ"
     ],
-    "tech": [],
+    "tech": [
+      "refined-metal-pickaxe",
+      "cold-resistant-refined-metal-armor"
+    ],
     "items": [],
     "pals": []
   },
   "objectives": [
-    "Unlock Astral Mountain fast travel",
-    "Mine high-grade Pure Quartz clusters",
-    "Stage a passive extraction base for circuit crafting"
+    "Stage cold-resistant armor and refined pickaxes for Astral exposure",
+    "Mine Astral Mountain quartz ridges without succumbing to the cold",
+    "Capture quartz-dropping pals as backup when nodes dry up",
+    "Automate ridge extraction with mining and transport pals"
   ],
   "estimated_time_minutes": {
-    "solo": 38,
-    "coop": 26
+    "solo": 36,
+    "coop": 24
   },
   "estimated_xp_gain": {
-    "min": 420,
-    "max": 640
+    "min": 650,
+    "max": 900
   },
-  "risk_profile": "high",
+  "risk_profile": "very-high",
   "failure_penalties": {
-    "normal": "Cold damage and high-level patrols can break tools and force long retreats from Astral Mountain.",
-    "hardcore": "Falls or freezes near Astral Mountain wipe end-game kits; regroup with spare cold gear before returning."
+    "normal": "Astral wipe runs can strand you deep in the cold zone and cost minutes recovering gear.",
+    "hardcore": "Hardcore deaths here risk losing cold armor and captured alpha pals on long corpse runs."
   },
   "adaptive_guidance": {
-    "underleveled": "Unlock the PAL Research Tower statue first, then run short mining bursts before elites converge.【pcgamesn-pure-quartz†L15-L20】【pcgamesn-bosses†L11-L13】",
-    "overleveled": "Claim a ridge base inside Astral Mountain so mining Pals harvest Pure Quartz passively between manual runs.【pcgamesn-pure-quartz†L19-L23】",
+    "underleveled": "Anchor near the Astral Mountains statue and rotate warming meals while mining lower ridges until you can handle level 40 patrols.【palfandom-astral-mountains†L5-L35】【progameguides-pure-quartz†L5776-L5794】",
+    "overleveled": "Chain ridge nodes with Astegon or Frostallion Noct sweeps so mined stacks plus boss drops cover every circuit batch.【palfandom-pure-quartz†L5-L25】",
     "resource_shortages": [
       {
-        "item_id": "circuit-board",
-        "solution": "Feed Pure Quartz into step :003 immediately so circuit production stays ahead of polymer demand.【pcgamesn-pure-quartz†L21-L23】"
+        "item_id": "pure_quartz",
+        "solution": "Alternate ridge laps with Astegon or Jetragon captures so quartz stockpiles keep pace with circuit demand.【palfandom-pure-quartz†L5-L25】【progameguides-pure-quartz†L5776-L5794】"
       }
     ],
-    "time_limited": "Fast travel in, grab two node clusters near the tower, then recall home before respawns escalate.",
+    "time_limited": "Fast travel in, clear two nearby ridge veins, and extract before the cold debuff stacks.【progameguides-pure-quartz†L5776-L5794】",
     "dynamic_rules": [
       {
-        "signal": "resource_gap:circuit-board_high",
-        "condition": "resource_gaps contains circuit-board >= 20",
-        "adjustment": "Run step :003 twice and prioritize manual mining in :002 over expansion tasks until the gap clears.",
-        "priority": 2,
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign one player to kite elites while the partner mines and tags Astegon captures for backup drops.",
+        "priority": 1,
         "mode_scope": [
-          "normal",
-          "hardcore",
-          "solo",
           "coop"
         ],
         "related_steps": [
           "resource-pure-quartz:002",
           "resource-pure-quartz:003"
         ]
-      },
-      {
-        "signal": "mode:coop",
-        "condition": "mode.coop === true",
-        "adjustment": "One player scouts and kites patrols while the miner works nodes; swap roles every cycle to manage cold meters.",
-        "priority": 1,
-        "mode_scope": [
-          "coop"
-        ],
-        "related_steps": [
-          "resource-pure-quartz:002"
-        ]
       }
     ]
   },
   "checkpoints": [
     {
-      "id": "resource-pure-quartz:checkpoint-statue",
-      "summary": "Astral access unlocked",
+      "id": "resource-pure-quartz:checkpoint-gear",
+      "summary": "Cold gear staged",
+      "benefits": [
+        "Heat mitigation online",
+        "Refined tools packed"
+      ],
       "related_steps": [
         "resource-pure-quartz:001"
-      ],
-      "benefits": [
-        "PAL Research Tower statue activated",
-        "Cold travel route established"
       ]
     },
     {
-      "id": "resource-pure-quartz:checkpoint-quarry",
-      "summary": "Quartz cache secured",
+      "id": "resource-pure-quartz:checkpoint-ridge",
+      "summary": "Quartz ridge cleared",
+      "benefits": [
+        "First quartz haul banked",
+        "Ridge spawns on cooldown"
+      ],
       "related_steps": [
         "resource-pure-quartz:002"
-      ],
-      "benefits": [
-        "40+ Pure Quartz hauled",
-        "Safe retreat path mapped"
       ]
     },
     {
       "id": "resource-pure-quartz:checkpoint-automation",
-      "summary": "Passive mining online",
+      "summary": "Automation loop online",
+      "benefits": [
+        "Mining pals assigned",
+        "Transport route flowing"
+      ],
       "related_steps": [
         "resource-pure-quartz:003"
-      ],
-      "benefits": [
-        "Astral base anchored",
-        "Circuit production primed"
       ]
     }
   ],
-  "supporting_routes": {
-    "recommended": [
-      "resource-pal-fluids"
-    ],
-    "optional": [
-      "resource-sulfur"
-    ]
-  },
-  "failure_recovery": {
-    "normal": "Return during daylight with fresh cold gear and mine lighter loads until confidence returns.",
-    "hardcore": "If you lose gear, restock polymer and cold armor at home before risking another Astral run."
-  },
   "steps": [
     {
       "step_id": "resource-pure-quartz:001",
-      "type": "travel",
-      "summary": "Unlock PAL Research Tower access",
-      "detail": "Climb to the PAL Research Tower statue at roughly (-149,445) so you can fast travel straight onto the snowy slopes leading into Astral Mountain’s Pure Quartz zone.【pcgamesn-bosses†L11-L13】【pcgamesn-pure-quartz†L15-L20】",
+      "type": "prepare",
+      "summary": "Stage cold gear and refined tools",
+      "detail": "Craft Cold Resistant armor, cook warming meals, and bring the Refined Metal Pickaxe so Astral Mountains cold snaps don’t kill the run before you reach the quartz veins.【progameguides-pure-quartz†L5776-L5794】",
       "targets": [],
       "locations": [
         {
-          "region_id": "ice-wind-island",
+          "region_id": "palpagos-overworld",
           "coords": [
-            -149,
-            445
+            0,
+            0
           ],
-          "time": "day",
-          "weather": "clear"
+          "time": "any",
+          "weather": "any"
         }
       ],
       "mode_adjustments": {},
       "recommended_loadout": {
-        "gear": [],
-        "pals": [],
+        "gear": [
+          "cold-resistant-armor",
+          "refined-metal-pickaxe"
+        ],
+        "pals": [
+          "xenogard"
+        ],
         "consumables": []
       },
       "xp_award_estimate": {
-        "min": 90,
-        "max": 130
+        "min": 0,
+        "max": 0
       },
       "outputs": {
         "items": [],
         "pals": [],
-        "unlocks": {
-          "travel": [
-            "pal-research-tower"
-          ]
-        }
+        "unlocks": {}
       },
-      "branching": [],
+      "branching": [
+        {
+          "subroute_ref": "resource-ice-organ"
+        }
+      ],
       "citations": [
-        "pcgamesn-bosses",
-        "pcgamesn-pure-quartz"
+        "progameguides-pure-quartz†L5776-L5794",
+        "palfandom-pure-quartz†L5-L25"
       ]
     },
     {
       "step_id": "resource-pure-quartz:002",
-      "type": "gather",
+      "type": "mine",
       "summary": "Mine Astral Mountain ridges",
-      "detail": "From the tower, sweep the Astral Mountain ridges for dark grey nodes with silver veins—these are Pure Quartz deposits that require durable pickaxes to break efficiently.【pcgamesn-pure-quartz†L15-L19】【palwiki-pure-quartz†L1-L3】",
+      "detail": "Fast travel to the Astral Mountains ridge around (560,340) highlighted in the Pro Game Guides map, then sweep the silver quartz nodes while rotating off cliffs before the cold debuff spikes.【progameguides-pure-quartz†L5776-L5794】【palfandom-astral-mountains†L5-L35】",
       "targets": [
         {
           "kind": "item",
           "id": "pure_quartz",
-          "qty": 40
+          "qty": 12
         }
       ],
       "locations": [
         {
-          "region_id": "astral-mountain",
+          "region_id": "astral-mountains",
           "coords": [
-            -149,
-            445
+            560,
+            340
           ],
-          "time": "day",
+          "time": "any",
           "weather": "snow"
         }
       ],
       "mode_adjustments": {
-        "coop": {
-          "role_splits": [
-            {
-              "role": "miner",
-              "tasks": "Break Pure Quartz nodes"
-            },
-            {
-              "role": "lookout",
-              "tasks": "Ping elite patrols and pull aggro away"
-            }
-          ],
-          "loot_rules": "Share Quartz stacks evenly for upcoming crafts"
+        "hardcore": {
+          "tactics": "Rotate in short bursts, stacking hot meals and swapping spare cold gear before frostbite ends the sortie.",
+          "mode_scope": [
+            "hardcore"
+          ]
         }
       },
       "recommended_loadout": {
         "gear": [
-          "metal-pickaxe"
+          "refined-metal-pickaxe"
         ],
-        "pals": [],
+        "pals": [
+          "xenogard"
+        ],
         "consumables": []
       },
       "xp_award_estimate": {
-        "min": 220,
-        "max": 300
+        "min": 480,
+        "max": 720
       },
       "outputs": {
         "items": [
           {
             "item_id": "pure_quartz",
-            "qty": 40
+            "qty": 12
           }
         ],
         "pals": [],
         "unlocks": {}
       },
-      "branching": [],
+      "branching": [
+        {
+          "subroute_ref": "resource-high-quality-pal-oil"
+        }
+      ],
       "citations": [
-        "pcgamesn-pure-quartz",
-        "palwiki-pure-quartz"
+        "progameguides-pure-quartz†L5776-L5794",
+        "palfandom-astral-mountains†L5-L35"
       ]
     },
     {
       "step_id": "resource-pure-quartz:003",
       "type": "base",
-      "summary": "Anchor an Astral mining outpost",
-      "detail": "Claim a base spot that includes Pure Quartz nodes and assign mining and transport Pals so the deposits respawn into storage while you craft circuit boards on-site.【pcgamesn-pure-quartz†L17-L23】",
+      "summary": "Automate ridge extraction",
+      "detail": "Drop a Palbox near the ridge, assign Astegon or Anubis to Mining with Mossanda or Quivern hauling to storage, and capture Jetragon or Frostallion Noct for emergency quartz drops between node respawns.【progameguides-pure-quartz†L5776-L5794】【palfandom-pure-quartz†L5-L25】",
       "targets": [
         {
           "kind": "item",
           "id": "pure_quartz",
-          "qty": 60
+          "qty": 20
         }
       ],
       "locations": [
         {
-          "region_id": "astral-mountain",
+          "region_id": "astral-mountains",
           "coords": [
-            -149,
-            445
+            560,
+            340
           ],
           "time": "any",
           "weather": "snow"
@@ -6279,28 +6261,43 @@ Circuit boards and late-game electronics hinge on Pure Quartz. This expedition s
       "mode_adjustments": {},
       "recommended_loadout": {
         "gear": [
-          "metal-pickaxe"
+          "palbox"
         ],
-        "pals": [],
+        "pals": [
+          "astagon",
+          "anubis",
+          "mossanda",
+          "quivern"
+        ],
         "consumables": []
       },
       "xp_award_estimate": {
-        "min": 200,
-        "max": 240
+        "min": 260,
+        "max": 420
       },
       "outputs": {
         "items": [
           {
             "item_id": "pure_quartz",
-            "qty": 60
+            "qty": 20
           }
         ],
-        "pals": [],
-        "unlocks": {}
+        "pals": [
+          "astagon",
+          "anubis"
+        ],
+        "unlocks": {
+          "astral-quartz-automation": true
+        }
       },
-      "branching": [],
+      "branching": [
+        {
+          "subroute_ref": "resource-polymer"
+        }
+      ],
       "citations": [
-        "pcgamesn-pure-quartz"
+        "progameguides-pure-quartz†L5776-L5794",
+        "palfandom-pure-quartz†L5-L25"
       ]
     }
   ],
@@ -6308,24 +6305,28 @@ Circuit boards and late-game electronics hinge on Pure Quartz. This expedition s
     {
       "type": "have-item",
       "item_id": "pure_quartz",
-      "qty": 80
+      "qty": 24
     }
   ],
   "yields": {
-    "levels_estimate": "+1",
+    "levels_estimate": "+0 to +1",
     "key_unlocks": [
-      "circuit-board-production"
+      "circuit-board-batching"
     ]
   },
   "metrics": {
     "progress_segments": 3,
-    "boss_targets": 0,
+    "boss_targets": 1,
     "quest_nodes": 0
   },
   "next_routes": [
     {
       "route_id": "resource-polymer",
-      "reason": "Polymer crafting consumes Pure Quartz via Circuit Boards and benefits from the Astral outpost."
+      "reason": "Polymer pairs with Pure Quartz for Circuit Boards and late-tier electronics."
+    },
+    {
+      "route_id": "resource-carbon-fiber",
+      "reason": "Combine quartz-fed circuits with carbon fiber to finish late-game weapon lines."
     }
   ]
 }
@@ -6657,6 +6658,418 @@ Polymer production ties together high-level tech: unlock the assembly line, farm
     {
       "route_id": "purposeful-arc-late-expansion",
       "reason": "Late-game expansion arcs consume Polymer for weapons and automation upgrades."
+    }
+  ]
+}
+```
+
+### Route: Ancient Civilization Part Recovery Circuit
+
+Ancient Civilization Part Recovery Circuit chains overworld alpha Pals, sealed realms, and dungeon bosses so every rotation yields the rare parts that gate Grappling Guns, Incubators, and other ancient tech.【palworldstatus-ancient-parts†L16-L27】【gamesradar-ancient-parts†L1-L14】【palfandom-ancient-civilization-parts-render†L21-L28】
+
+```json
+{
+  "route_id": "resource-ancient-civilization-parts",
+  "title": "Ancient Civilization Part Recovery Circuit",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "ancient-civilization-parts",
+    "boss-hunt",
+    "mid-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 25,
+    "max": 45
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "resource-gunpowder"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Stage boss-ready weapons, healing, and pal squads",
+    "Rotate overworld alpha pals for guaranteed part drops",
+    "Clear sealed realms and dungeons to top up rare drops",
+    "Sweep elite chests or Lucky pals if the stockpile lags"
+  ],
+  "estimated_time_minutes": {
+    "solo": 42,
+    "coop": 28
+  },
+  "estimated_xp_gain": {
+    "min": 720,
+    "max": 1080
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Wiping on alpha rotations wastes respawn timers and burns ammo.",
+    "hardcore": "Hardcore deaths can delete high-grade weapons and pals mid-loop."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Stick to level 11–23 overworld alphas like Chillet, Gumoss, Broncherry, and Kingpaca until your team handles sealed realms reliably, then widen the loop.【palwiki-alpha-pals†L23-L72】【gamesradar-ancient-parts†L1-L14】",
+    "overleveled": "Chain sealed realms, late-game dungeons, and any Lucky Pals you scout so respawn downtime never caps the haul.【palworldstatus-ancient-parts†L16-L27】【palfandom-ancient-civilization-parts-render†L21-L28】",
+    "resource_shortages": [
+      {
+        "item_id": "ancient_civilization_parts",
+        "solution": "Run two overworld laps per day and plug gaps with sealed realm clears when alpha timers are still cooling down.【palwiki-alpha-pals†L11-L32】【palworldstatus-ancient-parts†L16-L24】"
+      }
+    ],
+    "time_limited": "Warp to the Windswept Hills statue and clear Chillet, Gumoss, and Broncherry in one sprint for a quick three-part infusion before raids.【palwiki-alpha-pals†L23-L72】",
+    "dynamic_rules": [
+      {
+        "signal": "resource_gap:ancient_parts_high",
+        "condition": "resource_gaps contains ancient-civilization-parts >= 10",
+        "adjustment": "Double the overworld loop and add a sealed realm clear in step :003 before returning to base.",
+        "priority": 2,
+        "mode_scope": [
+          "normal",
+          "hardcore",
+          "solo",
+          "coop"
+        ],
+        "related_steps": [
+          "resource-ancient-civilization-parts:002",
+          "resource-ancient-civilization-parts:003"
+        ]
+      },
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Split roles so one player kites the alpha while the other tags sealed realm entrances and loots chests between kills.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-ancient-civilization-parts:002",
+          "resource-ancient-civilization-parts:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-ancient-civilization-parts:checkpoint-loadout",
+      "summary": "Boss hunting kit staged",
+      "benefits": [
+        "Ammo, healing, and pals packed",
+        "Spawn timers charted"
+      ],
+      "related_steps": [
+        "resource-ancient-civilization-parts:001"
+      ]
+    },
+    {
+      "id": "resource-ancient-civilization-parts:checkpoint-overworld",
+      "summary": "Overworld alpha loop cleared",
+      "benefits": [
+        "Guaranteed part drops banked",
+        "Alpha respawn timers running"
+      ],
+      "related_steps": [
+        "resource-ancient-civilization-parts:002"
+      ]
+    },
+    {
+      "id": "resource-ancient-civilization-parts:checkpoint-sealed",
+      "summary": "Sealed realm or dungeon finished",
+      "benefits": [
+        "Bonus parts secured",
+        "Treasure chests looted"
+      ],
+      "related_steps": [
+        "resource-ancient-civilization-parts:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-gunpowder"
+    ],
+    "optional": [
+      "resource-polymer"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Sleep at a nearby statue to reset alpha spawns, restock ammo, and resume from the last cleared boss.",
+    "hardcore": "Extract before respawn waves, repair gear, and reassign fresh combat pals if casualties mount."
+  },
+  "steps": [
+    {
+      "step_id": "resource-ancient-civilization-parts:001",
+      "type": "prepare",
+      "summary": "Stage boss-hunting loadout",
+      "detail": "Craft late-game firearms, queue medicine, and mark alpha and sealed realm statues so every defeat turns in Ancient Civilization Parts once the boss respawns.【palworldstatus-ancient-parts†L16-L24】【palwiki-alpha-pals†L11-L32】",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "assault-rifle"
+        ],
+        "pals": [
+          "anubis",
+          "grizzbolt"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 0,
+        "max": 0
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palworldstatus-ancient-parts†L16-L24",
+        "palwiki-alpha-pals†L11-L32"
+      ]
+    },
+    {
+      "step_id": "resource-ancient-civilization-parts:002",
+      "type": "combat",
+      "summary": "Clear overworld alpha circuit",
+      "detail": "Fast travel to the Windswept Hills network and defeat Chillet (172,-419), Gumoss (-113,-628), Broncherry (-222,-669), and Kingpaca (49,-460); each overworld alpha guarantees an Ancient Civilization Part while they respawn every in-game day.【palwiki-alpha-pals†L23-L72】【gamesradar-ancient-parts†L1-L14】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "ancient_civilization_parts",
+          "qty": 4
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            172,
+            -419
+          ],
+          "time": "day",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            -113,
+            -628
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            -222,
+            -669
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "dessert-canyon",
+          "coords": [
+            49,
+            -460
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Open with burst damage and keep shields up so chip damage doesn’t accumulate before revives.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "boss-killer",
+              "tasks": "Focus fire with ranged weapons"
+            },
+            {
+              "role": "scout",
+              "tasks": "Tag next statue and loot Precious drops"
+            }
+          ],
+          "loot_rules": "Rotate part drops so everyone hits tech unlock thresholds"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "assault-rifle"
+        ],
+        "pals": [
+          "anubis",
+          "grizzbolt"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 540,
+        "max": 760
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient_civilization_parts",
+            "qty": 4
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-alpha-pals†L23-L72",
+        "gamesradar-ancient-parts†L1-L14"
+      ]
+    },
+    {
+      "step_id": "resource-ancient-civilization-parts:003",
+      "type": "dungeon",
+      "summary": "Sweep sealed realms and dungeons",
+      "detail": "Enter Penking’s Frozen Wings realm (113,-353), Bushi’s Swordmaster arena (-117,-490), or nightly dungeons and defeat the bosses; they can drop extra parts, and any Lucky Pal or gold chest along the way is a bonus source.【palworldstatus-ancient-parts†L16-L27】【gamesradar-ancient-parts†L1-L14】【palfandom-ancient-civilization-parts-render†L21-L28】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "ancient_civilization_parts",
+          "qty": 2
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "freeze",
+          "coords": [
+            113,
+            -353
+          ],
+          "time": "any",
+          "weather": "snow"
+        },
+        {
+          "region_id": "dessert-canyon",
+          "coords": [
+            -117,
+            -490
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "night",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Reset after each clear to repair gear and rebuff before the next boss.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "vanguard",
+              "tasks": "Tank boss aggro"
+            },
+            {
+              "role": "finisher",
+              "tasks": "Collect loot and open chests"
+            }
+          ],
+          "loot_rules": "Share Lucky Pal drops so automation projects stay synced"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "assault-rifle"
+        ],
+        "pals": [
+          "anubis",
+          "grizzbolt"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 180,
+        "max": 320
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "ancient_civilization_parts",
+            "qty": 2
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palworldstatus-ancient-parts†L16-L27",
+        "gamesradar-ancient-parts†L1-L14",
+        "palfandom-ancient-civilization-parts-render†L21-L28"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "ancient_civilization_parts",
+      "qty": 6
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1",
+    "key_unlocks": [
+      "ancient-tech-crafting"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 4,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-polymer",
+      "reason": "Polymer combines with ancient parts for late-tier weapons and gadgets."
+    },
+    {
+      "route_id": "purposeful-arc-late-expansion",
+      "reason": "Use the part surplus to push late-game base expansions and tech."
     }
   ]
 }
@@ -27051,6 +27464,12 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-09",
       "notes": "Pins Lifmunk north of Rayne Syndicate Tower at (117,-405), notes Berry Seed drops, and recommends fire-element allies for captures.【b765fb†L6-L17】"
     },
+    "gamesradar-ancient-parts": {
+      "title": "How to farm Ancient Civilization Parts in Palworld",
+      "url": "https://www.gamesradar.com/palworld-ancient-civilization-parts/",
+      "access_date": "2025-11-29",
+      "notes": "Describes farming Ancient Civilization Parts by defeating overworld alpha Pals, dungeon bosses, and Lucky Pals, noting overworld kills always drop parts while dungeon bosses can fail.【8102f5†L1-L14】"
+    },
     "dexerto-gumoss": {
       "title": "Where to find and catch Gumoss in Palworld",
       "url": "https://www.dexerto.com/palworld/where-to-find-and-catch-gumoss-in-palworld-2498063/",
@@ -27272,6 +27691,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://progameguides.com/palworld/best-starting-base-locations-in-palworld/",
       "access_date": "2025-10-14",
       "notes": "Provides Plateau of Beginnings southern peninsula coordinates (230,-510 / 160,-560 / 100,-525) used for staging camps and merchant runs.【c3e4e9†L1-L15】"
+    },
+    "progameguides-pure-quartz": {
+      "title": "How to get Pure Quartz in Palworld – Pro Game Guides",
+      "url": "https://progameguides.com/palworld/how-to-get-pure-quartz-in-palworld/",
+      "access_date": "2025-11-28",
+      "notes": "Explains reaching the Astral Mountains, equipping cold-resistant armor, using the Refined Metal Pickaxe, and assigning mining/transport pals for automated quartz hauling.【progameguides-pure-quartz†L5776-L5794】"
     },
     "palnerd-katress-hair": {
       "title": "Palworld Katress Hair (How to Get, Location & Uses) - PalNerd",
@@ -27543,6 +27968,12 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-11-23",
       "notes": "Details the CollectionObjectRespawnSpeedRate slider, noting 1.0 as the default resource node respawn multiplier and faster timers at lower values.【palwiki-palworldsettings-ini†L1-L1】"
     },
+    "palworldstatus-ancient-parts": {
+      "title": "How to get Ancient Civilization Parts in Palworld",
+      "url": "https://palworldstatus.com/guide/how-to-get-ancient-civilization-parts-in-palworld/",
+      "access_date": "2025-11-29",
+      "notes": "Explains that defeating overworld alpha Pals and dungeon bosses awards Ancient Civilization Parts once per boss, advising players to prepare for the toughest fights.【34a007†L1-L27】"
+    },
     "palwiki-precious-dragon-stone": {
       "title": "Precious Dragon Stone – Palworld Wiki",
       "url": "https://palworld.wiki.gg/wiki/Precious_Dragon_Stone",
@@ -27585,6 +28016,18 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-31",
       "notes": "Lists Precious Dragon Stone drops from Alpha Pals and Dungeon Bosses and confirms Wandering Merchants pay 1,000 Gold Coins.【palfandom-precious-dragon-stone†L1-L18】"
     },
+    "palfandom-ancient-civilization-parts-render": {
+      "title": "Ancient Civilization Parts – Palworld Wiki (Fandom, render)",
+      "url": "https://palworld.fandom.com/wiki/Ancient_Civilization_Parts?action=render",
+      "access_date": "2025-11-29",
+      "notes": "Infobox lists Treasure Chests, Alpha Pals, Dungeon bosses, and Lucky Pals as Ancient Civilization Part sources.【1e68fe†L21-L36】"
+    },
+    "palfandom-astral-mountains": {
+      "title": "Astral Mountains – Palworld Wiki (Fandom, raw)",
+      "url": "https://palworld.fandom.com/wiki/Astral_Mountains?action=raw",
+      "access_date": "2025-11-28",
+      "notes": "Marks Astral Mountains as a northern level 35–60 snow region and lists available bosses and resources including Pure Quartz.【palfandom-astral-mountains†L5-L35】"
+    },
     "palfandom-carbon-fiber": {
       "title": "Carbon Fiber – Palworld Wiki (Fandom)",
       "url": "https://palworld.fandom.com/wiki/Carbon_Fiber",
@@ -27614,6 +28057,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.fandom.com/wiki/Caprity",
       "access_date": "2025-11-27",
       "notes": "Shows the day and night habitat maps for Caprity, highlighting dense spawns around the Plateau of Beginnings and the Small Settlement grasslands.【palfandom-caprity-habitat†L1-L12】"
+    },
+    "palfandom-pure-quartz": {
+      "title": "Pure Quartz – Palworld Wiki (Fandom, raw)",
+      "url": "https://palworld.fandom.com/wiki/Pure_Quartz?action=raw",
+      "access_date": "2025-11-28",
+      "notes": "Details Pure Quartz nodes in the Astral Mountains, recommends Xenogard for mining, and lists Jetragon, Astegon, and Frostallion Noct as drop sources.【palfandom-pure-quartz†L5-L25】"
     },
     "palfandom-honey": {
       "title": "Honey – Palworld Wiki (Fandom)",
