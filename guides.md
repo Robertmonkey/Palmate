@@ -25186,6 +25186,326 @@ Broncherry Meat Caravan Loop rides the overworld Alpha Broncherry at (-222,-669)
 }
 ```
 
+### Route: Caprity Meat Pasture Circuit
+
+Caprity Meat Pasture Circuit loops the Plateau of Beginnings and Small Settlement Caprity herds so early bases can butcher guaranteed drops and queue ranch production for hearty stews and salads.【palfandom-caprity-habitat†L1-L12】【palwiki-caprity†L135-L182】【palwiki-caprity-meat†L1-L22】
+
+```json
+{
+  "route_id": "resource-caprity-meat",
+  "title": "Caprity Meat Pasture Circuit",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "caprity-meat",
+    "ranching",
+    "early-game"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 12,
+    "max": 22
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [],
+    "tech": [
+      "meat-cleaver",
+      "ranch"
+    ],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Unlock Meat Cleaver and Ranch so Caprity drops and ranching both pay out",
+    "Sweep Plateau of Beginnings and Small Settlement loops for daily Caprity captures",
+    "Butcher spares and assign breeders so the ranch drip keeps meat stocked"
+  ],
+  "estimated_time_minutes": {
+    "solo": 28,
+    "coop": 20
+  },
+  "estimated_xp_gain": {
+    "min": 260,
+    "max": 420
+  },
+  "risk_profile": "low",
+  "failure_penalties": {
+    "normal": "Letting Caprity despawn or killing every target removes the guaranteed meat drops until the next weather cycle.",
+    "hardcore": "Hardcore wipes risk losing captured Caprity and butcher gear if PIDF patrols pick over the plateau."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Anchor at the Small Settlement (75,-479) statue, capture Caprity pairs with standard spheres, and retreat to the Palbox before alpha poachers rotate in.【palwiki-small-settlement†L3-L15】【palfandom-caprity-habitat†L1-L12】",
+    "overleveled": "Bring a transport pal to ferry four captures per pass so you butcher two and keep two breeders on standby before logging off.【palwiki-caprity†L135-L182】【palwiki-ranch†L12-L38】",
+    "resource_shortages": [
+      {
+        "item_id": "caprity_meat",
+        "solution": "Circle the Plateau of Beginnings ridgeline, capture three Caprity, butcher two for four guaranteed cuts, and leave a breeder on the ranch before the herd respawns.【palfandom-caprity-habitat†L1-L12】【palwiki-caprity†L135-L182】"
+      }
+    ],
+    "time_limited": "Fast travel in, net two Caprity near the Small Settlement, butcher them for four cuts, and drop them in cold storage before the next raid timer.【palwiki-small-settlement†L3-L15】【palwiki-caprity-meat†L1-L22】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Split duties so one player nets captures while the other hauls butchered cuts and swaps ranch assignments, keeping the loop under one in-game day.",
+        "priority": 2,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-caprity-meat:002",
+          "resource-caprity-meat:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-caprity-meat:checkpoint-kit",
+      "summary": "Butchery and ranch unlocked",
+      "benefits": [
+        "Meat Cleaver crafted",
+        "Ranch built"
+      ],
+      "related_steps": [
+        "resource-caprity-meat:001"
+      ]
+    },
+    {
+      "id": "resource-caprity-meat:checkpoint-herd",
+      "summary": "Caprity captured",
+      "benefits": [
+        "Daily herd secured",
+        "Fresh cuts bagged"
+      ],
+      "related_steps": [
+        "resource-caprity-meat:002"
+      ]
+    },
+    {
+      "id": "resource-caprity-meat:checkpoint-ranch",
+      "summary": "Ranch drip online",
+      "benefits": [
+        "Passive drops queued",
+        "Cold storage stocked"
+      ],
+      "related_steps": [
+        "resource-caprity-meat:003"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "resource-caprity-meat:001",
+      "type": "prepare",
+      "summary": "Unlock butcher kit and ranch",
+      "detail": "Spend points to unlock the Meat Cleaver and Ranch, craft the cleaver at a Primitive Workbench, and place the Ranch so captured Caprity can immediately start producing drops back at base.【palwiki-meat-cleaver†L2-L38】【palwiki-ranch†L12-L38】",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "meat-cleaver",
+          "pal-sphere"
+        ],
+        "pals": [
+          "rushoar"
+        ],
+        "consumables": [
+          "medical-supplies"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 0,
+        "max": 0
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-meat-cleaver†L2-L38",
+        "palwiki-ranch†L12-L38"
+      ]
+    },
+    {
+      "step_id": "resource-caprity-meat:002",
+      "type": "hunt",
+      "summary": "Sweep Plateau of Beginnings herds",
+      "detail": "Fast travel to the Small Settlement (75,-479), clear poachers, and loop the Plateau of Beginnings and river terraces to net three Caprity per pass; the habitat map shows dense day spawns hugging the starting grasslands.【palwiki-small-settlement†L3-L15】【palfandom-caprity-habitat†L1-L12】",
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "caprity",
+          "qty": 3
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            75,
+            -479
+          ],
+          "time": "day",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Fight from range and kite any patrols toward the ridge; Caprity flee quickly, so prioritize capture throws before escorts arrive.",
+          "mode_scope": [
+            "hardcore"
+          ]
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "mega-sphere",
+          "pal-sphere"
+        ],
+        "pals": [
+          "gumoss"
+        ],
+        "consumables": [
+          "stamina-food"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 220,
+        "max": 320
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "caprity_meat",
+            "qty": 4
+          }
+        ],
+        "pals": [
+          "caprity"
+        ],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-honey"
+        }
+      ],
+      "citations": [
+        "palwiki-small-settlement†L3-L15",
+        "palfandom-caprity-habitat†L1-L12"
+      ]
+    },
+    {
+      "step_id": "resource-caprity-meat:003",
+      "type": "base",
+      "summary": "Butcher and staff the ranch",
+      "detail": "Return to base, butcher two captured Caprity with the cleaver for four guaranteed meat cuts, then assign a breeder to the Ranch so the passive drop drip continues between hunts.【palwiki-caprity†L135-L182】【palwiki-caprity-meat†L1-L22】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "caprity_meat",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "meat-cleaver"
+        ],
+        "pals": [
+          "caprity"
+        ],
+        "consumables": [
+          "caprity-meat"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 40,
+        "max": 100
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "caprity_meat",
+            "qty": 6
+          }
+        ],
+        "pals": [
+          "caprity"
+        ],
+        "unlocks": {
+          "caprity-meat-stockpile": true
+        }
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-cake"
+        }
+      ],
+      "citations": [
+        "palwiki-caprity†L135-L182",
+        "palwiki-caprity-meat†L1-L22"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "caprity_meat",
+      "qty": 6
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "caprity-meat-stockpile"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-cake",
+      "reason": "Cake kitchens need diverse meats; pair the Caprity ranch drip with poultry and honey loops to keep ovens busy."
+    }
+  ]
+}
+```
+
 ### Route: Small Pal Soul Night Hunts & Crusher Loop
 
 Small Pal Soul Night Hunts & Crusher Loop combines nocturnal Daedream and Nox sweeps near the Small Settlement with Crusher
@@ -26250,6 +26570,18 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-07",
       "notes": "Lists Production Assembly Line recipes converting Coal or Charcoal into Carbon Fiber and documents unlock requirements.【f7ee05†L1-L28】"
     },
+    "palwiki-caprity": {
+      "title": "Caprity – Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Caprity",
+      "access_date": "2025-11-27",
+      "notes": "Provides Caprity drop tables showing two Caprity Meat per defeat and outlines its ranch berry production.【palwiki-caprity†L135-L182】"
+    },
+    "palwiki-caprity-meat": {
+      "title": "Caprity Meat – Palworld Wiki",
+      "url": "https://palworld.wiki.gg/wiki/Caprity_Meat",
+      "access_date": "2025-11-27",
+      "notes": "Details Caprity Meat as a common ingredient dropped by Caprity, its nutrition value, and merchant pricing.【palwiki-caprity-meat†L1-L22】"
+    },
     "palwiki-berry-plantation-raw": {
       "title": "Berry Plantation – Palworld Wiki (raw)",
       "url": "https://palworld.wiki.gg/index.php?title=Berry_Plantation&action=raw",
@@ -26867,6 +27199,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.fandom.com/wiki/Cotton_Candy",
       "access_date": "2025-11-27",
       "notes": "States Cotton Candy is gathered from Woolipop, produced at the Ranch, and never expires between harvests.【palfandom-cotton-candy†L7-L18】"
+    },
+    "palfandom-caprity-habitat": {
+      "title": "Caprity – Palworld Wiki (Fandom) Habitat",
+      "url": "https://palworld.fandom.com/wiki/Caprity",
+      "access_date": "2025-11-27",
+      "notes": "Shows the day and night habitat maps for Caprity, highlighting dense spawns around the Plateau of Beginnings and the Small Settlement grasslands.【palfandom-caprity-habitat†L1-L12】"
     },
     "palfandom-honey": {
       "title": "Honey – Palworld Wiki (Fandom)",

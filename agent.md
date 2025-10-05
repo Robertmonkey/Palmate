@@ -335,3 +335,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Implement the strict mode and temporary-file editing workflow outlined in the postmortem so future bundle edits run against scratch copies before replacing production data.【F:docs/guides-bundle-truncation-postmortem.md†L70-L86】
 2. Build the proposed `scripts/update_guide_catalog.py` helper to encapsulate safe mutations and automatically validate before writing live bundles.【F:docs/guides-bundle-truncation-postmortem.md†L88-L92】
 3. Wire the stricter bundle checks into CI (line-count guard + validator) so truncation attempts fail fast without manual review.【F:docs/guides-bundle-truncation-postmortem.md†L88-L92】
+
+### 2025-11-28 Caprity meat shortage coverage
+
+* Authored the `resource-caprity-meat` route to capture, butcher, and ranch Windswept Hills Caprity so early kitchens gain a guaranteed meat loop with passive ranch output.【F:guides.md†L25191-L25569】
+* Synced the new route into `data/guides.bundle.json` (guide count 240) and registered the shortage catalog card so the UI advertises the Caprity meat path with prep, hunt, and ranching steps.【F:data/guides.bundle.json†L23408-L25108】【F:data/guide_catalog.json†L9496-L9555】
+
+**Continuation notes:**
+
+1. Pull precise Caprity spawn coordinates into the habitat data so the hunt step can surface explicit waypoints instead of the broader Plateau loop (requires map-to-coordinate sourcing).【F:guides.md†L25359-L25441】
+2. Add caprity-specific art IDs or thumbnails to the shortage helper cards once the bundle exposes metadata for custom imagery.【F:data/guide_catalog.json†L9496-L9555】
+3. Verify the new shortage card renders in the production shortages UI after the next bundle promotion and confirm passive ranch output lines surface correctly in helper copy.
