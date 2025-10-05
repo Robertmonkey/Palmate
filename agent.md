@@ -20,6 +20,14 @@ This document describes the responsibilities, workflows and quality assurance st
    * Verify that all citation keys in routes correspond to entries in the source registry.
    * Ensure no placeholder text remains; uncertain information must be explicitly labelled and sourced.
 
+## Guides Bundle Workflow (Updated 2025-11-28)
+
+1. Treat `data/guides.bundle.json` as a derived artifact. Never hand-edit it; author changes in `guides.md` and `data/guide_catalog.json`, then rebuild the bundle.
+2. Run `python3 scripts/regenerate_guides_bundle.py` (optionally with `--dry-run` first) after every guides or catalog change. The script validates the reconstructed payload, compares it to the baseline backup, and performs atomic writes so truncated files cannot land.
+3. When patching individual bundle sections, use `scripts/update_guides_bundle.py` with a JSON patch file. The helper enforces the same validation and loss guards before swapping files.
+4. If regeneration or patching is expected to remove routes, steps, or catalog entries, pass the explicit `--allow-*` flags so the loss guard records the intent.
+5. Commit both the regenerated bundle and the refreshed backup snapshot together so future guard checks have an intact baseline.
+
 ## Research Workflow
 
 1. **Initial Data Collection** – Upon a new patch or when significant game changes are announced, the agent searches official patch notes and community resources to determine what has changed.  Use the browsing tool to access news articles, patch notes and wiki pages.  Use connector APIs for internal data when available (e.g. GitHub, Palmate user feedback).  Document the current game version and update the `verified_at_utc` timestamp.
