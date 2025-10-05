@@ -37,4 +37,5 @@ While adding shortage coverage to `data/guides.bundle.json`, we overwrote the en
 ## Follow-Up Tasks
 - Automate a `scripts/check_guides_bundle.py --strict` mode that also validates a handful of route entries to ensure nested data survives edits.
 - ✅ Replaced the ad-hoc helper with `scripts/update_guides_bundle.py`, which applies structured patches against a temporary copy, reuses the validator’s loss guard, and only swaps the live bundle after all checks pass.
+- ✅ Hardened `scripts/regenerate_guides_bundle.py` so regenerations validate against the loss guard and update the bundle/backup atomically, preventing truncated rewrites from landing again.
 - Add CI coverage to block commits where `data/guides.bundle.json` shrinks below an expected minimum size or fails the strict validator.
