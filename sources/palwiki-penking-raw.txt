@@ -1,0 +1,147 @@
+{{Pal Prev/Next | prevPal =  Pengullet Lux | prevNo = 010b | nextPal =  Penking Lux | nextNo = 011b}}
+{{Pal
+
+|name                   ={{PAGENAME}}
+|no                     =011
+|title                  =Pioneer of the Frozen Sea
+
+|ele1                   =Water
+|ele2                   =Ice
+
+|partnerskill           =Brave Sailor
+|partnerskill_desc      =While fighting together, [[Fire]] [[Pals]] drop more items when defeated.
+|partnerskill_icon      =Drop Boost
+
+| hp                     = 95
+| attack                 = 95
+| attack_melee           = 70
+| defense                = 95
+| support                = 100
+
+| slow_walk_speed        = 50
+| walk_speed             = 110
+| run_speed              = 450
+| ride_sprint_speed      = 600
+| transport_speed        = 280
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 5410
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.48
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 520
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Aqua Gun
+| activeskill7           = Iceberg
+| activeskill15          = Emperor Slide
+| activeskill22          = Cryst Breath
+| activeskill30          = Aqua Burst
+| activeskill40          = Blizzard Spike
+| activeskill50          = Hydro Laser
+
+|kindling               =
+|watering               =2
+|planting               =
+|generating_electricity =
+|handiwork              =2
+|gathering              =
+|lumbering              =
+|mining                 =2
+|medicine_production    =
+|cooling                =2
+|transporting           =2
+|farming                =
+
+| food                  = 8
+| nocturnal             = No
+
+|drop1=Ice Organ 
+|drop1_min=1
+|drop1_max=3
+|drop1_chance=100
+|drop2=Penking Plume
+|drop2_min=1
+|drop2_max=1
+|drop2_chance=50
+|drop3                  = 
+|drop3_min              = 
+|drop3_max              = 
+|drop3_chance           = 
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=2
+|alphadrop1_max=3
+|alphadrop1_chance=100
+|alphadrop2=Ice Organ 
+|alphadrop2_min=1
+|alphadrop2_max=3
+|alphadrop2_chance=100
+|alphadrop3=Penking Plume
+|alphadrop3_min=1
+|alphadrop3_max=1
+|alphadrop3_chance=50
+|alphadrop4=Precious Pelt
+|alphadrop4_min=2
+|alphadrop4_max=3
+|alphadrop4_chance=100
+|alphadrop5=Feathered Hair Band Schematic 4
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=3
+|alphadrop6=Ring of Freight +1
+|alphadrop6_min=1
+|alphadrop6_max=1
+|alphadrop6_chance=2
+
+}}{{paldeck|Surprisingly, it is unrelated to Pengullet. Ever wanting attention, this Pal will strut its stuff for any onlookers. }}
+'''Penking''' (Japanese: '''キャプペン''' ''Cappen'') is a {{i|Water}} / {{i|Ice}} [[Elements|element]] [[Pals|Pal]].
+
+== Appearance ==
+Penking is a penguin-like Pal with a relatively large build. Like the smaller [https://palworld.wiki.gg/wiki/Pengullet Pengullet], its body is primarily blue, with shades of both darker and lighter blues. It has white on its face and neck collar. The tassels over its shoulders are an amber color. Its beak has closer resemblance to various species of water fowl, platypus and Fuack than it does penguins or Pengullets. The top of its head takes the shape of an old captain's hat with a red adornment on top.
+
+== Behavior and habitat ==
+Can be found in Wildlife Sanctuary #1, also show as an Alpha Pal in the Sealed Realm of the Frozen Wings.
+[[File:Penking_Day_Habitat.webp|thumb|Daytime Penking Spawns]]
+[[File:Penking_Night_Habitat.webp|thumb|Nightime Penking Spawns]]
+
+== Utility ==
+{{PAGENAME}} is able to ???.
+
+== History ==
+* [[0.3.1.0]]
+** Alpha Penking now drops [[Ring of Freight +1]].
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.4 to 0.48.
+* [[0.1.2.0]]
+** Introduced.
+
+== Trivia ==
+* The name “Penking” might be a blend of “penguin” and “king.” It could also be inspired by the “King penguin,” a species native to Antarctica.
+* Its Japanese name may come from ''captain'' and ''penguin''.
+* This Pal is #066 in Paldeck on PocketPair [https://x.com/Palworld_EN/status/1764259432760803471 X].
+
+== Media ==
+{{#ev:youtube|fjStSSMSKio|410|inline|Paldeck - No.066 PENKING - Palworld - Gameplay - Pocketpair-2||autoplay=false}}
+<gallery widths="150">
+File:Penking freeze.png|alt=
+File:Penking bis.png
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]
+[[Category:Pals with exclusive Skills]]

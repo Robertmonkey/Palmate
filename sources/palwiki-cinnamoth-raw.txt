@@ -1,0 +1,138 @@
+{{Pal Prev/Next | prevPal =  Incineram Noct | prevNo = 040b | nextPal =  Arsox | nextNo = 042}}
+{{Pal
+
+|name                   ={{PAGENAME}}
+| no                     =041
+| title                  =Butterfly Promenade
+
+| ele1                   =Grass
+| ele2                   =
+
+| partnerskill           =Mysterious Scales
+| partnerskill_desc      =When activated, attacks targeted enemy with Poison Fog.
+| partnerskill_icon      =Attack
+
+| hp                     = 70
+| attack                 = 80
+| attack_melee           = 100
+| defense                = 80
+| support                = 100
+
+| slow_walk_speed        = 30
+| walk_speed             = 150
+| run_speed              = 550
+| ride_sprint_speed      = 700
+| transport_speed        = 350
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 5700
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 490
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Air Cannon
+| activeskill7           = Wind Cutter
+| activeskill15          = Poison Fog
+| activeskill22          = Sand Tornado
+| activeskill30          = Seed Mine
+| activeskill40          = Grass Tornado
+| activeskill50          = Solar Blast
+
+| kindling               =
+| watering               =
+| planting               =2
+| generating_electricity =
+| handiwork              =
+| gathering              =
+| lumbering              =
+| mining                 =
+| medicine_production    =1
+| cooling                =
+| transport              =
+| farming                =
+
+| food                  = 3
+| nocturnal             = No
+
+|drop1=Honey 
+|drop1_min=1
+|drop1_max=1
+|drop1_chance=100
+|drop2=Lettuce Seeds 
+|drop2_min=1
+|drop2_max=1
+|drop2_chance=20
+|drop3=Wheat Seeds 
+|drop3_min=1
+|drop3_max=1
+|drop3_chance=20
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=2
+|alphadrop1_max=4
+|alphadrop1_chance=100
+|alphadrop2=Honey 
+|alphadrop2_min=1
+|alphadrop2_max=1
+|alphadrop2_chance=100
+|alphadrop3=Lettuce Seeds 
+|alphadrop3_min=1
+|alphadrop3_max=1
+|alphadrop3_chance=20
+|alphadrop4=Precious Plume
+|alphadrop4_min=2
+|alphadrop4_max=4
+|alphadrop4_chance=100
+|alphadrop5=Ring of Grass Resistance +1
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=3
+
+}}{{paldeck|Sniffing its scales produces a feeling of unparalleled euphoria. There was some effort to further regulate this byproduct, but the [[Free Pal Alliance]] have vehemently opposed these measures, putting a stop to them.}}
+'''Cinnamoth''' (Japanese: '''パピテフ''' ''Papitefu'') is a {{i|Grass}} [[Elements|element]] [[Pals|Pal]].
+
+== Appearance ==
+Cinnamoth is a small moth-like Pal with a primarily yellow body and orange-yellow wings, the tips of it's feelers and sections of it's wings have purple and white bands, while the lower wingtips of Cinnamoth's wings are a bright yellow, there is also a cream coloured hairy area around it's neck.
+
+== Behavior and habitat ==
+It typically can be seen in groups and will immediately escape upon spotting a player.
+[[File:Cinnamoth_Day_Habitat.webp|thumb|Daytime Cinnamoth Spawns]]
+[[File:Cinnamoth_Night_Habitat.webp|thumb|Nightime Cinnamoth Spawns]]
+
+== Utility ==
+{{PAGENAME}} is able to plant crops and craft medicine at a [[Medieval Medicine Workbench|Medieval]] or [[Electric Medicine Workbench]].
+
+== History ==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.2 to 0.24.
+* [[0.1.2.0]]
+** Introduced.
+
+== Trivia ==
+* [[Bristla]]'s Palpedia entry mentions that it only smiles when a Cinnamoth is drinking its nectar.
+* Its name may come from the words ''cinnamon'' and ''moth''.
+* Its Japanese name might be from “Papillon” and てふてふ (‘‘tefutefu’’), an old kana spelling for “butterfly.”
+
+==Media==
+<gallery widths="150">
+File:Lucky Cinnamoth.webp|Lucky Cinnamoth
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]

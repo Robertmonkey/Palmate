@@ -1,0 +1,141 @@
+{{Pal Prev/Next | prevPal = Gildane | prevNo = 140 | nextPal = Cattiva | nextNo = 002}}
+{{Pal
+| name = Lamball
+| no = 001
+| title = Big Floof
+| ele1 = Neutral
+| ele2 = 
+| partnerskill = Fluffy Shield
+| partnerskill_desc = When activated, equips to the [[player]] and becomes a shield. Sometimes drops [[wool]] when assigned to a [[Ranch]].
+| partnerskill_icon = Defense
+| hp = 70
+| attack = 70
+| attack_melee = 70
+| defense = 70
+| support = 100
+| slow_walk_speed = 23
+| walk_speed = 40
+| run_speed = 400
+| ride_sprint_speed = 550
+| transport_speed = 160
+| stamina = 100
+| work_speed = 100
+| price = 1000
+| receive_damage_rate = 2.0
+| receive_damage_rate_a = 0.48
+| capture_rate_correct = 1.5
+| capture_rate_correct_a = 1.05
+| breeding_rank = 1470
+| passiveskill1 = 
+| passiveskill2 = 
+| passiveskill3 = 
+| passiveskill4 = 
+| activeskill1 = Roly Poly
+| activeskill7 = Air Cannon
+| activeskill15 = Power Shot
+| activeskill22 = Implode
+| activeskill30 = Electric Ball
+| activeskill40 = Power Bomb
+| activeskill50 = Pal Blast
+| kindling = 
+| watering = 
+| planting = 
+| generating_electricity = 
+| handiwork = 1
+| gathering = 
+| lumbering = 
+| mining = 
+| medicine_production = 
+| cooling = 
+| transporting = 1
+| farming = 1
+| food = 2
+| nocturnal = No
+| drop1 = Wool
+| drop1_min = 1
+| drop1_max = 3
+| drop1_chance = 100
+| drop2 = Lamball Mutton
+| drop2_min = 1
+| drop2_max = 1
+| drop2_chance = 100
+| drop3 = 
+| drop3_min = 
+| drop3_max = 
+| drop3_chance = 
+| drop4 = 
+| drop4_min = 
+| drop4_max = 
+| drop4_chance = 
+| drop5 = 
+| drop5_min = 
+| drop5_max = 
+| drop5_chance = 
+| alphadrop1 = Ancient Civilization Parts
+| alphadrop1_min = 1
+| alphadrop1_max = 2
+| alphadrop1_chance = 100
+| alphadrop2 = Wool
+| alphadrop2_min = 1
+| alphadrop2_max = 3
+| alphadrop2_chance = 100
+| alphadrop3 = Lamball Mutton
+| alphadrop3_min = 1
+| alphadrop3_max = 1
+| alphadrop3_chance = 100
+| alphadrop4 = Precious Pelt
+| alphadrop4_min = 1
+| alphadrop4_max = 2
+| alphadrop4_chance = 100
+| alphadrop5 = Ring of Resistance
+| alphadrop5_min = 1
+| alphadrop5_max = 1
+| alphadrop5_chance = 5
+}}{{paldeck|A walk up a hill tends to end with this Pal tumbling back down. This causes it to become dizzy and unable to move, making it easy to capture and kill. As a result, this Pal has tumbled down to the very bottom of the food chain itself.}}
+'''Lamball''' (Japanese: '''モコロン''' ''Mokoron'') is a {{i|Neutral}}-[[Elements|element]] [[Pals|Pal]].
+
+== Characteristics ==
+
+=== Appearance ===
+Lamball is a small, sheep-like bipedal Pal with a spherical body mostly covered with white wool. It also possesses a pair of small yellow horns and two crystals on its chest.
+
+=== Behavior and Habitat ===
+Lamball has a neutral temperament, only attacking if attacked first or if it sees a player attacking another Lamball.
+
+Lamball is commonly found in low-level areas such as the [[Windswept Hills]], the [[Sea Breeze Archipelago]], and [[Forgotten Island]]. It usually spawns in groups of 2 to 4 individuals.[[File:Lamball_Day_Habitat.webp|thumb|Daytime Lamball Spawns]]
+[[File:Lamball_Night_Habitat.webp|thumb|Nightime Lamball Spawns]]
+
+=== Utility ===
+Lamball is a good early base Pal as it possesses both Lvl 1 [[Handiwork]] and Lvl 1 [[Transporting]], allowing it to craft items and build structures as well as transport items to chests. It can also be assigned to a [[Ranch]], where it will slowly produce {{i|Wool}} over time.
+
+While Lamball isn't the best combat Pal, its Fluffy Shield [[Partner Skills|Partner Skill]] could potentially be a life saver in tough situations for lower-leveled players.
+
+== Notes ==
+
+* If a Lamball is constantly attacked, it will not be able to retaliate in any way.
+
+== Trivia ==
+* {{PAGENAME}} was also featured in the [https://youtu.be/lBeJ9IrAKnw Cooking with Pals - Lamb BBQ] animation.
+* [[Chikipi|Chikipi's]] Palpedia entry mentions Lamball as being one of the weakest Pals alongside it.
+** Despite this, Lamball is slightly stronger than [[Chikipi]] and on par with [[Cattiva]].
+* Lamball's English name might come from "lamb" (a young sheep) and "ball".
+* Lamball's Japanese name might come from モコモコ (mokomoko) for "fluffiness" and either 転んだ (koronda) for “to tumble” or コロコロ (korokoro) for "rolling".
+* Lamball is #007 in Paldeck on PocketPair [https://x.com/Palworld_EN/status/1677286340231327744 X].
+
+== History ==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.4 to 0.48.
+* [[0.1.2.0]] 
+** Introduced.
+
+== Media ==
+{{#ev:youtube|HwaMeE-5MCc|410|inline|Paldeck No.007 LAMBALL - Palworld Gameplay Pocketpair||autoplay=false}}
+<gallery widths="150">
+File:Lamball1.webp|Lamball in wild.
+File:Lamball2.webp|Player shearing Lamball as shown in trailer.
+File:Screenshot 4.webp
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]
+[[Category:Pals with exclusive Skills]]

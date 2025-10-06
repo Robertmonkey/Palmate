@@ -1,0 +1,108 @@
+{{Pal Prev/Next | prevPal = Lifmunk | prevNo = 004 | nextPal = Foxparks Cryst | nextNo = 005B}}
+{{Pal
+| name = Foxparks
+| alphatitle = Revealer of Paths
+| image = Foxparks.png
+| no = 005
+| ele1 = Fire
+| drops = {{i|Leather}}<br/>{{i|Flame Organ}}
+| food = 2
+| partnerskill = Huggy Fire
+| psicon =Helping 
+| psdesc = When activated, equips to the player and transforms into a flamethrower.
+| tech = Foxparks's Harness
+| techlevel = 6
+| kindling = 1
+| breedpower = 1400
+|maps=<gallery>
+Foxparks Day Habitat.png|Day
+Foxparks Night Habitat.png|Night
+</gallery>}}
+'''Foxparks''' (Japanese: '''キツネビ''' ''Kitsunebi'') is a {{i|Fire}} [[Elements|element]] [[Pals|Pal]].
+
+== Paldeck Entry==
+{{Paldeck|It is unskilled at controlling fire from the moment it is born and tends to choke on the flames it breathes unintentionally. Foxparks sneezes are one of the leading causes of forest fires.}}
+
+==Biology==
+===Appearance===
+Foxparks is a firey fox pal that is a bright red-orange bearing resemblance to a red fox. Its ears are long with the insides being tan and the ends of the ears are tipped in black. It has eyebrows that are a lighter shade of yellow. On each side of Foxsparks' face, messy tufts of fur are visible. The stomach of Foxsparks like the inside of its ears are tan. It has a large bushy tail that like its ears, is tipped with a black pattern. A prominent feature on Foxsparks is being engulfed with flames that cover over its legs and the tip of its tail. The eyes of Foxparks come a crimson red color.
+===Behavior===
+This Pal is a fairly timid creature that will usually flee away upon sighting a player. It is usually found travelling alone or in pairs.
+
+==Availability ==
+===Wild Spawn===
+
+* [[Windswept Hills]]
+
+===[[Dungeons]]===
+* [[Dungeons#Grass Dungeons|Grass Dungeon Boss]]
+<div class="mw-collapsible mw-collapsed">
+===Breeding===
+<div class="mw-collapsible-content">
+{{Cols|2|{{Breeding|Foxparks}}}}
+</div>
+</div>
+
+==Stats==
+{{Pal Table Stats
+|hp = 65
+|attack = 75
+|defense = 70
+|min_hp = 2562
+|max_hp = 3098
+|min_attack = 409
+|max_attack = 502
+|min_defense = 338
+|max_defense = 425
+}}
+
+==Elemental Effectiveness==
+{{Pal Element Effect|type=fire}}
+
+==Utility==
+'''[[Partner Skills|Partner Skill]]:'''  
+*Huggy Fire - When activated, equips to the player and transform into a flamethrower. (Requires [[Foxparks's Harness]]→ Unlocks at Lv. 6)
+
+'''[[Work Suitability]]:'''
+*{{I|Kindling}} 1
+
+'''Possible Drops:''' 
+*Normal 
+**{{i|Leather}}
+**{{i|Flame Organ}}
+*Boss
+**{{i|Ancient Civilization Parts}}
+**{{i|Leather}}
+**{{i|Flame Organ}}
+**{{i|Precious Pelt}}
+**{{i|Ring of Flame Resistance}}
+
+==Active Skills==
+{{PalSkillListStart}}
+{{PalSkillListEntry+|Ignis Blast|level=1}}
+{{PalSkillListEntry+|Sand Blast|level=7}}
+{{PalSkillListEntry+|Spirit Fire|level=15}}
+{{PalSkillListEntry+|Flare Arrow|level=22}}
+{{PalSkillListEntry+|Ignis Breath|level=30}}
+{{PalSkillListEntry+|Spirit Flame|level=40}}
+{{PalSkillListEntry+|Fire Ball|level=50}}
+{{PalSkillListEnd}}
+
+==Update History== 
+*[[Early Access 0.1.2.0]]
+**Introduced.
+
+==Trivia==
+* This Pal may take inspiration from Japanese folklore about foxes gaining supernatural abilities as they age, including the ability to wield fire. As such, its Japanese name is a combination of the Japanese term used for foxes in general and 火 ''bi'' (fire)
+* The name Foxparks may come from the words ''fox ''and ''sparks''.
+* Foxparks was featured in Paldeck No.001 on PocketPair [https://x.com/Palworld_EN/status/1669676196957659137 X] and [https://www.youtube.com/watch?v=D0Ds7F9If6o youtube channel].
+
+==Gallery==
+<gallery>
+File:Paldeck - No.001 FOXPARKS - Palworld - Gameplay - Pocketpair
+File:Foxparks held.png| Player holding Foxsparks with Huggy Fire
+File:Foxparks flamethrower.jpeg| Huggy Fire flamethrower
+File:Foxparks1.png|Foxparks in trailer 
+</gallery>
+
+{{Navbox Pals}}

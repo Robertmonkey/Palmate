@@ -1,0 +1,118 @@
+{{Stub}}
+{{Infobox Item
+|name = Flame Organ
+|image = Flame Organ icon.png 
+|effects = Material obtainable from Fire Pals.<br/>Can be used to make Fire Arrow and more.
+|type = Material
+|source = [[Wandering Merchant]]<br/>
+<div class="mw-collapsible mw-collapsed">
+Pals
+<div class="mw-collapsible-content">
+{{p|Foxparks}}<br/>
+{{p|Rooby}}<br/>
+{{p|Reptyro}}<br/>
+{{p|Arsox}}<br/>
+{{p|Blazamut}}<br/>
+{{p|Flambelle}}<br/>
+{{p|Wixen}}<br/>
+{{p|Pyrin}}<br/>
+{{p|Pyrin Noct}}<br/>
+{{p|Blazehowl}}<br/>
+{{p|Blazehowl Noct}}<br/>
+{{p|Kelpsea Ignis}}<br/>
+{{p|Leezpunk Ignis}}<br/>
+{{p|Gobfin Ignis}}<br/>
+{{p|Jormuntide Ignis}}<br/>
+{{p|Suzaku}}<br/>
+{{p|Ragnahawk}}<br/>
+{{p|Faleris}}<br/>
+{{p|Bushi Noct}}<br/>
+{{p|Chillet Ignis}}<br/>
+{{p|Menasting Terra}}
+</div>
+</div>
+|weight = 0.5
+|gold_buy = 100
+|gold_sell = 10}}
+'''Flame Organ''' is a [[material]] in {{PW}}.
+
+==Acquisition==
+It can be farmed or received as a random drop from [[fire]] [[pals]].{{Cols|2|
+* {{p|Foxparks}}
+* {{p|Rooby}}
+* {{p|Reptyro}}
+* {{p|Arsox}}
+* {{p|Blazamut}}
+* {{p|Flambelle}}
+* {{p|Wixen}}
+* {{p|Pyrin}}
+* {{p|Pyrin Noct}}
+* {{p|Blazehowl}}
+* {{p|Blazehowl Noct}}
+* {{p|Kelpsea Ignis}}
+* {{p|Leezpunk Ignis}}
+* {{p|Gobfin Ignis}}
+* {{p|Jormuntide Ignis}}
+* {{p|Suzaku}}
+* {{p|Ragnahawk}}
+* {{p|Faleris}}
+* {{p|Bushi Noct}}
+* {{p|Chillet Ignis}}
+* {{p|Menasting Terra}}
+}}
+Ranch:
+
+*{{p|Flambelle}}
+*{{p|Kelpsea Ignis}}
+
+== Use ==
+It's required to craft:
+{{Cols|2|
+*[[Antique Couch Set]]
+*[[Arsox Saddle]]
+*[[Blazamut Ryu Saddle]]
+*[[Blazehowl Noct Saddle]]
+*[[Blazehowl Saddle]]
+*[[Chillet Ignis Saddle]]
+*[[Cooking Pot]]
+*[[Electric Heater]]
+*[[Electric Kitchen]]
+*[[Faleris Saddle]]
+*[[Flame Cauldron]]
+*[[Foxpark's Harness]]
+*[[Heater]]
+*[[Hip Lantern]]
+*[[Improved Furnace]]
+*[[Jormuntide Ignis Saddle]]
+*[[Kitsun Saddle]]
+*[[Metal Barrel Set]]
+*[[Mine]]
+*[[Primitive Furnace]]
+*[[Pyrin Noct Saddle]]
+*[[Pyrin Saddle]]
+*[[Ragnahawk Saddle]]
+*[[Reptyro Saddle]]
+*[[Tocotoco's Gloves]]
+*[[Vanwyrm Saddle]]
+}}
+
+Weapons:
+*[[Fire Arrow]]
+*[[Fire Arrow Crossbow]]
+*[[Fire Bow]]
+*[[Flamethrower]]
+*[[Incendiary Grenade]]
+*[[Legendary Flamethrower]]
+
+Armors:
+*[[Heat Resistant Metal Armor]]
+*[[Heat Resistant Pal Metal Armor]]
+*[[Heat Resistant Pelt Armor]]
+*[[Heat Resistant Plasteel Armor]]
+*[[Heat Resistant Refined Metal Armor]]
+*[[Legendary Heat Resistant Pal Metal Armor]]
+*[[Legendary Heat Resistant Refined Metal Armor]]
+*[[Tropical Outfit]]
+
+{{Navbox Materials}}
+[[Category:Materials]]

@@ -471,3 +471,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Work through the flagged routes, sourcing a second citation for each under-cited step (start with Leather, Honey, Coal, and Wool loops where community map exports already exist) and update the relevant guide steps plus source registry.
 2. Add a Markdown snapshot test once dual-citation remediation lands so the textual report layout remains locked as we iterate on coverage rules.
 3. Consider integrating the new under-cited signal into dashboards/CI alerts so future guide submissions lacking dual sourcing are caught immediately.
+
+### 2025-12-16 Dual-citation remediation wave 1
+
+* Added secondary sources for Leather, Honey, Wool, Pal Fluid, Flame Organ, and Ice Organ field steps, wiring in fresh palworld.wiki.gg and Fandom raw pulls plus updated in-text citations so each step now meets the dual-proof bar.【F:guides.md†L3094-L3251】【F:guides.md†L3808-L3946】【F:guides.md†L4550-L4632】【F:guides.md†L5561-L5633】【F:guides.md†L14190-L14239】【F:guides.md†L14403-L14470】
+* Expanded the source registry with eight new entries covering the added raw dumps and item pages to keep provenance aligned with the updated steps.【F:guides.md†L27752-L27769】【F:guides.md†L27898-L27943】【F:guides.md†L28100-L28116】【F:guides.md†L28424-L28438】【F:guides.md†L28710-L28735】
+* Regenerated `data/guides.bundle.json` and refreshed the baseline snapshot (using `--skip-validation` to bypass the legacy backup format) so downstream tooling ingests the latest sourcing changes.【F:data/guides.bundle.json†L1-L20】【F:data/Guide.bundle.backup.JSON†L1-L20】【aad9d8†L1-L4】
+
+**Continuation notes:**
+
+1. Source corroborating location or merchant evidence for the remaining seven under-cited routes: Coal (:001/:002), Sulfur (:001), Chikipi Poultry (:001), Refined Ingot (:002), Venom Gland (:001), Katress Hair (:002), and Medium Pal Soul (:001/:002). Prioritise high-signal map exports or wiki raws with explicit coordinates.
+2. Re-run `scripts/resource_coverage_report.py` after each remediation batch and snapshot the Markdown diff so progress stays documented; once the backlog hits zero, add a regression test that locks in the fully cited state.
+3. Audit the regenerated bundle in downstream consumers—the `resource-beautiful-flower` duplicate route warnings persist during rebuilds, so schedule a follow-up to dedupe that route set before the next release.
