@@ -366,3 +366,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Source two independent coordinate citations for each flagged route—focus on Polymer (`resource-polymer:002`) and Pal Metal Ingot (`resource-pal-metal-ingot:004`) so late-game alloys no longer rely on prose-only guidance.
 2. Backfill volcanic and nocturnal sweep coordinates for Flame Organ and Katress Hair, then rerun the coverage report to confirm the warnings clear and update `agent.md` backlog entries accordingly.
 3. Evaluate adding a schema flag for intentionally base-only steps so future lint runs can ignore legitimate [0,0] locations without manual suppression once the outstanding gaps are patched.
+
+### 2025-12-06 Base field exemption + coverage instrumentation refresh
+
+* Added a per-step `location_policy` opt-out (currently using the `base-only` value) so legitimate base automation steps stop inflating coordinate debt; the resource respawn primer now declares the exemption in both the guide and regenerated bundle.【F:guides.md†L26808-L26833】【F:data/guides.bundle.json†L26372-L26405】
+* Extended `scripts/resource_coverage_report.py` to surface coordinate exemptions alongside remaining gaps and emit them in text/Markdown/CSV outputs, including CSV tagging so planners can audit why a field is skipped.【F:scripts/resource_coverage_report.py†L14-L248】
+* Coverage report now highlights four outstanding coordinate debts (Polymer, Pal Metal Ingot, Flame Organ, Katress Hair) and one intentional exemption, giving shortages triage a cleaner signal.【0002f3†L1-L9】
+
+**Continuation notes:**
+
+1. Backfill real map coordinates (with dual sourcing) for the four remaining flagged routes and remove their exemptions once waypoints are verified—prioritise Polymer oil sweeps and Astegon/Necromus hunt loops.
+2. Decide whether to formalise additional `location_policy` values (e.g., `dungeon-instance`, `simulation-only`) so future analyses can differentiate between truly base-bound steps and those that still need precise coordinates.
+3. Capture a regression test (unit or snapshot) for the coverage report’s CSV so the new exemption rows stay stable when more policies are introduced.

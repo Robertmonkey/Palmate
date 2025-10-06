@@ -26049,6 +26049,7 @@ Innovative Technical Manual Vault Sweep chains Iceberg Cave, No. 3 Wildlife Sanc
           "weather": "any"
         }
       ],
+      "location_policy": "base-only",
       "mode_adjustments": {
         "coop": {
           "role_splits": [
@@ -26832,6 +26833,7 @@ Resource Respawn Timer Field Guide maps the default 30-minute node respawns, doc
           "weather": "any"
         }
       ],
+      "location_policy": "base-only",
       "mode_adjustments": {
         "coop": {
           "role_splits": [
