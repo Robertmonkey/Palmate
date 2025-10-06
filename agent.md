@@ -389,3 +389,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Secure a second coordinate source for the Quivern/Wumpo sanctuary loop (interactive map export or coverage article) so the step maintains dual-source resilience; update both the guide and source registry when available.
 2. Re-run `scripts/resource_coverage_report.py --format csv` after the next citation lands to confirm Polymer drops off the coordinate debt list and document the change in this section.
 3. Audit other High Quality Pal Oil contributors (e.g., Dumud desert spawns, Elphidran patrols) for map coverage once reliable coordinates surface, ensuring the route offers at least one grounded alternative beyond the sanctuary sweep for Hardcore raiders.
+
+### 2025-12-10 Pal Metal elite hunt coordinate sweep
+
+* Enriched `resource-pal-metal-ingot:004` with concrete hunt coordinates across Mount Obsidian (-578,-418), No. 3 Wildlife Sanctuary (-615,-429 and 669,640), and the Astral Mountains (445,680) so the late-game alloy loop now points raiders directly to each legendary Pal spawn.【F:guides.md†L12695-L12743】
+* Registered Fandom support sources for Astegon, Paladius, and Shadowbeak and reused the Alpha Pals coordinate registry, giving the hunt step dual citations that cover dungeon, overworld, and sanctuary rotations.【F:guides.md†L27951-L27968】
+* Added multi-location metadata to the hunt step, enabling coverage tooling to recognise every legendary sweep instead of flagging the route for missing coordinates.【F:guides.md†L12715-L12743】
+
+**Continuation notes:**
+
+1. Source a second coordinate-grade reference for the Astral Mountains Necromus/Paladius duo (e.g., annotated map export or guide with explicit (445,680) callout) so both the detail string and metadata rest on independent proofs.
+2. Track down a numeric Shadowbeak coordinate reference beyond the sanctuary infobox to complement the island-level latitude/longitude now captured from the wiki.
+3. Re-run `scripts/resource_coverage_report.py` after locking those citations to confirm the route drops off the outstanding resource coverage debt list and capture the before/after diff for records.

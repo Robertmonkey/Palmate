@@ -12702,7 +12702,7 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
       "step_id": "resource-pal-metal-ingot:004",
       "type": "hunt",
       "summary": "Farm elite Pal Metal drops",
-      "detail": "Rotate Astegon, Necromus, Paladius, and Shadowbeak hunts so guaranteed Pal Metal drops top off alloy storage between furnace cycles.【fandom-pal-metal-ingot†L1-L4】",
+      "detail": "Rotate Astegon, Necromus, Paladius, and Shadowbeak hunts so guaranteed Pal Metal drops top off alloy storage between furnace cycles. Dive the Destroyed Mineshaft under Mount Obsidian (-578,-418) for the alpha Astegon, loop No. 3 Wildlife Sanctuary's overworld spawn at (-615,-429), then sweep the Astral Mountains plateau where Necromus and Paladius patrol together at (445,680) before tagging Shadowbeak circuits across Sanctuary No.3 around (669,640).【palfandom-astegon†L1-L4】【palwiki-alpha-pals†L84-L108】【palfandom-paladius†L1-L2】【palwiki-wildlife-sanctuary-3†L1-L12】【palfandom-shadowbeak†L1-L2】",
       "targets": [
         {
           "kind": "pal",
@@ -12722,10 +12722,37 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
       ],
       "locations": [
         {
+          "region_id": "mount-obsidian",
+          "coords": [
+            -578,
+            -418
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "wildlife-sanctuary-3",
+          "coords": [
+            -615,
+            -429
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
           "region_id": "astral-mountain",
           "coords": [
-            0,
-            0
+            445,
+            680
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "wildlife-sanctuary-3",
+          "coords": [
+            669,
+            640
           ],
           "time": "any",
           "weather": "any"
@@ -12762,6 +12789,11 @@ Pal Metal Alloy Grid upgrades your forge to electric tier, loops ore and Paldium
       },
       "branching": [],
       "citations": [
+        "palfandom-astegon",
+        "palwiki-alpha-pals",
+        "palfandom-paladius",
+        "palwiki-wildlife-sanctuary-3",
+        "palfandom-shadowbeak",
         "fandom-pal-metal-ingot"
       ]
     }
@@ -27954,6 +27986,24 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/wiki/Alpha_Pals",
       "access_date": "2025-10-31",
       "notes": "Details alpha respawn timing, overworld boss coordinates, and sealed realm encounters that drop Precious Dragon Stones.【palwiki-alpha-pals†L1-L108】"
+    },
+    "palfandom-astegon": {
+      "title": "Astegon – Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Astegon",
+      "access_date": "2025-12-10",
+      "notes": "States the alpha Astegon waits inside the Destroyed Mineshaft at Mount Obsidian (-578,-418) while additional spawns roam No. 3 Wildlife Sanctuary.【palfandom-astegon†L1-L4】"
+    },
+    "palfandom-paladius": {
+      "title": "Paladius – Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Paladius",
+      "access_date": "2025-12-10",
+      "notes": "Explains Paladius fights alongside Necromus, sleeping nearby until damaged, confirming their paired overworld encounter.【palfandom-paladius†L1-L2】"
+    },
+    "palfandom-shadowbeak": {
+      "title": "Shadowbeak – Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Shadowbeak",
+      "access_date": "2025-12-10",
+      "notes": "Confirms Shadowbeak only roams inside No. 3 Wildlife Sanctuary, reinforcing the sanctuary sweep path.【palfandom-shadowbeak†L1-L2】"
     },
     "palwiki-helzephyr-raw": {
       "title": "Helzephyr – Palworld Wiki (raw)",
