@@ -1,0 +1,92 @@
+[
+  {
+    "mapId": "パルパゴス島",
+    "id": "1005",
+    "loc": [
+      -42.75,
+      15.48
+    ],
+    "type": "fasttravel",
+    "name": "草巨獣の丘陵",
+    "pinImage": "https://img.gamewith.jp/img/b90737ecb870312a867f4b4573b7c638.png,https://img.gamewith.jp/img/original_b90737ecb870312a867f4b4573b7c638.png",
+    "articleUrl": "https://gamewith.jp/palworld/433599",
+    "overrideIcon": "",
+    "originalID": "1005"
+  },
+  {
+    "mapId": "パルパゴス島",
+    "id": "1009",
+    "loc": [
+      -38.07,
+      10.62
+    ],
+    "type": "fasttravel",
+    "name": "レイン密猟団の塔 入口",
+    "pinImage": "https://img.gamewith.jp/img/8391c26734779725360214549f01a379.png,https://img.gamewith.jp/img/original_8391c26734779725360214549f01a379.png",
+    "articleUrl": "https://gamewith.jp/palworld/433599",
+    "overrideIcon": "",
+    "originalID": "1009"
+  },
+  {
+    "mapId": "パルパゴス島",
+    "id": "1032",
+    "loc": [
+      -33.57,
+      -1.08
+    ],
+    "type": "fasttravel",
+    "name": "双騎士の大橋",
+    "pinImage": "https://img.gamewith.jp/img/7a0d9d342815e492af70ecdb1e851f43.png,https://img.gamewith.jp/img/original_7a0d9d342815e492af70ecdb1e851f43.png",
+    "articleUrl": "https://gamewith.jp/palworld/433599",
+    "overrideIcon": "",
+    "originalID": "1032"
+  },
+  {
+    "mapId": "パルパゴス島",
+    "id": "6004",
+    "loc": [
+      -17.468994140625,
+      -3.390625
+    ],
+    "type": "captured",
+    "articleUrl": "https://gamewith.jp/palworld/433948",
+    "overrideIcon": "",
+    "originalID": "6004"
+  },
+  {
+    "mapId": "パルパゴス島",
+    "id": "6005",
+    "loc": [
+      -27.1563110351562,
+      1.41015625
+    ],
+    "type": "captured",
+    "articleUrl": "https://gamewith.jp/palworld/433948",
+    "overrideIcon": "",
+    "originalID": "6005"
+  },
+  {
+    "mapId": "パルパゴス島",
+    "id": "6006",
+    "loc": [
+      -36.8359985351562,
+      10.65234375
+    ],
+    "type": "captured",
+    "articleUrl": "https://gamewith.jp/palworld/433948",
+    "overrideIcon": "",
+    "originalID": "6006"
+  },
+  {
+    "mapId": "パルパゴス島",
+    "id": "6007",
+    "loc": [
+      -44.6563110351562,
+      3.35546875
+    ],
+    "type": "captured",
+    "articleUrl": "https://gamewith.jp/palworld/433948",
+    "overrideIcon": "",
+    "originalID": "6007"
+  }
+]

@@ -1371,10 +1371,28 @@ basic stations, create Pal Spheres and capture their first companions.
         {
           "region_id": "windswept-hills",
           "coords": [
-            0,
-            0
+            82,
+            -379
           ],
           "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            112,
+            -434
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            69,
+            -517
+          ],
+          "time": "night",
           "weather": "any"
         }
       ],
@@ -1447,10 +1465,28 @@ basic stations, create Pal Spheres and capture their first companions.
         {
           "region_id": "windswept-hills",
           "coords": [
-            0,
-            0
+            82,
+            -379
           ],
           "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            112,
+            -434
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            69,
+            -517
+          ],
+          "time": "night",
           "weather": "any"
         }
       ],
@@ -1494,10 +1530,28 @@ basic stations, create Pal Spheres and capture their first companions.
         {
           "region_id": "windswept-hills",
           "coords": [
-            0,
-            0
+            82,
+            -379
           ],
           "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            112,
+            -434
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            69,
+            -517
+          ],
+          "time": "night",
           "weather": "any"
         }
       ],
@@ -13999,7 +14053,7 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
       "step_id": "resource-flame-organ:001",
       "type": "travel",
       "summary": "Sweep the Foxparks ridge",
-      "detail": "Warp to Grassy Behemoth Hills, sprint toward Rayne Syndicate Tower Entrance, and clear Foxparks along the ridge before fast travelling home to reset.【5531dc†L2-L6】",
+      "detail": "Warp to Grassy Behemoth Hills (~82,-379), sprint toward Rayne Syndicate Tower Entrance (~112,-434), and clear Foxparks along the ridge south of the Small Settlement (~69,-517) before fast travelling home to reset.【5531dc†L2-L6】【gamewith-pin-windswept†L1-L92】",
       "targets": [
         {
           "kind": "item",
@@ -14011,10 +14065,28 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
         {
           "region_id": "windswept-hills",
           "coords": [
-            0,
-            0
+            82,
+            -379
           ],
           "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            112,
+            -434
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "windswept-hills",
+          "coords": [
+            69,
+            -517
+          ],
+          "time": "night",
           "weather": "any"
         }
       ],
@@ -14049,7 +14121,8 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
       },
       "branching": [],
       "citations": [
-        "progameguides-flame-organ"
+        "progameguides-flame-organ",
+        "gamewith-pin-windswept"
       ]
     },
     {
@@ -14999,7 +15072,7 @@ Secure Katress Hair for witch gear and speed remedies by chaining Moonless Shore
       "step_id": "resource-katress-hair:001",
       "type": "combat",
       "summary": "Hunt Moonless Shore Katress",
-      "detail": "Circle Moonless Shore and Verdant Brook after dusk; Katress only spawn at night and have about a 50% chance to drop Katress Hair alongside leather.【palnerd-katress-hair†L1-L20】【palwiki-katress-hair†L1-L10】",
+      "detail": "Circle Moonless Shore and Verdant Brook after dusk; Katress only spawn at night around (~183,-539) and (~246,-593) and have about a 50% chance to drop Katress Hair alongside leather.【palnerd-katress-hair†L1-L20】【palwiki-katress-hair†L1-L10】【gamewith-pin-windswept†L45-L92】",
       "targets": [
         {
           "kind": "item",
@@ -15011,8 +15084,17 @@ Secure Katress Hair for witch gear and speed remedies by chaining Moonless Shore
         {
           "region_id": "moonless-shore",
           "coords": [
-            0,
-            0
+            183,
+            -539
+          ],
+          "time": "night",
+          "weather": "any"
+        },
+        {
+          "region_id": "verdant-brook",
+          "coords": [
+            246,
+            -593
           ],
           "time": "night",
           "weather": "any"
@@ -15066,7 +15148,8 @@ Secure Katress Hair for witch gear and speed remedies by chaining Moonless Shore
       "citations": [
         "palnerd-katress-hair",
         "gameleap-katress",
-        "palwiki-katress-hair"
+        "palwiki-katress-hair",
+        "gamewith-pin-windswept"
       ]
     },
     {
@@ -27776,6 +27859,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://www.gameleap.com/articles/how-to-get-katress-in-palworld-location-drops-breeding-combos",
       "access_date": "2025-10-14",
       "notes": "Highlights Moonless Shore and Verdant Brook night hunts plus recommended breeding pairs for Katress eggs.【725fb4†L1-L24】"
+    },
+    "gamewith-pin-windswept": {
+      "title": "GameWith Interactive Map Pin Data – Windswept Hills & Moonless Shore",
+      "url": "https://raw.githubusercontent.com/fa0311/palworld-map/main/public/pin_data.json",
+      "access_date": "2025-12-09",
+      "notes": "Extracted GameWith map pin entries for Grassy Behemoth Hills (1005), Rayne Syndicate Tower Entrance (1009), Bridge of the Twin Knights (1032), and Moonless Shore/Verdant Brook captures (6004–6007) with `loc` pairs used to derive in-game coordinates.【gamewith-pin-windswept†L1-L92】"
     },
     "game8-large-pal-soul": {
       "title": "How to Get Large Pal Soul: All Recipes and Effects  | Palworld【Game8】",
