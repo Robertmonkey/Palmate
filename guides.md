@@ -6524,7 +6524,7 @@ Polymer production ties together high-level tech: unlock the assembly line, farm
       "step_id": "resource-polymer:002",
       "type": "farm",
       "summary": "Farm High Quality Pal Oil",
-      "detail": "Capture Dumud or other listed Pals and station them at a Ranch to generate High Quality Pal Oil, supplementing with merchant purchases as needed.【palwiki-high-quality-pal-oil†L1-L8】",
+      "detail": "Fast travel to Duneshelter (357,347) to buy 300G High Quality Pal Oil, sweep No. 2 Wildlife Sanctuary (-675,-113) for Quivern or Wumpo drops, then restock at the Small Settlement (75,-479) before parking Dumud on the ranch so oil keeps dripping between sorties.【palwiki-high-quality-pal-oil†L1-L28】【palwiki-duneshelter†L506-L517】【palwiki-wildlife-sanctuary-2†L1-L27】【palwiki-small-settlement-raw†L1-L16】",
       "targets": [
         {
           "kind": "item",
@@ -6534,10 +6534,28 @@ Polymer production ties together high-level tech: unlock the assembly line, farm
       ],
       "locations": [
         {
+          "region_id": "desiccated-desert",
+          "coords": [
+            357,
+            347
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "wildlife-sanctuary-2",
+          "coords": [
+            -675,
+            -113
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
           "region_id": "windswept-hills",
           "coords": [
-            0,
-            0
+            75,
+            -479
           ],
           "time": "any",
           "weather": "any"
@@ -6583,7 +6601,10 @@ Polymer production ties together high-level tech: unlock the assembly line, farm
       },
       "branching": [],
       "citations": [
-        "palwiki-high-quality-pal-oil"
+        "palwiki-high-quality-pal-oil",
+        "palwiki-duneshelter",
+        "palwiki-wildlife-sanctuary-2",
+        "palwiki-small-settlement-raw"
       ]
     },
     {
