@@ -85,7 +85,7 @@ Key confirmations from the review:
 
 ### Backlog (Confirm Against `routeGuideData.resourceGuideGaps` Before Starting)
 
-* High-priority shortages requiring follow-up work: **Polymer** (field step lacks mapped coordinates), **Pal Metal Ingot** (Alpha/ore rotation coordinates), **Flame Organ** (volcano node coordinates), **Katress Hair** (nighttime alley sweep coordinates), **Resource Respawn Timers** (baseline logging path coordinates), **Sanctuary-exclusive drops (e.g., Lyleen Noct hair, Sibelyx Ignis cloth)**.
+* High-priority shortages requiring follow-up work: **Polymer** (field loop now mapped to Duneshelter merchants and Sanctuary No. 2 spawns; still need an interactive map citation for Quivern patrol clusters), **Pal Metal Ingot** (Alpha/ore rotation coordinates), **Flame Organ** (volcano node coordinates), **Katress Hair** (nighttime alley sweep coordinates), **Resource Respawn Timers** (baseline logging path coordinates), **Sanctuary-exclusive drops (e.g., Lyleen Noct hair, Sibelyx Ignis cloth)**.
 * Secondary targets once two independent citations are secured: **Milk auxiliary spawns**, **Seed restock timers (Tomato/Lettuce/Berry)**, **Elite alpha respawn timers for gemstone loops**, **Automation throughput benchmarks for Assembly Line/Power Grid resources**, **Merchant restock timing references**.
 
 Update this backlog whenever a guide ships or when a data source becomes available, and archive stale TODOs with reasoning if a resource becomes obsolete or its shortages are resolved by upstream patches.
@@ -378,3 +378,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Backfill real map coordinates (with dual sourcing) for the four remaining flagged routes and remove their exemptions once waypoints are verified—prioritise Polymer oil sweeps and Astegon/Necromus hunt loops.
 2. Decide whether to formalise additional `location_policy` values (e.g., `dungeon-instance`, `simulation-only`) so future analyses can differentiate between truly base-bound steps and those that still need precise coordinates.
 3. Capture a regression test (unit or snapshot) for the coverage report’s CSV so the new exemption rows stay stable when more policies are introduced.
+
+### 2025-12-07 Polymer oil field coordinate patch
+
+* Updated `resource-polymer:002` so the farm step now anchors to Duneshelter (357,347), No. 2 Wildlife Sanctuary (-675,-113), and the Small Settlement (75,-479) with explicit coordinates wired into the guide metadata and regenerated bundle, clearing the primary backlog note that the loop lacked mapped waypoints.【F:guides.md†L6524-L6564】【F:data/guides.bundle.json†L5548-L5632】
+* Expanded the step narration with sourcing for merchant pricing and sanctuary hunts, backing the coordinates with Palworld Wiki citations and leaving the automation flow intact so shortages UI consumers receive location-aware guidance immediately after bundle promotion.【F:guides.md†L6524-L6564】
+
+**Continuation notes:**
+
+1. Secure a second coordinate source for the Quivern/Wumpo sanctuary loop (interactive map export or coverage article) so the step maintains dual-source resilience; update both the guide and source registry when available.
+2. Re-run `scripts/resource_coverage_report.py --format csv` after the next citation lands to confirm Polymer drops off the coordinate debt list and document the change in this section.
+3. Audit other High Quality Pal Oil contributors (e.g., Dumud desert spawns, Elphidran patrols) for map coverage once reliable coordinates surface, ensuring the route offers at least one grounded alternative beyond the sanctuary sweep for Hardcore raiders.
