@@ -436,3 +436,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Unblock access to the broader GameWith `pin_data` payload (current unauthenticated requests return 404) so Mount Obsidian and Astral Mountain control points can be appended; once retrieved, drop the raw JSON excerpt into `sources/gamewith-pin-data-snippet.json` and log provenance in `sources/README`.
 2. Use the new Palmate JSON output to stage coordinate snippets for late-game hunt routes—target Astegon, Paladius, and Shadowbeak loops first—then wire them into `guides.md` with dual citations and regenerate the bundle.
 3. Feed the residual CSVs into a simple regression tracker (spreadsheet or scripted summary) so we can flag drift when new calibration regions enter; consider flagging thresholds in `resource_coverage_report` once more than two regions are online.
+
+### 2025-12-13 Precious Pelt alpha coverage
+
+* Authored the `resource-precious-pelt` route with staging, Sealed Realm, and sanctuary alpha steps so shortages tooling now surfaces a dedicated pelt farming circuit with coordinates, dual citations, and adaptive guidance.【F:guides.md†L23682-L24043】
+* Registered Precious Pelt in the items ontology, expanded the source registry with Fandom and wiki.gg excerpts, and appended a shortage catalog entry so regenerated bundles keep the menu in sync.【F:guides.md†L366-L368】【F:guides.md†L28561-L28576】【F:guides.md†L27865-L27874】【F:data/guide_catalog.json†L8120-L8194】
+* Regenerated `data/guides.bundle.json` plus the baseline snapshot and confirmed the coverage report still reads zero gaps after the new route landed.【F:data/guides.bundle.json†L1-L40】【a7d43e†L1-L16】
+
+**Continuation notes:**
+
+1. Source a second coordinate-grade citation for the overworld Astegon and Blazamut hunts (interactive atlas, annotated video, or GameWith scrape) so sanctuary loop steps carry dual evidence instead of leaning on a single Fandom table.
+2. Document reliable merchant or quest sinks that specifically consume Precious Pelts; once confirmed, add an optional trade/sales step and update the catalog trigger text to spotlight downstream uses beyond raw gold.
+3. Audit other sanctuary-only sale items (Precious Claw, Precious Entrails) and queue follow-up routes so late-game currency loops cover the full set of rare drops.
