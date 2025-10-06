@@ -69,6 +69,7 @@ class ResourceRoute:
     citations: tuple[str, ...]
     field_step_ids: tuple[str, ...]
     missing_field_step_ids: tuple[str, ...]
+    exempt_field_step_ids: tuple[str, ...]
 
 
 @dataclass(frozen=True)
@@ -91,7 +92,9 @@ def parse_resource_routes(markdown: str) -> List[ResourceRoute]:
         if isinstance(route_id, str) and route_id.startswith("resource-"):
             title = payload.get("title", "")
             citations = tuple(_extract_citations(payload))
-            field_ids, missing_field_ids = _analyse_field_location_gaps(payload)
+            field_ids, missing_field_ids, exempt_ids = _analyse_field_location_gaps(
+                payload
+            )
             routes.append(
                 ResourceRoute(
                     route_id=route_id,
@@ -99,6 +102,7 @@ def parse_resource_routes(markdown: str) -> List[ResourceRoute]:
                     citations=citations,
                     field_step_ids=tuple(field_ids),
                     missing_field_step_ids=tuple(missing_field_ids),
+                    exempt_field_step_ids=tuple(exempt_ids),
                 )
             )
     return routes
@@ -128,13 +132,16 @@ def _extract_citations(payload: dict) -> list[str]:
     return citations
 
 
-def _analyse_field_location_gaps(payload: dict) -> tuple[List[str], List[str]]:
+def _analyse_field_location_gaps(
+    payload: dict,
+) -> tuple[List[str], List[str], List[str]]:
     steps = payload.get("steps")
     if not isinstance(steps, list):
-        return [], []
+        return [], [], []
 
     field_ids: List[str] = []
     missing_ids: List[str] = []
+    exempt_ids: List[str] = []
     for step in steps:
         if not isinstance(step, dict):
             continue
@@ -144,9 +151,13 @@ def _analyse_field_location_gaps(payload: dict) -> tuple[List[str], List[str]]:
         if not _is_field_step(step):
             continue
         field_ids.append(step_id)
+        location_policy = str(step.get("location_policy", "")).strip().lower()
+        if location_policy in {"base-only", "no-map"}:
+            exempt_ids.append(step_id)
+            continue
         if not _step_has_valid_field_location(step):
             missing_ids.append(step_id)
-    return field_ids, missing_ids
+    return field_ids, missing_ids, exempt_ids
 
 
 def _is_field_step(step: dict) -> bool:
@@ -247,6 +258,7 @@ def format_text_report(
     missing_catalog: Sequence[ResourceRoute],
     citation_warnings: Sequence[ResourceRoute],
     location_warnings: Sequence[ResourceRoute],
+    location_exemptions: Sequence[ResourceRoute],
 ) -> str:
     lines = ["Resource Coverage Report", "========================", ""]
     lines.append(f"Catalog entries without matching routes: {len(missing_routes)}")
@@ -292,6 +304,20 @@ def format_text_report(
     else:
         lines.append("All field steps include map coordinates.")
 
+    lines.append("")
+    lines.append(
+        "Routes with field steps marked coordinate-exempt: "
+        f"{len(location_exemptions)}"
+    )
+    if location_exemptions:
+        for route in location_exemptions:
+            exempt = ", ".join(route.exempt_field_step_ids) or "(steps unspecified)"
+            lines.append(
+                f"  - {route.route_id} ({route.title or 'untitled'}) – exempt: {exempt}"
+            )
+    else:
+        lines.append("No coordinate exemptions declared for field steps.")
+
     return "\n".join(lines)
 
 
@@ -300,6 +326,7 @@ def format_markdown_report(
     missing_catalog: Sequence[ResourceRoute],
     citation_warnings: Sequence[ResourceRoute],
     location_warnings: Sequence[ResourceRoute],
+    location_exemptions: Sequence[ResourceRoute],
 ) -> str:
     lines = ["# Resource Coverage Report", ""]
     lines.append(f"- Catalog entries without matching routes: **{len(missing_routes)}**")
@@ -309,6 +336,10 @@ def format_markdown_report(
     )
     lines.append(
         f"- Routes with field steps missing coordinates: **{len(location_warnings)}**"
+    )
+    lines.append(
+        "- Routes with coordinate exemptions: "
+        f"**{len(location_exemptions)}**"
     )
     lines.append("")
 
@@ -353,6 +384,18 @@ def format_markdown_report(
         lines.append("")
     else:
         lines.append("All field steps include map coordinates.")
+        lines.append("")
+
+    if location_exemptions:
+        lines.append("## Routes with coordinate exemptions")
+        for route in location_exemptions:
+            exempt = ", ".join(route.exempt_field_step_ids) or "(steps unspecified)"
+            lines.append(
+                f"- `{route.route_id}` – {route.title or 'untitled'} (exempt {exempt})"
+            )
+        lines.append("")
+    else:
+        lines.append("No coordinate exemptions declared for field steps.")
 
     return "\n".join(lines)
 
@@ -362,6 +405,7 @@ def format_csv_report(
     missing_catalog: Sequence[ResourceRoute],
     citation_warnings: Sequence[ResourceRoute],
     location_warnings: Sequence[ResourceRoute],
+    location_exemptions: Sequence[ResourceRoute],
 ) -> str:
     buffer = io.StringIO()
     writer = csv.writer(buffer)
@@ -417,6 +461,17 @@ def format_csv_report(
                 ";".join(route.missing_field_step_ids),
             ]
         )
+    for route in location_exemptions:
+        writer.writerow(
+            [
+                "route_field_coord_exempt",
+                route.route_id,
+                route.title,
+                "",
+                len(route.citations),
+                ";".join(route.exempt_field_step_ids),
+            ]
+        )
     return buffer.getvalue().rstrip("\n")
 
 
@@ -425,12 +480,14 @@ def format_report(
     missing_catalog: Iterable[ResourceRoute],
     citation_warnings: Iterable[ResourceRoute],
     location_warnings: Iterable[ResourceRoute],
+    location_exemptions: Iterable[ResourceRoute],
     report_format: str,
 ) -> str:
     missing_routes_list = list(missing_routes)
     missing_catalog_list = list(missing_catalog)
     citation_warnings_list = list(citation_warnings)
     location_warnings_list = list(location_warnings)
+    location_exemptions_list = list(location_exemptions)
 
     if report_format == "markdown":
         return format_markdown_report(
@@ -438,6 +495,7 @@ def format_report(
             missing_catalog_list,
             citation_warnings_list,
             location_warnings_list,
+            location_exemptions_list,
         )
     if report_format == "csv":
         return format_csv_report(
@@ -445,12 +503,14 @@ def format_report(
             missing_catalog_list,
             citation_warnings_list,
             location_warnings_list,
+            location_exemptions_list,
         )
     return format_text_report(
         missing_routes_list,
         missing_catalog_list,
         citation_warnings_list,
         location_warnings_list,
+        location_exemptions_list,
     )
 
 
@@ -490,12 +550,16 @@ def main(argv: Sequence[str] | None = None) -> None:
     location_warnings = [
         route for route in routes if route.missing_field_step_ids
     ]
+    location_exemptions = [
+        route for route in routes if route.exempt_field_step_ids
+    ]
 
     report = format_report(
         missing_routes,
         missing_catalog,
         citation_warnings,
         location_warnings,
+        location_exemptions,
         args.format,
     )
 
