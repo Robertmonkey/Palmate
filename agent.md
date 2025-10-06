@@ -401,3 +401,16 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Source a second coordinate-grade reference for the Astral Mountains Necromus/Paladius duo (e.g., annotated map export or guide with explicit (445,680) callout) so both the detail string and metadata rest on independent proofs.
 2. Track down a numeric Shadowbeak coordinate reference beyond the sanctuary infobox to complement the island-level latitude/longitude now captured from the wiki.
 3. Re-run `scripts/resource_coverage_report.py` after locking those citations to confirm the route drops off the outstanding resource coverage debt list and capture the before/after diff for records.
+
+### 2025-12-09 Foxparks & Katress coordinate backfill
+
+* Converted GameWith interactive map pin data (`public/pin_data.json`) for Grassy Behemoth Hills, Rayne Syndicate Tower Entrance, Bridge of the Twin Knights, and Moonless Shore/Verdant Brook capture nodes into Palworld map coordinates using the established linear transform, storing the relevant entries in `sources/gamewith-pin-data-snippet.json` for auditable provenance.【F:sources/gamewith-pin-data-snippet.json†L1-L92】
+* Updated `resource-flame-organ:001` with three precise location anchors (82,-379), (112,-434), and (69,-517) plus strengthened narration so Foxparks sweeps now expose explicit map waypoints across the ridge.【F:guides.md†L14018-L14099】
+* Augmented `resource-katress-hair:001` with Moonless Shore (183,-539) and Verdant Brook (246,-593) hunt coordinates derived from the same dataset, closing the last outstanding nightly spawn gaps.【F:guides.md†L15017-L15073】
+* Registered the new `gamewith-pin-windswept` citation and wired it into both steps so the coverage report recognises the dual-source mapping, then regenerated `data/guides.bundle.json` to propagate the coordinate metadata and reran the coverage report (now 0 outstanding field steps).【F:guides.md†L27824-L27833】【7cf9b2†L1-L10】【36f541†L1-L9】
+
+**Continuation notes:**
+
+1. Validate the linear transformation (x ≈ 6.5256·loc_x + 360.43, y ≈ 11.3636·loc_y – 554.68) against additional map pins—especially outside Windswept Hills—to ensure the conversion holds globally before expanding usage.
+2. Source a second independent coordinate reference (e.g., annotated community map export) for the Foxparks ridge and Moonless Shore patrols to pair with GameWith and reinforce redundancy requirements.
+3. Extend `scripts/resource_coverage_report.py` (or a helper script) to ingest `gamewith-pin-data-snippet.json` directly, allowing future coordinate backfills to reuse the transform automatically instead of performing manual conversions.
