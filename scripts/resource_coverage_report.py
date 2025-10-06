@@ -17,6 +17,44 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, List, Sequence, Set
 
+FIELD_STEP_TYPES: Set[str] = {
+    "hunt",
+    "capture",
+    "combat",
+    "gather",
+    "collect",
+    "explore",
+    "travel",
+    "raid",
+    "sweep",
+    "survey",
+    "liberate",
+    "escort",
+    "scout",
+    "farm",
+    "harvest",
+    "mine",
+    "dungeon",
+}
+
+NON_FIELD_STEP_TYPES: Set[str] = {
+    "base",
+    "assign",
+    "prepare",
+    "craft",
+    "build",
+    "upgrade",
+    "automation",
+    "plan",
+    "review",
+    "stockpile",
+    "manage",
+    "train",
+    "refine",
+    "research",
+    "talk",
+}
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 GUIDES_PATH = REPO_ROOT / "guides.md"
 CATALOG_PATH = REPO_ROOT / "data" / "guide_catalog.json"
@@ -29,6 +67,8 @@ class ResourceRoute:
     route_id: str
     title: str
     citations: tuple[str, ...]
+    field_step_ids: tuple[str, ...]
+    missing_field_step_ids: tuple[str, ...]
 
 
 @dataclass(frozen=True)
@@ -51,8 +91,15 @@ def parse_resource_routes(markdown: str) -> List[ResourceRoute]:
         if isinstance(route_id, str) and route_id.startswith("resource-"):
             title = payload.get("title", "")
             citations = tuple(_extract_citations(payload))
+            field_ids, missing_field_ids = _analyse_field_location_gaps(payload)
             routes.append(
-                ResourceRoute(route_id=route_id, title=title, citations=citations)
+                ResourceRoute(
+                    route_id=route_id,
+                    title=title,
+                    citations=citations,
+                    field_step_ids=tuple(field_ids),
+                    missing_field_step_ids=tuple(missing_field_ids),
+                )
             )
     return routes
 
@@ -79,6 +126,83 @@ def _extract_citations(payload: dict) -> list[str]:
 
     _walk(payload)
     return citations
+
+
+def _analyse_field_location_gaps(payload: dict) -> tuple[List[str], List[str]]:
+    steps = payload.get("steps")
+    if not isinstance(steps, list):
+        return [], []
+
+    field_ids: List[str] = []
+    missing_ids: List[str] = []
+    for step in steps:
+        if not isinstance(step, dict):
+            continue
+        step_id = step.get("step_id")
+        if not isinstance(step_id, str):
+            continue
+        if not _is_field_step(step):
+            continue
+        field_ids.append(step_id)
+        if not _step_has_valid_field_location(step):
+            missing_ids.append(step_id)
+    return field_ids, missing_ids
+
+
+def _is_field_step(step: dict) -> bool:
+    step_type = str(step.get("type", "")).strip().lower()
+    if step_type in FIELD_STEP_TYPES:
+        return True
+    if step_type in NON_FIELD_STEP_TYPES:
+        return False
+
+    locations = step.get("locations")
+    if isinstance(locations, list):
+        for location in locations:
+            if not isinstance(location, dict):
+                continue
+            region = str(
+                location.get("region_id")
+                or location.get("region")
+                or ""
+            ).strip().lower()
+            coords = location.get("coords")
+            if region and region != "base":
+                return True
+            if _coords_are_non_zero(coords):
+                return True
+
+    return False
+
+
+def _coords_are_non_zero(coords: object) -> bool:
+    if not isinstance(coords, list) or len(coords) != 2:
+        return False
+    try:
+        x = float(coords[0])
+        y = float(coords[1])
+    except (TypeError, ValueError):
+        return False
+    return abs(x) > 1e-6 or abs(y) > 1e-6
+
+
+def _step_has_valid_field_location(step: dict) -> bool:
+    locations = step.get("locations")
+    if not isinstance(locations, list) or not locations:
+        return False
+
+    for location in locations:
+        if not isinstance(location, dict):
+            continue
+        region = str(
+            location.get("region_id") or location.get("region") or ""
+        ).strip().lower()
+        if region == "base":
+            continue
+        coords = location.get("coords")
+        if _coords_are_non_zero(coords):
+            return True
+    return False
 
 
 def _extract_entries(raw_entries: Iterable[dict]) -> Iterable[CatalogEntry]:
@@ -122,6 +246,7 @@ def format_text_report(
     missing_routes: Sequence[CatalogEntry],
     missing_catalog: Sequence[ResourceRoute],
     citation_warnings: Sequence[ResourceRoute],
+    location_warnings: Sequence[ResourceRoute],
 ) -> str:
     lines = ["Resource Coverage Report", "========================", ""]
     lines.append(f"Catalog entries without matching routes: {len(missing_routes)}")
@@ -153,6 +278,20 @@ def format_text_report(
     else:
         lines.append("All resource routes include at least two citations.")
 
+    lines.append("")
+    lines.append(
+        "Routes with field steps missing coordinates: "
+        f"{len(location_warnings)}"
+    )
+    if location_warnings:
+        for route in location_warnings:
+            missing = ", ".join(route.missing_field_step_ids) or "(steps unspecified)"
+            lines.append(
+                f"  - {route.route_id} ({route.title or 'untitled'}) – missing: {missing}"
+            )
+    else:
+        lines.append("All field steps include map coordinates.")
+
     return "\n".join(lines)
 
 
@@ -160,12 +299,16 @@ def format_markdown_report(
     missing_routes: Sequence[CatalogEntry],
     missing_catalog: Sequence[ResourceRoute],
     citation_warnings: Sequence[ResourceRoute],
+    location_warnings: Sequence[ResourceRoute],
 ) -> str:
     lines = ["# Resource Coverage Report", ""]
     lines.append(f"- Catalog entries without matching routes: **{len(missing_routes)}**")
     lines.append(f"- Routes missing catalog entries: **{len(missing_catalog)}**")
     lines.append(
         f"- Routes with fewer than two citations: **{len(citation_warnings)}**"
+    )
+    lines.append(
+        f"- Routes with field steps missing coordinates: **{len(location_warnings)}**"
     )
     lines.append("")
 
@@ -198,6 +341,18 @@ def format_markdown_report(
         lines.append("")
     else:
         lines.append("All resource routes include at least two citations.")
+        lines.append("")
+
+    if location_warnings:
+        lines.append("## Routes with field steps missing coordinates")
+        for route in location_warnings:
+            missing = ", ".join(route.missing_field_step_ids) or "(steps unspecified)"
+            lines.append(
+                f"- `{route.route_id}` – {route.title or 'untitled'} (missing {missing})"
+            )
+        lines.append("")
+    else:
+        lines.append("All field steps include map coordinates.")
 
     return "\n".join(lines)
 
@@ -206,10 +361,20 @@ def format_csv_report(
     missing_routes: Sequence[CatalogEntry],
     missing_catalog: Sequence[ResourceRoute],
     citation_warnings: Sequence[ResourceRoute],
+    location_warnings: Sequence[ResourceRoute],
 ) -> str:
     buffer = io.StringIO()
     writer = csv.writer(buffer)
-    writer.writerow(["type", "id", "title", "shortage_menu", "citation_count"])
+    writer.writerow(
+        [
+            "type",
+            "id",
+            "title",
+            "shortage_menu",
+            "citation_count",
+            "missing_field_steps",
+        ]
+    )
     for entry in missing_routes:
         writer.writerow(
             [
@@ -217,6 +382,7 @@ def format_csv_report(
                 entry.entry_id,
                 entry.title,
                 "true" if entry.shortage_menu else "false",
+                "",
                 "",
             ]
         )
@@ -227,6 +393,7 @@ def format_csv_report(
             route.title,
             "",
             len(route.citations),
+            "",
         ])
     for route in citation_warnings:
         writer.writerow(
@@ -236,6 +403,18 @@ def format_csv_report(
                 route.title,
                 "",
                 len(route.citations),
+                "",
+            ]
+        )
+    for route in location_warnings:
+        writer.writerow(
+            [
+                "route_missing_field_coords",
+                route.route_id,
+                route.title,
+                "",
+                len(route.citations),
+                ";".join(route.missing_field_step_ids),
             ]
         )
     return buffer.getvalue().rstrip("\n")
@@ -245,22 +424,33 @@ def format_report(
     missing_routes: Iterable[CatalogEntry],
     missing_catalog: Iterable[ResourceRoute],
     citation_warnings: Iterable[ResourceRoute],
+    location_warnings: Iterable[ResourceRoute],
     report_format: str,
 ) -> str:
     missing_routes_list = list(missing_routes)
     missing_catalog_list = list(missing_catalog)
     citation_warnings_list = list(citation_warnings)
+    location_warnings_list = list(location_warnings)
 
     if report_format == "markdown":
         return format_markdown_report(
-            missing_routes_list, missing_catalog_list, citation_warnings_list
+            missing_routes_list,
+            missing_catalog_list,
+            citation_warnings_list,
+            location_warnings_list,
         )
     if report_format == "csv":
         return format_csv_report(
-            missing_routes_list, missing_catalog_list, citation_warnings_list
+            missing_routes_list,
+            missing_catalog_list,
+            citation_warnings_list,
+            location_warnings_list,
         )
     return format_text_report(
-        missing_routes_list, missing_catalog_list, citation_warnings_list
+        missing_routes_list,
+        missing_catalog_list,
+        citation_warnings_list,
+        location_warnings_list,
     )
 
 
@@ -297,8 +487,17 @@ def main(argv: Sequence[str] | None = None) -> None:
     missing_routes = [entry for entry in entries if entry.entry_id not in route_ids]
     missing_catalog = [route for route in routes if route.route_id not in catalog_ids]
     citation_warnings = [route for route in routes if len(route.citations) < 2]
+    location_warnings = [
+        route for route in routes if route.missing_field_step_ids
+    ]
 
-    report = format_report(missing_routes, missing_catalog, citation_warnings, args.format)
+    report = format_report(
+        missing_routes,
+        missing_catalog,
+        citation_warnings,
+        location_warnings,
+        args.format,
+    )
 
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
