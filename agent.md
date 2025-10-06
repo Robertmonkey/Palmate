@@ -85,8 +85,8 @@ Key confirmations from the review:
 
 ### Backlog (Confirm Against `routeGuideData.resourceGuideGaps` Before Starting)
 
-* High-priority shortages still missing guides: **Caprity Meat**, **Galeclaw Poultry**, **High Quality Pal Oil**, **Small Pal Soul**, **Sanctuary-exclusive drops (e.g., Lyleen Noct hair, Sibelyx Ignis cloth)**, **Merchant restock timing references**.
-* Secondary targets once two independent citations are secured: **Milk auxiliary spawns**, **Seed restock timers (Tomato/Lettuce/Berry)**, **Elite alpha respawn timers for gemstone loops**, **Automation throughput benchmarks for Assembly Line/Power Grid resources**.
+* High-priority shortages requiring follow-up work: **Polymer** (field step lacks mapped coordinates), **Pal Metal Ingot** (Alpha/ore rotation coordinates), **Flame Organ** (volcano node coordinates), **Katress Hair** (nighttime alley sweep coordinates), **Resource Respawn Timers** (baseline logging path coordinates), **Sanctuary-exclusive drops (e.g., Lyleen Noct hair, Sibelyx Ignis cloth)**.
+* Secondary targets once two independent citations are secured: **Milk auxiliary spawns**, **Seed restock timers (Tomato/Lettuce/Berry)**, **Elite alpha respawn timers for gemstone loops**, **Automation throughput benchmarks for Assembly Line/Power Grid resources**, **Merchant restock timing references**.
 
 Update this backlog whenever a guide ships or when a data source becomes available, and archive stale TODOs with reasoning if a resource becomes obsolete or its shortages are resolved by upstream patches.
 ## Performance Notes
@@ -354,3 +354,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Pull precise Caprity spawn coordinates into the habitat data so the hunt step can surface explicit waypoints instead of the broader Plateau loop (requires map-to-coordinate sourcing).【F:guides.md†L25359-L25441】
 2. Add caprity-specific art IDs or thumbnails to the shortage helper cards once the bundle exposes metadata for custom imagery.【F:data/guide_catalog.json†L9496-L9555】
 3. Verify the new shortage card renders in the production shortages UI after the next bundle promotion and confirm passive ranch output lines surface correctly in helper copy.
+
+### 2025-11-29 Field coordinate lint for resource routes
+
+* Expanded `scripts/resource_coverage_report.py` to analyse each resource route for field steps without map coordinates, surfacing the gaps across text, Markdown, and CSV outputs alongside citation checks.【F:scripts/resource_coverage_report.py†L1-L247】
+* CSV exports now include a `route_missing_field_coords` record with the specific step IDs, allowing planners to prioritise Caprity follow-ups and other shortage refinements directly from spreadsheets.【F:scripts/resource_coverage_report.py†L200-L242】
+* Latest run flags five routes (Polymer, Pal Metal Ingot, Flame Organ, Katress Hair, Resource Respawn Timers) that still need precise coordinates, producing an actionable shortlist for the shortages backlog.【72d727†L1-L15】
+
+**Continuation notes:**
+
+1. Source two independent coordinate citations for each flagged route—focus on Polymer (`resource-polymer:002`) and Pal Metal Ingot (`resource-pal-metal-ingot:004`) so late-game alloys no longer rely on prose-only guidance.
+2. Backfill volcanic and nocturnal sweep coordinates for Flame Organ and Katress Hair, then rerun the coverage report to confirm the warnings clear and update `agent.md` backlog entries accordingly.
+3. Evaluate adding a schema flag for intentionally base-only steps so future lint runs can ignore legitimate [0,0] locations without manual suppression once the outstanding gaps are patched.
