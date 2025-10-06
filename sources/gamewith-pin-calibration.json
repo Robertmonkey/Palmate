@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1005",
+    "name": "Grassy Behemoth Hills",
+    "loc": [-42.75, 15.48],
+    "coords": [82.0, -379.0]
+  },
+  {
+    "id": "1009",
+    "name": "Rayne Syndicate Tower Entrance",
+    "loc": [-38.07, 10.62],
+    "coords": [112.0, -434.0]
+  },
+  {
+    "id": "6005",
+    "name": "Moonless Shore patrol",
+    "loc": [-27.1563110351562, 1.41015625],
+    "coords": [183.0, -539.0]
+  },
+  {
+    "id": "6004",
+    "name": "Verdant Brook patrol",
+    "loc": [-17.468994140625, -3.390625],
+    "coords": [246.0, -593.0]
+  },
+  {
+    "id": "6007",
+    "name": "Small Settlement ridge",
+    "loc": [-44.6563110351562, 3.35546875],
+    "coords": [69.0, -517.0]
+  }
+]
