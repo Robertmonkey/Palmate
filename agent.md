@@ -413,4 +413,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 
 1. Validate the linear transformation (x ≈ 6.5256·loc_x + 360.43, y ≈ 11.3636·loc_y – 554.68) against additional map pins—especially outside Windswept Hills—to ensure the conversion holds globally before expanding usage.
 2. Source a second independent coordinate reference (e.g., annotated community map export) for the Foxparks ridge and Moonless Shore patrols to pair with GameWith and reinforce redundancy requirements.
-3. Extend `scripts/resource_coverage_report.py` (or a helper script) to ingest `gamewith-pin-data-snippet.json` directly, allowing future coordinate backfills to reuse the transform automatically instead of performing manual conversions.
+3. ✅ (2025-12-11) Extended via `scripts/export_gamewith_pin_coords.py`, which now ingests the snippet and applies the shared transform automatically.
+
+### 2025-12-11 GameWith pin transform helper
+
+* Authored `scripts/export_gamewith_pin_coords.py` to convert captured GameWith interactive map pins into in-game coordinates using a solved affine transform, including Markdown/CSV/text outputs and optional residual diagnostics for calibration review.【F:scripts/export_gamewith_pin_coords.py†L1-L224】
+* Captured calibration metadata for Windswept Hills pins in `sources/gamewith-pin-calibration.json` so the transform derives from auditable control points instead of hard-coded constants.【F:sources/gamewith-pin-calibration.json†L1-L25】
+
+**Continuation notes:**
+
+1. Grow the calibration dataset with pins from additional regions (e.g., Mount Obsidian, Astral Mountains) to reduce edge-case error and confirm the affine assumption holds globally.
+2. Extend the helper to emit GeoJSON or Palmate-ready snippets so future route updates can import converted coordinates directly into guide steps without manual reformatting.
+3. Integrate the converter into `resource_coverage_report` or CI so newly sourced pin snippets automatically surface coordinate gaps alongside residual thresholds.
