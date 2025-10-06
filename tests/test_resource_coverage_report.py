@@ -29,6 +29,7 @@ class FormatCsvReportTests(unittest.TestCase):
                 field_step_ids=("resource-pal-oil:001",),
                 missing_field_step_ids=(),
                 exempt_field_step_ids=(),
+                under_cited_field_step_ids=("resource-pal-oil:001",),
             )
         ]
         citation_warnings = [
@@ -39,6 +40,7 @@ class FormatCsvReportTests(unittest.TestCase):
                 field_step_ids=("resource-ore:002",),
                 missing_field_step_ids=(),
                 exempt_field_step_ids=(),
+                under_cited_field_step_ids=("resource-ore:002",),
             )
         ]
         location_warnings = [
@@ -49,6 +51,7 @@ class FormatCsvReportTests(unittest.TestCase):
                 field_step_ids=("resource-quartz:003", "resource-quartz:004"),
                 missing_field_step_ids=("resource-quartz:004",),
                 exempt_field_step_ids=(),
+                under_cited_field_step_ids=("resource-quartz:004",),
             )
         ]
         location_exemptions = [
@@ -59,6 +62,18 @@ class FormatCsvReportTests(unittest.TestCase):
                 field_step_ids=("resource-effigy:001",),
                 missing_field_step_ids=(),
                 exempt_field_step_ids=("resource-effigy:001",),
+                under_cited_field_step_ids=(),
+            )
+        ]
+        step_citation_warnings = [
+            ResourceRoute(
+                route_id="resource-leather",
+                title="Leather Farms",
+                citations=("palwiki-leather", "palfandom-leather"),
+                field_step_ids=("resource-leather:001", "resource-leather:002"),
+                missing_field_step_ids=(),
+                exempt_field_step_ids=(),
+                under_cited_field_step_ids=("resource-leather:001",),
             )
         ]
 
@@ -68,6 +83,7 @@ class FormatCsvReportTests(unittest.TestCase):
             citation_warnings,
             location_warnings,
             location_exemptions,
+            step_citation_warnings,
         )
 
         expected_rows = [
@@ -78,12 +94,14 @@ class FormatCsvReportTests(unittest.TestCase):
                 "shortage_menu",
                 "citation_count",
                 "missing_field_steps",
+                "under_cited_field_steps",
             ],
             [
                 "catalog_without_route",
                 "resource-honey",
                 "Honey Farming Loop",
                 "true",
+                "",
                 "",
                 "",
             ],
@@ -94,6 +112,7 @@ class FormatCsvReportTests(unittest.TestCase):
                 "",
                 "1",
                 "",
+                "resource-pal-oil:001",
             ],
             [
                 "route_citation_warning",
@@ -102,6 +121,7 @@ class FormatCsvReportTests(unittest.TestCase):
                 "",
                 "0",
                 "",
+                "resource-ore:002",
             ],
             [
                 "route_missing_field_coords",
@@ -109,6 +129,7 @@ class FormatCsvReportTests(unittest.TestCase):
                 "Quartz Astral Ridge",
                 "",
                 "2",
+                "resource-quartz:004",
                 "resource-quartz:004",
             ],
             [
@@ -118,6 +139,16 @@ class FormatCsvReportTests(unittest.TestCase):
                 "",
                 "2",
                 "resource-effigy:001",
+                "",
+            ],
+            [
+                "route_under_cited_field_steps",
+                "resource-leather",
+                "Leather Farms",
+                "",
+                "2",
+                "",
+                "resource-leather:001",
             ],
         ]
 
@@ -148,10 +179,11 @@ class CliCsvOutputTests(unittest.TestCase):
                 "shortage_menu",
                 "citation_count",
                 "missing_field_steps",
+                "under_cited_field_steps",
             ],
         )
         for row in rows[1:]:
-            self.assertEqual(len(row), 6)
+            self.assertEqual(len(row), 7)
 
 
 if __name__ == "__main__":

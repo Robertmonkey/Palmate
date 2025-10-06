@@ -459,3 +459,15 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Extend the regression suite to snapshot the Markdown output once the outstanding dual-source citations are in place; we can then gate text-mode changes behind explicit approvals.
 2. Wire the CSV tests into CI (GitHub Actions or the internal harness) so contributors receive fast feedback when changing `resource_coverage_report.py`.
 3. After securing second-source coordinates for Astral hunts, capture fixture data for those cases and broaden the CSV unit test to cover multi-step missing/exempt combinations drawn from real guide IDs.
+
+### 2025-12-15 Field step dual-citation audit tooling
+
+* Enhanced `scripts/resource_coverage_report.py` so each field step now tracks whether it carries at least two unique citations; the text, Markdown, and CSV outputs surface a dedicated "under-cited" section alongside coordinate gaps.【F:scripts/resource_coverage_report.py†L65-L111】【F:scripts/resource_coverage_report.py†L272-L447】
+* Expanded the CSV formatter and regression tests to capture the new column, row type, and CLI header expectations, keeping the coverage pipeline contract stable.【F:scripts/resource_coverage_report.py†L452-L543】【F:tests/test_resource_coverage_report.py†L1-L193】
+* Ran the refreshed report and confirmed 13 resource routes currently have under-cited field steps, giving us a prioritized queue for sourcing secondary location references.【b99cd4†L14-L26】
+
+**Continuation notes:**
+
+1. Work through the flagged routes, sourcing a second citation for each under-cited step (start with Leather, Honey, Coal, and Wool loops where community map exports already exist) and update the relevant guide steps plus source registry.
+2. Add a Markdown snapshot test once dual-citation remediation lands so the textual report layout remains locked as we iterate on coverage rules.
+3. Consider integrating the new under-cited signal into dashboards/CI alerts so future guide submissions lacking dual sourcing are caught immediately.
