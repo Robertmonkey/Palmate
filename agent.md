@@ -425,3 +425,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Grow the calibration dataset with pins from additional regions (e.g., Mount Obsidian, Astral Mountains) to reduce edge-case error and confirm the affine assumption holds globally.
 2. Extend the helper to emit GeoJSON or Palmate-ready snippets so future route updates can import converted coordinates directly into guide steps without manual reformatting.
 3. Integrate the converter into `resource_coverage_report` or CI so newly sourced pin snippets automatically surface coordinate gaps alongside residual thresholds.
+
+### 2025-12-12 GameWith conversion export upgrade
+
+* Extended `scripts/export_gamewith_pin_coords.py` with GeoJSON and Palmate JSON output modes so coordinate batches drop directly into GIS tooling or route authoring without hand-conversion; CLI help now highlights the expanded formats.【F:scripts/export_gamewith_pin_coords.py†L181-L236】【F:scripts/export_gamewith_pin_coords.py†L251-L276】
+* Added `--residuals-output` so calibration runs can emit a persisted CSV of per-pin deltas, enabling residual trend tracking across expanding control point sets.【F:scripts/export_gamewith_pin_coords.py†L146-L176】【F:scripts/export_gamewith_pin_coords.py†L238-L261】
+
+**Continuation notes:**
+
+1. Unblock access to the broader GameWith `pin_data` payload (current unauthenticated requests return 404) so Mount Obsidian and Astral Mountain control points can be appended; once retrieved, drop the raw JSON excerpt into `sources/gamewith-pin-data-snippet.json` and log provenance in `sources/README`.
+2. Use the new Palmate JSON output to stage coordinate snippets for late-game hunt routes—target Astegon, Paladius, and Shadowbeak loops first—then wire them into `guides.md` with dual citations and regenerate the bundle.
+3. Feed the residual CSVs into a simple regression tracker (spreadsheet or scripted summary) so we can flag drift when new calibration regions enter; consider flagging thresholds in `resource_coverage_report` once more than two regions are online.
