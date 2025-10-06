@@ -375,6 +375,7 @@ relevant Pals above.
     { "id": "eikthyrdeer-venison", "name": "Eikthyrdeer Venison", "type": "consumable", "rarity": "uncommon", "stack": 50, "buy_price": null, "sell_price": 10, "sources": [ { "type": "drop", "reference_id": "eikthyrdeer" } ] }
     ,{ "id": "ancient-civilization-part", "name": "Ancient Civilization Part", "type": "material", "rarity": "rare", "stack": 999, "buy_price": null, "sell_price": 100, "sources": [ { "type": "drop", "reference_id": "tower-rayne-syndicate" } ] }
     ,{ "id": "ancient-technology-point", "name": "Ancient Technology Point", "type": "currency", "rarity": "rare", "stack": 999, "buy_price": null, "sell_price": null, "sources": [ { "type": "boss_reward", "reference_id": "rayne-syndicate-tower" } ] }
+    ,{ "id": "precious_pelt", "name": "Precious Pelt", "type": "material", "rarity": "rare", "stack": 999, "buy_price": null, "sell_price": 500, "sources": [ { "type": "drop", "reference_id": "sibelyx" } ] }
     ,{ "id": "grappling-gun", "name": "Grappling Gun", "type": "gear", "rarity": "uncommon", "stack": 1, "buy_price": null, "sell_price": 200, "sources": [ { "type": "craft", "reference_id": "grappling-gun" } ] }
     ,{ "id": "tomato_seeds", "name": "Tomato Seeds", "type": "material", "rarity": "common", "stack": 999, "buy_price": 200, "sell_price": 20, "sources": [ { "type": "shop", "reference_id": "wandering-merchant" } ] }
     ,{ "id": "tomato", "name": "Tomato", "type": "consumable", "rarity": "common", "stack": 50, "buy_price": 150, "sell_price": 15, "sources": [ { "type": "farm", "reference_id": "tomato-plantation" }, { "type": "shop", "reference_id": "wandering-merchant" } ] }
@@ -23679,6 +23680,395 @@ Precious Dragon Stone Alpha Relay chains daily overworld alpha hunts with sealed
 }
 ```
 
+### Route: Precious Pelt Alpha Circuit
+
+Precious Pelt Alpha Circuit chains the Sealed Realm of the Pristine with No. 3 Wildlife Sanctuary sweeps so every legendary hunt turns into 500-gold windfalls for late-game tech funding.【palwiki-precious-pelt†L1-L8】【palwiki-sealed-realms†L44-L76】【palwiki-alpha-pals†L25-L27】【palwiki-wildlife-sanctuary-3†L1-L25】
+
+```json
+{
+  "route_id": "resource-precious-pelt",
+  "title": "Precious Pelt Alpha Circuit",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "precious-pelt",
+    "alpha-hunt",
+    "currency"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 40,
+    "max": 55
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Stage cold-weather capture gear and merchant logistics before heading north",
+    "Farm the Sealed Realm of the Pristine for guaranteed Sibelyx alpha drops",
+    "Chain No. 3 Wildlife Sanctuary and nearby overworld alphas for supplemental pelts",
+    "Liquidate pelts to bankroll late-game schematics and alloy queues"
+  ],
+  "estimated_time_minutes": {
+    "solo": 50,
+    "coop": 34
+  },
+  "estimated_xp_gain": {
+    "min": 900,
+    "max": 1400
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Dying on the island triggers PIDF trespass escalations and wastes the hour-long sealed realm timer before pelts respawn.",
+    "hardcore": "Hardcore wipes on sanctuary raids risk losing irreplaceable legendary pals and the gathered pelts if the team cannot extract."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Run the sealed realm with ranged pals and cold meals until you can comfortably tackle Sanctuary level 50 patrols—bank the 6–8 pelts per Sibelyx clear first.【palwiki-sealed-realms†L44-L76】【palwiki-sibelyx†L87-L106】",
+    "overleveled": "Add Astegon and Blazamut overworld rotations between realm resets so every respawn cycle drops pelts and extra alloy mats for the forge queue.【palwiki-alpha-pals†L295-L307】",
+    "resource_shortages": [
+      {
+        "item_id": "precious_pelt",
+        "solution": "Clear the Sealed Realm of the Pristine on the hour; its alpha table guarantees 6–8 pelts before you sweep the sanctuary circuit again.【palwiki-sealed-realms†L44-L76】【palwiki-sibelyx†L87-L106】"
+      }
+    ],
+    "time_limited": "If you only have ten minutes, run the sealed realm first—the dungeon respawns hourly while sanctuary alphas can wait until the next patrol cycle.【palwiki-sealed-realms†L44-L76】【palwiki-alpha-pals†L12-L18】",
+    "dynamic_rules": [
+      {
+        "signal": "mode:coop",
+        "condition": "mode.coop === true",
+        "adjustment": "Assign one hunter to break shields while the partner focuses on captures and PIDF suppression so you can chain hunts without downtime.",
+        "priority": 1,
+        "mode_scope": [
+          "coop"
+        ],
+        "related_steps": [
+          "resource-precious-pelt:002",
+          "resource-precious-pelt:003"
+        ]
+      },
+      {
+        "signal": "mode:hardcore",
+        "condition": "mode.hardcore === true",
+        "adjustment": "Keep one flyer airborne to extract pelts if someone falls—Hardcore failures are permanent and the sealed realm timer keeps ticking.",
+        "priority": 2,
+        "mode_scope": [
+          "hardcore"
+        ],
+        "related_steps": [
+          "resource-precious-pelt:002",
+          "resource-precious-pelt:003"
+        ]
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "resource-precious-pelt:checkpoint-staging",
+      "summary": "Hunt kit staged",
+      "benefits": [
+        "Mega spheres stocked",
+        "Merchant cash-out plan ready"
+      ],
+      "related_steps": [
+        "resource-precious-pelt:001"
+      ]
+    },
+    {
+      "id": "resource-precious-pelt:checkpoint-realm",
+      "summary": "Sealed realm cleared",
+      "benefits": [
+        "Guaranteed pelts secured",
+        "Respawn timer ticking"
+      ],
+      "related_steps": [
+        "resource-precious-pelt:002"
+      ]
+    },
+    {
+      "id": "resource-precious-pelt:checkpoint-sanctuary",
+      "summary": "Sanctuary rotation complete",
+      "benefits": [
+        "Overflow pelts banked",
+        "Alpha loop mapped"
+      ],
+      "related_steps": [
+        "resource-precious-pelt:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-ancient-civilization-parts"
+    ],
+    "optional": [
+      "resource-ice-organ"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Sleep until dawn to reset overworld alpha timers, then re-run the sealed realm once the entrance timer expires.",
+    "hardcore": "Have a backup flyer ferry pelts to base between fights so Hardcore wipes do not forfeit the haul."
+  },
+  "steps": [
+    {
+      "step_id": "resource-precious-pelt:001",
+      "type": "plan",
+      "summary": "Stage cold gear and sale logistics",
+      "detail": "Restock Mega or Hyper Spheres, swap into cold-resistant armor, and park a Pal Merchant near base so you can immediately cash in pelts for 500 Gold each when the circuit ends.【palwiki-precious-pelt†L1-L8】",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "base",
+          "coords": [
+            0,
+            0
+          ],
+          "time": "any",
+          "weather": "any",
+          "location_policy": "base-only"
+        }
+      ],
+      "mode_adjustments": {
+        "solo": {
+          "tactics": "Queue sphere crafting before you depart so respawn timers are not wasted mid-loop."
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "cold_resistant_armor",
+          "mega-pal-sphere"
+        ],
+        "pals": [
+          "jetragon"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 0,
+        "max": 0
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "palwiki-precious-pelt"
+      ]
+    },
+    {
+      "step_id": "resource-precious-pelt:002",
+      "type": "combat",
+      "summary": "Clear the Sealed Realm of the Pristine",
+      "detail": "Fast travel to the Sealed Realm of the Pristine (250,70), break Sibelyx’s shield with fire pals, and defeat or capture the alpha for a guaranteed 6–8 Precious Pelts plus cloth and ice organs before the one-hour respawn timer starts.【palwiki-sealed-realms†L44-L76】【palwiki-alpha-pals†L245-L307】【palwiki-sibelyx†L87-L106】【palworldwikigg-sibelyx†L1147-L1155】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "precious_pelt",
+          "qty": 6
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "astral-mountains",
+          "coords": [
+            250,
+            70
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "shield-breaker",
+              "tasks": "Keep Sibelyx staggered with fire or electric attacks"
+            },
+            {
+              "role": "closer",
+              "tasks": "Capture or finish the alpha once its HP is low"
+            }
+          ]
+        },
+        "hardcore": {
+          "tactics": "Rotate aggro with ranged pals and exit immediately after the kill so Hardcore deaths do not forfeit pelts."
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "cold_resistant_armor",
+          "mega-pal-sphere"
+        ],
+        "pals": [
+          "anubis",
+          "jormuntide-ignis"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 520,
+        "max": 780
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "precious_pelt",
+            "qty": 6
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-ice-organ"
+        }
+      ],
+      "citations": [
+        "palwiki-sealed-realms",
+        "palwiki-alpha-pals",
+        "palwiki-sibelyx",
+        "palworldwikigg-sibelyx"
+      ]
+    },
+    {
+      "step_id": "resource-precious-pelt:003",
+      "type": "combat",
+      "summary": "Sweep No. 3 Sanctuary and overworld alphas",
+      "detail": "Fly to No. 3 Wildlife Sanctuary (669,640) for Blazamut and Shadowbeak patrols, then pivot south to Astegon (-615,-429) and west to Blazamut (-442,-561) before the in-game day rolls. Each alpha kill drops sale-only pelts alongside other legendary loot—sell between loops or stockpile for schematics.【palwiki-wildlife-sanctuary-3†L1-L25】【palwiki-alpha-pals†L295-L307】【palwiki-alpha-pals†L25-L27】【palwiki-precious-pelt†L1-L8】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "precious_pelt",
+          "qty": 12
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "wildlife-sanctuary-3",
+          "coords": [
+            669,
+            640
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "wildlife-sanctuary-3",
+          "coords": [
+            -615,
+            -429
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "wildlife-sanctuary-3",
+          "coords": [
+            -442,
+            -561
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "aggro",
+              "tasks": "Hold the alpha while partners flank or capture"
+            },
+            {
+              "role": "clean-up",
+              "tasks": "Loot and ferry pelts to storage before PIDF escalates"
+            }
+          ],
+          "loot_rules": "Alternate who banks the Precious Pelts so everyone funds schematics evenly"
+        },
+        "hardcore": {
+          "tactics": "Stay mounted to dodge PIDF gunfire and bail out early if threat level spikes past one star."
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "cold_resistant_armor",
+          "glider"
+        ],
+        "pals": [
+          "shadowbeak",
+          "necromus"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 420,
+        "max": 620
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "precious_pelt",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-pal-metal-ingot"
+        }
+      ],
+      "citations": [
+        "palwiki-wildlife-sanctuary-3",
+        "palwiki-alpha-pals",
+        "palwiki-precious-pelt"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "precious_pelt",
+      "qty": 18
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1 to +2",
+    "key_unlocks": [
+      "late-game-funding"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 4,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-pal-metal-ingot",
+      "reason": "Pal Metal smelting devours schematics and cash; pelt profits underwrite alloy expansion."
+    },
+    {
+      "route_id": "resource-carbon-fiber",
+      "reason": "Carbon Fiber automation leans on expensive production lines funded by pelt sales."
+    }
+  ]
+}
+```
+
 ### Route: Lamball Butchery Circuit
 
 Lamball Butchery Circuit corrals Windswept Hills Lamball, unlocks the Meat Cleaver, and turns the flock into reliable Lamball Mutton for early cooking and merchant trades.【palfandom-lamball†L17-L75】【palwiki-meat-cleaver†L2-L38】【palwiki-lamball-mutton-raw†L1-L27】
@@ -27484,6 +27874,12 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-07",
       "notes": "_payload.json data shows Quivern drops 3 High Quality Pal Oil at a 100% rate.【palworldgg-quivern-drops†L1-L2】"
     },
+    "palworldwikigg-sibelyx": {
+      "title": "Sibelyx drop table – palworld.wiki.gg",
+      "url": "https://palworld.wiki.gg/wiki/Sibelyx",
+      "access_date": "2025-12-12",
+      "notes": "Rendered wiki.gg infobox lists the alpha drop as 6–8 Precious Pelts at a 100% rate.【palworldwikigg-sibelyx†L1147-L1155】"
+    },
     "palwiki-charcoal": {
       "title": "Charcoal – Palworld Wiki (Fandom)",
       "url": "https://palworld.fandom.com/wiki/Charcoal",
@@ -28173,6 +28569,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/wiki/Precious_Dragon_Stone",
       "access_date": "2025-10-31",
       "notes": "Explains Precious Dragon Stones drop from Alpha Pals and sell to merchants for 1,000 Gold Coins.【palwiki-precious-dragon-stone†L1-L18】"
+    },
+    "palwiki-precious-pelt": {
+      "title": "Precious Pelt – Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Precious_Pelt",
+      "access_date": "2025-12-12",
+      "notes": "Infobox lists Precious Pelts as rare, sell-only materials worth 500 Gold sourced from Alpha Pals and dungeon bosses.【palwiki-precious-pelt†L1-L8】"
     },
     "palwiki-high-quality-cloth": {
       "title": "High Quality Cloth – Palworld Wiki",

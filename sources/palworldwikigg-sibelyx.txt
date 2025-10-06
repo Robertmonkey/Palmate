@@ -1,0 +1,9 @@
+1147-	<div class="pi-data-value pi-font">6-8 <span class="link-icon" style="--link-icon-size: 1.2em; --link-icon-line-height: 1lh;">
+1148-<span class="icon regular">
+1149:<a href="/wiki/Precious_Pelt" title="Precious Pelt">
+1150-<img alt="" src="/images/Precious_Pelt_icon.png?85b94e" decoding="async" loading="lazy" width="256" height="256" data-file-width="256" data-file-height="256" />
+1151-</a>
+1152-</span>&#160;<span class="display-text">
+1153:<a href="/wiki/Precious_Pelt" title="Precious Pelt">Precious Pelt</a>
+1154-</span>
+1155-</span> (100%)</div>

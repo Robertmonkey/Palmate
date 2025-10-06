@@ -8227,6 +8227,73 @@
       ]
     },
     {
+      "id": "resource-precious-pelt",
+      "title": "Precious Pelt Alpha Circuit",
+      "source_heading": "Precious Pelt Alpha Circuit",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Legendary crafting or gold income stalled because Precious Pelts and alpha drops are missing.",
+      "keywords": [
+        "precious pelt",
+        "alpha",
+        "sanctuary",
+        "sibelyx"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Restock Mega or Hyper Spheres, cold meals, and merchant space so 500 Gold pelts can be sold immediately after the loop.",
+          "citations": [
+            "palwiki-precious-pelt†L1-L8"
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Clear the Sealed Realm of the Pristine (250,70) for Sibelyx—its alpha table guarantees 6–8 Precious Pelts every hour.",
+          "citations": [
+            "palwiki-sealed-realms†L44-L76",
+            "palwiki-sibelyx†L87-L106",
+            "palworldwikigg-sibelyx†L1147-L1155"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "sealed-realm-of-the-pristine",
+              "name": "Sealed Realm of the Pristine"
+            },
+            {
+              "type": "item",
+              "id": "precious_pelt",
+              "slug": "precious-pelt",
+              "name": "Precious Pelt"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Rotate No. 3 Wildlife Sanctuary (669,640) plus Astegon (-615,-429) and Blazamut (-442,-561) overworld alphas to bank extra pelts between realm resets.",
+          "citations": [
+            "palwiki-wildlife-sanctuary-3†L1-L25",
+            "palwiki-alpha-pals†L295-L307",
+            "palwiki-alpha-pals†L25-L27"
+          ],
+          "links": [
+            {
+              "type": "location",
+              "id": "wildlife-sanctuary-3",
+              "name": "No. 3 Wildlife Sanctuary"
+            },
+            {
+              "type": "pal",
+              "id": "blazamut",
+              "name": "Blazamut"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "resource-venom-gland",
       "title": "Venom Gland Supply Network",
       "source_heading": "Venom Gland Supply Network",

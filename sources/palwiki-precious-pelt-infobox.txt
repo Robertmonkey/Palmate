@@ -1,0 +1,8 @@
+Precious Pelt
+Type: Material
+Rarity: Rare
+Description: Fluffy fur collected from pals.Can be sold to a merchant for a high price.
+Source: Alpha PalsDungeon Boss
+Weight: 0
+Sell: 500
+Sell Use Only: Yes
