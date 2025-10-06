@@ -26945,7 +26945,7 @@ Resource Respawn Timer Field Guide maps the default 30-minute node respawns, doc
       "step_id": "resource-respawn-timers:001",
       "type": "gather",
       "summary": "Clear nearby trees and ore nodes to start the clock",
-      "detail": "Harvest two clusters of trees, berry bushes, and ore veins near your base, note the completion time, and stash at least 100 wood and 60 ore while the default ~30 minute respawn window begins.【palwiki-world-settings†L1-L1】",
+      "detail": "Fast travel to Fort Ruins (155,-394) to clear the ridge’s four ore nodes, loop the Plateau of Beginnings triangle (230,-510 / 160,-560 / 100,-525) for tree and berry clusters, then dump the haul at the Small Settlement cliff chest (11,-523); record the finish time so the default ~30 minute respawn cycle is anchored.【game8-ore-farming†L1-L80】【progameguides-base-triangle†L1-L15】【palwiki-world-settings†L1-L1】",
       "targets": [
         {
           "kind": "item",
@@ -26962,14 +26962,44 @@ Resource Respawn Timer Field Guide maps the default 30-minute node respawns, doc
         {
           "region_id": "palpagos-overworld",
           "coords": [
-            0,
-            0
+            155,
+            -394
           ],
           "time": "any",
-          "weather": "any"
+          "weather": "any",
+          "notes": "Fort Ruins ridge ore circuit."
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            230,
+            -510
+          ],
+          "time": "any",
+          "weather": "any",
+          "notes": "Plateau of Beginnings logging triangle."
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            160,
+            -560
+          ],
+          "time": "any",
+          "weather": "any",
+          "notes": "Second Plateau anchor for the triangle sweep."
+        },
+        {
+          "region_id": "palpagos-overworld",
+          "coords": [
+            100,
+            -525
+          ],
+          "time": "any",
+          "weather": "any",
+          "notes": "Small Settlement cliff staging chest."
         }
       ],
-      "location_policy": "base-only",
       "mode_adjustments": {
         "coop": {
           "role_splits": [
@@ -27018,6 +27048,8 @@ Resource Respawn Timer Field Guide maps the default 30-minute node respawns, doc
       },
       "branching": [],
       "citations": [
+        "game8-ore-farming",
+        "progameguides-base-triangle",
         "palwiki-world-settings"
       ]
     },
