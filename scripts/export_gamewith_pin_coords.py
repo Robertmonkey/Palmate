@@ -226,6 +226,92 @@ def format_text(pins: Sequence[PinRecord], transform: LinearTransform) -> str:
     return "\n".join(lines)
 
 
+def format_geojson(pins: Sequence[PinRecord], transform: LinearTransform) -> str:
+    features = []
+    for pin in pins:
+        coord_x, coord_y = transform.apply(pin)
+        features.append(
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [coord_x, coord_y],
+                },
+                "properties": {
+                    "id": pin.pin_id,
+                    "type": pin.pin_type,
+                    "name": pin.name,
+                    "map_id": pin.map_id,
+                    "loc_x": pin.loc_x,
+                    "loc_y": pin.loc_y,
+                    "coord_x": coord_x,
+                    "coord_y": coord_y,
+                },
+            }
+        )
+    payload = {"type": "FeatureCollection", "features": features}
+    return json.dumps(payload, ensure_ascii=False, indent=2)
+
+
+def format_palmate(pins: Sequence[PinRecord], transform: LinearTransform) -> str:
+    entries: list[dict[str, object]] = []
+    for pin in pins:
+        coord_x, coord_y = transform.apply(pin)
+        entries.append(
+            {
+                "id": pin.pin_id,
+                "type": pin.pin_type,
+                "name": pin.name,
+                "map_id": pin.map_id,
+                "loc": {"x": pin.loc_x, "y": pin.loc_y},
+                "coords": {"x": coord_x, "y": coord_y},
+            }
+        )
+    return json.dumps(entries, ensure_ascii=False, indent=2)
+
+
+def write_residuals(
+    destination: Path,
+    transform: LinearTransform,
+    calibration_points: Sequence[CalibrationPoint],
+) -> None:
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(
+        [
+            "id",
+            "name",
+            "loc_x",
+            "loc_y",
+            "expected_coord_x",
+            "expected_coord_y",
+            "predicted_coord_x",
+            "predicted_coord_y",
+            "delta_x",
+            "delta_y",
+        ]
+    )
+    for point in calibration_points:
+        predicted_x = transform.slope_x * point.loc_x + transform.intercept_x
+        predicted_y = transform.slope_y * point.loc_y + transform.intercept_y
+        writer.writerow(
+            [
+                point.pin_id or "",
+                point.name or "",
+                f"{point.loc_x:.6f}",
+                f"{point.loc_y:.6f}",
+                f"{point.coord_x:.2f}",
+                f"{point.coord_y:.2f}",
+                f"{predicted_x:.2f}",
+                f"{predicted_y:.2f}",
+                f"{predicted_x - point.coord_x:.3f}",
+                f"{predicted_y - point.coord_y:.3f}",
+            ]
+        )
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(buffer.getvalue(), encoding="utf-8")
+
+
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -246,9 +332,12 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument(
         "--format",
-        choices=("text", "markdown", "csv"),
+        choices=("text", "markdown", "csv", "geojson", "palmate"),
         default="markdown",
-        help="Output format for converted coordinates.",
+        help=(
+            "Output format for converted coordinates. GeoJSON emits a FeatureCollection "
+            "while Palmate outputs a JSON array tailored for guide authoring."
+        ),
     )
     parser.add_argument(
         "--output",
@@ -271,6 +360,14 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         "--show-residuals",
         action="store_true",
         help="Print calibration residuals to stderr after solving the transform.",
+    )
+    parser.add_argument(
+        "--residuals-output",
+        type=Path,
+        help=(
+            "Optional path to write a CSV table of calibration residuals, including "
+            "predicted coordinates and deltas for each control point."
+        ),
     )
     return parser.parse_args(argv)
 
@@ -330,10 +427,16 @@ def main(argv: Sequence[str] | None = None) -> None:
             f"  max_abs_error=({max_x_error:.3f},{max_y_error:.3f})",
             file=sys.stderr,
         )
+    if args.residuals_output:
+        write_residuals(args.residuals_output, transform, calibration_points)
     if args.format == "csv":
         report = format_csv(pins, transform)
     elif args.format == "text":
         report = format_text(pins, transform)
+    elif args.format == "geojson":
+        report = format_geojson(pins, transform)
+    elif args.format == "palmate":
+        report = format_palmate(pins, transform)
     else:
         report = format_markdown(pins, transform)
     if args.output:
