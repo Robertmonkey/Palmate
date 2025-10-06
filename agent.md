@@ -448,3 +448,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Source a second coordinate-grade citation for the overworld Astegon and Blazamut hunts (interactive atlas, annotated video, or GameWith scrape) so sanctuary loop steps carry dual evidence instead of leaning on a single Fandom table.
 2. Document reliable merchant or quest sinks that specifically consume Precious Pelts; once confirmed, add an optional trade/sales step and update the catalog trigger text to spotlight downstream uses beyond raw gold.
 3. Audit other sanctuary-only sale items (Precious Claw, Precious Entrails) and queue follow-up routes so late-game currency loops cover the full set of rare drops.
+
+### 2025-12-14 Coverage tooling regression tests
+
+* Added `tests/test_resource_coverage_report.py` with unit coverage for the CSV formatter to ensure catalog gaps, citation warnings, coordinate debt, and exemption rows retain their schema and ordering when future policies land.【F:tests/test_resource_coverage_report.py†L1-L107】
+* Introduced a CLI smoke test that shells out to `scripts/resource_coverage_report.py --format csv` and validates the header layout, preventing regressions when the report output is consumed by dashboards or automation.【F:tests/test_resource_coverage_report.py†L59-L96】
+
+**Continuation notes:**
+
+1. Extend the regression suite to snapshot the Markdown output once the outstanding dual-source citations are in place; we can then gate text-mode changes behind explicit approvals.
+2. Wire the CSV tests into CI (GitHub Actions or the internal harness) so contributors receive fast feedback when changing `resource_coverage_report.py`.
+3. After securing second-source coordinates for Astral hunts, capture fixture data for those cases and broaden the CSV unit test to cover multi-step missing/exempt combinations drawn from real guide IDs.
