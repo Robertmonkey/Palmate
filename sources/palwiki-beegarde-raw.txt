@@ -1,0 +1,137 @@
+{{Pal Prev/Next | prevPal =  Gorirat Terra | prevNo = 049b | nextPal =  Elizabee | nextNo = 051}}
+{{Pal
+
+|name                   ={{PAGENAME}}
+|no                     =050
+|title                  =Guardian Commander
+
+|ele1                   =Grass
+|ele2                   =
+
+|partnerskill           =Worker Bee
+|partnerskill_desc      =Sometimes drop [[Honey]] when assigned to [[Ranch]]. While in team, [[Elizabee]]'s stats will be increased.
+|partnerskill_icon      =Farming
+
+| hp                     = 80
+| attack                 = 90
+| attack_melee           = 100
+| defense                = 90
+| support                = 100
+
+| slow_walk_speed        = 125
+| walk_speed             = 250
+| run_speed              = 450
+| ride_sprint_speed      = 550
+| transport_speed        = 350
+| stamina                = 100
+| work_speed             = 100
+
+| price                  = 1880
+| receive_damage_rate    = 1
+| receive_damage_rate_a  = 0.24
+| capture_rate_correct   = 1
+| capture_rate_correct_a = 0.7
+| breeding_rank          = 1070
+
+| passiveskill1          =
+| passiveskill2          = 
+| passiveskill3          = 
+| passiveskill4          = 
+
+| activeskill1           = Air Cannon
+| activeskill7           = Wind Cutter
+| activeskill15          = Bee Quiet
+| activeskill22          = Poison Blast
+| activeskill30          = Acid Rain
+| activeskill40          = Grass Tornado
+| activeskill50          = Solar Blast
+
+|kindling               =
+|watering               =
+|planting               =1
+|generating_electricity =
+|handiwork              =1
+|gathering              =1
+|lumbering              =1
+|mining                 =
+|medicine_production    =1
+|cooling                =
+|transporting           =2
+|farming                =1
+
+| food                  = 3
+| nocturnal             = No
+
+|drop1=Honey 
+|drop1_min=1
+|drop1_max=2
+|drop1_chance=100
+|drop2                  = 
+|drop2_min              = 
+|drop2_max              = 
+|drop2_chance           = 
+|drop3                  = 
+|drop3_min              = 
+|drop3_max              = 
+|drop3_chance           = 
+|drop4                  = 
+|drop4_min              = 
+|drop4_max              = 
+|drop4_chance           = 
+|drop5                  = 
+|drop5_min              = 
+|drop5_max              = 
+|drop5_chance           = 
+
+|alphadrop1=Ancient Civilization Parts 
+|alphadrop1_min=2
+|alphadrop1_max=4
+|alphadrop1_chance=100
+|alphadrop2=Honey 
+|alphadrop2_min=1
+|alphadrop2_max=2
+|alphadrop2_chance=100
+|alphadrop4=Precious Plume
+|alphadrop4_min=2
+|alphadrop4_max=4
+|alphadrop4_chance=100
+|alphadrop5=Ring of Grass Resistance +1
+|alphadrop5_min=1
+|alphadrop5_max=1
+|alphadrop5_chance=3
+
+}}{{paldeck|A servant that pledges loyalty to [[Elizabee]]. Any that cause harm to the queen are immediately expelled from the hive. It will gladly give its life to protect its queen.}}
+'''Beegarde''' (Japanese: '''ビーナイト''' ''Beeknight)'' is a {{i|Grass}} [[Elements|element]] [[Pals|Pal]].
+
+==Appearance==
+Beegarde is a warrior inspired by bees. It has white wings, a black cape, and limbs with black and white stripes. On its head there is a purple tip.
+==Behavior and habitat==
+It can be found in a group and will attack if it notice the players. It sometimes may use its explosion skill, which cause a lot of damage.
+[[File:Beegarde_Day_Habitat.webp|thumb|Daytime Beegarde Spawns]]
+[[File:Beegarde_Night_Habitat.webp|thumb|Nightime Beegarde Spawns]]
+
+==Utility==
+{{PAGENAME}} is able to Craft, Build, Lumber, and passively produce Honey while assigned to the ranch.
+
+In the party, Beegarde buffs the stats of [[Elizabee]].
+
+==History==
+* [[0.2.4.0]]
+** Increased the Alpha Received Damage Rate from 0.2 to 0.24.
+* [[0.1.2.0]]
+** Introduced.
+
+==Trivia==
+* Its Japanese name may come from ''Bee'' and ''Knight''.
+* Beegarde does not have a gender ratio of 1-to-1 Male to Female. Beegarde has a 10% chance to spawn as a male and a 90% chance to spawn as a female; this is in contrast with most other Pals, which have an equal chance to spawn with either gender. Other Pals with uneven gender ratios include [[Mozzarina]], [[Elizabee]], [[Dazzi]], [[Lovander]], [[Kingpaca]], [[Kingpaca Cryst]], [[Warsect]], [[Lyleen]], and [[Lyleen Noct]].
+** This is justified as almost all bees in real life are females.
+
+==Media==
+<gallery widths="150">
+File:Beegarde Sleeping.png|Beegarde sleeping
+File:Beegarde bis.png
+</gallery>
+
+{{Navbox Pals}}
+[[Category:Pals]]
+[[Category:Pals with exclusive Skills]]

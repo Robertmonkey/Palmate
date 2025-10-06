@@ -1,0 +1,97 @@
+{{Pal Prev/Next | prevPal = Foxparks Cryst | prevNo = 005B | nextPal = Fuack Ignis | nextNo = 006B}}
+{{Pal
+| name = Fuack
+| alphatitle =Rowdy Wave Ripper 
+| image = Fuack.png
+| no = 006
+| ele1 = Water
+| drops = {{i|Leather}}<br/>{{i|Pal Fluids}}
+| food = 2
+| partnerskill = Surfing Slam
+| psicon =Slam 
+| psdesc = When activated, Fuack body surfs towards an enemy and slams into them.
+| watering = 1
+| handiwork = 1
+| transporting = 1
+| breedpower = 1330
+|maps=<gallery>
+Fuack Day Habitat.png|Day
+Fuack Night Habitat.png|Night
+</gallery>}}
+'''Fuack''' (Japanese: '''カモノスケ''' ''Kamonosuke'') is a {{i|Water}} [[Elements|element]] [[Pals|Pal]].
+
+== Paldeck Entry==
+{{Paldeck|Using its own body water, this Pal can create waves anywhere. It body surfs when in a hurry, but the resulting speed often ends in a fatal collision.}}
+
+==Biology==
+===Appearance===
+Fuack appears like a blue, bipedal platypus with a yellow duck bill and two strange tufts sticking out on its head resembling pigtails. It has a white frill around its neck, split up into several bead-like segments. It also has a beaver or platypus tail, which is a slightly different shade of blue than the rest of its body. 
+
+===Behavior===
+This Pal can be found roaming around bodies of water and inland, it may run away from the player. Like most Pals, wild Fuack will retaliate when attacked.
+
+==Availability==
+===Wild Spawn===
+
+* [[Windswept Hills]]
+
+===[[Dungeons]]===
+*[[Dungeons#Grass Dungeons|Grass Dungeon Boss]]
+<div class="mw-collapsible mw-collapsed">
+===[[Breeding]]===
+<div class="mw-collapsible-content">
+{{Cols|2|{{Breeding|Fuack}}}}
+</div>
+</div>
+
+==Stats==
+{{Pal Table Stats|hp=60|attack=80|defense=60|max_hp=3217|max_attack=578|max_defense=400|min_defense=308|min_attack=445|min_hp=2475}}
+==Elemental Effectiveness==
+{{Pal Element Effect|type=water}}
+
+==Utility==
+'''Partner Skill:'''
+*Surfing Slam - When activated, Fuack body surfs towards an enemy and slams into them.
+
+'''Work Suitability:'''
+*{{I|Handiwork}} 1
+*{{I|Transporting}} 1
+*{{I|Watering}} 1
+
+'''Possible Drops:'''
+*Normal 
+**{{i|Leather}}
+**{{i|Pal Fluids}}
+*Boss
+**{{i|Ancient Civilization Parts}}
+**{{i|Leather}}
+**{{I|Pal Fluids}}
+**{{i|Precious Pelt}}
+**{{i|Ring of Water Resistance}}
+
+==Active Skills==
+{{PalSkillListStart}}
+{{PalSkillListEntry+|Aqua Gun|level=1}}
+{{PalSkillListEntry+|Power Shot|level=7}}
+{{PalSkillListEntry+|Hydro Jet|level=15}}
+{{PalSkillListEntry+|Ice Missile|level=22}}
+{{PalSkillListEntry+|Bubble Blast|level=30}}
+{{PalSkillListEntry+|Aqua Burst|level=40}}
+{{PalSkillListEntry+|Hydro Laser|level=50}}
+{{PalSkillListEnd}}
+
+==Update History== 
+*[[Early Access 0.1.2.0]]
+**Introduced.
+
+==Trivia== 
+*Fuack's name may come from the words ''fowl ''and ''quack''. It also may come from "thwack," referencing its ability (might also be an innuendo).
+*Its Japanese name may come from 鴨 ''kamo'' (duck) and -之介 ''nosuke,'' the latter being a way to end masculine names popularized in the Sengoku and Edo periods, this practice is usually considered quaint in the present. Additionally, it could be based on the term 助 ''suke'' (helper or assistant).
+
+==Gallery==
+<gallery>
+File:Fuack transport.png|thumb|A Fuack [[transporting]] some [[Wood]] by holding it against its back and tail.
+File:Fuack1.png|Fuack in trailer
+</gallery>
+
+{{Navbox Pals}}

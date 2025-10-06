@@ -3093,7 +3093,7 @@ Wandering Merchants sell Leather for 150 gold each【840767909995613†L78-L100
       "step_id": "resource-leather-early:001",
       "type": "travel",
       "summary": "Travel to leather hotspots",
-      "detail": "Head to the Sea Breeze Archipelago Church or the Bridge of the Twin Knights.  These areas host large numbers of Foxparks, Rushoars and Fuacks, which all drop Leather【840767909995613†L78-L100】【840767909995613†L106-L135】.",
+      "detail": "Head to the Sea Breeze Archipelago Church or the Bridge of the Twin Knights.  These areas host large numbers of Foxparks, Rushoars and Fuacks, which all drop Leather, and Foxparks repeatedly patrol the Windswept Hills bridge plateau for easy respawns.【840767909995613†L78-L100】【840767909995613†L106-L135】【palfandom-foxparks†L33-L40】",
       "targets": [],
       "locations": [
         {
@@ -3135,7 +3135,8 @@ Wandering Merchants sell Leather for 150 gold each【840767909995613†L78-L100
       },
       "branching": [],
       "citations": [
-        "shockbyte-leather-sources"
+        "shockbyte-leather-sources",
+        "palfandom-foxparks"
       ]
     },
     {
@@ -3231,7 +3232,7 @@ Wandering Merchants sell Leather for 150 gold each【840767909995613†L78-L100
       "step_id": "resource-leather-early:003",
       "type": "deliver",
       "summary": "Optionally buy Leather from merchants",
-      "detail": "If hunting is too risky, purchase Leather from a Wandering Merchant for approximately 150 gold each【840767909995613†L78-L100】.",
+      "detail": "If hunting is too risky, purchase Leather from a Wandering Merchant for approximately 150 gold each.【840767909995613†L78-L100】【palwiki-wandering-merchant-raw†L103-L119】",
       "targets": [
         {
           "kind": "item",
@@ -3272,7 +3273,8 @@ Wandering Merchants sell Leather for 150 gold each【840767909995613†L78-L100
       },
       "branching": [],
       "citations": [
-        "shockbyte-leather-merchant"
+        "shockbyte-leather-merchant",
+        "palwiki-wandering-merchant-raw"
       ]
     }
   ],
@@ -3803,7 +3805,7 @@ Players who want reliable Cake production need an efficient way to gather Honey.
       "step_id": "resource-honey:001",
       "type": "capture",
       "summary": "Capture Cinnamoth near Cinnamoth Forest",
-      "detail": "Teleport to Cinnamoth Forest (-74,-279) north of the Bridge of the Twin Knights. The level ~18 Cinnamoth here drop Honey when captured or defeated, letting you stock 6–8 units quickly.【pcgamesn-honey†L135-L144】",
+      "detail": "Teleport to Cinnamoth Forest (-74,-279) north of the Bridge of the Twin Knights. The level ~18 Cinnamoth here drop Honey when captured or defeated, letting you stock 6–8 units quickly.【pcgamesn-honey†L135-L144】【palwiki-cinnamoth-raw†L65-L93】",
       "targets": [
         {
           "kind": "item",
@@ -3862,14 +3864,15 @@ Players who want reliable Cake production need an efficient way to gather Honey.
       },
       "branching": [],
       "citations": [
-        "pcgamesn-honey"
+        "pcgamesn-honey",
+        "palwiki-cinnamoth-raw"
       ]
     },
     {
       "step_id": "resource-honey:002",
       "type": "capture",
       "summary": "Hunt Beegarde in Mossanda Forest",
-      "detail": "Travel to Mossanda Forest (234,-118). Level 20–30 Beegarde spawn in groups and reliably drop Honey; capture two or three to staff your ranch and stock additional drops.【pcgamesn-honey†L135-L145】",
+      "detail": "Travel to Mossanda Forest (234,-118). Level 20–30 Beegarde spawn in groups and reliably drop Honey; capture two or three to staff your ranch and stock additional drops.【pcgamesn-honey†L135-L145】【palwiki-beegarde-raw†L65-L115】",
       "targets": [
         {
           "kind": "pal",
@@ -3937,7 +3940,8 @@ Players who want reliable Cake production need an efficient way to gather Honey.
       },
       "branching": [],
       "citations": [
-        "pcgamesn-honey"
+        "pcgamesn-honey",
+        "palwiki-beegarde-raw"
       ]
     },
     {
@@ -4586,7 +4590,7 @@ Cloth upgrades and tailoring requests strain early-game bases. This loop corrals
       "step_id": "resource-wool:002",
       "type": "capture",
       "summary": "Rotate through Sea Breeze Archipelago pastures",
-      "detail": "Sail or glide to the Sea Breeze Archipelago and loop the coastal fields north of the Church. Lamball spawn here at similar levels, ensuring replacement workers and extra Wool for crafting stock.【palwiki-lamball†L620-L623】",
+      "detail": "Sail or glide to the Sea Breeze Archipelago and loop the coastal fields north of the Church. Lamball spawn here at similar levels, ensuring replacement workers and extra Wool for crafting stock.【palwiki-lamball†L620-L623】【palwiki-lamball-raw†L102-L109】",
       "targets": [
         {
           "kind": "item",
@@ -4633,7 +4637,8 @@ Cloth upgrades and tailoring requests strain early-game bases. This loop corrals
       },
       "branching": [],
       "citations": [
-        "palwiki-lamball"
+        "palwiki-lamball",
+        "palwiki-lamball-raw"
       ]
     },
     {
@@ -5578,7 +5583,7 @@ Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along 
       "step_id": "resource-pal-fluids:002",
       "type": "capture",
       "summary": "Tag Fuack around inland ponds",
-      "detail": "Cut inland to the freshwater pools west of the plateau. Fuack roam around water sources, drop Pal Fluids alongside Leather, and bolster your Watering roster.【palwiki-fuack†L1853-L1859】【palwiki-fuack†L1667-L1667】",
+      "detail": "Cut inland to the freshwater pools west of the plateau. Fuack roam around water sources, drop Pal Fluids alongside Leather, and bolster your Watering roster.【palwiki-fuack†L1853-L1859】【palwiki-fuack†L1667-L1667】【palfandom-fuack†L8-L68】",
       "targets": [
         {
           "kind": "item",
@@ -5627,7 +5632,8 @@ Water-tech automation leans on Pal Fluids. This circuit corrals Pengullet along 
       },
       "branching": [],
       "citations": [
-        "palwiki-fuack"
+        "palwiki-fuack",
+        "palfandom-fuack"
       ]
     },
     {
@@ -14185,7 +14191,7 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
       "step_id": "resource-flame-organ:003",
       "type": "trade",
       "summary": "Buy 100-gold organs",
-      "detail": "Swing through the Small Settlement after each run and spend 100 gold per Flame Organ to cushion crafting spikes.【cf6c22†L6-L6】",
+      "detail": "Swing through the Small Settlement after each run and spend 100 gold per Flame Organ to cushion crafting spikes.【cf6c22†L6-L6】【palfandom-flame-organ†L35-L66】",
       "targets": [
         {
           "kind": "item",
@@ -14235,7 +14241,8 @@ Flame Organ Kiln Loop keeps Foxparks sweeps, Flambelle ranching, and merchant bu
         }
       ],
       "citations": [
-        "game8-flame-organ"
+        "game8-flame-organ",
+        "palfandom-flame-organ"
       ]
     }
   ],
@@ -14398,7 +14405,7 @@ Ice Organ Chill Chain leans on the Penking alpha dungeon and Duneshelter merchan
       "step_id": "resource-ice-organ:001",
       "type": "travel",
       "summary": "Unlock the Frozen Wings fast travel",
-      "detail": "Activate the Sealed Realm of the Frozen Wings statue and set a camp outside the (113,-351) dungeon door for quick entries.【4307f5†L9-L10】",
+      "detail": "Activate the Sealed Realm of the Frozen Wings statue and set a camp outside the (113,-351) dungeon door for quick entries.【4307f5†L9-L10】【palwiki-sealed-realms-raw†L29-L33】",
       "targets": [],
       "locations": [
         {
@@ -14432,14 +14439,15 @@ Ice Organ Chill Chain leans on the Penking alpha dungeon and Duneshelter merchan
       },
       "branching": [],
       "citations": [
-        "game8-ice-organ"
+        "game8-ice-organ",
+        "palwiki-sealed-realms-raw"
       ]
     },
     {
       "step_id": "resource-ice-organ:002",
       "type": "combat",
       "summary": "Farm Pengullets in the arena",
-      "detail": "Clear Pengullets supporting Penking, leave before defeating the boss, then re-enter once the cooldown lifts for another wave of organ drops.【4307f5†L9-L11】",
+      "detail": "Clear Pengullets supporting Penking, leave before defeating the boss, then re-enter once the cooldown lifts for another wave of organ drops.【4307f5†L9-L11】【palwiki-penking-raw†L65-L93】",
       "targets": [
         {
           "kind": "item",
@@ -14499,7 +14507,8 @@ Ice Organ Chill Chain leans on the Penking alpha dungeon and Duneshelter merchan
       },
       "branching": [],
       "citations": [
-        "game8-ice-organ"
+        "game8-ice-organ",
+        "palwiki-penking-raw"
       ]
     },
     {
@@ -27766,11 +27775,23 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-01",
       "notes": "Details Lamball drops, ranch production, and spawn regions in Windswept Hills and Sea Breeze Archipelago.【1e15ae†L1-L6】【9dc91d†L1-L5】【ca929c†L1-L7】【0fa8e2†L1-L4】"
     },
+    "palwiki-lamball-raw": {
+      "title": "Lamball – Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Lamball&action=raw",
+      "access_date": "2025-12-16",
+      "notes": "Raw habitat notes confirm Lamball are common in Windswept Hills, the Sea Breeze Archipelago, and Forgotten Island, spawning in groups of two to four.【palwiki-lamball-raw†L102-L109】"
+    },
     "palfandom-lamball": {
       "title": "Lamball – Palworld Wiki (Fandom)",
       "url": "https://palworld.fandom.com/wiki/Lamball",
       "access_date": "2025-10-23",
       "notes": "Lists Windswept Hills Lamball spawns, ranch wool production, and guaranteed Lamball Mutton drops for each cull.【palfandom-lamball†L17-L75】"
+    },
+    "palfandom-foxparks": {
+      "title": "Foxparks – Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Foxparks",
+      "access_date": "2025-12-16",
+      "notes": "Identifies Windswept Hills as a wild Foxparks habitat, supporting bridge plateau farm loops.【palfandom-foxparks†L33-L40】"
     },
     "palfandom-windswept-hills-raw": {
       "title": "Windswept Hills – Palworld Wiki (Fandom, raw)",
@@ -27814,11 +27835,23 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-01",
       "notes": "Lists Windswept Hills as a wild spawn region for Pengullet along with dungeon appearances.【7e854f†L1-L9】"
     },
+    "palwiki-penking-raw": {
+      "title": "Penking – Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Penking&action=raw",
+      "access_date": "2025-12-16",
+      "notes": "Raw drop table shows Penking and its alpha variant guarantee Ice Organ drops in the Sealed Realm encounter.【palwiki-penking-raw†L65-L93】"
+    },
     "palwiki-fuack": {
       "title": "Fuack – Palworld Wiki (Fandom)",
       "url": "https://palworld.fandom.com/wiki/Fuack",
       "access_date": "2025-10-01",
       "notes": "Notes Fuack roam bodies of water in the Windswept Hills and drop both Leather and Pal Fluids when defeated.【edfa41†L1-L12】【904908†L1-L10】"
+    },
+    "palfandom-fuack": {
+      "title": "Fuack – Palworld Wiki (Fandom, raw)",
+      "url": "https://palworld.fandom.com/wiki/Fuack?action=raw",
+      "access_date": "2025-12-16",
+      "notes": "Raw page lists Leather and Pal Fluid drops and reiterates Windswept Hills as Fuack's natural habitat.【palfandom-fuack†L8-L68】"
     },
     "pcgamesn-sulfur": {
       "title": "Where to get Palworld Sulfur",
@@ -28095,6 +28128,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/wiki/Sealed_Realms",
       "access_date": "2025-10-26",
       "notes": "Provides the Sealed Realm of the Pristine entry with Sibelyx, recommended level 40, and coordinates (250,70).【palwiki-sealed-realms†L44-L47】"
+    },
+    "palwiki-sealed-realms-raw": {
+      "title": "Sealed Realms – Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Sealed_Realms&action=raw",
+      "access_date": "2025-12-16",
+      "notes": "Raw table lists the Sealed Realm of the Frozen Wings at (113,-353) and the Sealed Realm of the Invincible hosting Katress at level 23.【palwiki-sealed-realms-raw†L20-L41】"
     },
     "pcgamesn-milk": {
       "title": "Where to get Palworld milk",
@@ -28420,6 +28459,12 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-18",
       "notes": "Provides the full drop list, confirms ranch production from Sootseer and Vixy, and reiterates the 100G merchant price.【palfandom-bone†L1-L55】"
     },
+    "palfandom-flame-organ": {
+      "title": "Flame Organ – Palworld Wiki (Fandom)",
+      "url": "https://palworld.fandom.com/wiki/Flame_Organ",
+      "access_date": "2025-12-16",
+      "notes": "Lists Wandering Merchant pricing at 100 Gold Coins and enumerates Flame Organ drop sources from fire-aligned pals.【palfandom-flame-organ†L35-L66】"
+    },
     "palwiki-sootseer": {
       "title": "Sootseer – Palworld Wiki",
       "url": "https://palworld.wiki.gg/wiki/Sootseer",
@@ -28707,6 +28752,18 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://www.pcgamesn.com/palworld/honey",
       "access_date": "2025-11-27",
       "notes": "Advises farming Honey from drop Pals like Beegarde, Elizabee, Cinnamoth, and Warsect, and assigning Beegarde to a ranch for passive production.【pcgamesn-honey†L142-L153】"
+    },
+    "palwiki-cinnamoth-raw": {
+      "title": "Cinnamoth – Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Cinnamoth&action=raw",
+      "access_date": "2025-12-16",
+      "notes": "Raw infobox lines list Honey as Cinnamoth's guaranteed drop and alpha reward.【palwiki-cinnamoth-raw†L65-L93】"
+    },
+    "palwiki-beegarde-raw": {
+      "title": "Beegarde – Palworld Wiki (raw)",
+      "url": "https://palworld.wiki.gg/index.php?title=Beegarde&action=raw",
+      "access_date": "2025-12-16",
+      "notes": "Raw wikitext shows Beegarde's Honey drops and confirms ranch production of Honey when assigned.【palwiki-beegarde-raw†L65-L115】"
     }
   }
 }
