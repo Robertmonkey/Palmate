@@ -1,4 +1,22 @@
 import dataset from '../../data/palworld_complete_data_final.json' assert { type: 'json' };
+import itemDetails from '../../data/item_details.json' assert { type: 'json' };
+
+const itemDetailEntries = itemDetails && typeof itemDetails === 'object'
+  ? Object.entries(itemDetails)
+  : [];
+
+const itemDetailsBySlug = Object.fromEntries(
+  itemDetailEntries.map(([key, value]) => [String(key), value])
+);
+
+const itemDetailsByName = new Map(
+  itemDetailEntries
+    .map(([, detail]) => {
+      const name = detail && typeof detail === 'object' ? detail.name : null;
+      return typeof name === 'string' && name.trim() ? [name.trim().toLowerCase(), detail] : null;
+    })
+    .filter(Boolean)
+);
 
 const techLevels = Array.isArray(dataset?.tech)
   ? dataset.tech
@@ -33,13 +51,91 @@ function normaliseMaterials(materials) {
     .filter(entry => entry.name.trim().length && Number.isFinite(entry.quantity) && entry.quantity >= 0);
 }
 
-function renderMaterials(materials) {
-  const entries = normaliseMaterials(materials);
+function findItemDetail(item) {
+  if (!item || typeof item !== 'object') return null;
+  const id = typeof item.id === 'string' ? item.id : '';
+  const name = typeof item.name === 'string' ? item.name : '';
+  const slugKey = id ? id.replace(/[^a-z0-9]+/gi, '_').toLowerCase() : '';
+  if (slugKey && itemDetailsBySlug[slugKey]) return itemDetailsBySlug[slugKey];
+  if (name) {
+    const detail = itemDetailsByName.get(name.trim().toLowerCase());
+    if (detail) return detail;
+  }
+  if (name) {
+    const fallbackSlug = name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_');
+    if (itemDetailsBySlug[fallbackSlug]) return itemDetailsBySlug[fallbackSlug];
+  }
+  return null;
+}
+
+function resolveMaterials(item) {
+  const direct = normaliseMaterials(item?.materials);
+  if (direct.length) {
+    return direct.map(entry => ({ ...entry, icon: null }));
+  }
+  const detail = findItemDetail(item);
+  if (!detail || typeof detail !== 'object' || !Array.isArray(detail.recipe)) return [];
+  return detail.recipe
+    .map(ingredient => {
+      if (!ingredient || typeof ingredient !== 'object') return null;
+      const name = typeof ingredient.name === 'string' ? ingredient.name : '';
+      if (!name.trim()) return null;
+      const quantityRaw = ingredient.quantity;
+      const numberValue =
+        typeof quantityRaw === 'number'
+          ? quantityRaw
+          : quantityRaw !== undefined
+          ? Number(quantityRaw)
+          : NaN;
+      const quantity = Number.isFinite(numberValue) && numberValue >= 0 ? numberValue : null;
+      const icon = typeof ingredient.icon === 'string' && ingredient.icon.trim() ? ingredient.icon : null;
+      return { name, quantity, icon };
+    })
+    .filter(Boolean);
+}
+
+function lookupMaterialDetail(name) {
+  if (!name) return null;
+  const normalized = String(name).trim().toLowerCase();
+  if (!normalized) return null;
+  const fromName = itemDetailsByName.get(normalized);
+  if (fromName) return fromName;
+  const slugKey = normalized.replace(/[^a-z0-9]+/g, '_');
+  return itemDetailsBySlug[slugKey] || null;
+}
+
+function renderMaterialChip(entry) {
+  if (!entry || !entry.name) return '';
+  const name = String(entry.name).trim();
+  if (!name) return '';
+  const detail = lookupMaterialDetail(name);
+  const icon = entry.icon || (detail && typeof detail === 'object' && detail.image ? detail.image : null);
+  const quantity = Number.isFinite(entry.quantity) ? entry.quantity : null;
+  const qtyLabel = quantity !== null ? `×${escapeHtml(quantity)}` : '×?';
+  const thumb = icon
+    ? `<span class="tech-material__thumb"><img src="${escapeHtml(icon)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>`
+    : '<span class="tech-material__thumb tech-material__thumb--placeholder" aria-hidden="true">🔧</span>';
+  const ariaLabel = quantity !== null
+    ? `${name}, quantity ${quantity}`
+    : `${name}, quantity unknown`;
+  return `
+    <li class="tech-material" aria-label="${escapeHtml(ariaLabel)}">
+      <span class="tech-material__chip">
+        ${thumb}
+        <span class="tech-material__body">
+          <span class="tech-material__name">${escapeHtml(name)}</span>
+          <span class="tech-material__qty">${qtyLabel}</span>
+        </span>
+      </span>
+    </li>
+  `;
+}
+
+function renderMaterials(item) {
+  const entries = resolveMaterials(item);
   if (!entries.length) return '';
-  const rows = entries
-    .map(entry => `<li><span>${escapeHtml(entry.name)}</span><span>${entry.quantity}</span></li>`)
-    .join('');
-  return `<ul class="tech-materials" aria-label="Required materials">${rows}</ul>`;
+  const chips = entries.map(renderMaterialChip).join('');
+  return `<ul class="tech-materials" aria-label="Required materials" role="list">${chips}</ul>`;
 }
 
 function renderBadges(item) {
@@ -97,7 +193,7 @@ function renderItemCard(item) {
         ${renderBadges(item)}
         ${formatCost(item)}
         ${renderDescription(item)}
-        ${renderMaterials(item.materials)}
+        ${renderMaterials(item)}
       </div>
     </article>
   `;

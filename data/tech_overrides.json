@@ -1,0 +1,1125 @@
+{
+  "advanced-chest": {
+    "description": "Stores items. Quite sturdy, with plenty of storage space. It is useful as a large, secure storage box.",
+    "materials": {
+      "Hexolite": 20,
+      "Carbon Fiber": 50,
+      "Nail": 20
+    }
+  },
+  "alarm-bell": {
+    "description": "Bell that sets the alert status for Pals on base. Change Pal behavior to either attack invading enemies or focus entirely on work whenever you like.",
+    "materials": {
+      "Paldium Fragment": 5,
+      "Stone": 20
+    }
+  },
+  "alpha-wave-generator": {
+    "description": "A device that generates alpha waves to relax Pals. It slows the rate at which the SAN value of allies at the base decreases. Placing more than two will not have any additional effect.",
+    "materials": {
+      "Refined Ingot": 50,
+      "Circuit Board": 20,
+      "Electric Organ": 30,
+      "Paldium Fragment": 30
+    }
+  },
+  "amusement-furniture-set": {
+    "description": "Decorative furniture set. Your Pals will keep on working.",
+    "materials": {
+      "Ingot": 20,
+      "Fiber": 20
+    }
+  },
+  "antique-bath-set": {
+    "description": "Decorative furniture set. Can't actually be used to stay clean.",
+    "materials": {
+      "Cloth": 1,
+      "Stone": 20,
+      "Ingot": 1
+    }
+  },
+  "antique-chair-set": {
+    "description": "Decorative furniture set. Use with an antique desk.",
+    "materials": {
+      "Wood": 10
+    }
+  },
+  "antique-couch-set": {
+    "description": "Decorative furniture set. Gives the air of luxury to your base.",
+    "materials": {
+      "Wood": 10,
+      "Cloth": 2,
+      "Flame Organ": 1
+    }
+  },
+  "antique-desk-set": {
+    "description": "Decorative furniture set. Use with an antique chair.",
+    "materials": {
+      "Wood": 25,
+      "Fiber": 5,
+      "Stone": 5
+    }
+  },
+  "antique-dresser": {
+    "description": "Dresser useful for giving yourself a remake. Allows players to edit their appearence.",
+    "materials": {
+      "Wood": 100,
+      "Fiber": 20,
+      "Stone": 30,
+      "Ancient Civilization Parts": 5
+    }
+  },
+  "antique-high-quality-furniture-set": {
+    "description": "Decorative furniture set. Gives an air of stately elegance to your base.",
+    "materials": {
+      "Wood": 10,
+      "Cloth": 3,
+      "Ingot": 1
+    }
+  },
+  "antique-lamp-set": {
+    "description": "Antique lamp set to provide illumination. Requires electricity.",
+    "materials": {
+      "Wood": 30,
+      "Electric Organ": 3,
+      "Nail": 3
+    }
+  },
+  "antique-mirror-set": {
+    "description": "Decorative furniture set. Essential for making sure you look good.",
+    "materials": {
+      "Wood": 10,
+      "Stone": 10,
+      "Paldium Fragment": 2
+    }
+  },
+  "antique-storage-cabinet-set": {
+    "description": "Antique storage cabinet set. Can store items.",
+    "materials": {
+      "Wood": 30,
+      "Fiber": 10
+    }
+  },
+  "antique-storage-set": {
+    "description": "Antique storage furniture set. Can store items.",
+    "materials": {
+      "Wood": 40,
+      "Nail": 2
+    }
+  },
+  "barricade-set": {
+    "description": "Decorative furniture set. Place to keep somewhere off limits.",
+    "materials": {
+      "Ingot": 5
+    }
+  },
+  "bathroom-set": {
+    "description": "Decorative furniture set. Can't be used for its original purpose.",
+    "materials": {
+      "Wood": 5,
+      "Stone": 20,
+      "Ingot": 2
+    }
+  },
+  "bear-trap-large": {
+    "description": "Immobilizes those who step on it. Only effective on large Pals.",
+    "materials": {
+      "Ingot": 20
+    }
+  },
+  "bear-trap-small": {
+    "description": "Immobilizes those who step on it. Only effective on small Pals or humans.",
+    "materials": {
+      "Ingot": 5
+    }
+  },
+  "berry-plantation": {
+    "description": "A farm that can grow Red Berries. Harvest time is quick, but eating them doesn't provide much sustenance. Requires a few Pals to plant seeds, water, and harvest the crops.",
+    "materials": {
+      "Berry Seeds": 3,
+      "Wood": 20,
+      "Stone": 20
+    }
+  },
+  "beta-wave-generator": {
+    "description": "A device that emits beta waves to energize Pals. It increases the work speed of Pals at the base. Placing more than one will not have any additional effect.",
+    "materials": {
+      "Pal Metal Ingot": 40,
+      "Circuit Board": 30,
+      "Electric Organ": 40
+    }
+  },
+  "breeding-farm": {
+    "description": "20 Stone 50 Fiber",
+    "materials": {
+      "Wood": 100,
+      "Stone": 20,
+      "Fiber": 50
+    }
+  },
+  "campfire": {
+    "description": "Used to make simple food or provide meager warmth and light.",
+    "materials": {
+      "Wood": 10
+    }
+  },
+  "carpet-set": {
+    "description": "Decorative furniture set. Place on a foundation in your base for that homey feel.",
+    "materials": {
+      "Cloth": 3,
+      "Venom Gland": 1
+    }
+  },
+  "ceiling-lamp": {
+    "description": "Lights up dark areas below at a base.",
+    "materials": {
+      "Ingot": 20,
+      "Electric Organ": 3,
+      "Nail": 3
+    }
+  },
+  "clock-set": {
+    "description": "Decorative furniture set. Doesn't actually tell time.",
+    "materials": {
+      "Ingot": 5,
+      "Paldium Fragment": 2
+    }
+  },
+  "coal-mine": {
+    "description": "Facility for producing large quantities of Coal.",
+    "materials": {
+      "Stone": 70,
+      "Coal": 100,
+      "Paldium Fragment": 30
+    }
+  },
+  "cooking-pot": {
+    "description": "Can efficiently prepare more varieties of food.",
+    "materials": {
+      "Wood": 20,
+      "Ingot": 15,
+      "Flame Organ": 3
+    }
+  },
+  "cooler": {
+    "description": "Cools the nearby area and protects against the heat. A Pal with the Cooling Work Suitability is needed to maintain the cooling effect.",
+    "materials": {
+      "Ingot": 20,
+      "Stone": 20,
+      "Ice Organ": 5
+    }
+  },
+  "cooler-box": {
+    "description": "Small food vault. Assign an Ice Pal to help prevent food stored inside from spoiling.",
+    "materials": {
+      "Ingot": 20,
+      "Stone": 20,
+      "Ice Organ": 5
+    }
+  },
+  "crusher": {
+    "description": "20 Stone 10 Paldium Fragment",
+    "materials": {
+      "Wood": 50,
+      "Stone": 20,
+      "Paldium Fragment": 10
+    }
+  },
+  "defensive-wall": {
+    "description": "Large defensive wall that protects from enemy invasions.",
+    "materials": {
+      "Stone": 10,
+      "Cement": 1
+    }
+  },
+  "deluxe-bait": {
+    "description": "Bait that lures in Pals. Improved to slightly enlarge the size of the bar in the fishing minigame.",
+    "materials": {
+      "High Quality Pal Oil": 4,
+      "Onion": 4,
+      "Carrot": 3,
+      "Flour": 4
+    }
+  },
+  "egg-incubator": {
+    "description": "Used for incubating a Pal Egg. If a Pal Egg is left in it, it will automatically hatch after some time has passed.",
+    "materials": {
+      "Paldium Fragment": 10,
+      "Stone": 30,
+      "Cloth": 5,
+      "Ancient Civilization Parts": 2
+    }
+  },
+  "electric-cooler": {
+    "description": "Cools the nearby area and protects against the heat. Improved range and cooling capabilities.",
+    "materials": {
+      "Refined Ingot": 30,
+      "Circuit Board": 10,
+      "Ingot": 30,
+      "Ice Organ": 10
+    }
+  },
+  "electric-egg-incubator": {
+    "description": "Device for incubating Pal eggs. Requires electricity, but automatically keeps the inside of the incubator at appropriate temperatures.",
+    "materials": {
+      "Refined Ingot": 50,
+      "Circuit Board": 15,
+      "Ancient Civilization Parts": 10,
+      "Ancient Civilization Core": 5
+    }
+  },
+  "electric-furnace": {
+    "description": "Allows refinement of Pal Metal Ingot. It requires Electricity to use, but is quicker to process. Requires a Fire Pal to light a flame.",
+    "materials": {
+      "Refined Ingot": 50,
+      "Circuit Board": 10,
+      "Polymer": 20,
+      "Carbon Fiber": 20
+    }
+  },
+  "electric-heater": {
+    "description": "Warms the nearby area and protects against the cold. Improved range and heating capabilities.",
+    "materials": {
+      "Refined Ingot": 30,
+      "Circuit Board": 10,
+      "Ingot": 30,
+      "Flame Organ": 10
+    }
+  },
+  "electric-kitchen": {
+    "description": "Needed for cooking food. It requires electricity to run, but allows a large amount of meals to be prepared rapidly. Requires a Pal with Kindling to light a flame.",
+    "materials": {
+      "Refined Ingot": 30,
+      "Circuit Board": 5,
+      "Charcoal": 20,
+      "Flame Organ": 5
+    }
+  },
+  "electric-medicine-workbench": {
+    "description": "A facility for making Pal medicine. It requires electricity, but can produce high quality medicine. Leave its operation to a Pal that can make medicine.",
+    "materials": {
+      "Refined Ingot": 40,
+      "Circuit Board": 10,
+      "Carbon Fiber": 20
+    }
+  },
+  "electric-mine": {
+    "description": "Electrocutes those who step on it. Electrocuted Pals are easier to capture.",
+    "materials": {
+      "Ingot": 5,
+      "Electric Organ": 2
+    }
+  },
+  "electric-pylon": {
+    "description": "Place in a base to improve electricity generating speed. Placing more than one has no additional effect.",
+    "materials": {
+      "Ingot": 100,
+      "Electric Organ": 30,
+      "Circuit Board": 20
+    }
+  },
+  "emergency-exit-sign-set": {
+    "description": "Decorative furniture set. Apparently a priceless artifact in more civilized times.",
+    "materials": {
+      "Polymer": 1,
+      "Electric Organ": 1
+    }
+  },
+  "feed-box": {
+    "description": "Place food, and Pals at the base will eat from it.",
+    "materials": {
+      "Wood": 20
+    }
+  },
+  "fine-bed": {
+    "description": "Soft bed with improved restorative capabilities. Cannot sleep unless built under a roof.",
+    "materials": {
+      "Cloth": 10,
+      "Wood": 50,
+      "Nail": 10,
+      "Fiber": 20
+    }
+  },
+  "fireplace-set": {
+    "description": "Brick fireplace set to provide illumination. Must be lit with fire.",
+    "materials": {
+      "Wood": 30,
+      "Stone": 15,
+      "Charcoal": 5
+    }
+  },
+  "flame-cauldron": {
+    "description": "Place in base to improve fire-making speed. Placing more than one has no additional effect.",
+    "materials": {
+      "Ingot": 50,
+      "Wood": 100,
+      "Flame Organ": 20
+    }
+  },
+  "flea-market-items": {
+    "description": "Put up items for sale on multiplayer servers.",
+    "materials": {
+      "Ingot": 20,
+      "Wood": 40,
+      "Cloth": 3
+    }
+  },
+  "flea-market-pals": {
+    "description": "Put up Pals for sale on multiplayer servers.",
+    "materials": {
+      "Ingot": 20,
+      "Wood": 40,
+      "Paldium Fragment": 5
+    }
+  },
+  "flower-bed": {
+    "description": "Place in base to improve gathering speed. Placing more than one has no additional effect.",
+    "materials": {
+      "Wood": 50,
+      "Stone": 100,
+      "Cement": 40,
+      "Beautiful Flower": 20
+    }
+  },
+  "fluffy-pal-bed": {
+    "description": "Pals sleep more soundly, improving the amount of Health and SAN recovered while sleeping.",
+    "materials": {
+      "Cloth": 10,
+      "Wood": 30,
+      "Nail": 5,
+      "Fiber": 10
+    }
+  },
+  "glass-structure-set": {
+    "description": "Set for building a base using glass. Allows building of glass foundations, walls, ceilings, stairs and other things necessary for shelters.",
+    "materials": {
+      "Stone": 1,
+      "Paldium Fragment": 2
+    }
+  },
+  "hanging-trap": {
+    "description": "Catches Pals that pass through. Only effective on small Pals and humans.",
+    "materials": {
+      "Wood": 10,
+      "Stone": 5
+    }
+  },
+  "heater": {
+    "description": "Warms the nearby area and protects against the cold.",
+    "materials": {
+      "Flame Organ": 5,
+      "Ingot": 20,
+      "Charcoal": 10
+    }
+  },
+  "hexolite-quartz-mine": {
+    "description": "Facility for producing Hexolite Quartz|Hexolite Quartzs. Digging Hexolite Quartzs is grueling physical work. Leave it to a Pal that is good at mining.",
+    "materials": {
+      "Stone": 70,
+      "Hexolite Quartz": 100
+    }
+  },
+  "high-quality-hot-spring": {
+    "description": "Facility where Pals on base can rest. Now comfier and restores more SAN.",
+    "materials": {
+      "Stone": 100,
+      "Wood": 100,
+      "Paldium Fragment": 30,
+      "Cement": 20
+    }
+  },
+  "high-quality-workbench": {
+    "description": "A High Quality Workbench for producing items and gear. A small workspace limits production speeds. Requires a Pal that can work with their hands.",
+    "materials": {
+      "Ingot": 15,
+      "Wood": 50,
+      "Nail": 10
+    }
+  },
+  "hot-spring": {
+    "description": "Facility where Pals on base can rest. Restores SAN after a long day of hard work.",
+    "materials": {
+      "Wood": 30,
+      "Stone": 15,
+      "Paldium Fragment": 10,
+      "Pal Fluids": 10
+    }
+  },
+  "houseplant-set": {
+    "description": "Decorative furniture set. Place plants around your base for a splash of color.",
+    "materials": {
+      "Wood": 10,
+      "Fiber": 5
+    }
+  },
+  "human-powered-generator": {
+    "description": "A facility that converts rotational motion into electrical energy. The efficiency is low, and the Pals working here will experience a decrease in SAN value, but they will gain experience points.",
+    "materials": {
+      "Wood": 50,
+      "Electric Organ": 5
+    }
+  },
+  "ice-mine": {
+    "description": "Freezes those who step on it. Frozen Pals are easier to capture.",
+    "materials": {
+      "Ingot": 5,
+      "Ice Organ": 2
+    }
+  },
+  "improved-furnace": {
+    "description": "Uses Ore to produce Ingots.",
+    "materials": {
+      "Stone": 100,
+      "Cement": 30,
+      "Flame Organ}}": 15
+    }
+  },
+  "iron-gate": {
+    "description": "Metal gate large enough for big Pals to pass through.",
+    "materials": {
+      "Ingot": 10,
+      "Cement": 1
+    }
+  },
+  "ironwood-table-set": {
+    "description": "Decorative furniture set. Match with metal structures and enjoy life with your Pals.",
+    "materials": {
+      "Wood": 10,
+      "Ingot": 2
+    }
+  },
+  "japanese-style-structure-set": {
+    "description": "Set for building a base using Japanese-style architecture. Allows building of Japanese-style foundations, walls, ceilings, stairs and other things necessary for shelters.",
+    "materials": {
+      "Wood": 4
+    }
+  },
+  "ladder": {
+    "description": "A ladder that allows you to climb to a slightly higher place.",
+    "materials": {
+      "Wood": 10
+    }
+  },
+  "lamp": {
+    "description": "Lights up dark areas at a base.",
+    "materials": {
+      "Ingot": 10,
+      "Electric Organ": 3,
+      "Nail": 3,
+      "Wood": 20
+    }
+  },
+  "large-ceiling-lamp": {
+    "description": "Lights up large areas below at a base.",
+    "materials": {
+      "Ingot": 50,
+      "Circuit Board": 5,
+      "Nail": 5
+    }
+  },
+  "large-mounted-lamp": {
+    "description": "Lights up large areas at a base.",
+    "materials": {
+      "Ingot": 50,
+      "Circuit Board": 5,
+      "Nail": 5
+    }
+  },
+  "large-pal-bed": {
+    "description": "Fluffy bed to give Pals a good rest. Pans can rest when injured or sleep at night. Even large Pals can sleep soundly on a bed like this.",
+    "materials": {
+      "High Quality Cloth": 10,
+      "Wood": 60,
+      "Nail": 20,
+      "Fiber": 30
+    }
+  },
+  "large-toolbox": {
+    "description": "Place in base to improve handiwork speed. Placing more than one has no additional effect.",
+    "materials": {
+      "Ingot": 40,
+      "Wood": 100,
+      "Nail": 15
+    }
+  },
+  "leather-chair-set": {
+    "description": "Decorative furniture set. Leather screams luxury.",
+    "materials": {
+      "Wood": 10,
+      "Leather": 2,
+      "Cloth": 1
+    }
+  },
+  "lettuce-plantation": {
+    "description": "A farm that can grow Lettuce. It requires a great amount of time to harvest.",
+    "materials": {
+      "Lettuce Seeds": 3,
+      "Wood": 100,
+      "Stone": 70,
+      "Pal Fluids": 10
+    }
+  },
+  "logging-site": {
+    "description": "Uses Pals with the Lumbering ability to cut down trees and generate wood"
+  },
+  "makeshift-handgun": {
+    "description": "A handgun created from spare parts. Relatively suited for close quarters combat, but can only fire one shot before needing to reload.",
+    "materials": {
+      "Ingot": 35,
+      "High Quality Pal Oil": 10,
+      "Fiber": 30
+    }
+  },
+  "medicine-rack": {
+    "description": "A shelf for storing medicine. Sick Pals will come here to take their medicine. Be sure to keep the medicine stocked.",
+    "materials": {
+      "Cloth": 5,
+      "Wood": 30,
+      "Ingot": 20
+    }
+  },
+  "medieval-medicine-workbench": {
+    "description": "A facility for making Pal medicine. It can only produce simple medicines. Leave its operation to a Pal that can make medicine.",
+    "materials": {
+      "Wood": 2,
+      "Nail": 5,
+      "Paldium Fragment": 10
+    }
+  },
+  "metal-barrel-set": {
+    "description": "Decorative furniture set. Not suitable for doing keg stands.",
+    "materials": {
+      "Ingot": 10,
+      "Flame Organ": 1
+    }
+  },
+  "metal-chair-and-desk-set": {
+    "description": "Decorative furniture set. Match with metal structures and enjoy life with your Pals.",
+    "materials": {
+      "Ingot": 3
+    }
+  },
+  "metal-chest": {
+    "description": "Stores items. Reinforced with metal, it is somewhat durable. The increased size allows for the storage of more things.",
+    "materials": {
+      "Ingot": 15,
+      "Wood": 30
+    }
+  },
+  "metal-defensive-wall": {
+    "description": "Massive defensive wall to prevent enemy intrusions. Made from metal, it is extremely durable.",
+    "materials": {
+      "Ingot": 10,
+      "Cement": 1
+    }
+  },
+  "metal-shelf-set": {
+    "description": "Metal shelf set. Can store items.",
+    "materials": {
+      "Ingot": 20,
+      "Nail": 1
+    }
+  },
+  "metal-structure-set": {
+    "description": "Set for building a base using metal. Allows building of metal foundations, walls, ceilings, stairs and other things necessary for building a house.",
+    "materials": {
+      "Ingot": 1,
+      "Stone": 2
+    }
+  },
+  "mill": {
+    "description": "Facility for milling Wheat to produce Flour. Requires Pal with the Watering trait to spin the water turbine.",
+    "materials": {
+      "Wood": 50,
+      "Stone": 40
+    }
+  },
+  "mine": {
+    "description": "Automatically detonates when stepped on.",
+    "materials": {
+      "Ingot": 5,
+      "Flame Organ": 2
+    }
+  },
+  "monitoring-stand": {
+    "description": "You can command your Pals to work on various things inside a base. Try not to overwork them!",
+    "materials": {
+      "Wood": 30,
+      "Stone": 10
+    }
+  },
+  "mounted-crossbow": {
+    "description": "Assign a Pal with Handiwork suitability and it will protect a base using the crossbow.",
+    "materials": {
+      "Ingot": 30,
+      "Wood": 30,
+      "Stone": 15,
+      "Nail": 5
+    }
+  },
+  "mounted-machine-gun": {
+    "description": "Deploy a Pal to operate this defensive installation. Requires Rifle Ammo to use. Place ammo in the chest, and the deployed Pal will automatically load the weapon.",
+    "materials": {
+      "Ingot": 30,
+      "Nail": 10,
+      "Cement": 15
+    }
+  },
+  "mounted-missile-launcher": {
+    "description": "{{Infobox Item",
+    "materials": {
+      "Refined Ingot": 100,
+      "Circuit Board": 20,
+      "Nail": 20,
+      "Cement": 50
+    }
+  },
+  "mounted-torch": {
+    "description": "Place it at a base to light the surrounding area.",
+    "materials": {
+      "Wood": 5,
+      "Stone": 2
+    }
+  },
+  "ore-mining-site": {
+    "description": "Facility for producing Ore. Mining Ore is hard work that requires physical endurance. Leave it to Pals skilled at mining.",
+    "materials": {
+      "Stone": 50,
+      "Ingot": 25,
+      "Paldium Fragment": 20
+    }
+  },
+  "ore-mining-site-ii": {
+    "description": "Facility for producing large quantities of Ore. Mining Ore is hard work that requires physical endurance. Leave it to Pals skilled at mining.",
+    "materials": {
+      "Stone": 100,
+      "Ingot": 50,
+      "Paldium Fragment": 40
+    }
+  },
+  "outdoor-furniture-set": {
+    "description": "Decorative furniture set. Spruces up the outside of your base.",
+    "materials": {
+      "Wood": 20,
+      "Ingot": 10
+    }
+  },
+  "pal-essence-condenser": {
+    "description": "A chamber for increasing a Pal's rank. Pals can surpass their physical limitations if given a concentrated extract taken from a Pal of the same type.",
+    "materials": {
+      "Paldium Fragment": 20,
+      "Ingot": 20,
+      "Ancient Civilization Parts": 5
+    }
+  },
+  "pal-expedition-station": {
+    "description": "{{Infobox Item",
+    "materials": {
+      "Wood": 20,
+      "Stone": 20,
+      "Paldium Fragment": 50
+    }
+  },
+  "pal-gear-workbench": {
+    "description": "A Primitive Workbench for producing Pal tools. Make a saddle to ride Pals, or make a gun for Pals to use.",
+    "materials": {
+      "Paldium Fragment": 10,
+      "Wood": 30,
+      "Cloth": 2
+    }
+  },
+  "pal-labor-research-laboratory": {
+    "description": "50 Paldium Fragment",
+    "materials": {
+      "Ingot": 10,
+      "Paldium Fragment": 50
+    }
+  },
+  "palbox": {
+    "description": "Facility for storing captured Pals. Pals inside gradually recover HP. The area around this structure will become your base.",
+    "materials": {
+      "Paldium Fragment": 1,
+      "Wood": 8,
+      "Stone": 3
+    }
+  },
+  "piano-furniture-set": {
+    "description": "Decorative furniture set. Place in your base and dream about living a life of luxury.",
+    "materials": {
+      "Wood": 100,
+      "Fiber": 20,
+      "Ingot": 5
+    }
+  },
+  "pickaxe-and-helmet": {
+    "description": "Place in base to improve mining speed. Placing more than one has no additional effect.",
+    "materials": {
+      "Wood": 50,
+      "Stone": 50,
+      "Ingot": 50
+    }
+  },
+  "power-generator": {
+    "description": "A Lightning Pal-powered electric generator. Electric equipment won't run without this.",
+    "materials": {
+      "Ingot": 50,
+      "Electric Organ": 20
+    }
+  },
+  "primitive-furnace": {
+    "description": "Uses Ore to produce Ingots.",
+    "materials": {
+      "Wood": 20,
+      "Stone": 50,
+      "Flame Organ}}": 3
+    }
+  },
+  "primitive-workbench": {
+    "description": "A Primitive Workbench for producing simple items. Requires a Pal that can work with their hands.",
+    "materials": {
+      "Wood": 2
+    }
+  },
+  "production-assembly-line": {
+    "description": "A High Quality Workbench for producing items and gear. By splitting Pals into groups, production speeds have somewhat increased. Requires Pals that can work with their hands.",
+    "materials": {
+      "Ingot": 100,
+      "Wood": 50,
+      "Nail": 20,
+      "Cement": 10
+    }
+  },
+  "production-assembly-line-ii": {
+    "description": "A High Quality Workbench for producing items and gear. Through clever management, production speeds have increased greatly. Requires Pals that can work with their hands.",
+    "materials": {
+      "Refined Ingot": 100,
+      "Circuit Board": 10,
+      "Nail": 30
+    }
+  },
+  "ranch": {
+    "description": "Farm for raising sheep-and fowl-like Pals. Assign a Pal with the appropriate traits to a farm to automatically produce them.",
+    "materials": {
+      "Wood": 50,
+      "Stone": 20,
+      "Fiber": 30
+    }
+  },
+  "refined-metal-chest": {
+    "description": "Stores items. Made of iron, it is extremely durable. It is useful as a large, secure storage box.",
+    "materials": {
+      "Refined Ingot": 20,
+      "Wood": 50,
+      "Nail": 20
+    }
+  },
+  "refrigerator": {
+    "description": "Used to store items. A Pal with the Cooling Work Suitability is needed to maintain the cooling effect.",
+    "materials": {
+      "Refined Ingot": 50,
+      "Polymer": 20,
+      "Ice Organ": 15,
+      "Circuit Board": 5
+    }
+  },
+  "repair-bench": {
+    "description": "Repairs damaged weapons and tools.",
+    "materials": {
+      "Wood": 10,
+      "Stone": 10
+    }
+  },
+  "road-sign-set": {
+    "description": "Decorative furniture set. No roads mean no traffic control.",
+    "materials": {
+      "Ingot": 5
+    }
+  },
+  "sand-bag": {
+    "description": "Pals assigned to it will watch for approaching enemies.",
+    "materials": {
+      "Wood": 10,
+      "Stone": 10
+    }
+  },
+  "shoddy-bed": {
+    "description": "Human bed. Sleeping restores HP. Sleep at night and time will pass until morning. Cannot sleep unless built under a roof.",
+    "materials": {
+      "Wood": 20,
+      "Fiber": 5,
+      "Wool": 1
+    }
+  },
+  "sign": {
+    "description": "Can be written on.",
+    "materials": {
+      "Wood": 10
+    }
+  },
+  "silo": {
+    "description": "Place in base to improve planting speed. Placing more than one has no additional effect.",
+    "materials": {
+      "Wood": 300,
+      "Stone": 100,
+      "Fiber": 100
+    }
+  },
+  "snowman": {
+    "description": "Place in base to improve cooling speed. Placing more than one has no additional effect.",
+    "materials": {
+      "Ice Organ": 50,
+      "Wood": 50,
+      "Cloth": 20
+    }
+  },
+  "sphere-assembly-line": {
+    "description": "An Assembly Line for producing spheres used for capturing Pals. By splitting Pals into groups, production speeds have somewhat increased. Requires Pals that can work with their hands.",
+    "materials": {
+      "Paldium Fragment": 30,
+      "Wood": 50,
+      "Ingot": 100,
+      "Nail": 20
+    }
+  },
+  "sphere-assembly-line-ii": {
+    "description": "An Assembly Line for producing spheres used for capturing Pals. Through clever management, production speeds have greatly increased. Requires Pals that can work with their hands.",
+    "materials": {
+      "Refined Ingot": 100,
+      "Circuit Board": 10,
+      "Nail": 30,
+      "Paldium Fragment": 50
+    }
+  },
+  "sphere-workbench": {
+    "description": "An Assembly Line for producing spheres used for capturing Pals. A small workspace keeps the production speed slow. Requires a Pal that can work with their hands.",
+    "materials": {
+      "Paldium Fragment": 10,
+      "Wood": 30,
+      "Nail": 10
+    }
+  },
+  "statue-of-power": {
+    "description": "Make offerings to enhance the stats of the Player and their Pals.",
+    "materials": {
+      "Stone": 20,
+      "Paldium Fragment": 10
+    }
+  },
+  "stone-gate": {
+    "description": "Stone gate large enough for big Pals to pass through.",
+    "materials": {
+      "Stone": 10,
+      "Cement": 1
+    }
+  },
+  "stone-pit": {
+    "description": "Uses Pals with the Mining ability to mine down rock and generate Stone",
+    "materials": {
+      "Wood": 50,
+      "Stone": 20,
+      "Paldium Fragment": 10
+    }
+  },
+  "stone-structure-set": {
+    "description": "Set for building a base using stone. Allows building of stone foundations, walls, ceilings, stairs and other things necessary for building a house.",
+    "materials": {
+      "Stone": 3
+    }
+  },
+  "storage-container-set": {
+    "description": "Container furniture set. Can store items.",
+    "materials": {
+      "Ingot": 100
+    }
+  },
+  "straw-pal-bed": {
+    "description": "Pals at base recover SAN when sleeping in beds at night. Without a bed, Pals cannot sleep soundly, and no SAN is recovered.",
+    "materials": {
+      "Wood": 10,
+      "Fiber": 5
+    }
+  },
+  "street-lamp-set": {
+    "description": "Street lamp set to provide illumination. Requires electricity to light.",
+    "materials": {
+      "Ingot": 20,
+      "Electric Organ": 3,
+      "Nail": 3
+    }
+  },
+  "stump-and-axe": {
+    "description": "Place in base to improve logging speed. Placing more than one has no additional effect.",
+    "materials": {
+      "Wood": 150,
+      "Ingot": 40,
+      "Stone": 30
+    }
+  },
+  "sulfur-mine": {
+    "description": "Facility for producing large quantities of Sulfur.",
+    "materials": {
+      "Stone": 70,
+      "Sulfur": 100,
+      "Paldium Fragment": 30
+    }
+  },
+  "summoning-altar": {
+    "description": "Offer a Slab depicting a Pal to summon a powerful Pal to your base. Adequate caution and battle readiness is paramount.",
+    "materials": {
+      "Stone": 100,
+      "Paldium Fragment": 20
+    }
+  },
+  "tomato-plantation": {
+    "description": "A farm that can grow Tomato. They take time to harvest, but increase the variety of meals you can prepare. Requires a few Pals to plant seeds, water, and harvest the crops.",
+    "materials": {
+      "Tomato Seeds": 3,
+      "Wood": 70,
+      "Stone": 50,
+      "Pal Fluids": 5
+    }
+  },
+  "tombstone": {
+    "description": "A tombstone that can be inscribed with text. Use it for recording purposes.",
+    "materials": {
+      "Stone": 10
+    }
+  },
+  "traffic-control-set": {
+    "description": "Decorative furniture set. No roads mean no traffic control.",
+    "materials": {
+      "Polymer": 1
+    }
+  },
+  "training-dummy": {
+    "description": "Training dummy shaped like a Pengullet.",
+    "materials": {
+      "Wood": 20,
+      "Fiber": 5,
+      "Paldium Fragment": 5
+    }
+  },
+  "viewing-cage": {
+    "description": "Container for observing captured Pals. Pals inside cannot participate in battle or production, but they do not become hungry.",
+    "materials": {
+      "Paldium Fragment": 10,
+      "Wood": 10,
+      "Stone": 20
+    }
+  },
+  "wall-mounted-houseplant-set": {
+    "description": "Decorative furniture set. Place plants on your base's walls for a splash of color.",
+    "materials": {
+      "Fiber": 10
+    }
+  },
+  "wall-mounted-sign": {
+    "description": "A signboard to write on. Can be hung on walls.",
+    "materials": {
+      "Wood": 10
+    }
+  },
+  "wall-torch": {
+    "description": "Place it on a wall to light the surrounding area.",
+    "materials": {
+      "Wood": 5,
+      "Stone": 2
+    }
+  },
+  "water-fountain": {
+    "description": "Place in base to improve watering speed. Placing more than one has no additional effect.",
+    "materials": {
+      "Ingot": 100,
+      "Stone": 200,
+      "Pal Fluids": 20
+    }
+  },
+  "weapon-assembly-line": {
+    "description": "Needs electricity but produces weapons and ammunition at a faster pace. Requires Pals with Handiwork trait.",
+    "materials": {
+      "Ingot": 100,
+      "Wood": 50,
+      "Nail": 20,
+      "High Quality Pal Oil": 10
+    }
+  },
+  "weapon-assembly-line-ii": {
+    "description": "Needs electricity but produces weapons and ammunition at an even faster pace. Requires Pals with Handiwork trait.",
+    "materials": {
+      "Refined Ingot": 100,
+      "Circuit Board": 10,
+      "Nail": 30
+    }
+  },
+  "weapon-workbench": {
+    "description": "An Assembly Line for producing weapons and ammunition. A small workspace prevents the production of high quality weapons. Requires Pals that can work with their hands.",
+    "materials": {
+      "Ingot": 15,
+      "Wood": 50,
+      "Nail": 10
+    }
+  },
+  "wheat-plantation": {
+    "description": "A farm that can grow Wheat. It requires an average amount of time to harvest. Requires a few Pals to plant seeds, water and harvest crops.",
+    "materials": {
+      "Wheat Seeds": 3,
+      "Wood": 35,
+      "Stone": 35
+    }
+  },
+  "witch-cauldron": {
+    "description": "Place in base to improve the medicine manufacturing speed. Placing more than one has no additional effect.",
+    "materials": {
+      "Ingot": 50,
+      "Stone": 50,
+      "Pal Fluids": 15,
+      "High Quality Pal Oil": 15
+    }
+  },
+  "wooden-chest": {
+    "description": "Used to store items. Place at a base and Pals with Transporting suitability will automatically carry items to it.",
+    "materials": {
+      "Wood": 15,
+      "Stone": 5
+    }
+  },
+  "wooden-defensive-wall": {
+    "description": "Massive defensive wall to prevent enemy intrusions. Made from wood, it breaks easily.",
+    "materials": {
+      "Wood": 10
+    }
+  },
+  "wooden-gate": {
+    "description": "Wooden gate large enough for big Pals to pass through.",
+    "materials": {
+      "Wood": 10
+    }
+  },
+  "wooden-living-room-furniture-set": {
+    "description": "Decorative furniture set. Place furniture in your living space and enjoy life with your Pals.",
+    "materials": {
+      "Wood": 20,
+      "Red Berries": 5
+    }
+  },
+  "wooden-structure-set": {
+    "description": "Set for building a base using wood. Allows building of wooden foundations, walls, ceilings, stairs and other things necessary for building a house.",
+    "materials": {
+      "Wood": 2
+    }
+  },
+  "wooden-tavern-cabinet-furniture-set": {
+    "description": "Set of wooden cabinets that look at home in a tavern. Can store items.",
+    "materials": {
+      "Wood": 30,
+      "Stone": 5
+    }
+  },
+  "wooden-tavern-furniture-set": {
+    "description": "Decorative furniture set. Set up a bar and enjoy life with your Pals.",
+    "materials": {
+      "Wood": 30,
+      "Stone": 5
+    }
+  }
+}
