@@ -2,7 +2,17 @@ import dataset from '../../data/palworld_complete_data_final.json' assert { type
 import itemDetails from '../../data/item_details.json' assert { type: 'json' };
 
 const itemDetailEntries = itemDetails && typeof itemDetails === 'object'
-  ? Object.entries(itemDetails)
+  ? Object.entries(itemDetails).map(([key, value]) => {
+      const slug = String(key);
+      if (!value || typeof value !== 'object') {
+        return [slug, { slug, id: slug }];
+      }
+      const detail = { ...value };
+      if (!detail.slug) detail.slug = slug;
+      if (!detail.id) detail.id = slug;
+      if (!detail.name && detail.title) detail.name = detail.title;
+      return [slug, detail];
+    })
   : [];
 
 const itemDetailsBySlug = Object.fromEntries(
@@ -109,24 +119,34 @@ function renderMaterialChip(entry) {
   const name = String(entry.name).trim();
   if (!name) return '';
   const detail = lookupMaterialDetail(name);
-  const icon = entry.icon || (detail && typeof detail === 'object' && detail.image ? detail.image : null);
+  const iconCandidate = entry.icon || (detail && typeof detail === 'object' && (detail.image || detail.icon));
+  const icon = iconCandidate && String(iconCandidate).trim() ? String(iconCandidate).trim() : null;
   const quantity = Number.isFinite(entry.quantity) ? entry.quantity : null;
-  const qtyLabel = quantity !== null ? `×${escapeHtml(quantity)}` : '×?';
-  const thumb = icon
-    ? `<span class="tech-material__thumb"><img src="${escapeHtml(icon)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>`
-    : '<span class="tech-material__thumb tech-material__thumb--placeholder" aria-hidden="true">🔧</span>';
+  const qtyLabel = quantity !== null ? `×${quantity}` : '×?';
   const ariaLabel = quantity !== null
-    ? `${name}, quantity ${quantity}`
-    : `${name}, quantity unknown`;
+    ? `${detail?.name || name}, quantity ${quantity}`
+    : `${detail?.name || name}, quantity unknown`;
+  const displayName = detail?.name ? detail.name : name;
+  const slug = detail?.slug || detail?.id || displayName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const payload = {
+    type: 'item',
+    id: slug,
+    slug,
+    name: displayName
+  };
+  const payloadAttr = escapeHtml(JSON.stringify(payload));
+  const thumb = icon
+    ? `<span class="chip__thumb"><img src="${escapeHtml(icon)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>`
+    : '<span class="chip__thumb tech-material-chip__thumb--placeholder" aria-hidden="true">⚙️</span>';
   return `
-    <li class="tech-material" aria-label="${escapeHtml(ariaLabel)}">
-      <span class="tech-material__chip">
+    <li class="tech-material">
+      <a href="#" class="chip link tech-material-chip link--with-thumb" data-link="${payloadAttr}" data-link-type="item" role="button" aria-label="${escapeHtml(ariaLabel)}">
         ${thumb}
-        <span class="tech-material__body">
-          <span class="tech-material__name">${escapeHtml(name)}</span>
-          <span class="tech-material__qty">${qtyLabel}</span>
+        <span class="chip__body">
+          <span class="chip__label">${escapeHtml(displayName)}</span>
+          <span class="chip__meta">${escapeHtml(qtyLabel)}</span>
         </span>
-      </span>
+      </a>
     </li>
   `;
 }
@@ -248,4 +268,26 @@ export function renderTech(node) {
       ${techLevels.map(renderLevel).join('')}
     </div>
   `;
+  const links = node.querySelectorAll('a[data-link]');
+  links.forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      const raw = link.getAttribute('data-link');
+      if (!raw) return;
+      let payload = null;
+      try {
+        payload = JSON.parse(raw);
+      } catch (error) {
+        payload = null;
+      }
+      if (!payload) return;
+      if (typeof window.navigateLink === 'function') {
+        window.navigateLink(payload);
+        return;
+      }
+      if (payload.type === 'item' && typeof window.openItemDetail === 'function') {
+        window.openItemDetail(payload.id || payload.slug || payload.name);
+      }
+    });
+  });
 }
