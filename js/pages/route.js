@@ -712,6 +712,10 @@ function buildLinkImageIndex(primaryDataset, detailDataset, overrides){
 // --- Navigation glue to existing pages/modals ---
 function navigateLink(l){
   if(!l) return;
+  if(typeof window.navigateLink === 'function'){
+    window.navigateLink(l);
+    return;
+  }
   if(l.type==='pal'){
     const target = l.slug || l.id || l.name;
     if(target && typeof window.viewPal === 'function') window.viewPal(target);
@@ -722,9 +726,9 @@ function navigateLink(l){
     else if(l.url) window.open(l.url, '_blank', 'noopener');
     else if(techId) focusSearch(niceName(techId), { target: 'items' });
   } else if(l.type==='item'){
-    const itemKey = normalizeItemKey(l);
+    const itemKey = resolveItemKey(l);
     const searchTerm = l.name || l.label || (itemKey ? niceName(itemKey) : '');
-    if(itemKey && typeof window.openItemDetail === 'function'){
+    if(itemKey && typeof window.openItemDetail === 'function' && hasItemData(itemKey)){
       window.openItemDetail(itemKey);
     } else if(itemKey){
       focusSearch(searchTerm || itemKey, { target: 'items' });
@@ -754,6 +758,36 @@ function navigateLink(l){
   } else if(l.url){
     window.open(l.url, '_blank', 'noopener');
   }
+}
+
+function resolveItemKey(link){
+  if(!link) return '';
+  if(typeof window.resolveItemKeyFromLink === 'function'){
+    const resolved = window.resolveItemKeyFromLink(link);
+    if(resolved) return resolved;
+  }
+  const normalized = normalizeItemKey(link);
+  if(normalized && hasItemData(normalized)) return normalized;
+  if(typeof window.lookupItemKey === 'function'){
+    const candidates = [];
+    if(link.id != null) candidates.push(link.id);
+    if(link.slug != null) candidates.push(link.slug);
+    if(link.name) candidates.push(link.name);
+    if(link.label) candidates.push(link.label);
+    for(const candidate of candidates){
+      const key = window.lookupItemKey(candidate);
+      if(key) return key;
+    }
+  }
+  return normalized || '';
+}
+
+function hasItemData(itemKey){
+  if(!itemKey) return false;
+  if(itemDetails && typeof itemDetails === 'object' && itemDetails[itemKey]) return true;
+  const items = dataset && dataset.items ? dataset.items : null;
+  if(items && items[itemKey]) return true;
+  return false;
 }
 
 function linkTypeToken(type){
