@@ -1,0 +1,81 @@
+{{Pal Prev/Next|prevPal=Kikit|prevNo=117|nextPal=Prixter|nextNo=119}}
+{{Pal
+| name = Sootseer
+| alphatitle = Flickering Flame
+| image = Sootseer.png
+| no = 118
+| ele1 = Dark
+| ele2 = Fire
+| drops = {{i|Medium Pal Soul}}<br/>{{i|Bone}}<br/>{{i|Crude Oil}}
+| food = 7
+| partnerskill = Grave Robber
+| psicon = 
+| psdesc = Sometimes digs up Bone when assigned to Ranch.
+| kindling = 3
+| handiwork = 3
+| gathering = 1
+| mining = 2
+| farming = 1
+|maps=Sootseer_Location.png}}'''Sootseer''' (Japanese:'''オドロクロ''' ''Odorokuro)'' is a {{i|Dark}} and {{i|Fire}} [[Pals|Pal]]. It was first shown in the Sakurajima Update trailer.
+
+== Paldeck Entry ==
+{{paldeck|It was once believed that as the world approached its end, the flame would weaken.
+Doomsayers would repeatedly rejoice when the flame began to weaken, but in the end, it turned out to be a prank by Sootseer.
+At least, for now.}}
+==Biology==
+===Appearance===
+Sootseer is a large, ghost-like Pal. It has a round head and body, and doesn't appear to have legs. On its head is a round, white skull with two horns that point up, and two blunt teeth that sit at the bottom. Its eyes are hollow black circles with line green circles inside of them. The rest of its head is ablaze with a lilac coloured flame. It has two arms, the arms long and thin. Its hands are circular, with three diamond shaped claws that point downward on each hand. On the back of the hands, the hands are ablaze with the same lilac flame that the head is. Its arms are a dark purple to black colour. Its torso is a pitch black colour that later turns into the same dark purple to black colour the arms are. Its body ends with a swirl, with no legs in sight.
+
+=== Behavior ===
+This Pal tends to be hostile towards the player.
+== Availability ==
+
+=== Wild Spawn ===
+* Found at night in the graveyard area of Sakurajima.
+
+=== [[Dungeons]] ===
+* Can be encountered in certain dungeons in Sakurajima as Alpha Boss.
+
+<div class="mw-collapsible mw-collapsed">
+===[[Breeding]]===
+<div class="mw-collapsible-content">
+{{Cols|2|{{Breeding|Sootseer}}}}
+</div>
+</div>
+==Stats==
+{{Pal Table Stats
+|hp = 105
+|attack = 125
+|defense = 90
+|min_hp = 4237
+|max_hp = 5261
+|min_attack = 709
+|max_attack = 892
+|min_defense = 488
+|max_defense = 620
+}}
+==Elemental Effectiveness==
+{{Pal Element Effect|type=dark/fire}}
+
+==Utility==
+'''[[Farming|Farming Produce]].'''
+
+* [[Bone]] x1
+
+==Active Skills==
+{{PalSkillListStart}}
+{{PalSkillListEnd}}
+Unknown information.
+
+==Update History==
+* [[Early Access 0.3.1]]
+** Introduced.
+
+==Trivia==
+* Sootseer's name is a corruption of the word "Soothsayer,"  a person who predicts the future by magical, intuitive, or more rational means.
+
+== Gallery ==
+<gallery>
+File:Sootseer flame.png|A Sootseer using its [[Kindling]] ability.
+</gallery>
+{{Navbox Pals}}

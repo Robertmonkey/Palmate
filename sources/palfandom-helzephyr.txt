@@ -1,0 +1,93 @@
+{{Pal Prev/Next | prevPal = Blazamut Ryu| prevNo = 096B | nextPal = Helzephyr Lux | nextNo = 097B}}
+{{Pal
+| name = Helzephyr
+| alphatitle = Wings of Death
+| image = Helzephyr.png
+| no = 097
+| ele1 = Dark
+| drops = {{i|Venom Gland}}<br/>{{i|Medium Pal Soul}}
+| food = 8
+| partnerskill = Wings of Death
+| psicon =Flying 
+| psdesc = Can be ridden as a flying mount. Applies Dark damage to the player's attacks while mounted.
+| transporting = 3
+| breedpower = 10
+|tech=Helzephyr Saddle|maps=<gallery>
+Helzephyr Day Habitat.png|Day
+Helzephyr Night Habitat.png|Night
+</gallery>}}'''Helzephyr''' (Japanese: '''ヘルガルダ''' ''Hellgaruda'') is a {{i|Dark}} [[Elements|element]] [[Pals|Pal]].
+
+== Paldeck Entry ==
+{{Paldeck|It calls forth lightning from the depths of hell. One who dies from Helzephyr's inferno is sure to be sent to the underworld.}}
+
+== Biology ==
+
+=== Appearance ===
+Helzephyr has mostly black feathers with light blue lightning bolt patterns on its wings and tail. Its face is a deeper shade of light blue, and a vivid purple flame rises from the top of its head.
+
+=== Behavior ===
+A hostile Pal that will attack  the player on sight.
+
+== Availability ==
+
+=== Wild Spawn ===
+
+<div class="mw-collapsible mw-collapsed">
+=== [[Breeding]] ===
+<div class="mw-collapsible-content">
+{{Cols|2|{{Breeding|Helzephyr}}}}
+</div></div>
+
+== Stats ==
+{{Pal Table Stats
+|hp = ???
+|attack = ???
+|defense = ???
+|min_hp = ???
+|max_hp = ???
+|min_attack = ???
+|max_attack = ???
+|min_defense = ???
+|max_defense = ???
+}}
+
+== Elemental Effectiveness ==
+{{Pal Element Effect|type=dark}}
+
+==Utility==
+'''Partner Skill:''' 
+*Wings of Death - Can be ridden as a flying mount. Applies Dark damage to the player's attacks while mounted. (Requires [[Helzephyr Saddle]]→ Unlocks at Lv. 33)
+'''Work Suitability:'''
+*{{i|Transporting}} 3
+'''Possible Drops:'''
+* {{i|Medium Pal Soul}}
+*{{i|Venom Gland}}
+
+==Active Skills==
+{{PalSkillListStart}}
+{{PalSkillListEntry+|Spirit Fire|level=1}}
+{{PalSkillListEntry+|Dark Ball|level=7}}
+{{PalSkillListEntry+|Shadow Burst|level=15}}
+{{PalSkillListEntry+|Flare Storm|level=22}}
+{{PalSkillListEntry+|Spirit Flame|level=30}}
+{{PalSkillListEntry+|Nightmare Ball|level=40}}
+{{PalSkillListEntry+|Dark Laser|level=50}}
+{{PalSkillListEnd}}
+
+==Update History==
+*[[Early Access 0.1.2.0]]
+**Introduced.
+==Trivia==
+
+* Etymology - ''Hel'' is the name of the Goddess of Death in Norse Mythology, and ''Zephyr'' is a Greek word meaning "of the west wind".
+* Its Japanese name may come from ''hell'' and ''Garuda'', which is a large mythical bird that appears in Hindu and Buddhist mythology.
+* Helzephyr was featured in Paldeck No.063 on PocketPair [https://x.com/Palworld_EN/status/1761360325843296659 X] and [https://www.youtube.com/watch?v=E-ElbMWYsaY youtube channel].
+
+==Gallery==
+<gallery>
+Paldeck - No.063 HELZEPHYR - Palworld - Gameplay - Pocketpair-2
+</gallery>
+
+{{Navbox Pals}}
+
+[[Category:Rideable Pals]]
