@@ -1,0 +1,19 @@
+{{Infobox Item
+|name = Sulfur
+|image = Sulfur icon.png 
+|effects = Sulfur that can be found in volcanoes and such.<br/>Necessary for making [[Gunpowder]].
+|type = Material
+|source = [[Mining]]<br/>
+Sulfur rocks<br/>
+{{S|Sulfur Mine}}
+|weight = 3|gold_sell=6}}
+'''Sulfur''' is a [[material]] in {{PW}}.
+
+== Acquisition ==
+It's an advanced crafting component and can be found laying on the ground or by [[mining]] a  large, yellow rock. In the early game you can find them in [[dungeons]], in open world there are a lot of them in the Volcano and Desert regions. You can also receive it from  {{S|Sulfur Mine}} after crafting it.
+
+==Use==
+It's required to craft [[Gunpowder]] to create [[Ammo]].
+
+{{Navbox Materials}}
+[[Category:Materials]]

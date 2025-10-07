@@ -4163,7 +4163,7 @@ Coal unlocks Refined Ingot fuel for improved furnaces and automation upgrades. T
       "step_id": "resource-coal:001",
       "type": "gather",
       "summary": "Mine Hillside Cavern nodes",
-      "detail": "Enter Hillside Cavern at 147,-397 northeast of Rayne Syndicate Tower. Clear the Coal, Sulfur, and Ore clusters with a Metal Pickaxe, exiting before weight caps you.【pcgamesn-coal†L135-L138】",
+      "detail": "Enter Hillside Cavern at 147,-397 northeast of Rayne Syndicate Tower. Clear the Coal, Sulfur, and Ore clusters with a Metal Pickaxe, exiting before weight caps you, matching the cave deposits highlighted by PCGamesN and the Fandom acquisition notes.【pcgamesn-coal†L135-L144】【palfandom-coal†L21-L34】",
       "targets": [
         {
           "kind": "item",
@@ -4216,14 +4216,15 @@ Coal unlocks Refined Ingot fuel for improved furnaces and automation upgrades. T
       },
       "branching": [],
       "citations": [
-        "pcgamesn-coal"
+        "pcgamesn-coal",
+        "palfandom-coal"
       ]
     },
     {
       "step_id": "resource-coal:002",
       "type": "gather",
       "summary": "Survey high-yield ridges",
-      "detail": "Once geared, push into the Desiccated Desert ridgeline (~340,-120) and Astral Mountain foothills (~40, 320) where Coal veins respawn quickly but enemies hit much harder.【pcgamesn-coal†L135-L138】",
+      "detail": "Once geared, push into the Desiccated Desert ridgeline (~340,-120) and Astral Mountain foothills (~40, 320) where Coal veins respawn quickly but enemies hit much harder, aligning with PCGamesN's desert sweep and the Fandom callout for Anubis desert deposits.【pcgamesn-coal†L142-L144】【palfandom-coal†L24-L34】",
       "targets": [
         {
           "kind": "item",
@@ -4289,7 +4290,8 @@ Coal unlocks Refined Ingot fuel for improved furnaces and automation upgrades. T
       },
       "branching": [],
       "citations": [
-        "pcgamesn-coal"
+        "pcgamesn-coal",
+        "palfandom-coal"
       ]
     },
     {
@@ -5863,7 +5865,7 @@ Sulfur powers gunpowder and every ballistic upgrade, so this loop opens with the
       "step_id": "resource-sulfur:001",
       "type": "gather",
       "summary": "Mine the Mossanda lava ravine",
-      "detail": "Head northeast of the Mossanda Forest fast travel statue (234,-118) to a lava ravine with early Sulfur nodes; clear the small clusters quickly before heat and encumbrance stack up.【pcgamesn-sulfur†L13-L19】",
+      "detail": "Head northeast of the Mossanda Forest fast travel statue (234,-118) to a lava ravine with early Sulfur nodes; clear the small clusters quickly before heat and encumbrance stack up, mirroring both PCGamesN's route and the Sulfur entry's dungeon-and-volcano guidance.【pcgamesn-sulfur†L13-L19】【palwiki-sulfur†L1-L16】",
       "targets": [
         {
           "kind": "item",
@@ -5906,7 +5908,8 @@ Sulfur powers gunpowder and every ballistic upgrade, so this loop opens with the
       },
       "branching": [],
       "citations": [
-        "pcgamesn-sulfur"
+        "pcgamesn-sulfur",
+        "palwiki-sulfur"
       ]
     },
     {
@@ -8799,7 +8802,7 @@ Chikipi Poultry Harvest Loop corrals the starter meadow flocks, adds a Meat Clea
       "step_id": "resource-chikipi-poultry:001",
       "type": "capture",
       "summary": "Sweep Palbox meadow for Chikipi",
-      "detail": "Teleport to the Windswept Hills statue (~-42,-498) and loop the grass flats, bolaing docile Chikipi before they flock. Scoop ground eggs while you net four prime layers for the ranch.【palwiki-chikipi†L29-L35】",
+      "detail": "Teleport to the Windswept Hills statue (~-42,-498) and loop the grass flats, bolaing docile Chikipi before they flock. Scoop ground eggs while you net four prime layers for the ranch, as both Palworld wiki and the Fandom entry note Windswept Hills as their natural spawn.【palwiki-chikipi†L29-L35】【palfandom-chikipi†L20-L36】",
       "targets": [
         {
           "kind": "pal",
@@ -8867,7 +8870,8 @@ Chikipi Poultry Harvest Loop corrals the starter meadow flocks, adds a Meat Clea
       },
       "branching": [],
       "citations": [
-        "palwiki-chikipi"
+        "palwiki-chikipi",
+        "palfandom-chikipi"
       ]
     },
     {
@@ -12235,7 +12239,7 @@ Refined Ingot Forge Cycle anchors an Improved Furnace hub on the Desiccated Dese
       "step_id": "resource-refined-ingot:002",
       "type": "gather",
       "summary": "Mine ore and coal from the ridge",
-      "detail": "Cycle mining pals through the (191,-36) plateau so coal nodes and ore boulders refill storage between furnace batches.【segmentnext-refined-ingot†L5-L5】",
+      "detail": "Cycle mining pals through the (191,-36) plateau so coal nodes and ore boulders refill storage between furnace batches, leaning on SegmentNext's furnace loop and PCGamesN's note that the Desiccated Desert ridges pack dense coal deposits.【segmentnext-refined-ingot†L5-L5】【pcgamesn-coal†L142-L144】",
       "targets": [
         {
           "kind": "item",
@@ -12310,7 +12314,8 @@ Refined Ingot Forge Cycle anchors an Improved Furnace hub on the Desiccated Dese
         }
       ],
       "citations": [
-        "segmentnext-refined-ingot"
+        "segmentnext-refined-ingot",
+        "pcgamesn-coal"
       ]
     },
     {
@@ -14715,7 +14720,7 @@ Harvest enough Venom Glands to sustain poison ammo, dark saddles, and antidote s
       "step_id": "resource-venom-gland:001",
       "type": "travel",
       "summary": "Stage Plateau south ridge camp",
-      "detail": "Fast travel to Plateau of Beginnings, glide to the southern peninsula, and drop a campfire, bed, and storage at roughly (230,-510) so you can reset night loops quickly.【progameguides-base-triangle†L1-L15】",
+      "detail": "Fast travel to Plateau of Beginnings, glide to the southern peninsula, and drop a campfire, bed, and storage at roughly (230,-510) so you can reset night loops quickly, taking advantage of the Windswept Hills base site the regional overview highlights.【progameguides-base-triangle†L1-L15】【palwiki-windswept-hills†L1-L18】",
       "targets": [],
       "locations": [
         {
@@ -14756,7 +14761,8 @@ Harvest enough Venom Glands to sustain poison ammo, dark saddles, and antidote s
       },
       "branching": [],
       "citations": [
-        "progameguides-base-triangle"
+        "progameguides-base-triangle",
+        "palwiki-windswept-hills"
       ]
     },
     {
@@ -15166,7 +15172,7 @@ Secure Katress Hair for witch gear and speed remedies by chaining Moonless Shore
       "step_id": "resource-katress-hair:002",
       "type": "combat",
       "summary": "Clear Sealed Realm of the Invincible",
-      "detail": "Tackle the level 23 Katress alpha at the Sealed Realm of the Invincible near (241,-330) to secure high-grade drops and a fast travel anchor.【segmentnext-katress†L7-L24】",
+      "detail": "Tackle the level 23 Katress alpha at the Sealed Realm of the Invincible near (241,-330) to secure high-grade drops and a fast travel anchor, lining up with SegmentNext's loop and the sealed realm roster confirming Katress as the encounter.【segmentnext-katress†L7-L24】【palwiki-sealed-realms-raw†L1-L42】",
       "targets": [
         {
           "kind": "pal",
@@ -15215,7 +15221,8 @@ Secure Katress Hair for witch gear and speed remedies by chaining Moonless Shore
       },
       "branching": [],
       "citations": [
-        "segmentnext-katress"
+        "segmentnext-katress",
+        "palwiki-sealed-realms-raw"
       ]
     },
     {
@@ -15487,7 +15494,7 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       "step_id": "resource-medium-pal-soul:001",
       "type": "hunt",
       "summary": "Intercept Helzephyr above the twin bridges",
-      "detail": "Glide up from the Bridge of the Twin Knights waypoint (~113,-352) after dusk and tag the Helzephyr flock as it circles the northern mesas. Its Medium Pal Soul drop rate is low, so use chain bolas or rifles to secure repeated captures and harvest rare souls along with Venom Glands.【palwiki-helzephyr-raw†L65-L116】",
+      "detail": "Glide up from the Bridge of the Twin Knights waypoint (~113,-352) after dusk and tag the Helzephyr flock as it circles the northern mesas. Its Medium Pal Soul drop rate is low, so use chain bolas or rifles to secure repeated captures and harvest rare souls along with Venom Glands confirmed by both wiki sources.【palwiki-helzephyr-raw†L65-L116】【palfandom-helzephyr†L3-L64】",
       "targets": [
         {
           "kind": "item",
@@ -15554,14 +15561,15 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       },
       "branching": [],
       "citations": [
-        "palwiki-helzephyr-raw"
+        "palwiki-helzephyr-raw",
+        "palfandom-helzephyr"
       ]
     },
     {
       "step_id": "resource-medium-pal-soul:002",
       "type": "hunt",
       "summary": "Purge Sakurajima Sootseer camps",
-      "detail": "Swoop into Sakurajima’s crater camps after midnight, luring Sootseer pairs out of the purple flame pits. Every takedown yields guaranteed Medium Pal Souls plus Bones and Crude Oil—kite them through open lava channels to avoid getting cornered.【palwiki-sootseer†L65-L114】",
+      "detail": "Swoop into Sakurajima’s crater camps after midnight, luring Sootseer pairs out of the purple flame pits. Every takedown yields guaranteed Medium Pal Souls plus Bones and Crude Oil—kite them through open lava channels to avoid getting cornered, as both wiki versions emphasize their night graveyard presence and drops.【palwiki-sootseer†L65-L114】【palfandom-sootseer†L1-L48】",
       "targets": [
         {
           "kind": "item",
@@ -15627,7 +15635,8 @@ Medium Pal Souls sit at the core of Statue of Power scaling, so this plan charts
       },
       "branching": [],
       "citations": [
-        "palwiki-sootseer"
+        "palwiki-sootseer",
+        "palfandom-sootseer"
       ]
     },
     {
@@ -27811,6 +27820,12 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-01",
       "notes": "States that Chikipi roam the Windswept Hills, lay eggs on the ground, and their Egg Layer partner skill produces eggs at the ranch.【7b6ddf†L1-L27】【c48565†L1-L10】【cca570†L1-L2】"
     },
+    "palfandom-chikipi": {
+      "title": "Chikipi – Palworld Wiki (Fandom, raw)",
+      "url": "https://palworld.fandom.com/wiki/Chikipi?action=raw",
+      "access_date": "2025-12-17",
+      "notes": "Raw page lists Windswept Hills as Chikipi's wild spawn, outlines their docile behaviour, and confirms poultry drops when culled.【palfandom-chikipi†L20-L75】"
+    },
     "palwiki-egg-raw": {
       "title": "Egg – Palworld Wiki (raw)",
       "url": "https://palworld.wiki.gg/index.php?title=Egg&action=raw",
@@ -28471,6 +28486,12 @@ updating guides, refresh these entries with new dates and pages.
       "access_date": "2025-10-18",
       "notes": "Documents the Grave Robber partner skill digging bones at the ranch, guaranteed bone drops, and night spawns across Sakurajima.【palwiki-sootseer†L12-L116】"
     },
+    "palfandom-sootseer": {
+      "title": "Sootseer – Palworld Wiki (Fandom, raw)",
+      "url": "https://palworld.fandom.com/wiki/Sootseer?action=raw",
+      "access_date": "2025-12-17",
+      "notes": "Raw article cites Sakurajima night graveyard spawns and confirms Sootseer drops Medium Pal Souls alongside Bones and Crude Oil.【palfandom-sootseer†L1-L48】"
+    },
     "palwiki-rushoar": {
       "title": "Rushoar – Palworld Wiki",
       "url": "https://palworld.wiki.gg/wiki/Rushoar",
@@ -28572,6 +28593,12 @@ updating guides, refresh these entries with new dates and pages.
       "url": "https://palworld.wiki.gg/index.php?title=Helzephyr&action=raw",
       "access_date": "2025-10-24",
       "notes": "Lists Helzephyr Medium Pal Soul drop chances and describes its nocturnal patrols north of the Bridge of the Twin Knights and Islandhopper Coast waypoints.【palwiki-helzephyr-raw†L65-L116】"
+    },
+    "palfandom-helzephyr": {
+      "title": "Helzephyr – Palworld Wiki (Fandom, raw)",
+      "url": "https://palworld.fandom.com/wiki/Helzephyr?action=raw",
+      "access_date": "2025-12-17",
+      "notes": "Raw infobox lists Medium Pal Soul and Venom Gland drops and shows Helzephyr's nocturnal patrol habitat galleries.【palfandom-helzephyr†L3-L65】"
     },
     "palwiki-killamari": {
       "title": "Killamari – Palworld Wiki",

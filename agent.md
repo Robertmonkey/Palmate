@@ -483,3 +483,14 @@ By adhering to these guidelines, the Palmate agent will produce reliable, compre
 1. Source corroborating location or merchant evidence for the remaining seven under-cited routes: Coal (:001/:002), Sulfur (:001), Chikipi Poultry (:001), Refined Ingot (:002), Venom Gland (:001), Katress Hair (:002), and Medium Pal Soul (:001/:002). Prioritise high-signal map exports or wiki raws with explicit coordinates.
 2. Re-run `scripts/resource_coverage_report.py` after each remediation batch and snapshot the Markdown diff so progress stays documented; once the backlog hits zero, add a regression test that locks in the fully cited state.
 3. Audit the regenerated bundle in downstream consumers—the `resource-beautiful-flower` duplicate route warnings persist during rebuilds, so schedule a follow-up to dedupe that route set before the next release.
+
+### 2025-12-17 Dual-citation remediation wave 2
+
+* Cleared the seven outstanding under-cited field steps by layering second sources across Coal, Sulfur, Chikipi Poultry, Refined Ingot, Venom Gland, Katress Hair, and Medium Pal Soul, updating step guidance to call out the corroborating evidence.【F:guides.md†L4163-L4295】【F:guides.md†L5863-L5913】【F:guides.md†L8801-L8874】【F:guides.md†L12239-L12319】【F:guides.md†L14720-L14766】【F:guides.md†L15172-L15199】【F:guides.md†L15493-L15639】
+* Registered new Fandom raw source entries for Chikipi, Helzephyr, and Sootseer to back the added citations and archived the raw pulls under `sources/` for auditability.【F:guides.md†L27823-L27828】【F:guides.md†L28597-L28602】【F:guides.md†L28489-L28494】【F:sources/palfandom-chikipi.txt†L1-L80】【F:sources/palfandom-helzephyr.txt†L1-L80】【F:sources/palfandom-sootseer.txt†L1-L48】
+* Re-ran the coverage report to confirm the under-cited section now reports zero debt, restoring the dual-citation gate to green.【b3aacc†L1-L9】
+
+**Continuation notes:**
+
+1. Fold the `PYTHONPATH=.` invocation into the pytest helper or documentation so coverage-report tests run cleanly without manual environment tweaks.
+2. Keep monitoring new or revised resource guides for dual-source coverage and expand the source registry in tandem to prevent the under-cited queue from resurfacing.
