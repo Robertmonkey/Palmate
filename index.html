@@ -2563,6 +2563,305 @@
     .breeding-mode.active {
       display: block;
     }
+    .breeding-advisor {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .breeding-advisor__header {
+      display: grid;
+      gap: 6px;
+    }
+    .breeding-advisor__header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    .breeding-advisor__header p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: rgba(224, 225, 221, 0.8);
+    }
+    .breeding-advisor__grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      align-items: stretch;
+    }
+    .breeding-advisor__empty {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(224, 225, 221, 0.75);
+    }
+    .advisor-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      border-radius: 20px;
+      background: linear-gradient(155deg, rgba(13, 27, 42, 0.78), rgba(65, 90, 119, 0.52));
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      box-shadow: 0 20px 36px rgba(5, 15, 30, 0.48);
+      overflow: hidden;
+    }
+    .advisor-card::after {
+      content: '';
+      position: absolute;
+      inset: auto -60px -60px auto;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle at center, rgba(224, 225, 221, 0.22), transparent 70%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .advisor-card__header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .advisor-card__titleblock {
+      display: grid;
+      gap: 4px;
+    }
+    .advisor-card__eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(224, 225, 221, 0.7);
+    }
+    .advisor-card__title {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .advisor-card__subtitle {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(224, 225, 221, 0.78);
+    }
+    .advisor-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(224, 225, 221, 0.16);
+      border: 1px solid rgba(224, 225, 221, 0.28);
+      color: #fff;
+      font-size: 1.4rem;
+      box-shadow: 0 12px 22px rgba(5, 15, 30, 0.4);
+    }
+    .advisor-card__badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .advisor-card__badge {
+      padding: 4px 10px;
+      font-size: 0.7rem;
+      border-radius: 999px;
+      background: rgba(13, 27, 42, 0.65);
+      border: 1px solid rgba(224, 225, 221, 0.18);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .advisor-card__pal {
+      position: relative;
+      z-index: 1;
+    }
+    .advisor-card .pal-card {
+      background: rgba(9, 19, 30, 0.55);
+      border: 1px solid rgba(224, 225, 221, 0.18);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .advisor-card__highlights {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: rgba(224, 225, 221, 0.8);
+    }
+    .advisor-card__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .advisor-card__action {
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: rgba(119, 141, 169, 0.28);
+      border: 1px solid rgba(224, 225, 221, 0.32);
+      color: var(--text);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .advisor-card__action:hover,
+    .advisor-card__action:focus-visible {
+      background: rgba(224, 225, 221, 0.4);
+      transform: translateY(-1px);
+    }
+    .advisor-card__note {
+      margin: 0;
+      font-size: 0.8rem;
+      color: rgba(224, 225, 221, 0.72);
+    }
+    .breeding-atlas {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      align-items: start;
+    }
+    .breeding-atlas__picker {
+      min-height: 100%;
+    }
+    .breeding-atlas__diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(13, 27, 42, 0.72);
+      border: 1px solid rgba(119, 141, 169, 0.3);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.08);
+      min-height: 100%;
+    }
+    .breeding-atlas__diagram header h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .breeding-atlas__diagram header p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(224, 225, 221, 0.75);
+    }
+    .breeding-atlas__empty {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(224, 225, 221, 0.75);
+    }
+    .breeding-tree {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .breeding-tree__focus {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(9, 19, 30, 0.6);
+      border: 1px solid rgba(119, 141, 169, 0.28);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.08);
+    }
+    .breeding-tree__focus h4 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .breeding-tree__meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .breeding-tree__meta span {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(65, 90, 119, 0.4);
+      border: 1px solid rgba(224, 225, 221, 0.22);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .breeding-tree__branches {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .breeding-branch {
+      border-radius: 16px;
+      border: 1px solid rgba(119, 141, 169, 0.25);
+      background: rgba(12, 24, 37, 0.72);
+      box-shadow: 0 12px 24px rgba(5, 15, 30, 0.4);
+      overflow: hidden;
+    }
+    .breeding-branch summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: rgba(224, 225, 221, 0.85);
+    }
+    .breeding-branch summary::-webkit-details-marker {
+      display: none;
+    }
+    .breeding-branch__marker {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: rgba(119, 141, 169, 0.28);
+      border: 1px solid rgba(224, 225, 221, 0.26);
+      font-size: 0.85rem;
+    }
+    .breeding-branch__pair {
+      display: grid;
+      gap: 16px;
+      padding: 0 18px 18px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .breeding-branch__parent {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(9, 19, 30, 0.55);
+      border: 1px solid rgba(119, 141, 169, 0.22);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.05);
+    }
+    .breeding-branch__parent::before {
+      content: '';
+      position: absolute;
+      inset: 14px auto auto -12px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(119, 141, 169, 0.4);
+      box-shadow: 0 0 0 3px rgba(13, 27, 42, 0.8);
+    }
+    .breeding-branch__parent h5 {
+      margin: 0;
+      font-size: 1rem;
+    }
+    .breeding-branch__children {
+      margin-top: 12px;
+      padding-left: 18px;
+      border-left: 2px dashed rgba(119, 141, 169, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .breeding-branch__notice {
+      margin: 0;
+      font-size: 0.8rem;
+      color: rgba(224, 225, 221, 0.7);
+    }
     .breeding-panels {
       display: grid;
       gap: 20px;
@@ -2812,7 +3111,9 @@
       font-size: 1rem;
     }
     body.kid-mode .breeding-panel__description,
-    body.kid-mode .breeding-hero__callout p {
+    body.kid-mode .breeding-hero__callout p,
+    body.kid-mode .breeding-advisor__header p,
+    body.kid-mode .breeding-atlas__diagram header p {
       font-size: 0.9rem;
     }
     @media (max-width: 1024px) {
@@ -2827,12 +3128,21 @@
       .breeding-mode {
         padding: 20px 18px;
       }
+      .breeding-atlas {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .breeding-branch__pair {
+        grid-template-columns: minmax(0, 1fr);
+      }
       .pal-grid {
         max-height: clamp(240px, 55vh, 360px);
       }
       .breeding-tabs {
         width: 100%;
         justify-content: center;
+      }
+      .advisor-card {
+        padding: 18px;
       }
       .breeding-combo {
         grid-template-columns: repeat(5, minmax(0, 120px));
@@ -4188,30 +4498,70 @@
               <div class="breeding-hero__icon"><i class="fa-solid fa-egg"></i></div>
               <h2>Breeding Workshop</h2>
             </div>
-            <p class="breeding-hero__intro">Match the perfect parents, queue up cakes and hatch legendary helpers faster with our polished Pal pairing lab.</p>
+            <p class="breeding-hero__intro">Shape legendary partners with a smarter lab that scouts upgrades, maps ancestry, and predicts every egg you could incubate.</p>
             <ul class="breeding-perks">
-              <li><i class="fa-solid fa-wand-magic-sparkles"></i><span>See likely babies instantly by matching breeding power.</span></li>
-              <li><i class="fa-solid fa-people-arrows"></i><span>Swap between Parent and Target modes without losing your picks.</span></li>
-              <li><i class="fa-solid fa-cookie-bite"></i><span>Kid Mode reminders keep the process friendly for junior keepers.</span></li>
+              <li><i class="fa-solid fa-star-shooting"></i><span>Advisor cards spotlight your best new allies based on the pals you already own.</span></li>
+              <li><i class="fa-solid fa-sitemap"></i><span>Ancestry Atlas paints every parent chain with elegant, tappable branches.</span></li>
+              <li><i class="fa-solid fa-people-arrows"></i><span>Planner and lookup panels stay synced so combos drop into the pair lab instantly.</span></li>
             </ul>
           </div>
           <div class="breeding-hero__callout">
             <span>Pro tip</span>
-            <p>Keep a stack of Cakes in the farm chest and tap any combo below to auto-fill the parents. You will be incubating dream pals in no time.</p>
+            <p>Flag pals as caught from the Paldex grid and the advisor will re-rank every recipe to keep your breeding queue meaningful.</p>
           </div>
         </div>
         <div class="breeding-workspace">
           <div class="breeding-tabs" role="tablist" aria-label="Breeding planner modes">
-            <button type="button" id="breedingTabPredict" class="breeding-tab active" data-target="breedingPredict" role="tab" aria-controls="breedingPredict" aria-selected="true" aria-pressed="true">
+            <button type="button" id="breedingTabAdvisor" class="breeding-tab active" data-target="breedingAdvisor" role="tab" aria-controls="breedingAdvisor" aria-selected="true" aria-pressed="true">
+              <i class="fa-solid fa-crystal-ball"></i>
+              <span>Insight Deck</span>
+            </button>
+            <button type="button" id="breedingTabAtlas" class="breeding-tab" data-target="breedingAtlas" role="tab" aria-controls="breedingAtlas" aria-selected="false" aria-pressed="false">
+              <i class="fa-solid fa-tree"></i>
+              <span>Ancestry Atlas</span>
+            </button>
+            <button type="button" id="breedingTabPairs" class="breeding-tab" data-target="breedingPairs" role="tab" aria-controls="breedingPairs" aria-selected="false" aria-pressed="false">
               <i class="fa-solid fa-people-group"></i>
-              <span>Pick parents</span>
+              <span>Pair Lab</span>
             </button>
             <button type="button" id="breedingTabDiscover" class="breeding-tab" data-target="breedingDiscover" role="tab" aria-controls="breedingDiscover" aria-selected="false" aria-pressed="false">
               <i class="fa-solid fa-compass"></i>
-              <span>Find parents</span>
+              <span>Parent Finder</span>
             </button>
           </div>
-          <div id="breedingPredict" class="breeding-mode active" role="tabpanel" aria-labelledby="breedingTabPredict" aria-hidden="false" tabindex="0">
+          <div id="breedingAdvisor" class="breeding-mode active" role="tabpanel" aria-labelledby="breedingTabAdvisor" aria-hidden="false" tabindex="0">
+            <div class="breeding-advisor">
+              <header class="breeding-advisor__header">
+                <h3 id="breedingAdvisorTitle">Advisor queue</h3>
+                <p id="breedingAdvisorCopy">We scan your roster, reachable offspring, and partner skills to surface the smartest next hatches.</p>
+              </header>
+              <div class="breeding-advisor__grid" id="breedingAdvisorGrid" role="list"></div>
+              <p class="breeding-advisor__empty" id="breedingAdvisorEmpty" hidden></p>
+            </div>
+          </div>
+          <div id="breedingAtlas" class="breeding-mode" role="tabpanel" aria-labelledby="breedingTabAtlas" aria-hidden="true" tabindex="-1">
+            <div class="breeding-atlas">
+              <article class="breeding-panel breeding-atlas__picker">
+                <div class="breeding-panel__header">
+                  <h3>Ancestry target</h3>
+                  <p class="breeding-panel__description">Search for a pal to trace every parent route. Tap a card to focus its branch.</p>
+                </div>
+                <div class="pal-search">
+                  <input type="search" id="atlasSearch" placeholder="Search pals" aria-label="Search ancestry pals">
+                </div>
+                <div class="pal-grid" id="atlasGrid"></div>
+              </article>
+              <article class="breeding-atlas__diagram" aria-live="polite">
+                <header>
+                  <h3 id="atlasDiagramTitle">Select a pal to view its tree</h3>
+                  <p id="atlasDiagramCopy">Every combo expands into collapsible branches so side monitors and tablets stay readable.</p>
+                </header>
+                <div class="breeding-tree" id="breedingTree"></div>
+                <p class="breeding-atlas__empty" id="breedingAtlasEmpty" hidden></p>
+              </article>
+            </div>
+          </div>
+          <div id="breedingPairs" class="breeding-mode" role="tabpanel" aria-labelledby="breedingTabPairs" aria-hidden="true" tabindex="-1">
             <div class="breeding-panels">
               <article class="breeding-panel">
                 <div class="breeding-panel__header">
@@ -4246,7 +4596,7 @@
             <div class="breeding-panels">
               <article class="breeding-panel">
                 <div class="breeding-panel__header">
-                  <h3>Dream pal</h3>
+                  <h3>Desired offspring</h3>
                   <p class="breeding-panel__description">Search for the pal you want to hatch or browse the list below.</p>
                 </div>
                 <div class="pal-search">
@@ -4257,7 +4607,7 @@
               <article class="breeding-panel">
                 <div class="breeding-panel__header">
                   <h3>Parent recipes</h3>
-                  <p class="breeding-panel__description">Tap any combo to auto-fill the parents and jump back to predictions.</p>
+                  <p class="breeding-panel__description">Tap any combo to auto-fill the pair lab and jump straight to predictions.</p>
                 </div>
                 <div class="breeding-combos" id="breedingCombos"></div>
               </article>
@@ -4464,7 +4814,7 @@
     let PAL_NAME_TO_ID = {};
     let PAL_SLUG_TO_ID = {};
     // Persist breeding page selections between rebuilds (e.g. when switching modes)
-    const BREEDING_SELECTION = { parent1Id: null, parent2Id: null, babyId: null, mode: 'breedingPredict' };
+    const BREEDING_SELECTION = { parent1Id: null, parent2Id: null, babyId: null, atlasId: null, mode: 'breedingAdvisor' };
     // Progress tracking
     let caught = JSON.parse(localStorage.getItem('caught') || '{}');
     let collected = JSON.parse(localStorage.getItem('collected') || '{}');
@@ -9209,9 +9559,17 @@
       const parent1Search = document.getElementById('parent1Search');
       const parent2Search = document.getElementById('parent2Search');
       const babySearch = document.getElementById('babySearch');
+      const advisorGrid = document.getElementById('breedingAdvisorGrid');
+      const advisorEmpty = document.getElementById('breedingAdvisorEmpty');
+      const advisorTitle = document.getElementById('breedingAdvisorTitle');
+      const advisorCopy = document.getElementById('breedingAdvisorCopy');
+      const atlasGrid = document.getElementById('atlasGrid');
+      const atlasSearch = document.getElementById('atlasSearch');
+      const atlasDiagram = document.getElementById('breedingTree');
+      const atlasEmpty = document.getElementById('breedingAtlasEmpty');
       const modeButtons = Array.from(document.querySelectorAll('.breeding-tab'));
       const modes = Array.from(document.querySelectorAll('.breeding-mode'));
-      if (!parent1Grid || !parent2Grid || !babyGrid || !result || !combosContainer || !parent1Search || !parent2Search || !babySearch) {
+      if (!parent1Grid || !parent2Grid || !babyGrid || !result || !combosContainer || !parent1Search || !parent2Search || !babySearch || !advisorGrid || !advisorEmpty || !advisorTitle || !advisorCopy || !atlasGrid || !atlasSearch || !atlasDiagram || !atlasEmpty) {
         return;
       }
       const palsSorted = Object.values(PALS || {}).sort((a, b) => a.name.localeCompare(b.name));
@@ -9220,14 +9578,17 @@
         parent2: BREEDING_SELECTION.parent2Id ? PALS[BREEDING_SELECTION.parent2Id] : null
       };
       let selectedBaby = BREEDING_SELECTION.babyId ? PALS[BREEDING_SELECTION.babyId] : null;
+      let selectedAtlas = BREEDING_SELECTION.atlasId ? PALS[BREEDING_SELECTION.atlasId] : null;
       if (!parentState.parent1) parentState.parent1 = null;
       if (!parentState.parent2) parentState.parent2 = null;
       if (!selectedBaby) selectedBaby = null;
+      if (!selectedAtlas) selectedAtlas = null;
 
       function updateBreedingSelection() {
         BREEDING_SELECTION.parent1Id = parentState.parent1 ? parentState.parent1.id : null;
         BREEDING_SELECTION.parent2Id = parentState.parent2 ? parentState.parent2.id : null;
         BREEDING_SELECTION.babyId = selectedBaby ? selectedBaby.id : null;
+        BREEDING_SELECTION.atlasId = selectedAtlas ? selectedAtlas.id : null;
       }
 
       function makeEmptyMessage(text) {
@@ -9312,6 +9673,662 @@
         rarity.className = 'rarity';
         wrapper.appendChild(rarity);
         return wrapper;
+      }
+
+      const partnerLookup = buildPartnerSkillLookup();
+      const recipeMap = buildBreedingRecipeMap();
+      const breedingGraph = computeBreedingGraph(recipeMap);
+      const { depths, sources, reachable, caughtIds } = breedingGraph;
+
+      function buildBreedingRecipeMap() {
+        const map = {};
+        Object.values(PALS || {}).forEach(pal => {
+          const combos = Array.isArray(pal.breedingCombos) ? pal.breedingCombos : [];
+          map[pal.id] = combos.map(pair => {
+            if (!Array.isArray(pair) || pair.length < 2) {
+              return { parents: [null, null], names: pair || [], pals: [null, null] };
+            }
+            const [leftName, rightName] = pair;
+            const leftPal = findPalByName(leftName);
+            const rightPal = findPalByName(rightName);
+            return {
+              parents: [leftPal ? leftPal.id : null, rightPal ? rightPal.id : null],
+              names: [leftName, rightName],
+              pals: [leftPal, rightPal]
+            };
+          });
+        });
+        return map;
+      }
+
+      function buildPartnerSkillLookup() {
+        const lookup = {};
+        const skills = Array.isArray(PARTNER_SKILLS) ? PARTNER_SKILLS : [];
+        skills.forEach(skill => {
+          const categories = Array.isArray(skill.categories) ? skill.categories.map(cat => String(cat)) : [];
+          const normalized = new Set();
+          let mountLabel = null;
+          categories.forEach(cat => {
+            const lower = cat.toLowerCase();
+            if (lower.includes('combat')) normalized.add('combat');
+            if (lower.includes('utility')) normalized.add('utility');
+            if (lower.includes('farming')) normalized.add('farming');
+            if (lower.startsWith('mount')) {
+              normalized.add('mount');
+              mountLabel = mountLabel || cat;
+              if (lower.includes('flying')) normalized.add('mount-flying');
+              if (lower.includes('glider')) normalized.add('mount-glider');
+              if (lower.includes('swimmer')) normalized.add('mount-swimmer');
+              if (lower.includes('ridden')) normalized.add('mount-ridden');
+            }
+          });
+          const description = typeof skill.description === 'string' ? skill.description : '';
+          const descLower = description.toLowerCase();
+          const modifiesPlayerDamage = descLower.includes('player') && (descLower.includes('damage') || descLower.includes('attack'));
+          const modifiesPalDamage = descLower.includes('pal') && descLower.includes('damage');
+          const modifiesAnyDamage = descLower.includes('damage') || descLower.includes('attack');
+          const speedBoost = descLower.includes('speed') && descLower.includes('mount');
+          const workBoost = descLower.includes('work') || descLower.includes('carry') || descLower.includes('weight');
+          const dropBoost = descLower.includes('drop') || descLower.includes('harvest');
+          (Array.isArray(skill.pals) ? skill.pals : []).forEach(name => {
+            const pal = findPalByName(name);
+            if (!pal) return;
+            lookup[pal.id] = {
+              skill,
+              categories,
+              normalized,
+              mountLabel,
+              description,
+              descLower,
+              modifiesAnyDamage,
+              modifiesPlayerDamage,
+              modifiesPalDamage,
+              speedBoost,
+              workBoost,
+              dropBoost
+            };
+          });
+        });
+        return lookup;
+      }
+
+      function computeBreedingGraph(recipes) {
+        const caughtIds = new Set();
+        Object.entries(caught || {}).forEach(([id, value]) => {
+          if (!value) return;
+          const numeric = Number(id);
+          if (!Number.isNaN(numeric)) {
+            caughtIds.add(numeric);
+          }
+        });
+        const depths = new Map();
+        const sources = new Map();
+        caughtIds.forEach(id => depths.set(id, 0));
+        let progressed = true;
+        while (progressed) {
+          progressed = false;
+          Object.values(PALS || {}).forEach(pal => {
+            const combos = recipes[pal.id] || [];
+            combos.forEach(recipe => {
+              if (!recipe || !Array.isArray(recipe.parents)) return;
+              if (!recipe.parents.every(parentId => parentId != null && depths.has(parentId))) return;
+              const parentDepths = recipe.parents.map(parentId => depths.get(parentId) || 0);
+              const candidateDepth = Math.max(...parentDepths) + 1;
+              if (!depths.has(pal.id) || candidateDepth < depths.get(pal.id)) {
+                depths.set(pal.id, candidateDepth);
+                sources.set(pal.id, recipe);
+                progressed = true;
+              }
+            });
+          });
+        }
+        return {
+          depths,
+          sources,
+          reachable: new Set(depths.keys()),
+          caughtIds
+        };
+      }
+
+      function getPartnerInfo(pal) {
+        if (!pal) return null;
+        return partnerLookup[pal.id] || null;
+      }
+
+      function getPreferredRecipe(palId) {
+        if (sources.has(palId)) {
+          return sources.get(palId);
+        }
+        const options = recipeMap[palId] || [];
+        const valid = options.find(entry => entry.parents.every(id => id != null));
+        return valid || options[0] || null;
+      }
+
+      function formatBreedingSteps(palId) {
+        const depth = depths.get(palId);
+        if (depth == null) return kidMode ? 'Catch in the wild' : 'Catch in the wild';
+        if (depth === 0) {
+          return kidMode ? 'Already in your camp' : 'Already caught';
+        }
+        const suffix = depth > 1 ? 's' : '';
+        return kidMode ? `${depth} breeding step${suffix}` : `${depth} breeding step${suffix}`;
+      }
+
+      function summarizeWork(pal) {
+        const work = pal?.work || {};
+        const entries = Object.entries(work).filter(([, level]) => level > 0);
+        entries.sort((a, b) => b[1] - a[1]);
+        return entries.slice(0, 3).map(([role, level]) => {
+          const label = getWorkRoleLabel(role);
+          return `${label}: Lv${level}`;
+        });
+      }
+
+      function computeCombatScore(pal, partnerInfo) {
+        if (!pal) return -Infinity;
+        const stats = pal.stats || {};
+        let score = (stats.attack || 0) * 1.6 + (stats.defense || 0) * 0.8 + (stats.hp || 0) * 0.6 + (stats.speed || 0) * 0.3;
+        score += (pal.rarity || 0) * 30;
+        if (partnerInfo?.normalized?.has('combat')) score += 120;
+        if (partnerInfo?.modifiesAnyDamage) score += 60;
+        if (partnerInfo?.modifiesPlayerDamage) score += 30;
+        if (partnerInfo?.modifiesPalDamage) score += 30;
+        return score;
+      }
+
+      function computeWorkerScore(pal, partnerInfo) {
+        if (!pal) return -Infinity;
+        const work = pal.work || {};
+        const levels = Object.values(work).filter(level => level > 0);
+        if (!levels.length) return -Infinity;
+        let score = levels.reduce((total, level) => total + (level * level * 12), 0);
+        score += Math.max(...levels) * 30;
+        if (partnerInfo?.workBoost) score += 80;
+        if (partnerInfo?.dropBoost) score += 25;
+        return score;
+      }
+
+      function computeMountScore(pal, partnerInfo) {
+        if (!pal) return -Infinity;
+        if (!partnerInfo || !partnerInfo.normalized?.has('mount')) return -Infinity;
+        const stats = pal.stats || {};
+        let score = (stats.speed || 0) * 0.5 + (pal.rarity || 0) * 25;
+        if (partnerInfo.normalized.has('mount-flying')) score += 180;
+        if (partnerInfo.normalized.has('mount-glider')) score += 120;
+        if (partnerInfo.normalized.has('mount-swimmer')) score += 90;
+        if (partnerInfo.speedBoost) score += 140;
+        return score;
+      }
+
+      function computeCollectionScore(pal) {
+        if (!pal) return -Infinity;
+        const rarity = pal.rarity || 0;
+        const price = pal.price || 0;
+        let score = rarity * 120 + price / 80;
+        const depth = depths.get(pal.id);
+        if (depth != null && depth > 0) {
+          score += (6 - Math.min(depth, 6)) * 25;
+        }
+        if (!caught[pal.id]) {
+          score += 180;
+        }
+        return score;
+      }
+
+      function buildHighlights(lines) {
+        const list = document.createElement('ul');
+        list.className = 'advisor-card__highlights';
+        lines.forEach(entry => {
+          if (!entry) return;
+          const li = document.createElement('li');
+          if (typeof entry === 'string') {
+            li.textContent = entry;
+          } else {
+            li.textContent = kidMode ? entry.kid : entry.grown;
+          }
+          list.appendChild(li);
+        });
+        return list;
+      }
+
+      function buildAdvisorCard(config, pal, partnerInfo, recipe) {
+        const card = document.createElement('article');
+        card.className = 'advisor-card';
+        card.setAttribute('role', 'listitem');
+
+        const header = document.createElement('header');
+        header.className = 'advisor-card__header';
+        const titleBlock = document.createElement('div');
+        titleBlock.className = 'advisor-card__titleblock';
+        const eyebrow = document.createElement('span');
+        eyebrow.className = 'advisor-card__eyebrow';
+        eyebrow.textContent = kidMode ? config.eyebrowKid : config.eyebrowGrown;
+        titleBlock.appendChild(eyebrow);
+        const title = document.createElement('h4');
+        title.className = 'advisor-card__title';
+        title.textContent = kidMode ? config.titleKid : config.titleGrown;
+        titleBlock.appendChild(title);
+        const subtitle = document.createElement('p');
+        subtitle.className = 'advisor-card__subtitle';
+        subtitle.textContent = config.buildSubtitle(pal, partnerInfo, recipe);
+        titleBlock.appendChild(subtitle);
+        header.appendChild(titleBlock);
+        const iconWrap = document.createElement('div');
+        iconWrap.className = 'advisor-card__icon';
+        const icon = document.createElement('i');
+        icon.className = `fa-solid ${config.icon}`;
+        iconWrap.appendChild(icon);
+        header.appendChild(iconWrap);
+        card.appendChild(header);
+
+        const badges = document.createElement('div');
+        badges.className = 'advisor-card__badges';
+        const rarityName = rarityNames[Math.max(1, Math.min(pal.rarity || 0, 6))] || (kidMode ? 'Unknown' : 'Unknown');
+        const rarityBadge = document.createElement('span');
+        rarityBadge.className = 'advisor-card__badge';
+        rarityBadge.textContent = rarityName;
+        badges.appendChild(rarityBadge);
+        const typeBadge = document.createElement('span');
+        typeBadge.className = 'advisor-card__badge';
+        typeBadge.textContent = Array.isArray(pal.types) && pal.types.length ? pal.types.join(' / ') : 'Unknown';
+        badges.appendChild(typeBadge);
+        const stepBadge = document.createElement('span');
+        stepBadge.className = 'advisor-card__badge';
+        stepBadge.textContent = formatBreedingSteps(pal.id);
+        badges.appendChild(stepBadge);
+        card.appendChild(badges);
+
+        const palWrap = document.createElement('div');
+        palWrap.className = 'advisor-card__pal';
+        palWrap.appendChild(createPalCard(pal, { compact: false, selectable: false }));
+        card.appendChild(palWrap);
+
+        const highlights = config.buildHighlights(pal, partnerInfo, recipe);
+        card.appendChild(buildHighlights(highlights));
+
+        const actions = document.createElement('div');
+        actions.className = 'advisor-card__actions';
+        if (recipe && recipe.parents && recipe.parents.every(id => id != null)) {
+          const planBtn = document.createElement('button');
+          planBtn.type = 'button';
+          planBtn.className = 'advisor-card__action';
+          planBtn.textContent = kidMode ? 'Queue this combo' : 'Queue this combo';
+          planBtn.addEventListener('click', () => {
+            const [leftId, rightId] = recipe.parents;
+            parentState.parent1 = leftId != null ? PALS[leftId] : null;
+            parentState.parent2 = rightId != null ? PALS[rightId] : null;
+            selectedBaby = pal;
+            updateBreedingSelection();
+            updateParentGrids();
+            updateResult();
+            renderBabyGrid();
+            showCombos();
+            switchBreedingMode('breedingPairs');
+            playSound(clickSound);
+          });
+          actions.appendChild(planBtn);
+        }
+        const atlasBtn = document.createElement('button');
+        atlasBtn.type = 'button';
+        atlasBtn.className = 'advisor-card__action';
+        atlasBtn.textContent = kidMode ? 'View tree' : 'Open in atlas';
+        atlasBtn.addEventListener('click', () => {
+          selectedAtlas = pal;
+          updateBreedingSelection();
+          atlasSearch.value = '';
+          renderAtlasGrid();
+          renderAtlasDiagram();
+          switchBreedingMode('breedingAtlas');
+          playSound(clickSound);
+        });
+        actions.appendChild(atlasBtn);
+        card.appendChild(actions);
+
+        const note = document.createElement('p');
+        note.className = 'advisor-card__note';
+        note.textContent = config.buildNote(pal, partnerInfo, recipe);
+        card.appendChild(note);
+
+        return card;
+      }
+
+      function renderAdvisor() {
+        advisorGrid.innerHTML = '';
+        advisorEmpty.hidden = true;
+        advisorTitle.textContent = kidMode ? 'Advisor queue' : 'Advisor queue';
+        advisorCopy.textContent = kidMode
+          ? 'We look at pals you can hatch and pick the smartest next ones.'
+          : 'We analyse your roster, reachable offspring, and partner skills to queue intelligent breeding targets.';
+
+        const reachableIds = Array.from(reachable);
+        const newIds = reachableIds.filter(id => !caughtIds.has(id));
+        const used = new Set();
+        const suggestions = [];
+
+        const configs = [
+          {
+            key: 'combat',
+            icon: 'fa-crosshairs',
+            eyebrowKid: 'Battle pick',
+            eyebrowGrown: 'Combat focus',
+            titleKid: 'Power pal',
+            titleGrown: 'Combat ace',
+            scoring: computeCombatScore,
+            buildSubtitle: (pal) => kidMode
+              ? `Breed ${pal.name} to help with tough fights.`
+              : `${pal.name} offers your biggest immediate damage spike.`,
+            buildHighlights: (pal, partnerInfo) => {
+              const stats = pal.stats || {};
+              const partnerName = partnerInfo?.skill?.name;
+              return [
+                { kid: `Attack ~${Math.round(stats.attack || 0)}`, grown: `Attack ${Math.round(stats.attack || 0)}` },
+                { kid: `Defense ~${Math.round(stats.defense || 0)}`, grown: `Defense ${Math.round(stats.defense || 0)}` },
+                partnerName ? { kid: `Skill: ${partnerName}`, grown: `Partner skill • ${partnerName}` } : null
+              ];
+            },
+            buildNote: (pal) => {
+              const depthText = formatBreedingSteps(pal.id);
+              return kidMode
+                ? `${pal.name} is your strongest fighter in ${depthText.toLowerCase()}.`
+                : `${pal.name} is the highest attack hatch reachable in ${depthText.toLowerCase()}.`;
+            }
+          },
+          {
+            key: 'worker',
+            icon: 'fa-helmet-safety',
+            eyebrowKid: 'Base boost',
+            eyebrowGrown: 'Base planner',
+            titleKid: 'Work hero',
+            titleGrown: 'Base specialist',
+            scoring: computeWorkerScore,
+            buildSubtitle: (pal) => kidMode
+              ? `${pal.name} speeds up jobs at base.`
+              : `${pal.name} shores up critical work roles you are missing.`,
+            buildHighlights: (pal, partnerInfo) => {
+              const workHighlights = summarizeWork(pal);
+              const partnerName = partnerInfo?.skill?.name;
+              const lines = workHighlights.map(line => ({ kid: line, grown: line }));
+              if (partnerName) {
+                lines.push({ kid: `Skill: ${partnerName}`, grown: `Partner skill • ${partnerName}` });
+              }
+              return lines;
+            },
+            buildNote: (pal) => {
+              const roles = summarizeWork(pal).join(', ');
+              return kidMode
+                ? `${pal.name} keeps your base humming (${roles}).`
+                : `${pal.name} unlocks better productivity (${roles}).`;
+            }
+          },
+          {
+            key: 'mount',
+            icon: 'fa-feather-pointed',
+            eyebrowKid: 'Travel pick',
+            eyebrowGrown: 'Mobility upgrade',
+            titleKid: 'Speedy ride',
+            titleGrown: 'Mount upgrade',
+            scoring: computeMountScore,
+            buildSubtitle: (pal, partnerInfo) => {
+              const mountLabel = partnerInfo?.mountLabel || (kidMode ? 'Ride skill' : 'Ride skill');
+              return kidMode
+                ? `${pal.name} lets you ${mountLabel.toLowerCase()}.`
+                : `${pal.name} is the best ${mountLabel.toLowerCase()} you can hatch right now.`;
+            },
+            buildHighlights: (pal, partnerInfo) => {
+              const stats = pal.stats || {};
+              return [
+                { kid: `Speed ~${Math.round(stats.speed || 0)}`, grown: `Speed ${Math.round(stats.speed || 0)}` },
+                partnerInfo?.mountLabel ? { kid: partnerInfo.mountLabel, grown: partnerInfo.mountLabel } : null,
+                partnerInfo?.speedBoost ? { kid: 'Extra fast partner skill', grown: 'Partner skill boosts travel speed' } : null
+              ];
+            },
+            buildNote: (pal, partnerInfo) => {
+              const label = partnerInfo?.mountLabel || 'mount';
+              return kidMode
+                ? `${pal.name} turns you into a quick ${label.toLowerCase()}.`
+                : `${pal.name} slashes travel time as your premier ${label.toLowerCase()}.`;
+            }
+          },
+          {
+            key: 'collection',
+            icon: 'fa-grid',
+            eyebrowKid: 'Paldeck goal',
+            eyebrowGrown: 'Collection target',
+            titleKid: 'New friend',
+            titleGrown: 'Collection highlight',
+            scoring: computeCollectionScore,
+            buildSubtitle: (pal) => kidMode
+              ? `${pal.name} fills a new slot in your Paldeck.`
+              : `${pal.name} plugs a rare gap in your Paldeck.`,
+            buildHighlights: (pal) => {
+              const depthText = formatBreedingSteps(pal.id);
+              const price = pal.price ? `${pal.price.toLocaleString()} gold value` : null;
+              return [
+                { kid: depthText, grown: depthText },
+                price ? { kid: price, grown: price } : null
+              ];
+            },
+            buildNote: (pal) => kidMode
+              ? `Hatching ${pal.name} gets you closer to a full Paldeck.`
+              : `${pal.name} is a prestige hatch that nudges your deck toward completion.`
+          }
+        ];
+
+        function pickCandidate(scoringFn) {
+          let best = null;
+          let bestScore = -Infinity;
+          function evaluate(ids) {
+            ids.forEach(id => {
+              if (used.has(id)) return;
+              const pal = PALS[id];
+              if (!pal) return;
+              const partnerInfo = getPartnerInfo(pal);
+              const score = scoringFn(pal, partnerInfo);
+              if (score > bestScore) {
+                bestScore = score;
+                best = { pal, partnerInfo, recipe: getPreferredRecipe(id) };
+              }
+            });
+          }
+          evaluate(newIds);
+          if (!best) evaluate(reachableIds);
+          if (!best) evaluate(palsSorted.map(p => p.id));
+          return best;
+        }
+
+        configs.forEach(config => {
+          const entry = pickCandidate(config.scoring);
+          if (!entry) return;
+          used.add(entry.pal.id);
+          suggestions.push({ config, ...entry });
+        });
+
+        if (!suggestions.length) {
+          advisorEmpty.hidden = false;
+          advisorEmpty.textContent = kidMode
+            ? 'Mark pals as caught so we can suggest the next hatch.'
+            : 'Mark pals as caught to unlock tailored breeding advice.';
+          return;
+        }
+
+        suggestions.forEach(({ config, pal, partnerInfo, recipe }) => {
+          advisorGrid.appendChild(buildAdvisorCard(config, pal, partnerInfo, recipe));
+        });
+      }
+
+      const MAX_ATLAS_DEPTH = 4;
+
+      function renderAtlasGrid() {
+        atlasGrid.innerHTML = '';
+        if (!palsSorted.length) {
+          atlasGrid.appendChild(makeEmptyMessage(kidMode ? 'Loading pals…' : 'Breeding data is still loading.'));
+          return;
+        }
+        let matches = filterPals(atlasSearch.value);
+        if (selectedAtlas && !matches.some(p => p.id === selectedAtlas.id)) {
+          matches = [selectedAtlas, ...matches];
+        }
+        if (!matches.length) {
+          atlasGrid.appendChild(makeEmptyMessage(kidMode ? 'No pals match that search.' : 'Try a different pal search.'));
+          return;
+        }
+        matches.forEach(pal => {
+          const card = createPalCard(pal, {
+            compact: true,
+            selectable: true,
+            selected: selectedAtlas && selectedAtlas.id === pal.id
+          });
+          card.addEventListener('click', () => {
+            if (selectedAtlas && selectedAtlas.id === pal.id) {
+              selectedAtlas = null;
+            } else {
+              selectedAtlas = pal;
+            }
+            updateBreedingSelection();
+            renderAtlasGrid();
+            renderAtlasDiagram();
+            playSound(clickSound);
+          });
+          atlasGrid.appendChild(card);
+        });
+      }
+
+      function createAtlasFocus(pal) {
+        const focus = document.createElement('div');
+        focus.className = 'breeding-tree__focus';
+        const heading = document.createElement('h4');
+        heading.textContent = pal.name;
+        focus.appendChild(heading);
+        const meta = document.createElement('div');
+        meta.className = 'breeding-tree__meta';
+        const rarityLabel = rarityNames[Math.max(1, Math.min(pal.rarity || 0, 6))] || (kidMode ? 'Unknown rarity' : 'Unknown rarity');
+        const raritySpan = document.createElement('span');
+        raritySpan.textContent = rarityLabel;
+        meta.appendChild(raritySpan);
+        const stepsSpan = document.createElement('span');
+        stepsSpan.textContent = formatBreedingSteps(pal.id);
+        meta.appendChild(stepsSpan);
+        if (Array.isArray(pal.types) && pal.types.length) {
+          const typeSpan = document.createElement('span');
+          typeSpan.textContent = pal.types.join(' / ');
+          meta.appendChild(typeSpan);
+        }
+        focus.appendChild(meta);
+        focus.appendChild(createPalCard(pal, { compact: false, selectable: false }));
+        return focus;
+      }
+
+      function buildAtlasBranches(pal, depth, visited) {
+        const combos = recipeMap[pal.id] || [];
+        if (!combos.length) return null;
+        const fragment = document.createDocumentFragment();
+        combos.forEach((recipe, index) => {
+          const branch = document.createElement('details');
+          branch.className = 'breeding-branch';
+          if (depth <= 0 && index === 0) branch.open = true;
+          const summary = document.createElement('summary');
+          const marker = document.createElement('div');
+          marker.className = 'breeding-branch__marker';
+          marker.textContent = String(index + 1);
+          summary.appendChild(marker);
+          const label = document.createElement('span');
+          const leftName = recipe.names?.[0] || 'Unknown';
+          const rightName = recipe.names?.[1] || 'Unknown';
+          label.textContent = `${leftName} + ${rightName}`;
+          summary.appendChild(label);
+          branch.appendChild(summary);
+          const pairWrap = document.createElement('div');
+          pairWrap.className = 'breeding-branch__pair';
+          branch.appendChild(pairWrap);
+          (recipe.names || []).forEach((name, idx) => {
+            const parentPal = recipe.pals?.[idx] || null;
+            const parentWrap = document.createElement('div');
+            parentWrap.className = 'breeding-branch__parent';
+            if (parentPal) {
+              const card = createPalCard(parentPal, {
+                compact: false,
+                selectable: true,
+                selected: selectedAtlas && selectedAtlas.id === parentPal.id
+              });
+              card.addEventListener('click', () => {
+                selectedAtlas = parentPal;
+                updateBreedingSelection();
+                atlasSearch.value = '';
+                renderAtlasGrid();
+                renderAtlasDiagram();
+                playSound(clickSound);
+              });
+              parentWrap.appendChild(card);
+              const status = document.createElement('p');
+              status.className = 'breeding-branch__notice';
+              status.textContent = formatBreedingSteps(parentPal.id);
+              parentWrap.appendChild(status);
+              if (visited.has(parentPal.id)) {
+                const loop = document.createElement('p');
+                loop.className = 'breeding-branch__notice';
+                loop.textContent = kidMode
+                  ? 'Loop spotted—stop here.'
+                  : 'Loop detected in breeding chain; stopping recursion.';
+                parentWrap.appendChild(loop);
+              } else if (depth + 1 >= MAX_ATLAS_DEPTH) {
+                const truncated = document.createElement('p');
+                truncated.className = 'breeding-branch__notice';
+                truncated.textContent = kidMode
+                  ? 'Tree trimmed for space.'
+                  : 'Further ancestry hidden for readability—expand via atlas search.';
+                parentWrap.appendChild(truncated);
+              } else {
+                const nextVisited = new Set(visited);
+                nextVisited.add(parentPal.id);
+                const childBranches = buildAtlasBranches(parentPal, depth + 1, nextVisited);
+                if (childBranches) {
+                  const childWrap = document.createElement('div');
+                  childWrap.className = 'breeding-branch__children';
+                  childWrap.appendChild(childBranches);
+                  parentWrap.appendChild(childWrap);
+                }
+              }
+            } else {
+              parentWrap.appendChild(createComboCard(null, name || 'Unknown parent'));
+              const missing = document.createElement('p');
+              missing.className = 'breeding-branch__notice';
+              missing.textContent = kidMode
+                ? 'Parent info missing.'
+                : 'Parent data unavailable in current dataset.';
+              parentWrap.appendChild(missing);
+            }
+            pairWrap.appendChild(parentWrap);
+          });
+          fragment.appendChild(branch);
+        });
+        return fragment;
+      }
+
+      function renderAtlasDiagram() {
+        atlasDiagram.innerHTML = '';
+        atlasEmpty.hidden = true;
+        if (!selectedAtlas) {
+          atlasEmpty.hidden = false;
+          atlasEmpty.textContent = kidMode
+            ? 'Pick a pal on the left to see their family tree.'
+            : 'Select a pal to trace every breeding route that produces it.';
+          return;
+        }
+        atlasDiagram.appendChild(createAtlasFocus(selectedAtlas));
+        const branchesWrap = document.createElement('div');
+        branchesWrap.className = 'breeding-tree__branches';
+        const branchFragment = buildAtlasBranches(selectedAtlas, 0, new Set([selectedAtlas.id]));
+        if (branchFragment) {
+          branchesWrap.appendChild(branchFragment);
+        } else {
+          const note = document.createElement('p');
+          note.className = 'breeding-branch__notice';
+          note.textContent = kidMode
+            ? 'No breeding recipes recorded yet.'
+            : 'We do not have breeding recipes for this pal yet.';
+          branchesWrap.appendChild(note);
+        }
+        atlasDiagram.appendChild(branchesWrap);
       }
 
       function filterPals(term) {
@@ -9448,7 +10465,7 @@
             updateBreedingSelection();
             updateParentGrids();
             updateResult();
-            switchBreedingMode('breedingPredict');
+            switchBreedingMode('breedingPairs');
             playSound(clickSound);
           });
           combosContainer.appendChild(row);
@@ -9552,9 +10569,9 @@
         BREEDING_SELECTION.mode = targetId;
       }
 
-      const savedMode = BREEDING_SELECTION.mode || 'breedingPredict';
+      const savedMode = BREEDING_SELECTION.mode || 'breedingAdvisor';
       const availableModes = modes.map(mode => mode.id);
-      const initialMode = availableModes.includes(savedMode) ? savedMode : 'breedingPredict';
+      const initialMode = availableModes.includes(savedMode) ? savedMode : 'breedingAdvisor';
 
       modeButtons.forEach(btn => {
         btn.onclick = () => {
@@ -9567,11 +10584,15 @@
       parent1Search.oninput = () => renderParentGrid('parent1');
       parent2Search.oninput = () => renderParentGrid('parent2');
       babySearch.oninput = () => renderBabyGrid();
+      atlasSearch.oninput = () => renderAtlasGrid();
 
       updateParentGrids();
       renderBabyGrid();
       showCombos();
       updateResult();
+      renderAdvisor();
+      renderAtlasGrid();
+      renderAtlasDiagram();
       switchBreedingMode(initialMode);
       updateBreedingSelection();
     }
