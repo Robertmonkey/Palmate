@@ -2316,18 +2316,147 @@
     #techList {
       display: flex;
       flex-direction: column;
+      gap: 24px;
+    }
+    .tech-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(119,141,169,0.25);
+      background: linear-gradient(135deg, rgba(17,32,51,0.9), rgba(11,23,39,0.95));
+      box-shadow: 0 18px 36px rgba(0,0,0,0.35);
+      backdrop-filter: blur(6px);
+    }
+    .tech-controls__row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .tech-filter {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .tech-filter__label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(224,225,221,0.65);
+    }
+    .tech-search {
+      position: relative;
+      flex: 1 1 280px;
+    }
+    .tech-search input {
+      width: 100%;
+      padding: 12px 16px 12px 42px;
+      border-radius: 14px;
+      border: 1px solid rgba(119,141,169,0.35);
+      background: rgba(9,18,32,0.85);
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .tech-search input::placeholder {
+      color: rgba(224,225,221,0.55);
+    }
+    .tech-search input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(119,141,169,0.35);
+    }
+    .tech-search i {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(224,225,221,0.55);
+      pointer-events: none;
+      font-size: 0.95rem;
+    }
+    .tech-summary {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .tech-pills {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(119,141,169,0.16);
+    }
+    .tech-pill {
+      border: none;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      background: transparent;
+      color: var(--light);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .tech-pill:hover,
+    .tech-pill:focus-visible {
+      background: rgba(119,141,169,0.28);
+      outline: none;
+    }
+    .tech-pill.active {
+      background: var(--accent);
+      color: #0d1b2a;
+      font-weight: 700;
+    }
+    .tech-select {
+      min-width: 200px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(119,141,169,0.35);
+      background: rgba(9,18,32,0.85);
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+    .tech-reset-btn {
+      border: 1px solid rgba(119,141,169,0.35);
+      border-radius: 999px;
+      padding: 8px 18px;
+      background: transparent;
+      color: var(--light);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .tech-reset-btn:hover:not(:disabled),
+    .tech-reset-btn:focus-visible:not(:disabled) {
+      background: rgba(119,141,169,0.28);
+      outline: none;
+    }
+    .tech-reset-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .tech-results {
+      display: flex;
+      flex-direction: column;
       gap: 20px;
     }
     .tech-level-card {
       background: linear-gradient(135deg, rgba(23,40,59,0.92), rgba(18,32,48,0.92));
-      border-radius: 18px;
+      border-radius: 20px;
       border: 1px solid rgba(119,141,169,0.25);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.35);
-      padding: 18px;
+      box-shadow: 0 18px 36px rgba(0,0,0,0.35);
+      padding: 20px;
       backdrop-filter: blur(6px);
     }
     .tech-level-header {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
@@ -2348,6 +2477,13 @@
       letter-spacing: 0.08em;
       color: var(--light);
     }
+    .tech-level-header__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: rgba(224,225,221,0.75);
+    }
     .tech-level-summary {
       font-size: 0.85rem;
       color: var(--muted);
@@ -2355,16 +2491,16 @@
     .tech-columns {
       display: grid;
       gap: 18px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
     .tech-column {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      background: rgba(13,27,42,0.55);
+      background: rgba(13,27,42,0.6);
       border: 1px solid rgba(119,141,169,0.18);
-      border-radius: 14px;
-      padding: 14px;
+      border-radius: 16px;
+      padding: 16px;
     }
     .tech-column h4 {
       margin: 0;
@@ -2377,38 +2513,39 @@
     .tech-card-grid {
       display: grid;
       gap: 12px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
     .tech-card {
       position: relative;
-      display: flex;
-      gap: 14px;
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: 16px;
       align-items: stretch;
-      padding: 14px;
-      border-radius: 14px;
+      padding: 16px;
+      border-radius: 16px;
       border: 1px solid rgba(119,141,169,0.25);
-      background: rgba(15,28,45,0.85);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+      background: rgba(15,28,45,0.9);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
       cursor: pointer;
       transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .tech-card:hover {
       transform: translateY(-2px);
       border-color: var(--accent);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.45);
+      box-shadow: 0 18px 32px rgba(0,0,0,0.45);
     }
     .tech-card--unlocked {
       border-color: rgba(42,157,143,0.6);
-      box-shadow: 0 0 0 2px rgba(42,157,143,0.35), 0 16px 28px rgba(0,0,0,0.45);
+      box-shadow: 0 0 0 2px rgba(42,157,143,0.35), 0 18px 32px rgba(0,0,0,0.45);
     }
     .tech-card--unlocked .tech-card__cost {
       background: rgba(42,157,143,0.25);
       color: var(--success);
     }
     .tech-card__art {
-      width: 72px;
-      height: 72px;
-      border-radius: 12px;
+      width: 88px;
+      height: 88px;
+      border-radius: 14px;
       background: rgba(119,141,169,0.18);
       display: flex;
       align-items: center;
@@ -2427,21 +2564,20 @@
       font-size: 1.6rem;
     }
     .tech-card__info {
-      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 8px;
       min-width: 0;
     }
-    .tech-card__title {
+    .tech-card__meta {
       display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
     .tech-card__name {
       margin: 0;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--text);
     }
@@ -2471,37 +2607,70 @@
     }
     .tech-card__description {
       margin: 0;
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.4;
+      font-size: 0.88rem;
+      color: rgba(224,225,221,0.82);
+      line-height: 1.45;
     }
     .tech-card__materials {
+      list-style: none;
       margin: 0;
-      padding-left: 18px;
+      padding: 0;
+      display: grid;
+      gap: 6px;
       font-size: 0.8rem;
-      color: var(--muted);
+      color: rgba(224,225,221,0.8);
     }
     .tech-card__materials li {
-      margin: 2px 0;
-    }
-    .tech-card__actions {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(9,18,32,0.65);
+    }
+    .tech-card__materials span:last-child {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: rgba(224,225,221,0.95);
+    }
+    .tech-card__note {
+      margin: 0;
+      font-size: 0.78rem;
+      color: rgba(224,225,221,0.65);
+      font-style: italic;
+    }
+    .tech-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
       margin-top: auto;
+      flex-wrap: wrap;
+    }
+    .tech-card__status {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(224,225,221,0.65);
+    }
+    .tech-card__status--unlocked {
+      color: rgba(42,157,143,0.85);
     }
     .tech-card .unlock-btn {
       border-radius: 999px;
       border: 1px solid rgba(119,141,169,0.4);
       background: transparent;
       color: var(--text);
-      padding: 6px 16px;
+      padding: 7px 18px;
       font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
       transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
     }
-    .tech-card .unlock-btn:hover {
+    .tech-card .unlock-btn:hover,
+    .tech-card .unlock-btn:focus-visible {
       background: rgba(119,141,169,0.35);
+      outline: none;
     }
     .tech-card .unlock-btn.unlocked {
       background: var(--success);
@@ -2513,6 +2682,162 @@
       font-size: 0.8rem;
       color: var(--muted);
       font-style: italic;
+    }
+    .tech-results__empty {
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(224,225,221,0.75);
+      padding: 40px 20px;
+      border: 1px dashed rgba(119,141,169,0.3);
+      border-radius: 16px;
+      background: rgba(12,24,40,0.65);
+    }
+    .tech-modal {
+      display: grid;
+      gap: 20px;
+      color: var(--text);
+    }
+    .tech-modal__header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .tech-modal__title {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tech-modal__title h3 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+    .tech-modal__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tech-modal__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: rgba(224,225,221,0.75);
+    }
+    .tech-modal__body {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .tech-modal__media {
+      width: 160px;
+      height: 160px;
+      border-radius: 18px;
+      background: rgba(119,141,169,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .tech-modal__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+    }
+    .tech-modal__media--fallback {
+      font-size: 2rem;
+      color: rgba(224,225,221,0.75);
+    }
+    .tech-modal__content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .tech-modal__description {
+      margin: 0;
+      font-size: 0.95rem;
+      color: rgba(224,225,221,0.85);
+      line-height: 1.6;
+    }
+    .tech-modal__materials h4 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(224,225,221,0.85);
+    }
+    .tech-modal__materials-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .tech-modal__materials-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(9,18,32,0.7);
+      font-size: 0.9rem;
+    }
+    .tech-modal__materials-list span:last-child {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: rgba(224,225,221,0.95);
+    }
+    .tech-modal__status {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(224,225,221,0.7);
+    }
+    .tech-modal__status--unlocked {
+      color: rgba(42,157,143,0.85);
+    }
+    .tech-modal__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .tech-modal__external {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .tech-modal__external:hover,
+    .tech-modal__external:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+    .tech-modal--missing {
+      text-align: center;
+      gap: 14px;
+    }
+    .tech-modal--missing p {
+      margin: 0;
+      color: rgba(224,225,221,0.85);
+    }
+    @media (min-width: 768px) {
+      .tech-controls__row {
+        gap: 16px;
+      }
+      .tech-modal__body {
+        grid-template-columns: 200px minmax(0, 1fr);
+        align-items: start;
+      }
+    }
+    @media (max-width: 540px) {
+      .tech-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .tech-card__art {
+        width: 100%;
+        height: 120px;
+      }
     }
     /* Breeding page */
     .breeding-hero {
@@ -5246,6 +5571,7 @@
     let ITEMS = {};
     let TECH = [];
     let TECH_LOOKUP = {};
+    let TECH_PAGE_STATE = null;
     let SKILL_DETAILS = {};
     let PASSIVE_DETAILS = {};
     let ITEM_DETAILS = {};
@@ -10088,9 +10414,23 @@
         const state = lookupName ? !!unlocked[lookupName] : false;
         btn.classList.toggle('unlocked', state);
         btn.textContent = state ? 'Unlocked' : 'Unlock';
+        btn.setAttribute('aria-pressed', state ? 'true' : 'false');
         const card = btn.closest('.tech-card');
         if (card) {
           card.classList.toggle('tech-card--unlocked', state);
+          const status = card.querySelector('[data-tech-status]');
+          if (status) {
+            status.textContent = formatTechStatusText(state);
+            status.classList.toggle('tech-card__status--unlocked', state);
+          }
+        }
+        const modal = btn.closest('.tech-modal');
+        if (modal) {
+          const status = modal.querySelector('[data-tech-status]');
+          if (status) {
+            status.textContent = formatTechStatusText(state);
+            status.classList.toggle('tech-modal__status--unlocked', state);
+          }
         }
       });
     }
@@ -10322,42 +10662,437 @@
       search.addEventListener('input', () => render(search.value));
       render();
     }
+    function getTechBranchLabel(item) {
+      if (!item) return 'Technology';
+      if (item.isAncient) return 'Ancient Technology';
+      return item.branch || 'Technology';
+    }
+    function computeTechMaterials(item) {
+      if (!item || typeof item.materials !== 'object' || item.materials === null) return [];
+      return Object.entries(item.materials)
+        .map(([name, qty]) => {
+          const quantity = Number(qty);
+          if (!name || Number.isNaN(quantity)) return null;
+          return { name: String(name), quantity };
+        })
+        .filter(Boolean);
+    }
+    function isGenericTechDescription(text) {
+      if (typeof text !== 'string') return true;
+      const normalised = text.trim().toLowerCase();
+      if (!normalised) return true;
+      return normalised.startsWith('unlocks the')
+        || normalised.startsWith('unlock the')
+        || normalised.startsWith('unlocks ')
+        || normalised.startsWith('unlock ');
+    }
+    function buildDefaultTechDescription(item, { kid = false } = {}) {
+      const name = item?.name || 'this unlock';
+      const group = String(item?.group || '').toLowerCase();
+      const category = String(item?.category || '').toLowerCase();
+      const ancient = !!item?.isAncient;
+      if (category.includes('base') || group.includes('structure') || group.includes('building')) {
+        return kid ? `Adds the ${name} building to your base.` : `Adds the ${name} structure to your base build menu.`;
+      }
+      if (category.includes('weapon')) {
+        return kid ? `Lets you craft the ${name} weapon.` : `Unlocks crafting for the ${name} weapon.`;
+      }
+      if (category.includes('armor') || category.includes('gear') || group.includes('armor')) {
+        return kid ? `Lets you make the ${name} gear to wear.` : `Unlocks the ${name} gear recipe.`;
+      }
+      if (category.includes('vehicle') || group.includes('mount')) {
+        return kid ? `Lets you ride with the ${name}.` : `Unlocks the ${name} mount blueprint.`;
+      }
+      if (ancient) {
+        return kid ? `Restores the ancient ${name} so you can use it again.` : `Restores the ancient ${name} blueprint.`;
+      }
+      return kid ? `Lets you make ${name}.` : `Unlocks crafting for ${name}.`;
+    }
+    function computeTechDescriptions(item) {
+      const raw = typeof item?.description === 'string' ? item.description.trim() : '';
+      const grown = raw && !isGenericTechDescription(raw)
+        ? raw
+        : buildDefaultTechDescription(item, { kid: false });
+      const kidCopy = raw && !isGenericTechDescription(raw)
+        ? raw.replace(/\bUnlocks\b/gi, 'Lets')
+        : buildDefaultTechDescription(item, { kid: true });
+      return {
+        grown,
+        kid: kidCopy || grown
+      };
+    }
+    function formatTechCost(item, { kid = false, short = false } = {}) {
+      if (!item || typeof item.techPoints !== 'number') {
+        return kid ? 'Cost unknown' : 'Cost unknown';
+      }
+      const points = item.techPoints;
+      if (points === 0) {
+        return kid ? 'Free unlock' : 'Free unlock';
+      }
+      const isAncient = !!item.isAncient;
+      if (short) {
+        return `${points} ${isAncient ? 'AP' : 'TP'}`;
+      }
+      return `${points} ${isAncient ? 'Ancient Points' : 'Tech Points'}`;
+    }
+    function formatTechStatusText(isUnlocked) {
+      return isUnlocked
+        ? (kidMode ? 'Already built!' : 'Unlocked')
+        : (kidMode ? 'Still locked' : 'Locked');
+    }
     // Build technology tree page
     function buildTechPage() {
       const list = document.getElementById('techList');
       if (!list) return;
       list.innerHTML = '';
-      const levels = Array.isArray(TECH)
-        ? TECH.slice().sort((a, b) => (a?.level || 0) - (b?.level || 0))
-        : [];
-      if (!levels.length) {
+      const rawLevels = Array.isArray(TECH) ? TECH.filter(Boolean) : [];
+      if (!rawLevels.length) {
         const empty = document.createElement('p');
-        empty.className = 'tech-empty';
+        empty.className = 'tech-results__empty';
         empty.textContent = kidMode
           ? 'Technology data is still loading. Check back soon!'
           : 'Technology data is still loading.';
         list.appendChild(empty);
         return;
       }
-
-      const iconFallback = '<i class="fa-solid fa-gears"></i>';
-
-      function createTechCard(item) {
-        if (!item || !item.name) {
-          return null;
+      const categoryMap = new Map();
+      const branchCounts = { all: 0, technology: 0, ancient: 0 };
+      function registerCategory(label) {
+        if (!label) return null;
+        const slug = slugifyForPalworld(String(label));
+        if (!slug) return null;
+        const existing = categoryMap.get(slug);
+        if (existing) {
+          existing.count += 1;
+        } else {
+          categoryMap.set(slug, { slug, label: String(label), count: 1 });
         }
+        return slug;
+      }
+      const levelEntries = rawLevels.map(level => {
+        const levelNumber = typeof level?.level === 'number' ? level.level : null;
+        const items = Array.isArray(level?.items) ? level.items.filter(item => item && item.name) : [];
+        const entries = items.map(item => {
+          const branch = item.isAncient ? 'ancient' : 'technology';
+          branchCounts.all += 1;
+          branchCounts[branch] = (branchCounts[branch] || 0) + 1;
+          const categories = new Set();
+          const primaryCategory = registerCategory(item.category);
+          if (primaryCategory) categories.add(primaryCategory);
+          if (item.group && item.group !== item.category) {
+            const groupSlug = registerCategory(item.group);
+            if (groupSlug) categories.add(groupSlug);
+          }
+          const materials = computeTechMaterials(item);
+          const materialText = materials.map(entry => entry.name.toLowerCase()).join(' ');
+          const searchBits = [
+            item.name,
+            item.description,
+            item.category,
+            item.group,
+            materialText
+          ].filter(Boolean);
+          const searchText = searchBits.join(' ').toLowerCase();
+          const slugBase = item.id || item.name;
+          const slug = slugifyForPalworld(String(slugBase));
+          const points = typeof item.techPoints === 'number' ? item.techPoints : null;
+          return {
+            level,
+            levelNumber,
+            item,
+            slug: slug || slugifyForPalworld(item.name),
+            branch,
+            branchLabel: getTechBranchLabel(item),
+            categories,
+            materials,
+            searchText,
+            points
+          };
+        });
+        return {
+          level,
+          levelNumber,
+          entries
+        };
+      }).filter(entry => entry.levelNumber !== null || entry.entries.length);
+      levelEntries.sort((a, b) => (a.levelNumber || 0) - (b.levelNumber || 0));
+      if (!levelEntries.length) {
+        const empty = document.createElement('p');
+        empty.className = 'tech-results__empty';
+        empty.textContent = kidMode
+          ? 'Technology data is still loading. Check back soon!'
+          : 'Technology data is still loading.';
+        list.appendChild(empty);
+        return;
+      }
+      const categories = Array.from(categoryMap.values()).sort((a, b) => a.label.localeCompare(b.label));
+      const filterState = TECH_PAGE_STATE || (TECH_PAGE_STATE = {
+        query: '',
+        queryRaw: '',
+        branch: 'all',
+        category: 'all',
+        status: 'all',
+        sort: 'level-asc'
+      });
+      if (typeof filterState.queryRaw !== 'string') {
+        filterState.queryRaw = filterState.query || '';
+      }
+      if (typeof filterState.query !== 'string') {
+        filterState.query = filterState.queryRaw.toLowerCase();
+      } else {
+        filterState.query = filterState.query.toLowerCase();
+      }
+      if (!filterState.sort) {
+        filterState.sort = 'level-asc';
+      }
+      const controls = document.createElement('section');
+      controls.className = 'tech-controls';
+      list.appendChild(controls);
+      const topRow = document.createElement('div');
+      topRow.className = 'tech-controls__row';
+      controls.appendChild(topRow);
+      const searchWrap = document.createElement('div');
+      searchWrap.className = 'tech-search';
+      const searchInput = document.createElement('input');
+      searchInput.type = 'search';
+      searchInput.placeholder = kidMode
+        ? 'Search for blueprints or gadgets'
+        : 'Search by name, category, or materials';
+      searchInput.setAttribute('aria-label', kidMode ? 'Search technology unlocks' : 'Search technology');
+      searchInput.value = filterState.queryRaw || '';
+      searchWrap.appendChild(searchInput);
+      const searchIcon = document.createElement('i');
+      searchIcon.className = 'fa-solid fa-magnifying-glass';
+      searchWrap.appendChild(searchIcon);
+      topRow.appendChild(searchWrap);
+      const branchWrap = document.createElement('div');
+      branchWrap.className = 'tech-filter';
+      const branchLabel = document.createElement('span');
+      branchLabel.className = 'tech-filter__label';
+      branchLabel.textContent = kidMode ? 'Show' : 'Branch';
+      branchWrap.appendChild(branchLabel);
+      const branchGroup = document.createElement('div');
+      branchGroup.className = 'tech-pills';
+      branchWrap.appendChild(branchGroup);
+      const branchButtons = [];
+      const branchOptions = [
+        { key: 'all', label: kidMode ? 'All Tech' : 'All', count: branchCounts.all },
+        { key: 'technology', label: kidMode ? 'Tech' : 'Technology', count: branchCounts.technology },
+        { key: 'ancient', label: kidMode ? 'Ancient' : 'Ancient', count: branchCounts.ancient }
+      ];
+      branchOptions.forEach(option => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'tech-pill';
+        btn.dataset.value = option.key;
+        btn.textContent = option.count ? `${option.label} (${option.count})` : option.label;
+        if (filterState.branch === option.key) {
+          btn.classList.add('active');
+        }
+        btn.addEventListener('click', () => {
+          if (filterState.branch === option.key) return;
+          filterState.branch = option.key;
+          branchButtons.forEach(b => b.classList.toggle('active', b.dataset.value === filterState.branch));
+          updateResetState();
+          renderLevels();
+        });
+        branchButtons.push(btn);
+        branchGroup.appendChild(btn);
+      });
+      topRow.appendChild(branchWrap);
+      const summary = document.createElement('p');
+      summary.className = 'tech-summary';
+      controls.appendChild(summary);
+      const filterRow = document.createElement('div');
+      filterRow.className = 'tech-controls__row';
+      controls.appendChild(filterRow);
+      const categoryWrap = document.createElement('div');
+      categoryWrap.className = 'tech-filter';
+      const categoryLabel = document.createElement('span');
+      categoryLabel.className = 'tech-filter__label';
+      categoryLabel.textContent = kidMode ? 'Category' : 'Category';
+      categoryWrap.appendChild(categoryLabel);
+      const categorySelect = document.createElement('select');
+      categorySelect.className = 'tech-select';
+      const defaultCategory = document.createElement('option');
+      defaultCategory.value = 'all';
+      defaultCategory.textContent = kidMode ? 'All categories' : 'All categories';
+      categorySelect.appendChild(defaultCategory);
+      categories.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat.slug;
+        option.textContent = `${cat.label} (${cat.count})`;
+        categorySelect.appendChild(option);
+      });
+      if (!categoryMap.has(filterState.category)) {
+        filterState.category = 'all';
+      }
+      categorySelect.value = filterState.category || 'all';
+      categorySelect.addEventListener('change', () => {
+        filterState.category = categorySelect.value || 'all';
+        updateResetState();
+        renderLevels();
+      });
+      categoryWrap.appendChild(categorySelect);
+      filterRow.appendChild(categoryWrap);
+      const statusWrap = document.createElement('div');
+      statusWrap.className = 'tech-filter';
+      const statusLabel = document.createElement('span');
+      statusLabel.className = 'tech-filter__label';
+      statusLabel.textContent = kidMode ? 'Progress' : 'Status';
+      statusWrap.appendChild(statusLabel);
+      const statusGroup = document.createElement('div');
+      statusGroup.className = 'tech-pills';
+      statusWrap.appendChild(statusGroup);
+      const statusButtons = [];
+      const statusOptions = [
+        { key: 'all', label: kidMode ? 'All' : 'All' },
+        { key: 'locked', label: kidMode ? 'Locked' : 'Locked' },
+        { key: 'unlocked', label: kidMode ? 'Unlocked' : 'Unlocked' }
+      ];
+      statusOptions.forEach(option => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'tech-pill';
+        btn.dataset.value = option.key;
+        btn.textContent = option.label;
+        if (filterState.status === option.key) {
+          btn.classList.add('active');
+        }
+        btn.addEventListener('click', () => {
+          if (filterState.status === option.key) return;
+          filterState.status = option.key;
+          statusButtons.forEach(b => b.classList.toggle('active', b.dataset.value === filterState.status));
+          updateResetState();
+          renderLevels();
+        });
+        statusButtons.push(btn);
+        statusGroup.appendChild(btn);
+      });
+      filterRow.appendChild(statusWrap);
+      const sortWrap = document.createElement('div');
+      sortWrap.className = 'tech-filter';
+      const sortLabel = document.createElement('span');
+      sortLabel.className = 'tech-filter__label';
+      sortLabel.textContent = kidMode ? 'Sort by' : 'Sort by';
+      sortWrap.appendChild(sortLabel);
+      const sortSelect = document.createElement('select');
+      sortSelect.className = 'tech-select';
+      const sortOptions = kidMode
+        ? [
+            { value: 'level-asc', label: 'Lowest level first' },
+            { value: 'level-desc', label: 'Highest level first' },
+            { value: 'name-asc', label: 'Name A → Z' },
+            { value: 'name-desc', label: 'Name Z → A' },
+            { value: 'points-asc', label: 'Cheapest first' },
+            { value: 'points-desc', label: 'Most expensive' }
+          ]
+        : [
+            { value: 'level-asc', label: 'Tech level ↑' },
+            { value: 'level-desc', label: 'Tech level ↓' },
+            { value: 'name-asc', label: 'Name A → Z' },
+            { value: 'name-desc', label: 'Name Z → A' },
+            { value: 'points-asc', label: 'Cost low → high' },
+            { value: 'points-desc', label: 'Cost high → low' }
+          ];
+      sortOptions.forEach(option => {
+        const opt = document.createElement('option');
+        opt.value = option.value;
+        opt.textContent = option.label;
+        sortSelect.appendChild(opt);
+      });
+      if (!sortOptions.some(option => option.value === filterState.sort)) {
+        filterState.sort = 'level-asc';
+      }
+      sortSelect.value = filterState.sort;
+      sortSelect.addEventListener('change', () => {
+        filterState.sort = sortSelect.value || 'level-asc';
+        updateResetState();
+        renderLevels();
+      });
+      sortWrap.appendChild(sortSelect);
+      filterRow.appendChild(sortWrap);
+      const resetBtn = document.createElement('button');
+      resetBtn.type = 'button';
+      resetBtn.className = 'tech-reset-btn';
+      resetBtn.textContent = kidMode ? 'Reset filters' : 'Reset filters';
+      resetBtn.addEventListener('click', () => {
+        filterState.query = '';
+        filterState.queryRaw = '';
+        filterState.branch = 'all';
+        filterState.category = 'all';
+        filterState.status = 'all';
+        filterState.sort = 'level-asc';
+        searchInput.value = '';
+        branchButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.value === 'all'));
+        statusButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.value === 'all'));
+        categorySelect.value = 'all';
+        sortSelect.value = 'level-asc';
+        updateResetState();
+        renderLevels();
+      });
+      filterRow.appendChild(resetBtn);
+      const results = document.createElement('div');
+      results.className = 'tech-results';
+      list.appendChild(results);
+      function hasActiveFilters() {
+        return !!(filterState.query && filterState.query.length)
+          || filterState.branch !== 'all'
+          || filterState.category !== 'all'
+          || filterState.status !== 'all';
+      }
+      function matchesFilter(entry) {
+        if (!entry || !entry.item) return false;
+        if (filterState.branch !== 'all' && entry.branch !== filterState.branch) return false;
+        if (filterState.category !== 'all' && !entry.categories.has(filterState.category)) return false;
+        const isUnlocked = !!unlocked[entry.item.name];
+        if (filterState.status === 'locked' && isUnlocked) return false;
+        if (filterState.status === 'unlocked' && !isUnlocked) return false;
+        if (filterState.query) {
+          if (!entry.searchText.includes(filterState.query)) return false;
+        }
+        return true;
+      }
+      function sortEntries(entries) {
+        const sortMode = filterState.sort || 'level-asc';
+        if (sortMode === 'name-asc' || sortMode === 'name-desc') {
+          return entries.slice().sort((a, b) => {
+            const nameA = a.item.name || '';
+            const nameB = b.item.name || '';
+            return sortMode === 'name-asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+          });
+        }
+        if (sortMode === 'points-asc' || sortMode === 'points-desc') {
+          return entries.slice().sort((a, b) => {
+            const aVal = typeof a.points === 'number' ? a.points : (sortMode === 'points-desc' ? -Infinity : Infinity);
+            const bVal = typeof b.points === 'number' ? b.points : (sortMode === 'points-desc' ? -Infinity : Infinity);
+            if (aVal === bVal) {
+              return (a.item.name || '').localeCompare(b.item.name || '');
+            }
+            return sortMode === 'points-asc' ? aVal - bVal : bVal - aVal;
+          });
+        }
+        return entries.slice();
+      }
+      function createTechCard(entry) {
+        if (!entry || !entry.item || !entry.item.name) return null;
+        const { item, slug, materials } = entry;
+        const techKey = item.id || slug;
         const card = document.createElement('article');
         card.className = 'tech-card';
-        const techKey = item.id || slugifyForPalworld(item.name);
         if (techKey) {
           card.id = `tech-${techKey}`;
+          card.dataset.techKey = techKey;
+          card.tabIndex = 0;
+          card.setAttribute('role', 'group');
+          card.setAttribute('aria-roledescription', kidMode ? 'Tech card' : 'Technology card');
+          card.dataset.clickable = 'true';
         }
-        card.dataset.branch = item.branch || 'Technology';
+        card.dataset.branch = entry.branch;
         const isUnlocked = !!unlocked[item.name];
         if (isUnlocked) {
           card.classList.add('tech-card--unlocked');
         }
-
         const art = document.createElement('div');
         art.className = 'tech-card__art';
         if (item.image) {
@@ -10370,172 +11105,275 @@
           img.onerror = () => {
             img.remove();
             art.classList.add('tech-card__art--fallback');
-            art.innerHTML = iconFallback;
+            const icon = document.createElement('i');
+            icon.className = 'fa-solid fa-gears';
+            art.appendChild(icon);
           };
           art.appendChild(img);
         } else {
           art.classList.add('tech-card__art--fallback');
-          art.innerHTML = iconFallback;
+          const icon = document.createElement('i');
+          icon.className = 'fa-solid fa-gears';
+          art.appendChild(icon);
         }
-
+        card.appendChild(art);
         const info = document.createElement('div');
         info.className = 'tech-card__info';
-
-        const title = document.createElement('div');
-        title.className = 'tech-card__title';
+        const headerRow = document.createElement('div');
+        headerRow.className = 'tech-card__meta';
         const nameEl = document.createElement('h5');
         nameEl.className = 'tech-card__name';
         nameEl.textContent = item.name;
-        title.appendChild(nameEl);
-        const cost = document.createElement('span');
-        cost.className = 'tech-card__cost';
-        const pointLabel = item.isAncient
-          ? (kidMode ? 'Ancient Points' : 'AP')
-          : (kidMode ? 'Tech Points' : 'TP');
-        const points = typeof item.techPoints === 'number' ? item.techPoints : null;
-        cost.textContent = points !== null ? `${points} ${pointLabel}` : pointLabel;
-        title.appendChild(cost);
-        info.appendChild(title);
-
+        headerRow.appendChild(nameEl);
+        const costBadge = document.createElement('span');
+        costBadge.className = 'tech-card__cost';
+        costBadge.textContent = formatTechCost(item, { kid: kidMode, short: true });
+        headerRow.appendChild(costBadge);
+        info.appendChild(headerRow);
         const chips = document.createElement('div');
         chips.className = 'tech-card__chips';
-        const labels = new Set();
-        if (item.category) labels.add(item.category);
-        if (item.group) labels.add(item.group);
-        labels.forEach(label => {
+        const chipLabels = new Set();
+        if (item.category) chipLabels.add(item.category);
+        if (item.group && item.group !== item.category) chipLabels.add(item.group);
+        chipLabels.forEach(label => {
           const chip = document.createElement('span');
           chip.className = 'tech-chip';
           chip.textContent = label;
           chips.appendChild(chip);
         });
-        if (chips.children.length) {
+        if (chipLabels.size) {
           info.appendChild(chips);
         }
-
+        const descriptions = computeTechDescriptions(item);
         const description = document.createElement('p');
         description.className = 'tech-card__description';
-        description.textContent = item.description
-          || (kidMode
-            ? `Unlocks ${item.name}.`
-            : `Unlocks the ${item.name} blueprint.`);
+        description.textContent = kidMode ? descriptions.kid : descriptions.grown;
         info.appendChild(description);
-
-        if (item.materials && Object.keys(item.materials).length) {
-          const materials = document.createElement('ul');
-          materials.className = 'tech-card__materials';
-          Object.entries(item.materials).forEach(([mat, qty]) => {
+        if (materials.length) {
+          const materialList = document.createElement('ul');
+          materialList.className = 'tech-card__materials';
+          materials.forEach(material => {
             const li = document.createElement('li');
-            li.textContent = `${qty} × ${mat}`;
-            materials.appendChild(li);
+            const label = document.createElement('span');
+            label.textContent = material.name;
+            const qty = document.createElement('span');
+            qty.textContent = String(material.quantity);
+            li.appendChild(label);
+            li.appendChild(qty);
+            materialList.appendChild(li);
           });
-          info.appendChild(materials);
+          info.appendChild(materialList);
+        } else {
+          const note = document.createElement('p');
+          note.className = 'tech-card__note';
+          note.textContent = kidMode
+            ? 'No ingredients needed for this unlock.'
+            : 'No crafting ingredients required for this unlock.';
+          info.appendChild(note);
         }
-
-        const actions = document.createElement('div');
-        actions.className = 'tech-card__actions';
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'unlock-btn';
+        const footer = document.createElement('div');
+        footer.className = 'tech-card__footer';
+        const status = document.createElement('span');
+        status.className = 'tech-card__status';
         if (isUnlocked) {
-          button.classList.add('unlocked');
+          status.classList.add('tech-card__status--unlocked');
         }
         if (techKey) {
-          button.dataset.techKey = techKey;
+          status.dataset.techStatus = techKey;
         }
-        button.dataset.techName = item.name;
-        button.textContent = isUnlocked ? 'Unlocked' : 'Unlock';
-        button.addEventListener('click', (event) => {
+        status.textContent = formatTechStatusText(isUnlocked);
+        footer.appendChild(status);
+        const unlockBtn = document.createElement('button');
+        unlockBtn.type = 'button';
+        unlockBtn.className = 'unlock-btn';
+        if (isUnlocked) {
+          unlockBtn.classList.add('unlocked');
+        }
+        if (techKey) {
+          unlockBtn.dataset.techKey = techKey;
+        }
+        unlockBtn.dataset.techName = item.name;
+        unlockBtn.setAttribute('aria-pressed', isUnlocked ? 'true' : 'false');
+        unlockBtn.textContent = isUnlocked ? 'Unlocked' : 'Unlock';
+        unlockBtn.addEventListener('click', event => {
           event.stopPropagation();
-          setTechUnlocked(item.name, !unlocked[item.name], { techKey });
+          const newState = setTechUnlocked(item.name, !unlocked[item.name], { techKey });
+          unlockBtn.classList.toggle('unlocked', newState);
+          unlockBtn.textContent = newState ? 'Unlocked' : 'Unlock';
+          unlockBtn.setAttribute('aria-pressed', newState ? 'true' : 'false');
+          status.textContent = formatTechStatusText(newState);
+          status.classList.toggle('tech-card__status--unlocked', newState);
         });
-        actions.appendChild(button);
-        info.appendChild(actions);
-
-        card.appendChild(art);
+        footer.appendChild(unlockBtn);
+        info.appendChild(footer);
         card.appendChild(info);
-
         if (techKey) {
           card.addEventListener('click', () => {
             showTechDetail(techKey);
           });
+          card.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
+              event.preventDefault();
+              showTechDetail(techKey);
+            }
+          });
         }
         return card;
       }
-
-      levels.forEach(level => {
-        if (!level) return;
-        const section = document.createElement('article');
-        section.className = 'tech-level-card';
-
-        const header = document.createElement('div');
-        header.className = 'tech-level-header';
-        const number = document.createElement('div');
-        number.className = 'tech-level-number';
-        const label = document.createElement('span');
-        label.textContent = 'Level';
-        number.appendChild(label);
-        const value = document.createElement('strong');
-        value.textContent = level.level != null ? String(level.level) : '?';
-        number.appendChild(value);
-        header.appendChild(number);
-
-        const techItems = Array.isArray(level.items) ? level.items.filter(item => item && !item.isAncient) : [];
-        const ancientItems = Array.isArray(level.items) ? level.items.filter(item => item && item.isAncient) : [];
-        const summary = document.createElement('div');
-        summary.className = 'tech-level-summary';
-        const summaryParts = [];
-        if (techItems.length) summaryParts.push(`${techItems.length} Tech`);
-        if (ancientItems.length) summaryParts.push(`${ancientItems.length} Ancient`);
-        summary.textContent = summaryParts.length
-          ? summaryParts.join(' • ')
-          : (kidMode ? 'No blueprints at this level yet.' : 'No unlocks available at this level.');
-        header.appendChild(summary);
-        section.appendChild(header);
-
-        const columns = document.createElement('div');
-        columns.className = 'tech-columns';
-        const columnData = [
-          {
-            key: 'tech',
-            heading: 'Technology',
-            items: techItems,
-            emptyText: kidMode ? 'Nothing new here yet.' : 'No new technology unlocks.',
-          },
-          {
-            key: 'ancient',
-            heading: 'Ancient Technology',
-            items: ancientItems,
-            emptyText: kidMode ? 'No ancient relics unlocked now.' : 'No ancient tech at this level.',
+      function updateResetState() {
+        const isDefault = !(filterState.query && filterState.query.length)
+          && filterState.branch === 'all'
+          && filterState.category === 'all'
+          && filterState.status === 'all'
+          && (filterState.sort === 'level-asc' || !filterState.sort);
+        resetBtn.disabled = isDefault;
+      }
+      function updateSummary(total, levelCount, filtersActive, hasResults) {
+        if (!summary) return;
+        if (!hasResults) {
+          summary.textContent = filtersActive
+            ? (kidMode ? 'No blueprints match those filters yet.' : 'No technology matches the current filters.')
+            : (kidMode ? 'Technology data is still loading.' : 'Technology data is still loading.');
+          return;
+        }
+        const unlockWord = total === 1 ? 'unlock' : 'unlocks';
+        const levelWord = levelCount === 1 ? 'level' : 'levels';
+        summary.textContent = kidMode
+          ? `Showing ${total} ${unlockWord} across ${levelCount} tech ${levelWord}.`
+          : `Showing ${total} ${unlockWord} across ${levelCount} tech ${levelWord}.`;
+      }
+      function renderLevels() {
+        results.innerHTML = '';
+        const filtersActive = hasActiveFilters();
+        const sortMode = filterState.sort || 'level-asc';
+        const orderedLevels = sortMode === 'level-desc'
+          ? levelEntries.slice().sort((a, b) => (b.levelNumber || 0) - (a.levelNumber || 0))
+          : levelEntries.slice();
+        let totalMatches = 0;
+        let levelsRendered = 0;
+        let renderedAny = false;
+        orderedLevels.forEach(levelEntry => {
+          const filteredEntries = levelEntry.entries.filter(matchesFilter);
+          const hasMatches = filteredEntries.length > 0;
+          if (!hasMatches && filtersActive) {
+            return;
           }
-        ];
-
-        columnData.forEach(columnInfo => {
-          const column = document.createElement('div');
-          column.className = `tech-column tech-column--${columnInfo.key}`;
-          const heading = document.createElement('h4');
-          heading.textContent = columnInfo.heading;
-          column.appendChild(heading);
-          if (!columnInfo.items.length) {
-            const empty = document.createElement('p');
-            empty.className = 'tech-empty';
-            empty.textContent = columnInfo.emptyText;
-            column.appendChild(empty);
-          } else {
-            const grid = document.createElement('div');
-            grid.className = 'tech-card-grid';
-            columnInfo.items.forEach(item => {
-              const card = createTechCard(item);
-              if (card) grid.appendChild(card);
+          const showTechColumn = filterState.branch !== 'ancient';
+          const showAncientColumn = filterState.branch !== 'technology';
+          const standardEntries = sortEntries(filteredEntries.filter(entry => entry.branch === 'technology'));
+          const ancientEntries = sortEntries(filteredEntries.filter(entry => entry.branch === 'ancient'));
+          const section = document.createElement('article');
+          section.className = 'tech-level-card';
+          const header = document.createElement('header');
+          header.className = 'tech-level-header';
+          const number = document.createElement('div');
+          number.className = 'tech-level-number';
+          const label = document.createElement('span');
+          label.textContent = kidMode ? 'Level' : 'Level';
+          number.appendChild(label);
+          const value = document.createElement('strong');
+          value.textContent = levelEntry.levelNumber != null ? String(levelEntry.levelNumber) : '?';
+          number.appendChild(value);
+          header.appendChild(number);
+          const summaryParts = [];
+          if (showTechColumn && standardEntries.length) {
+            summaryParts.push(
+              kidMode
+                ? `${standardEntries.length} tech gadget${standardEntries.length === 1 ? '' : 's'}`
+                : `${standardEntries.length} tech unlock${standardEntries.length === 1 ? '' : 's'}`
+            );
+          }
+          if (showAncientColumn && ancientEntries.length) {
+            summaryParts.push(
+              kidMode
+                ? `${ancientEntries.length} ancient relic${ancientEntries.length === 1 ? '' : 's'}`
+                : `${ancientEntries.length} ancient unlock${ancientEntries.length === 1 ? '' : 's'}`
+            );
+          }
+          const summaryText = summaryParts.length
+            ? summaryParts.join(' • ')
+            : filtersActive
+              ? (kidMode ? 'No matches at this level.' : 'No matching unlocks at this level.')
+              : (kidMode ? 'No blueprints at this level yet.' : 'No unlocks available at this level.');
+          const summaryEl = document.createElement('p');
+          summaryEl.className = 'tech-level-summary';
+          summaryEl.textContent = summaryText;
+          header.appendChild(summaryEl);
+          section.appendChild(header);
+          const columns = document.createElement('div');
+          columns.className = 'tech-columns';
+          const columnDefs = [];
+          if (showTechColumn) {
+            columnDefs.push({
+              key: 'tech',
+              heading: kidMode ? 'Technology' : 'Technology',
+              entries: standardEntries,
+              emptyText: filtersActive
+                ? (kidMode ? 'Nothing here matches your filters.' : 'No matching technology unlocks.')
+                : (kidMode ? 'No tech unlocks at this level.' : 'No new technology unlocks.')
             });
-            column.appendChild(grid);
           }
-          columns.appendChild(column);
+          if (showAncientColumn) {
+            columnDefs.push({
+              key: 'ancient',
+              heading: kidMode ? 'Ancient Tech' : 'Ancient Technology',
+              entries: ancientEntries,
+              emptyText: filtersActive
+                ? (kidMode ? 'No ancient relics in this filter.' : 'No matching ancient unlocks.')
+                : (kidMode ? 'No ancient relics at this level.' : 'No ancient tech at this level.')
+            });
+          }
+          columnDefs.forEach(columnInfo => {
+            const column = document.createElement('div');
+            column.className = `tech-column tech-column--${columnInfo.key}`;
+            const heading = document.createElement('h4');
+            heading.textContent = columnInfo.heading;
+            column.appendChild(heading);
+            if (!columnInfo.entries.length) {
+              const empty = document.createElement('p');
+              empty.className = 'tech-empty';
+              empty.textContent = columnInfo.emptyText;
+              column.appendChild(empty);
+            } else {
+              const grid = document.createElement('div');
+              grid.className = 'tech-card-grid';
+              columnInfo.entries.forEach(entry => {
+                const card = createTechCard(entry);
+                if (card) grid.appendChild(card);
+              });
+              column.appendChild(grid);
+            }
+            columns.appendChild(column);
+          });
+          section.appendChild(columns);
+          results.appendChild(section);
+          renderedAny = true;
+          levelsRendered += 1;
+          totalMatches += filteredEntries.length;
         });
-
-        section.appendChild(columns);
-        list.appendChild(section);
+        if (!renderedAny) {
+          const empty = document.createElement('div');
+          empty.className = 'tech-results__empty';
+          empty.textContent = filtersActive
+            ? (kidMode ? 'No blueprints match those filters yet.' : 'No technology matches the current filters.')
+            : (kidMode ? 'Technology data is still loading. Check back soon!' : 'Technology data is still loading.');
+          results.appendChild(empty);
+          updateSummary(0, 0, filtersActive, false);
+          applyQueuedTechFocus();
+          return;
+        }
+        updateSummary(totalMatches, levelsRendered, filtersActive, true);
+        applyQueuedTechFocus();
+      }
+      searchInput.addEventListener('input', event => {
+        const value = event.target.value || '';
+        filterState.queryRaw = value;
+        filterState.query = value.trim().toLowerCase();
+        updateResetState();
+        renderLevels();
       });
-      applyQueuedTechFocus();
+      updateResetState();
+      renderLevels();
     }
 
     function queueTechFocus(key){
@@ -20266,54 +21104,198 @@
       if(!techId) return;
       const slug = slugifyForPalworld(String(techId));
       const entry = TECH_LOOKUP[slug];
-      const displayName = entry?.item?.name || niceName(techId);
-      const safeName = escapeHTML(displayName);
-      const techUrl = entry?.item?.url || `${PALWORLD_BASE_URL}/technology-tree?search=${encodeURIComponent(displayName)}`;
-      const summaryParts = [];
-      if(kidMode){
-        summaryParts.push(`<p>Let's get <strong>${safeName}</strong> ready!</p>`);
-      } else {
-        summaryParts.push(`<p><strong>${safeName}</strong> quick reference.</p>`);
+      const fallbackName = niceName(techId);
+      const displayName = entry?.item?.name || fallbackName;
+      const techUrl = `${PALWORLD_BASE_URL}/technology-tree?search=${encodeURIComponent(displayName)}`;
+      modalBody.innerHTML = '';
+      if(!entry){
+        const wrap = document.createElement('div');
+        wrap.className = 'tech-modal tech-modal--missing';
+        const message = document.createElement('p');
+        message.textContent = kidMode
+          ? 'Palmate does not have details for this blueprint yet. Check Palworld.gg for the latest placement tips.'
+          : 'Palmate does not have details for this blueprint yet. Visit Palworld.gg for the current information.';
+        wrap.appendChild(message);
+        const link = document.createElement('a');
+        link.href = techUrl;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.className = 'tech-modal__external';
+        link.textContent = kidMode ? 'Open Palworld.gg' : 'View on Palworld.gg';
+        wrap.appendChild(link);
+        modalBody.appendChild(wrap);
+        openModal();
+        return;
       }
-      if(entry?.level?.level){
-        summaryParts.push(`<p><strong>Tech Level:</strong> ${escapeHTML(String(entry.level.level))}</p>`);
+      const { item, level } = entry;
+      const techKey = item.id || slug;
+      const isUnlocked = !!unlocked[item.name];
+      const materials = computeTechMaterials(item);
+      const descriptions = computeTechDescriptions(item);
+      const branchLabel = getTechBranchLabel(item);
+      const detail = document.createElement('article');
+      detail.className = 'tech-modal';
+      if (techKey) {
+        detail.dataset.techKey = techKey;
       }
-      if(entry?.item?.branch){
-        summaryParts.push(`<p><strong>Branch:</strong> ${escapeHTML(String(entry.item.branch))}</p>`);
-      }
-      if(typeof entry?.item?.techPoints === 'number'){
-        const label = entry.item.isAncient ? 'Ancient Tech Points' : 'Tech Points';
-        summaryParts.push(`<p><strong>${label}:</strong> ${escapeHTML(String(entry.item.techPoints))}</p>`);
-      }
-      if(entry?.item?.materials && Object.keys(entry.item.materials).length){
-        const materials = Object.entries(entry.item.materials)
-          .map(([material, qty]) => `<li>${escapeHTML(`${qty} × ${material}`)}</li>`)
-          .join('');
-        if(materials){
-          summaryParts.push(`<p>${kidMode ? 'You will need:' : 'Materials required:'}</p><ul>${materials}</ul>`);
-        }
-      }
-      if(entry?.item?.description){
-        summaryParts.push(`<p>${escapeHTML(entry.item.description)}</p>`);
-      } else if(entry){
-        summaryParts.push(`<p>${kidMode
-          ? 'Check the Palworld.gg window for a picture and placement tips once you unlock it.'
-          : 'Use the Palworld.gg panel for placement notes and unlock requirements.'}</p>`);
-      } else {
-        summaryParts.push(`<p>${kidMode
-          ? 'Palmate will peek at Palworld.gg so you can see what it looks like without leaving this checklist.'
-          : 'Palmate opens the Palworld.gg technology tree so you can confirm crafting details without changing pages.'}</p>`);
-      }
-      const note = entry
-        ? 'Palmate keeps this tech guide handy so you can stay on the route checklist.'
-        : 'Palmate opens the Palworld.gg technology tree while keeping your route progress on screen.';
-      openPalworldEmbed({
-        heading: `${displayName} – Palworld.gg`,
-        url: techUrl,
-        fallbackUrl: techUrl,
-        note,
-        summaryHtml: summaryParts.join('')
+      const header = document.createElement('header');
+      header.className = 'tech-modal__header';
+      const titleWrap = document.createElement('div');
+      titleWrap.className = 'tech-modal__title';
+      const heading = document.createElement('h3');
+      heading.textContent = item.name;
+      titleWrap.appendChild(heading);
+      const badgeContainer = document.createElement('div');
+      badgeContainer.className = 'tech-modal__badges';
+      const branchChip = document.createElement('span');
+      branchChip.className = 'tech-chip';
+      branchChip.textContent = branchLabel;
+      badgeContainer.appendChild(branchChip);
+      const badgeLabels = new Set();
+      if (item.category) badgeLabels.add(item.category);
+      if (item.group && item.group !== item.category) badgeLabels.add(item.group);
+      badgeLabels.forEach(label => {
+        const chip = document.createElement('span');
+        chip.className = 'tech-chip';
+        chip.textContent = label;
+        badgeContainer.appendChild(chip);
       });
+      if (badgeContainer.children.length) {
+        titleWrap.appendChild(badgeContainer);
+      }
+      header.appendChild(titleWrap);
+      const meta = document.createElement('div');
+      meta.className = 'tech-modal__meta';
+      if (level && typeof level.level === 'number') {
+        const levelMeta = document.createElement('span');
+        levelMeta.textContent = kidMode
+          ? `Tech level ${level.level}`
+          : `Tech level ${level.level}`;
+        meta.appendChild(levelMeta);
+      }
+      if (typeof item.techPoints === 'number') {
+        const costMeta = document.createElement('span');
+        costMeta.textContent = formatTechCost(item, { kid: kidMode });
+        meta.appendChild(costMeta);
+      }
+      if (meta.children.length) {
+        header.appendChild(meta);
+      }
+      detail.appendChild(header);
+      const body = document.createElement('div');
+      body.className = 'tech-modal__body';
+      const media = document.createElement('div');
+      media.className = 'tech-modal__media';
+      if (item.image) {
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.alt = `${item.name} image`;
+        img.referrerPolicy = 'no-referrer';
+        img.src = item.image;
+        img.onerror = () => {
+          img.remove();
+          media.classList.add('tech-modal__media--fallback');
+          media.textContent = '⚙️';
+        };
+        media.appendChild(img);
+      } else {
+        media.classList.add('tech-modal__media--fallback');
+        media.textContent = '⚙️';
+      }
+      body.appendChild(media);
+      const content = document.createElement('div');
+      content.className = 'tech-modal__content';
+      const description = document.createElement('p');
+      description.className = 'tech-modal__description';
+      description.textContent = kidMode ? descriptions.kid : descriptions.grown;
+      content.appendChild(description);
+      const materialsSection = document.createElement('section');
+      materialsSection.className = 'tech-modal__materials';
+      const materialsHeading = document.createElement('h4');
+      materialsHeading.textContent = kidMode ? 'Crafting ingredients' : 'Crafting ingredients';
+      materialsSection.appendChild(materialsHeading);
+      if (materials.length) {
+        const list = document.createElement('ul');
+        list.className = 'tech-modal__materials-list';
+        materials.forEach(material => {
+          const li = document.createElement('li');
+          const nameSpan = document.createElement('span');
+          nameSpan.textContent = material.name;
+          const qtySpan = document.createElement('span');
+          qtySpan.textContent = String(material.quantity);
+          li.appendChild(nameSpan);
+          li.appendChild(qtySpan);
+          list.appendChild(li);
+        });
+        materialsSection.appendChild(list);
+      } else {
+        const note = document.createElement('p');
+        note.className = 'tech-card__note';
+        note.textContent = kidMode
+          ? 'No ingredients needed for this unlock.'
+          : 'No crafting ingredients required for this unlock.';
+        materialsSection.appendChild(note);
+      }
+      content.appendChild(materialsSection);
+      const actions = document.createElement('div');
+      actions.className = 'tech-modal__actions';
+      const status = document.createElement('span');
+      status.className = 'tech-modal__status';
+      if (isUnlocked) {
+        status.classList.add('tech-modal__status--unlocked');
+      }
+      if (techKey) {
+        status.dataset.techStatus = techKey;
+      }
+      status.textContent = formatTechStatusText(isUnlocked);
+      actions.appendChild(status);
+      const unlockBtn = document.createElement('button');
+      unlockBtn.type = 'button';
+      unlockBtn.className = 'unlock-btn';
+      if (isUnlocked) {
+        unlockBtn.classList.add('unlocked');
+      }
+      if (techKey) {
+        unlockBtn.dataset.techKey = techKey;
+      }
+      unlockBtn.dataset.techName = item.name;
+      unlockBtn.setAttribute('aria-pressed', isUnlocked ? 'true' : 'false');
+      unlockBtn.textContent = isUnlocked ? 'Unlocked' : 'Unlock';
+      unlockBtn.addEventListener('click', () => {
+        const newState = setTechUnlocked(item.name, !unlocked[item.name], { techKey });
+        unlockBtn.classList.toggle('unlocked', newState);
+        unlockBtn.textContent = newState ? 'Unlocked' : 'Unlock';
+        unlockBtn.setAttribute('aria-pressed', newState ? 'true' : 'false');
+        status.textContent = formatTechStatusText(newState);
+        status.classList.toggle('tech-modal__status--unlocked', newState);
+      });
+      actions.appendChild(unlockBtn);
+      const externalLink = document.createElement('a');
+      externalLink.className = 'tech-modal__external';
+      externalLink.href = techUrl;
+      externalLink.target = '_blank';
+      externalLink.rel = 'noopener';
+      externalLink.textContent = kidMode ? 'Open Palworld.gg' : 'View on Palworld.gg';
+      actions.appendChild(externalLink);
+      content.appendChild(actions);
+      body.appendChild(content);
+      detail.appendChild(body);
+      detail.tabIndex = -1;
+      modalBody.appendChild(detail);
+      openModal();
+      const focusDetail = () => {
+        try {
+          detail.focus({ preventScroll: true });
+        } catch (err) {
+          detail.focus();
+        }
+      };
+      if (typeof requestAnimationFrame === 'function') {
+        requestAnimationFrame(focusDetail);
+      } else {
+        setTimeout(focusDetail, 0);
+      }
     }
 
     function showNpcDetail(link){
