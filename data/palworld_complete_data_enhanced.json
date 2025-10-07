@@ -14320,28 +14320,46 @@
             "level": 1,
             "items": [
                 {
-                    "id": "arrow",
-                    "name": "Arrow",
-                    "category": "Ammo",
-                    "description": "Basic arrows crafted for the Old Bow."
+                    "id": "global-palbox",
+                    "name": "Global Palbox",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Global Palbox."
+                },
+                {
+                    "id": "hand-held-torch",
+                    "name": "Hand-held Torch",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Hand-held Torch."
+                },
+                {
+                    "id": "pal-dressing-facility",
+                    "name": "Pal Dressing Facility",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Pal Dressing Facility."
                 },
                 {
                     "id": "primitive-workbench",
                     "name": "Primitive Workbench",
-                    "category": "Base",
+                    "category": "Production",
                     "description": "Basic crafting bench for starter tools."
                 },
                 {
                     "id": "stone-axe",
                     "name": "Stone Axe",
-                    "category": "Tool",
+                    "category": "Base",
                     "description": "Basic axe for chopping trees."
                 },
                 {
                     "id": "stone-pickaxe",
                     "name": "Stone Pickaxe",
-                    "category": "Tool",
+                    "category": "Base",
                     "description": "Basic pickaxe for gathering ore."
+                },
+                {
+                    "id": "wooden-club",
+                    "name": "Wooden Club",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Wooden Club."
                 }
             ]
         },
@@ -14349,19 +14367,15 @@
             "level": 2,
             "items": [
                 {
-                    "id": "old-bow",
-                    "name": "Old Bow",
-                    "category": "Weapon",
-                    "description": "Starter bow crafted from stone and wood."
+                    "id": "campfire",
+                    "name": "Campfire",
+                    "category": "Base",
+                    "description": "Unlocks the Campfire structure at your base."
                 },
                 {
+                    "id": "pal-sphere",
                     "name": "Pal Sphere",
                     "category": "Equipment",
-                    "materials": {
-                        "Paladium Fragment": 1,
-                        "Wood": 3,
-                        "Stone": 3
-                    },
                     "description": "Craft Pal Sphere with materials and capture high-level pals."
                 },
                 {
@@ -14369,6 +14383,65 @@
                     "name": "Palbox",
                     "category": "Base",
                     "description": "Core structure that anchors your base and stores pals."
+                },
+                {
+                    "id": "repair-bench",
+                    "name": "Repair Bench",
+                    "category": "Base",
+                    "description": "Unlocks the Repair Bench structure at your base."
+                },
+                {
+                    "id": "wooden-chest",
+                    "name": "Wooden Chest",
+                    "category": "Production",
+                    "description": "Unlocks the Wooden Chest structure at your base."
+                },
+                {
+                    "id": "wooden-structure-set",
+                    "name": "Wooden Structure Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Wooden Structure Set structure at your base."
+                }
+            ]
+        },
+        {
+            "level": 3,
+            "items": [
+                {
+                    "id": "arrow",
+                    "name": "Arrow",
+                    "category": "Base",
+                    "description": "Basic arrows crafted for the Old Bow."
+                },
+                {
+                    "id": "cloth",
+                    "name": "Cloth",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Cloth."
+                },
+                {
+                    "id": "old-bow",
+                    "name": "Old Bow",
+                    "category": "Weapon",
+                    "description": "Starter bow crafted from stone and wood."
+                },
+                {
+                    "id": "repair-kit",
+                    "name": "Repair Kit",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Repair Kit."
+                },
+                {
+                    "id": "shoddy-bed",
+                    "name": "Shoddy Bed",
+                    "category": "Base",
+                    "description": "Unlocks the Shoddy Bed structure at your base."
+                },
+                {
+                    "id": "straw-pal-bed",
+                    "name": "Straw Pal Bed",
+                    "category": "Base",
+                    "description": "Unlocks the Straw Pal Bed structure at your base."
                 }
             ]
         },
@@ -14382,16 +14455,17 @@
                     "description": "Sounds an alarm when invaders approach your base."
                 },
                 {
+                    "id": "cloth-outfit",
+                    "name": "Cloth Outfit",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Cloth Outfit."
+                },
+                {
                     "id": "common-shield",
                     "name": "Common Shield",
                     "category": "Armor",
                     "description": "Early defensive shield for blocking attacks."
-                }
-            ]
-        },
-        {
-            "level": 5,
-            "items": [
+                },
                 {
                     "id": "feed-box",
                     "name": "Feed Box",
@@ -14399,9 +14473,44 @@
                     "description": "Automatically feeds pals assigned to your base."
                 },
                 {
+                    "id": "hanging-trap",
+                    "name": "Hanging Trap",
+                    "category": "Base",
+                    "description": "Unlocks the Hanging Trap structure at your base."
+                },
+                {
+                    "id": "stone-spear",
+                    "name": "Stone Spear",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Stone Spear."
+                }
+            ]
+        },
+        {
+            "level": 5,
+            "items": [
+                {
+                    "id": "berry-plantation",
+                    "name": "Berry Plantation",
+                    "category": "Base",
+                    "description": "Unlocks the Berry Plantation structure at your base."
+                },
+                {
+                    "id": "fire-arrow",
+                    "name": "Fire Arrow",
+                    "category": "Base",
+                    "description": "Ignited arrows that deal fire damage on impact."
+                },
+                {
+                    "id": "fire-bow",
+                    "name": "Fire Bow",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Fire Bow."
+                },
+                {
                     "id": "normal-parachute",
                     "name": "Normal Parachute",
-                    "category": "Gear",
+                    "category": "Base",
                     "description": "Basic parachute that softens falls and helps kids explore."
                 },
                 {
@@ -14409,6 +14518,18 @@
                     "name": "Ranch",
                     "category": "Base",
                     "description": "Lets pals produce resources like Eggs and Milk while assigned."
+                },
+                {
+                    "id": "wooden-living-room-furniture-set",
+                    "name": "Wooden Living Room Furniture Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Wooden Living Room Furniture Set structure at your base."
+                },
+                {
+                    "id": "wooden-tavern-furniture-set",
+                    "name": "Wooden Tavern Furniture Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Wooden Tavern Furniture Set structure at your base."
                 }
             ]
         },
@@ -14416,10 +14537,46 @@
             "level": 6,
             "items": [
                 {
+                    "id": "foxparks-s-harness",
+                    "name": "Foxparks's Harness",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Foxparks's Harness."
+                },
+                {
+                    "id": "houseplant-set",
+                    "name": "Houseplant Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Houseplant Set structure at your base."
+                },
+                {
+                    "id": "mounted-torch",
+                    "name": "Mounted Torch",
+                    "category": "Base",
+                    "description": "Unlocks the Mounted Torch structure at your base."
+                },
+                {
+                    "id": "pal-gear-workbench",
+                    "name": "Pal Gear Workbench",
+                    "category": "Production",
+                    "description": "Unlocks the Pal Gear Workbench structure at your base."
+                },
+                {
+                    "id": "rushoar-saddle",
+                    "name": "Rushoar Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Rushoar Saddle."
+                },
+                {
                     "id": "statue-of-power",
                     "name": "Statue of Power",
                     "category": "Base",
                     "description": "Shrine that converts Lifmunk Effigies into capture bonuses."
+                },
+                {
+                    "id": "wooden-tavern-cabinet-furniture-set",
+                    "name": "Wooden Tavern Cabinet Furniture Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Wooden Tavern Cabinet Furniture Set structure at your base."
                 }
             ]
         },
@@ -14427,9 +14584,21 @@
             "level": 7,
             "items": [
                 {
+                    "id": "bat",
+                    "name": "Bat",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Bat."
+                },
+                {
+                    "id": "celaray-s-gloves",
+                    "name": "Celaray's Gloves",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Celaray's Gloves."
+                },
+                {
                     "id": "egg-incubator",
                     "name": "Egg Incubator",
-                    "category": "Ancient Tech",
+                    "category": "Production",
                     "description": "Ancient device that hatches pal eggs at your base."
                 },
                 {
@@ -14439,16 +14608,40 @@
                     "description": "Automated lumber station for your workers."
                 },
                 {
+                    "id": "melpaca-saddle",
+                    "name": "Melpaca Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Melpaca Saddle."
+                },
+                {
+                    "id": "sign",
+                    "name": "Sign",
+                    "category": "Base",
+                    "description": "Unlocks the Sign structure at your base."
+                },
+                {
                     "id": "stone-pit",
                     "name": "Stone Pit",
                     "category": "Base",
                     "description": "Assign pals here to gather stone automatically."
+                },
+                {
+                    "id": "wall-mounted-houseplant-set",
+                    "name": "Wall-Mounted Houseplant Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Wall-Mounted Houseplant Set structure at your base."
                 }
             ]
         },
         {
             "level": 8,
             "items": [
+                {
+                    "id": "antique-storage-set",
+                    "name": "Antique Storage Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Antique Storage Set structure at your base."
+                },
                 {
                     "id": "crusher",
                     "name": "Crusher",
@@ -14458,8 +14651,32 @@
                 {
                     "id": "daedreams-necklace",
                     "name": "Daedream's Necklace",
-                    "category": "Pal Gear",
+                    "category": "Base",
                     "description": "Allows Daedream to float beside you and auto-attack."
+                },
+                {
+                    "id": "fireplace-set",
+                    "name": "Fireplace Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Fireplace Set structure at your base."
+                },
+                {
+                    "id": "jolthog-s-gloves",
+                    "name": "Jolthog's Gloves",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Jolthog's Gloves."
+                },
+                {
+                    "id": "poison-arrow",
+                    "name": "Poison Arrow",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Poison Arrow."
+                },
+                {
+                    "id": "poison-bow",
+                    "name": "Poison Bow",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Poison Bow."
                 }
             ]
         },
@@ -14467,16 +14684,76 @@
             "level": 9,
             "items": [
                 {
+                    "id": "carpet-set",
+                    "name": "Carpet Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Carpet Set structure at your base."
+                },
+                {
+                    "id": "direhowl-s-saddled-harness",
+                    "name": "Direhowl's Saddled Harness",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Direhowl's Saddled Harness."
+                },
+                {
                     "id": "hot-spring",
                     "name": "Hot Spring",
                     "category": "Base",
                     "description": "Comfort spot that restores pal sanity and stamina."
+                },
+                {
+                    "id": "killamari-s-gloves",
+                    "name": "Killamari's Gloves",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Killamari's Gloves."
+                },
+                {
+                    "id": "sand-bag",
+                    "name": "Sand Bag",
+                    "category": "Gear",
+                    "description": "Unlocks the Sand Bag structure at your base."
+                },
+                {
+                    "id": "tropical-outfit",
+                    "name": "Tropical Outfit",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Tropical Outfit."
+                },
+                {
+                    "id": "tundra-outfit",
+                    "name": "Tundra Outfit",
+                    "category": "Base",
+                    "description": "Cold-resistant gear for snowy regions."
                 }
             ]
         },
         {
             "level": 10,
             "items": [
+                {
+                    "id": "bear-trap-small",
+                    "name": "Bear Trap (Small)",
+                    "category": "Base",
+                    "description": "Unlocks the Bear Trap (Small) structure at your base."
+                },
+                {
+                    "id": "feathered-hair-band",
+                    "name": "Feathered Hair Band",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Feathered Hair Band."
+                },
+                {
+                    "id": "ladder",
+                    "name": "Ladder",
+                    "category": "Base",
+                    "description": "Unlocks the Ladder structure at your base."
+                },
+                {
+                    "id": "nail",
+                    "name": "Nail",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Nail."
+                },
                 {
                     "id": "primitive-furnace",
                     "name": "Primitive Furnace",
@@ -14486,8 +14763,67 @@
                 {
                     "id": "small-feed-bag",
                     "name": "Small Feed Bag",
-                    "category": "Ancient Tech",
+                    "category": "Gear",
                     "description": "Ancient bag that auto-feeds you and your mount."
+                },
+                {
+                    "id": "surfent-saddle",
+                    "name": "Surfent Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Surfent Saddle."
+                },
+                {
+                    "id": "three-shot-bow",
+                    "name": "Three Shot Bow",
+                    "category": "Weapon",
+                    "description": "Bow that fires three arrows in rapid succession."
+                }
+            ]
+        },
+        {
+            "level": 11,
+            "items": [
+                {
+                    "id": "heavy-weight-module",
+                    "name": "Heavy Weight Module",
+                    "category": "Ammo",
+                    "description": "Unlocks the recipe for Heavy Weight Module."
+                },
+                {
+                    "id": "high-quality-workbench",
+                    "name": "High Quality Workbench",
+                    "category": "Production",
+                    "description": "Unlocks the High Quality Workbench structure at your base."
+                },
+                {
+                    "id": "jolthog-cryst-s-gloves",
+                    "name": "Jolthog Cryst's Gloves",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Jolthog Cryst's Gloves."
+                },
+                {
+                    "id": "lifmunk-s-submachine-gun",
+                    "name": "Lifmunk's Submachine Gun",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Lifmunk's Submachine Gun."
+                },
+                {
+                    "id": "metal-axe",
+                    "name": "Metal Axe",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Metal Axe."
+                },
+                {
+                    "id": "metal-pickaxe",
+                    "name": "Metal Pickaxe",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Metal Pickaxe."
+                },
+                {
+                    "id": "wooden-gate",
+                    "name": "Wooden Gate",
+                    "category": "Base",
+                    "description": "Unlocks the Wooden Gate structure at your base."
                 }
             ]
         },
@@ -14495,16 +14831,70 @@
             "level": 12,
             "items": [
                 {
+                    "id": "antique-chair-set",
+                    "name": "Antique Chair Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Antique Chair Set structure at your base."
+                },
+                {
+                    "id": "eikthyrdeer-saddle",
+                    "name": "Eikthyrdeer Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Eikthyrdeer Saddle."
+                },
+                {
                     "id": "grappling-gun",
                     "name": "Grappling Gun",
-                    "category": "Ancient Tech",
+                    "category": "Weapon",
                     "description": "Ancient mobility tool that lets you zip across terrain."
+                },
+                {
+                    "id": "grintale-saddle",
+                    "name": "Grintale Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Grintale Saddle."
+                },
+                {
+                    "id": "meat-cleaver",
+                    "name": "Meat Cleaver",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Meat Cleaver."
+                },
+                {
+                    "id": "medieval-medicine-workbench",
+                    "name": "Medieval Medicine Workbench",
+                    "category": "Production",
+                    "description": "Unlocks the Medieval Medicine Workbench structure at your base."
+                },
+                {
+                    "id": "pelt-armor",
+                    "name": "Pelt Armor",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Pelt Armor."
+                },
+                {
+                    "id": "tanzee-s-assault-rifle",
+                    "name": "Tanzee's Assault Rifle",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Tanzee's Assault Rifle."
                 }
             ]
         },
         {
             "level": 13,
             "items": [
+                {
+                    "id": "antique-storage-cabinet-set",
+                    "name": "Antique Storage Cabinet Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Antique Storage Cabinet Set structure at your base."
+                },
+                {
+                    "id": "chillet-saddle",
+                    "name": "Chillet Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Chillet Saddle."
+                },
                 {
                     "id": "cooler-box",
                     "name": "Cooler Box",
@@ -14516,6 +14906,24 @@
                     "name": "Crossbow",
                     "category": "Weapon",
                     "description": "High-power ranged weapon for early towers."
+                },
+                {
+                    "id": "human-powered-generator",
+                    "name": "Human-Powered Generator",
+                    "category": "Production",
+                    "description": "Unlocks the Human-Powered Generator structure at your base."
+                },
+                {
+                    "id": "metal-spear",
+                    "name": "Metal Spear",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Metal Spear."
+                },
+                {
+                    "id": "training-dummy",
+                    "name": "Training Dummy",
+                    "category": "Base",
+                    "description": "Unlocks the Training Dummy structure at your base."
                 }
             ]
         },
@@ -14523,38 +14931,16 @@
             "level": 14,
             "items": [
                 {
+                    "id": "antique-desk-set",
+                    "name": "Antique Desk Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Antique Desk Set structure at your base."
+                },
+                {
+                    "id": "mega-sphere",
                     "name": "Mega Sphere",
                     "category": "Equipment",
-                    "materials": {
-                        "Paladium Fragment": 1,
-                        "Ingot": 1,
-                        "Wood": 5,
-                        "Stone": 5
-                    },
                     "description": "Craft Mega Sphere with materials and capture high-level pals."
-                },
-                {
-                    "id": "pal-essence-condenser",
-                    "name": "Pal Essence Condenser",
-                    "category": "Ancient Tech",
-                    "description": "Combines duplicate pals to strengthen a favorite worker."
-                },
-                {
-                    "id": "sphere-workbench",
-                    "name": "Sphere Workbench",
-                    "category": "Production",
-                    "description": "Workbench that crafts Mega, Giga, and Hyper Spheres."
-                }
-            ]
-        },
-        {
-            "level": 15,
-            "items": [
-                {
-                    "id": "mill",
-                    "name": "Mill",
-                    "category": "Production",
-                    "description": "Processes wheat into flour for advanced cooking."
                 },
                 {
                     "id": "monitoring-stand",
@@ -14563,10 +14949,81 @@
                     "description": "Lets you watch and direct pals assigned to your base."
                 },
                 {
+                    "id": "pal-essence-condenser",
+                    "name": "Pal Essence Condenser",
+                    "category": "Base",
+                    "description": "Combines duplicate pals to strengthen a favorite worker."
+                },
+                {
+                    "id": "sphere-workbench",
+                    "name": "Sphere Workbench",
+                    "category": "Production",
+                    "description": "Workbench that crafts Mega, Giga, and Hyper Spheres."
+                },
+                {
+                    "id": "sweepa-saddle",
+                    "name": "Sweepa Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Sweepa Saddle."
+                },
+                {
+                    "id": "univolt-saddle",
+                    "name": "Univolt Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Univolt Saddle."
+                },
+                {
+                    "id": "wall-torch",
+                    "name": "Wall Torch",
+                    "category": "Base",
+                    "description": "Unlocks the Wall Torch structure at your base."
+                }
+            ]
+        },
+        {
+            "level": 15,
+            "items": [
+                {
+                    "id": "beginner-fishing-set",
+                    "name": "Beginner Fishing Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the recipe for Beginner Fishing Set."
+                },
+                {
+                    "id": "fire-arrow-crossbow",
+                    "name": "Fire Arrow Crossbow",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Fire Arrow Crossbow."
+                },
+                {
+                    "id": "hip-lantern",
+                    "name": "Hip Lantern",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Hip Lantern."
+                },
+                {
+                    "id": "mill",
+                    "name": "Mill",
+                    "category": "Base",
+                    "description": "Processes wheat into flour for advanced cooking."
+                },
+                {
                     "id": "nitewing-saddle",
                     "name": "Nitewing Saddle",
                     "category": "Pal Gear",
                     "description": "Unlocks riding for Nitewing so you can fly."
+                },
+                {
+                    "id": "pal-expedition-station",
+                    "name": "Pal Expedition Station",
+                    "category": "Base",
+                    "description": "Unlocks the Pal Expedition Station structure at your base."
+                },
+                {
+                    "id": "viewing-cage",
+                    "name": "Viewing Cage",
+                    "category": "Base",
+                    "description": "Unlocks the Viewing Cage structure at your base."
                 },
                 {
                     "id": "wheat-plantation",
@@ -14577,25 +15034,161 @@
             ]
         },
         {
+            "level": 16,
+            "items": [
+                {
+                    "id": "antique-bath-set",
+                    "name": "Antique Bath Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Antique Bath Set structure at your base."
+                },
+                {
+                    "id": "antique-mirror-set",
+                    "name": "Antique Mirror Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Antique Mirror Set structure at your base."
+                },
+                {
+                    "id": "arsox-saddle",
+                    "name": "Arsox Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Arsox Saddle."
+                },
+                {
+                    "id": "heat-resistant-pelt-armor",
+                    "name": "Heat Resistant Pelt Armor",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Heat Resistant Pelt Armor."
+                },
+                {
+                    "id": "lockpicking-tool-v1",
+                    "name": "Lockpicking Tool v1",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Lockpicking Tool v1."
+                },
+                {
+                    "id": "mega-shield",
+                    "name": "Mega Shield",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Mega Shield."
+                },
+                {
+                    "id": "metal-chest",
+                    "name": "Metal Chest",
+                    "category": "Production",
+                    "description": "Unlocks the Metal Chest structure at your base."
+                },
+                {
+                    "id": "wooden-defensive-wall",
+                    "name": "Wooden Defensive Wall",
+                    "category": "Base",
+                    "description": "Unlocks the Wooden Defensive Wall structure at your base."
+                }
+            ]
+        },
+        {
             "level": 17,
             "items": [
                 {
-                    "id": "cake",
-                    "name": "Cake",
-                    "category": "Cooking",
-                    "description": "Essential dessert used to initiate pal breeding."
-                },
-                {
                     "id": "cooking-pot",
                     "name": "Cooking Pot",
-                    "category": "Cooking",
+                    "category": "Base",
                     "description": "Lets you prepare cooked meals and Cake."
                 },
                 {
-                    "id": "heat-resistant-armor",
-                    "name": "Heat Resistant Armor",
+                    "id": "flopie-s-necklace",
+                    "name": "Flopie's Necklace",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Flopie's Necklace."
+                },
+                {
+                    "id": "heater",
+                    "name": "Heater",
+                    "category": "Base",
+                    "description": "Unlocks the Heater structure at your base."
+                },
+                {
+                    "id": "mega-grappling-gun",
+                    "name": "Mega Grappling Gun",
+                    "category": "Weapon",
+                    "description": "Upgraded grapple with longer range and speed."
+                },
+                {
+                    "id": "pengullet-s-rocket-launcher",
+                    "name": "Pengullet's Rocket Launcher",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Pengullet's Rocket Launcher."
+                },
+                {
+                    "id": "piano-furniture-set",
+                    "name": "Piano Furniture Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Piano Furniture Set structure at your base."
+                },
+                {
+                    "id": "poison-arrow-crossbow",
+                    "name": "Poison Arrow Crossbow",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Poison Arrow Crossbow."
+                },
+                {
+                    "id": "tombstone",
+                    "name": "Tombstone",
+                    "category": "Base",
+                    "description": "Unlocks the Tombstone structure at your base."
+                }
+            ]
+        },
+        {
+            "level": 18,
+            "items": [
+                {
+                    "id": "bathroom-set",
+                    "name": "Bathroom Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Bathroom Set structure at your base."
+                },
+                {
+                    "id": "cold-resistant-pelt-armor",
+                    "name": "Cold Resistant Pelt Armor",
                     "category": "Armor",
-                    "description": "Protective gear that lets you travel hot regions safely."
+                    "description": "Unlocks the recipe for Cold Resistant Pelt Armor."
+                },
+                {
+                    "id": "cooler",
+                    "name": "Cooler",
+                    "category": "Base",
+                    "description": "Unlocks the Cooler structure at your base."
+                },
+                {
+                    "id": "mega-glider",
+                    "name": "Mega Glider",
+                    "category": "Gear",
+                    "description": "Unlocks the recipe for Mega Glider."
+                },
+                {
+                    "id": "metal-shelf-set",
+                    "name": "Metal Shelf Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Metal Shelf Set structure at your base."
+                },
+                {
+                    "id": "ring-of-mercy",
+                    "name": "Ring of Mercy",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Ring of Mercy."
+                },
+                {
+                    "id": "stone-structure-set",
+                    "name": "Stone Structure Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Stone Structure Set structure at your base."
+                },
+                {
+                    "id": "tocotoco-s-gloves",
+                    "name": "Tocotoco's Gloves",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Tocotoco's Gloves."
                 }
             ]
         },
@@ -14603,16 +15196,52 @@
             "level": 19,
             "items": [
                 {
+                    "id": "antique-high-quality-furniture-set",
+                    "name": "Antique High Quality Furniture Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Antique High Quality Furniture Set structure at your base."
+                },
+                {
+                    "id": "average-feed-bag",
+                    "name": "Average Feed Bag",
+                    "category": "Gear",
+                    "description": "Unlocks the ancient blueprint for the Average Feed Bag."
+                },
+                {
                     "id": "breeding-farm",
                     "name": "Breeding Farm",
                     "category": "Base",
                     "description": "Facility that hatches new pals when stocked with Cake."
                 },
                 {
-                    "id": "tundra-outfit",
-                    "name": "Tundra Outfit",
-                    "category": "Armor",
-                    "description": "Cold-resistant gear for snowy regions."
+                    "id": "broncherry-saddle",
+                    "name": "Broncherry Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Broncherry Saddle."
+                },
+                {
+                    "id": "cement",
+                    "name": "Cement",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Cement."
+                },
+                {
+                    "id": "digtoise-s-headband",
+                    "name": "Digtoise's Headband",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Digtoise's Headband."
+                },
+                {
+                    "id": "dinossom-saddle",
+                    "name": "Dinossom Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Dinossom Saddle."
+                },
+                {
+                    "id": "wall-mounted-sign",
+                    "name": "Wall-Mounted Sign",
+                    "category": "Base",
+                    "description": "Unlocks the Wall-Mounted Sign structure at your base."
                 }
             ]
         },
@@ -14620,21 +15249,52 @@
             "level": 20,
             "items": [
                 {
+                    "id": "antique-couch-set",
+                    "name": "Antique Couch Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Antique Couch Set structure at your base."
+                },
+                {
+                    "id": "dimensional-pal-storage",
+                    "name": "Dimensional Pal Storage",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Dimensional Pal Storage."
+                },
+                {
+                    "id": "elphidran-saddle",
+                    "name": "Elphidran Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Elphidran Saddle."
+                },
+                {
+                    "id": "giga-sphere",
                     "name": "Giga Sphere",
                     "category": "Equipment",
-                    "materials": {
-                        "Paladium Fragment": 2,
-                        "Ingot": 2,
-                        "Wood": 7,
-                        "Stone": 7
-                    },
                     "description": "Craft Giga Sphere with materials and capture high-level pals."
                 },
                 {
-                    "id": "mega-grappling-gun",
-                    "name": "Mega Grappling Gun",
-                    "category": "Ancient Tech",
-                    "description": "Upgraded grapple with longer range and speed."
+                    "id": "hangyu-s-gloves",
+                    "name": "Hangyu's Gloves",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Hangyu's Gloves."
+                },
+                {
+                    "id": "large-toolbox",
+                    "name": "Large Toolbox",
+                    "category": "Base",
+                    "description": "Unlocks the Large Toolbox structure at your base."
+                },
+                {
+                    "id": "pal-labor-research-laboratory",
+                    "name": "Pal Labor Research Laboratory",
+                    "category": "Base",
+                    "description": "Unlocks the Pal Labor Research Laboratory structure at your base."
+                },
+                {
+                    "id": "weapon-workbench",
+                    "name": "Weapon Workbench",
+                    "category": "Production",
+                    "description": "Unlocks the Weapon Workbench structure at your base."
                 }
             ]
         },
@@ -14642,16 +15302,158 @@
             "level": 21,
             "items": [
                 {
-                    "id": "fire-arrow",
-                    "name": "Fire Arrow",
-                    "category": "Ammo",
-                    "description": "Ignited arrows that deal fire damage on impact."
+                    "id": "antique-dresser",
+                    "name": "Antique Dresser",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Antique Dresser."
                 },
                 {
-                    "id": "three-shot-bow",
-                    "name": "Three-Shot Bow",
+                    "id": "coarse-ammo",
+                    "name": "Coarse Ammo",
+                    "category": "Ammo",
+                    "description": "Unlocks the recipe for Coarse Ammo."
+                },
+                {
+                    "id": "flame-cauldron",
+                    "name": "Flame Cauldron",
+                    "category": "Base",
+                    "description": "Unlocks the Flame Cauldron structure at your base."
+                },
+                {
+                    "id": "gunpowder",
+                    "name": "Gunpowder",
                     "category": "Weapon",
-                    "description": "Bow that fires three arrows in rapid succession."
+                    "description": "Unlocks the recipe for Gunpowder."
+                },
+                {
+                    "id": "kingpaca-saddle",
+                    "name": "Kingpaca Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Kingpaca Saddle."
+                },
+                {
+                    "id": "musket",
+                    "name": "Musket",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Musket."
+                },
+                {
+                    "id": "tomato-plantation",
+                    "name": "Tomato Plantation",
+                    "category": "Base",
+                    "description": "Unlocks the Tomato Plantation structure at your base."
+                },
+                {
+                    "id": "vanwyrm-saddle",
+                    "name": "Vanwyrm Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Vanwyrm Saddle."
+                }
+            ]
+        },
+        {
+            "level": 22,
+            "items": [
+                {
+                    "id": "bear-trap-large",
+                    "name": "Bear Trap (Large)",
+                    "category": "Base",
+                    "description": "Unlocks the Bear Trap (Large) structure at your base."
+                },
+                {
+                    "id": "dazemu-saddle",
+                    "name": "Dazemu Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Dazemu Saddle."
+                },
+                {
+                    "id": "dazzi-s-necklace",
+                    "name": "Dazzi's Necklace",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Dazzi's Necklace."
+                },
+                {
+                    "id": "flea-market-items",
+                    "name": "Flea Market (Items)",
+                    "category": "Base",
+                    "description": "Unlocks the Flea Market (Items) structure at your base."
+                },
+                {
+                    "id": "flea-market-pals",
+                    "name": "Flea Market (Pals)",
+                    "category": "Base",
+                    "description": "Unlocks the Flea Market (Pals) structure at your base."
+                },
+                {
+                    "id": "high-quality-bait",
+                    "name": "High Quality Bait",
+                    "category": "Consumable",
+                    "description": "Unlocks the recipe for High Quality Bait."
+                },
+                {
+                    "id": "homeward-thundercloud",
+                    "name": "Homeward Thundercloud",
+                    "category": "Base",
+                    "description": "Ancient recall gadget that returns you to your base."
+                },
+                {
+                    "id": "stun-baton",
+                    "name": "Stun Baton",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Stun Baton."
+                }
+            ]
+        },
+        {
+            "level": 23,
+            "items": [
+                {
+                    "id": "curve-module",
+                    "name": "Curve Module",
+                    "category": "Ammo",
+                    "description": "Unlocks the recipe for Curve Module."
+                },
+                {
+                    "id": "galeclaw-s-gloves",
+                    "name": "Galeclaw's Gloves",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Galeclaw's Gloves."
+                },
+                {
+                    "id": "killamari-primo-s-gloves",
+                    "name": "Killamari Primo's Gloves",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Killamari Primo's Gloves."
+                },
+                {
+                    "id": "large-feed-bag",
+                    "name": "Large Feed Bag",
+                    "category": "Gear",
+                    "description": "Expanded feed bag that keeps more snacks on hand."
+                },
+                {
+                    "id": "maraith-saddle",
+                    "name": "Maraith Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Maraith Saddle."
+                },
+                {
+                    "id": "metal-armor",
+                    "name": "Metal Armor",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Metal Armor."
+                },
+                {
+                    "id": "metal-helm",
+                    "name": "Metal Helm",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Metal Helm."
+                },
+                {
+                    "id": "water-fountain",
+                    "name": "Water Fountain",
+                    "category": "Base",
+                    "description": "Unlocks the Water Fountain structure at your base."
                 }
             ]
         },
@@ -14659,10 +15461,164 @@
             "level": 24,
             "items": [
                 {
+                    "id": "azurobe-saddle",
+                    "name": "Azurobe Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Azurobe Saddle."
+                },
+                {
+                    "id": "flower-bed",
+                    "name": "Flower Bed",
+                    "category": "Base",
+                    "description": "Unlocks the Flower Bed structure at your base."
+                },
+                {
+                    "id": "fluffy-pal-bed",
+                    "name": "Fluffy Pal Bed",
+                    "category": "Base",
+                    "description": "Unlocks the Fluffy Pal Bed structure at your base."
+                },
+                {
+                    "id": "foxparks-cryst-s-harness",
+                    "name": "Foxparks Cryst's Harness",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Foxparks Cryst's Harness."
+                },
+                {
+                    "id": "makeshift-handgun",
+                    "name": "Makeshift Handgun",
+                    "category": "Weapon",
+                    "description": "Unlocks the Makeshift Handgun structure at your base."
+                },
+                {
+                    "id": "medicine-rack",
+                    "name": "Medicine Rack",
+                    "category": "Production",
+                    "description": "Unlocks the Medicine Rack structure at your base."
+                },
+                {
+                    "id": "mossanda-s-grenade-launcher",
+                    "name": "Mossanda's Grenade Launcher",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Mossanda's Grenade Launcher."
+                },
+                {
                     "id": "ore-mining-site",
                     "name": "Ore Mining Site",
-                    "category": "Ancient Tech",
+                    "category": "Base",
                     "description": "Ancient extractor that passively mines ore."
+                }
+            ]
+        },
+        {
+            "level": 25,
+            "items": [
+                {
+                    "id": "boost-gun",
+                    "name": "Boost Gun",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Boost Gun."
+                },
+                {
+                    "id": "boost-gun-ammo",
+                    "name": "Boost Gun Ammo",
+                    "category": "Ammo",
+                    "description": "Unlocks the recipe for Boost Gun Ammo."
+                },
+                {
+                    "id": "eikthyrdeer-terra-saddle",
+                    "name": "Eikthyrdeer Terra Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Eikthyrdeer Terra Saddle."
+                },
+                {
+                    "id": "frag-grenade",
+                    "name": "Frag Grenade",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Frag Grenade."
+                },
+                {
+                    "id": "heat-resistant-metal-armor",
+                    "name": "Heat Resistant Metal Armor",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Heat Resistant Metal Armor."
+                },
+                {
+                    "id": "lettuce-plantation",
+                    "name": "Lettuce Plantation",
+                    "category": "Base",
+                    "description": "Unlocks the Lettuce Plantation structure at your base."
+                },
+                {
+                    "id": "lockpicking-tool-v2",
+                    "name": "Lockpicking Tool v2",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Lockpicking Tool v2."
+                },
+                {
+                    "id": "silo",
+                    "name": "Silo",
+                    "category": "Base",
+                    "description": "Unlocks the Silo structure at your base."
+                },
+                {
+                    "id": "surfent-terra-saddle",
+                    "name": "Surfent Terra Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Surfent Terra Saddle."
+                }
+            ]
+        },
+        {
+            "level": 26,
+            "items": [
+                {
+                    "id": "celaray-lux-s-gloves",
+                    "name": "Celaray Lux's Gloves",
+                    "category": "Base",
+                    "description": "Unlocks the Celaray Lux's Gloves structure at your base."
+                },
+                {
+                    "id": "fenglope-saddle",
+                    "name": "Fenglope Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Fenglope Saddle."
+                },
+                {
+                    "id": "lamp",
+                    "name": "Lamp",
+                    "category": "Production",
+                    "description": "Unlocks the Lamp structure at your base."
+                },
+                {
+                    "id": "makeshift-smg",
+                    "name": "Makeshift SMG",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Makeshift SMG."
+                },
+                {
+                    "id": "mossanda-lux-s-grenade-launcher",
+                    "name": "Mossanda Lux's Grenade Launcher",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Mossanda Lux's Grenade Launcher."
+                },
+                {
+                    "id": "mounted-crossbow",
+                    "name": "Mounted Crossbow",
+                    "category": "Weapon",
+                    "description": "Unlocks the Mounted Crossbow structure at your base."
+                },
+                {
+                    "id": "power-generator",
+                    "name": "Power Generator",
+                    "category": "Production",
+                    "description": "Unlocks the Power Generator structure at your base."
+                },
+                {
+                    "id": "single-shot-sphere-launcher",
+                    "name": "Single-Shot Sphere Launcher",
+                    "category": "Weapon",
+                    "description": "Unlocks the ancient blueprint for the Single-Shot Sphere Launcher."
                 }
             ]
         },
@@ -14670,15 +15626,58 @@
             "level": 27,
             "items": [
                 {
+                    "id": "ceiling-lamp",
+                    "name": "Ceiling Lamp",
+                    "category": "Production",
+                    "description": "Unlocks the Ceiling Lamp structure at your base."
+                },
+                {
+                    "id": "cold-resistant-metal-armor",
+                    "name": "Cold Resistant Metal Armor",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Cold Resistant Metal Armor."
+                },
+                {
+                    "id": "herbil-s-harness",
+                    "name": "Herbil's Harness",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Herbil's Harness."
+                },
+                {
+                    "id": "hyper-sphere",
                     "name": "Hyper Sphere",
                     "category": "Equipment",
-                    "materials": {
-                        "Paladium Fragment": 3,
-                        "Ingot": 3,
-                        "Wood": 10,
-                        "Cement": 2
-                    },
                     "description": "Craft Hyper Sphere with materials and capture high-level pals."
+                },
+                {
+                    "id": "rayhound-saddle",
+                    "name": "Rayhound Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Rayhound Saddle."
+                },
+                {
+                    "id": "shock-grenade",
+                    "name": "Shock Grenade",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Shock Grenade."
+                },
+                {
+                    "id": "small-pouch",
+                    "name": "Small Pouch",
+                    "category": "Gear",
+                    "description": "Unlocks the ancient blueprint for the Small Pouch."
+                },
+                {
+                    "id": "sphere-assembly-line",
+                    "name": "Sphere Assembly Line",
+                    "category": "Production",
+                    "description": "Automated station for crafting advanced spheres."
+                },
+                {
+                    "id": "water-broncherry-saddle",
+                    "name": "Water Broncherry Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Water Broncherry Saddle."
                 }
             ]
         },
@@ -14686,10 +15685,117 @@
             "level": 28,
             "items": [
                 {
-                    "id": "sphere-assembly-line",
-                    "name": "Sphere Assembly Line",
+                    "id": "anti-gravity-belt",
+                    "name": "Anti-Gravity Belt",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Anti-Gravity Belt."
+                },
+                {
+                    "id": "defensive-wall",
+                    "name": "Defensive Wall",
+                    "category": "Base",
+                    "description": "Unlocks the Defensive Wall structure at your base."
+                },
+                {
+                    "id": "giga-shield",
+                    "name": "Giga Shield",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Giga Shield."
+                },
+                {
+                    "id": "handgun",
+                    "name": "Handgun",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Handgun."
+                },
+                {
+                    "id": "handgun-ammo",
+                    "name": "Handgun Ammo",
+                    "category": "Ammo",
+                    "description": "Unlocks the recipe for Handgun Ammo."
+                },
+                {
+                    "id": "production-assembly-line",
+                    "name": "Production Assembly Line",
                     "category": "Production",
-                    "description": "Automated station for crafting advanced spheres."
+                    "description": "Unlocks the Production Assembly Line structure at your base."
+                },
+                {
+                    "id": "stump-and-axe",
+                    "name": "Stump and Axe",
+                    "category": "Base",
+                    "description": "Unlocks the Stump and Axe structure at your base."
+                },
+                {
+                    "id": "tarantriss-saddle",
+                    "name": "Tarantriss Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Tarantriss Saddle."
+                },
+                {
+                    "id": "water-elphidran-saddle",
+                    "name": "Water Elphidran Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Water Elphidran Saddle."
+                }
+            ]
+        },
+        {
+            "level": 29,
+            "items": [
+                {
+                    "id": "azurobe-cryst-saddle",
+                    "name": "Azurobe Cryst Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Azurobe Cryst Saddle."
+                },
+                {
+                    "id": "enhanced-hip-lantern",
+                    "name": "Enhanced Hip Lantern",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Enhanced Hip Lantern."
+                },
+                {
+                    "id": "fine-bed",
+                    "name": "Fine Bed",
+                    "category": "Base",
+                    "description": "Unlocks the Fine Bed structure at your base."
+                },
+                {
+                    "id": "ice-grenade",
+                    "name": "Ice Grenade",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Ice Grenade."
+                },
+                {
+                    "id": "intermediate-fishing-rod-cattiva",
+                    "name": "Intermediate Fishing Rod (Cattiva)",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Intermediate Fishing Rod (Cattiva)."
+                },
+                {
+                    "id": "katana",
+                    "name": "Katana",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Katana."
+                },
+                {
+                    "id": "mammorest-saddle",
+                    "name": "Mammorest Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Mammorest Saddle."
+                },
+                {
+                    "id": "potato-plantation",
+                    "name": "Potato Plantation",
+                    "category": "Base",
+                    "description": "Unlocks the Potato Plantation structure at your base."
+                },
+                {
+                    "id": "reindrix-saddle",
+                    "name": "Reindrix Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Reindrix Saddle."
                 }
             ]
         },
@@ -14697,16 +15803,111 @@
             "level": 30,
             "items": [
                 {
-                    "id": "homeward-thundercloud",
-                    "name": "Homeward Thundercloud",
-                    "category": "Ancient Tech",
-                    "description": "Ancient recall gadget that returns you to your base."
+                    "id": "dinossom-lux-saddle",
+                    "name": "Dinossom Lux Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Dinossom Lux Saddle."
                 },
                 {
-                    "id": "large-feed-bag",
-                    "name": "Large Feed Bag",
-                    "category": "Ancient Tech",
-                    "description": "Expanded feed bag that keeps more snacks on hand."
+                    "id": "kitsun-saddle",
+                    "name": "Kitsun Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Kitsun Saddle."
+                },
+                {
+                    "id": "makeshift-shotgun",
+                    "name": "Makeshift Shotgun",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Makeshift Shotgun."
+                },
+                {
+                    "id": "meowmere",
+                    "name": "Meowmere",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Meowmere."
+                },
+                {
+                    "id": "metal-structure-set",
+                    "name": "Metal Structure Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Metal Structure Set structure at your base."
+                },
+                {
+                    "id": "mine",
+                    "name": "Mine",
+                    "category": "Production",
+                    "description": "Unlocks the Mine structure at your base."
+                },
+                {
+                    "id": "pickaxe-and-helmet",
+                    "name": "Pickaxe and Helmet",
+                    "category": "Armor",
+                    "description": "Unlocks the Pickaxe and Helmet structure at your base."
+                },
+                {
+                    "id": "vanwyrm-cryst-saddle",
+                    "name": "Vanwyrm Cryst Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Vanwyrm Cryst Saddle."
+                }
+            ]
+        },
+        {
+            "level": 31,
+            "items": [
+                {
+                    "id": "fishing-pond",
+                    "name": "Fishing Pond",
+                    "category": "Base",
+                    "description": "Unlocks the Fishing Pond structure at your base."
+                },
+                {
+                    "id": "giga-grappling-gun",
+                    "name": "Giga Grappling Gun",
+                    "category": "Weapon",
+                    "description": "Top-tier grapple for extreme mobility across the map."
+                },
+                {
+                    "id": "hangyu-cryst-s-glove",
+                    "name": "Hangyu Cryst's Glove",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Hangyu Cryst's Glove."
+                },
+                {
+                    "id": "high-quality-hot-spring",
+                    "name": "High Quality Hot Spring",
+                    "category": "Base",
+                    "description": "Unlocks the High Quality Hot Spring structure at your base."
+                },
+                {
+                    "id": "incendiary-grenade",
+                    "name": "Incendiary Grenade",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Incendiary Grenade."
+                },
+                {
+                    "id": "makeshift-assault-rifle",
+                    "name": "Makeshift Assault Rifle",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Makeshift Assault Rifle."
+                },
+                {
+                    "id": "pyrin-saddle",
+                    "name": "Pyrin Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Pyrin Saddle."
+                },
+                {
+                    "id": "sniper-module",
+                    "name": "Sniper Module",
+                    "category": "Ammo",
+                    "description": "Unlocks the recipe for Sniper Module."
+                },
+                {
+                    "id": "stone-gate",
+                    "name": "Stone Gate",
+                    "category": "Base",
+                    "description": "Unlocks the Stone Gate structure at your base."
                 }
             ]
         },
@@ -14714,10 +15915,176 @@
             "level": 32,
             "items": [
                 {
-                    "id": "electric-egg-incubator",
-                    "name": "Electric Egg Incubator",
-                    "category": "Ancient Tech",
-                    "description": "Improved incubator that speeds hatching with power."
+                    "id": "carrot-plantation",
+                    "name": "Carrot Plantation",
+                    "category": "Base",
+                    "description": "Unlocks the Carrot Plantation structure at your base."
+                },
+                {
+                    "id": "compound-bow",
+                    "name": "Compound Bow",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Compound Bow."
+                },
+                {
+                    "id": "pal-recovery-grenade",
+                    "name": "Pal Recovery Grenade",
+                    "category": "Base",
+                    "description": "Unlocks the Pal Recovery Grenade structure at your base."
+                },
+                {
+                    "id": "palbox-control-device",
+                    "name": "Palbox Control Device",
+                    "category": "Base",
+                    "description": "Unlocks the Palbox Control Device structure at your base."
+                },
+                {
+                    "id": "reinforced-arrow",
+                    "name": "Reinforced Arrow",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Reinforced Arrow."
+                },
+                {
+                    "id": "reptyro-saddle",
+                    "name": "Reptyro Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Reptyro Saddle."
+                },
+                {
+                    "id": "summoning-altar",
+                    "name": "Summoning Altar",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Summoning Altar."
+                },
+                {
+                    "id": "weapon-assembly-line",
+                    "name": "Weapon Assembly Line",
+                    "category": "Production",
+                    "description": "Unlocks the Weapon Assembly Line structure at your base."
+                },
+                {
+                    "id": "witch-cauldron",
+                    "name": "Witch Cauldron",
+                    "category": "Base",
+                    "description": "Unlocks the Witch Cauldron structure at your base."
+                }
+            ]
+        },
+        {
+            "level": 33,
+            "items": [
+                {
+                    "id": "ability-glasses",
+                    "name": "Ability Glasses",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Ability Glasses."
+                },
+                {
+                    "id": "blazehowl-saddle",
+                    "name": "Blazehowl Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Blazehowl Saddle."
+                },
+                {
+                    "id": "clock-set",
+                    "name": "Clock Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Clock Set structure at your base."
+                },
+                {
+                    "id": "electric-mine",
+                    "name": "Electric Mine",
+                    "category": "Production",
+                    "description": "Unlocks the Electric Mine structure at your base."
+                },
+                {
+                    "id": "helzephyr-saddle",
+                    "name": "Helzephyr Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Helzephyr Saddle."
+                },
+                {
+                    "id": "old-revolver",
+                    "name": "Old Revolver",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Old Revolver."
+                },
+                {
+                    "id": "polymer",
+                    "name": "Polymer",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Polymer."
+                },
+                {
+                    "id": "snowman",
+                    "name": "Snowman",
+                    "category": "Base",
+                    "description": "Unlocks the Snowman structure at your base."
+                },
+                {
+                    "id": "water-grenade",
+                    "name": "Water Grenade",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Water Grenade."
+                }
+            ]
+        },
+        {
+            "level": 34,
+            "items": [
+                {
+                    "id": "air-dash-boots",
+                    "name": "Air Dash Boots",
+                    "category": "Gear",
+                    "description": "Unlocks the ancient blueprint for the Air Dash Boots."
+                },
+                {
+                    "id": "beakon-saddle",
+                    "name": "Beakon Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Beakon Saddle."
+                },
+                {
+                    "id": "improved-furnace",
+                    "name": "Improved Furnace",
+                    "category": "Production",
+                    "description": "Unlocks the Improved Furnace structure at your base."
+                },
+                {
+                    "id": "polapup-s-harness",
+                    "name": "Polapup's Harness",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Polapup's Harness."
+                },
+                {
+                    "id": "pyrin-noct-saddle",
+                    "name": "Pyrin Noct Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Pyrin Noct Saddle."
+                },
+                {
+                    "id": "refined-metal-axe",
+                    "name": "Refined Metal Axe",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Refined Metal Axe."
+                },
+                {
+                    "id": "refined-metal-pickaxe",
+                    "name": "Refined Metal Pickaxe",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Refined Metal Pickaxe."
+                },
+                {
+                    "id": "refined-metal-spear",
+                    "name": "Refined Metal Spear",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Refined Metal Spear."
+                },
+                {
+                    "id": "storage-container-set",
+                    "name": "Storage Container Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Storage Container Set structure at your base."
                 }
             ]
         },
@@ -14725,10 +16092,40 @@
             "level": 35,
             "items": [
                 {
-                    "id": "giga-grappling-gun",
-                    "name": "Giga Grappling Gun",
-                    "category": "Ancient Tech",
-                    "description": "Top-tier grapple for extreme mobility across the map."
+                    "id": "blazehowl-noct-saddle",
+                    "name": "Blazehowl Noct Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Blazehowl Noct Saddle."
+                },
+                {
+                    "id": "carbon-fiber",
+                    "name": "Carbon Fiber",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Carbon Fiber."
+                },
+                {
+                    "id": "circuit-board",
+                    "name": "Circuit Board",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Circuit Board."
+                },
+                {
+                    "id": "grass-grenade",
+                    "name": "Grass Grenade",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Grass Grenade."
+                },
+                {
+                    "id": "huge-feed-bag",
+                    "name": "Huge Feed Bag",
+                    "category": "Gear",
+                    "description": "Unlocks the ancient blueprint for the Huge Feed Bag."
+                },
+                {
+                    "id": "metal-chair-and-desk-set",
+                    "name": "Metal Chair and Desk Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Metal Chair and Desk Set structure at your base."
                 },
                 {
                     "id": "sphere-assembly-line-2",
@@ -14737,15 +16134,246 @@
                     "description": "Improved line that produces Ultra Spheres efficiently."
                 },
                 {
+                    "id": "ultra-sphere",
                     "name": "Ultra Sphere",
                     "category": "Equipment",
-                    "materials": {
-                        "Paladium Fragment": 5,
-                        "Refined Ingot": 5,
-                        "Carbon Fiber": 2,
-                        "Cement": 3
-                    },
                     "description": "Craft Ultra Sphere with materials and capture high-level pals."
+                },
+                {
+                    "id": "whalaska-saddle",
+                    "name": "Whalaska Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Whalaska Saddle."
+                }
+            ]
+        },
+        {
+            "level": 36,
+            "items": [
+                {
+                    "id": "antique-lamp-set",
+                    "name": "Antique Lamp Set",
+                    "category": "Production",
+                    "description": "Unlocks the Antique Lamp Set structure at your base."
+                },
+                {
+                    "id": "electric-egg-incubator",
+                    "name": "Electric Egg Incubator",
+                    "category": "Production",
+                    "description": "Improved incubator that speeds hatching with power."
+                },
+                {
+                    "id": "high-quality-cloth",
+                    "name": "High Quality Cloth",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for High Quality Cloth."
+                },
+                {
+                    "id": "large-pal-bed",
+                    "name": "Large Pal Bed",
+                    "category": "Base",
+                    "description": "Unlocks the Large Pal Bed structure at your base."
+                },
+                {
+                    "id": "onion-plantation",
+                    "name": "Onion Plantation",
+                    "category": "Base",
+                    "description": "Unlocks the Onion Plantation structure at your base."
+                },
+                {
+                    "id": "pal-surgery-table",
+                    "name": "Pal Surgery Table",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Pal Surgery Table."
+                },
+                {
+                    "id": "quivern-saddle",
+                    "name": "Quivern Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Quivern Saddle."
+                },
+                {
+                    "id": "rifle-ammo",
+                    "name": "Rifle Ammo",
+                    "category": "Ammo",
+                    "description": "Unlocks the recipe for Rifle Ammo."
+                },
+                {
+                    "id": "single-shot-rifle",
+                    "name": "Single-Shot Rifle",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Single-Shot Rifle."
+                }
+            ]
+        },
+        {
+            "level": 37,
+            "items": [
+                {
+                    "id": "accumulator",
+                    "name": "Accumulator",
+                    "category": "Production",
+                    "description": "Unlocks the Accumulator structure at your base."
+                },
+                {
+                    "id": "ironwood-table-set",
+                    "name": "Ironwood Table Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Ironwood Table Set structure at your base."
+                },
+                {
+                    "id": "ragnahawk-saddle",
+                    "name": "Ragnahawk Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Ragnahawk Saddle."
+                },
+                {
+                    "id": "refined-metal-armor",
+                    "name": "Refined Metal Armor",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Refined Metal Armor."
+                },
+                {
+                    "id": "refined-metal-helm",
+                    "name": "Refined Metal Helm",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Refined Metal Helm."
+                },
+                {
+                    "id": "reptyro-cryst-saddle",
+                    "name": "Reptyro Cryst Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Reptyro Cryst Saddle."
+                },
+                {
+                    "id": "smg",
+                    "name": "SMG",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for SMG."
+                },
+                {
+                    "id": "scattered-sphere-launcher",
+                    "name": "Scattered Sphere Launcher",
+                    "category": "Weapon",
+                    "description": "Unlocks the ancient blueprint for the Scattered Sphere Launcher."
+                }
+            ]
+        },
+        {
+            "level": 38,
+            "items": [
+                {
+                    "id": "blazamut-saddle",
+                    "name": "Blazamut Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Blazamut Saddle."
+                },
+                {
+                    "id": "deluxe-bait",
+                    "name": "Deluxe Bait",
+                    "category": "Consumable",
+                    "description": "Unlocks the Deluxe Bait structure at your base."
+                },
+                {
+                    "id": "faleris-saddle",
+                    "name": "Faleris Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Faleris Saddle."
+                },
+                {
+                    "id": "ground-grenade",
+                    "name": "Ground Grenade",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Ground Grenade."
+                },
+                {
+                    "id": "ice-mine",
+                    "name": "Ice Mine",
+                    "category": "Production",
+                    "description": "Unlocks the Ice Mine structure at your base."
+                },
+                {
+                    "id": "meteor-launcher",
+                    "name": "Meteor Launcher",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Meteor Launcher."
+                },
+                {
+                    "id": "ore-mining-site-ii",
+                    "name": "Ore Mining Site II",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Ore Mining Site II."
+                },
+                {
+                    "id": "outdoor-furniture-set",
+                    "name": "Outdoor Furniture Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Outdoor Furniture Set structure at your base."
+                },
+                {
+                    "id": "refrigerator",
+                    "name": "Refrigerator",
+                    "category": "Base",
+                    "description": "Unlocks the Refrigerator structure at your base."
+                }
+            ]
+        },
+        {
+            "level": 39,
+            "items": [
+                {
+                    "id": "double-jump-boots",
+                    "name": "Double Jump Boots",
+                    "category": "Gear",
+                    "description": "Unlocks the ancient blueprint for the Double Jump Boots."
+                },
+                {
+                    "id": "double-barreled-shotgun",
+                    "name": "Double-barreled Shotgun",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Double-barreled Shotgun."
+                },
+                {
+                    "id": "glass-structure-set",
+                    "name": "Glass Structure Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Glass Structure Set structure at your base."
+                },
+                {
+                    "id": "jormuntide-saddle",
+                    "name": "Jormuntide Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Jormuntide Saddle."
+                },
+                {
+                    "id": "metal-barrel-set",
+                    "name": "Metal Barrel Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Metal Barrel Set structure at your base."
+                },
+                {
+                    "id": "pengullet-lux-s-rocket-launcher",
+                    "name": "Pengullet Lux's Rocket Launcher",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Pengullet Lux's Rocket Launcher."
+                },
+                {
+                    "id": "refined-metal-chest",
+                    "name": "Refined Metal Chest",
+                    "category": "Production",
+                    "description": "Unlocks the Refined Metal Chest structure at your base."
+                },
+                {
+                    "id": "shotgun-shells",
+                    "name": "Shotgun Shells",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Shotgun Shells."
+                },
+                {
+                    "id": "slider-module",
+                    "name": "Slider Module",
+                    "category": "Ammo",
+                    "description": "Unlocks the recipe for Slider Module."
                 }
             ]
         },
@@ -14753,15 +16381,99 @@
             "level": 40,
             "items": [
                 {
-                    "name": "Legendary Sphere",
-                    "category": "Equipment",
-                    "materials": {
-                        "Paladium Fragment": 10,
-                        "Carbon Fiber": 5,
-                        "Circuit Board": 5,
-                        "Polymer": 5
-                    },
-                    "description": "Craft Legendary Sphere with materials and capture high-level pals."
+                    "id": "dark-grenade",
+                    "name": "Dark Grenade",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Dark Grenade."
+                },
+                {
+                    "id": "giga-glider",
+                    "name": "Giga Glider",
+                    "category": "Gear",
+                    "description": "Unlocks the recipe for Giga Glider."
+                },
+                {
+                    "id": "grizzbolt-s-minigun",
+                    "name": "Grizzbolt's Minigun",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Grizzbolt's Minigun."
+                },
+                {
+                    "id": "guild-chest",
+                    "name": "Guild Chest",
+                    "category": "Production",
+                    "description": "Unlocks the ancient blueprint for the Guild Chest."
+                },
+                {
+                    "id": "heat-resistant-refined-metal-armor",
+                    "name": "Heat Resistant Refined Metal Armor",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Heat Resistant Refined Metal Armor."
+                },
+                {
+                    "id": "leather-chair-set",
+                    "name": "Leather Chair Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Leather Chair Set structure at your base."
+                },
+                {
+                    "id": "mounted-machine-gun",
+                    "name": "Mounted Machine Gun",
+                    "category": "Weapon",
+                    "description": "Unlocks the Mounted Machine Gun structure at your base."
+                }
+            ]
+        },
+        {
+            "level": 41,
+            "items": [
+                {
+                    "id": "alpha-wave-generator",
+                    "name": "Alpha Wave Generator",
+                    "category": "Production",
+                    "description": "Unlocks the Alpha Wave Generator structure at your base."
+                },
+                {
+                    "id": "coal-mine",
+                    "name": "Coal Mine",
+                    "category": "Production",
+                    "description": "Unlocks the ancient blueprint for the Coal Mine."
+                },
+                {
+                    "id": "cold-resistant-refined-metal-armor",
+                    "name": "Cold Resistant Refined Metal Armor",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Cold Resistant Refined Metal Armor."
+                },
+                {
+                    "id": "electric-heater",
+                    "name": "Electric Heater",
+                    "category": "Base",
+                    "description": "Unlocks the Electric Heater structure at your base."
+                },
+                {
+                    "id": "electric-kitchen",
+                    "name": "Electric Kitchen",
+                    "category": "Base",
+                    "description": "Unlocks the Electric Kitchen structure at your base."
+                },
+                {
+                    "id": "semi-auto-rifle",
+                    "name": "Semi-Auto Rifle",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Semi-Auto Rifle."
+                },
+                {
+                    "id": "street-lamp-set",
+                    "name": "Street Lamp Set",
+                    "category": "Production",
+                    "description": "Unlocks the Street Lamp Set structure at your base."
+                },
+                {
+                    "id": "suzaku-saddle",
+                    "name": "Suzaku Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Suzaku Saddle."
                 }
             ]
         },
@@ -14769,10 +16481,111 @@
             "level": 42,
             "items": [
                 {
+                    "id": "amusement-furniture-set",
+                    "name": "Amusement Furniture Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Amusement Furniture Set structure at your base."
+                },
+                {
+                    "id": "dragon-grenade",
+                    "name": "Dragon Grenade",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Dragon Grenade."
+                },
+                {
+                    "id": "electric-cooler",
+                    "name": "Electric Cooler",
+                    "category": "Base",
+                    "description": "Unlocks the Electric Cooler structure at your base."
+                },
+                {
+                    "id": "emergency-exit-sign-set",
+                    "name": "Emergency Exit Sign Set",
+                    "category": "Decoration",
+                    "description": "Unlocks the Emergency Exit Sign Set structure at your base."
+                },
+                {
+                    "id": "ice-kingpaca-saddle",
+                    "name": "Ice Kingpaca Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Ice Kingpaca Saddle."
+                },
+                {
+                    "id": "iron-gate",
+                    "name": "Iron Gate",
+                    "category": "Base",
+                    "description": "Unlocks the Iron Gate structure at your base."
+                },
+                {
+                    "id": "medium-pouch",
+                    "name": "Medium Pouch",
+                    "category": "Gear",
+                    "description": "Unlocks the ancient blueprint for the Medium Pouch."
+                },
+                {
+                    "id": "palumba-saddle",
+                    "name": "Palumba Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Palumba Saddle."
+                },
+                {
+                    "id": "production-assembly-line-ii",
+                    "name": "Production Assembly Line II",
+                    "category": "Production",
+                    "description": "Unlocks the Production Assembly Line II structure at your base."
+                }
+            ]
+        },
+        {
+            "level": 43,
+            "items": [
+                {
+                    "id": "electric-medicine-workbench",
+                    "name": "Electric Medicine Workbench",
+                    "category": "Production",
+                    "description": "Unlocks the Electric Medicine Workbench structure at your base."
+                },
+                {
+                    "id": "hyper-shield",
+                    "name": "Hyper Shield",
+                    "category": "Armor",
+                    "description": "Unlocks the recipe for Hyper Shield."
+                },
+                {
+                    "id": "jormuntide-ignis-saddle",
+                    "name": "Jormuntide Ignis Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Jormuntide Ignis Saddle."
+                },
+                {
+                    "id": "lily-s-spear",
+                    "name": "Lily's Spear",
+                    "category": "Base",
+                    "description": "Unlocks the ancient blueprint for the Lily's Spear."
+                },
+                {
+                    "id": "metal-defensive-wall",
+                    "name": "Metal Defensive Wall",
+                    "category": "Base",
+                    "description": "Unlocks the Metal Defensive Wall structure at your base."
+                },
+                {
                     "id": "pump-action-shotgun",
                     "name": "Pump-Action Shotgun",
                     "category": "Weapon",
                     "description": "Close-range firearm with high burst damage."
+                },
+                {
+                    "id": "water-suzaku-saddle",
+                    "name": "Water Suzaku Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Water Suzaku Saddle."
+                },
+                {
+                    "id": "yakumo-saddle",
+                    "name": "Yakumo Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Yakumo Saddle."
                 }
             ]
         },
@@ -14780,16 +16593,52 @@
             "level": 44,
             "items": [
                 {
+                    "id": "decal-gun-set",
+                    "name": "Decal Gun Set",
+                    "category": "Weapon",
+                    "description": "Unlocks the ancient blueprint for the Decal Gun Set."
+                },
+                {
                     "id": "electric-furnace",
                     "name": "Electric Furnace",
                     "category": "Production",
                     "description": "High-tier furnace needed for Pal Metal Ingots."
                 },
                 {
-                    "id": "pal-metal-ingot",
-                    "name": "Pal Metal Ingot",
-                    "category": "Production",
-                    "description": "Recipe for forging Pal Metal, used in late-game gear."
+                    "id": "legendary-sphere",
+                    "name": "Legendary Sphere",
+                    "category": "Equipment",
+                    "description": "Craft Legendary Sphere with materials and capture high-level pals."
+                },
+                {
+                    "id": "pal-metal-axe",
+                    "name": "Pal Metal Axe",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Pal Metal Axe."
+                },
+                {
+                    "id": "pal-metal-pickaxe",
+                    "name": "Pal Metal Pickaxe",
+                    "category": "Base",
+                    "description": "Unlocks the recipe for Pal Metal Pickaxe."
+                },
+                {
+                    "id": "relaxaurus-s-missile-launcher",
+                    "name": "Relaxaurus's Missile Launcher",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Relaxaurus's Missile Launcher."
+                },
+                {
+                    "id": "sword",
+                    "name": "Sword",
+                    "category": "Weapon",
+                    "description": "Unlocks the recipe for Sword."
+                },
+                {
+                    "id": "wumpo-saddle",
+                    "name": "Wumpo Saddle",
+                    "category": "Pal Gear",
+                    "description": "Unlocks the recipe for Wumpo Saddle."
                 }
             ]
         },
@@ -14797,16 +16646,980 @@
             "level": 45,
             "items": [
                 {
+                    "id": "advanced-fishing-rod-pengullet",
+                    "name": "Advanced Fishing Rod (Pengullet)",
+                    "category": "Base",
+                    "description": "A fishing rod designed for catching Pals. Use it with bait near water where shadows are visible to start fishing. It boasts improved performance, making catches vastly easier."
+                },
+                {
                     "id": "assault-rifle",
                     "name": "Assault Rifle",
                     "category": "Weapon",
-                    "description": "Fully automatic rifle for late-game firefights."
+                    "description": "Mows down enemies with overwhelming force. It excels at rapid-fire and is well suited to taking down powerful foes."
                 },
                 {
                     "id": "assault-rifle-ammo",
                     "name": "Assault Rifle Ammo",
                     "category": "Ammo",
-                    "description": "Ammo crafted for the Assault Rifle."
+                    "description": "Ammo for Assault Rifle and other similar weapons."
+                },
+                {
+                    "id": "chillet-ignis-saddle",
+                    "name": "Chillet Ignis Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Chillet Ignis."
+                },
+                {
+                    "id": "drafting-table",
+                    "name": "Drafting Table",
+                    "category": "Base",
+                    "description": "A facility that lets you combine multiple schematics to create more advanced ones."
+                },
+                {
+                    "id": "mammorest-cryst-saddle",
+                    "name": "Mammorest Cryst Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Mammorest Cryst."
+                },
+                {
+                    "id": "sulfur-mine",
+                    "name": "Sulfur Mine",
+                    "category": "Production",
+                    "description": "Facility for producing Sulfur. Digging Sulfur is grueling physical work. Leave it to a Pal that is good at mining."
+                },
+                {
+                    "id": "traffic-control-set",
+                    "name": "Traffic Control Set",
+                    "category": "Decoration",
+                    "description": "Decorative furniture set. No roads mean no traffic control."
+                },
+                {
+                    "id": "wumpo-botan-saddle",
+                    "name": "Wumpo Botan Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Wumpo Botan."
+                }
+            ]
+        },
+        {
+            "level": 46,
+            "items": [
+                {
+                    "id": "beta-wave-generator",
+                    "name": "Beta Wave Generator",
+                    "category": "Production",
+                    "description": "A device that emits beta waves to energize Pals. It increases the work speed of Pals in the base. Placing more than one will not have additional effects."
+                },
+                {
+                    "id": "braloha-saddle",
+                    "name": "Braloha Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Braloha."
+                },
+                {
+                    "id": "giant-feed-bag",
+                    "name": "Giant Feed Bag",
+                    "category": "Gear",
+                    "description": "An extraordinarily large sack for storing food. Unlocks 5 food slots in your inventory. Players and Pals automatically consume food when hungry."
+                },
+                {
+                    "id": "large-mounted-lamp",
+                    "name": "Large Mounted Lamp",
+                    "category": "Production",
+                    "description": "A light source that provides illumination to a base even at night. Requires a significant amount of electricity, but lights up an even larger area."
+                },
+                {
+                    "id": "pal-metal-armor",
+                    "name": "Pal Metal Armor",
+                    "category": "Armor",
+                    "description": "Armor made from . High defense, but extremely heavy. Equipment for a hero, it exudes bravery."
+                },
+                {
+                    "id": "pal-metal-helm",
+                    "name": "Pal Metal Helm",
+                    "category": "Armor",
+                    "description": "A helm made from . Envied for its immaculate quality, it is proof of a chosen warrior."
+                },
+                {
+                    "id": "relaxaurus-lux-s-missile-launcher",
+                    "name": "Relaxaurus Lux's Missile Launcher",
+                    "category": "Weapon",
+                    "description": "Makes Relaxaurus Lux fire a missile launcher when ridden."
+                },
+                {
+                    "id": "road-sign-set",
+                    "name": "Road Sign Set",
+                    "category": "Decoration",
+                    "description": "Decorative furniture set. No roads mean no traffic control."
+                },
+                {
+                    "id": "shroomer-saddle",
+                    "name": "Shroomer Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Shroomer."
+                }
+            ]
+        },
+        {
+            "level": 47,
+            "items": [
+                {
+                    "id": "astegon-saddle",
+                    "name": "Astegon Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Astegon."
+                },
+                {
+                    "id": "large-ceiling-lamp",
+                    "name": "Large Ceiling Lamp",
+                    "category": "Production",
+                    "description": "A light source that provides illumination to a base even at night. It can be placed on a ceiling. Requires a significant amount of electricity, but lights up an even larger area."
+                },
+                {
+                    "id": "large-incubator",
+                    "name": "Large Incubator",
+                    "category": "Production",
+                    "description": "Device for incubating Pal eggs. It automatically maintains a suitable temperature and can hatch multiple eggs at once."
+                },
+                {
+                    "id": "semi-auto-shotgun",
+                    "name": "Semi-Auto Shotgun",
+                    "category": "Weapon",
+                    "description": "A rapid-fire shotgun with immense power. Its close-range damage output is top-notch."
+                },
+                {
+                    "id": "shadowbeak-saddle",
+                    "name": "Shadowbeak Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Shadowbeak."
+                },
+                {
+                    "id": "shroomer-noct-saddle",
+                    "name": "Shroomer Noct Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Shroomer Noct."
+                },
+                {
+                    "id": "sniper-module-ii",
+                    "name": "Sniper Module II",
+                    "category": "Ammo",
+                    "description": "Equipping it significantly increases the sphere's range, allowing it to sharply capture Pals and enhancing capture power."
+                },
+                {
+                    "id": "weapon-assembly-line-ii",
+                    "name": "Weapon Assembly Line II",
+                    "category": "Production",
+                    "description": "An Assembly Line for producing weapons and ammunition. Cleverly dividing up work has allowed for production of top-class weapons. Requires Pals that can work with their hands."
+                }
+            ]
+        },
+        {
+            "level": 48,
+            "items": [
+                {
+                    "id": "barricade-set",
+                    "name": "Barricade Set",
+                    "category": "Decoration",
+                    "description": "Decorative furniture set. Place to keep somewhere off limits."
+                },
+                {
+                    "id": "electric-pylon",
+                    "name": "Electric Pylon",
+                    "category": "Production",
+                    "description": "Place in base to improve electricity generating speed. Placing more than one has no additional effect."
+                },
+                {
+                    "id": "frostallion-noct-saddle",
+                    "name": "Frostallion Noct Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Frostallion Noct."
+                },
+                {
+                    "id": "frostallion-saddle",
+                    "name": "Frostallion Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Frostallion."
+                },
+                {
+                    "id": "gold-coin-assembly-line",
+                    "name": "Gold Coin Assembly Line",
+                    "category": "Production",
+                    "description": "Automated mint that churns out Gold Coins when staffed, turning spare ore and Pal-made parts into steady income."
+                },
+                {
+                    "id": "heat-resistant-pal-metal-armor",
+                    "name": "Heat Resistant Pal Metal Armor",
+                    "category": "Armor",
+                    "description": "Improved Pal Metal Armor. Proudly boasts a high heat resistance."
+                },
+                {
+                    "id": "hyper-grappling-gun",
+                    "name": "Hyper Grappling Gun",
+                    "category": "Weapon",
+                    "description": "It fires a hook that latches on to distant targets, pulling the user's body towards the target. As a result of research, it has achieved overwhelming mobility."
+                },
+                {
+                    "id": "skillfruit-orchard",
+                    "name": "Skillfruit Orchard",
+                    "category": "Production",
+                    "description": "A farm where Skillfruits can be cultivated. By planting the original fruit in the ground, multiple fruits of the same type can be harvested."
+                }
+            ]
+        },
+        {
+            "level": 49,
+            "items": [
+                {
+                    "id": "item-retrieval-machine",
+                    "name": "Item Retrieval Machine",
+                    "category": "Production",
+                    "description": "Base terminal that scans every storage box and delivers the stack you request without running around your base."
+                },
+                {
+                    "id": "large-power-generator",
+                    "name": "Large Power Generator",
+                    "category": "Production",
+                    "description": "A power generator fueled by Electric Pals. Larger and with improved power generation efficiency."
+                },
+                {
+                    "id": "large-scale-stone-oven",
+                    "name": "Large-Scale Stone Oven",
+                    "category": "Production",
+                    "description": "Needed for cooking food. By becoming larger, multiple Pals can cooperate to cook together."
+                },
+                {
+                    "id": "necromus-saddle",
+                    "name": "Necromus Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Necromus."
+                },
+                {
+                    "id": "paladius-saddle",
+                    "name": "Paladius Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Paladius."
+                },
+                {
+                    "id": "quivern-botan-saddle",
+                    "name": "Quivern Botan Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Quivern Botan."
+                },
+                {
+                    "id": "rocket-ammo",
+                    "name": "Rocket Ammo",
+                    "category": "Ammo",
+                    "description": "Ammo for Rocket Launcher and other similar weapons."
+                },
+                {
+                    "id": "rocket-launcher",
+                    "name": "Rocket Launcher",
+                    "category": "Weapon",
+                    "description": "A Rocket Launcher that can fire a powerful round from long distances."
+                }
+            ]
+        },
+        {
+            "level": 50,
+            "items": [
+                {
+                    "id": "cold-resistant-pal-metal-armor",
+                    "name": "Cold Resistant Pal Metal Armor",
+                    "category": "Armor",
+                    "description": "Improved Pal Metal Armor. Useful for activities in cold regions."
+                },
+                {
+                    "id": "crude-oil-extractor",
+                    "name": "Crude Oil Extractor",
+                    "category": "Production",
+                    "description": "Equipment required to extract from oil fields. Requires a power supply to operate."
+                },
+                {
+                    "id": "japanese-style-structure-set",
+                    "name": "Japanese-Style Structure Set",
+                    "category": "Decoration",
+                    "description": "Set for building a base using Japanese-style architecture. Allows building of Japanese-style foundations, walls, ceilings, stairs and other things necessary for shelters."
+                },
+                {
+                    "id": "jetragon-s-missile-launcher",
+                    "name": "Jetragon's Missile Launcher",
+                    "category": "Weapon",
+                    "description": "Makes Jetragon fire missiles when ridden."
+                },
+                {
+                    "id": "mounted-missile-launcher",
+                    "name": "Mounted Missile Launcher",
+                    "category": "Weapon",
+                    "description": "Deploy a Pal to operate this defensive installation. Requires Rocket Ammo to use. Place ammo in the chest, and the deployed Pal will automatically load the weapon."
+                },
+                {
+                    "id": "plasteel",
+                    "name": "Plasteel",
+                    "category": "Material",
+                    "description": "Plasteel created by processing Crude Oil and metal. Can be produced in a Electric Furnace."
+                },
+                {
+                    "id": "pure-quartz-mine",
+                    "name": "Pure Quartz Mine",
+                    "category": "Production",
+                    "description": "Facility for producing Pure Quartz. Mining Pure Quartz is hard work that requires physical endurance. Leave it to Pals skilled at mining."
+                },
+                {
+                    "id": "xenogard-saddle",
+                    "name": "Xenogard Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Xenogard."
+                }
+            ]
+        },
+        {
+            "level": 51,
+            "items": [
+                {
+                    "id": "cold-food-box",
+                    "name": "Cold Food Box",
+                    "category": "Base",
+                    "description": "A feeding box that can be kept cold. Assign an Pal to it and the food inside will be less likely to spoil."
+                },
+                {
+                    "id": "dazzi-noct-s-necklace",
+                    "name": "Dazzi Noct's Necklace",
+                    "category": "Base",
+                    "description": "Collar for Dazzi. If Dazzi is in your team, it will stay by your side and attack enemies in tandem."
+                },
+                {
+                    "id": "energy-cartridge",
+                    "name": "Energy Cartridge",
+                    "category": "Ammo",
+                    "description": "Ammo used by the Laser Rifle and similar weapons."
+                },
+                {
+                    "id": "laser-rifle",
+                    "name": "Laser Rifle",
+                    "category": "Weapon",
+                    "description": "A weapon that fires high-energy lasers. It has impressive firepower and is easy to handle."
+                },
+                {
+                    "id": "lockpicking-tool-v3",
+                    "name": "Lockpicking Tool v3",
+                    "category": "Base",
+                    "description": "No key? No problem! These tools will allow you to try and pry open any treasure chest that would normally require a Copper Key."
+                },
+                {
+                    "id": "plasteel-armor",
+                    "name": "Plasteel Armor",
+                    "category": "Armor",
+                    "description": "Armor made of . In addition to enhanced defense capabilities, its weight was also reduced. Equipment that pushes the limits of technology."
+                },
+                {
+                    "id": "plasteel-helmet",
+                    "name": "Plasteel Helmet",
+                    "category": "Armor",
+                    "description": "Helmet made of . In addition to enhanced defense capabilities, its weight was also reduced. Equipment that pushes the limits of technology."
+                },
+                {
+                    "id": "ultimate-sphere",
+                    "name": "Ultimate Sphere",
+                    "category": "Equipment",
+                    "description": "A sphere that captures Pals when thrown. Its performance has been improved using the latest technology."
+                }
+            ]
+        },
+        {
+            "level": 52,
+            "items": [
+                {
+                    "id": "alluring-bait",
+                    "name": "Alluring Bait",
+                    "category": "Consumable",
+                    "description": "Bait that lures in Pals. Improved to enlarge the size of the bar in the fishing minigame and increase the number of items obtained from fishing."
+                },
+                {
+                    "id": "fenglope-lux-saddle",
+                    "name": "Fenglope Lux Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Fenglope Lux."
+                },
+                {
+                    "id": "flamethrower",
+                    "name": "Flamethrower",
+                    "category": "Base",
+                    "description": "Flamethrower that fires long-range flame. Can set the enemy on fire."
+                },
+                {
+                    "id": "flamethrower-fuel",
+                    "name": "Flamethrower Fuel",
+                    "category": "Ammo",
+                    "description": "Flamethrower fuel. Ammo for the Flamethrower and similar weapons."
+                },
+                {
+                    "id": "helzephyr-lux-saddle",
+                    "name": "Helzephyr Lux Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Helzephyr Lux."
+                },
+                {
+                    "id": "hyper-glider",
+                    "name": "Hyper Glider",
+                    "category": "Gear",
+                    "description": "A glider for soaring through the air. Almost fast enough to keep up with airplanes."
+                },
+                {
+                    "id": "large-pouch",
+                    "name": "Large Pouch",
+                    "category": "Gear",
+                    "description": "A large pouch that allows you to carry additional items. Holding it increases your inventory slots."
+                },
+                {
+                    "id": "refrigerated-crusher",
+                    "name": "Refrigerated Crusher",
+                    "category": "Production",
+                    "description": "Facility that crushes Ore and converts it into other materials. Requires a power supply and a Pal with Cooling suitability, but it's very efficient."
+                }
+            ]
+        },
+        {
+            "level": 53,
+            "items": [
+                {
+                    "id": "frag-grenade-mk2",
+                    "name": "Frag Grenade Mk2",
+                    "category": "Base",
+                    "description": "Improved frag grenade. When thrown, it explodes and causes great deal of damage to the enemy."
+                },
+                {
+                    "id": "grenade-ammo",
+                    "name": "Grenade Ammo",
+                    "category": "Ammo",
+                    "description": "Ammo for the Grenade Launcher and similar weapons."
+                },
+                {
+                    "id": "grenade-launcher",
+                    "name": "Grenade Launcher",
+                    "category": "Weapon",
+                    "description": "Fires grenades that cause wide-ranging explosions. Useful when dealing with a large number of enemies."
+                },
+                {
+                    "id": "heat-resistant-plasteel-armor",
+                    "name": "Heat Resistant Plasteel Armor",
+                    "category": "Armor",
+                    "description": "Improved Plasteel Armor. Boasts high heat resistance."
+                },
+                {
+                    "id": "kitsun-noct-saddle",
+                    "name": "Kitsun Noct Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Kitsun Noct."
+                },
+                {
+                    "id": "nyafia-s-shotgun",
+                    "name": "Nyafia's Shotgun",
+                    "category": "Pal Gear",
+                    "description": "Pal gear that lets Nyafia unleash a short-range shotgun blast to shred clustered enemies while she fights beside you."
+                },
+                {
+                    "id": "selyne-saddle",
+                    "name": "Selyne Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Selyne."
+                }
+            ]
+        },
+        {
+            "level": 54,
+            "items": [
+                {
+                    "id": "cold-resistant-plasteel-armor",
+                    "name": "Cold Resistant Plasteel Armor",
+                    "category": "Armor",
+                    "description": "Improved Plasteel Armor. Useful for activities in cold regions."
+                },
+                {
+                    "id": "double-air-dash-boots",
+                    "name": "Double Air Dash Boots",
+                    "category": "Ancient Tech",
+                    "description": "Ancient mobility boots that add a second air dash so you can chain two mid-air bursts before landing."
+                },
+                {
+                    "id": "gatling-gun",
+                    "name": "Gatling Gun",
+                    "category": "Weapon",
+                    "description": "A Gatling gun capable of rapid fire. Mows down enemies with suppressive fire."
+                },
+                {
+                    "id": "gatling-gun-bullet",
+                    "name": "Gatling Gun Bullet",
+                    "category": "Ammo",
+                    "description": "High-capacity ammo belts crafted for the Gatling Gun to keep its suppressive fire roaring."
+                },
+                {
+                    "id": "gildane-saddle",
+                    "name": "Gildane Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Gildane."
+                },
+                {
+                    "id": "japanese-style-furniture-set",
+                    "name": "Japanese-Style Furniture Set",
+                    "category": "Decoration",
+                    "description": "Blueprint collection for shoji walls, tatami floors, lanterns, and other Japanese furnishings to theme a base."
+                },
+                {
+                    "id": "pal-disassembly-conveyor",
+                    "name": "Pal Disassembly Conveyor",
+                    "category": "Base",
+                    "description": "A dream-like facility that automatically butchers any Pal that is placed inside."
+                }
+            ]
+        },
+        {
+            "level": 55,
+            "items": [
+                {
+                    "id": "blazamut-ryu-saddle",
+                    "name": "Blazamut Ryu Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Blazamut Ryu."
+                },
+                {
+                    "id": "faleris-aqua-saddle",
+                    "name": "Faleris Aqua Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Faleris Aqua."
+                },
+                {
+                    "id": "guided-missile-launcher",
+                    "name": "Guided Missile Launcher",
+                    "category": "Weapon",
+                    "description": "Fires missiles that automatically track and pursue enemies. Missiles explode upon impact, causing damage over a wide area."
+                },
+                {
+                    "id": "homing-sphere-launcher",
+                    "name": "Homing Sphere Launcher",
+                    "category": "Weapon",
+                    "description": "A launcher for firing spheres. Fired spheres home in on Pals."
+                },
+                {
+                    "id": "lightweight-plasteel-armor",
+                    "name": "Lightweight Plasteel Armor",
+                    "category": "Armor",
+                    "description": "Improved Plasteel Armor. Increases carrying capacity."
+                },
+                {
+                    "id": "missile-ammo",
+                    "name": "Missile Ammo",
+                    "category": "Ammo",
+                    "description": "Ammo for the Guided Missile Launcher and similar weapons."
+                },
+                {
+                    "id": "ultra-shield",
+                    "name": "Ultra Shield",
+                    "category": "Armor",
+                    "description": "A curious shield that was made using Paldium technology. It repairs itself automatically when not taking damage after some time. As a result of further experiments, ultimate quality has been achieved."
+                }
+            ]
+        },
+        {
+            "level": 56,
+            "items": [
+                {
+                    "id": "advanced-sphere-assembly-line",
+                    "name": "Advanced Sphere Assembly Line",
+                    "category": "Production",
+                    "description": "An Assembly Line for producing spheres used for capturing Pals. Advanced machinery has been introduced, allowing for the production of spheres at high speed. Requires Pals that can work with their hands."
+                },
+                {
+                    "id": "azurmane-saddle",
+                    "name": "Azurmane Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Azurmane."
+                },
+                {
+                    "id": "exotic-sphere",
+                    "name": "Exotic Sphere",
+                    "category": "Equipment",
+                    "description": "An item that captures Pals when thrown. Boasting incredible performance, it can capture Pals that fall outside regular standards."
+                },
+                {
+                    "id": "gigantic-furnace",
+                    "name": "Gigantic Furnace",
+                    "category": "Production",
+                    "description": "Allows refinement of Hexolite. By growing in size, multiple pals can collaborate to perform smelting. Requires a Pal to light a flame."
+                },
+                {
+                    "id": "hexolite",
+                    "name": "Hexolite",
+                    "category": "Material",
+                    "description": "An alloy of Chromite, Ore, and Hexolite Quartz."
+                },
+                {
+                    "id": "metal-detector",
+                    "name": "Metal Detector",
+                    "category": "Gear",
+                    "description": "Holding it allows you to detect hidden ores nearby. It marks the metal when close to the ore, but the mark disappears if you move away."
+                },
+                {
+                    "id": "smokie-s-harness",
+                    "name": "Smokie's Harness",
+                    "category": "Pal Gear",
+                    "description": "Harness for Smokie. Activate its Partner Skill to detect the location of nearby Chromite."
+                }
+            ]
+        },
+        {
+            "level": 57,
+            "items": [
+                {
+                    "id": "advanced-arrow",
+                    "name": "Advanced Arrow",
+                    "category": "Base",
+                    "description": "An Advanced Arrow for use with an Advanced Bow."
+                },
+                {
+                    "id": "advanced-bow",
+                    "name": "Advanced Bow",
+                    "category": "Weapon",
+                    "description": "A bow reconstructed with advanced technology. Capable of firing extremely powerful Arrows."
+                },
+                {
+                    "id": "beam-sword",
+                    "name": "Beam Sword",
+                    "category": "Weapon",
+                    "description": "Beam Sword for close-range combat. Slices through opponents, burning them with a high-output laser."
+                },
+                {
+                    "id": "giant-pouch",
+                    "name": "Giant Pouch",
+                    "category": "Gear",
+                    "description": "Massive storage pouch that expands the player's carry inventory with another row of slots."
+                },
+                {
+                    "id": "hexolite-armor",
+                    "name": "Hexolite Armor",
+                    "category": "Armor",
+                    "description": "Armor made of Hexolite. Possesses overwhelming durability and defense."
+                },
+                {
+                    "id": "homing-module",
+                    "name": "Homing Module",
+                    "category": "Ammo",
+                    "description": "Equipping it makes the sphere home in on Pals, further increasing capture power."
+                },
+                {
+                    "id": "pal-pod",
+                    "name": "Pal Pod",
+                    "category": "Tool",
+                    "description": "Deployable capsule that instantly summons a reserve Pal to fight alongside you without swapping slots at the Palbox."
+                },
+                {
+                    "id": "starryon-saddle",
+                    "name": "Starryon Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Starryon."
+                }
+            ]
+        },
+        {
+            "level": 58,
+            "items": [
+                {
+                    "id": "advanced-chest",
+                    "name": "Advanced Chest",
+                    "category": "Production",
+                    "description": "Stores items. Made of iron, it is extremely durable. It is useful as a large, secure storage box."
+                },
+                {
+                    "id": "celesdir-saddle",
+                    "name": "Celesdir Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Celesdir."
+                },
+                {
+                    "id": "hexolite-helmet",
+                    "name": "Hexolite Helmet",
+                    "category": "Armor",
+                    "description": "Hexolite battle helm that completes the set with heavyweight protection for late-game firefights."
+                },
+                {
+                    "id": "laser-gatling-cartridge",
+                    "name": "Laser Gatling Cartridge",
+                    "category": "Ammo",
+                    "description": "Ammo for the Laser Gatling Gun and any similar weapon."
+                },
+                {
+                    "id": "laser-gatling-gun",
+                    "name": "Laser Gatling Gun",
+                    "category": "Weapon",
+                    "description": "Fires beam-like energy blasts at high speed. Its overwhelming firepower can take down multiple enemies at once."
+                },
+                {
+                    "id": "silvegis-saddle",
+                    "name": "Silvegis Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Silvegis."
+                },
+                {
+                    "id": "triple-jump-boots",
+                    "name": "Triple Jump Boots",
+                    "category": "Gear",
+                    "description": "Advanced mobility boots that unlock a third air dash for unmatched aerial traversal."
+                }
+            ]
+        },
+        {
+            "level": 59,
+            "items": [
+                {
+                    "id": "advanced-medicine-workbench",
+                    "name": "Advanced Medicine Workbench",
+                    "category": "Production",
+                    "description": "A facility for making medicine to cure Pals' illnesses. With advanced technology, it can also create unknown medicines. Assign the task to a Pal capable of pharmacy work."
+                },
+                {
+                    "id": "advanced-recovery-meds",
+                    "name": "Advanced Recovery Meds",
+                    "category": "Consumable",
+                    "description": "Medicine that heals wounds over time. Extremely high quality; it rapidly restores HP before your eyes."
+                },
+                {
+                    "id": "bastigor-s-hammer",
+                    "name": "Bastigor's Hammer",
+                    "category": "Pal Gear",
+                    "description": "Pal gear that arms Bastigor with a colossal hammer swing capable of crushing armor and staggering bosses."
+                },
+                {
+                    "id": "cold-resistant-hexolite-armor",
+                    "name": "Cold Resistant Hexolite Armor",
+                    "category": "Armor",
+                    "description": "Hexolite combat suit with heavy insulation that keeps you safe in polar storms while retaining high defense."
+                },
+                {
+                    "id": "heat-resistant-hexolite-armor",
+                    "name": "Heat Resistant Hexolite Armor",
+                    "category": "Armor",
+                    "description": "Hexolite combat suit lined with heat shielding so you can work volcano biomes in top-tier protection."
+                },
+                {
+                    "id": "revival-potion",
+                    "name": "Revival Potion",
+                    "category": "Consumable",
+                    "description": "A potion that revives a Pal that has been injured and is unable to move."
+                }
+            ]
+        },
+        {
+            "level": 60,
+            "items": [
+                {
+                    "id": "advanced-shield",
+                    "name": "Advanced Shield",
+                    "category": "Armor",
+                    "description": "Strange shield made with advanced technology. It automatically repairs itself after not taking damage for a while."
+                },
+                {
+                    "id": "large-scale-electric-egg-incubator",
+                    "name": "Large-Scale Electric Egg Incubator",
+                    "category": "Production",
+                    "description": "Powered incubation hall that hatches up to ten Pal eggs at once so large breeding queues finish together."
+                },
+                {
+                    "id": "lightweight-hexolite-armor",
+                    "name": "Lightweight Hexolite Armor",
+                    "category": "Armor",
+                    "description": "Streamlined Hexolite plating engineered for movement speed while still offering elite defense ratings."
+                },
+                {
+                    "id": "plasma-cannon",
+                    "name": "Plasma Cannon",
+                    "category": "Weapon",
+                    "description": "Fires high-output energy projectiles. Causes an energy explosion upon impact."
+                },
+                {
+                    "id": "plasma-cartridge",
+                    "name": "Plasma Cartridge",
+                    "category": "Ammo",
+                    "description": "Ammo for the Plasma Cannon and any similar weapon."
+                },
+                {
+                    "id": "xenolord-saddle",
+                    "name": "Xenolord Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Xenolord."
+                }
+            ]
+        },
+        {
+            "level": 61,
+            "items": [
+                {
+                    "id": "advanced-civilization-workshop",
+                    "name": "Advanced Civilization Workshop",
+                    "category": "Production",
+                    "description": "An Assembly Line for producing items and gear. Advanced machinery has been introduced, enabling high-speed production. Requires Pals that can work with their hands."
+                },
+                {
+                    "id": "coralum-ingot",
+                    "name": "Coralum Ingot",
+                    "category": "Material",
+                    "description": "Refined Coralum alloy required for advanced Sakurajima weapons, energy tech, and late-game structures."
+                },
+                {
+                    "id": "futuristic-structure-set",
+                    "name": "Futuristic Structure Set",
+                    "category": "Decoration",
+                    "description": "Set for building a base using futuristic architecture. Allows building of futuristic foundations, walls, ceilings, stairs and other things necessary for shelters."
+                },
+                {
+                    "id": "ghangler-ignis-saddle",
+                    "name": "Ghangler Ignis Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Ghangler Ignis."
+                },
+                {
+                    "id": "hexolite-quartz-mine",
+                    "name": "Hexolite Quartz Mine",
+                    "category": "Production",
+                    "description": "Facility for producing Hexolite Quartz. Digging Hexolite Quartz is grueling physical work. Leave it to a Pal that is good at mining."
+                },
+                {
+                    "id": "powerful-fishing-magnet",
+                    "name": "Powerful Fishing Magnet",
+                    "category": "Tool",
+                    "description": "Premium fishing magnet that drags treasure and rare loot out of the water faster during the fishing minigame."
+                }
+            ]
+        },
+        {
+            "level": 62,
+            "items": [
+                {
+                    "id": "advanced-civilization-weapon-assembly-line",
+                    "name": "Advanced Civilization Weapon Assembly Line",
+                    "category": "Production",
+                    "description": "An Assembly Line for producing weapons and ammunition. Advanced machinery has been introduced, enabling high-speed weapon production. Requires Pals that can work with their hands."
+                },
+                {
+                    "id": "energy-shotgun",
+                    "name": "Energy Shotgun",
+                    "category": "Weapon",
+                    "description": "Cutting-edge shotgun that fires condensed energy blasts for brutal short-range burst damage."
+                },
+                {
+                    "id": "energy-shotgun-ammo",
+                    "name": "Energy Shotgun Ammo",
+                    "category": "Ammo",
+                    "description": "Ammo for the Energy Shotgun and similar weapons."
+                },
+                {
+                    "id": "japanese-style-hot-spring",
+                    "name": "Japanese-Style Hot Spring",
+                    "category": "Base Utility",
+                    "description": "Relaxing hot spring pavilion that restores SAN and buffs recovery while fitting Japanese architecture sets."
+                },
+                {
+                    "id": "triple-air-dash-boots",
+                    "name": "Triple Air Dash Boots",
+                    "category": "Ancient Tech",
+                    "description": "Ultimate mobility boots that add a third air dash so you can string long aerial routes together."
+                },
+                {
+                    "id": "whalaska-ignis-saddle",
+                    "name": "Whalaska Ignis Saddle",
+                    "category": "Pal Gear",
+                    "description": "Lets you harness Whalaska Ignis and can be ridden. While fighting together, fishing minigames begin with the capture gauge more filled than usual. Additionally, the capture gauge increases more rapidly while the bars are overlapping."
+                }
+            ]
+        },
+        {
+            "level": 63,
+            "items": [
+                {
+                    "id": "free-pal-alliance-flag-set",
+                    "name": "Free Pal Alliance Flag Set",
+                    "category": "Decoration",
+                    "description": "Decor bundle of Free Pal Alliance flags to show solidarity across your settlements."
+                },
+                {
+                    "id": "megaboost-gun",
+                    "name": "Megaboost Gun",
+                    "category": "Weapon",
+                    "description": "Experimental support firearm that bathes allies in buffing energy shots to spike their attack output."
+                },
+                {
+                    "id": "neptilius-saddle",
+                    "name": "Neptilius Saddle",
+                    "category": "Pal Gear",
+                    "description": "Saddle for safely riding Neptilius."
+                },
+                {
+                    "id": "rayne-syndicate-flag-set",
+                    "name": "Rayne Syndicate Flag Set",
+                    "category": "Decoration",
+                    "description": "Decor bundle of Rayne Syndicate banners and standards for faction-themed base dressing."
+                },
+                {
+                    "id": "ultra-grappling-gun",
+                    "name": "Ultra Grappling Gun",
+                    "category": "Gear",
+                    "description": "Top-tier grappling launcher with almost instant reel speed for extreme traversal and raid flanking."
+                }
+            ]
+        },
+        {
+            "level": 64,
+            "items": [
+                {
+                    "id": "brothers-of-the-eternal-pyre-flag-set",
+                    "name": "Brothers of the Eternal Pyre Flag Set",
+                    "category": "Decoration",
+                    "description": "Banner set honoring the Brothers of the Eternal Pyre, perfect for fiery faction bases."
+                },
+                {
+                    "id": "overheat-rifle",
+                    "name": "Overheat Rifle",
+                    "category": "Weapon",
+                    "description": "An assault rifle capable of firing endlessly without reloading. Prolonged bursts cause overheating, leaving you exposed. Use with caution."
+                },
+                {
+                    "id": "overheat-rifle-ammo",
+                    "name": "Overheat Rifle Ammo",
+                    "category": "Ammo",
+                    "description": "Ammo for the Overheat Rifle and similar weapons."
+                },
+                {
+                    "id": "pidf-flag-set",
+                    "name": "PIDF Flag Set",
+                    "category": "Decoration",
+                    "description": "Decorative flag pack carrying the PIDF insignia to give bases a militant flair."
+                }
+            ]
+        },
+        {
+            "level": 65,
+            "items": [
+                {
+                    "id": "charge-rifle",
+                    "name": "Charge Rifle",
+                    "category": "Weapon",
+                    "description": "A beam rifle crafted with advanced technology. Charges energy to deliver one powerful shot."
+                },
+                {
+                    "id": "charge-rifle-ammo",
+                    "name": "Charge Rifle Ammo",
+                    "category": "Ammo",
+                    "description": "Ammo for the Charge Rifle and similar weapons."
+                },
+                {
+                    "id": "moonflower-flag-set",
+                    "name": "Moonflower Flag Set",
+                    "category": "Decoration",
+                    "description": "Elegant Moonflower banners that add luminous festival décor to late-game bases."
+                },
+                {
+                    "id": "pal-genetic-research-unit-flag-set",
+                    "name": "PAL Genetic Research Unit Flag Set",
+                    "category": "Decoration",
+                    "description": "Prestige flag collection from the PAL Genetic Research Unit to showcase endgame biotech mastery."
                 }
             ]
         }
