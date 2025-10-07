@@ -5260,6 +5260,10 @@
     let PAL_SLUG_TO_ID = {};
     // Persist breeding page selections between rebuilds (e.g. when switching modes)
     const BREEDING_SELECTION = { parent1Id: null, parent2Id: null, babyId: null, atlasId: null, mode: 'breedingAdvisor' };
+    let currentBreedingPageController = null;
+    let baseBreedingRefreshHandle = null;
+    let baseBreedingRefreshUsingTimeout = false;
+    let baseBreedingNeedsAnalysis = false;
     const BREEDING_ROUTE_STEP_IDS = ['ch2-tech-breeding-farm'];
     const BREEDING_DUPLICATE_LIMIT = 2;
     // Progress tracking
@@ -10051,8 +10055,7 @@
       if (current === desired) {
         syncPalButtons(palId);
         if (deferProgressUpdate) {
-          updateBasePlanner();
-          updateHomeBreedingIntel({ refresh: true });
+          requestBaseBreedingRefresh({ refreshBreedingAnalysis: true });
         }
         return desired;
       }
@@ -10066,10 +10069,8 @@
       if (!skipAutoComplete) {
         autoCompleteRouteStepsForPal(palId);
       }
-      if (deferProgressUpdate) {
-        updateBasePlanner();
-        updateHomeBreedingIntel({ refresh: true });
-      } else {
+      requestBaseBreedingRefresh({ refreshBreedingAnalysis: true });
+      if (!deferProgressUpdate) {
         updateProgressUI();
       }
       if (typeof refreshPalList === 'function') {
@@ -10100,8 +10101,7 @@
       if (current === desired) {
         if (techKey) syncTechButtons(techKey, techName);
         if (deferProgressUpdate) {
-          updateBasePlanner();
-          updateHomeBreedingIntel({ refresh: true });
+          requestBaseBreedingRefresh({ refreshBreedingAnalysis: true });
         }
         return desired;
       }
@@ -10115,10 +10115,8 @@
       if (!skipAutoComplete) {
         autoCompleteRouteStepsForTech(techKey, techName);
       }
-      if (deferProgressUpdate) {
-        updateBasePlanner();
-        updateHomeBreedingIntel({ refresh: true });
-      } else {
+      requestBaseBreedingRefresh({ refreshBreedingAnalysis: true });
+      if (!deferProgressUpdate) {
         updateProgressUI();
       }
       if (!silent) {
@@ -10308,6 +10306,7 @@
             localStorage.setItem('collected', JSON.stringify(collected));
             btn.classList.toggle('collected', collected[itemKey]);
             btn.textContent = collected[itemKey] ? 'Collected' : 'Collect';
+            requestBaseBreedingRefresh({ refreshBreedingAnalysis: true });
             updateProgressUI();
           });
           card.appendChild(btn);
@@ -11212,7 +11211,7 @@
         return card;
       }
 
-      function renderAdvisor() {
+      function renderAdvisor({ refreshAnalysis = false } = {}) {
         advisorGrid.innerHTML = '';
         advisorEmpty.hidden = true;
         advisorTitle.textContent = kidMode ? 'Advisor queue' : 'Advisor queue';
@@ -11228,7 +11227,7 @@
           return;
         }
 
-        const { analysis: latestAnalysis, suggestions } = generateBreedingAdvisorSuggestions({ kidMode, refresh: true });
+        const { analysis: latestAnalysis, suggestions } = generateBreedingAdvisorSuggestions({ kidMode, refresh: refreshAnalysis });
         analysis = latestAnalysis;
         palsSorted = analysis.palsSorted;
         formatSteps = palId => formatBreedingDepthLabel(analysis, palId, { kidMode });
@@ -11815,15 +11814,23 @@
       babySearch.oninput = () => renderBabyGrid();
       atlasSearch.oninput = () => renderAtlasGrid();
 
-      updateParentGrids();
-      renderBabyGrid();
-      showCombos();
-      updateResult();
-      renderAdvisor();
-      renderAtlasGrid();
-      renderAtlasDiagram();
+      const refreshBreedingViews = ({ refreshAnalysis = false } = {}) => {
+        renderAdvisor({ refreshAnalysis });
+        updateParentGrids();
+        renderBabyGrid();
+        showCombos();
+        updateResult();
+        renderAtlasGrid();
+        renderAtlasDiagram();
+        updateBreedingSelection();
+      };
+
+      currentBreedingPageController = {
+        refresh: refreshBreedingViews
+      };
+
+      refreshBreedingViews({ refreshAnalysis: true });
       switchBreedingMode(initialMode);
-      updateBreedingSelection();
     }
 
     // Home page builder.  Highlights adaptive guidance, quick status,
@@ -12513,6 +12520,55 @@
       }
     }
 
+  function runBaseBreedingRefresh() {
+    const refreshAnalysis = baseBreedingNeedsAnalysis;
+    baseBreedingNeedsAnalysis = false;
+    updateBasePlanner();
+    updateHomeBreedingIntel({ refresh: refreshAnalysis });
+    if (currentBreedingPageController && typeof currentBreedingPageController.refresh === 'function') {
+      currentBreedingPageController.refresh({ refreshAnalysis });
+    }
+  }
+
+  function finishBaseBreedingRefresh() {
+    baseBreedingRefreshHandle = null;
+    baseBreedingRefreshUsingTimeout = false;
+    runBaseBreedingRefresh();
+  }
+
+  function requestBaseBreedingRefresh({ refreshBreedingAnalysis = false, immediate = false } = {}) {
+    if (refreshBreedingAnalysis) {
+      baseBreedingNeedsAnalysis = true;
+    }
+    if (immediate) {
+      if (baseBreedingRefreshHandle != null) {
+        if (baseBreedingRefreshUsingTimeout) {
+          clearTimeout(baseBreedingRefreshHandle);
+        } else if (typeof cancelAnimationFrame === 'function') {
+          cancelAnimationFrame(baseBreedingRefreshHandle);
+        }
+        baseBreedingRefreshHandle = null;
+        baseBreedingRefreshUsingTimeout = false;
+      }
+      runBaseBreedingRefresh();
+      return;
+    }
+    if (baseBreedingRefreshHandle != null) {
+      return;
+    }
+    if (typeof requestAnimationFrame === 'function') {
+      baseBreedingRefreshHandle = requestAnimationFrame(() => {
+        finishBaseBreedingRefresh();
+      });
+      baseBreedingRefreshUsingTimeout = false;
+    } else {
+      baseBreedingRefreshUsingTimeout = true;
+      baseBreedingRefreshHandle = setTimeout(() => {
+        finishBaseBreedingRefresh();
+      }, 16);
+    }
+  }
+
     const ROUTE_STORAGE_KEY = 'palmarathon:route:v1';
     const ROUTE_PREFS_KEY = 'palmarathon:route:prefs:v1';
     const ROUTE_CONTEXT_KEY = 'palmarathon:route:context:v1';
@@ -12934,6 +12990,7 @@
       renderActiveRoutesList();
       renderRouteLibraryList();
       refreshRouteIntelligenceUI();
+      requestBaseBreedingRefresh({ refreshBreedingAnalysis: true });
     }
 
     function removeActiveRoute(routeId){
@@ -12943,6 +13000,7 @@
       renderActiveRoutesList();
       renderRouteLibraryList();
       refreshRouteIntelligenceUI();
+      requestBaseBreedingRefresh({ refreshBreedingAnalysis: true });
     }
 
     function pruneCompletedActiveRoutes(){
@@ -17767,6 +17825,7 @@
       routeContext = normalizeRouteContext({ ...routeContext, ...(updates || {}) });
       saveRouteContext(routeContext);
       renderRouteGuide();
+      requestBaseBreedingRefresh({ refreshBreedingAnalysis: true });
     }
 
     function findFirstIncompleteStepForRoute(route, { includeOptional = false } = {}){
@@ -22179,8 +22238,7 @@
         }
       }
       updateRouteOverviewUI(guideSummary);
-      updateBasePlanner();
-      updateHomeBreedingIntel();
+      requestBaseBreedingRefresh();
     }
 
     // Display detailed information about an item using a Palworld-inspired card.
@@ -22325,6 +22383,7 @@
         collectBtn.classList.toggle('collected', state);
         collectBtn.textContent = state ? 'Collected' : 'Mark as collected';
         updateItemCollectionButtons(itemKey);
+        requestBaseBreedingRefresh({ refreshBreedingAnalysis: true });
         updateProgressUI();
         playSound(clickSound);
       });
