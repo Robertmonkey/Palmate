@@ -4456,6 +4456,7 @@
     let PASSIVE_DETAILS = {};
     let ITEM_DETAILS = {};
     let PARTNER_SKILLS = [];
+    let ITEM_KEY_LOOKUP = new Map();
     // Map of items to pals that drop them.  Populated after data load.
     let DROPS_MAP = {};
     // Map pal names to IDs for quick lookup when clicking breeding
@@ -6204,6 +6205,97 @@
         .filter(Boolean)
         .map(part => part.charAt(0).toUpperCase() + part.slice(1))
         .join(' ');
+    }
+
+    function normalizeItemLookupKey(value) {
+      if (value == null) return '';
+      return String(value).trim().toLowerCase();
+    }
+
+    function registerItemAlias(alias, key) {
+      const normalized = normalizeItemLookupKey(alias);
+      if (!normalized || !key) return;
+      const variants = new Set([normalized]);
+      const collapsed = normalized.replace(/[\s_-]+/g, ' ').trim();
+      if (collapsed) {
+        variants.add(collapsed);
+        variants.add(collapsed.replace(/\s+/g, '-'));
+        variants.add(collapsed.replace(/\s+/g, '_'));
+      }
+      variants.forEach(variant => {
+        if (!variant) return;
+        if (!ITEM_KEY_LOOKUP.has(variant)) {
+          ITEM_KEY_LOOKUP.set(variant, key);
+        }
+      });
+    }
+
+    function rebuildItemLookup() {
+      ITEM_KEY_LOOKUP = new Map();
+      const keys = new Set([
+        ...Object.keys(ITEMS || {}),
+        ...Object.keys(ITEM_DETAILS || {})
+      ]);
+      keys.forEach(key => {
+        if (!key) return;
+        registerItemAlias(key, key);
+        const friendly = humaniseItemKey(key);
+        registerItemAlias(friendly, key);
+        const slug = slugifyForPalworld(friendly);
+        if (slug) registerItemAlias(slug, key);
+        const item = ITEMS?.[key];
+        if (item?.name) registerItemAlias(item.name, key);
+        const detail = ITEM_DETAILS?.[key];
+        if (detail?.name) registerItemAlias(detail.name, key);
+        if (Array.isArray(detail?.aliases)) {
+          detail.aliases.forEach(alias => registerItemAlias(alias, key));
+        }
+      });
+    }
+
+    function lookupItemKey(value) {
+      if (!value) return null;
+      const normalized = normalizeItemLookupKey(value);
+      if (!normalized) return null;
+      if (ITEM_KEY_LOOKUP.has(normalized)) {
+        return ITEM_KEY_LOOKUP.get(normalized);
+      }
+      const collapsed = normalized.replace(/[\s_-]+/g, ' ').trim();
+      if (collapsed) {
+        if (ITEM_KEY_LOOKUP.has(collapsed)) {
+          return ITEM_KEY_LOOKUP.get(collapsed);
+        }
+        const hyphenated = collapsed.replace(/\s+/g, '-');
+        if (ITEM_KEY_LOOKUP.has(hyphenated)) {
+          return ITEM_KEY_LOOKUP.get(hyphenated);
+        }
+        const underscored = collapsed.replace(/\s+/g, '_');
+        if (ITEM_KEY_LOOKUP.has(underscored)) {
+          return ITEM_KEY_LOOKUP.get(underscored);
+        }
+      }
+      const slug = slugifyForPalworld(value);
+      if (slug) {
+        const slugKey = normalizeItemLookupKey(slug);
+        if (ITEM_KEY_LOOKUP.has(slugKey)) {
+          return ITEM_KEY_LOOKUP.get(slugKey);
+        }
+      }
+      return null;
+    }
+
+    function resolveItemKeyFromLink(link) {
+      if (!link || typeof link !== 'object') return null;
+      const candidates = [];
+      if (link.id != null) candidates.push(link.id);
+      if (link.slug != null) candidates.push(link.slug);
+      if (link.name != null) candidates.push(link.name);
+      if (link.title != null) candidates.push(link.title);
+      for (const candidate of candidates) {
+        const resolved = lookupItemKey(candidate);
+        if (resolved) return resolved;
+      }
+      return null;
     }
     function normalizeRanchAssignment(raw) {
       if (!raw || typeof raw !== 'object') return null;
@@ -8252,6 +8344,7 @@
         SKILL_DETAILS = payload.skillsDetails || {};
         PASSIVE_DETAILS = payload.passiveDetails || {};
         ITEM_DETAILS = await loadItemDetails();
+        rebuildItemLookup();
         PARTNER_SKILLS = await loadPartnerSkillDataset();
         // Build name‑to‑ID lookup map
         PAL_NAME_TO_ID = {};
@@ -17521,11 +17614,12 @@
           focusSearch(link.slug || link.id, { target: 'pals' });
         }
       } else if(link.type === 'item'){
-        const itemKey = link.id || link.slug;
-        if(itemKey && ITEMS[itemKey]){
+        const itemKey = resolveItemKeyFromLink(link);
+        if(itemKey && (ITEMS[itemKey] || ITEM_DETAILS[itemKey])){
           openItemDetail(itemKey);
         } else {
-          focusSearch(itemKey, { target: 'items' });
+          const fallbackTerm = link.name || niceName(link.id || link.slug || '');
+          focusSearch(fallbackTerm, { target: 'items' });
         }
       } else if(link.type === 'tech'){
         showTechDetail(link.id);
@@ -19570,6 +19664,68 @@
       const card = document.createElement('article');
       card.className = 'item-detail-card';
 
+      let dropSection = null;
+      let guidesRendered = false;
+      const renderGuideChips = (data) => {
+        if (guidesRendered || !data) return;
+        const entries = Array.isArray(data?.resourceGuides?.[itemKey]) ? data.resourceGuides[itemKey] : [];
+        if (!entries.length) return;
+        const guideSection = document.createElement('section');
+        guideSection.className = 'item-detail-section item-detail-guides';
+        const guideHeading = document.createElement('h4');
+        guideHeading.textContent = kidMode ? 'Guides to start' : 'Guide shortcuts';
+        guideSection.appendChild(guideHeading);
+        const chipsWrap = document.createElement('div');
+        chipsWrap.className = 'item-guide-chip-list';
+        entries.forEach(entry => {
+          if (!entry || !entry.id) return;
+          const chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = 'chip item-guide-chip';
+          chip.dataset.routeId = entry.id;
+          const body = document.createElement('span');
+          body.className = 'chip__body';
+          const label = document.createElement('span');
+          label.className = 'chip__label';
+          label.textContent = entry.title || niceName(entry.id);
+          body.appendChild(label);
+          const metaParts = [];
+          if (entry.levelLabel) metaParts.push(entry.levelLabel);
+          if (entry.timeLabel) metaParts.push(entry.timeLabel);
+          if (metaParts.length) {
+            const meta = document.createElement('span');
+            meta.className = 'chip__meta';
+            meta.textContent = metaParts.join(' • ');
+            body.appendChild(meta);
+          }
+          chip.appendChild(body);
+          const tooltipParts = [];
+          if (entry.summary) tooltipParts.push(entry.summary);
+          if (Array.isArray(entry.shortageNotes) && entry.shortageNotes.length) {
+            tooltipParts.push(entry.shortageNotes[0]);
+          }
+          if (tooltipParts.length) {
+            chip.title = tooltipParts.join(' • ');
+          }
+          chip.addEventListener('click', () => {
+            openRoutePreviewById(entry.id);
+          });
+          chipsWrap.appendChild(chip);
+        });
+        if (!chipsWrap.children.length) return;
+        const count = chipsWrap.children.length;
+        guideHeading.textContent = kidMode
+          ? (count === 1 ? 'Guide to start' : 'Guides to start')
+          : (count === 1 ? 'Guide shortcut' : 'Guide shortcuts');
+        guideSection.appendChild(chipsWrap);
+        if (dropSection && dropSection.parentNode === card) {
+          card.insertBefore(guideSection, dropSection);
+        } else {
+          card.appendChild(guideSection);
+        }
+        guidesRendered = true;
+      };
+
       const header = document.createElement('div');
       header.className = 'item-detail-header';
       const headingWrap = document.createElement('div');
@@ -19714,7 +19870,13 @@
       }
       card.appendChild(summarySection);
 
-      const dropSection = document.createElement('section');
+      if (routeGuideData && routeGuideData.resourceGuides) {
+        renderGuideChips(routeGuideData);
+      } else {
+        ensureRouteGuide().then(renderGuideChips).catch(() => {});
+      }
+
+      dropSection = document.createElement('section');
       dropSection.className = 'item-detail-section';
       const dropHeading = document.createElement('h4');
       dropHeading.textContent = 'Dropped by';

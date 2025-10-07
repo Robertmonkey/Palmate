@@ -350,9 +350,9 @@
     ],
     "stats": {},
     "recipe": [],
-    "image": "https://static.wikia.nocookie.net/palworld/images/4/4a/Flour_icon.png/revision/latest?cb=20240124060459",
-    "fromPalworld": false,
-    "source": "Palworld Fandom"
+    "image": "https://palworld.gg/_ipx/q_80&s_60x60/images/items/T_itemicon_Material_Flour.png",
+    "fromPalworld": true,
+    "source": "Palworld.gg"
   },
   "flame_organ": {
     "name": "Flame Organ",

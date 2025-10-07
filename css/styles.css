@@ -38,6 +38,12 @@ background-size:140% auto,120% auto,cover,cover;background-position:var(--guide-
 .chip__thumb{width:42px;height:42px;border-radius:14px;overflow:hidden;flex:0 0 42px;background:rgba(148,210,189,0.15);box-shadow:0 14px 26px rgba(4,14,28,0.45);display:grid;place-items:center}
 .chip__thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .chip.link.link--with-thumb{padding:10px 20px}
+.item-detail-guides{display:flex;flex-direction:column;gap:12px}
+.item-guide-chip-list{display:flex;flex-wrap:wrap;gap:10px}
+.item-guide-chip{cursor:pointer;background:rgba(148,210,189,0.14);border-color:rgba(148,210,189,0.38);padding:10px 16px;transition:transform .2s ease,box-shadow .25s ease,border-color .25s ease}
+.item-guide-chip:hover{border-color:rgba(148,210,189,0.65);box-shadow:0 16px 28px rgba(148,210,189,0.2);transform:translateY(-1px)}
+.item-guide-chip:focus-visible{outline:2px solid rgba(148,210,189,0.7);outline-offset:2px;box-shadow:0 16px 28px rgba(148,210,189,0.2);border-color:rgba(148,210,189,0.65)}
+.item-guide-chip .chip__meta{font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:rgba(224,225,221,0.65)}
 .chip__body{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
 .chip__label{font-weight:600;font-size:.9rem;line-height:1.2;color:var(--text,#f0f4f8)}
 .chip__meta{font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;color:rgba(224,225,221,0.7);line-height:1.2}
