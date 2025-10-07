@@ -2615,23 +2615,14 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      display: grid;
-      gap: 6px;
-      font-size: 0.8rem;
-      color: rgba(224,225,221,0.8);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .tech-card__materials li {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 6px 10px;
-      border-radius: 10px;
-      background: rgba(9,18,32,0.65);
-    }
-    .tech-card__materials span:last-child {
-      font-variant-numeric: tabular-nums;
-      font-weight: 600;
-      color: rgba(224,225,221,0.95);
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
     .tech-card__note {
       margin: 0;
@@ -2772,21 +2763,21 @@
       margin: 0;
       padding: 0;
       display: grid;
-      gap: 8px;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
     .tech-modal__materials-list li {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 8px 12px;
-      border-radius: 12px;
-      background: rgba(9,18,32,0.7);
-      font-size: 0.9rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
-    .tech-modal__materials-list span:last-child {
-      font-variant-numeric: tabular-nums;
-      font-weight: 600;
-      color: rgba(224,225,221,0.95);
+    .chip.link.tech-modal__materials-link {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+    }
+    .chip.link.tech-modal__materials-link .chip__body {
+      align-items: flex-start;
     }
     .tech-modal__status {
       font-size: 0.85rem;
@@ -10667,15 +10658,92 @@
       if (item.isAncient) return 'Ancient Technology';
       return item.branch || 'Technology';
     }
+    function normaliseTechMaterialQuantity(value) {
+      if (typeof value === 'number') return Number.isFinite(value) && value >= 0 ? value : null;
+      if (value === null || value === undefined) return null;
+      const parsed = Number(value);
+      return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
+    }
+    function resolveMaterialDetail(name) {
+      if (!name) return { key: null, detail: null };
+      if (!ITEM_DETAILS || typeof ITEM_DETAILS !== 'object') {
+        return { key: null, detail: null };
+      }
+      const key = lookupItemKey(name);
+      if (key && ITEM_DETAILS[key]) {
+        return { key, detail: ITEM_DETAILS[key] };
+      }
+      return { key: null, detail: null };
+    }
+    function deriveMaterialIcon(entry, detail) {
+      if (entry.icon && typeof entry.icon === 'string' && entry.icon.trim()) {
+        return entry.icon.trim();
+      }
+      if (detail?.icon && typeof detail.icon === 'string' && detail.icon.trim()) {
+        return detail.icon.trim();
+      }
+      if (detail?.image && typeof detail.image === 'string' && detail.image.trim()) {
+        return detail.image.trim();
+      }
+      if (Array.isArray(detail?.icons)) {
+        const icon = detail.icons.find(src => typeof src === 'string' && src.trim());
+        if (icon) return icon.trim();
+      }
+      if (Array.isArray(detail?.images)) {
+        const img = detail.images.find(src => typeof src === 'string' && src.trim());
+        if (img) return img.trim();
+      }
+      return null;
+    }
+    function enrichTechMaterial(entry) {
+      if (!entry || !entry.name) return null;
+      const { key, detail } = resolveMaterialDetail(entry.name);
+      const displayName = detail?.name || entry.name;
+      const slug = key || detail?.slug || slugifyForPalworld(displayName) || slugifyForPalworld(entry.name);
+      const quantity = normaliseTechMaterialQuantity(entry.quantity);
+      const icon = deriveMaterialIcon(entry, detail);
+      return {
+        name: displayName,
+        quantity,
+        icon,
+        slug: slug || null,
+        key: key || null,
+        originalName: entry.name
+      };
+    }
     function computeTechMaterials(item) {
-      if (!item || typeof item.materials !== 'object' || item.materials === null) return [];
-      return Object.entries(item.materials)
-        .map(([name, qty]) => {
-          const quantity = Number(qty);
-          if (!name || Number.isNaN(quantity)) return null;
-          return { name: String(name), quantity };
+      if (!item) return [];
+      const directMaterials = item.materials && typeof item.materials === 'object' && item.materials !== null
+        ? Object.entries(item.materials)
+            .map(([name, qty]) => {
+              const label = name ? String(name).trim() : '';
+              if (!label) return null;
+              return {
+                name: label,
+                quantity: normaliseTechMaterialQuantity(qty)
+              };
+            })
+            .filter(Boolean)
+        : [];
+      if (directMaterials.length) {
+        return directMaterials.map(enrichTechMaterial).filter(Boolean);
+      }
+      const detailKey = resolveItemKeyFromLink({ id: item.id, slug: item.id, name: item.name });
+      const detail = detailKey && ITEM_DETAILS ? ITEM_DETAILS[detailKey] : null;
+      if (!detail || !Array.isArray(detail.recipe)) {
+        return [];
+      }
+      const recipeEntries = detail.recipe
+        .map(ingredient => {
+          if (!ingredient || typeof ingredient !== 'object') return null;
+          const name = typeof ingredient.name === 'string' ? ingredient.name.trim() : '';
+          if (!name) return null;
+          const quantity = normaliseTechMaterialQuantity(ingredient.quantity);
+          const icon = typeof ingredient.icon === 'string' && ingredient.icon.trim() ? ingredient.icon.trim() : null;
+          return { name, quantity, icon };
         })
         .filter(Boolean);
+      return recipeEntries.map(enrichTechMaterial).filter(Boolean);
     }
     function isGenericTechDescription(text) {
       if (typeof text !== 'string') return true;
@@ -10720,6 +10788,67 @@
         grown,
         kid: kidCopy || grown
       };
+    }
+    function createTechMaterialChip(material) {
+      if (!material || !material.name) return null;
+      const displayName = material.name;
+      const slug = material.slug || material.key || slugifyForPalworld(displayName);
+      const payload = {
+        type: 'item',
+        id: material.key || slug || displayName,
+        slug: slug || undefined,
+        name: displayName
+      };
+      const quantity = typeof material.quantity === 'number' && Number.isFinite(material.quantity)
+        ? material.quantity
+        : null;
+      const quantityLabel = quantity !== null ? `×${quantity}` : '×?';
+      const ariaQuantity = quantity !== null ? `quantity ${quantity}` : 'quantity unknown';
+      const link = document.createElement('a');
+      link.href = '#';
+      link.className = 'chip link tech-material-chip link--with-thumb';
+      link.dataset.linkType = 'item';
+      link.dataset.link = JSON.stringify(payload);
+      link.setAttribute('role', 'button');
+      link.setAttribute('aria-label', `${displayName}, ${ariaQuantity}`);
+      const thumb = document.createElement('span');
+      thumb.className = 'chip__thumb';
+      const iconSrc = material.icon && typeof material.icon === 'string' ? material.icon.trim() : '';
+      if (iconSrc) {
+        const img = document.createElement('img');
+        img.src = iconSrc;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.alt = '';
+        img.referrerPolicy = 'no-referrer';
+        img.onerror = () => {
+          img.remove();
+          thumb.classList.add('tech-material-chip__thumb--placeholder');
+          thumb.textContent = '⚙️';
+        };
+        thumb.appendChild(img);
+      } else {
+        thumb.classList.add('tech-material-chip__thumb--placeholder');
+        thumb.textContent = '⚙️';
+      }
+      link.appendChild(thumb);
+      const body = document.createElement('span');
+      body.className = 'chip__body';
+      const label = document.createElement('span');
+      label.className = 'chip__label';
+      label.textContent = displayName;
+      body.appendChild(label);
+      const qty = document.createElement('span');
+      qty.className = 'chip__meta';
+      qty.textContent = quantityLabel;
+      body.appendChild(qty);
+      link.appendChild(body);
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        navigateLink(payload);
+      });
+      return link;
     }
     function formatTechCost(item, { kid = false, short = false } = {}) {
       if (!item || typeof item.techPoints !== 'number') {
@@ -11153,16 +11282,22 @@
           const materialList = document.createElement('ul');
           materialList.className = 'tech-card__materials';
           materials.forEach(material => {
+            const chip = createTechMaterialChip(material);
+            if (!chip) return;
             const li = document.createElement('li');
-            const label = document.createElement('span');
-            label.textContent = material.name;
-            const qty = document.createElement('span');
-            qty.textContent = String(material.quantity);
-            li.appendChild(label);
-            li.appendChild(qty);
+            li.appendChild(chip);
             materialList.appendChild(li);
           });
-          info.appendChild(materialList);
+          if (materialList.children.length) {
+            info.appendChild(materialList);
+          } else {
+            const note = document.createElement('p');
+            note.className = 'tech-card__note';
+            note.textContent = kidMode
+              ? 'No ingredients needed for this unlock.'
+              : 'No crafting ingredients required for this unlock.';
+            info.appendChild(note);
+          }
         } else {
           const note = document.createElement('p');
           note.className = 'tech-card__note';
@@ -21219,16 +21354,23 @@
         const list = document.createElement('ul');
         list.className = 'tech-modal__materials-list';
         materials.forEach(material => {
+          const chip = createTechMaterialChip(material);
+          if (!chip) return;
+          chip.classList.add('tech-modal__materials-link');
           const li = document.createElement('li');
-          const nameSpan = document.createElement('span');
-          nameSpan.textContent = material.name;
-          const qtySpan = document.createElement('span');
-          qtySpan.textContent = String(material.quantity);
-          li.appendChild(nameSpan);
-          li.appendChild(qtySpan);
+          li.appendChild(chip);
           list.appendChild(li);
         });
-        materialsSection.appendChild(list);
+        if (list.children.length) {
+          materialsSection.appendChild(list);
+        } else {
+          const note = document.createElement('p');
+          note.className = 'tech-card__note';
+          note.textContent = kidMode
+            ? 'No ingredients needed for this unlock.'
+            : 'No crafting ingredients required for this unlock.';
+          materialsSection.appendChild(note);
+        }
       } else {
         const note = document.createElement('p');
         note.className = 'tech-card__note';
