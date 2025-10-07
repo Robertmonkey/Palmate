@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 FINAL_DATA = DATA_DIR / "palworld_complete_data_final.json"
 ENHANCED_DATA = DATA_DIR / "palworld_complete_data_enhanced.json"
+OVERRIDES_DATA = DATA_DIR / "tech_overrides.json"
 FANDOM_API = (
     "https://palworld.fandom.com/api.php"
     "?action=parse&page=Technology&prop=wikitext&format=json"
@@ -141,20 +142,30 @@ def parse_points(raw: Optional[str]) -> int:
 
 def load_enhanced_map() -> Dict[str, Dict[str, object]]:
     if not ENHANCED_DATA.exists():
-        return {}
-    payload = json.loads(ENHANCED_DATA.read_text(encoding="utf-8"))
-    mapping: Dict[str, Dict[str, object]] = {}
-    for level in payload.get("tech", []):
-        items = level.get("items") if isinstance(level, dict) else None
-        if not isinstance(items, list):
-            continue
-        for item in items:
-            if not isinstance(item, dict):
+        mapping: Dict[str, Dict[str, object]] = {}
+    else:
+        payload = json.loads(ENHANCED_DATA.read_text(encoding="utf-8"))
+        mapping = {}
+        for level in payload.get("tech", []):
+            items = level.get("items") if isinstance(level, dict) else None
+            if not isinstance(items, list):
                 continue
-            name = item.get("name")
-            if not isinstance(name, str):
+            for item in items:
+                if not isinstance(item, dict):
+                    continue
+                name = item.get("name")
+                if not isinstance(name, str):
+                    continue
+                mapping[slugify(name)] = item
+
+    if OVERRIDES_DATA.exists():
+        overrides = json.loads(OVERRIDES_DATA.read_text(encoding="utf-8"))
+        for key, value in overrides.items():
+            if not isinstance(value, dict):
                 continue
-            mapping[slugify(name)] = item
+            slug = slugify(key)
+            target = mapping.setdefault(slug, {})
+            target.update(value)
     return mapping
 
 
