@@ -1281,6 +1281,116 @@
       gap: clamp(18px, 2.6vw, 26px);
     }
 
+    .home-breeding {
+      gap: clamp(18px, 2.6vw, 28px);
+    }
+
+    .home-breeding-card {
+      background: linear-gradient(165deg, rgba(12, 26, 44, 0.94), rgba(22, 40, 64, 0.92));
+      border-radius: 26px;
+      padding: clamp(22px, 2.8vw, 30px);
+      display: grid;
+      gap: clamp(14px, 2.2vw, 18px);
+      position: relative;
+      border: 1px solid rgba(119, 141, 169, 0.26);
+      box-shadow: 0 26px 52px rgba(0, 0, 0, 0.46);
+    }
+
+    .home-breeding-card__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .home-breeding-card__icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      background: rgba(119, 141, 169, 0.2);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .home-breeding-card__title {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .home-breeding-card__subtitle {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .home-breeding-status {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .home-breeding-card[data-state='locked'] .home-breeding-status,
+    .home-breeding-card[data-state='empty'] .home-breeding-status {
+      color: var(--muted);
+    }
+
+    .home-breeding-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .home-breeding-item {
+      background: rgba(119, 141, 169, 0.14);
+      border-radius: 18px;
+      padding: 14px 16px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .home-breeding-item__title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .home-breeding-item__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .home-breeding-item__note {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .home-breeding-item__meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .home-breeding-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .home-breeding-actions .btn,
+    .home-breeding-actions .home-progress-link {
+      flex: 1 1 auto;
+      min-width: 160px;
+    }
+
     .home-progress-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -3187,6 +3297,18 @@
       border-color: rgba(224, 225, 221, 0.45);
       outline: none;
     }
+    .breeding-combo--disabled {
+      cursor: default;
+      opacity: 0.65;
+      border-style: dashed;
+      pointer-events: none;
+    }
+    .breeding-combo--disabled:hover,
+    .breeding-combo--disabled:focus-visible {
+      transform: none;
+      box-shadow: none;
+      border-color: rgba(119, 141, 169, 0.25);
+    }
     .breeding-combo .combo-arrow {
       font-size: 1.3rem;
     }
@@ -4933,6 +5055,8 @@
     let PAL_SLUG_TO_ID = {};
     // Persist breeding page selections between rebuilds (e.g. when switching modes)
     const BREEDING_SELECTION = { parent1Id: null, parent2Id: null, babyId: null, atlasId: null, mode: 'breedingAdvisor' };
+    const BREEDING_ROUTE_STEP_IDS = ['ch2-tech-breeding-farm'];
+    const BREEDING_DUPLICATE_LIMIT = 2;
     // Progress tracking
     let caught = JSON.parse(localStorage.getItem('caught') || '{}');
     let collected = JSON.parse(localStorage.getItem('collected') || '{}');
@@ -7144,6 +7268,26 @@
       if (!Array.isArray(names)) return false;
       return names.some(name => isTechUnlocked(name));
     }
+    function readRouteStateSnapshot() {
+      if (typeof routeState !== 'undefined' && routeState && Object.keys(routeState).length) {
+        return routeState;
+      }
+      const storageKey = typeof ROUTE_STORAGE_KEY !== 'undefined' ? ROUTE_STORAGE_KEY : 'palmarathon:route:v1';
+      try {
+        const stored = localStorage.getItem(storageKey);
+        if (!stored) return {};
+        const parsed = JSON.parse(stored);
+        return parsed && typeof parsed === 'object' ? parsed : {};
+      } catch (err) {
+        console.warn('Failed to read route state snapshot', err);
+        return {};
+      }
+    }
+    function isBreedingUnlocked() {
+      if (isTechUnlocked('Breeding Farm')) return true;
+      const snapshot = readRouteStateSnapshot();
+      return BREEDING_ROUTE_STEP_IDS.some(stepId => snapshot && snapshot[stepId]);
+    }
     function findPalByName(name) {
       if (!name) return null;
       const id = PAL_NAME_TO_ID && Object.prototype.hasOwnProperty.call(PAL_NAME_TO_ID, name)
@@ -9165,6 +9309,7 @@
         syncPalButtons(palId);
         if (deferProgressUpdate) {
           updateBasePlanner();
+          updateHomeBreedingIntel({ refresh: true });
         }
         return desired;
       }
@@ -9180,6 +9325,7 @@
       }
       if (deferProgressUpdate) {
         updateBasePlanner();
+        updateHomeBreedingIntel({ refresh: true });
       } else {
         updateProgressUI();
       }
@@ -9212,6 +9358,7 @@
         if (techKey) syncTechButtons(techKey, techName);
         if (deferProgressUpdate) {
           updateBasePlanner();
+          updateHomeBreedingIntel({ refresh: true });
         }
         return desired;
       }
@@ -9227,6 +9374,7 @@
       }
       if (deferProgressUpdate) {
         updateBasePlanner();
+        updateHomeBreedingIntel({ refresh: true });
       } else {
         updateProgressUI();
       }
@@ -9668,6 +9816,378 @@
       });
     }
     // Build breeding page
+    const BREEDING_ANALYSIS_CACHE = {
+      recipeMap: null,
+      partnerLookup: null,
+      palsSorted: null
+    };
+    function buildBreedingRecipeMap() {
+      const map = {};
+      Object.values(PALS || {}).forEach(pal => {
+        const combos = Array.isArray(pal.breedingCombos) ? pal.breedingCombos : [];
+        map[pal.id] = combos.map(pair => {
+          if (!Array.isArray(pair) || pair.length < 2) {
+            return { parents: [null, null], names: pair || [], pals: [null, null] };
+          }
+          const [leftName, rightName] = pair;
+          const leftPal = findPalByName(leftName);
+          const rightPal = findPalByName(rightName);
+          return {
+            parents: [leftPal ? leftPal.id : null, rightPal ? rightPal.id : null],
+            names: [leftName, rightName],
+            pals: [leftPal, rightPal]
+          };
+        });
+      });
+      return map;
+    }
+    function buildPartnerSkillLookup() {
+      const lookup = {};
+      const skills = Array.isArray(PARTNER_SKILLS) ? PARTNER_SKILLS : [];
+      skills.forEach(skill => {
+        const categories = Array.isArray(skill.categories) ? skill.categories.map(cat => String(cat)) : [];
+        const normalized = new Set();
+        let mountLabel = null;
+        categories.forEach(cat => {
+          const lower = cat.toLowerCase();
+          if (lower.includes('combat')) normalized.add('combat');
+          if (lower.includes('utility')) normalized.add('utility');
+          if (lower.includes('farming')) normalized.add('farming');
+          if (lower.startsWith('mount')) {
+            normalized.add('mount');
+            mountLabel = mountLabel || cat;
+            if (lower.includes('flying')) normalized.add('mount-flying');
+            if (lower.includes('glider')) normalized.add('mount-glider');
+            if (lower.includes('swimmer')) normalized.add('mount-swimmer');
+            if (lower.includes('ridden')) normalized.add('mount-ridden');
+          }
+        });
+        const description = typeof skill.description === 'string' ? skill.description : '';
+        const descLower = description.toLowerCase();
+        const modifiesPlayerDamage = descLower.includes('player') && (descLower.includes('damage') || descLower.includes('attack'));
+        const modifiesPalDamage = descLower.includes('pal') && descLower.includes('damage');
+        const modifiesAnyDamage = descLower.includes('damage') || descLower.includes('attack');
+        const speedBoost = descLower.includes('speed') && descLower.includes('mount');
+        const workBoost = descLower.includes('work') || descLower.includes('carry') || descLower.includes('weight');
+        const dropBoost = descLower.includes('drop') || descLower.includes('harvest');
+        (Array.isArray(skill.pals) ? skill.pals : []).forEach(name => {
+          const pal = findPalByName(name);
+          if (!pal) return;
+          lookup[pal.id] = {
+            skill,
+            categories,
+            normalized,
+            mountLabel,
+            description,
+            descLower,
+            modifiesAnyDamage,
+            modifiesPlayerDamage,
+            modifiesPalDamage,
+            speedBoost,
+            workBoost,
+            dropBoost
+          };
+        });
+      });
+      return lookup;
+    }
+    function computeBreedingGraph(recipes) {
+      const caughtIds = new Set();
+      Object.entries(caught || {}).forEach(([id, value]) => {
+        if (!value) return;
+        const numeric = Number(id);
+        if (!Number.isNaN(numeric)) {
+          caughtIds.add(numeric);
+        }
+      });
+      const depths = new Map();
+      const sources = new Map();
+      caughtIds.forEach(id => depths.set(id, 0));
+      let progressed = true;
+      while (progressed) {
+        progressed = false;
+        Object.values(PALS || {}).forEach(pal => {
+          const combos = recipes[pal.id] || [];
+          combos.forEach(recipe => {
+            if (!recipe || !Array.isArray(recipe.parents)) return;
+            if (!recipe.parents.every(parentId => parentId != null && depths.has(parentId))) return;
+            const parentDepths = recipe.parents.map(parentId => depths.get(parentId) || 0);
+            const candidateDepth = Math.max(...parentDepths) + 1;
+            if (!depths.has(pal.id) || candidateDepth < depths.get(pal.id)) {
+              depths.set(pal.id, candidateDepth);
+              sources.set(pal.id, recipe);
+              progressed = true;
+            }
+          });
+        });
+      }
+      return {
+        depths,
+        sources,
+        reachable: new Set(depths.keys()),
+        caughtIds
+      };
+    }
+    function getBreedingAnalysis({ refresh = false } = {}) {
+      if (refresh || !BREEDING_ANALYSIS_CACHE.recipeMap) {
+        BREEDING_ANALYSIS_CACHE.recipeMap = buildBreedingRecipeMap();
+      }
+      if (refresh || !BREEDING_ANALYSIS_CACHE.partnerLookup) {
+        BREEDING_ANALYSIS_CACHE.partnerLookup = buildPartnerSkillLookup();
+      }
+      if (refresh || !BREEDING_ANALYSIS_CACHE.palsSorted) {
+        BREEDING_ANALYSIS_CACHE.palsSorted = Object.values(PALS || {}).sort((a, b) => a.name.localeCompare(b.name));
+      }
+      const graph = computeBreedingGraph(BREEDING_ANALYSIS_CACHE.recipeMap);
+      return {
+        recipeMap: BREEDING_ANALYSIS_CACHE.recipeMap,
+        partnerLookup: BREEDING_ANALYSIS_CACHE.partnerLookup,
+        palsSorted: BREEDING_ANALYSIS_CACHE.palsSorted,
+        depths: graph.depths,
+        sources: graph.sources,
+        reachable: graph.reachable,
+        caughtIds: graph.caughtIds
+      };
+    }
+    function getBreedingPartnerInfo(analysis, pal) {
+      if (!analysis || !pal) return null;
+      return analysis.partnerLookup[pal.id] || null;
+    }
+    function getBreedingPreferredRecipe(analysis, palId) {
+      if (!analysis) return null;
+      if (analysis.sources.has(palId)) {
+        return analysis.sources.get(palId);
+      }
+      const options = analysis.recipeMap[palId] || [];
+      const valid = options.find(entry => Array.isArray(entry.parents) && entry.parents.every(id => id != null));
+      return valid || options[0] || null;
+    }
+    function formatBreedingDepthLabel(analysis, palId, { kidMode = false } = {}) {
+      if (!analysis) return kidMode ? 'Catch in the wild' : 'Catch in the wild';
+      const depth = analysis.depths.get(palId);
+      if (depth == null) return kidMode ? 'Catch in the wild' : 'Catch in the wild';
+      if (depth === 0) {
+        return kidMode ? 'Already in your camp' : 'Already caught';
+      }
+      const suffix = depth > 1 ? 's' : '';
+      return kidMode ? `${depth} breeding step${suffix}` : `${depth} breeding step${suffix}`;
+    }
+    function summarizeWorkRoles(pal) {
+      const work = pal?.work || {};
+      const entries = Object.entries(work).filter(([, level]) => level > 0);
+      entries.sort((a, b) => b[1] - a[1]);
+      return entries.slice(0, 3).map(([role, level]) => {
+        const label = getWorkRoleLabel(role);
+        return `${label}: Lv${level}`;
+      });
+    }
+    function computeBreedingCombatScore(pal, partnerInfo) {
+      if (!pal) return -Infinity;
+      const stats = pal.stats || {};
+      let score = (stats.attack || 0) * 1.6 + (stats.defense || 0) * 0.8 + (stats.hp || 0) * 0.6 + (stats.speed || 0) * 0.3;
+      score += (pal.rarity || 0) * 30;
+      if (partnerInfo?.normalized?.has('combat')) score += 120;
+      if (partnerInfo?.modifiesAnyDamage) score += 60;
+      if (partnerInfo?.modifiesPlayerDamage) score += 30;
+      if (partnerInfo?.modifiesPalDamage) score += 30;
+      return score;
+    }
+    function computeBreedingWorkerScore(pal, partnerInfo) {
+      if (!pal) return -Infinity;
+      const work = pal.work || {};
+      const levels = Object.values(work).filter(level => level > 0);
+      if (!levels.length) return -Infinity;
+      let score = levels.reduce((total, level) => total + (level * level * 12), 0);
+      score += Math.max(...levels) * 30;
+      if (partnerInfo?.workBoost) score += 80;
+      if (partnerInfo?.dropBoost) score += 25;
+      return score;
+    }
+    function computeBreedingMountScore(pal, partnerInfo) {
+      if (!pal) return -Infinity;
+      if (!partnerInfo || !partnerInfo.normalized?.has('mount')) return -Infinity;
+      const stats = pal.stats || {};
+      let score = (stats.speed || 0) * 0.5 + (pal.rarity || 0) * 25;
+      if (partnerInfo.normalized.has('mount-flying')) score += 180;
+      if (partnerInfo.normalized.has('mount-glider')) score += 120;
+      if (partnerInfo.normalized.has('mount-swimmer')) score += 90;
+      if (partnerInfo.speedBoost) score += 140;
+      return score;
+    }
+    function computeBreedingCollectionScore(analysis, pal) {
+      if (!pal) return -Infinity;
+      const rarity = pal.rarity || 0;
+      const price = pal.price || 0;
+      let score = rarity * 120 + price / 80;
+      const depth = analysis?.depths?.get(pal.id);
+      if (depth != null && depth > 0) {
+        score += (6 - Math.min(depth, 6)) * 25;
+      }
+      if (!caught[pal.id]) {
+        score += 180;
+      }
+      return score;
+    }
+    function generateBreedingAdvisorSuggestions({ kidMode = false, refresh = false } = {}) {
+      const analysis = getBreedingAnalysis({ refresh });
+      const formatSteps = palId => formatBreedingDepthLabel(analysis, palId, { kidMode });
+      const reachableIds = Array.from(analysis.reachable);
+      const newIds = reachableIds.filter(id => !analysis.caughtIds.has(id));
+      const used = new Set();
+      const suggestions = [];
+      const configs = [
+        {
+          key: 'combat',
+          icon: 'fa-crosshairs',
+          eyebrowKid: 'Battle pick',
+          eyebrowGrown: 'Combat focus',
+          titleKid: 'Power pal',
+          titleGrown: 'Combat ace',
+          scoring: (pal, partnerInfo) => computeBreedingCombatScore(pal, partnerInfo),
+          buildSubtitle: (pal, partnerInfo) => kidMode
+            ? `Breed ${pal.name} to help with tough fights.`
+            : `${pal.name} offers your biggest immediate damage spike.`,
+          buildHighlights: (pal, partnerInfo) => {
+            const stats = pal.stats || {};
+            const lines = [
+              kidMode ? `Attack ~${Math.round(stats.attack || 0)}` : `Attack ${Math.round(stats.attack || 0)}`,
+              kidMode ? `Defense ~${Math.round(stats.defense || 0)}` : `Defense ${Math.round(stats.defense || 0)}`
+            ];
+            if (partnerInfo?.skill?.name) {
+              lines.push(kidMode ? `Skill: ${partnerInfo.skill.name}` : `Partner skill • ${partnerInfo.skill.name}`);
+            }
+            return lines.filter(Boolean);
+          },
+          buildNote: pal => {
+            const depthText = formatSteps(pal.id).toLowerCase();
+            return kidMode
+              ? `${pal.name} is your strongest fighter in ${depthText}.`
+              : `${pal.name} is the highest attack hatch reachable in ${depthText}.`;
+          }
+        },
+        {
+          key: 'worker',
+          icon: 'fa-helmet-safety',
+          eyebrowKid: 'Base boost',
+          eyebrowGrown: 'Base planner',
+          titleKid: 'Work hero',
+          titleGrown: 'Base specialist',
+          scoring: (pal, partnerInfo) => computeBreedingWorkerScore(pal, partnerInfo),
+          buildSubtitle: pal => kidMode
+            ? `${pal.name} speeds up jobs at base.`
+            : `${pal.name} shores up critical work roles you are missing.`,
+          buildHighlights: (pal, partnerInfo) => {
+            const highlights = summarizeWorkRoles(pal);
+            if (partnerInfo?.skill?.name) {
+              highlights.push(kidMode ? `Skill: ${partnerInfo.skill.name}` : `Partner skill • ${partnerInfo.skill.name}`);
+            }
+            return highlights;
+          },
+          buildNote: pal => {
+            const roles = summarizeWorkRoles(pal).join(', ');
+            return kidMode
+              ? `${pal.name} keeps your base humming (${roles}).`
+              : `${pal.name} unlocks better productivity (${roles}).`;
+          }
+        },
+        {
+          key: 'mount',
+          icon: 'fa-feather-pointed',
+          eyebrowKid: 'Travel pick',
+          eyebrowGrown: 'Mobility upgrade',
+          titleKid: 'Speedy ride',
+          titleGrown: 'Mount upgrade',
+          scoring: (pal, partnerInfo) => computeBreedingMountScore(pal, partnerInfo),
+          buildSubtitle: (pal, partnerInfo) => {
+            const mountLabel = partnerInfo?.mountLabel || (kidMode ? 'Ride skill' : 'Ride skill');
+            return kidMode
+              ? `${pal.name} lets you ${mountLabel.toLowerCase()}.`
+              : `${pal.name} is the best ${mountLabel.toLowerCase()} you can hatch right now.`;
+          },
+          buildHighlights: (pal, partnerInfo) => {
+            const stats = pal.stats || {};
+            const lines = [kidMode ? `Speed ~${Math.round(stats.speed || 0)}` : `Speed ${Math.round(stats.speed || 0)}`];
+            if (partnerInfo?.skill?.name) {
+              lines.push(kidMode ? `Skill: ${partnerInfo.skill.name}` : `Partner skill • ${partnerInfo.skill.name}`);
+            }
+            return lines;
+          },
+          buildNote: pal => kidMode
+            ? `${pal.name} keeps travel fast so you can explore more.`
+            : `${pal.name} is the cleanest mobility upgrade available from breeding.`
+        },
+        {
+          key: 'collection',
+          icon: 'fa-layer-group',
+          eyebrowKid: 'New friend',
+          eyebrowGrown: 'Collection target',
+          titleKid: 'New friend',
+          titleGrown: 'Collection highlight',
+          scoring: pal => computeBreedingCollectionScore(analysis, pal),
+          buildSubtitle: pal => kidMode
+            ? `${pal.name} fills a new slot in your Paldeck.`
+            : `${pal.name} plugs a rare gap in your Paldeck.`,
+          buildHighlights: pal => {
+            const depthText = formatSteps(pal.id);
+            const lines = [depthText];
+            if (pal.price) {
+              lines.push(kidMode ? `${pal.price.toLocaleString()} gold value` : `${pal.price.toLocaleString()} gold value`);
+            }
+            return lines;
+          },
+          buildNote: pal => kidMode
+            ? `Hatching ${pal.name} gets you closer to a full Paldeck.`
+            : `${pal.name} is a prestige hatch that nudges your deck toward completion.`
+        }
+      ];
+      function pickCandidate(scoringFn) {
+        let best = null;
+        let bestScore = -Infinity;
+        const evaluate = ids => {
+          ids.forEach(id => {
+            if (used.has(id)) return;
+            const pal = PALS[id];
+            if (!pal) return;
+            const partnerInfo = getBreedingPartnerInfo(analysis, pal);
+            const score = scoringFn(pal, partnerInfo, analysis);
+            if (score > bestScore) {
+              bestScore = score;
+              best = { pal, partnerInfo, recipe: getBreedingPreferredRecipe(analysis, id) };
+            }
+          });
+        };
+        evaluate(newIds);
+        if (!best) evaluate(reachableIds);
+        if (!best) evaluate(analysis.palsSorted.map(p => p.id));
+        return best;
+      }
+      configs.forEach(config => {
+        const entry = pickCandidate(config.scoring);
+        if (!entry) return;
+        used.add(entry.pal.id);
+        const eyebrow = kidMode ? config.eyebrowKid : config.eyebrowGrown;
+        const title = kidMode ? config.titleKid : config.titleGrown;
+        const subtitle = config.buildSubtitle(entry.pal, entry.partnerInfo);
+        const highlights = config.buildHighlights(entry.pal, entry.partnerInfo).filter(Boolean);
+        const note = config.buildNote(entry.pal, entry.partnerInfo);
+        suggestions.push({
+          configKey: config.key,
+          icon: config.icon,
+          eyebrow,
+          title,
+          subtitle,
+          highlights,
+          note,
+          pal: entry.pal,
+          partnerInfo: entry.partnerInfo,
+          recipe: entry.recipe,
+          depthLabel: formatSteps(entry.pal.id),
+          recipeParents: entry.recipe && Array.isArray(entry.recipe.parents) ? entry.recipe.parents : [],
+          recipeNames: entry.recipe && Array.isArray(entry.recipe.names) ? entry.recipe.names : []
+        });
+      });
+      return { analysis, suggestions };
+    }
     function buildBreedingPage() {
       const parent1Grid = document.getElementById('parent1Grid');
       const parent2Grid = document.getElementById('parent2Grid');
@@ -9690,7 +10210,10 @@
       if (!parent1Grid || !parent2Grid || !babyGrid || !result || !combosContainer || !parent1Search || !parent2Search || !babySearch || !advisorGrid || !advisorEmpty || !advisorTitle || !advisorCopy || !atlasGrid || !atlasSearch || !atlasDiagram || !atlasEmpty) {
         return;
       }
-      const palsSorted = Object.values(PALS || {}).sort((a, b) => a.name.localeCompare(b.name));
+      let analysis = getBreedingAnalysis({ refresh: true });
+      let palsSorted = analysis.palsSorted;
+      let formatSteps = palId => formatBreedingDepthLabel(analysis, palId, { kidMode });
+
       let parentState = {
         parent1: BREEDING_SELECTION.parent1Id ? PALS[BREEDING_SELECTION.parent1Id] : null,
         parent2: BREEDING_SELECTION.parent2Id ? PALS[BREEDING_SELECTION.parent2Id] : null
@@ -9813,208 +10336,15 @@
         return createPalChip(pal, fallbackName, {
           condensed: true,
           role: pal ? 'parent' : null,
-          meta: pal ? formatBreedingSteps(pal.id) : ''
+          meta: pal ? formatSteps(pal.id) : ''
         });
       }
-
-      const partnerLookup = buildPartnerSkillLookup();
-      const recipeMap = buildBreedingRecipeMap();
-      const breedingGraph = computeBreedingGraph(recipeMap);
-      const { depths, sources, reachable, caughtIds } = breedingGraph;
-
-      function buildBreedingRecipeMap() {
-        const map = {};
-        Object.values(PALS || {}).forEach(pal => {
-          const combos = Array.isArray(pal.breedingCombos) ? pal.breedingCombos : [];
-          map[pal.id] = combos.map(pair => {
-            if (!Array.isArray(pair) || pair.length < 2) {
-              return { parents: [null, null], names: pair || [], pals: [null, null] };
-            }
-            const [leftName, rightName] = pair;
-            const leftPal = findPalByName(leftName);
-            const rightPal = findPalByName(rightName);
-            return {
-              parents: [leftPal ? leftPal.id : null, rightPal ? rightPal.id : null],
-              names: [leftName, rightName],
-              pals: [leftPal, rightPal]
-            };
-          });
-        });
-        return map;
-      }
-
-      function buildPartnerSkillLookup() {
-        const lookup = {};
-        const skills = Array.isArray(PARTNER_SKILLS) ? PARTNER_SKILLS : [];
-        skills.forEach(skill => {
-          const categories = Array.isArray(skill.categories) ? skill.categories.map(cat => String(cat)) : [];
-          const normalized = new Set();
-          let mountLabel = null;
-          categories.forEach(cat => {
-            const lower = cat.toLowerCase();
-            if (lower.includes('combat')) normalized.add('combat');
-            if (lower.includes('utility')) normalized.add('utility');
-            if (lower.includes('farming')) normalized.add('farming');
-            if (lower.startsWith('mount')) {
-              normalized.add('mount');
-              mountLabel = mountLabel || cat;
-              if (lower.includes('flying')) normalized.add('mount-flying');
-              if (lower.includes('glider')) normalized.add('mount-glider');
-              if (lower.includes('swimmer')) normalized.add('mount-swimmer');
-              if (lower.includes('ridden')) normalized.add('mount-ridden');
-            }
-          });
-          const description = typeof skill.description === 'string' ? skill.description : '';
-          const descLower = description.toLowerCase();
-          const modifiesPlayerDamage = descLower.includes('player') && (descLower.includes('damage') || descLower.includes('attack'));
-          const modifiesPalDamage = descLower.includes('pal') && descLower.includes('damage');
-          const modifiesAnyDamage = descLower.includes('damage') || descLower.includes('attack');
-          const speedBoost = descLower.includes('speed') && descLower.includes('mount');
-          const workBoost = descLower.includes('work') || descLower.includes('carry') || descLower.includes('weight');
-          const dropBoost = descLower.includes('drop') || descLower.includes('harvest');
-          (Array.isArray(skill.pals) ? skill.pals : []).forEach(name => {
-            const pal = findPalByName(name);
-            if (!pal) return;
-            lookup[pal.id] = {
-              skill,
-              categories,
-              normalized,
-              mountLabel,
-              description,
-              descLower,
-              modifiesAnyDamage,
-              modifiesPlayerDamage,
-              modifiesPalDamage,
-              speedBoost,
-              workBoost,
-              dropBoost
-            };
-          });
-        });
-        return lookup;
-      }
-
-      function computeBreedingGraph(recipes) {
-        const caughtIds = new Set();
-        Object.entries(caught || {}).forEach(([id, value]) => {
-          if (!value) return;
-          const numeric = Number(id);
-          if (!Number.isNaN(numeric)) {
-            caughtIds.add(numeric);
-          }
-        });
-        const depths = new Map();
-        const sources = new Map();
-        caughtIds.forEach(id => depths.set(id, 0));
-        let progressed = true;
-        while (progressed) {
-          progressed = false;
-          Object.values(PALS || {}).forEach(pal => {
-            const combos = recipes[pal.id] || [];
-            combos.forEach(recipe => {
-              if (!recipe || !Array.isArray(recipe.parents)) return;
-              if (!recipe.parents.every(parentId => parentId != null && depths.has(parentId))) return;
-              const parentDepths = recipe.parents.map(parentId => depths.get(parentId) || 0);
-              const candidateDepth = Math.max(...parentDepths) + 1;
-              if (!depths.has(pal.id) || candidateDepth < depths.get(pal.id)) {
-                depths.set(pal.id, candidateDepth);
-                sources.set(pal.id, recipe);
-                progressed = true;
-              }
-            });
-          });
-        }
-        return {
-          depths,
-          sources,
-          reachable: new Set(depths.keys()),
-          caughtIds
-        };
-      }
-
       function getPartnerInfo(pal) {
-        if (!pal) return null;
-        return partnerLookup[pal.id] || null;
+        return getBreedingPartnerInfo(analysis, pal);
       }
 
       function getPreferredRecipe(palId) {
-        if (sources.has(palId)) {
-          return sources.get(palId);
-        }
-        const options = recipeMap[palId] || [];
-        const valid = options.find(entry => entry.parents.every(id => id != null));
-        return valid || options[0] || null;
-      }
-
-      function formatBreedingSteps(palId) {
-        const depth = depths.get(palId);
-        if (depth == null) return kidMode ? 'Catch in the wild' : 'Catch in the wild';
-        if (depth === 0) {
-          return kidMode ? 'Already in your camp' : 'Already caught';
-        }
-        const suffix = depth > 1 ? 's' : '';
-        return kidMode ? `${depth} breeding step${suffix}` : `${depth} breeding step${suffix}`;
-      }
-
-      function summarizeWork(pal) {
-        const work = pal?.work || {};
-        const entries = Object.entries(work).filter(([, level]) => level > 0);
-        entries.sort((a, b) => b[1] - a[1]);
-        return entries.slice(0, 3).map(([role, level]) => {
-          const label = getWorkRoleLabel(role);
-          return `${label}: Lv${level}`;
-        });
-      }
-
-      function computeCombatScore(pal, partnerInfo) {
-        if (!pal) return -Infinity;
-        const stats = pal.stats || {};
-        let score = (stats.attack || 0) * 1.6 + (stats.defense || 0) * 0.8 + (stats.hp || 0) * 0.6 + (stats.speed || 0) * 0.3;
-        score += (pal.rarity || 0) * 30;
-        if (partnerInfo?.normalized?.has('combat')) score += 120;
-        if (partnerInfo?.modifiesAnyDamage) score += 60;
-        if (partnerInfo?.modifiesPlayerDamage) score += 30;
-        if (partnerInfo?.modifiesPalDamage) score += 30;
-        return score;
-      }
-
-      function computeWorkerScore(pal, partnerInfo) {
-        if (!pal) return -Infinity;
-        const work = pal.work || {};
-        const levels = Object.values(work).filter(level => level > 0);
-        if (!levels.length) return -Infinity;
-        let score = levels.reduce((total, level) => total + (level * level * 12), 0);
-        score += Math.max(...levels) * 30;
-        if (partnerInfo?.workBoost) score += 80;
-        if (partnerInfo?.dropBoost) score += 25;
-        return score;
-      }
-
-      function computeMountScore(pal, partnerInfo) {
-        if (!pal) return -Infinity;
-        if (!partnerInfo || !partnerInfo.normalized?.has('mount')) return -Infinity;
-        const stats = pal.stats || {};
-        let score = (stats.speed || 0) * 0.5 + (pal.rarity || 0) * 25;
-        if (partnerInfo.normalized.has('mount-flying')) score += 180;
-        if (partnerInfo.normalized.has('mount-glider')) score += 120;
-        if (partnerInfo.normalized.has('mount-swimmer')) score += 90;
-        if (partnerInfo.speedBoost) score += 140;
-        return score;
-      }
-
-      function computeCollectionScore(pal) {
-        if (!pal) return -Infinity;
-        const rarity = pal.rarity || 0;
-        const price = pal.price || 0;
-        let score = rarity * 120 + price / 80;
-        const depth = depths.get(pal.id);
-        if (depth != null && depth > 0) {
-          score += (6 - Math.min(depth, 6)) * 25;
-        }
-        if (!caught[pal.id]) {
-          score += 180;
-        }
-        return score;
+        return getBreedingPreferredRecipe(analysis, palId);
       }
 
       function buildHighlights(lines) {
@@ -10033,7 +10363,10 @@
         return list;
       }
 
-      function buildAdvisorCard(config, pal, partnerInfo, recipe) {
+      function buildAdvisorCard(entry) {
+        const pal = entry.pal;
+        const partnerInfo = entry.partnerInfo;
+        const recipe = entry.recipe;
         const card = document.createElement('article');
         card.className = 'advisor-card';
         card.setAttribute('role', 'listitem');
@@ -10044,21 +10377,21 @@
         titleBlock.className = 'advisor-card__titleblock';
         const eyebrow = document.createElement('span');
         eyebrow.className = 'advisor-card__eyebrow';
-        eyebrow.textContent = kidMode ? config.eyebrowKid : config.eyebrowGrown;
+        eyebrow.textContent = entry.eyebrow;
         titleBlock.appendChild(eyebrow);
         const title = document.createElement('h4');
         title.className = 'advisor-card__title';
-        title.textContent = kidMode ? config.titleKid : config.titleGrown;
+        title.textContent = entry.title;
         titleBlock.appendChild(title);
         const subtitle = document.createElement('p');
         subtitle.className = 'advisor-card__subtitle';
-        subtitle.textContent = config.buildSubtitle(pal, partnerInfo, recipe);
+        subtitle.textContent = entry.subtitle;
         titleBlock.appendChild(subtitle);
         header.appendChild(titleBlock);
         const iconWrap = document.createElement('div');
         iconWrap.className = 'advisor-card__icon';
         const icon = document.createElement('i');
-        icon.className = `fa-solid ${config.icon}`;
+        icon.className = `fa-solid ${entry.icon}`;
         iconWrap.appendChild(icon);
         header.appendChild(iconWrap);
         card.appendChild(header);
@@ -10076,7 +10409,7 @@
         badges.appendChild(typeBadge);
         const stepBadge = document.createElement('span');
         stepBadge.className = 'advisor-card__badge';
-        stepBadge.textContent = formatBreedingSteps(pal.id);
+        stepBadge.textContent = formatSteps(pal.id);
         badges.appendChild(stepBadge);
         card.appendChild(badges);
 
@@ -10085,18 +10418,20 @@
         palWrap.appendChild(createPalCard(pal, { compact: false, selectable: false }));
         card.appendChild(palWrap);
 
-        const highlights = config.buildHighlights(pal, partnerInfo, recipe);
-        card.appendChild(buildHighlights(highlights));
+        card.appendChild(buildHighlights(entry.highlights || []));
 
         const actions = document.createElement('div');
         actions.className = 'advisor-card__actions';
-        if (recipe && recipe.parents && recipe.parents.every(id => id != null)) {
+        const parentIds = Array.isArray(entry.recipeParents) && entry.recipeParents.every(id => id != null)
+          ? entry.recipeParents
+          : (recipe && Array.isArray(recipe.parents) && recipe.parents.every(id => id != null) ? recipe.parents : null);
+        if (parentIds) {
           const planBtn = document.createElement('button');
           planBtn.type = 'button';
           planBtn.className = 'advisor-card__action';
           planBtn.textContent = kidMode ? 'Queue this combo' : 'Queue this combo';
           planBtn.addEventListener('click', () => {
-            const [leftId, rightId] = recipe.parents;
+            const [leftId, rightId] = parentIds;
             parentState.parent1 = leftId != null ? PALS[leftId] : null;
             parentState.parent2 = rightId != null ? PALS[rightId] : null;
             selectedBaby = pal;
@@ -10128,7 +10463,7 @@
 
         const note = document.createElement('p');
         note.className = 'advisor-card__note';
-        note.textContent = config.buildNote(pal, partnerInfo, recipe);
+        note.textContent = entry.note;
         card.appendChild(note);
 
         return card;
@@ -10142,148 +10477,18 @@
           ? 'We look at pals you can hatch and pick the smartest next ones.'
           : 'We analyse your roster, reachable offspring, and partner skills to queue intelligent breeding targets.';
 
-        const reachableIds = Array.from(reachable);
-        const newIds = reachableIds.filter(id => !caughtIds.has(id));
-        const used = new Set();
-        const suggestions = [];
-
-        const configs = [
-          {
-            key: 'combat',
-            icon: 'fa-crosshairs',
-            eyebrowKid: 'Battle pick',
-            eyebrowGrown: 'Combat focus',
-            titleKid: 'Power pal',
-            titleGrown: 'Combat ace',
-            scoring: computeCombatScore,
-            buildSubtitle: (pal) => kidMode
-              ? `Breed ${pal.name} to help with tough fights.`
-              : `${pal.name} offers your biggest immediate damage spike.`,
-            buildHighlights: (pal, partnerInfo) => {
-              const stats = pal.stats || {};
-              const partnerName = partnerInfo?.skill?.name;
-              return [
-                { kid: `Attack ~${Math.round(stats.attack || 0)}`, grown: `Attack ${Math.round(stats.attack || 0)}` },
-                { kid: `Defense ~${Math.round(stats.defense || 0)}`, grown: `Defense ${Math.round(stats.defense || 0)}` },
-                partnerName ? { kid: `Skill: ${partnerName}`, grown: `Partner skill • ${partnerName}` } : null
-              ];
-            },
-            buildNote: (pal) => {
-              const depthText = formatBreedingSteps(pal.id);
-              return kidMode
-                ? `${pal.name} is your strongest fighter in ${depthText.toLowerCase()}.`
-                : `${pal.name} is the highest attack hatch reachable in ${depthText.toLowerCase()}.`;
-            }
-          },
-          {
-            key: 'worker',
-            icon: 'fa-helmet-safety',
-            eyebrowKid: 'Base boost',
-            eyebrowGrown: 'Base planner',
-            titleKid: 'Work hero',
-            titleGrown: 'Base specialist',
-            scoring: computeWorkerScore,
-            buildSubtitle: (pal) => kidMode
-              ? `${pal.name} speeds up jobs at base.`
-              : `${pal.name} shores up critical work roles you are missing.`,
-            buildHighlights: (pal, partnerInfo) => {
-              const workHighlights = summarizeWork(pal);
-              const partnerName = partnerInfo?.skill?.name;
-              const lines = workHighlights.map(line => ({ kid: line, grown: line }));
-              if (partnerName) {
-                lines.push({ kid: `Skill: ${partnerName}`, grown: `Partner skill • ${partnerName}` });
-              }
-              return lines;
-            },
-            buildNote: (pal) => {
-              const roles = summarizeWork(pal).join(', ');
-              return kidMode
-                ? `${pal.name} keeps your base humming (${roles}).`
-                : `${pal.name} unlocks better productivity (${roles}).`;
-            }
-          },
-          {
-            key: 'mount',
-            icon: 'fa-feather-pointed',
-            eyebrowKid: 'Travel pick',
-            eyebrowGrown: 'Mobility upgrade',
-            titleKid: 'Speedy ride',
-            titleGrown: 'Mount upgrade',
-            scoring: computeMountScore,
-            buildSubtitle: (pal, partnerInfo) => {
-              const mountLabel = partnerInfo?.mountLabel || (kidMode ? 'Ride skill' : 'Ride skill');
-              return kidMode
-                ? `${pal.name} lets you ${mountLabel.toLowerCase()}.`
-                : `${pal.name} is the best ${mountLabel.toLowerCase()} you can hatch right now.`;
-            },
-            buildHighlights: (pal, partnerInfo) => {
-              const stats = pal.stats || {};
-              return [
-                { kid: `Speed ~${Math.round(stats.speed || 0)}`, grown: `Speed ${Math.round(stats.speed || 0)}` },
-                partnerInfo?.mountLabel ? { kid: partnerInfo.mountLabel, grown: partnerInfo.mountLabel } : null,
-                partnerInfo?.speedBoost ? { kid: 'Extra fast partner skill', grown: 'Partner skill boosts travel speed' } : null
-              ];
-            },
-            buildNote: (pal, partnerInfo) => {
-              const label = partnerInfo?.mountLabel || 'mount';
-              return kidMode
-                ? `${pal.name} turns you into a quick ${label.toLowerCase()}.`
-                : `${pal.name} slashes travel time as your premier ${label.toLowerCase()}.`;
-            }
-          },
-          {
-            key: 'collection',
-            icon: 'fa-grid',
-            eyebrowKid: 'Paldeck goal',
-            eyebrowGrown: 'Collection target',
-            titleKid: 'New friend',
-            titleGrown: 'Collection highlight',
-            scoring: computeCollectionScore,
-            buildSubtitle: (pal) => kidMode
-              ? `${pal.name} fills a new slot in your Paldeck.`
-              : `${pal.name} plugs a rare gap in your Paldeck.`,
-            buildHighlights: (pal) => {
-              const depthText = formatBreedingSteps(pal.id);
-              const price = pal.price ? `${pal.price.toLocaleString()} gold value` : null;
-              return [
-                { kid: depthText, grown: depthText },
-                price ? { kid: price, grown: price } : null
-              ];
-            },
-            buildNote: (pal) => kidMode
-              ? `Hatching ${pal.name} gets you closer to a full Paldeck.`
-              : `${pal.name} is a prestige hatch that nudges your deck toward completion.`
-          }
-        ];
-
-        function pickCandidate(scoringFn) {
-          let best = null;
-          let bestScore = -Infinity;
-          function evaluate(ids) {
-            ids.forEach(id => {
-              if (used.has(id)) return;
-              const pal = PALS[id];
-              if (!pal) return;
-              const partnerInfo = getPartnerInfo(pal);
-              const score = scoringFn(pal, partnerInfo);
-              if (score > bestScore) {
-                bestScore = score;
-                best = { pal, partnerInfo, recipe: getPreferredRecipe(id) };
-              }
-            });
-          }
-          evaluate(newIds);
-          if (!best) evaluate(reachableIds);
-          if (!best) evaluate(palsSorted.map(p => p.id));
-          return best;
+        if (!isBreedingUnlocked()) {
+          advisorEmpty.hidden = false;
+          advisorEmpty.textContent = kidMode
+            ? 'Unlock the Breeding Farm to see suggested pals and parents.'
+            : 'Unlock the Breeding Farm to surface personalised breeding recommendations.';
+          return;
         }
 
-        configs.forEach(config => {
-          const entry = pickCandidate(config.scoring);
-          if (!entry) return;
-          used.add(entry.pal.id);
-          suggestions.push({ config, ...entry });
-        });
+        const { analysis: latestAnalysis, suggestions } = generateBreedingAdvisorSuggestions({ kidMode, refresh: true });
+        analysis = latestAnalysis;
+        palsSorted = analysis.palsSorted;
+        formatSteps = palId => formatBreedingDepthLabel(analysis, palId, { kidMode });
 
         if (!suggestions.length) {
           advisorEmpty.hidden = false;
@@ -10293,8 +10498,8 @@
           return;
         }
 
-        suggestions.forEach(({ config, pal, partnerInfo, recipe }) => {
-          advisorGrid.appendChild(buildAdvisorCard(config, pal, partnerInfo, recipe));
+        suggestions.forEach(entry => {
+          advisorGrid.appendChild(buildAdvisorCard(entry));
         });
       }
 
@@ -10348,7 +10553,7 @@
         raritySpan.textContent = rarityLabel;
         meta.appendChild(raritySpan);
         const stepsSpan = document.createElement('span');
-        stepsSpan.textContent = formatBreedingSteps(pal.id);
+        stepsSpan.textContent = formatSteps(pal.id);
         meta.appendChild(stepsSpan);
         if (Array.isArray(pal.types) && pal.types.length) {
           const typeSpan = document.createElement('span');
@@ -10359,14 +10564,14 @@
         focus.appendChild(
           createPalChip(pal, pal.name, {
             role: 'child',
-            meta: formatBreedingSteps(pal.id)
+            meta: formatSteps(pal.id)
           })
         );
         return focus;
       }
 
       function buildAtlasBranches(pal, depth, visited) {
-        const combos = recipeMap[pal.id] || [];
+        const combos = (analysis?.recipeMap?.[pal.id]) || [];
         if (!combos.length) return null;
         const fragment = document.createDocumentFragment();
         combos.forEach((recipe, index) => {
@@ -10390,7 +10595,7 @@
             createPalChip(leftPal, leftName, {
               condensed: true,
               role: 'parent',
-              meta: leftPal ? formatBreedingSteps(leftPal.id) : ''
+              meta: leftPal ? formatSteps(leftPal.id) : ''
             })
           );
           const plus = document.createElement('span');
@@ -10401,7 +10606,7 @@
             createPalChip(rightPal, rightName, {
               condensed: true,
               role: 'parent',
-              meta: rightPal ? formatBreedingSteps(rightPal.id) : ''
+              meta: rightPal ? formatSteps(rightPal.id) : ''
             })
           );
           label.appendChild(flow);
@@ -10415,7 +10620,7 @@
             createPalChip(pal, pal.name, {
               condensed: true,
               role: 'child',
-              meta: formatBreedingSteps(pal.id)
+              meta: formatSteps(pal.id)
             })
           );
           label.appendChild(resultRow);
@@ -10434,7 +10639,7 @@
           pyramid.className = 'breeding-branch__pyramid';
           const childChip = createPalChip(pal, pal.name, {
             role: 'child',
-            meta: formatBreedingSteps(pal.id)
+            meta: formatSteps(pal.id)
           });
           pyramid.appendChild(childChip);
           const connector = document.createElement('div');
@@ -10454,7 +10659,7 @@
               createPalChip(parentPal, name || 'Unknown parent', {
                 condensed: true,
                 role: 'parent',
-                meta: parentPal ? formatBreedingSteps(parentPal.id) : ''
+                meta: parentPal ? formatSteps(parentPal.id) : ''
               })
             );
           });
@@ -10484,7 +10689,7 @@
               parentWrap.appendChild(card);
               const status = document.createElement('p');
               status.className = 'breeding-branch__notice';
-              status.textContent = formatBreedingSteps(parentPal.id);
+              status.textContent = formatSteps(parentPal.id);
               parentWrap.appendChild(status);
               if (visited.has(parentPal.id)) {
                 const loop = document.createElement('p');
@@ -10662,33 +10867,45 @@
         header.appendChild(
           createPalChip(selectedBaby, selectedBaby.name, {
             role: 'child',
-            meta: formatBreedingSteps(selectedBaby.id)
+            meta: formatSteps(selectedBaby.id)
           })
         );
         combosContainer.appendChild(header);
-        const combos = Array.isArray(selectedBaby.breedingCombos) ? selectedBaby.breedingCombos : [];
+        const combos = Array.isArray(analysis?.recipeMap?.[selectedBaby.id])
+          ? analysis.recipeMap[selectedBaby.id]
+          : [];
         if (!combos.length) {
           combosContainer.appendChild(makeEmptyMessage(kidMode ? 'No combos known yet.' : 'We do not have recorded breeding pairs for this pal yet.'));
           return;
         }
-        combos.forEach(pair => {
-          if (!Array.isArray(pair) || pair.length < 2) return;
-          const [leftName, rightName] = pair;
-          const leftPalId = PAL_NAME_TO_ID[leftName];
-          const rightPalId = PAL_NAME_TO_ID[rightName];
-          const leftPal = leftPalId ? PALS[leftPalId] : null;
-          const rightPal = rightPalId ? PALS[rightPalId] : null;
+        combos.forEach(recipe => {
+          const names = Array.isArray(recipe?.names) ? recipe.names : [];
+          if (!names.length) return;
+          const parents = Array.isArray(recipe?.parents) ? recipe.parents : [];
+          const pals = Array.isArray(recipe?.pals) ? recipe.pals : [];
+          const [leftId, rightId] = parents;
+          const leftPal = pals[0] || (leftId != null ? PALS[leftId] : null);
+          const rightPal = pals[1] || (rightId != null ? PALS[rightId] : null);
+          const leftName = names[0] || (leftPal ? leftPal.name : 'Unknown');
+          const rightName = names[1] || (rightPal ? rightPal.name : 'Unknown');
+          const canActivate = parents.length >= 2 && parents.every(id => id != null);
           const row = document.createElement('div');
           row.className = 'breeding-combo';
-          row.setAttribute('role', 'button');
-          row.tabIndex = 0;
-          row.setAttribute(
-            'aria-label',
-            kidMode
-              ? `Use ${leftName} and ${rightName} together`
-              : `Breed ${leftName} with ${rightName} to hatch ${selectedBaby.name}`
-          );
+          if (canActivate) {
+            row.setAttribute('role', 'button');
+            row.tabIndex = 0;
+            row.setAttribute(
+              'aria-label',
+              kidMode
+                ? `Use ${leftName} and ${rightName} together`
+                : `Breed ${leftName} with ${rightName} to hatch ${selectedBaby.name}`
+            );
+          } else {
+            row.classList.add('breeding-combo--disabled');
+            row.setAttribute('aria-disabled', 'true');
+          }
           const activateCombo = () => {
+            if (!canActivate) return;
             if (leftPal) parentState.parent1 = leftPal;
             if (rightPal) parentState.parent2 = rightPal;
             updateBreedingSelection();
@@ -10710,16 +10927,18 @@
           row.appendChild(
             createPalChip(selectedBaby, selectedBaby.name, {
               role: 'child',
-              meta: formatBreedingSteps(selectedBaby.id)
+              meta: formatSteps(selectedBaby.id)
             })
           );
-          row.addEventListener('click', activateCombo);
-          row.addEventListener('keydown', event => {
-            if (event.key === 'Enter' || event.key === ' ') {
-              event.preventDefault();
-              activateCombo();
-            }
-          });
+          if (canActivate) {
+            row.addEventListener('click', activateCombo);
+            row.addEventListener('keydown', event => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                activateCombo();
+              }
+            });
+          }
           combosContainer.appendChild(row);
         });
       }
@@ -10760,7 +10979,7 @@
         flow.appendChild(
           createPalChip(parentState.parent1, parentState.parent1?.name, {
             role: 'parent',
-            meta: parentState.parent1 ? formatBreedingSteps(parentState.parent1.id) : ''
+            meta: parentState.parent1 ? formatSteps(parentState.parent1.id) : ''
           })
         );
         const plus = document.createElement('div');
@@ -10770,7 +10989,7 @@
         flow.appendChild(
           createPalChip(parentState.parent2, parentState.parent2?.name, {
             role: 'parent',
-            meta: parentState.parent2 ? formatBreedingSteps(parentState.parent2.id) : ''
+            meta: parentState.parent2 ? formatSteps(parentState.parent2.id) : ''
           })
         );
         const arrow = document.createElement('div');
@@ -10781,7 +11000,7 @@
           flow.appendChild(
             createPalChip(baby, baby.name, {
               role: 'child',
-              meta: formatBreedingSteps(baby.id)
+              meta: formatSteps(baby.id)
             })
           );
         } else {
@@ -11228,6 +11447,89 @@
       progressSection.appendChild(progressGrid);
       home.appendChild(progressSection);
 
+      const breedingSection = document.createElement('section');
+      breedingSection.className = 'home-section home-breeding';
+      const breedingHeader = document.createElement('div');
+      breedingHeader.className = 'home-section-header';
+      breedingHeader.innerHTML = kidMode
+        ? '<h3>Breeding intelligence</h3><p>Unlock smarter egg plans, parent reminders, and quick jumps once the farm is live.</p>'
+        : '<h3>Adaptive breeding intelligence</h3><p>Surface smart hatch targets, parent readiness, and shortcuts into the advisor.</p>';
+      breedingSection.appendChild(breedingHeader);
+
+      const breedingCard = document.createElement('article');
+      breedingCard.className = 'home-breeding-card';
+      breedingCard.id = 'homeBreedingIntel';
+      breedingCard.dataset.state = 'loading';
+
+      const breedingCardHeader = document.createElement('div');
+      breedingCardHeader.className = 'home-breeding-card__header';
+      const breedingIconWrap = document.createElement('div');
+      breedingIconWrap.className = 'home-breeding-card__icon';
+      const breedingIcon = document.createElement('i');
+      breedingIcon.className = 'fa-solid fa-egg';
+      breedingIconWrap.appendChild(breedingIcon);
+      breedingCardHeader.appendChild(breedingIconWrap);
+      const breedingHeaderText = document.createElement('div');
+      const breedingTitle = document.createElement('h3');
+      breedingTitle.className = 'home-breeding-card__title';
+      breedingTitle.textContent = kidMode ? 'Smart egg planner' : 'Smart egg planner';
+      const breedingSubtitle = document.createElement('p');
+      breedingSubtitle.className = 'home-breeding-card__subtitle';
+      breedingSubtitle.textContent = kidMode
+        ? 'We track your pals and tech to highlight the best hatch targets and parents.'
+        : 'Palmate analyses unlocks, caught pals, and partner skills to shortlist high-value hatches.';
+      breedingHeaderText.appendChild(breedingTitle);
+      breedingHeaderText.appendChild(breedingSubtitle);
+      breedingCardHeader.appendChild(breedingHeaderText);
+      breedingCard.appendChild(breedingCardHeader);
+
+      const breedingStatus = document.createElement('p');
+      breedingStatus.id = 'homeBreedingStatus';
+      breedingStatus.className = 'home-breeding-status';
+      breedingStatus.textContent = kidMode
+        ? 'Checking breeding unlocks…'
+        : 'Analysing breeding readiness…';
+      breedingCard.appendChild(breedingStatus);
+
+      const breedingList = document.createElement('ul');
+      breedingList.id = 'homeBreedingList';
+      breedingList.className = 'home-breeding-list';
+      breedingCard.appendChild(breedingList);
+
+      const breedingActions = document.createElement('div');
+      breedingActions.className = 'home-breeding-actions';
+      const breedingPlanBtn = document.createElement('button');
+      breedingPlanBtn.type = 'button';
+      breedingPlanBtn.className = 'btn';
+      breedingPlanBtn.id = 'homeBreedingPlan';
+      breedingPlanBtn.disabled = true;
+      breedingPlanBtn.textContent = kidMode ? 'Plan this egg' : 'Plan recommended combo';
+      breedingActions.appendChild(breedingPlanBtn);
+      const breedingAtlasBtn = document.createElement('button');
+      breedingAtlasBtn.type = 'button';
+      breedingAtlasBtn.className = 'btn btn--ghost';
+      breedingAtlasBtn.id = 'homeBreedingAtlas';
+      breedingAtlasBtn.disabled = true;
+      breedingAtlasBtn.textContent = kidMode ? 'View family tree' : 'View ancestry tree';
+      breedingActions.appendChild(breedingAtlasBtn);
+      const breedingAdvisorBtn = document.createElement('button');
+      breedingAdvisorBtn.type = 'button';
+      breedingAdvisorBtn.className = 'home-progress-link';
+      breedingAdvisorBtn.id = 'homeBreedingAdvisor';
+      breedingAdvisorBtn.textContent = kidMode ? 'Open breeding advisor' : 'Open breeding advisor';
+      breedingActions.appendChild(breedingAdvisorBtn);
+      const breedingUnlockBtn = document.createElement('button');
+      breedingUnlockBtn.type = 'button';
+      breedingUnlockBtn.className = 'btn';
+      breedingUnlockBtn.id = 'homeBreedingUnlock';
+      breedingUnlockBtn.hidden = true;
+      breedingUnlockBtn.textContent = kidMode ? 'See unlock step' : 'Jump to unlock step';
+      breedingActions.appendChild(breedingUnlockBtn);
+      breedingCard.appendChild(breedingActions);
+
+      breedingSection.appendChild(breedingCard);
+      home.appendChild(breedingSection);
+
       const spotlight = document.createElement('section');
       spotlight.className = 'home-section home-spotlight';
       const spotlightHeader = document.createElement('div');
@@ -11254,6 +11556,218 @@
       home.appendChild(spotlight);
 
       refreshModeUI();
+      updateHomeBreedingIntel({ refresh: true });
+    }
+
+    function updateHomeBreedingIntel({ refresh = false } = {}) {
+      const card = document.getElementById('homeBreedingIntel');
+      const statusEl = document.getElementById('homeBreedingStatus');
+      const listEl = document.getElementById('homeBreedingList');
+      const planBtn = document.getElementById('homeBreedingPlan');
+      const atlasBtn = document.getElementById('homeBreedingAtlas');
+      const advisorBtn = document.getElementById('homeBreedingAdvisor');
+      const unlockBtn = document.getElementById('homeBreedingUnlock');
+      if (!card || !statusEl || !listEl) return;
+
+      const visibleButtons = [planBtn, atlasBtn];
+      visibleButtons.forEach(btn => {
+        if (!btn) return;
+        btn.hidden = false;
+        btn.disabled = true;
+        btn.onclick = null;
+      });
+      if (advisorBtn) {
+        advisorBtn.disabled = false;
+        advisorBtn.onclick = () => {
+          BREEDING_SELECTION.parent1Id = null;
+          BREEDING_SELECTION.parent2Id = null;
+          BREEDING_SELECTION.babyId = null;
+          BREEDING_SELECTION.atlasId = null;
+          BREEDING_SELECTION.mode = 'breedingAdvisor';
+          buildBreedingPage();
+          switchPage('breeding');
+          playSound(clickSound);
+        };
+      }
+      if (unlockBtn) {
+        unlockBtn.hidden = true;
+        unlockBtn.disabled = false;
+        unlockBtn.onclick = null;
+      }
+      listEl.innerHTML = '';
+
+      const formatNameList = names => {
+        const clean = Array.isArray(names) ? names.filter(Boolean) : [];
+        if (!clean.length) return '';
+        if (clean.length === 1) return clean[0];
+        if (clean.length === 2) {
+          return kidMode ? `${clean[0]} and ${clean[1]}` : `${clean[0]} & ${clean[1]}`;
+        }
+        const head = clean.slice(0, -1);
+        const tail = clean[clean.length - 1];
+        const joiner = kidMode ? ' and ' : ', and ';
+        return `${head.join(', ')}${joiner}${tail}`;
+      };
+
+      const describeParentStatus = (entry, { verbose = false } = {}) => {
+        const parentNames = Array.isArray(entry?.recipeNames) ? entry.recipeNames.filter(Boolean) : [];
+        const parentIds = Array.isArray(entry?.recipeParents) ? entry.recipeParents : [];
+        if (!parentNames.length) {
+          return kidMode
+            ? (verbose ? 'We are still learning the parents.' : 'Parents unknown')
+            : (verbose ? 'Parent data is still being sourced.' : 'Parent data missing');
+        }
+        let hasUnknown = false;
+        const statuses = parentNames.map((name, idx) => {
+          const parentId = parentIds[idx];
+          if (parentId == null) {
+            hasUnknown = true;
+            return { name, caught: false, known: false };
+          }
+          return { name, caught: !!caught[parentId], known: true };
+        });
+        if (hasUnknown) {
+          return kidMode
+            ? (verbose ? 'Parent intel is incomplete right now.' : 'Parents incomplete')
+            : (verbose ? 'Parent intel is incomplete in the current dataset.' : 'Parents incomplete');
+        }
+        const missing = statuses.filter(entry => !entry.caught);
+        if (!missing.length) {
+          return kidMode
+            ? (verbose ? 'Parents ready in your camp.' : 'Parents ready')
+            : (verbose ? 'Both parents are already caught and ready to pair.' : 'Parents ready');
+        }
+        const missingNames = missing.map(entry => entry.name);
+        const list = formatNameList(missingNames);
+        if (verbose) {
+          if (missing.length === statuses.length) {
+            return kidMode
+              ? `Catch ${list} to start hatching.`
+              : `Catch ${list} before you queue this hatch.`;
+          }
+          return kidMode
+            ? `Still need ${list} before you can hatch.`
+            : `You still need ${list} before this combo is ready.`;
+        }
+        if (missing.length === statuses.length) {
+          return kidMode ? `Need ${list}` : `Missing ${list}`;
+        }
+        return kidMode ? `Need ${list}` : `Missing ${list}`;
+      };
+
+      if (!isBreedingUnlocked()) {
+        card.dataset.state = 'locked';
+        statusEl.textContent = kidMode
+          ? 'Build the Breeding Farm to unlock smart egg tips.'
+          : 'Construct the Breeding Farm to unlock personalised breeding intelligence.';
+        visibleButtons.forEach(btn => {
+          if (btn) btn.hidden = true;
+        });
+        if (advisorBtn) advisorBtn.disabled = true;
+        if (unlockBtn) {
+          unlockBtn.hidden = false;
+          unlockBtn.onclick = () => {
+            const targetStep = BREEDING_ROUTE_STEP_IDS.find(id => id);
+            switchPage('route');
+            if (targetStep) {
+              queueRouteFocus(targetStep);
+            }
+            playSound(clickSound);
+          };
+        }
+        return;
+      }
+
+      const { suggestions } = generateBreedingAdvisorSuggestions({ kidMode, refresh });
+      if (!suggestions.length) {
+        card.dataset.state = 'empty';
+        statusEl.textContent = kidMode
+          ? 'Mark pals as caught so we can line up egg combos.'
+          : 'Mark more pals as caught to surface actionable breeding combos.';
+        visibleButtons.forEach(btn => {
+          if (btn) btn.hidden = true;
+        });
+        return;
+      }
+
+      card.dataset.state = 'ready';
+      const top = suggestions[0];
+      statusEl.textContent = kidMode
+        ? `Next hatch: ${top.pal.name}. ${describeParentStatus(top, { verbose: true })}`
+        : `Priority hatch: ${top.pal.name}. ${describeParentStatus(top, { verbose: true })}`;
+
+      suggestions.slice(0, 3).forEach((entry, index) => {
+        const item = document.createElement('li');
+        item.className = 'home-breeding-item';
+
+        const title = document.createElement('div');
+        title.className = 'home-breeding-item__title';
+        title.textContent = `${index + 1}. ${entry.pal.name}`;
+        item.appendChild(title);
+
+        const meta = document.createElement('div');
+        meta.className = 'home-breeding-item__meta';
+
+        const stepsSpan = document.createElement('span');
+        const stepsIcon = document.createElement('i');
+        stepsIcon.className = 'fa-solid fa-diagram-project';
+        stepsIcon.setAttribute('aria-hidden', 'true');
+        stepsSpan.appendChild(stepsIcon);
+        stepsSpan.appendChild(document.createTextNode(` ${entry.depthLabel}`));
+        meta.appendChild(stepsSpan);
+
+        const parentSpan = document.createElement('span');
+        const parentIcon = document.createElement('i');
+        parentIcon.className = 'fa-solid fa-people-arrows';
+        parentIcon.setAttribute('aria-hidden', 'true');
+        parentSpan.appendChild(parentIcon);
+        parentSpan.appendChild(document.createTextNode(` ${describeParentStatus(entry)}`));
+        meta.appendChild(parentSpan);
+
+        item.appendChild(meta);
+
+        const noteText = entry.note || entry.subtitle;
+        if (noteText) {
+          const note = document.createElement('p');
+          note.className = 'home-breeding-item__note';
+          note.textContent = noteText;
+          item.appendChild(note);
+        }
+        listEl.appendChild(item);
+      });
+
+      if (planBtn) {
+        const parentIds = Array.isArray(top.recipeParents) ? top.recipeParents : [];
+        const hasParents = parentIds.length >= 2 && parentIds.every(id => id != null);
+        planBtn.hidden = false;
+        planBtn.disabled = !hasParents;
+        if (hasParents) {
+          planBtn.onclick = () => {
+            BREEDING_SELECTION.parent1Id = parentIds[0];
+            BREEDING_SELECTION.parent2Id = parentIds[1];
+            BREEDING_SELECTION.babyId = top.pal.id;
+            BREEDING_SELECTION.atlasId = top.pal.id;
+            BREEDING_SELECTION.mode = 'breedingPairs';
+            buildBreedingPage();
+            switchPage('breeding');
+            playSound(clickSound);
+          };
+        }
+      }
+      if (atlasBtn) {
+        atlasBtn.hidden = false;
+        atlasBtn.disabled = false;
+        atlasBtn.onclick = () => {
+          BREEDING_SELECTION.parent1Id = null;
+          BREEDING_SELECTION.parent2Id = null;
+          BREEDING_SELECTION.babyId = top.pal.id;
+          BREEDING_SELECTION.atlasId = top.pal.id;
+          BREEDING_SELECTION.mode = 'breedingAtlas';
+          buildBreedingPage();
+          switchPage('breeding');
+          playSound(clickSound);
+        };
+      }
     }
 
     const ROUTE_STORAGE_KEY = 'palmarathon:route:v1';
@@ -20923,6 +21437,7 @@
       }
       updateRouteOverviewUI(guideSummary);
       updateBasePlanner();
+      updateHomeBreedingIntel();
     }
 
     // Display detailed information about an item using a Palworld-inspired card.
