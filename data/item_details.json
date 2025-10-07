@@ -1290,5 +1290,1309 @@
       "Cremis",
       "Melpaca"
     ]
+  },
+  "skill_fruit_air_blade": {
+    "name": "Skill Fruit: Air Blade",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Air Blade with Power 85 and a 20s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "20 s",
+      "Power": "85"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/4/43/Neutral_Skill_Fruit_icon.png?b9d89f",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "skill_fruit_air_cannon": {
+    "name": "Skill Fruit: Air Cannon",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Air Cannon with Power 25 and a 2s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "2 s",
+      "Power": "25"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/4/43/Neutral_Skill_Fruit_icon.png?b9d89f",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "skill_fruit_power_shot": {
+    "name": "Skill Fruit: Power Shot",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Power Shot with Power 35 and a 4s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "4 s",
+      "Power": "35"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/4/43/Neutral_Skill_Fruit_icon.png?b9d89f",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "skill_fruit_power_bomb": {
+    "name": "Skill Fruit: Power Bomb",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Power Bomb with Power 70 and a 15s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "15 s",
+      "Power": "70"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/4/43/Neutral_Skill_Fruit_icon.png?b9d89f",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "skill_fruit_implode": {
+    "name": "Skill Fruit: Implode",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Implode with Power 230 and a 55s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "55 s",
+      "Power": "230"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/4/43/Neutral_Skill_Fruit_icon.png?b9d89f",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "skill_fruit_pal_blast": {
+    "name": "Skill Fruit: Pal Blast",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Pal Blast with Power 150 and a 55s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "55 s",
+      "Power": "150"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/4/43/Neutral_Skill_Fruit_icon.png?b9d89f",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dark_skill_fruit_dark_cannon": {
+    "name": "Dark Skill Fruit: Dark Cannon",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Dark Cannon with Power 50 and a 2s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "2 s",
+      "Power": "50"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/3/39/Dark_Skill_Fruit_icon.png?73da2c",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dark_skill_fruit_poison_blast": {
+    "name": "Dark Skill Fruit: Poison Blast",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Poison Blast with Power 30 and a 2s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "2 s",
+      "Power": "30"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/3/39/Dark_Skill_Fruit_icon.png?73da2c",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dark_skill_fruit_shadow_burst": {
+    "name": "Dark Skill Fruit: Shadow Burst",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Shadow Burst with Power 55 and a 10s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "10 s",
+      "Power": "55"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/3/39/Dark_Skill_Fruit_icon.png?73da2c",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dark_skill_fruit_spirit_flame": {
+    "name": "Dark Skill Fruit: Spirit Flame",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Spirit Flame with Power 75 and a 16s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "16 s",
+      "Power": "75"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/3/39/Dark_Skill_Fruit_icon.png?73da2c",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dark_skill_fruit_umbral_surge": {
+    "name": "Dark Skill Fruit: Umbral Surge",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Umbral Surge with Power 40 and a 2s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "2 s",
+      "Power": "40"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/3/39/Dark_Skill_Fruit_icon.png?73da2c",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dark_skill_fruit_dark_arrow": {
+    "name": "Dark Skill Fruit: Dark Arrow",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Dark Arrow with Power 65 and a 10s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "10 s",
+      "Power": "65"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/3/39/Dark_Skill_Fruit_icon.png?73da2c",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dark_skill_fruit_nightmare_ball": {
+    "name": "Dark Skill Fruit: Nightmare Ball",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Nightmare Ball with Power 100 and a 30s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "30 s",
+      "Power": "100"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/3/39/Dark_Skill_Fruit_icon.png?73da2c",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dark_skill_fruit_apocalypse": {
+    "name": "Dark Skill Fruit: Apocalypse",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Apocalypse with Power 110 and a 55s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "55 s",
+      "Power": "110"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/3/39/Dark_Skill_Fruit_icon.png?73da2c",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dark_skill_fruit_dark_laser": {
+    "name": "Dark Skill Fruit: Dark Laser",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Dark Laser with Power 150 and a 55s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "55 s",
+      "Power": "150"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/3/39/Dark_Skill_Fruit_icon.png?73da2c",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dragon_skill_fruit_dragon_cannon": {
+    "name": "Dragon Skill Fruit: Dragon Cannon",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Dragon Cannon with Power 30 and a 2s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "2 s",
+      "Power": "30"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/6f/Dragon_Skill_Fruit_icon.png?524722",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dragon_skill_fruit_blast_cannon": {
+    "name": "Dragon Skill Fruit: Blast Cannon",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Blast Cannon with Power 100 and a 30s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "30 s",
+      "Power": "100"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/6f/Dragon_Skill_Fruit_icon.png?524722",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dragon_skill_fruit_comet": {
+    "name": "Dragon Skill Fruit: Comet",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Comet with Power 110 and a 35s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "35 s",
+      "Power": "110"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/6f/Dragon_Skill_Fruit_icon.png?524722",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dragon_skill_fruit_draconic_breath": {
+    "name": "Dragon Skill Fruit: Draconic Breath",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Draconic Breath with Power 70 and a 15s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "15 s",
+      "Power": "70"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/6f/Dragon_Skill_Fruit_icon.png?524722",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dragon_skill_fruit_dragon_burst": {
+    "name": "Dragon Skill Fruit: Dragon Burst",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Dragon Burst with Power 55 and a 10s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "10 s",
+      "Power": "55"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/6f/Dragon_Skill_Fruit_icon.png?524722",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dragon_skill_fruit_beam_slicer": {
+    "name": "Dragon Skill Fruit: Beam Slicer",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Beam Slicer with Power 130 and a 45s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "45 s",
+      "Power": "130"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/6f/Dragon_Skill_Fruit_icon.png?524722",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "dragon_skill_fruit_dragon_meteor": {
+    "name": "Dragon Skill Fruit: Dragon Meteor",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Dragon Meteor with Power 150 and a 55s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "55 s",
+      "Power": "150"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/6f/Dragon_Skill_Fruit_icon.png?524722",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "earth_skill_fruit_sand_blast": {
+    "name": "Earth Skill Fruit: Sand Blast",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Sand Blast with Power 40 and a 4s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "4 s",
+      "Power": "40"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/6b/Unknown_icon.png?5f6e07",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "earth_skill_fruit_stone_blast": {
+    "name": "Earth Skill Fruit: Stone Blast",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Stone Blast with Power 55 and a 10s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "10 s",
+      "Power": "55"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/e/e3/Ground_Skill_Fruit_icon.png?3b147d",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "earth_skill_fruit_stone_cannon": {
+    "name": "Earth Skill Fruit: Stone Cannon",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Stone Cannon with Power 70 and a 15s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "15 s",
+      "Power": "70"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/e/e3/Ground_Skill_Fruit_icon.png?3b147d",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "earth_skill_fruit_sand_tornado": {
+    "name": "Earth Skill Fruit: Sand Tornado",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Sand Tornado with Power 80 and a 18s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "18 s",
+      "Power": "80"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/e/e3/Ground_Skill_Fruit_icon.png?3b147d",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "earth_skill_fruit_sand_twister": {
+    "name": "Earth Skill Fruit: Sand Twister",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Sand Twister with Power 160 and a 60s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "60 s",
+      "Power": "160"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/e/e3/Ground_Skill_Fruit_icon.png?3b147d",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "earth_skill_fruit_rock_lance": {
+    "name": "Earth Skill Fruit: Rock Lance",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Rock Lance with Power 150 and a 55s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "55 s",
+      "Power": "150"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/e/e3/Ground_Skill_Fruit_icon.png?3b147d",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "earth_skill_fruit_rockburst": {
+    "name": "Earth Skill Fruit: Rockburst",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Rockburst with Power 130 and a 35s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "35 s",
+      "Power": "130"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/e/e3/Ground_Skill_Fruit_icon.png?3b147d",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_electric_ball": {
+    "name": "Electric Skill Fruit: Electric Ball",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Electric Ball with Power 50 and a 9s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "9 s",
+      "Power": "50"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_plasma_tornado": {
+    "name": "Electric Skill Fruit: Plasma Tornado",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Plasma Tornado with Power 65 and a 13s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "13 s",
+      "Power": "65"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_shockwave": {
+    "name": "Electric Skill Fruit: Shockwave",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Shockwave with Power 40 and a 4s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "4 s",
+      "Power": "40"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_spark_blast": {
+    "name": "Electric Skill Fruit: Spark Blast",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Spark Blast with Power 30 and a 2s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "2 s",
+      "Power": "30"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_lightning_streak": {
+    "name": "Electric Skill Fruit: Lightning Streak",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Lightning Streak with Power 75 and a 16s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "16 s",
+      "Power": "75"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_lock_on_laser": {
+    "name": "Electric Skill Fruit: Lock-on Laser",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Lock-on Laser with Power 70 and a 15s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "15 s",
+      "Power": "70"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_tri_lightning": {
+    "name": "Electric Skill Fruit: Tri-Lightning",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Tri-Lightning with Power 90 and a 22s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "22 s",
+      "Power": "90"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_trispark": {
+    "name": "Electric Skill Fruit: TriSpark",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants TriSpark with Power 110 and a 35s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "35 s",
+      "Power": "110"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_lightning_bolt": {
+    "name": "Electric Skill Fruit: Lightning Bolt",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Lightning Bolt with Power 150 and a 55s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "55 s",
+      "Power": "150"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_lightning_strike": {
+    "name": "Electric Skill Fruit: Lightning Strike",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Lightning Strike with Power 120 and a 40s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "40 s",
+      "Power": "120"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_thunder_rain": {
+    "name": "Electric Skill Fruit: Thunder Rain",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Thunder Rain with Power 135 and a 45s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "45 s",
+      "Power": "135"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "electric_skill_fruit_thunderstorm": {
+    "name": "Electric Skill Fruit: Thunderstorm",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Thunderstorm with Power 160 and a 60s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "60 s",
+      "Power": "160"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/9b/Electric_Skill_Fruit_icon.png?ddcc9e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "fire_skill_fruit_flare_arrow": {
+    "name": "Fire Skill Fruit: Flare Arrow",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Flare Arrow with Power 55 and a 10s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "10 s",
+      "Power": "55"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/64/Fire_Skill_Fruit_icon.png?af3e6e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "fire_skill_fruit_ignis_blast": {
+    "name": "Fire Skill Fruit: Ignis Blast",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Ignis Blast with Power 30 and a 2s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "2 s",
+      "Power": "30"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/64/Fire_Skill_Fruit_icon.png?af3e6e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "fire_skill_fruit_spirit_fire": {
+    "name": "Fire Skill Fruit: Spirit Fire",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Spirit Fire with Power 45 and a 7s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "7 s",
+      "Power": "45"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/64/Fire_Skill_Fruit_icon.png?af3e6e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "fire_skill_fruit_flame_wall": {
+    "name": "Fire Skill Fruit: Flame Wall",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Flame Wall with Power 100 and a 30s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "30 s",
+      "Power": "100"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/64/Fire_Skill_Fruit_icon.png?af3e6e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "fire_skill_fruit_flare_storm": {
+    "name": "Fire Skill Fruit: Flare Storm",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Flare Storm with Power 80 and a 18s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "18 s",
+      "Power": "80"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/64/Fire_Skill_Fruit_icon.png?af3e6e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "fire_skill_fruit_ignis_breath": {
+    "name": "Fire Skill Fruit: Ignis Breath",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Ignis Breath with Power 70 and a 15s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "15 s",
+      "Power": "70"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/64/Fire_Skill_Fruit_icon.png?af3e6e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "fire_skill_fruit_fire_ball": {
+    "name": "Fire Skill Fruit: Fire Ball",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Fire Ball with Power 150 and a 55s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "55 s",
+      "Power": "150"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/64/Fire_Skill_Fruit_icon.png?af3e6e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "fire_skill_fruit_ignis_rage": {
+    "name": "Fire Skill Fruit: Ignis Rage",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Ignis Rage with Power 120 and a 40s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "40 s",
+      "Power": "120"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/64/Fire_Skill_Fruit_icon.png?af3e6e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "fire_skill_fruit_volcanic_rain": {
+    "name": "Fire Skill Fruit: Volcanic Rain",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Volcanic Rain with Power 130 and a 45s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "45 s",
+      "Power": "130"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/6/64/Fire_Skill_Fruit_icon.png?af3e6e",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "grass_skill_fruit_seed_machine_gun": {
+    "name": "Grass Skill Fruit: Seed Machine Gun",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Seed Machine Gun with Power 50 and a 9s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "9 s",
+      "Power": "50"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/f/f7/Grass_Skill_Fruit_icon.png?ccd1e7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "grass_skill_fruit_seed_mine": {
+    "name": "Grass Skill Fruit: Seed Mine",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Seed Mine with Power 65 and a 13s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "13 s",
+      "Power": "65"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/f/f7/Grass_Skill_Fruit_icon.png?ccd1e7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "grass_skill_fruit_wind_cutter": {
+    "name": "Grass Skill Fruit: Wind Cutter",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Wind Cutter with Power 30 and a 2s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "2 s",
+      "Power": "30"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/f/f7/Grass_Skill_Fruit_icon.png?ccd1e7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "grass_skill_fruit_circle_vine": {
+    "name": "Grass Skill Fruit: Circle Vine",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Circle Vine with Power 120 and a 40s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "40 s",
+      "Power": "120"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/f/f7/Grass_Skill_Fruit_icon.png?ccd1e7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "grass_skill_fruit_grass_tornado": {
+    "name": "Grass Skill Fruit: Grass Tornado",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Grass Tornado with Power 80 and a 18s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "18 s",
+      "Power": "80"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/f/f7/Grass_Skill_Fruit_icon.png?ccd1e7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "grass_skill_fruit_spine_vine": {
+    "name": "Grass Skill Fruit: Spine Vine",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Spine Vine with Power 95 and a 25s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "25 s",
+      "Power": "95"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/f/f7/Grass_Skill_Fruit_icon.png?ccd1e7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "grass_skill_fruit_multicutter": {
+    "name": "Grass Skill Fruit: Multicutter",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Multicutter with Power 60 and a 12s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "12 s",
+      "Power": "60"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/f/f7/Grass_Skill_Fruit_icon.png?ccd1e7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "grass_skill_fruit_solar_blast": {
+    "name": "Grass Skill Fruit: Solar Blast",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Solar Blast with Power 150 and a 55s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "55 s",
+      "Power": "150"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/f/f7/Grass_Skill_Fruit_icon.png?ccd1e7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "ice_skill_fruit_ice_missile": {
+    "name": "Ice Skill Fruit: Ice Missile",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Ice Missile with Power 30 and a 3s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "3 s",
+      "Power": "30"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/a/a9/Ice_Skill_Fruit_icon.png?f13dd7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "ice_skill_fruit_icicle_cutter": {
+    "name": "Ice Skill Fruit: Icicle Cutter",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Icicle Cutter with Power 55 and a 10s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "10 s",
+      "Power": "55"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/a/a9/Ice_Skill_Fruit_icon.png?f13dd7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "ice_skill_fruit_cryst_breath": {
+    "name": "Ice Skill Fruit: Cryst Breath",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Cryst Breath with Power 90 and a 22s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "22 s",
+      "Power": "90"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/a/a9/Ice_Skill_Fruit_icon.png?f13dd7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "ice_skill_fruit_iceberg": {
+    "name": "Ice Skill Fruit: Iceberg",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Iceberg with Power 70 and a 15s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "15 s",
+      "Power": "70"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/a/a9/Ice_Skill_Fruit_icon.png?f13dd7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "ice_skill_fruit_icicle_line": {
+    "name": "Ice Skill Fruit: Icicle Line",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Icicle Line with Power 120 and a 40s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "40 s",
+      "Power": "120"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/a/a9/Ice_Skill_Fruit_icon.png?f13dd7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "ice_skill_fruit_blizzard_spike": {
+    "name": "Ice Skill Fruit: Blizzard Spike",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Blizzard Spike with Power 130 and a 45s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "45 s",
+      "Power": "130"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/a/a9/Ice_Skill_Fruit_icon.png?f13dd7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "ice_skill_fruit_diamond_rain": {
+    "name": "Ice Skill Fruit: Diamond Rain",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Diamond Rain with Power 160 and a 60s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "60 s",
+      "Power": "160"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/a/a9/Ice_Skill_Fruit_icon.png?f13dd7",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "water_skill_fruit_acid_rain": {
+    "name": "Water Skill Fruit: Acid Rain",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Acid Rain with Power 80 and a 18s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "18 s",
+      "Power": "80"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/96/Water_Skill_Fruit_icon.png?db8b11",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "water_skill_fruit_aqua_gun": {
+    "name": "Water Skill Fruit: Aqua Gun",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Aqua Gun with Power 40 and a 4s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "4 s",
+      "Power": "40"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/96/Water_Skill_Fruit_icon.png?db8b11",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "water_skill_fruit_hydro_jet": {
+    "name": "Water Skill Fruit: Hydro Jet",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Hydro Jet with Power 30 and a 2s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Uncommon",
+      "Cooldown": "2 s",
+      "Power": "30"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/96/Water_Skill_Fruit_icon.png?db8b11",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "water_skill_fruit_aqua_burst": {
+    "name": "Water Skill Fruit: Aqua Burst",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Aqua Burst with Power 100 and a 30s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "30 s",
+      "Power": "100"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/96/Water_Skill_Fruit_icon.png?db8b11",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "water_skill_fruit_bubble_blast": {
+    "name": "Water Skill Fruit: Bubble Blast",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Bubble Blast with Power 65 and a 13s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "13 s",
+      "Power": "65"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/96/Water_Skill_Fruit_icon.png?db8b11",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "water_skill_fruit_wall_splash": {
+    "name": "Water Skill Fruit: Wall Splash",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Wall Splash with Power 120 and a 40s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Rare",
+      "Cooldown": "40 s",
+      "Power": "120"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/96/Water_Skill_Fruit_icon.png?db8b11",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "water_skill_fruit_hydro_laser": {
+    "name": "Water Skill Fruit: Hydro Laser",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Hydro Laser with Power 150 and a 55s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "55 s",
+      "Power": "150"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/96/Water_Skill_Fruit_icon.png?db8b11",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "water_skill_fruit_splash": {
+    "name": "Water Skill Fruit: Splash",
+    "type": "Skill Fruit",
+    "description": [
+      "Skill Fruits can be fed to any Pal to teach them an Active Skill.",
+      "This fruit grants Splash with Power 90 and a 22s cooldown."
+    ],
+    "stats": {
+      "Rarity": "Epic",
+      "Cooldown": "22 s",
+      "Power": "90"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/96/Water_Skill_Fruit_icon.png?db8b11",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "life_fruit": {
+    "name": "Life Fruit",
+    "type": "Consumable",
+    "description": [
+      "A rare fruit that permanently increases a Pal's base individual value when consumed.",
+      "Provides +10 HP IV."
+    ],
+    "stats": {
+      "Rarity": "Legendary",
+      "IV Bonus": "+10 HP IV"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/0/07/Life_Fruit_icon.png?cc0037",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "power_fruit": {
+    "name": "Power Fruit",
+    "type": "Consumable",
+    "description": [
+      "A rare fruit that permanently increases a Pal's base individual value when consumed.",
+      "Provides +10 Attack IV."
+    ],
+    "stats": {
+      "Rarity": "Legendary",
+      "IV Bonus": "+10 Attack IV"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/b/b6/Power_Fruit_icon.png?17df95",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "stout_fruit": {
+    "name": "Stout Fruit",
+    "type": "Consumable",
+    "description": [
+      "A rare fruit that permanently increases a Pal's base individual value when consumed.",
+      "Provides +10 Defence IV."
+    ],
+    "stats": {
+      "Rarity": "Legendary",
+      "IV Bonus": "+10 Defence IV"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/9/94/Stout_Fruit_icon.png?c39ec3",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
+  },
+  "successful_bounty_token": {
+    "name": "Successful Bounty Token",
+    "type": "Material",
+    "description": [
+      "A token of having defeated a bounty target. By giving it to a Vigilante Bounty Officer in villages or towns, it can be exchanged for a reward.",
+      "Exchange these tokens with Vigilante Bounty Officers for currency rewards."
+    ],
+    "stats": {
+      "Rarity": "Epic"
+    },
+    "recipe": [],
+    "image": "https://palworld.wiki.gg/images/Successful_Bounty_Token_icon.png?e512ef",
+    "fromPalworld": false,
+    "source": "Palworld Wiki"
   }
 }
