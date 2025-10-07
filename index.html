@@ -10612,6 +10612,21 @@
 
     const RESOURCE_ITEM_TYPE_WHITELIST = new Set(['material', 'materials', 'ingredient', 'ingredients', 'food']);
     const RESOURCE_ITEM_CATEGORY_WHITELIST = new Set(['material', 'food']);
+    const RESOURCE_SHORTAGE_MENU_EXCLUSIONS = new Set([
+      'diamond',
+      'ruby',
+      'sapphire',
+      'gumoss_leaf',
+      'penking_plume',
+      'mushroom',
+      'raw_dumud',
+      'raw_kelpsea',
+      'rushoar_pork',
+      'mammorest_meat',
+      'reindrix_venison',
+      'eikthyrdeer_venison',
+      'tocotoco_feather'
+    ]);
 
     function isResourceItemId(itemId){
       if(!itemId) return false;
@@ -10716,6 +10731,7 @@
         .sort((a, b) => itemDisplayName(a).localeCompare(itemDisplayName(b), undefined, { sensitivity: 'base' }));
       const resourceGuides = {};
       const missingResourceGuides = [];
+      const filteredResources = [];
       sortedResources.forEach(itemId => {
         const routesForItem = resourceRoutes.has(itemId)
           ? Array.from(resourceRoutes.get(itemId))
@@ -10741,7 +10757,11 @@
               .slice(0, 2)
           };
         });
+        if(!entries.length && RESOURCE_SHORTAGE_MENU_EXCLUSIONS.has(itemId)){
+          return;
+        }
         resourceGuides[itemId] = entries;
+        filteredResources.push(itemId);
         if(!entries.length){
           missingResourceGuides.push(itemId);
         }
@@ -10755,7 +10775,7 @@
         chapters,
         routeLookup,
         tags: Array.from(tagSet).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' })),
-        keyResources: sortedResources,
+        keyResources: filteredResources,
         resourceGuides,
         resourceGuideGaps: missingResourceGuides,
         extras: parsed?.extras || [],
@@ -14159,13 +14179,28 @@
       const resourceChips = context.resourceGaps.length
         ? context.resourceGaps.map(entry => renderResourceGapChip(entry)).join('')
         : `<p class="route-context__empty">${escapeHTML(kidMode ? 'Add items you are missing.' : 'Add resource gaps to surface farming routes.')}</p>`;
-      const optionsHtml = resourceOptions.length
+      const resourcePickerLabel = kidMode ? 'Pick a resource' : 'Select a resource';
+      const resourceOptionButtons = resourceOptions.length
         ? resourceOptions.map(itemId => {
             const guides = Array.isArray(resourceGuideMap[itemId]) ? resourceGuideMap[itemId] : [];
-            const guideCountAttr = ` data-guide-count="${guides.length}"`;
-            return `<option value="${escapeHTML(itemId)}"${guideCountAttr}>${escapeHTML(itemDisplayName(itemId))}</option>`;
+            const guideCount = guides.length;
+            const classes = ['route-resource-option'];
+            if(guideCount === 0){
+              classes.push('route-resource-option--queued');
+            }
+            const status = guideCount
+              ? (kidMode
+                ? `${guideCount} plan${guideCount === 1 ? '' : 's'}`
+                : `${guideCount} guide${guideCount === 1 ? '' : 's'}`)
+              : (kidMode ? 'Queued' : 'Queued');
+            return `
+              <button type="button" class="${classes.join(' ')}" data-resource-option="${escapeHTML(itemId)}" data-guide-count="${guideCount}">
+                <span class="route-resource-option__label">${escapeHTML(itemDisplayName(itemId))}</span>
+                <span class="route-resource-option__status">${escapeHTML(status)}</span>
+              </button>
+            `;
           }).join('')
-        : '';
+        : `<p class="route-resource-option__empty">${escapeHTML(kidMode ? 'Resources load soon.' : 'Resources load shortly.')}</p>`;
       const levelSliderValue = levelValue === '' ? 1 : levelValue;
       const sliderEmptyAttr = levelValue === '' ? ' data-empty="true"' : '';
       return `
@@ -14215,10 +14250,19 @@
               </div>
               <div class="route-context__resources">
                 <div class="route-context__resource-add">
-                  <select id="routeResourceSelect">
-                    <option value="">${escapeHTML(kidMode ? 'Pick a resource' : 'Select a resource')}</option>
-                    ${optionsHtml}
-                  </select>
+                  <div class="route-resource-picker" data-resource-picker>
+                    <button type="button" class="route-resource-picker__toggle" data-resource-toggle aria-expanded="false">
+                      <span class="route-resource-picker__toggle-label" data-resource-toggle-label>${escapeHTML(resourcePickerLabel)}</span>
+                      <i class="fa-solid fa-chevron-down route-resource-picker__toggle-icon" data-resource-toggle-icon aria-hidden="true"></i>
+                      <span class="sr-only">${escapeHTML(kidMode ? 'Open resource menu' : 'Open resource menu')}</span>
+                    </button>
+                    <div class="route-resource-picker__panel" data-resource-panel hidden>
+                      <div class="route-resource-picker__list">
+                        ${resourceOptionButtons}
+                      </div>
+                    </div>
+                    <input type="hidden" id="routeResourceSelect" value="" />
+                  </div>
                   <input type="number" id="routeResourceQty" min="1" max="999" placeholder="${escapeHTML(kidMode ? 'Qty' : 'Qty')}" />
                   <button type="button" class="btn route-context__resource-add-btn" data-action="add-resource-gap">${escapeHTML(kidMode ? 'Add' : 'Add')}</button>
                 </div>
@@ -14961,11 +15005,74 @@
       const resourceQty = card.querySelector('#routeResourceQty');
       const resourceList = card.querySelector('#routeResourceList');
       const resourceHelp = card.querySelector('#routeResourceGuideHint');
+      const resourcePicker = card.querySelector('[data-resource-picker]');
+      const resourcePanel = resourcePicker?.querySelector('[data-resource-panel]');
+      const resourceToggle = resourcePicker?.querySelector('[data-resource-toggle]');
+      const resourceToggleIcon = resourcePicker?.querySelector('[data-resource-toggle-icon]');
+      const resourceToggleLabel = resourcePicker?.querySelector('[data-resource-toggle-label]');
+      const resourcePlaceholderLabel = kidMode ? 'Pick a resource' : 'Select a resource';
+      let resourcePickerOpen = false;
       const renderResourceHelp = itemId => {
         if(resourceHelp){
           resourceHelp.innerHTML = renderResourceGuideHelp(itemId);
         }
       };
+      const applyResourcePickerState = () => {
+        if(resourcePanel){
+          if(resourcePickerOpen){
+            resourcePanel.removeAttribute('hidden');
+          } else {
+            resourcePanel.setAttribute('hidden', '');
+          }
+        }
+        if(resourceToggle){
+          resourceToggle.setAttribute('aria-expanded', resourcePickerOpen ? 'true' : 'false');
+        }
+        if(resourceToggleIcon){
+          resourceToggleIcon.classList.toggle('fa-chevron-up', resourcePickerOpen);
+          resourceToggleIcon.classList.toggle('fa-chevron-down', !resourcePickerOpen);
+        }
+        if(resourcePicker){
+          resourcePicker.classList.toggle('route-resource-picker--open', resourcePickerOpen);
+        }
+      };
+      const updateResourceToggleLabel = itemId => {
+        if(!resourceToggleLabel) return;
+        if(itemId){
+          resourceToggleLabel.textContent = itemDisplayName(itemId);
+        } else {
+          resourceToggleLabel.textContent = resourcePlaceholderLabel;
+        }
+      };
+      const highlightResourceOption = itemId => {
+        if(!resourcePicker) return;
+        resourcePicker.querySelectorAll('[data-resource-option]').forEach(btn => {
+          const active = btn?.dataset?.resourceOption === itemId;
+          btn.classList.toggle('route-resource-option--active', active);
+        });
+      };
+      if(resourceToggle){
+        resourceToggle.addEventListener('click', () => {
+          resourcePickerOpen = !resourcePickerOpen;
+          applyResourcePickerState();
+        }, { signal });
+      }
+      if(resourcePicker){
+        resourcePicker.addEventListener('click', event => {
+          const option = event.target.closest('[data-resource-option]');
+          if(!option) return;
+          const itemId = option.dataset.resourceOption || '';
+          if(resourceSelect){
+            resourceSelect.value = itemId;
+            const changeEvent = new Event('change', { bubbles: false });
+            resourceSelect.dispatchEvent(changeEvent);
+          } else {
+            renderResourceHelp(itemId);
+          }
+          resourcePickerOpen = false;
+          applyResourcePickerState();
+        }, { signal });
+      }
       const addButton = card.querySelector('[data-action="add-resource-gap"]');
       if(addButton && resourceSelect){
         addButton.addEventListener('click', () => {
@@ -14984,7 +15091,10 @@
       }
       if(resourceSelect){
         resourceSelect.addEventListener('change', () => {
-          renderResourceHelp(resourceSelect.value);
+          const value = resourceSelect.value || '';
+          updateResourceToggleLabel(value);
+          highlightResourceOption(value);
+          renderResourceHelp(value);
         }, { signal });
       }
       if(resourceHelp){
@@ -14998,6 +15108,9 @@
           }
         }, { signal });
       }
+      updateResourceToggleLabel(resourceSelect ? resourceSelect.value : '');
+      highlightResourceOption(resourceSelect ? resourceSelect.value : '');
+      applyResourcePickerState();
       if(resourceList){
         resourceList.addEventListener('click', event => {
           const chip = event.target.closest('[data-resource-id]');
