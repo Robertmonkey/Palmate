@@ -59,6 +59,17 @@ This document describes the responsibilities, workflows and quality assurance st
 6. Test the route in both Normal and Hardcore modes.  For Co‑Op, explicitly define role splits and loot rules.
 7. Add the route to the library and update any other routes’ `next_routes` lists if they now lead into this new content.
 
+## Active Multi-step Workstreams
+
+### Breeding Tab Renaissance (2025-12-20)
+
+1. **Design blueprint** – Lock the revised four-mode layout (advisor, ancestry atlas, pair planner, parent finder), identify required datasets (caught roster, breeding graph, partner skills) and sketch UI flows mirrored after the glossary aesthetics.
+2. **Data intelligence layer** – Build graph utilities that trace reachable offspring from caught pals, compute breeding depths, and enrich pals with partner skill metadata for combat, work, and mount heuristics.
+3. **Advisor implementation** – Render the suggestion deck with contextual cards (combat ace, base specialist, mount upgrade, collection highlight) that surface best-fit offspring, parent recipes, and quick actions into the planner.
+4. **Ancestry atlas** – Craft the recursive combo tree with elegant styling, collapsible branches, and guardrails against loops so every path to a target pal is readable on desktop and side screens.
+5. **Planner + lookup refactor** – Rebuild the classic pair predictor and parent finder panels to coexist with the new modes, ensuring state persistence, accessibility labels, and kid-mode copy across the workspace.
+6. **Polish & QA** – Harmonise the cosmic styling, responsive layout, and aria wiring; run regression passes on breeding interactions and document learnings for future prompts.
+
 ## Pending Resource Guide Coverage
 
 ### Alignment Review
