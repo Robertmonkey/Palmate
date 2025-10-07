@@ -4559,17 +4559,101 @@
       border-color: rgba(148, 210, 189, 0.45);
       background: rgba(13, 40, 52, 0.7);
     }
-    .ranch-assignment-summary {
+    .ranch-assignment-list {
       display: grid;
-      gap: 6px;
-      font-size: 0.85rem;
+      gap: 12px;
+      margin-top: 12px;
     }
-    .ranch-assignment-summary p {
-      margin: 0;
+    .ranch-assignment-entry {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid rgba(148, 210, 189, 0.25);
+      border-radius: 14px;
+      background: rgba(12, 32, 44, 0.6);
     }
-    .ranch-assignment-summary__action {
+    .ranch-assignment-entry__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .ranch-assignment-entry__title {
       margin: 0;
-      color: rgba(224, 225, 221, 0.85);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--light);
+    }
+    .ranch-assignment-entry__count {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: rgba(148, 210, 189, 0.85);
+      background: rgba(148, 210, 189, 0.12);
+      border: 1px solid rgba(148, 210, 189, 0.4);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .ranch-assignment-entry__pal,
+    .ranch-assignment-entry__reason,
+    .ranch-assignment-entry__action {
+      margin: 0;
+      font-size: 0.82rem;
+      color: rgba(224, 225, 221, 0.82);
+    }
+    .ranch-assignment-entry__controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .ranch-assignment-entry__control {
+      border: 1px solid rgba(148, 210, 189, 0.45);
+      background: rgba(13, 27, 42, 0.7);
+      color: var(--light);
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      display: grid;
+      place-items: center;
+    }
+    .ranch-assignment-entry__control:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .ranch-assignment-entry__control:hover:not(:disabled),
+    .ranch-assignment-entry__control:focus-visible:not(:disabled) {
+      background: rgba(148, 210, 189, 0.25);
+      border-color: rgba(148, 210, 189, 0.65);
+      color: #0b1f2f;
+      outline: none;
+    }
+    .ranch-assignment-entry__remove {
+      border: 1px solid rgba(231, 111, 81, 0.5);
+      background: rgba(231, 111, 81, 0.12);
+      color: rgba(231, 188, 172, 0.95);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .ranch-assignment-entry__remove:hover,
+    .ranch-assignment-entry__remove:focus-visible {
+      background: rgba(231, 111, 81, 0.35);
+      color: #fff5ef;
+      outline: none;
+    }
+    .ranch-assignment-entry__footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
     }
     .ranch-assignment-summary__clear {
       justify-self: flex-start;
@@ -4589,6 +4673,126 @@
       background: rgba(231, 111, 81, 0.35);
       color: #fff5ef;
       outline: none;
+    }
+    .ranch-assignment-summary__quick {
+      border: 1px solid rgba(148, 210, 189, 0.45);
+      background: rgba(148, 210, 189, 0.14);
+      color: rgba(224, 255, 244, 0.9);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .ranch-assignment-summary__quick:hover,
+    .ranch-assignment-summary__quick:focus-visible {
+      background: rgba(148, 210, 189, 0.32);
+      border-color: rgba(148, 210, 189, 0.65);
+      color: #0b1f2f;
+      outline: none;
+    }
+    .ranch-suggestion__badge {
+      margin-left: auto;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(148, 210, 189, 0.18);
+      border: 1px solid rgba(148, 210, 189, 0.38);
+      color: rgba(224, 255, 244, 0.85);
+    }
+    .ranch-roster {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(17, 32, 48, 0.55);
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .ranch-roster__title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .ranch-roster__intro {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .ranch-roster__list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .ranch-roster-option {
+      border-radius: 10px;
+      border: 1px solid rgba(119, 141, 169, 0.25);
+      padding: 12px;
+      background: rgba(14, 28, 44, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .ranch-roster-option.is-active {
+      border-color: rgba(119, 141, 169, 0.6);
+      background: rgba(22, 40, 60, 0.65);
+    }
+    .ranch-roster-option__header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .ranch-roster-option__name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .ranch-roster-option__badge {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(119, 141, 169, 0.2);
+      color: var(--light);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .ranch-roster-option__reason {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .ranch-roster-option__pal-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .ranch-roster-option__pal {
+      border-radius: 999px;
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      padding: 6px 12px;
+      background: rgba(12, 24, 38, 0.65);
+      color: var(--light);
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .ranch-roster-option__pal:hover,
+    .ranch-roster-option__pal:focus-visible {
+      outline: none;
+      border-color: rgba(224, 225, 221, 0.45);
+      background: rgba(29, 52, 74, 0.75);
+    }
+    .ranch-roster-option__pal.is-selected {
+      background: rgba(42, 157, 143, 0.28);
+      border-color: rgba(42, 157, 143, 0.75);
+      color: var(--text);
     }
     .base-slot-card--ranch {
       border-color: rgba(148, 210, 189, 0.65);
@@ -5046,6 +5250,7 @@
     let PASSIVE_DETAILS = {};
     let ITEM_DETAILS = {};
     let PARTNER_SKILLS = [];
+    let RANCH_PRODUCER_CACHE = null;
     let ITEM_KEY_LOOKUP = new Map();
     // Map of items to pals that drop them.  Populated after data load.
     let DROPS_MAP = {};
@@ -5246,6 +5451,9 @@
         }
       }
     };
+    const RANCH_PRODUCER_OVERRIDES = [
+      { key: 'pal_sphere', name: 'Pal Sphere', producers: ['Vixy'] }
+    ];
     const WORK_KEY_ALIASES = {
       medicine_production: 'medicine',
       electricity: 'generating_electricity'
@@ -5979,6 +6187,7 @@
       }
     ];
     const BASE_PLANNER_STORAGE_KEY = 'palmate:basePlanner';
+    const MAX_RANCH_ASSIGNMENT_COUNT = 6;
     let basePlannerState = loadBasePlannerState();
     let basePlannerElements = {};
     let MAX_WORK_LEVEL = 4;
@@ -6889,7 +7098,307 @@
       }
       return null;
     }
-    function normalizeRanchAssignment(raw) {
+    function canonicalizeRanchPalName(name) {
+      return name ? String(name).trim().toLowerCase() : '';
+    }
+    function deriveRanchReasonForEntry(entry, stageTags) {
+      if (!entry) return { kid: '', grown: '' };
+      const reasons = entry.reasons || {};
+      const tags = Array.isArray(entry.tags) ? entry.tags : [];
+      if (stageTags && typeof stageTags.has === 'function') {
+        for (const tag of tags) {
+          if (stageTags.has(tag) && reasons[tag]) {
+            return reasons[tag];
+          }
+        }
+      }
+      return reasons.default || { kid: '', grown: '' };
+    }
+    function composeDefaultRanchReason(itemName) {
+      const label = itemName ? String(itemName).toLowerCase() : 'your focus item';
+      return {
+        kid: `Keep ${label} coming from the Ranch.`,
+        grown: `Maintain a steady flow of ${label}.`
+      };
+    }
+    function composeDefaultRanchActions(palName, itemName) {
+      const label = itemName ? String(itemName).toLowerCase() : 'your focus item';
+      if (palName) {
+        return {
+          kid: `Let ${palName} work the Ranch so ${label} stacks up.`,
+          grown: `Assign ${palName} to produce ${label} automatically.`
+        };
+      }
+      return {
+        kid: `Keep ${label} flowing from the Ranch.`,
+        grown: `Schedule ranch pals to maintain ${label} production.`
+      };
+    }
+    function findRanchLibraryEntry(itemKey) {
+      if (!itemKey) return null;
+      if (RANCH_ITEM_LIBRARY && RANCH_ITEM_LIBRARY[itemKey]) {
+        return RANCH_ITEM_LIBRARY[itemKey];
+      }
+      return Object.values(RANCH_ITEM_LIBRARY || {}).find(entry => entry && entry.key === itemKey) || null;
+    }
+    function invalidateRanchProducerCache() {
+      RANCH_PRODUCER_CACHE = null;
+    }
+    function applyRanchProducerOverrides() {
+      if (!Array.isArray(RANCH_PRODUCER_OVERRIDES)) return;
+      RANCH_PRODUCER_OVERRIDES.forEach(entry => {
+        if (!entry || !entry.key) return;
+        const key = String(entry.key);
+        const producers = Array.isArray(entry.producers) ? entry.producers.filter(Boolean) : [];
+        const detail = ITEM_DETAILS[key] || {};
+        const item = ITEMS && ITEMS[key] ? ITEMS[key] : null;
+        const merged = new Set([
+          ...(Array.isArray(detail.ranchProducers) ? detail.ranchProducers : []),
+          ...(item && Array.isArray(item.ranchProducers) ? item.ranchProducers : []),
+          ...producers
+        ].map(name => String(name).trim()).filter(Boolean));
+        if (!ITEM_DETAILS[key]) {
+          ITEM_DETAILS[key] = { name: entry.name || humaniseItemKey(key) };
+        }
+        ITEM_DETAILS[key].ranchProducers = Array.from(merged);
+        if (ITEMS && item) {
+          ITEMS[key] = { ...item, ranchProducers: Array.from(merged) };
+        }
+        const libEntry = findRanchLibraryEntry(key);
+        if (libEntry) {
+          const libMerged = new Set([...(libEntry.producers || []), ...merged]);
+          libEntry.producers = Array.from(libMerged);
+        }
+      });
+      invalidateRanchProducerCache();
+    }
+    function getRanchProducerCatalog() {
+      if (RANCH_PRODUCER_CACHE) {
+        return RANCH_PRODUCER_CACHE;
+      }
+      const map = new Map();
+      const ensureEntry = (itemKey, name) => {
+        if (!itemKey) return null;
+        const key = String(itemKey);
+        if (!map.has(key)) {
+          map.set(key, {
+            itemKey: key,
+            name: name || humaniseItemKey(key),
+            producers: new Set(),
+            libraryEntry: findRanchLibraryEntry(key)
+          });
+        } else if (name && !map.get(key).name) {
+          map.get(key).name = name;
+        }
+        return map.get(key);
+      };
+      const register = (itemKey, name, producers) => {
+        if (!itemKey) return;
+        const record = ensureEntry(itemKey, name);
+        if (!record) return;
+        (Array.isArray(producers) ? producers : []).forEach(value => {
+          if (!value) return;
+          record.producers.add(String(value));
+        });
+      };
+      Object.values(RANCH_ITEM_LIBRARY || {}).forEach(entry => {
+        if (!entry) return;
+        register(entry.key || entry.itemKey, entry.name, entry.producers);
+      });
+      Object.entries(ITEM_DETAILS || {}).forEach(([key, detail]) => {
+        if (!detail) return;
+        register(key, detail.name, detail.ranchProducers);
+      });
+      Object.entries(ITEMS || {}).forEach(([key, item]) => {
+        if (!item) return;
+        register(key, item.name, item.ranchProducers);
+      });
+      RANCH_PRODUCER_OVERRIDES.forEach(entry => {
+        if (!entry) return;
+        register(entry.key, entry.name, entry.producers);
+      });
+      const catalog = Array.from(map.values())
+        .filter(entry => entry.producers.size)
+        .map(entry => ({
+          itemKey: entry.itemKey,
+          name: entry.name || humaniseItemKey(entry.itemKey),
+          producers: Array.from(entry.producers).sort((a, b) => a.localeCompare(b)),
+          libraryEntry: entry.libraryEntry || findRanchLibraryEntry(entry.itemKey)
+        }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+      RANCH_PRODUCER_CACHE = catalog;
+      return catalog;
+    }
+    function createManualRanchRecommendation(option, stageTags) {
+      if (!option) return null;
+      const libraryEntry = option.libraryEntry || findRanchLibraryEntry(option.itemKey);
+      const reason = deriveRanchReasonForEntry(libraryEntry, stageTags);
+      const defaults = composeDefaultRanchReason(option.name);
+      const producers = Array.isArray(option.producers) ? option.producers.slice() : [];
+      const caughtProducers = producers.filter(name => isPalCaughtByName(name));
+      const missingProducers = producers.filter(name => !isPalCaughtByName(name));
+      const hasDetail = !!(ITEM_DETAILS && ITEM_DETAILS[option.itemKey]) || !!(ITEMS && ITEMS[option.itemKey]);
+      return {
+        key: option.itemKey,
+        itemKey: option.itemKey,
+        name: option.name,
+        reasonKid: reason?.kid || defaults.kid,
+        reasonGrown: reason?.grown || defaults.grown,
+        actionKid: libraryEntry?.actionKid || '',
+        actionGrown: libraryEntry?.actionGrown || '',
+        producers,
+        caughtProducers,
+        missingProducers,
+        hasDetail,
+        openUrl: libraryEntry?.openUrl || null
+      };
+    }
+    function buildRanchRosterSection({ plan, assignments, kidMode }) {
+      const catalog = getRanchProducerCatalog();
+      if (!catalog.length) return null;
+      const stageTags = plan?.stageTags instanceof Set
+        ? new Set(Array.from(plan.stageTags))
+        : new Set(Array.isArray(plan?.stageTags) ? plan.stageTags : []);
+      const recommendedKeys = new Set((plan?.recommendations || []).map(rec => rec.itemKey));
+      const assignmentLookup = new Map();
+      (assignments || []).forEach(entry => {
+        if (!entry) return;
+        const itemKey = entry.itemKey || '';
+        const palKey = canonicalizeRanchPalName(entry.palName);
+        assignmentLookup.set(`${itemKey}|${palKey}`, entry);
+      });
+      const rows = catalog.map(option => {
+        const producers = option.producers.map(name => {
+          const canonical = canonicalizeRanchPalName(name);
+          const assignmentKey = `${option.itemKey || ''}|${canonical}`;
+          const assignment = assignmentLookup.get(assignmentKey) || null;
+          const pal = findPalByName(name);
+          const isCaught = isPalCaughtByName(name);
+          const assignedCount = assignment ? Math.max(1, assignment.count || 1) : 0;
+          return {
+            name,
+            pal,
+            isCaught,
+            isAssigned: !!assignment,
+            assignedCount
+          };
+        });
+        const caught = producers.filter(entry => entry.isCaught);
+        if (!caught.length) return null;
+        const recommendation = createManualRanchRecommendation(option, stageTags);
+        const totalAssigned = producers.reduce((sum, entry) => sum + Math.max(0, entry.assignedCount || 0), 0);
+        return {
+          option,
+          producers,
+          caught,
+          recommendation,
+          totalAssigned,
+          hasAssignment: totalAssigned > 0,
+          isRecommended: recommendedKeys.has(option.itemKey)
+        };
+      }).filter(Boolean);
+      if (!rows.length) return null;
+      rows.sort((a, b) => {
+        if (a.isRecommended !== b.isRecommended) {
+          return a.isRecommended ? -1 : 1;
+        }
+        if (a.hasAssignment !== b.hasAssignment) {
+          return a.hasAssignment ? -1 : 1;
+        }
+        if (b.totalAssigned !== a.totalAssigned) {
+          return b.totalAssigned - a.totalAssigned;
+        }
+        return a.option.name.localeCompare(b.option.name);
+      });
+      const container = document.createElement('div');
+      container.className = 'ranch-roster';
+      const title = document.createElement('h4');
+      title.className = 'ranch-roster__title';
+      title.textContent = kidMode ? 'Your ranch pals' : 'Roster ranch options';
+      container.appendChild(title);
+      const intro = document.createElement('p');
+      intro.className = 'ranch-roster__intro';
+      intro.textContent = kidMode
+        ? 'Tap a pal below to add them to the Ranch plan.'
+        : 'Assign any captured ranch producer directly from your roster.';
+      container.appendChild(intro);
+      const list = document.createElement('div');
+      list.className = 'ranch-roster__list';
+      rows.forEach(row => {
+        const card = document.createElement('div');
+        card.className = 'ranch-roster-option';
+        if (row.hasAssignment) card.classList.add('is-active');
+        const header = document.createElement('div');
+        header.className = 'ranch-roster-option__header';
+        const name = document.createElement('span');
+        name.className = 'ranch-roster-option__name';
+        name.textContent = row.option.name;
+        header.appendChild(name);
+        if (row.isRecommended || row.hasAssignment) {
+          const badge = document.createElement('span');
+          badge.className = 'ranch-roster-option__badge';
+          if (row.isRecommended && row.hasAssignment) {
+            badge.textContent = kidMode ? 'Suggested & reserved' : 'Suggested • reserved';
+          } else if (row.isRecommended) {
+            badge.textContent = kidMode ? 'Suggested focus' : 'Suggested';
+          } else {
+            badge.textContent = kidMode
+              ? `Reserved: ${row.totalAssigned}`
+              : `Reserved slots: ${row.totalAssigned}`;
+          }
+          header.appendChild(badge);
+        } else if (row.totalAssigned) {
+          const badge = document.createElement('span');
+          badge.className = 'ranch-roster-option__badge';
+          badge.textContent = kidMode
+            ? `Reserved: ${row.totalAssigned}`
+            : `Reserved slots: ${row.totalAssigned}`;
+          header.appendChild(badge);
+        }
+        card.appendChild(header);
+        if (row.recommendation) {
+          const reason = document.createElement('p');
+          reason.className = 'ranch-roster-option__reason';
+          const reasonText = kidMode ? row.recommendation.reasonKid : row.recommendation.reasonGrown;
+          reason.textContent = reasonText || (kidMode
+            ? `Keep ${row.option.name.toLowerCase()} coming from the Ranch.`
+            : `Maintain ${row.option.name.toLowerCase()} production automatically.`);
+          card.appendChild(reason);
+        }
+        const palList = document.createElement('div');
+        palList.className = 'ranch-roster-option__pal-list';
+        row.caught.forEach(producer => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'ranch-roster-option__pal';
+          if (producer.isAssigned) button.classList.add('is-selected');
+          if (producer.isAssigned && producer.assignedCount > 1) {
+            button.textContent = `${producer.name} ×${producer.assignedCount}`;
+          } else if (producer.isAssigned) {
+            button.textContent = `${producer.name} ✓`;
+          } else {
+            button.textContent = producer.name;
+          }
+          button.addEventListener('click', event => {
+            event.stopPropagation();
+            setRanchAssignmentFromRecommendation(row.recommendation, { palName: producer.name });
+          });
+          palList.appendChild(button);
+        });
+        card.appendChild(palList);
+        list.appendChild(card);
+      });
+      container.appendChild(list);
+      return container;
+    }
+    function clampRanchAssignmentCount(raw) {
+      const numeric = Number(raw);
+      if (!Number.isFinite(numeric)) {
+        return 1;
+      }
+      return clampToRange(Math.round(numeric), 1, MAX_RANCH_ASSIGNMENT_COUNT || 1);
+    }
+    function normalizeRanchAssignmentEntry(raw) {
       if (!raw || typeof raw !== 'object') return null;
       const itemKey = raw.itemKey ? String(raw.itemKey) : null;
       const itemName = raw.itemName ? String(raw.itemName) : '';
@@ -6908,11 +7417,27 @@
         actionGrown: raw.actionGrown ? String(raw.actionGrown) : '',
         noteKid: raw.noteKid ? String(raw.noteKid) : '',
         noteGrown: raw.noteGrown ? String(raw.noteGrown) : '',
-        timestamp: Number.isFinite(Number(raw.timestamp)) ? Number(raw.timestamp) : Date.now()
+        timestamp: Number.isFinite(Number(raw.timestamp)) ? Number(raw.timestamp) : Date.now(),
+        count: clampRanchAssignmentCount(raw.count || 1)
       };
     }
+    function normalizeRanchAssignment(raw) {
+      return normalizeRanchAssignmentEntry(raw);
+    }
+    function normalizeRanchAssignments(raw) {
+      if (!raw) return [];
+      const source = Array.isArray(raw) ? raw : [raw];
+      const normalized = source.map(entry => normalizeRanchAssignmentEntry(entry)).filter(Boolean);
+      const seen = new Set();
+      return normalized.filter(entry => {
+        const key = `${entry.itemKey || ''}|${canonicalizeRanchPalName(entry.palName)}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
     function loadBasePlannerState() {
-      const defaults = { mode: 'auto', manualLevel: 1, ranchAssignment: null };
+      const defaults = { mode: 'auto', manualLevel: 1, ranchAssignments: [] };
       try {
         const stored = localStorage.getItem(BASE_PLANNER_STORAGE_KEY);
         if (!stored) {
@@ -6925,8 +7450,12 @@
         const mode = parsed.mode === 'manual' ? 'manual' : 'auto';
         const levelRaw = Number(parsed.manualLevel);
         const manualLevel = clampToRange(Number.isFinite(levelRaw) ? Math.round(levelRaw) : 1, 1, BASE_LEVEL_CONFIG.length || 1);
-        const ranchAssignment = normalizeRanchAssignment(parsed.ranchAssignment);
-        return { mode, manualLevel, ranchAssignment };
+        const assignments = normalizeRanchAssignments(parsed.ranchAssignments);
+        if (!assignments.length && parsed.ranchAssignment) {
+          const legacy = normalizeRanchAssignmentEntry(parsed.ranchAssignment);
+          if (legacy) assignments.push(legacy);
+        }
+        return { mode, manualLevel, ranchAssignments: assignments };
       } catch (err) {
         console.warn('Failed to load base planner state', err);
         return { ...defaults };
@@ -7039,16 +7568,6 @@
       (stageSnapshot?.pendingBaseSteps || []).forEach(entry => addTagsFromText(entry?.step?.text));
       if (stageSnapshot?.nextStep) addTagsFromText(stageSnapshot.nextStep.text);
       tags.add('sphere');
-      const pickReason = (entry) => {
-        const reasons = entry?.reasons || {};
-        const entryTags = Array.isArray(entry?.tags) ? entry.tags : [];
-        for (const tag of entryTags) {
-          if (tags.has(tag) && reasons[tag]) {
-            return reasons[tag];
-          }
-        }
-        return reasons.default || { kid: '', grown: '' };
-      };
       const unique = arr => Array.from(new Set((arr || []).map(item => String(item || '').trim()).filter(Boolean)));
       const candidates = Object.values(RANCH_ITEM_LIBRARY || {})
         .filter(entry => {
@@ -7065,7 +7584,7 @@
         if (!producers.length) return;
         const caughtProducers = producers.filter(name => isPalCaughtByName(name));
         const missingProducers = producers.filter(name => !isPalCaughtByName(name));
-        const reason = pickReason(entry);
+        const reason = deriveRanchReasonForEntry(entry, tags);
         const targetName = name.toLowerCase();
         const caughtLabelKid = caughtProducers.slice(0, 2).join(' and ');
         const caughtLabelGrown = caughtProducers.join(', ');
@@ -7137,52 +7656,103 @@
       }
       return { name: '', pal: null, isCaught: false };
     }
-    function resolveRanchAssignment({ plan } = {}) {
-      const stored = basePlannerState?.ranchAssignment;
-      if (!stored) return null;
-      const normalized = normalizeRanchAssignment(stored);
-      if (!normalized) return null;
-      let pal = null;
-      if (normalized.palId != null && PALS && PALS[normalized.palId]) {
-        pal = PALS[normalized.palId];
+    function getRanchAssignments() {
+      if (!basePlannerState || !Array.isArray(basePlannerState.ranchAssignments)) {
+        return [];
       }
-      if (!pal && normalized.palName) {
-        pal = findPalByName(normalized.palName);
-      }
-      const recommendation = plan && Array.isArray(plan.recommendations)
-        ? plan.recommendations.find(rec => rec.itemKey === normalized.itemKey)
-        : null;
-      const reasonKid = recommendation?.reasonKid || normalized.reasonKid;
-      const reasonGrown = recommendation?.reasonGrown || normalized.reasonGrown;
-      const actionKid = recommendation?.actionKid || normalized.actionKid;
-      const actionGrown = recommendation?.actionGrown || normalized.actionGrown;
-      const noteKid = normalized.noteKid || (normalized.palName
-        ? `${normalized.palName} works the Ranch for ${normalized.itemName || 'your focus item'}.`
-        : `Ranch focus: ${normalized.itemName || 'planned output'}.`);
-      const noteGrown = normalized.noteGrown || (normalized.palName
-        ? `${normalized.palName} assigned to the Ranch for ${normalized.itemName || 'the planned output'}.`
-        : `Ranch focus: ${normalized.itemName || 'planned output'}.`);
-      return {
-        ...normalized,
-        pal,
-        recommendation: recommendation || null,
-        reasonKid,
-        reasonGrown,
-        actionKid,
-        actionGrown,
-        noteKid,
-        noteGrown,
-        isCaught: pal ? !!caught[pal.id] : (normalized.palName ? isPalCaughtByName(normalized.palName) : false)
-      };
+      return basePlannerState.ranchAssignments
+        .map(entry => normalizeRanchAssignmentEntry(entry))
+        .filter(Boolean);
     }
-    function clearRanchAssignment() {
-      if (basePlannerState.ranchAssignment) {
-        basePlannerState.ranchAssignment = null;
-        persistBasePlannerState();
+    function findRanchAssignmentIndex(assignments, target) {
+      if (!target) return -1;
+      const itemKey = target.itemKey ? String(target.itemKey) : null;
+      const palName = canonicalizeRanchPalName(target.palName);
+      return assignments.findIndex(entry => {
+        if ((entry.itemKey || null) !== itemKey) return false;
+        return canonicalizeRanchPalName(entry.palName) === palName;
+      });
+    }
+    function updateRanchAssignments(assignments) {
+      const normalized = normalizeRanchAssignments(assignments);
+      basePlannerState.ranchAssignments = normalized;
+      persistBasePlannerState();
+    }
+    function resolveRanchAssignments({ plan } = {}) {
+      const stored = getRanchAssignments();
+      if (!stored.length) return [];
+      const recommendations = Array.isArray(plan?.recommendations) ? plan.recommendations : [];
+      const resolved = stored.map(entry => {
+        if (!entry) return null;
+        let pal = null;
+        if (entry.palId != null && PALS && PALS[entry.palId]) {
+          pal = PALS[entry.palId];
+        }
+        if (!pal && entry.palName) {
+          pal = findPalByName(entry.palName);
+        }
+        const recommendation = recommendations.find(rec => rec.itemKey === entry.itemKey) || null;
+        const reasonKid = recommendation?.reasonKid || entry.reasonKid;
+        const reasonGrown = recommendation?.reasonGrown || entry.reasonGrown;
+        const actionKid = recommendation?.actionKid || entry.actionKid;
+        const actionGrown = recommendation?.actionGrown || entry.actionGrown;
+        const noteKid = entry.noteKid || (entry.palName
+          ? `${entry.palName} works the Ranch for ${entry.itemName || 'your focus item'}.`
+          : `Ranch focus: ${entry.itemName || 'planned output'}.`);
+        const noteGrown = entry.noteGrown || (entry.palName
+          ? `${entry.palName} assigned to the Ranch for ${entry.itemName || 'the planned output'}.`
+          : `Ranch focus: ${entry.itemName || 'planned output'}.`);
+        return {
+          ...entry,
+          pal,
+          recommendation,
+          reasonKid,
+          reasonGrown,
+          actionKid,
+          actionGrown,
+          noteKid,
+          noteGrown,
+          isCaught: pal ? !!caught[pal.id] : (entry.palName ? isPalCaughtByName(entry.palName) : false)
+        };
+      }).filter(Boolean);
+      resolved.sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
+      return resolved;
+    }
+    function clearAllRanchAssignments() {
+      if (!basePlannerState.ranchAssignments || !basePlannerState.ranchAssignments.length) {
+        basePlannerState.ranchAssignments = [];
+        updateBasePlanner();
+        return;
       }
+      basePlannerState.ranchAssignments = [];
+      persistBasePlannerState();
       updateBasePlanner();
     }
-    function setRanchAssignmentFromRecommendation(rec, { palName } = {}) {
+    function removeRanchAssignment(target) {
+      if (!target) return;
+      const assignments = getRanchAssignments();
+      const index = findRanchAssignmentIndex(assignments, target);
+      if (index === -1) return;
+      assignments.splice(index, 1);
+      updateRanchAssignments(assignments);
+      updateBasePlanner();
+    }
+    function adjustRanchAssignmentCount(target, delta) {
+      if (!target || !delta) return;
+      const assignments = getRanchAssignments();
+      const index = findRanchAssignmentIndex(assignments, target);
+      if (index === -1) return;
+      const current = assignments[index];
+      const nextCount = clampRanchAssignmentCount((current.count || 1) + delta);
+      if (nextCount <= 0) {
+        assignments.splice(index, 1);
+      } else {
+        assignments[index] = { ...current, count: nextCount, timestamp: Date.now() };
+      }
+      updateRanchAssignments(assignments);
+      updateBasePlanner();
+    }
+    function setRanchAssignmentFromRecommendation(rec, { palName, amount = 1 } = {}) {
       if (!rec) return;
       const preferred = pickPreferredRanchProducer(rec, { palName });
       const pal = preferred.pal;
@@ -7190,28 +7760,75 @@
       if (!palDisplay) return;
       const itemName = rec.name || humaniseItemKey(rec.itemKey || rec.key || 'Ranch Output');
       const lowerOutput = itemName ? itemName.toLowerCase() : 'your ranch output';
-      const noteKid = `${palDisplay} works the Ranch so ${lowerOutput} stacks up.`;
-      const noteGrown = `${palDisplay} is reserved on the Ranch for ${lowerOutput}.`;
-      const nextAssignment = normalizeRanchAssignment({
+      const noteKid = palDisplay
+        ? `${palDisplay} keeps ${lowerOutput} flowing on the Ranch.`
+        : `Ranch focus: ${lowerOutput}.`;
+      const noteGrown = palDisplay
+        ? `${palDisplay} is scheduled on the Ranch for ${lowerOutput}.`
+        : `Ranch focus: ${lowerOutput}.`;
+      const reasonFallback = composeDefaultRanchReason(itemName);
+      const actionFallback = composeDefaultRanchActions(palDisplay, itemName);
+      const entry = normalizeRanchAssignmentEntry({
         itemKey: rec.itemKey || rec.key || null,
         itemName,
         palId: pal ? pal.id : null,
         palName: palDisplay,
-        reasonKid: rec.reasonKid || '',
-        reasonGrown: rec.reasonGrown || '',
-        actionKid: rec.actionKid || '',
-        actionGrown: rec.actionGrown || '',
+        reasonKid: rec.reasonKid || reasonFallback.kid,
+        reasonGrown: rec.reasonGrown || reasonFallback.grown,
+        actionKid: rec.actionKid || actionFallback.kid,
+        actionGrown: rec.actionGrown || actionFallback.grown,
         noteKid,
         noteGrown,
+        count: Math.max(1, amount),
         timestamp: Date.now()
       });
-      const current = basePlannerState?.ranchAssignment;
-      if (current && current.itemKey === nextAssignment.itemKey && current.palName === nextAssignment.palName) {
-        clearRanchAssignment();
-        return;
+      const assignments = getRanchAssignments();
+      const index = findRanchAssignmentIndex(assignments, entry);
+      if (index >= 0) {
+        const current = assignments[index];
+        const nextCount = clampRanchAssignmentCount((current.count || 1) + Math.max(1, amount));
+        assignments[index] = { ...current, ...entry, count: nextCount, timestamp: Date.now() };
+      } else {
+        assignments.push({ ...entry });
       }
-      basePlannerState.ranchAssignment = nextAssignment;
-      persistBasePlannerState();
+      updateRanchAssignments(assignments);
+      updateBasePlanner();
+    }
+    function selectRanchAssignmentPal(rec, palName) {
+      if (!rec || !palName) return;
+      const itemKey = rec.itemKey || rec.key || null;
+      const assignments = getRanchAssignments();
+      let preservedCount = 1;
+      const filtered = assignments.filter(entry => {
+        if ((entry.itemKey || null) !== itemKey) return true;
+        if (canonicalizeRanchPalName(entry.palName) === canonicalizeRanchPalName(palName)) {
+          preservedCount = entry.count || preservedCount;
+        }
+        return false;
+      });
+      const preferred = pickPreferredRanchProducer(rec, { palName });
+      const pal = preferred.pal;
+      const palDisplay = preferred.name || palName;
+      const itemName = rec.name || humaniseItemKey(itemKey || 'Ranch Output');
+      const lowerOutput = itemName ? itemName.toLowerCase() : 'your ranch output';
+      const reasonFallback = composeDefaultRanchReason(itemName);
+      const actionFallback = composeDefaultRanchActions(palDisplay, itemName);
+      const entry = normalizeRanchAssignmentEntry({
+        itemKey,
+        itemName,
+        palId: pal ? pal.id : null,
+        palName: palDisplay,
+        reasonKid: rec.reasonKid || reasonFallback.kid,
+        reasonGrown: rec.reasonGrown || reasonFallback.grown,
+        actionKid: rec.actionKid || actionFallback.kid,
+        actionGrown: rec.actionGrown || actionFallback.grown,
+        noteKid: `${palDisplay} keeps ${lowerOutput} flowing on the Ranch.`,
+        noteGrown: `${palDisplay} is scheduled on the Ranch for ${lowerOutput}.`,
+        count: preservedCount,
+        timestamp: Date.now()
+      });
+      filtered.push(entry);
+      updateRanchAssignments(filtered);
       updateBasePlanner();
     }
     function isBaseRelatedTech(item) {
@@ -7863,28 +8480,31 @@
       generateCoverageNotes({ config, crew, weights, stageSnapshot: snapshot }).forEach(addNote);
       generateCatchNotes(crew).forEach(addNote);
       generateTechPriorityNotes({ config, crew, weights, stageSnapshot: snapshot }).forEach(addNote);
-      const ranchAssignment = crew?.ranchAssignment;
-      if (ranchAssignment && (ranchAssignment.itemName || ranchAssignment.palName)) {
-        const kidLines = [
-          ranchAssignment.palName && ranchAssignment.itemName
-            ? `${ranchAssignment.palName} stays on the Ranch making ${ranchAssignment.itemName}.`
-            : null,
-          ranchAssignment.reasonKid || null,
-          ranchAssignment.actionKid || null
-        ].filter(Boolean);
-        const grownLines = [
-          ranchAssignment.palName && ranchAssignment.itemName
-            ? `${ranchAssignment.palName} reserved on the Ranch for ${ranchAssignment.itemName}.`
-            : null,
-          ranchAssignment.reasonGrown || null,
-          ranchAssignment.actionGrown || null
-        ].filter(Boolean);
+      const ranchAssignments = Array.isArray(crew?.ranchAssignments) ? crew.ranchAssignments : [];
+      if (ranchAssignments.length) {
+        const kidLines = [];
+        const grownLines = [];
+        ranchAssignments.slice(0, 3).forEach(assignment => {
+          const count = Math.max(1, assignment.count || 1);
+          const itemName = assignment.itemName || 'your focus item';
+          const palName = assignment.palName || (kidMode ? 'Ranch helper' : 'Reserved pal');
+          const kidCount = count > 1 ? ` ×${count}` : '';
+          const grownCount = count > 1 ? ` ×${count}` : '';
+          kidLines.push(`${palName}${kidCount} keeps ${itemName.toLowerCase()} flowing.`);
+          const grownDetail = assignment.actionGrown || assignment.reasonGrown || `${palName}${grownCount} reserved for ${itemName.toLowerCase()}.`;
+          grownLines.push(grownDetail);
+        });
+        if (ranchAssignments.length > 3) {
+          const extra = ranchAssignments.length - 3;
+          kidLines.push(`+${extra} more ranch plan${extra === 1 ? '' : 's'} saved below.`);
+          grownLines.push(extra === 1 ? 'One more ranch output queued—scroll for details.' : `${extra} additional ranch outputs queued—review the list below.`);
+        }
         addNote({
-          id: `ranch-assignment-${ranchAssignment.itemKey || 'active'}`,
+          id: 'ranch-assignment-plan',
           icon: '🐑',
           badge: { kid: 'Ranch', grown: 'Ranch' },
           kid: {
-            title: 'Ranch helper locked in',
+            title: 'Ranch crew locked in',
             lines: kidLines.length ? kidLines : ['Keep a pal on the Ranch so items pile up.']
           },
           grown: {
@@ -8200,7 +8820,7 @@
       const stageSnapshot = determineGuideStageSnapshot();
       const weights = calculateEffectiveWorkWeights(config, { stageSnapshot, activeLevel, autoInfo });
       const ranchPlan = computeRanchPlan({ stageSnapshot, limit: kidMode ? 3 : 4 });
-      const resolvedRanchAssignment = resolveRanchAssignment({ plan: ranchPlan });
+      const resolvedRanchAssignments = resolveRanchAssignments({ plan: ranchPlan });
       const sliderValue = useManual ? basePlannerState.manualLevel : autoInfo.level;
       elements.slider.value = String(sliderValue);
       elements.slider.disabled = !useManual;
@@ -8292,7 +8912,7 @@
           elements.priorityList.appendChild(item);
         });
       }
-      const crew = recommendBaseCrew(config, { stageSnapshot, weightsOverride: weights, ranchAssignment: resolvedRanchAssignment });
+      const crew = recommendBaseCrew(config, { stageSnapshot, weightsOverride: weights, ranchAssignments: resolvedRanchAssignments });
       updateBaseIntel(config, crew, { weights, stageSnapshot });
       if (elements.slotsGrid) {
         elements.slotsGrid.innerHTML = '';
@@ -8318,7 +8938,10 @@
             if (entry.assignment && entry.assignment.type === 'ranch') {
               const badge = document.createElement('span');
               badge.className = 'base-slot-card__assignment';
-              badge.textContent = kidMode ? 'Ranch pal' : 'Ranch pal';
+              const copyTotal = Math.max(1, entry.assignment.count || 1);
+              badge.textContent = kidMode
+                ? `Ranch pal${copyTotal > 1 ? ` ×${copyTotal}` : ''}`
+                : `Ranch pal${copyTotal > 1 ? ` ×${copyTotal}` : ''}`;
               header.appendChild(badge);
             }
             card.appendChild(header);
@@ -8362,7 +8985,14 @@
             if (entry.assignment && entry.assignment.type === 'ranch') {
               const noteTextKid = entry.assignment.noteKid || entry.assignment.actionKid || `Keep ${entry.pal.name} on the Ranch.`;
               const noteTextGrown = entry.assignment.noteGrown || entry.assignment.actionGrown || `Reserve ${entry.pal.name} for ranch output.`;
-              note.textContent = kidMode ? noteTextKid : noteTextGrown;
+              const copyIndex = (entry.assignment.copyIndex ?? 0) + 1;
+              const copyTotal = Math.max(1, entry.assignment.count || 1);
+              const suffix = copyTotal > 1
+                ? kidMode
+                  ? ` (Helper ${copyIndex} of ${copyTotal})`
+                  : ` (Slot ${copyIndex} of ${copyTotal})`
+                : '';
+              note.textContent = (kidMode ? noteTextKid : noteTextGrown) + suffix;
             } else if (entry.note) {
               note.textContent = entry.note;
             } else {
@@ -8428,6 +9058,9 @@
         const filled = Math.min(crew.selections.length, config.slots);
         const capturedCount = crew.capturedCount || 0;
         const suggestionCount = Math.max(0, filled - capturedCount);
+        const reservedSlots = Array.isArray(crew.ranchAssignments)
+          ? crew.ranchAssignments.reduce((sum, assignment) => sum + Math.max(1, assignment.count || 1), 0)
+          : 0;
         if (config.slots) {
           const baseSummary = kidMode
             ? `Palmate filled ${filled} of ${config.slots} slots.`
@@ -8441,11 +9074,17 @@
             detailSummary = suggestionCount
               ? `${capturedCount} from your crew, ${suggestionCount} to catch next.`
               : `${capturedCount} from your crew ready to work.`;
+            if (reservedSlots) {
+              detailSummary += ` Ranch pals saved: ${reservedSlots}.`;
+            }
           } else {
             const capturedLabel = `${capturedCount} slot${capturedCount === 1 ? '' : 's'} use captured pals`;
             detailSummary = suggestionCount
               ? `${capturedLabel}; ${suggestionCount} new recruit${suggestionCount === 1 ? '' : 's'} suggested.`
               : `${capturedLabel}.`;
+            if (reservedSlots) {
+              detailSummary += ` Ranch reserves: ${reservedSlots} slot${reservedSlots === 1 ? '' : 's'}.`;
+            }
           }
           elements.crewMeta.textContent = `${baseSummary} ${detailSummary}`.trim();
         } else {
@@ -8458,54 +9097,129 @@
           .filter(([, weight]) => weight && weight > 0)
           .sort((a, b) => b[1] - a[1]);
         const highestWeight = weightEntries.length ? weightEntries[0][1] : 1;
-        if (resolvedRanchAssignment) {
+        if (resolvedRanchAssignments.length) {
           const summary = document.createElement('div');
           summary.className = 'base-coverage-item base-coverage-item--ranch';
           const header = document.createElement('div');
           header.className = 'base-coverage-item__header';
           const title = document.createElement('span');
           title.className = 'base-coverage-item__title';
-          title.innerHTML = `🐑 <span>${kidMode ? 'Ranch focus' : 'Ranch assignment'}</span>`;
+          title.innerHTML = `🐑 <span>${kidMode ? 'Ranch focus' : 'Ranch plan'}</span>`;
           header.appendChild(title);
+          const reservedTotal = resolvedRanchAssignments.reduce((sum, assignment) => sum + Math.max(1, assignment.count || 1), 0);
           const status = document.createElement('span');
           status.className = 'base-coverage-item__status';
-          status.textContent = resolvedRanchAssignment.itemName
-            ? resolvedRanchAssignment.itemName
-            : (kidMode ? 'Ranch planned' : 'Planned output');
+          status.textContent = kidMode
+            ? `Helpers reserved: ${reservedTotal}`
+            : `Reserved slots: ${reservedTotal}`;
           header.appendChild(status);
           summary.appendChild(header);
-          const body = document.createElement('div');
-          body.className = 'ranch-assignment-summary';
-          const palLine = document.createElement('p');
-          palLine.textContent = resolvedRanchAssignment.palName
-            ? `${resolvedRanchAssignment.palName}${resolvedRanchAssignment.isCaught ? '' : kidMode ? ' (catch me!)' : ' (not caught yet)'}`
-            : kidMode ? 'Choose a pal to keep on the Ranch.' : 'Select a pal to reserve on the Ranch.';
-          body.appendChild(palLine);
-          if (resolvedRanchAssignment.reasonKid || resolvedRanchAssignment.reasonGrown) {
-            const reason = document.createElement('p');
-            reason.textContent = kidMode
-              ? resolvedRanchAssignment.reasonKid || resolvedRanchAssignment.reasonGrown
-              : resolvedRanchAssignment.reasonGrown || resolvedRanchAssignment.reasonKid;
-            body.appendChild(reason);
-          }
-          if (resolvedRanchAssignment.actionKid || resolvedRanchAssignment.actionGrown) {
-            const action = document.createElement('p');
-            action.className = 'ranch-assignment-summary__action';
-            action.textContent = kidMode
-              ? resolvedRanchAssignment.actionKid || resolvedRanchAssignment.actionGrown
-              : resolvedRanchAssignment.actionGrown || resolvedRanchAssignment.actionKid;
-            body.appendChild(action);
-          }
+          const list = document.createElement('div');
+          list.className = 'ranch-assignment-list';
+          resolvedRanchAssignments.forEach(assignment => {
+            const entry = document.createElement('article');
+            entry.className = 'ranch-assignment-entry';
+            const entryHeader = document.createElement('div');
+            entryHeader.className = 'ranch-assignment-entry__header';
+            const entryTitle = document.createElement('h4');
+            entryTitle.className = 'ranch-assignment-entry__title';
+            entryTitle.textContent = assignment.itemName || humaniseItemKey(assignment.itemKey || 'Ranch output');
+            entryHeader.appendChild(entryTitle);
+            const countBadge = document.createElement('span');
+            countBadge.className = 'ranch-assignment-entry__count';
+            countBadge.textContent = `×${Math.max(1, assignment.count || 1)}`;
+            entryHeader.appendChild(countBadge);
+            entry.appendChild(entryHeader);
+            const palLine = document.createElement('p');
+            palLine.className = 'ranch-assignment-entry__pal';
+            palLine.textContent = assignment.palName
+              ? `${assignment.palName}${assignment.isCaught ? '' : kidMode ? ' (catch me!)' : ' (uncaught)'}`
+              : kidMode
+                ? 'Choose a pal to keep on the Ranch.'
+                : 'Select a pal to reserve on the Ranch.';
+            entry.appendChild(palLine);
+            const reasonText = kidMode
+              ? assignment.reasonKid || assignment.reasonGrown
+              : assignment.reasonGrown || assignment.reasonKid;
+            if (reasonText) {
+              const reason = document.createElement('p');
+              reason.className = 'ranch-assignment-entry__reason';
+              reason.textContent = reasonText;
+              entry.appendChild(reason);
+            }
+            const actionText = kidMode
+              ? assignment.actionKid || assignment.actionGrown
+              : assignment.actionGrown || assignment.actionKid;
+            if (actionText) {
+              const action = document.createElement('p');
+              action.className = 'ranch-assignment-entry__action';
+              action.textContent = actionText;
+              entry.appendChild(action);
+            }
+            const controls = document.createElement('div');
+            controls.className = 'ranch-assignment-entry__controls';
+            const decrement = document.createElement('button');
+            decrement.type = 'button';
+            decrement.className = 'ranch-assignment-entry__control';
+            decrement.textContent = '−';
+            decrement.setAttribute('aria-label', kidMode ? 'Remove one helper' : 'Remove one reserved slot');
+            decrement.addEventListener('click', event => {
+              event.stopPropagation();
+              adjustRanchAssignmentCount(assignment, -1);
+            });
+            controls.appendChild(decrement);
+            const increment = document.createElement('button');
+            increment.type = 'button';
+            increment.className = 'ranch-assignment-entry__control';
+            increment.textContent = '+';
+            increment.setAttribute('aria-label', kidMode ? 'Add another helper' : 'Reserve another slot');
+            if (Math.max(1, assignment.count || 1) >= MAX_RANCH_ASSIGNMENT_COUNT) {
+              increment.disabled = true;
+            }
+            increment.addEventListener('click', event => {
+              event.stopPropagation();
+              adjustRanchAssignmentCount(assignment, 1);
+            });
+            controls.appendChild(increment);
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'ranch-assignment-entry__remove';
+            removeBtn.textContent = kidMode ? 'Remove' : 'Remove';
+            removeBtn.addEventListener('click', event => {
+              event.stopPropagation();
+              removeRanchAssignment(assignment);
+            });
+            controls.appendChild(removeBtn);
+            entry.appendChild(controls);
+            list.appendChild(entry);
+          });
+          summary.appendChild(list);
+          const footer = document.createElement('div');
+          footer.className = 'ranch-assignment-entry__footer';
           const clearBtn = document.createElement('button');
           clearBtn.type = 'button';
           clearBtn.className = 'ranch-assignment-summary__clear';
-          clearBtn.textContent = kidMode ? 'Clear ranch plan' : 'Clear ranch assignment';
+          clearBtn.textContent = kidMode ? 'Clear ranch plan' : 'Clear all assignments';
           clearBtn.addEventListener('click', event => {
             event.stopPropagation();
-            clearRanchAssignment();
+            clearAllRanchAssignments();
           });
-          body.appendChild(clearBtn);
-          summary.appendChild(body);
+          footer.appendChild(clearBtn);
+          const availableRecs = ranchPlan.recommendations.filter(rec => !resolvedRanchAssignments.some(assignment => assignment.itemKey === rec.itemKey));
+          if (availableRecs.length) {
+            const quickAdd = document.createElement('button');
+            quickAdd.type = 'button';
+            quickAdd.className = 'ranch-assignment-summary__quick';
+            quickAdd.textContent = kidMode ? 'Add recommended pals' : 'Add recommended output';
+            quickAdd.addEventListener('click', event => {
+              event.stopPropagation();
+              availableRecs.slice(0, kidMode ? 1 : 2).forEach(rec => setRanchAssignmentFromRecommendation(rec));
+            });
+            footer.appendChild(quickAdd);
+          }
+          if (footer.children.length) {
+            summary.appendChild(footer);
+          }
           elements.coverageGrid.appendChild(summary);
         }
         weightEntries.forEach(([key, weight]) => {
@@ -8531,7 +9245,8 @@
               ranchPlan.recommendations.forEach(rec => {
                 const suggestion = document.createElement('div');
                 suggestion.className = 'ranch-suggestion';
-                if (resolvedRanchAssignment && resolvedRanchAssignment.itemKey === rec.itemKey) {
+                const matchingAssignments = resolvedRanchAssignments.filter(assignment => assignment.itemKey === rec.itemKey);
+                if (matchingAssignments.length) {
                   suggestion.classList.add('ranch-suggestion--active');
                 }
                 const suggestionHeader = document.createElement('div');
@@ -8562,6 +9277,15 @@
                   reason.textContent = reasonText;
                   suggestionHeader.appendChild(reason);
                 }
+                const assignmentTotal = matchingAssignments.reduce((sum, entry) => sum + Math.max(1, entry.count || 1), 0);
+                if (assignmentTotal) {
+                  const badge = document.createElement('span');
+                  badge.className = 'ranch-suggestion__badge';
+                  badge.textContent = kidMode
+                    ? `Reserved: ${assignmentTotal}`
+                    : `Reserved slots: ${assignmentTotal}`;
+                  suggestionHeader.appendChild(badge);
+                }
                 suggestion.appendChild(suggestionHeader);
                 const action = document.createElement('p');
                 action.className = 'ranch-suggestion__action';
@@ -8589,13 +9313,12 @@
                 const assignBtn = document.createElement('button');
                 assignBtn.type = 'button';
                 assignBtn.className = 'ranch-suggestion__assign';
-                const isActive = resolvedRanchAssignment && resolvedRanchAssignment.itemKey === rec.itemKey;
-                assignBtn.textContent = isActive
-                  ? (kidMode ? 'Selected for ranch' : 'Ranch focus active')
+                assignBtn.textContent = assignmentTotal
+                  ? (kidMode ? 'Add another helper' : 'Add another slot')
                   : (kidMode
                       ? `Use ${preferred.name || 'this pal'}`
                       : `Assign ${preferred.name || 'recommended pal'}`);
-                assignBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                assignBtn.setAttribute('aria-pressed', assignmentTotal ? 'true' : 'false');
                 assignBtn.addEventListener('click', event => {
                   event.stopPropagation();
                   setRanchAssignmentFromRecommendation(rec);
@@ -8614,17 +9337,12 @@
                     palButton.className = 'ranch-suggestion__producer';
                     const isPalCaught = isPalCaughtByName(name);
                     palButton.textContent = isPalCaught ? `${name} ✓` : name;
-                    if (
-                      resolvedRanchAssignment &&
-                      resolvedRanchAssignment.itemKey === rec.itemKey &&
-                      resolvedRanchAssignment.palName &&
-                      resolvedRanchAssignment.palName.toLowerCase() === name.toLowerCase()
-                    ) {
+                    if (matchingAssignments.some(assignment => assignment.palName && assignment.palName.toLowerCase() === name.toLowerCase())) {
                       palButton.classList.add('is-selected');
                     }
                     palButton.addEventListener('click', event => {
                       event.stopPropagation();
-                      setRanchAssignmentFromRecommendation(rec, { palName: name });
+                      selectRanchAssignmentPal(rec, name);
                     });
                     producerList.appendChild(palButton);
                   });
@@ -8642,6 +9360,14 @@
               list.appendChild(empty);
             }
             item.appendChild(list);
+            const rosterSection = buildRanchRosterSection({
+              plan: ranchPlan,
+              assignments: resolvedRanchAssignments,
+              kidMode
+            });
+            if (rosterSection) {
+              item.appendChild(rosterSection);
+            }
             elements.coverageGrid.appendChild(item);
             return;
           }
@@ -8677,26 +9403,33 @@
       });
       const coverage = {};
       const selections = [];
-      const used = new Set();
+      const used = new Map();
       const addSelection = (candidate, { updateCoverage = true } = {}) => {
         if (!candidate || !candidate.pal) return;
         selections.push(candidate);
-        used.add(candidate.pal.id);
+        if (candidate.pal && candidate.pal.id != null) {
+          const palId = candidate.pal.id;
+          used.set(palId, (used.get(palId) || 0) + 1);
+        }
         if (updateCoverage && Array.isArray(candidate.contributions)) {
           candidate.contributions.forEach(entry => {
             coverage[entry.key] = (coverage[entry.key] || 0) + entry.level;
           });
         }
       };
-      let activeRanchAssignment = options.ranchAssignment || null;
-      if (activeRanchAssignment && !activeRanchAssignment.pal && activeRanchAssignment.palName) {
-        const fallbackPal = findPalByName(activeRanchAssignment.palName);
-        if (fallbackPal) {
-          activeRanchAssignment = { ...activeRanchAssignment, pal: fallbackPal, isCaught: !!caught[fallbackPal.id] };
+      const activeRanchAssignments = Array.isArray(options.ranchAssignments)
+        ? options.ranchAssignments.map(entry => ({ ...entry }))
+        : [];
+      activeRanchAssignments.forEach(assignment => {
+        if (!assignment || selections.length >= slotCount) return;
+        let pal = assignment.pal || null;
+        if (!pal && assignment.palId != null && PALS && PALS[assignment.palId]) {
+          pal = PALS[assignment.palId];
         }
-      }
-      if (activeRanchAssignment && activeRanchAssignment.pal && selections.length < slotCount) {
-        const pal = activeRanchAssignment.pal;
+        if (!pal && assignment.palName) {
+          pal = findPalByName(assignment.palName);
+        }
+        if (!pal) return;
         let evaluation = scorePalForBase(pal, weights, {}, config, defaultWeight);
         if (!evaluation) {
           const workEntries = Object.entries(pal.work || {});
@@ -8735,22 +9468,31 @@
             isCaught: !!caught[pal.id]
           };
         }
-        const assignmentInfo = { ...activeRanchAssignment, type: 'ranch' };
-        const contributions = Array.isArray(evaluation.contributions) ? evaluation.contributions.slice() : [];
-        const candidate = {
-          pal,
-          score: evaluation.score,
-          rawScore: evaluation.rawScore,
-          contributions,
-          isCaught: activeRanchAssignment.isCaught != null ? activeRanchAssignment.isCaught : evaluation.isCaught,
-          assignment: assignmentInfo,
-          assignmentType: 'ranch',
-          note: kidMode
-            ? (assignmentInfo.noteKid || assignmentInfo.actionKid || `Keep ${pal.name} on the Ranch.`)
-            : (assignmentInfo.noteGrown || assignmentInfo.actionGrown || `Reserve ${pal.name} on the Ranch.`)
-        };
-        addSelection(candidate, { updateCoverage: false });
-      }
+        const count = Math.max(1, assignment.count || 1);
+        for (let copyIndex = 0; copyIndex < count && selections.length < slotCount; copyIndex += 1) {
+          const contributions = Array.isArray(evaluation.contributions)
+            ? evaluation.contributions.map(entry => ({ ...entry }))
+            : [];
+          const assignmentInfo = {
+            ...assignment,
+            pal,
+            type: 'ranch',
+            copyIndex,
+            count,
+            isCaught: assignment.isCaught != null ? assignment.isCaught : !!caught[pal.id]
+          };
+          const candidate = {
+            pal,
+            score: evaluation.score,
+            rawScore: evaluation.rawScore,
+            contributions,
+            isCaught: assignmentInfo.isCaught,
+            assignment: assignmentInfo,
+            assignmentType: 'ranch'
+          };
+          addSelection(candidate, { updateCoverage: false });
+        }
+      });
       const pickBestFromPool = (pool, { coverageAware = true } = {}) => {
         let best = null;
         pool.forEach(pal => {
@@ -8771,8 +9513,8 @@
           addSelection(candidate);
         }
       };
-      const caughtPool = available.filter(pal => pal && caught[pal.id]);
-      const suggestionPool = available.filter(pal => pal && !caught[pal.id]);
+      const caughtPool = available.filter(pal => pal && caught[pal.id] && !used.has(pal.id));
+      const suggestionPool = available.filter(pal => pal && !caught[pal.id] && !used.has(pal.id));
       fillFromPool(caughtPool);
       fillFromPool(suggestionPool);
       if (selections.length < slotCount) {
@@ -8796,7 +9538,7 @@
         }
       }
       const capturedCount = selections.filter(entry => entry && entry.isCaught).length;
-      return { selections, coverage, slotCount, capturedCount, weights, ranchAssignment: activeRanchAssignment || null };
+      return { selections, coverage, slotCount, capturedCount, weights, ranchAssignments: activeRanchAssignments };
     }
     function scorePalForBase(pal, weights, coverage, config, defaultWeight) {
       if (!pal || !pal.work) return null;
@@ -8956,6 +9698,7 @@
         SKILL_DETAILS = payload.skillsDetails || {};
         PASSIVE_DETAILS = payload.passiveDetails || {};
         ITEM_DETAILS = await loadItemDetails();
+        applyRanchProducerOverrides();
         rebuildItemLookup();
         PARTNER_SKILLS = await loadPartnerSkillDataset();
         // Build name‑to‑ID lookup map
