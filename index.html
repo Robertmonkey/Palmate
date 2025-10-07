@@ -2717,13 +2717,19 @@
       color: rgba(224, 225, 221, 0.72);
     }
     .breeding-atlas {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 20px;
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-      align-items: start;
     }
     .breeding-atlas__picker {
-      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(13, 27, 42, 0.68);
+      border: 1px solid rgba(119, 141, 169, 0.28);
+      box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.06);
     }
     .breeding-atlas__diagram {
       display: flex;
@@ -2734,7 +2740,6 @@
       background: rgba(13, 27, 42, 0.72);
       border: 1px solid rgba(119, 141, 169, 0.3);
       box-shadow: inset 0 0 0 1px rgba(224, 225, 221, 0.08);
-      min-height: 100%;
     }
     .breeding-atlas__diagram header h3 {
       margin: 0;
@@ -2786,7 +2791,7 @@
     .breeding-tree__branches {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 18px;
     }
     .breeding-branch {
       border-radius: 16px;
@@ -2801,7 +2806,7 @@
       padding: 14px 18px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       font-size: 0.95rem;
       color: rgba(224, 225, 221, 0.85);
     }
@@ -2818,11 +2823,60 @@
       border: 1px solid rgba(224, 225, 221, 0.26);
       font-size: 0.85rem;
     }
-    .breeding-branch__pair {
+    .breeding-branch__summary {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .breeding-branch__summary-flow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .breeding-branch__summary-result {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .breeding-branch__summary-arrow {
+      font-weight: 700;
+      color: rgba(224, 225, 221, 0.75);
+    }
+    .breeding-branch__layout {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 0 18px 18px;
+    }
+    .breeding-branch__pyramid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .breeding-branch__connector {
+      width: 2px;
+      height: 26px;
+      background: linear-gradient(180deg, rgba(224, 225, 221, 0.4), rgba(119, 141, 169, 0.05));
+    }
+    .breeding-branch__summary-chips {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .breeding-branch__parent-grid {
       display: grid;
       gap: 16px;
-      padding: 0 18px 18px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    @media (min-width: 720px) {
+      .breeding-branch__parent-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
     }
     .breeding-branch__parent {
       position: relative;
@@ -2862,11 +2916,85 @@
       font-size: 0.8rem;
       color: rgba(224, 225, 221, 0.7);
     }
-    .breeding-panels {
+    .breeding-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 16px;
+      background: rgba(119, 141, 169, 0.2);
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      box-shadow: 0 12px 24px rgba(4, 14, 28, 0.35);
+      min-width: 0;
+    }
+    .breeding-chip--parent {
+      background: rgba(119, 141, 169, 0.22);
+      border-color: rgba(119, 141, 169, 0.45);
+    }
+    .breeding-chip--child {
+      background: rgba(148, 210, 189, 0.2);
+      border-color: rgba(148, 210, 189, 0.45);
+      box-shadow: 0 16px 32px rgba(148, 210, 189, 0.18);
+    }
+    .breeding-chip--condensed {
+      padding: 6px 10px;
+      border-radius: 14px;
+      gap: 8px;
+    }
+    .breeding-chip__art {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(13, 27, 42, 0.6);
+      border: 1px solid rgba(224, 225, 221, 0.12);
       display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      align-items: start;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+    .breeding-chip--condensed .breeding-chip__art {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+    }
+    .breeding-chip__art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .breeding-chip__placeholder {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: rgba(224, 225, 221, 0.7);
+    }
+    .breeding-chip__body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .breeding-chip__label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      line-height: 1.2;
+      color: var(--text);
+      word-break: break-word;
+    }
+    .breeding-chip--condensed .breeding-chip__label {
+      font-size: 0.85rem;
+    }
+    .breeding-chip__meta {
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(224, 225, 221, 0.65);
+      word-break: break-word;
+    }
+    .breeding-panels {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
     }
     .breeding-panel {
       display: flex;
@@ -3040,11 +3168,12 @@
       gap: 14px;
     }
     .breeding-combo {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      display: flex;
       align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
       gap: 10px;
-      padding: 12px;
+      padding: 12px 16px;
       border-radius: 18px;
       background: linear-gradient(135deg, rgba(13, 27, 42, 0.75), rgba(65, 90, 119, 0.45));
       border: 1px solid rgba(119, 141, 169, 0.25);
@@ -3058,12 +3187,8 @@
       border-color: rgba(224, 225, 221, 0.45);
       outline: none;
     }
-    .breeding-combo .pal-card {
-      width: 100%;
-      margin: 0;
-    }
-    .breeding-combo .pal-card + .combo-arrow {
-      justify-self: center;
+    .breeding-combo .combo-arrow {
+      font-size: 1.3rem;
     }
     .breeding-workspace .pal-card .badge {
       gap: 2px;
@@ -3128,12 +3253,6 @@
       .breeding-mode {
         padding: 20px 18px;
       }
-      .breeding-atlas {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .breeding-branch__pair {
-        grid-template-columns: minmax(0, 1fr);
-      }
       .pal-grid {
         max-height: clamp(240px, 55vh, 360px);
       }
@@ -3145,8 +3264,7 @@
         padding: 18px;
       }
       .breeding-combo {
-        grid-template-columns: repeat(5, minmax(0, 120px));
-        overflow-x: auto;
+        justify-content: center;
       }
     }
     /* Progress page */
@@ -9655,24 +9773,48 @@
         return card;
       }
 
-      function createComboCard(pal, fallbackName) {
+      function createPalChip(pal, fallbackName, options = {}) {
+        const { condensed = false, role = null, meta = null } = options;
+        const chip = document.createElement('div');
+        chip.className = 'breeding-chip';
+        if (condensed) chip.classList.add('breeding-chip--condensed');
+        if (role) chip.classList.add(`breeding-chip--${role}`);
+        const art = document.createElement('div');
+        art.className = 'breeding-chip__art';
         if (pal) {
-          return createPalCard(pal, { compact: true, selectable: false });
+          const img = document.createElement('img');
+          applyPalArtwork(img, pal, { alt: `${pal.name} portrait` });
+          art.appendChild(img);
+        } else {
+          const placeholder = document.createElement('span');
+          placeholder.className = 'breeding-chip__placeholder';
+          placeholder.textContent = '?';
+          art.appendChild(placeholder);
         }
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('pal-card', 'compact', 'static');
-        const name = document.createElement('div');
-        name.className = 'name';
-        name.textContent = fallbackName;
-        wrapper.appendChild(name);
-        const badge = document.createElement('div');
-        badge.className = 'badge';
-        badge.textContent = kidMode ? 'Not in list yet' : 'Not in dataset yet';
-        wrapper.appendChild(badge);
-        const rarity = document.createElement('div');
-        rarity.className = 'rarity';
-        wrapper.appendChild(rarity);
-        return wrapper;
+        chip.appendChild(art);
+        const body = document.createElement('div');
+        body.className = 'breeding-chip__body';
+        const label = document.createElement('span');
+        label.className = 'breeding-chip__label';
+        label.textContent = pal ? pal.name : (fallbackName || (kidMode ? 'Unknown pal' : 'Unknown pal'));
+        body.appendChild(label);
+        const metaText = meta != null ? meta : (pal && Array.isArray(pal.types) && pal.types.length ? pal.types.join(' / ') : '');
+        if (metaText) {
+          const metaSpan = document.createElement('span');
+          metaSpan.className = 'breeding-chip__meta';
+          metaSpan.textContent = metaText;
+          body.appendChild(metaSpan);
+        }
+        chip.appendChild(body);
+        return chip;
+      }
+
+      function createComboCard(pal, fallbackName) {
+        return createPalChip(pal, fallbackName, {
+          condensed: true,
+          role: pal ? 'parent' : null,
+          meta: pal ? formatBreedingSteps(pal.id) : ''
+        });
       }
 
       const partnerLookup = buildPartnerSkillLookup();
@@ -10214,7 +10356,12 @@
           meta.appendChild(typeSpan);
         }
         focus.appendChild(meta);
-        focus.appendChild(createPalCard(pal, { compact: false, selectable: false }));
+        focus.appendChild(
+          createPalChip(pal, pal.name, {
+            role: 'child',
+            meta: formatBreedingSteps(pal.id)
+          })
+        );
         return focus;
       }
 
@@ -10231,15 +10378,91 @@
           marker.className = 'breeding-branch__marker';
           marker.textContent = String(index + 1);
           summary.appendChild(marker);
-          const label = document.createElement('span');
+          const label = document.createElement('div');
+          label.className = 'breeding-branch__summary';
+          const flow = document.createElement('div');
+          flow.className = 'breeding-branch__summary-flow';
           const leftName = recipe.names?.[0] || 'Unknown';
           const rightName = recipe.names?.[1] || 'Unknown';
-          label.textContent = `${leftName} + ${rightName}`;
+          const leftPal = recipe.pals?.[0] || null;
+          const rightPal = recipe.pals?.[1] || null;
+          flow.appendChild(
+            createPalChip(leftPal, leftName, {
+              condensed: true,
+              role: 'parent',
+              meta: leftPal ? formatBreedingSteps(leftPal.id) : ''
+            })
+          );
+          const plus = document.createElement('span');
+          plus.className = 'breeding-branch__summary-arrow';
+          plus.textContent = '+';
+          flow.appendChild(plus);
+          flow.appendChild(
+            createPalChip(rightPal, rightName, {
+              condensed: true,
+              role: 'parent',
+              meta: rightPal ? formatBreedingSteps(rightPal.id) : ''
+            })
+          );
+          label.appendChild(flow);
+          const resultRow = document.createElement('div');
+          resultRow.className = 'breeding-branch__summary-result';
+          const arrow = document.createElement('span');
+          arrow.className = 'breeding-branch__summary-arrow';
+          arrow.textContent = '↓';
+          resultRow.appendChild(arrow);
+          resultRow.appendChild(
+            createPalChip(pal, pal.name, {
+              condensed: true,
+              role: 'child',
+              meta: formatBreedingSteps(pal.id)
+            })
+          );
+          label.appendChild(resultRow);
           summary.appendChild(label);
+          summary.setAttribute(
+            'aria-label',
+            kidMode
+              ? `${leftName} plus ${rightName} makes ${pal.name}`
+              : `${leftName} and ${rightName} produce ${pal.name}`
+          );
           branch.appendChild(summary);
           const pairWrap = document.createElement('div');
-          pairWrap.className = 'breeding-branch__pair';
+          pairWrap.className = 'breeding-branch__layout';
           branch.appendChild(pairWrap);
+          const pyramid = document.createElement('div');
+          pyramid.className = 'breeding-branch__pyramid';
+          const childChip = createPalChip(pal, pal.name, {
+            role: 'child',
+            meta: formatBreedingSteps(pal.id)
+          });
+          pyramid.appendChild(childChip);
+          const connector = document.createElement('div');
+          connector.className = 'breeding-branch__connector';
+          pyramid.appendChild(connector);
+          const summaryChips = document.createElement('div');
+          summaryChips.className = 'breeding-branch__summary-chips';
+          (recipe.names || []).forEach((name, idx) => {
+            if (idx > 0) {
+              const join = document.createElement('span');
+              join.className = 'breeding-branch__summary-arrow';
+              join.textContent = '+';
+              summaryChips.appendChild(join);
+            }
+            const parentPal = recipe.pals?.[idx] || null;
+            summaryChips.appendChild(
+              createPalChip(parentPal, name || 'Unknown parent', {
+                condensed: true,
+                role: 'parent',
+                meta: parentPal ? formatBreedingSteps(parentPal.id) : ''
+              })
+            );
+          });
+          pyramid.appendChild(summaryChips);
+          pairWrap.appendChild(pyramid);
+          const parentGrid = document.createElement('div');
+          parentGrid.className = 'breeding-branch__parent-grid';
+          pairWrap.appendChild(parentGrid);
           (recipe.names || []).forEach((name, idx) => {
             const parentPal = recipe.pals?.[idx] || null;
             const parentWrap = document.createElement('div');
@@ -10289,7 +10512,11 @@
                 }
               }
             } else {
-              parentWrap.appendChild(createComboCard(null, name || 'Unknown parent'));
+              parentWrap.appendChild(
+                createPalChip(null, name || 'Unknown parent', {
+                  condensed: true
+                })
+              );
               const missing = document.createElement('p');
               missing.className = 'breeding-branch__notice';
               missing.textContent = kidMode
@@ -10297,7 +10524,7 @@
                 : 'Parent data unavailable in current dataset.';
               parentWrap.appendChild(missing);
             }
-            pairWrap.appendChild(parentWrap);
+            parentGrid.appendChild(parentWrap);
           });
           fragment.appendChild(branch);
         });
@@ -10432,7 +10659,12 @@
         const heading = document.createElement('h3');
         heading.textContent = kidMode ? `Make ${selectedBaby.name}` : `Parent combos for ${selectedBaby.name}`;
         header.appendChild(heading);
-        header.appendChild(createPalCard(selectedBaby, { compact: true, selectable: false }));
+        header.appendChild(
+          createPalChip(selectedBaby, selectedBaby.name, {
+            role: 'child',
+            meta: formatBreedingSteps(selectedBaby.id)
+          })
+        );
         combosContainer.appendChild(header);
         const combos = Array.isArray(selectedBaby.breedingCombos) ? selectedBaby.breedingCombos : [];
         if (!combos.length) {
@@ -10448,6 +10680,23 @@
           const rightPal = rightPalId ? PALS[rightPalId] : null;
           const row = document.createElement('div');
           row.className = 'breeding-combo';
+          row.setAttribute('role', 'button');
+          row.tabIndex = 0;
+          row.setAttribute(
+            'aria-label',
+            kidMode
+              ? `Use ${leftName} and ${rightName} together`
+              : `Breed ${leftName} with ${rightName} to hatch ${selectedBaby.name}`
+          );
+          const activateCombo = () => {
+            if (leftPal) parentState.parent1 = leftPal;
+            if (rightPal) parentState.parent2 = rightPal;
+            updateBreedingSelection();
+            updateParentGrids();
+            updateResult();
+            switchBreedingMode('breedingPairs');
+            playSound(clickSound);
+          };
           row.appendChild(createComboCard(leftPal, leftName));
           const plus = document.createElement('div');
           plus.className = 'combo-arrow';
@@ -10458,15 +10707,18 @@
           arrow.className = 'combo-arrow';
           arrow.textContent = '→';
           row.appendChild(arrow);
-          row.appendChild(createPalCard(selectedBaby, { compact: true, selectable: false }));
-          row.addEventListener('click', () => {
-            if (leftPal) parentState.parent1 = leftPal;
-            if (rightPal) parentState.parent2 = rightPal;
-            updateBreedingSelection();
-            updateParentGrids();
-            updateResult();
-            switchBreedingMode('breedingPairs');
-            playSound(clickSound);
+          row.appendChild(
+            createPalChip(selectedBaby, selectedBaby.name, {
+              role: 'child',
+              meta: formatBreedingSteps(selectedBaby.id)
+            })
+          );
+          row.addEventListener('click', activateCombo);
+          row.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              activateCombo();
+            }
           });
           combosContainer.appendChild(row);
         });
@@ -10505,18 +10757,33 @@
         const avgPower = prediction ? prediction.avgPower : 0;
         const flow = document.createElement('div');
         flow.className = 'breeding-flow';
-        flow.appendChild(createPalCard(parentState.parent1, { compact: true, selectable: false }));
+        flow.appendChild(
+          createPalChip(parentState.parent1, parentState.parent1?.name, {
+            role: 'parent',
+            meta: parentState.parent1 ? formatBreedingSteps(parentState.parent1.id) : ''
+          })
+        );
         const plus = document.createElement('div');
         plus.className = 'combo-arrow';
         plus.textContent = '+';
         flow.appendChild(plus);
-        flow.appendChild(createPalCard(parentState.parent2, { compact: true, selectable: false }));
+        flow.appendChild(
+          createPalChip(parentState.parent2, parentState.parent2?.name, {
+            role: 'parent',
+            meta: parentState.parent2 ? formatBreedingSteps(parentState.parent2.id) : ''
+          })
+        );
         const arrow = document.createElement('div');
         arrow.className = 'combo-arrow';
         arrow.textContent = '→';
         flow.appendChild(arrow);
         if (baby) {
-          flow.appendChild(createPalCard(baby, { compact: true, selectable: false }));
+          flow.appendChild(
+            createPalChip(baby, baby.name, {
+              role: 'child',
+              meta: formatBreedingSteps(baby.id)
+            })
+          );
         } else {
           const placeholder = document.createElement('div');
           placeholder.classList.add('empty-state');
