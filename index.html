@@ -13588,7 +13588,8 @@
       boss: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_a9fa84f0c21bc536f00925ab4586e8c4f587c2b7.1920x1080.jpg?t=1759163961',
       npc: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/ss_b3cea7c9f04a67d784d4c6a0c157a11d6268b189.1920x1080.jpg?t=1759163961',
       travel: ROUTE_ART_IMAGE,
-      map: ROUTE_ART_IMAGE
+      map: ROUTE_ART_IMAGE,
+      mainStory: 'assets/images/routes/main-story-constellation.svg'
     };
     const ROUTE_VISUAL_THEMES = {
       pal: { image: ROUTE_THEME_ART_SOURCES.pal, overlay: 'rgba(119, 141, 169, 0.58)', accent: '#9bd4ff', icon: 'fa-paw', position: 'center 40%' },
@@ -13729,6 +13730,7 @@
       progression: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(118, 206, 255, 0.58)', accent: '#8dd9ff', icon: 'fa-compass', position: 'center 44%' },
       core: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(118, 206, 255, 0.58)', accent: '#8dd9ff', icon: 'fa-compass', position: 'center 44%' },
       campaign: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(118, 206, 255, 0.58)', accent: '#8dd9ff', icon: 'fa-map-signs', position: 'center 44%' },
+      'quest-main-story-early': { image: ROUTE_THEME_ART_SOURCES.mainStory, overlay: 'rgba(12, 22, 64, 0.78)', accent: '#facc15', icon: 'fa-dragon', position: 'center 36%' },
       support: { ...ROUTE_VISUAL_THEMES.tech, overlay: 'rgba(120, 180, 255, 0.55)', accent: '#a7c5ff', icon: 'fa-toolbox', position: 'center 52%' },
       starter: { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(148, 210, 189, 0.55)', accent: '#a5f2d5', icon: 'fa-seedling', position: 'center 46%' },
       'early-game': { ...ROUTE_VISUAL_THEMES.map, overlay: 'rgba(148, 210, 189, 0.55)', accent: '#a5f2d5', icon: 'fa-seedling', position: 'center 46%' },
@@ -13756,6 +13758,10 @@
       misc: { ...ROUTE_VISUAL_THEMES.generic }
     };
     const ROUTE_ART_ALIASES = {
+      'main-story': 'quest-main-story-early',
+      'main-story-progression': 'quest-main-story-early',
+      'story-progression': 'quest-main-story-early',
+      'quest-main-story': 'quest-main-story-early',
       automation: 'automation',
       'base-management': 'base-management',
       'base-building': 'base',
@@ -13919,8 +13925,142 @@
       supporting_stage: 3.6,
       active_region_chain: 3.2,
       quest_cluster: 2.9,
-      boss_requirement_alignment: 3.8
+      boss_requirement_alignment: 3.8,
+      phase_alignment: 3.4,
+      level_window_penalty: 3.1
     };
+    const MAIN_STORY_PHASE_HINTS = [
+      {
+        key: 'volcano-prep',
+        prefixes: [
+          'quest-main-story-early:013a',
+          'quest-main-story-early:013b',
+          'quest-main-story-early:013c',
+          'quest-main-story-early:014'
+        ],
+        recommended: [
+          'resource-carbon-fiber',
+          'resource-polymer',
+          'resource-sulfur',
+          'resource-coal'
+        ],
+        optional: [
+          'resource-precious-pelt',
+          'resource-high-quality-pal-oil'
+        ],
+        kidSummary: 'Stacks gear for the volcano run.',
+        grownSummary: 'Preps heat protection before Mount Obsidian.',
+        kidOptional: 'Optional support before tackling Orserk.',
+        grownOptional: 'Optional padding ahead of the Eternal Pyre assault.'
+      },
+      {
+        key: 'desert-siege',
+        prefixes: ['quest-main-story-early:015'],
+        recommended: [
+          'resource-gunpowder',
+          'resource-carbon-fiber',
+          'resource-ancient-civilization-parts'
+        ],
+        optional: [
+          'resource-high-quality-cloth',
+          'resource-precious-dragon-stone'
+        ],
+        kidSummary: 'Loads ammo and tech for the desert tower.',
+        grownSummary: 'Builds PIDF firepower and gadgets.',
+        kidOptional: 'Optional loot before the PIDF siege.',
+        grownOptional: 'Optional desert farming while staging explosives.'
+      },
+      {
+        key: 'ice-research',
+        prefixes: ['quest-main-story-early:016'],
+        recommended: [
+          'resource-ice-organ',
+          'resource-carbon-fiber',
+          'resource-medium-pal-soul'
+        ],
+        optional: [
+          'resource-large-pal-soul',
+          'resource-ancient-civilization-parts'
+        ],
+        kidSummary: 'Gathers ice ammo for PAL Research.',
+        grownSummary: 'Lines up Shadowbeak counters and tech cores.',
+        kidOptional: 'Optional farming before the frozen lab.',
+        grownOptional: 'Optional reserves before storming PAL Research.'
+      },
+      {
+        key: 'moonlit-raid',
+        prefixes: ['quest-main-story-early:017'],
+        recommended: [
+          'resource-carbon-fiber',
+          'resource-precious-pelt',
+          'resource-ancient-civilization-parts'
+        ],
+        optional: [
+          'resource-high-quality-pal-oil',
+          'purposeful-arc-legendary-push'
+        ],
+        kidSummary: 'Packs armour and elixirs for Saya & Selyne.',
+        grownSummary: 'Bolsters Moonlit Duel loadouts and tech.',
+        kidOptional: 'Optional legendary prep before Sakurajima.',
+        grownOptional: 'Optional legendary hunts while staging Moonlit Duel.'
+      },
+      {
+        key: 'feybreak-assault',
+        prefixes: ['quest-main-story-early:018'],
+        recommended: [
+          'resource-ancient-civilization-parts',
+          'resource-carbon-fiber',
+          'capture-jetragon',
+          'purposeful-arc-legendary-push'
+        ],
+        optional: [
+          'resource-precious-dragon-stone',
+          'resource-large-pal-soul'
+        ],
+        kidSummary: 'Final gear check before Bjorn & Bastigor.',
+        grownSummary: 'Finalise Feybreak loadouts and legendary mount plans.',
+        kidOptional: 'Optional polish before the finale.',
+        grownOptional: 'Optional legendary detours while staging Feybreak.',
+        progressFallback: 92
+      }
+    ];
+
+    function normalizeRouteIdentifier(value){
+      if(!value) return null;
+      if(typeof value === 'string') return value.trim();
+      if(typeof value === 'object'){
+        if(value.route_id) return String(value.route_id).trim();
+        if(value.id) return String(value.id).trim();
+      }
+      return null;
+    }
+
+    function createRouteIdSet(list){
+      const result = new Set();
+      (Array.isArray(list) ? list : []).forEach(value => {
+        const id = normalizeRouteIdentifier(value);
+        if(id) result.add(id);
+      });
+      return result;
+    }
+
+    function determineMainStoryPhase(stageSnapshot){
+      if(!stageSnapshot || stageSnapshot.stageId !== 'quest-main-story-early') return null;
+      const nextId = String(stageSnapshot?.nextStep?.id || '').toLowerCase();
+      if(nextId){
+        for(const phase of MAIN_STORY_PHASE_HINTS){
+          if(phase.prefixes.some(prefix => nextId.startsWith(prefix))){
+            return phase;
+          }
+        }
+      }
+      if(stageSnapshot.progressPercent != null){
+        const fallback = MAIN_STORY_PHASE_HINTS.find(phase => typeof phase.progressFallback === 'number'
+          && stageSnapshot.progressPercent >= phase.progressFallback);
+        if(fallback) return fallback;
+      }
+      return null;
+    }
     let currentRouteSuggestionEntries = [];
     let currentRouteRecommendationEntries = [];
     let activeSuggestedRouteId = null;
@@ -16433,8 +16573,86 @@
 
     function selectRouteSuggestions(recommendations, { min = 3, max = 4 } = {}){
       if(!Array.isArray(recommendations) || !recommendations.length) return [];
-      const pool = recommendations.filter(entry => entry && entry.route && !isRouteComplete(entry.route));
+      const activeSet = new Set(Array.from(activeRouteIds || []));
+      const pool = recommendations.filter(entry => {
+        return entry && entry.route && !isRouteComplete(entry.route) && !activeSet.has(entry.route.id);
+      });
       if(!pool.length) return [];
+      const sortedByScore = pool.slice().sort((a, b) => (b.score || 0) - (a.score || 0));
+      const picks = [];
+      const taken = new Set();
+      const stageSnapshot = typeof determineGuideStageSnapshot === 'function' ? determineGuideStageSnapshot() : null;
+      const stageRouteId = stageSnapshot?.stageId || null;
+      const stageRoute = stageRouteId ? routeGuideData?.routeLookup?.[stageRouteId] : null;
+      const stageRouteIsActive = stageRouteId ? activeSet.has(stageRouteId) : false;
+      const stageSupportRecommended = createRouteIdSet(stageRoute?.supporting_routes?.recommended);
+      const stageSupportOptional = createRouteIdSet(stageRoute?.supporting_routes?.optional);
+      const stageNextRoutes = createRouteIdSet(stageRoute?.next_routes);
+      const stagePhase = stageRouteId === 'quest-main-story-early'
+        ? determineMainStoryPhase(stageSnapshot)
+        : null;
+      const phaseRecommended = stagePhase ? createRouteIdSet(stagePhase.recommended) : new Set();
+      const phaseOptional = stagePhase ? createRouteIdSet(stagePhase.optional) : new Set();
+      const activeFollowUps = new Set();
+      if(activeRouteIds && typeof activeRouteIds.forEach === 'function'){
+        activeRouteIds.forEach(id => {
+          const route = routeGuideData?.routeLookup?.[id];
+          if(!route) return;
+          createRouteIdSet(route.next_routes).forEach(nextId => activeFollowUps.add(nextId));
+        });
+      }
+      const ensureFromSet = (idSet, { limit = 1 } = {}) => {
+        if(!idSet || !idSet.size) return;
+        let remaining = limit == null ? Infinity : Number(limit);
+        if(!Number.isFinite(remaining) && remaining !== Infinity) remaining = Infinity;
+        if(remaining <= 0) return;
+        for(const entry of sortedByScore){
+          if(picks.length >= max) break;
+          if(remaining <= 0) break;
+          if(taken.has(entry.route.id)) continue;
+          if(idSet.has(entry.route.id)){
+            picks.push(entry);
+            taken.add(entry.route.id);
+            if(remaining !== Infinity){
+              remaining -= 1;
+            }
+          }
+        }
+      };
+
+      if(stageRouteId && !stageRouteIsActive){
+        ensureFromSet(new Set([stageRouteId]));
+      }
+      if(phaseRecommended.size){
+        const limit = stageRouteIsActive ? Math.min(2, Math.max(0, max - picks.length)) : 1;
+        ensureFromSet(phaseRecommended, { limit });
+      }
+      if(stageSupportRecommended.size){
+        const limit = stageRouteIsActive ? Math.min(2, Math.max(0, max - picks.length)) : 1;
+        ensureFromSet(stageSupportRecommended, { limit });
+      }
+      if(stageNextRoutes.size){
+        ensureFromSet(stageNextRoutes);
+      }
+      if(activeFollowUps.size){
+        ensureFromSet(activeFollowUps);
+      }
+      if(picks.length < min && phaseOptional.size){
+        ensureFromSet(phaseOptional, { limit: 1 });
+      }
+      if(picks.length < min && stageSupportOptional.size){
+        ensureFromSet(stageSupportOptional, { limit: 1 });
+      }
+
+      const remainingPool = sortedByScore.filter(entry => !taken.has(entry.route.id));
+      const remainingMax = Math.max(0, max - picks.length);
+      const remainingMin = Math.max(0, min - picks.length);
+      const additional = bucketSelectFromPool(remainingPool, { min: remainingMin, max: remainingMax });
+      return [...picks, ...additional].slice(0, max);
+    }
+
+    function bucketSelectFromPool(pool, { min = 0, max = Array.isArray(pool) ? pool.length : 0 } = {}){
+      if(!Array.isArray(pool) || !pool.length || max <= 0) return [];
       const buckets = new Map();
       pool.forEach(entry => {
         const key = routePlaystyleKey(entry.route);
@@ -16445,27 +16663,36 @@
       const sortedStyles = Array.from(buckets.entries())
         .sort((a, b) => (b[1][0]?.score || 0) - (a[1][0]?.score || 0));
       const maxAvailable = Math.min(max, pool.length);
+      if(maxAvailable <= 0) return [];
       const baseline = Math.min(min, maxAvailable);
       const target = Math.max(Math.min(sortedStyles.length, maxAvailable), baseline);
       const picks = [];
       sortedStyles.forEach(([, list]) => {
-        if(picks.length >= target) return;
+        if(picks.length >= maxAvailable) return;
         if(list.length){
           picks.push(list.shift());
         }
       });
       const ensureCount = desired => {
-        if(picks.length >= desired) return;
+        if(desired <= picks.length) return;
         const remaining = pool
           .filter(entry => !picks.includes(entry))
           .sort((a, b) => (b.score || 0) - (a.score || 0));
-        while(picks.length < desired && remaining.length){
+        while(picks.length < desired && picks.length < maxAvailable && remaining.length){
           picks.push(remaining.shift());
         }
       };
       ensureCount(baseline);
       ensureCount(target);
-      return picks;
+      if(picks.length < maxAvailable){
+        const remaining = pool
+          .filter(entry => !picks.includes(entry))
+          .sort((a, b) => (b.score || 0) - (a.score || 0));
+        while(picks.length < maxAvailable && remaining.length){
+          picks.push(remaining.shift());
+        }
+      }
+      return picks.slice(0, maxAvailable);
     }
 
     function renderRouteSuggestions(recommendations){
@@ -18877,8 +19104,15 @@
       const stageIndex = typeof stage?.stageIndex === 'number' ? stage.stageIndex : null;
       const stageRouteId = stage?.stageId || null;
       const stageRoute = stageRouteId ? routeLookup[stageRouteId] : null;
-      const stageSupportRecommended = new Set(Array.isArray(stageRoute?.supporting_routes?.recommended) ? stageRoute.supporting_routes.recommended : []);
-      const stageSupportOptional = new Set(Array.isArray(stageRoute?.supporting_routes?.optional) ? stageRoute.supporting_routes.optional : []);
+      const stageSupportRecommended = createRouteIdSet(stageRoute?.supporting_routes?.recommended);
+      const stageSupportOptional = createRouteIdSet(stageRoute?.supporting_routes?.optional);
+      const stagePhase = stageRouteId === 'quest-main-story-early'
+        ? determineMainStoryPhase(stageSnapshot)
+        : null;
+      const phaseRecommendedSet = stagePhase ? createRouteIdSet(stagePhase.recommended) : new Set();
+      const phaseOptionalSet = stagePhase ? createRouteIdSet(stagePhase.optional) : new Set();
+      phaseRecommendedSet.forEach(id => stageSupportRecommended.add(id));
+      phaseOptionalSet.forEach(id => stageSupportOptional.add(id));
       const activeRouteRegionSet = new Set();
       const activeRouteRegionNames = new Map();
       activeRouteSet.forEach(id => {
@@ -19148,13 +19382,28 @@
         }
         if(stageRouteId && stageRouteId !== route.id && !routeComplete){
           const stageLabel = kidMode ? (stage?.stageTitleKid || stage?.stageTitleGrown || '') : (stage?.stageTitleGrown || stage?.stageTitleKid || '');
-          if(stageSupportRecommended.has(route.id)){
+          if(phaseRecommendedSet.has(route.id)){
+            score += (weights.supporting_stage || 0) + (weights.phase_alignment || 0);
+            const summary = kidMode
+              ? (stagePhase?.kidSummary || stageLabel || 'Supports the current story prep.')
+              : (stagePhase?.grownSummary || stageLabel || 'Supports the active chapter.');
+            reasons.push(summary);
+            contextSignals += 1;
+            tier = Math.min(tier, 1);
+          } else if(stageSupportRecommended.has(route.id)){
             score += weights.supporting_stage || 0;
             reasons.push(stageLabel
               ? (kidMode ? `Helps finish ${stageLabel}.` : `Supports current chapter: ${stageLabel}.`)
               : (kidMode ? 'Supports the current story prep.' : 'Supports the active chapter.'));
             contextSignals += 1;
             tier = Math.min(tier, 1);
+          } else if(phaseOptionalSet.has(route.id)){
+            score += ((weights.supporting_stage || 0) * 0.6) + ((weights.phase_alignment || 0) * 0.6);
+            const optionalSummary = kidMode
+              ? (stagePhase?.kidOptional || stageLabel || 'Optional story support.')
+              : (stagePhase?.grownOptional || stageLabel || 'Optional chapter support.');
+            reasons.push(optionalSummary);
+            contextSignals += 1;
           } else if(stageSupportOptional.has(route.id)){
             score += (weights.supporting_stage || 0) * 0.6;
             reasons.push(stageLabel
@@ -19331,6 +19580,18 @@
             reasons.push(kidMode ? `Covers ${sample} before ${bossName}.` : `Delivers ${sample} needed for ${bossName}.`);
             contextSignals += bossPrepSet.size;
           }
+        }
+        const levelInfo = route?.recommended_level || {};
+        const minLevel = levelInfo && levelInfo.min != null ? Number(levelInfo.min) : null;
+        const maxLevel = levelInfo && levelInfo.max != null ? Number(levelInfo.max) : null;
+        const levelSpan = Number.isFinite(minLevel) && Number.isFinite(maxLevel) ? maxLevel - minLevel : null;
+        const deepMainStoryPhase = stageRouteId === 'quest-main-story-early' && !!stagePhase;
+        const highPlayerLevel = playerLevel != null && Number.isFinite(playerLevel) && playerLevel >= 30;
+        if(levelSpan != null && levelSpan >= 45 && !routeComplete && route.id !== stageRouteId && (deepMainStoryPhase || highPlayerLevel)){
+          score -= weights.level_window_penalty || 0;
+          reasons.push(kidMode
+            ? 'Stick with chapter-ready guides instead of all-level tours.'
+            : 'Prefer chapter-tuned guidance over broad level 1–60 overviews.');
         }
         if(context.coop && route?.modes?.coop){
           score += weights.coop_synergy || 0;
