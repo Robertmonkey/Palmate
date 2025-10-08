@@ -12818,6 +12818,119 @@
       }
     }
 
+    const guideLoadingState = {
+      progress: 0,
+      status: kidMode ? 'Syncing…' : 'Syncing…',
+      active: false,
+      complete: false
+    };
+
+    function setGuideLoadingState(partial = {}) {
+      if (typeof partial.progress === 'number' && Number.isFinite(partial.progress)) {
+        guideLoadingState.progress = Math.max(0, Math.min(partial.progress, 100));
+      }
+      if (typeof partial.status === 'string' && partial.status) {
+        guideLoadingState.status = partial.status;
+      }
+      if (partial.active !== undefined) {
+        guideLoadingState.active = !!partial.active;
+      }
+      if (partial.complete !== undefined) {
+        guideLoadingState.complete = !!partial.complete;
+      } else if (guideLoadingState.progress >= 100) {
+        guideLoadingState.complete = true;
+      }
+      renderGuideLoadingPlaceholder();
+      renderProgressStageLoadingMeter();
+    }
+
+    function bumpGuideLoadingProgress(targetPercent, statusCopy = {}) {
+      const numericTarget = Number(targetPercent);
+      const proposed = Number.isFinite(numericTarget) ? Math.max(0, Math.min(numericTarget, 100)) : guideLoadingState.progress;
+      const clamped = Math.max(guideLoadingState.progress, proposed);
+      const statusTextRaw = kidMode ? (statusCopy.kid ?? statusCopy.grown) : (statusCopy.grown ?? statusCopy.kid);
+      const update = { progress: clamped, active: true };
+      if (statusTextRaw) {
+        update.status = statusTextRaw;
+      }
+      if (clamped < 100) {
+        update.complete = false;
+      }
+      setGuideLoadingState(update);
+    }
+
+    function resetGuideLoadingState(statusCopy = {}) {
+      const statusTextRaw = kidMode ? (statusCopy.kid ?? statusCopy.grown) : (statusCopy.grown ?? statusCopy.kid);
+      guideLoadingState.progress = 0;
+      guideLoadingState.active = false;
+      guideLoadingState.complete = false;
+      guideLoadingState.status = statusTextRaw || (kidMode ? 'Syncing…' : 'Syncing…');
+      renderGuideLoadingPlaceholder();
+      renderProgressStageLoadingMeter();
+    }
+
+    function renderGuideLoadingPlaceholder() {
+      const card = document.querySelector('[data-route-loading]');
+      if (!card) return;
+      const shouldHide = guideLoadingState.complete && !guideLoadingState.active;
+      card.classList.toggle('route-loading--hidden', shouldHide);
+      const meter = card.querySelector('.route-loading__meter');
+      if (meter) {
+        meter.setAttribute('aria-valuenow', String(Math.round(guideLoadingState.progress)));
+        if (guideLoadingState.progress > 0 && !guideLoadingState.complete) {
+          meter.classList.remove('capture-meter--loading');
+        } else if (!guideLoadingState.complete) {
+          meter.classList.add('capture-meter--loading');
+        }
+        if (guideLoadingState.complete) {
+          meter.classList.add('capture-meter--ready');
+        } else {
+          meter.classList.remove('capture-meter--ready');
+        }
+        syncCaptureMeterDecor(meter, guideLoadingState.progress);
+      }
+      const percentNode = card.querySelector('[data-route-loading-percent]');
+      if (percentNode) {
+        percentNode.textContent = `${Math.round(guideLoadingState.progress)}%`;
+      }
+      const statusNode = card.querySelector('[data-route-loading-status]');
+      if (statusNode) {
+        statusNode.textContent = guideLoadingState.status || (kidMode ? 'Syncing…' : 'Syncing…');
+      }
+    }
+
+    function renderProgressStageLoadingMeter({ guideDataReady = false } = {}) {
+      const meterShell = document.querySelector('.progress-stage-card__meter');
+      const meter = document.getElementById('progressStageMeter');
+      if (!meterShell || !meter) return;
+      const shouldHide = guideDataReady && guideLoadingState.complete && !guideLoadingState.active;
+      meterShell.classList.toggle('progress-stage-card__meter--hidden', shouldHide);
+      if (shouldHide) {
+        return;
+      }
+      const loadProgress = guideLoadingState.progress;
+      meter.setAttribute('aria-valuenow', String(Math.round(loadProgress)));
+      if (loadProgress > 0 && !guideLoadingState.complete) {
+        meter.classList.remove('capture-meter--loading');
+      } else if (!guideLoadingState.complete) {
+        meter.classList.add('capture-meter--loading');
+      }
+      if (guideLoadingState.complete && guideDataReady) {
+        meter.classList.add('capture-meter--ready');
+      } else {
+        meter.classList.remove('capture-meter--ready');
+      }
+      syncCaptureMeterDecor(meter, loadProgress);
+      const percentNode = document.getElementById('progressStagePercent');
+      if (percentNode) {
+        percentNode.textContent = `${Math.round(loadProgress)}%`;
+      }
+      const statusNode = document.getElementById('progressStageStatus');
+      if (statusNode) {
+        statusNode.textContent = guideLoadingState.status || (kidMode ? 'Syncing…' : 'Syncing…');
+      }
+    }
+
     // Home page builder.  Highlights adaptive guidance, quick status,
     // and provides rapid jumps into the planner or progress dashboard.
     function buildHomePage() {
@@ -14215,8 +14328,10 @@
       if(routeGuideData){
         return routeGuideData;
       }
+      bumpGuideLoadingProgress(15, { kid: 'Syncing adaptive guides…', grown: 'Syncing adaptive guides…' });
       try {
         const guide = await loadGuideDataset();
+        bumpGuideLoadingProgress(85, { kid: 'Finalising adaptive routes…', grown: 'Finalising adaptive routes…' });
         routeGuideData = guide;
         ensureGuideCatalogFiltersValid();
         ensurePurposefulGuideFiltersValid();
@@ -14229,17 +14344,22 @@
     }
 
     async function loadGuideDataset(){
+      bumpGuideLoadingProgress(30, { kid: 'Loading guide library…', grown: 'Loading guide library…' });
       const markdown = await loadGuideFromMarkdown();
       if(markdown && Array.isArray(markdown.routes) && markdown.routes.length){
+        bumpGuideLoadingProgress(45, { kid: 'Parsing guide markdown…', grown: 'Parsing guide markdown…' });
         try {
+          bumpGuideLoadingProgress(60, { kid: 'Calibrating adaptive planner…', grown: 'Calibrating adaptive planner…' });
           return await augmentGuideData(markdown);
         } catch(err){
           console.warn('Failed to augment guide markdown', err);
         }
       }
+      bumpGuideLoadingProgress(40, { kid: 'Loading bundled guide data…', grown: 'Loading bundled guide data…' });
       const bundled = await loadBundledGuideData();
       if(bundled && Array.isArray(bundled.routes) && bundled.routes.length){
         try {
+          bumpGuideLoadingProgress(60, { kid: 'Calibrating adaptive planner…', grown: 'Calibrating adaptive planner…' });
           return await augmentGuideData(bundled);
         } catch(err){
           console.warn('Failed to augment bundled guide data', err);
@@ -17633,9 +17753,10 @@
       const node = document.getElementById('routePage');
       if(!node) return;
       if(!routeGuideData){
+        resetGuideLoadingState({ kid: 'Syncing adaptive guides…', grown: 'Syncing adaptive guides…' });
         node.innerHTML = `
           <section class="card route-loading" data-route-loading>
-            <div class="capture-meter capture-meter--compact capture-meter--loading route-loading__meter" aria-hidden="true">
+            <div class="capture-meter capture-meter--compact capture-meter--loading route-loading__meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
               <div class="capture-meter__ring">
                 <div class="capture-meter__progress"></div>
                 <div class="capture-meter__ticks"></div>
@@ -17651,7 +17772,8 @@
                   </div>
                 </div>
                 <div class="capture-meter__core">
-                  <span class="capture-meter__status">Syncing…</span>
+                  <span class="capture-meter__percent" data-route-loading-percent>0%</span>
+                  <span class="capture-meter__status" data-route-loading-status>Syncing…</span>
                 </div>
               </div>
             </div>
@@ -17661,6 +17783,8 @@
             </div>
           </section>
         `;
+        bumpGuideLoadingProgress(10, { kid: 'Syncing adaptive guides…', grown: 'Syncing adaptive guides…' });
+        renderGuideLoadingPlaceholder();
       }
       ensureRouteGuide().then(guide => {
         const routes = Array.isArray(guide?.routes) ? guide.routes : [];
@@ -23544,21 +23668,16 @@
               : 'Adaptive stage insights will appear once the guide loads.');
         }
       }
-      const progressStageMeter = document.getElementById('progressStageMeter');
-      if (progressStageMeter) {
-        progressStageMeter.setAttribute('aria-valuenow', progressPercent);
-        syncCaptureMeterDecor(progressStageMeter, progressPercent);
-        progressStageMeter.classList.toggle('capture-meter--loading', !guideDataReady);
-        progressStageMeter.classList.toggle('capture-meter--ready', !!guideDataReady);
+      const progressStageLabel = document.getElementById('progressStageLabel');
+      if (progressStageLabel) {
+        progressStageLabel.textContent = guideDataReady
+          ? (kidMode ? 'Big steps complete' : 'Required completion')
+          : (kidMode ? 'Loading progress' : 'Loading progress');
       }
-      const progressStagePercent = document.getElementById('progressStagePercent');
-      if (progressStagePercent) {
-        progressStagePercent.textContent = `${Math.round(progressPercent)}%`;
+      if (guideDataReady) {
+        setGuideLoadingState({ progress: 100, status: kidMode ? 'Adaptive stage ready' : 'Adaptive stage ready', complete: true, active: false });
       }
-      const progressStageStatus = document.getElementById('progressStageStatus');
-      if (progressStageStatus) {
-        progressStageStatus.textContent = guideDataReady ? (kidMode ? 'Stage locked' : 'Stage locked') : (kidMode ? 'Syncing…' : 'Syncing…');
-      }
+      renderProgressStageLoadingMeter({ guideDataReady });
       const progressStageResume = document.getElementById('progressStageResume');
       if (progressStageResume) {
         if (guideDataReady && nextAny && nextAny.step) {
