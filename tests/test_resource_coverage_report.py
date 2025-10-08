@@ -1,5 +1,6 @@
 import csv
 import io
+import json
 import subprocess
 import sys
 import unittest
@@ -9,6 +10,7 @@ from scripts.resource_coverage_report import (
     CatalogEntry,
     ResourceRoute,
     format_csv_report,
+    format_json_report,
 )
 
 
@@ -155,6 +157,55 @@ class FormatCsvReportTests(unittest.TestCase):
         reader = csv.reader(io.StringIO(csv_output))
         self.assertEqual(list(reader), expected_rows)
 
+    def test_format_json_report_includes_all_sections(self) -> None:
+        missing_routes = [
+            CatalogEntry(
+                entry_id="resource-honey",
+                title="Honey Farming Loop",
+                shortage_menu=True,
+            )
+        ]
+        missing_catalog = [
+            ResourceRoute(
+                route_id="resource-pal-oil",
+                title="Oil Sweep",
+                citations=("palwiki-pal-oil",),
+                field_step_ids=("resource-pal-oil:001",),
+                missing_field_step_ids=(),
+                exempt_field_step_ids=(),
+                under_cited_field_step_ids=("resource-pal-oil:001",),
+            )
+        ]
+        citation_warnings: list[ResourceRoute] = []
+        location_warnings: list[ResourceRoute] = []
+        location_exemptions: list[ResourceRoute] = []
+        step_citation_warnings: list[ResourceRoute] = []
+
+        json_output = format_json_report(
+            missing_routes,
+            missing_catalog,
+            citation_warnings,
+            location_warnings,
+            location_exemptions,
+            step_citation_warnings,
+        )
+        payload = json.loads(json_output)
+
+        self.assertIn("missing_routes", payload)
+        self.assertIn("missing_catalog", payload)
+        self.assertIn("citation_warnings", payload)
+        self.assertIn("location_warnings", payload)
+        self.assertIn("location_exemptions", payload)
+        self.assertIn("step_citation_warnings", payload)
+
+        self.assertEqual(len(payload["missing_routes"]), 1)
+        self.assertEqual(len(payload["missing_catalog"]), 1)
+        self.assertEqual(payload["missing_routes"][0]["shortage_menu"], True)
+        self.assertEqual(
+            payload["missing_catalog"][0]["under_cited_field_step_ids"],
+            ["resource-pal-oil:001"],
+        )
+
 
 class CliCsvOutputTests(unittest.TestCase):
     def test_cli_emits_expected_header_and_shape(self) -> None:
@@ -184,6 +235,28 @@ class CliCsvOutputTests(unittest.TestCase):
         )
         for row in rows[1:]:
             self.assertEqual(len(row), 7)
+
+    def test_cli_json_output_is_machine_friendly(self) -> None:
+        repo_root = Path(__file__).resolve().parents[1]
+        script_path = repo_root / "scripts" / "resource_coverage_report.py"
+        result = subprocess.run(
+            [sys.executable, str(script_path), "--format", "json"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        payload = json.loads(result.stdout)
+        expected_keys = {
+            "missing_routes",
+            "missing_catalog",
+            "citation_warnings",
+            "location_warnings",
+            "location_exemptions",
+            "step_citation_warnings",
+        }
+        self.assertEqual(set(payload), expected_keys)
+        for key in expected_keys:
+            self.assertIsInstance(payload[key], list)
 
 
 if __name__ == "__main__":
