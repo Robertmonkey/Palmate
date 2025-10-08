@@ -85,7 +85,14 @@ export function renderRoute(node){
             <p class="route-dashboard__stat-meta" data-route-overview="optional-summary">${escapeHTML(overview.optionalSummary)}</p>
           </div>
         </div>
-        <div class="route-dashboard__next" data-route-overview="next">${escapeHTML(overview.nextLabel)}</div>
+        <div class="route-dashboard__next" id="routeNextFocus">
+          <div class="route-dashboard__next-head">
+            <h3>${escapeHTML(kidMode ? 'Next focus' : 'Momentum planner')}</h3>
+            <p>${escapeHTML(kidMode ? 'Here’s what to tackle together right now.' : 'Stay on-pace with the tasks that matter most.')}</p>
+          </div>
+          <ol class="route-dashboard__next-list" data-route-overview="next-list"></ol>
+          <p class="route-dashboard__next-empty" data-route-overview="next-empty" hidden>${escapeHTML(overview.nextLabel)}</p>
+        </div>
       </section>
       <div class="route-layout">
         <section class="card route-timeline" id="routeTimeline">
@@ -119,15 +126,19 @@ export function renderRoute(node){
       const anchor = origin.closest('[data-scroll-target]');
       if(!anchor) return;
       event.preventDefault();
-      const targetId = anchor.dataset.scrollTarget;
-      if(!targetId) return;
-      const chapter = node.querySelector(`#${targetId}`);
-      if(chapter){
-        const details = chapter.querySelector('.route-chapter__details');
-        if(details) details.open = true;
-        chapter.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        pulse(chapter);
-      }
+      focusChapter(anchor.dataset.scrollTarget, node);
+    });
+  }
+
+  const dashboard = node.querySelector('#routeDashboard');
+  if(dashboard){
+    dashboard.addEventListener('click', (event) => {
+      const origin = event.target;
+      if(!(origin instanceof Element)) return;
+      const anchor = origin.closest('[data-scroll-target]');
+      if(!anchor) return;
+      event.preventDefault();
+      focusChapter(anchor.dataset.scrollTarget, node);
     });
   }
 
@@ -354,12 +365,29 @@ function calculateGuideOverview(chapters, state, options = {}){
   let nextRequiredChapter = null;
   let nextOptionalStep = null;
   let nextOptionalChapter = null;
+  const chapterData = [];
 
   if(Array.isArray(chapters)){
-    chapters.forEach(ch => {
+    chapters.forEach((ch, index) => {
       if(!ch || !Array.isArray(ch.steps)) return;
       const progress = chapterProgress(ch, state);
       const optional = chapterOptionalProgress(ch, state);
+      const firstRequiredIndex = ch.steps.findIndex(step => !step.optional && !state[step.id]);
+      const firstOptionalIndex = ch.steps.findIndex(step => step.optional && !state[step.id]);
+      const firstRequiredStep = firstRequiredIndex >= 0 ? ch.steps[firstRequiredIndex] : null;
+      const firstOptionalStep = firstOptionalIndex >= 0 ? ch.steps[firstOptionalIndex] : null;
+
+      chapterData.push({
+        chapter: ch,
+        index,
+        progress,
+        optional,
+        firstRequiredStep,
+        firstRequiredIndex,
+        firstOptionalStep,
+        firstOptionalIndex
+      });
+
       requiredTotal += progress.requiredCount;
       requiredChecked += progress.requiredChecked;
       optionalTotal += optional.optionalCount;
@@ -375,19 +403,13 @@ function calculateGuideOverview(chapters, state, options = {}){
           nextChapterOptionalFallback = ch;
         }
       }
-      if(!nextRequiredStep){
-        const candidate = ch.steps.find(step => !step.optional && !state[step.id]);
-        if(candidate){
-          nextRequiredStep = candidate;
-          nextRequiredChapter = ch;
-        }
+      if(!nextRequiredStep && firstRequiredStep){
+        nextRequiredStep = firstRequiredStep;
+        nextRequiredChapter = ch;
       }
-      if(!hideOptional && !nextOptionalStep){
-        const candidate = ch.steps.find(step => step.optional && !state[step.id]);
-        if(candidate){
-          nextOptionalStep = candidate;
-          nextOptionalChapter = ch;
-        }
+      if(!hideOptional && !nextOptionalStep && firstOptionalStep){
+        nextOptionalStep = firstOptionalStep;
+        nextOptionalChapter = ch;
       }
     });
   }
@@ -428,8 +450,16 @@ function calculateGuideOverview(chapters, state, options = {}){
     nextChapter = nextChapterOptionalFallback;
   }
 
-  let nextLabel;
   let nextChapterId = nextChapter?.id || null;
+
+  const nextTasks = buildNextTaskFeed(chapterData, {
+    hideOptional,
+    kid,
+    remainingRequired,
+    remainingOptional,
+    state
+  });
+
   const nextStep = nextRequiredStep || (hideOptional ? null : nextOptionalStep);
   if(nextStep && nextStep.optional && nextOptionalChapter && !nextChapterId){
     nextChapterId = nextOptionalChapter.id || null;
@@ -437,16 +467,19 @@ function calculateGuideOverview(chapters, state, options = {}){
   if(nextStep && !nextStep.optional && nextRequiredChapter){
     nextChapterId = nextRequiredChapter.id || nextChapterId;
   }
+  if(nextTasks.length && !nextChapterId){
+    nextChapterId = nextTasks[0].chapterId || nextChapterId;
+  }
+
+  let nextLabel;
   if(totalChapters === 0){
     nextLabel = kid ? 'No chapters available yet.' : 'No chapters available yet.';
-  } else if(nextStep){
-    const prefix = nextStep.optional
-      ? (kid ? 'Bonus idea' : 'Next optional step')
-      : (kid ? 'Next big step' : 'Next required step');
-    nextLabel = `${prefix}: ${stepText(nextStep)}`;
-    if(nextChapter && nextChapter.id){
-      nextChapterId = nextChapter.id;
-    }
+  } else if(nextTasks.length){
+    nextLabel = nextTasks[0].headline;
+  } else if(remainingRequired === 0 && remainingOptional > 0 && hideOptional){
+    nextLabel = kid
+      ? 'Bonus steps are hidden—show them to keep the streak.'
+      : 'Optional steps are hidden—show them to keep the momentum.';
   } else if(clearedChapters === totalChapters){
     nextLabel = kid ? 'All chapters complete! Celebrate with your crew.' : 'All chapters complete—legendary work.';
   } else if(nextChapter && nextChapter.id){
@@ -470,8 +503,138 @@ function calculateGuideOverview(chapters, state, options = {}){
     requiredSummary,
     optionalSummary,
     nextLabel,
-    nextChapterId
+    nextChapterId,
+    nextTasks
   };
+}
+
+function buildNextTaskFeed(chapterData, context){
+  if(!Array.isArray(chapterData) || !chapterData.length) return [];
+  const { hideOptional, kid, remainingRequired, remainingOptional, state } = context;
+  const tasks = [];
+  const hasRequired = remainingRequired > 0;
+  const activeRequired = chapterData.find(entry => !entry.progress.requiredDone && entry.firstRequiredStep);
+  if(activeRequired && activeRequired.firstRequiredStep){
+    tasks.push(makeTaskDescriptor({
+      entry: activeRequired,
+      step: activeRequired.firstRequiredStep,
+      type: 'required',
+      kid,
+      context
+    }));
+  }
+
+  let secondaryEntry = null;
+  let secondaryStep = null;
+  if(activeRequired && typeof activeRequired.firstRequiredIndex === 'number' && activeRequired.firstRequiredIndex >= 0){
+    secondaryStep = activeRequired.chapter.steps
+      .slice(activeRequired.firstRequiredIndex + 1)
+      .find(step => !step.optional && !state?.[step.id]);
+    if(secondaryStep){
+      secondaryEntry = activeRequired;
+    }
+  }
+  if(!secondaryStep){
+    const activeIndex = activeRequired ? activeRequired.index : -1;
+    const nextChapterRequired = chapterData.find(entry => entry.index > activeIndex && entry.firstRequiredStep);
+    if(nextChapterRequired){
+      secondaryEntry = nextChapterRequired;
+      secondaryStep = nextChapterRequired.firstRequiredStep;
+    }
+  }
+  if(secondaryEntry && secondaryStep){
+    tasks.push(makeTaskDescriptor({
+      entry: secondaryEntry,
+      step: secondaryStep,
+      type: 'upcoming',
+      kid,
+      context: { ...context, sameChapter: secondaryEntry === activeRequired }
+    }));
+  }
+
+  if(!hideOptional){
+    let optionalEntry = null;
+    let optionalStep = null;
+    if(activeRequired && activeRequired.firstOptionalStep){
+      optionalEntry = activeRequired;
+      optionalStep = activeRequired.firstOptionalStep;
+    }
+    if(!optionalStep){
+      const activeIndex = activeRequired ? activeRequired.index : -1;
+      const fallbackOptional = chapterData.find(entry => entry.index >= activeIndex && entry.firstOptionalStep);
+      if(fallbackOptional){
+        optionalEntry = fallbackOptional;
+        optionalStep = fallbackOptional.firstOptionalStep;
+      }
+    }
+    if(!optionalStep){
+      const anyOptional = chapterData.find(entry => entry.firstOptionalStep);
+      if(anyOptional){
+        optionalEntry = anyOptional;
+        optionalStep = anyOptional.firstOptionalStep;
+      }
+    }
+    if(optionalEntry && optionalStep){
+      tasks.push(makeTaskDescriptor({
+        entry: optionalEntry,
+        step: optionalStep,
+        type: 'optional',
+        kid,
+        context: {
+          ...context,
+          primaryOptional: !hasRequired && remainingOptional > 0,
+          sameChapter: optionalEntry === activeRequired
+        }
+      }));
+    }
+  }
+
+  return tasks.slice(0, 3);
+}
+
+function makeTaskDescriptor({ entry, step, type, kid, context = {} }){
+  if(!entry || !step) return null;
+  const focusLabel = taskFocusLabel(type, kid, context);
+  const stepLabel = stepText(step) || (kid ? 'Complete this step' : 'Complete this step');
+  const meta = taskMeta(entry.chapter, step);
+  return {
+    id: `${entry.chapter.id}:${step.id}`,
+    chapterId: entry.chapter.id,
+    type,
+    focusLabel,
+    stepLabel,
+    meta,
+    headline: `${focusLabel}: ${stepLabel}`
+  };
+}
+
+function taskFocusLabel(type, kid, context = {}){
+  if(type === 'required'){
+    return kid ? 'Do this next' : 'Next objective';
+  }
+  if(type === 'upcoming'){
+    if(context.sameChapter){
+      return kid ? 'Queued in chapter' : 'Stack in chapter';
+    }
+    return kid ? 'Coming up' : 'Stage soon';
+  }
+  if(type === 'optional'){
+    if(context.primaryOptional){
+      return kid ? 'Keep the streak' : 'Keep momentum';
+    }
+    return kid ? 'Bonus idea' : 'Optional boost';
+  }
+  return kid ? 'Next step' : 'Next step';
+}
+
+function taskMeta(chapter, step){
+  const parts = [];
+  const title = chapterTitle(chapter);
+  if(title) parts.push(title);
+  if(step?.category){
+    parts.push(step.category);
+  }
+  return parts.join(' • ');
 }
 
 function refreshGuideAnalytics(node, chapters, state, hideOptional){
@@ -491,7 +654,7 @@ function updateOverview(node, overview){
   setText('optional-count', `${overview.optionalChecked}/${overview.optionalTotal}`);
   setText('required-summary', overview.requiredSummary);
   setText('optional-summary', overview.optionalSummary);
-  setText('next', overview.nextLabel);
+  renderNextTaskFeed(node, overview);
   const requiredFill = node.querySelector('[data-route-overview="required-fill"]');
   if(requiredFill){
     requiredFill.style.width = `${overview.requiredPct}%`;
@@ -510,6 +673,48 @@ function updateOverview(node, overview){
   }
 }
 
+function renderNextTaskFeed(node, overview){
+  const list = node.querySelector('[data-route-overview="next-list"]');
+  const empty = node.querySelector('[data-route-overview="next-empty"]');
+  if(!list) return;
+  const tasks = Array.isArray(overview.nextTasks) ? overview.nextTasks.filter(Boolean) : [];
+  if(tasks.length){
+    list.hidden = false;
+    list.innerHTML = tasks.map(renderNextTaskItem).join('');
+    if(empty){
+      empty.textContent = '';
+      empty.hidden = true;
+    }
+  } else {
+    list.innerHTML = '';
+    list.hidden = true;
+    if(empty){
+      empty.textContent = overview.nextLabel || '';
+      empty.hidden = false;
+    }
+  }
+}
+
+function renderNextTaskItem(task){
+  const classes = ['route-dashboard__next-item'];
+  if(task?.type){
+    classes.push(`route-dashboard__next-item--${task.type}`);
+  }
+  const targetAttr = task?.chapterId ? ` data-scroll-target="chapter-${task.chapterId}"` : '';
+  const focus = escapeHTML(task?.focusLabel || 'Next step');
+  const step = escapeHTML(task?.stepLabel || 'Review the checklist');
+  const meta = task?.meta ? `<span class="route-dashboard__next-meta">${escapeHTML(task.meta)}</span>` : '';
+  return `
+    <li class="${classes.join(' ')}">
+      <button type="button" class="route-dashboard__next-button"${targetAttr}>
+        <span class="route-dashboard__next-focus">${focus}</span>
+        <span class="route-dashboard__next-step">${step}</span>
+        ${meta}
+      </button>
+    </li>
+  `;
+}
+
 function renderTimeline(node, chapters, state, activeChapterId){
   const list = node.querySelector('#routeTimelineList');
   if(!list) return;
@@ -518,6 +723,16 @@ function renderTimeline(node, chapters, state, activeChapterId){
     return;
   }
   list.innerHTML = chapters.map((ch, idx) => renderTimelineEntry(ch, idx, state, activeChapterId)).join('');
+}
+
+function focusChapter(targetId, root){
+  if(!targetId || !root) return;
+  const chapter = root.querySelector(`#${targetId}`);
+  if(!chapter) return;
+  const details = chapter.querySelector('.route-chapter__details');
+  if(details) details.open = true;
+  chapter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  pulse(chapter);
 }
 
 function renderTimelineEntry(ch, index, state, activeChapterId){
