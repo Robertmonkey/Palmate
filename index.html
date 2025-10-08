@@ -5374,7 +5374,9 @@
                   <div class="capture-meter__label" aria-hidden="true">
                     <div class="capture-meter__label-track">
                       <div class="capture-meter__label-body">
+                        <span class="capture-meter__label-pointer" aria-hidden="true"></span>
                         <span class="capture-meter__label-shell">
+                          <span class="capture-meter__label-value">0%</span>
                           <span class="capture-meter__label-text">Capture</span>
                         </span>
                       </div>
@@ -12815,12 +12817,20 @@
         track.className = 'capture-meter__label-track';
         const body = document.createElement('div');
         body.className = 'capture-meter__label-body';
+        const pointer = document.createElement('span');
+        pointer.className = 'capture-meter__label-pointer';
+        pointer.setAttribute('aria-hidden', 'true');
         const shell = document.createElement('span');
         shell.className = 'capture-meter__label-shell';
+        const valueNode = document.createElement('span');
+        valueNode.className = 'capture-meter__label-value';
+        valueNode.textContent = '0%';
         const textNode = document.createElement('span');
         textNode.className = 'capture-meter__label-text';
         textNode.textContent = text;
+        shell.appendChild(valueNode);
         shell.appendChild(textNode);
+        body.appendChild(pointer);
         body.appendChild(shell);
         track.appendChild(body);
         label.appendChild(track);
@@ -12837,6 +12847,10 @@
         const labelAngle = progressAngle - 90;
         meter.style.setProperty('--label-angle-deg', labelAngle + 'deg');
         meter.style.setProperty('--label-counter-angle-deg', (-labelAngle) + 'deg');
+        const labelValue = meter.querySelector('.capture-meter__label-value');
+        if (labelValue) {
+          labelValue.textContent = `${Math.round(safePercent)}%`;
+        }
       }
 
       function createModeCard(mode) {
@@ -17628,7 +17642,9 @@
                 <div class="capture-meter__label" aria-hidden="true">
                   <div class="capture-meter__label-track">
                     <div class="capture-meter__label-body">
+                      <span class="capture-meter__label-pointer" aria-hidden="true"></span>
                       <span class="capture-meter__label-shell">
+                        <span class="capture-meter__label-value">0%</span>
                         <span class="capture-meter__label-text">Capture</span>
                       </span>
                     </div>
