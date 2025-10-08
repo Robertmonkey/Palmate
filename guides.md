@@ -1782,6 +1782,18 @@ basic stations, create Pal Spheres and capture their first companions.
     {
       "route_id": "mount-foxparks-harness",
       "reason": "You captured Foxparks and can now craft its harness"
+    },
+    {
+      "route_id": "resource-sulfur",
+      "reason": "Stockpile gunpowder mats before the Eternal Pyre push"
+    },
+    {
+      "route_id": "resource-coal",
+      "reason": "Keep furnaces fed for late-game ammo and armor"
+    },
+    {
+      "route_id": "capture-jetragon",
+      "reason": "Secure the legendary mount after the syndicate towers fall"
     }
   ]
 }
@@ -1915,11 +1927,22 @@ This long-form route condenses the updated mission walkthrough from `Newguides.m
     "recommended": [
       "resource-paldium",
       "mount-direhowl-harness",
-      "mount-nitewing-saddle"
+      "mount-nitewing-saddle",
+      "resource-sulfur",
+      "resource-coal",
+      "resource-carbon-fiber",
+      "resource-polymer",
+      "resource-gunpowder",
+      "resource-ancient-civilization-parts",
+      "tech-grappling-gun",
+      "purposeful-arc-mid-expansion"
     ],
     "optional": [
       "mount-eikthyrdeer-saddle",
-      "tower-rayne-syndicate"
+      "tower-rayne-syndicate",
+      "capture-jetragon",
+      "resource-precious-pelt",
+      "purposeful-arc-legendary-push"
     ]
   },
   "failure_recovery": {
@@ -2650,6 +2673,247 @@ This long-form route condenses the updated mission walkthrough from `Newguides.m
       "citations": []
     },
     {
+      "step_id": "quest-main-story-early:013a",
+      "type": "prepare",
+      "summary": "Forge a volcano survival kit",
+      "detail": "Upgrade to Heat Resistant Armor +2, craft cooling meals, and prebuild ammo caches before scaling Mount Obsidian. Stage a forward chest at the Eternal Pyre entrance with meds and spare gear.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "mount-obsidian",
+          "coords": [
+            -588,
+            -518
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "hardcore": {
+          "tactics": "Carry duplicate armor and stash backup Ultra Spheres in the forward chest so a wipe doesn’t end the run.",
+          "safety_buffer_items": [
+            {
+              "item_id": "ice_organ",
+              "qty": 8
+            }
+          ]
+        },
+        "coop": {
+          "role_splits": [
+            {
+              "role": "quartermaster",
+              "tasks": "Craft heat gear, ammo, and cooling meals"
+            },
+            {
+              "role": "scout",
+              "tasks": "Place a respawn chest near the Eternal Pyre tower"
+            }
+          ],
+          "loot_rules": "Share ammo stacks and cooling consumables evenly before the climb"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 0,
+        "max": 0
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "quest-main-story-early:013b",
+      "type": "gather",
+      "summary": "Lock in sulfur and coal veins",
+      "detail": "Unlock the Mossanda ravine and Eternal Pyre loops so sulfur and coal feed gunpowder production between tower runs.",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "sulfur",
+          "qty": 80
+        },
+        {
+          "kind": "item",
+          "id": "coal",
+          "qty": 120
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "verdant-brook",
+          "coords": [
+            234,
+            -118
+          ],
+          "time": "any",
+          "weather": "any"
+        },
+        {
+          "region_id": "mount-obsidian",
+          "coords": [
+            -600,
+            -520
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "miner",
+              "tasks": "Route volcanic veins and ferry ore"
+            },
+            {
+              "role": "runner",
+              "tasks": "Cycle gunpowder and ammo queues back at base"
+            }
+          ],
+          "loot_rules": "Alternate sulfur hauls so everyone replenishes ammo stock"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [
+          "metal-pickaxe"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 900,
+        "max": 1200
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "quest-main-story-early:013c",
+      "type": "capture",
+      "summary": "Recruit ice-strikers for Orserk",
+      "detail": "Capture late-game Ice Pals such as Sibelyx or Reindrix to shred Orserk’s shields and keep cooling organs flowing at base.",
+      "optional": true,
+      "targets": [
+        {
+          "kind": "pal",
+          "id": "sibelyx",
+          "qty": 1
+        },
+        {
+          "kind": "pal",
+          "id": "reindrix",
+          "qty": 1
+        }
+      ],
+      "locations": [
+        {
+          "region_id": "ice-wind-island",
+          "coords": [
+            -180,
+            360
+          ],
+          "time": "night",
+          "weather": "snow"
+        },
+        {
+          "region_id": "mount-obsidian",
+          "coords": [
+            -612,
+            -544
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "trapper",
+              "tasks": "Set up manual freezes and shield breaks"
+            },
+            {
+              "role": "support",
+              "tasks": "Top off spheres and heals between attempts"
+            }
+          ],
+          "loot_rules": "Rotate Ultra Spheres so each player unlocks at least one ice attacker"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 1200,
+        "max": 1500
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+
+    {
+      "step_id": "quest-main-story-early:013d",
+      "type": "plan",
+      "summary": "Queue Palmate support loops for Mount Obsidian",
+      "detail": "Open Tonight’s Adventure Paths and activate Carbon Fiber, Polymer, Sulfur and Coal support routes so prep focuses on heat gear, ammo stockpiles and cooling organs before climbing Eternal Pyre. Mark any legendary hunts you want to chase between towers to keep suggestions tailored to your goals.",
+      "optional": true,
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {
+        "coop": {
+          "role_splits": [
+            {
+              "role": "quartermaster",
+              "tasks": "Run Carbon Fiber and Polymer loops while crafting ammo batches"
+            },
+            {
+              "role": "vanguard",
+              "tasks": "Clear Sulfur and Coal circuits and scout the volcano approach"
+            }
+          ],
+          "loot_rules": "Split ammo caches and cooling meals before the ascent"
+        }
+      },
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 0,
+        "max": 0
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+
+    {
       "step_id": "quest-main-story-early:014",
       "type": "fight",
       "summary": "Overcome Axel & Orserk at Eternal Pyre Tower",
@@ -2932,6 +3196,18 @@ This long-form route condenses the updated mission walkthrough from `Newguides.m
     {
       "route_id": "quest-main-story",
       "reason": "Log the Investigator board epilogue after finishing Feybreak"
+    },
+    {
+      "route_id": "purposeful-arc-legendary-push",
+      "reason": "Pivot into legendary hunts unlocked after clearing every tower"
+    },
+    {
+      "route_id": "resource-ancient-civilization-parts",
+      "reason": "Farm parts to unlock post-game tech and weapon blueprints"
+    },
+    {
+      "route_id": "capture-jetragon",
+      "reason": "Chase Palpagos’s signature mount once your late-game loadout is ready"
     }
   ]
 }
