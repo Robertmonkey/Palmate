@@ -28,6 +28,9 @@ const LINK_IMAGE_OVERRIDES = {
 };
 const LINK_IMAGE_INDEX = buildLinkImageIndex(dataset, itemDetails, LINK_IMAGE_OVERRIDES);
 
+let routeMotionObserver = null;
+let routeReduceMotion = false;
+
 export function renderRoute(node){
   const kidMode = isKidMode();
   const state = loadState();
@@ -51,24 +54,24 @@ export function renderRoute(node){
 
   node.innerHTML = `
     <div class="route-page route-page--modern">
-      <section class="card route-dashboard" id="routeDashboard">
-        <div class="route-dashboard__header">
+      <section class="card route-dashboard" id="routeDashboard" data-animate="fade-in-scale">
+        <div class="route-dashboard__header" data-animate="fade-up">
           <div class="route-dashboard__titles">
             <span class="route-dashboard__eyebrow">${escapeHTML(kidMode ? 'Adventure campaign' : 'Boss & story route')}</span>
             <h2>${escapeHTML(heroTitle)}</h2>
             <p class="route-dashboard__lead">${escapeHTML(heroLead)}</p>
           </div>
-          <div class="route-dashboard__actions">
+          <div class="route-dashboard__actions" data-animate="slide-left" data-animate-delay="1">
             <button class="btn route-dashboard__action" id="toggleOptional">${optionalToggleLabel(hideOptional, kidMode)}</button>
           </div>
         </div>
         <div class="route-dashboard__stats">
-          <div class="route-dashboard__stat">
+          <div class="route-dashboard__stat" data-animate="glow-up">
             <span class="route-dashboard__stat-label">${escapeHTML(kidMode ? 'Chapters cleared' : 'Chapters complete')}</span>
             <strong class="route-dashboard__stat-value" data-route-overview="chapters">${overview.clearedChapters}/${overview.totalChapters}</strong>
             <p class="route-dashboard__stat-meta">${escapeHTML(kidMode ? 'Finish the required steps in a chapter to mark it as cleared.' : 'Complete every required step to finish a chapter.')}</p>
           </div>
-          <div class="route-dashboard__stat">
+          <div class="route-dashboard__stat" data-animate="glow-up" data-animate-delay="1">
             <span class="route-dashboard__stat-label">${escapeHTML(kidMode ? 'Required progress' : 'Required steps')}</span>
             <strong class="route-dashboard__stat-value" data-route-overview="required-count">${overview.requiredChecked}/${overview.requiredTotal}</strong>
             <div class="route-dashboard__progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${overview.requiredPct}">
@@ -76,7 +79,7 @@ export function renderRoute(node){
             </div>
             <p class="route-dashboard__stat-meta" data-route-overview="required-summary">${escapeHTML(overview.requiredSummary)}</p>
           </div>
-          <div class="route-dashboard__stat">
+          <div class="route-dashboard__stat" data-animate="glow-up" data-animate-delay="2">
             <span class="route-dashboard__stat-label">${escapeHTML(kidMode ? 'Bonus progress' : 'Optional steps')}</span>
             <strong class="route-dashboard__stat-value" data-route-overview="optional-count">${overview.optionalChecked}/${overview.optionalTotal}</strong>
             <div class="route-dashboard__progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${overview.optionalPct}">
@@ -85,18 +88,18 @@ export function renderRoute(node){
             <p class="route-dashboard__stat-meta" data-route-overview="optional-summary">${escapeHTML(overview.optionalSummary)}</p>
           </div>
         </div>
-        <div class="route-dashboard__next" id="routeNextFocus">
+        <div class="route-dashboard__next" id="routeNextFocus" data-animate="fade-up" data-animate-delay="1">
           <div class="route-dashboard__next-head">
             <h3>${escapeHTML(kidMode ? 'Next focus' : 'Momentum planner')}</h3>
             <p>${escapeHTML(kidMode ? 'Here’s what to tackle together right now.' : 'Stay on-pace with the tasks that matter most.')}</p>
           </div>
           <ol class="route-dashboard__next-list" data-route-overview="next-list"></ol>
-          <p class="route-dashboard__next-empty" data-route-overview="next-empty" hidden>${escapeHTML(overview.nextLabel)}</p>
+          <p class="route-dashboard__next-empty" data-route-overview="next-empty" data-animate="fade-up" data-animate-delay="2" hidden>${escapeHTML(overview.nextLabel)}</p>
         </div>
       </section>
       <div class="route-layout">
-        <section class="card route-timeline" id="routeTimeline">
-          <div class="route-timeline__header">
+        <section class="card route-timeline" id="routeTimeline" data-animate="fade-in-scale" data-animate-delay="2">
+          <div class="route-timeline__header" data-animate="fade-up">
             <h3>${escapeHTML(kidMode ? 'Tonight’s roadmap' : 'Route timeline')}</h3>
             <p>${escapeHTML(kidMode ? 'Tap any chapter to jump to its checklist.' : 'Jump to a chapter or skim completion at a glance.')}</p>
           </div>
@@ -107,6 +110,7 @@ export function renderRoute(node){
     </div>
   `;
 
+  const routePage = node.querySelector('.route-page');
   const wrap = node.querySelector('#chapters');
   guide.chapters.forEach((ch, idx) => {
     const chapterEl = document.createElement('article');
@@ -114,9 +118,12 @@ export function renderRoute(node){
     chapterEl.id = `chapter-${ch.id}`;
     chapterEl.dataset.chapter = ch.id;
     chapterEl.dataset.index = String(idx);
+    chapterEl.dataset.animate = 'fade-in-scale';
+    chapterEl.dataset.animateDelay = String(Math.min(idx, 5));
     chapterEl.innerHTML = renderChapterInner(ch, idx, state, hideOptional, idx === openChapterIndex);
     wrap.appendChild(chapterEl);
   });
+  prepareMotionTargets(wrap);
 
   const timeline = node.querySelector('#routeTimeline');
   if(timeline){
@@ -142,20 +149,25 @@ export function renderRoute(node){
     });
   }
 
-  wrap.addEventListener('change', (e) => {
-    if(e.target.matches('input[type=checkbox][data-step]')){
-      const stepId = e.target.dataset.step;
-      const checked = e.target.checked;
-      state[stepId] = checked;
-      saveState(state);
-      const chapterNode = e.target.closest('.route-chapter');
-      const chId = chapterNode ? chapterNode.dataset.chapter : null;
-      const ch = guide.chapters.find(c => c.id === chId);
-      if(ch){
-        rerenderChapter(ch, state, node, hideOptional);
-      }
-      refreshGuideAnalytics(node, guide.chapters, state, hideOptional);
+  wrap.addEventListener('change', (event) => {
+    const origin = event.target;
+    if(!(origin instanceof HTMLInputElement)) return;
+    if(origin.type !== 'checkbox') return;
+    if(!origin.matches('[data-step]')) return;
+    const stepId = origin.dataset.step;
+    if(!stepId) return;
+    const checked = origin.checked;
+    state[stepId] = checked;
+    saveState(state);
+    const chapterNode = origin.closest('.route-chapter');
+    const chId = chapterNode ? chapterNode.dataset.chapter : null;
+    const ch = guide.chapters.find(c => c.id === chId);
+    if(ch){
+      rerenderChapter(ch, state, node, hideOptional);
+      const refreshedChapter = node.querySelector(`#chapter-${ch.id}`);
+      animateChapterUpdate(refreshedChapter, stepId, checked);
     }
+    refreshGuideAnalytics(node, guide.chapters, state, hideOptional);
   });
 
   wrap.addEventListener('click', (e) => {
@@ -185,6 +197,7 @@ export function renderRoute(node){
     }
   });
 
+  let optionalFilterTimer = null;
   const optionalButton = node.querySelector('#toggleOptional');
   if(optionalButton){
     optionalButton.addEventListener('click', () => {
@@ -194,12 +207,21 @@ export function renderRoute(node){
       optionalButton.textContent = optionalToggleLabel(hideOptional, isKidMode());
       optionalButton.setAttribute('aria-pressed', hideOptional ? 'true' : 'false');
       guide.chapters.forEach(ch => rerenderChapter(ch, state, node, hideOptional));
+      if(routePage){
+        toggleAnimationClass(routePage, 'is-filtering');
+        if(optionalFilterTimer) window.clearTimeout(optionalFilterTimer);
+        optionalFilterTimer = window.setTimeout(() => {
+          routePage.classList.remove('is-filtering');
+        }, 650);
+        prepareMotionTargets(routePage);
+      }
       refreshGuideAnalytics(node, guide.chapters, state, hideOptional);
     });
   }
   if(optionalButton){
     optionalButton.setAttribute('aria-pressed', hideOptional ? 'true' : 'false');
   }
+  activateRouteMotion(node);
   refreshGuideAnalytics(node, guide.chapters, state, hideOptional);
 }
 
@@ -232,9 +254,9 @@ function renderChapterInner(ch, index, state, hideOptional, open){
       : `${optionalStats.optionalChecked}/${optionalStats.optionalCount} optional complete`)
     : (kid ? 'No bonus steps' : 'No optional steps');
   const stepsHtml = renderSteps(ch, state, hideOptional);
-  const stepsContent = stepsHtml || `<p class="route-steps-empty">${escapeHTML(kid ? 'All bonus steps are hidden.' : 'Optional steps are hidden. Show them to revisit bonus content.')}</p>`;
+  const stepsContent = stepsHtml || `<p class="route-steps-empty" data-animate="fade-up" data-animate-delay="1">${escapeHTML(kid ? 'All bonus steps are hidden.' : 'Optional steps are hidden. Show them to revisit bonus content.')}</p>`;
   return `
-    <header class="route-chapter__header">
+    <header class="route-chapter__header" data-animate="fade-up">
       <div class="route-chapter__titles">
         <span class="route-chapter__number">${String(index + 1).padStart(2, '0')}</span>
         <div class="route-chapter__text">
@@ -244,7 +266,7 @@ function renderChapterInner(ch, index, state, hideOptional, open){
       </div>
       <div class="route-chapter__progress">${renderProgress(progress)}</div>
     </header>
-    <details class="route-chapter__details" ${open ? 'open' : ''}>
+    <details class="route-chapter__details" ${open ? 'open' : ''} data-animate="fade-in-scale" data-animate-delay="1">
       <summary class="route-chapter__summary">
         <div class="route-chapter__summary-text">
           <span>${escapeHTML(kid ? 'Chapter checklist' : 'Chapter checklist')}</span>
@@ -253,7 +275,7 @@ function renderChapterInner(ch, index, state, hideOptional, open){
         <span class="route-chapter__summary-toggle"><i class="fa-solid fa-chevron-down"></i></span>
       </summary>
       <div class="route-chapter__body">${stepsContent}</div>
-      <footer class="route-chapter__footer">
+      <footer class="route-chapter__footer" data-animate="fade-up" data-animate-delay="2">
         <div class="route-chapter__footer-meta">
           <span>${escapeHTML(requiredLabel)}</span>
           <span>${escapeHTML(optionalLabel)}</span>
@@ -279,11 +301,13 @@ function rerenderChapter(ch, state, node, hideOptional){
     const nextDetails = sec.querySelector('.route-chapter__details');
     if(nextDetails) nextDetails.open = true;
   }
+  prepareMotionTargets(sec);
 }
 
 function renderSteps(ch, state, hideOptional){
   const fragments = [];
   const kid = isKidMode();
+  let visibleIndex = 0;
   ch.steps.forEach(step=>{
     if(hideOptional && step.optional) return;
     const checked = !!state[step.id];
@@ -296,8 +320,9 @@ function renderSteps(ch, state, hideOptional){
     const classes = ['step'];
     if(step.optional) classes.push('optional');
     if(checked) classes.push('step--checked');
+    const delay = Math.min(visibleIndex, 5);
     fragments.push(`
-      <label class="${classes.join(' ')}">
+      <label class="${classes.join(' ')}" data-animate="fade-up" data-animate-delay="${delay}">
         <input type="checkbox" data-step="${step.id}" ${checked ? 'checked' : ''} />
         <div class="step-content">
           <div class="step-header">
@@ -309,6 +334,7 @@ function renderSteps(ch, state, hideOptional){
         </div>
       </label>
     `);
+    visibleIndex += 1;
   });
   if(!fragments.length) return '';
   return `<div class="step-list">${fragments.join('')}</div>`;
@@ -680,10 +706,12 @@ function renderNextTaskFeed(node, overview){
   const tasks = Array.isArray(overview.nextTasks) ? overview.nextTasks.filter(Boolean) : [];
   if(tasks.length){
     list.hidden = false;
-    list.innerHTML = tasks.map(renderNextTaskItem).join('');
+    list.innerHTML = tasks.map((task, index) => renderNextTaskItem(task, index)).join('');
+    prepareMotionTargets(list);
     if(empty){
       empty.textContent = '';
       empty.hidden = true;
+      empty.classList.remove('is-visible');
     }
   } else {
     list.innerHTML = '';
@@ -691,11 +719,13 @@ function renderNextTaskFeed(node, overview){
     if(empty){
       empty.textContent = overview.nextLabel || '';
       empty.hidden = false;
+      empty.classList.remove('is-visible');
+      prepareMotionTargets(empty);
     }
   }
 }
 
-function renderNextTaskItem(task){
+function renderNextTaskItem(task, index = 0){
   const classes = ['route-dashboard__next-item'];
   if(task?.type){
     classes.push(`route-dashboard__next-item--${task.type}`);
@@ -704,8 +734,9 @@ function renderNextTaskItem(task){
   const focus = escapeHTML(task?.focusLabel || 'Next step');
   const step = escapeHTML(task?.stepLabel || 'Review the checklist');
   const meta = task?.meta ? `<span class="route-dashboard__next-meta">${escapeHTML(task.meta)}</span>` : '';
+  const delay = Math.min(index, 5);
   return `
-    <li class="${classes.join(' ')}">
+    <li class="${classes.join(' ')}" data-animate="slide-left" data-animate-delay="${delay}">
       <button type="button" class="route-dashboard__next-button"${targetAttr}>
         <span class="route-dashboard__next-focus">${focus}</span>
         <span class="route-dashboard__next-step">${step}</span>
@@ -719,10 +750,12 @@ function renderTimeline(node, chapters, state, activeChapterId){
   const list = node.querySelector('#routeTimelineList');
   if(!list) return;
   if(!Array.isArray(chapters) || !chapters.length){
-    list.innerHTML = `<li class="route-timeline__empty">${escapeHTML(isKidMode() ? 'Routes will appear here soon.' : 'Routes will appear here soon.')}</li>`;
+    list.innerHTML = `<li class="route-timeline__empty" data-animate="fade-up">${escapeHTML(isKidMode() ? 'Routes will appear here soon.' : 'Routes will appear here soon.')}</li>`;
+    prepareMotionTargets(list);
     return;
   }
   list.innerHTML = chapters.map((ch, idx) => renderTimelineEntry(ch, idx, state, activeChapterId)).join('');
+  prepareMotionTargets(list);
 }
 
 function focusChapter(targetId, root){
@@ -733,6 +766,96 @@ function focusChapter(targetId, root){
   if(details) details.open = true;
   chapter.scrollIntoView({ behavior: 'smooth', block: 'start' });
   pulse(chapter);
+}
+
+function activateRouteMotion(root){
+  if(!root) return;
+  if(!document.body.classList.contains('motion-ready')){
+    document.body.classList.add('motion-ready');
+  }
+  prepareMotionTargets(root);
+}
+
+function ensureRouteMotionObserver(){
+  if(routeMotionObserver !== null) return routeMotionObserver;
+  if(typeof window !== 'undefined' && typeof window.matchMedia === 'function'){
+    try {
+      const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+      routeReduceMotion = !!query.matches;
+      const handleChange = (event) => {
+        routeReduceMotion = !!event.matches;
+        if(routeReduceMotion && routeMotionObserver){
+          routeMotionObserver.disconnect();
+          routeMotionObserver = null;
+        }
+      };
+      if(typeof query.addEventListener === 'function'){
+        query.addEventListener('change', handleChange);
+      } else if(typeof query.addListener === 'function'){
+        query.addListener(handleChange);
+      }
+    } catch(err){
+      routeReduceMotion = false;
+    }
+  }
+  if(typeof IntersectionObserver === 'undefined' || routeReduceMotion){
+    routeMotionObserver = null;
+    return null;
+  }
+  routeMotionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        routeMotionObserver?.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+  return routeMotionObserver;
+}
+
+function prepareMotionTargets(scope){
+  if(!scope) return;
+  const root = scope instanceof Element ? scope : null;
+  if(!root) return;
+  const targets = [];
+  if(root.matches && root.matches('[data-animate]')){
+    targets.push(root);
+  }
+  root.querySelectorAll('[data-animate]').forEach((el) => targets.push(el));
+  if(routeReduceMotion){
+    targets.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+  const observer = ensureRouteMotionObserver();
+  if(!observer){
+    targets.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+  targets.forEach((el) => {
+    if(el.classList.contains('is-visible')) return;
+    observer.observe(el);
+  });
+}
+
+function toggleAnimationClass(el, className){
+  if(!el) return;
+  el.classList.remove(className);
+  void el.offsetWidth;
+  el.classList.add(className);
+}
+
+function animateChapterUpdate(chapterEl, stepId, checked){
+  if(!chapterEl) return;
+  toggleAnimationClass(chapterEl, 'route-chapter--flash');
+  prepareMotionTargets(chapterEl);
+  if(!stepId) return;
+  const checkbox = chapterEl.querySelector(`input[type="checkbox"][data-step="${stepId}"]`);
+  if(!checkbox) return;
+  const stepNode = checkbox.closest('.step');
+  if(!stepNode) return;
+  stepNode.classList.remove('step--just-checked', 'step--just-unchecked');
+  void stepNode.offsetWidth;
+  stepNode.classList.add(checked ? 'step--just-checked' : 'step--just-unchecked');
 }
 
 function renderTimelineEntry(ch, index, state, activeChapterId){
@@ -752,8 +875,9 @@ function renderTimelineEntry(ch, index, state, activeChapterId){
   const pct = progress.requiredCount
     ? Math.round((progress.requiredChecked / progress.requiredCount) * 100)
     : 0;
+  const delay = Math.min(index, 5);
   return `
-    <li class="${classes.join(' ')}">
+    <li class="${classes.join(' ')}" data-animate="glow-up" data-animate-delay="${delay}">
       <button type="button" class="route-timeline__anchor" data-scroll-target="chapter-${ch.id}">
         <span class="route-timeline__step">${String(index + 1).padStart(2, '0')}</span>
         <span class="route-timeline__title">${escapeHTML(chapterTitle(ch))}</span>
@@ -1032,8 +1156,10 @@ function normalizeItemKey(link){
 }
 
 function pulse(el){
+  if(!el) return;
+  toggleAnimationClass(el, 'route-chapter--pulse');
   el.classList.add('pulse');
-  setTimeout(()=>el.classList.remove('pulse'), 1500);
+  window.setTimeout(() => el.classList.remove('pulse'), 1500);
 }
 
 function focusSearch(q, options){
