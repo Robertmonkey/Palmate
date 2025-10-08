@@ -369,6 +369,7 @@ gba(119,141,169,0.45)}
 .route-loading__copy{display:grid;gap:10px}
 .route-loading__label{margin:0;font-weight:700;font-size:1.08rem;letter-spacing:.18em;text-transform:uppercase;color:#e6f6ff;text-shadow:0 0 18px rgba(90,240,255,0.4)}
 .route-loading__hint{margin:0;font-size:.95rem;color:rgba(224,235,246,0.78);max-width:34ch}
+.route-loading--hidden{display:none}
 .capture-meter{--size:148px;--ring-thickness:18px;--label-distance:calc(var(--size)/2 + 34px);--label-angle-deg:-90deg;--label-counter-angle-deg:90deg;--progress-mid-deg:var(--progress-deg,0deg);--label-pointer-gap:12px;--label-pointer-length:max(0px,calc(var(--label-distance) - var(--size)/2 - var(--label-pointer-gap)));position:relative;display:grid;place-items:center;color:#f4fbff;filter:drop-shadow(0 22px 36px rgba(8,40,66,0.55));isolation:isolate;transition:--progress-deg var(--motion-duration-long) var(--motion-ease-emphasis),--progress-mid-deg var(--motion-duration-long) var(--motion-ease-emphasis),--label-angle-deg var(--motion-duration-long) var(--motion-ease-emphasis),--label-counter-angle-deg var(--motion-duration-long) var(--motion-ease-emphasis)}
 .capture-meter__ring{position:relative;width:var(--size);aspect-ratio:1;display:grid;place-items:center}
 .capture-meter__ring::before{content:"";position:absolute;inset:calc(var(--ring-thickness)*-0.32);border-radius:50%;background:radial-gradient(circle at 52% 18%,rgba(132,250,255,0.22),rgba(16,40,66,0) 60%);opacity:.85;pointer-events:none;filter:blur(.4px)}
@@ -407,6 +408,7 @@ gba(119,141,169,0.45)}
 .capture-meter--ready .capture-meter__core{animation:none;background:radial-gradient(circle at 48% 30%,rgba(255,255,255,0.16),rgba(8,18,34,0.92))}
 .capture-meter--ready .capture-meter__percent{opacity:1;font-size:1.35rem}
 .capture-meter--ready .capture-meter__status{color:rgba(224,240,255,0.78)}
+.progress-stage-card__meter--hidden{display:none}
 @keyframes captureSpin{to{transform:rotate(360deg)}}
 @keyframes capturePulse{0%,100%{box-shadow:inset 0 12px 24px rgba(0,0,0,0.6),0 16px 36px rgba(70,200,255,0.24)}50%{box-shadow:inset 0 8px 18px rgba(0,0,0,0.55),0 18px 42px rgba(255,190,120,0.38)}}
 @keyframes captureOrbit{0%{transform:rotate(-90deg)}100%{transform:rotate(270deg)}}
