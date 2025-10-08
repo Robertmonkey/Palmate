@@ -50,6 +50,12 @@ function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, character => htmlEscapes[character] || character);
 }
 
+function isKidMode() {
+  if (typeof document === 'undefined') return false;
+  const { body } = document;
+  return !!(body && typeof body.classList !== 'undefined' && body.classList.contains('kid-mode'));
+}
+
 function normaliseMaterials(materials) {
   if (!materials || typeof materials !== 'object') return [];
   return Object.entries(materials)
@@ -151,75 +157,162 @@ function renderMaterialChip(entry) {
   `;
 }
 
-function renderMaterials(item) {
+function isGenericTechDescription(text) {
+  if (typeof text !== 'string') return true;
+  const normalised = text.trim().toLowerCase();
+  if (!normalised) return true;
+  return (
+    normalised.startsWith('unlocks the') ||
+    normalised.startsWith('unlock the') ||
+    normalised.startsWith('unlocks ') ||
+    normalised.startsWith('unlock ')
+  );
+}
+
+function buildDefaultTechDescription(item, { kid = false } = {}) {
+  const name = item?.name || 'this unlock';
+  const group = String(item?.group || '').toLowerCase();
+  const category = String(item?.category || '').toLowerCase();
+  const ancient = !!item?.isAncient;
+  if (category.includes('base') || group.includes('structure') || group.includes('building')) {
+    return kid ? `Adds the ${name} building to your base.` : `Adds the ${name} structure to your base build menu.`;
+  }
+  if (category.includes('weapon')) {
+    return kid ? `Lets you craft the ${name} weapon.` : `Unlocks crafting for the ${name} weapon.`;
+  }
+  if (category.includes('armor') || category.includes('gear') || group.includes('armor')) {
+    return kid ? `Lets you make the ${name} gear to wear.` : `Unlocks the ${name} gear recipe.`;
+  }
+  if (category.includes('vehicle') || group.includes('mount')) {
+    return kid ? `Lets you ride with the ${name}.` : `Unlocks the ${name} mount blueprint.`;
+  }
+  if (ancient) {
+    return kid ? `Restores the ancient ${name} so you can use it again.` : `Restores the ancient ${name} blueprint.`;
+  }
+  return kid ? `Lets you make ${name}.` : `Unlocks crafting for ${name}.`;
+}
+
+function computeTechDescriptions(item) {
+  const raw = typeof item?.description === 'string' ? item.description.trim() : '';
+  const grown = raw && !isGenericTechDescription(raw) ? raw : buildDefaultTechDescription(item, { kid: false });
+  const kidCopy = raw && !isGenericTechDescription(raw)
+    ? raw.replace(/\bUnlocks\b/gi, 'Lets')
+    : buildDefaultTechDescription(item, { kid: true });
+  return {
+    grown,
+    kid: kidCopy || grown
+  };
+}
+
+function formatTechCost(item, { kid = false, short = false } = {}) {
+  if (!item || typeof item.techPoints !== 'number') {
+    return kid ? 'Cost unknown' : 'Cost unknown';
+  }
+  const points = item.techPoints;
+  if (points === 0) {
+    return kid ? 'Free unlock' : 'Free unlock';
+  }
+  const isAncient = !!item.isAncient;
+  if (short) {
+    return `${points} ${isAncient ? 'AP' : 'TP'}`;
+  }
+  return `${points} ${isAncient ? 'Ancient Points' : 'Tech Points'}`;
+}
+
+function formatTechStatusText(isUnlocked, kidMode) {
+  return isUnlocked
+    ? (kidMode ? 'Already built!' : 'Unlocked')
+    : (kidMode ? 'Still locked' : 'Locked');
+}
+
+function renderMaterialsSection(item, { kidMode }) {
   const entries = resolveMaterials(item);
-  if (!entries.length) return '';
+  const note = typeof item?.note === 'string' && item.note.trim() ? item.note.trim() : null;
+  if (!entries.length) {
+    const fallback = kidMode
+      ? 'No ingredients needed for this unlock.'
+      : 'No crafting ingredients required for this unlock.';
+    const message = note || fallback;
+    return `<p class="tech-card__note">${escapeHtml(message)}</p>`;
+  }
   const chips = entries.map(renderMaterialChip).join('');
-  return `<ul class="tech-materials" aria-label="Required materials" role="list">${chips}</ul>`;
+  const list = `<ul class="tech-card__materials tech-materials" aria-label="Required materials" role="list">${chips}</ul>`;
+  if (note) {
+    return `${list}<p class="tech-card__note">${escapeHtml(note)}</p>`;
+  }
+  return list;
 }
 
 function renderBadges(item) {
-  const badges = [];
-  if (item.category) badges.push(item.category);
-  if (item.group && item.group !== item.category) badges.push(item.group);
-  if (item.branch && item.branch !== 'Technology') badges.push(item.branch);
-  if (!badges.length) return '';
+  const chips = new Set();
+  if (item.category) chips.add(item.category);
+  if (item.group && item.group !== item.category) chips.add(item.group);
+  if (item.branch && item.branch !== 'Technology') chips.add(item.branch);
+  if (!chips.size) return '';
   return `
-    <div class="tech-badges">
-      ${badges
-        .map(label => `<span class="tech-badge">${escapeHtml(label)}</span>`)
+    <div class="tech-card__chips">
+      ${Array.from(chips)
+        .map(label => `<span class="tech-chip">${escapeHtml(label)}</span>`)
         .join('')}
     </div>
   `;
 }
 
-function formatCost(item) {
-  const points = typeof item.techPoints === 'number' ? item.techPoints : null;
-  if (points === null) return '';
-  if (points === 0) {
-    return `<p class="tech-cost">Free unlock</p>`;
-  }
-  const label = item.isAncient ? 'Ancient Points' : 'Tech Points';
-  return `<p class="tech-cost">${escapeHtml(points)} ${label}</p>`;
-}
-
 function renderImage(item) {
   if (!item.image) {
-    return '<div class="tech-image tech-image--placeholder" aria-hidden="true">⚙️</div>';
+    return '<div class="tech-card__art tech-card__art--fallback" aria-hidden="true">⚙️</div>';
   }
   const alt = `${item.name} illustration`;
   return `
-    <div class="tech-image">
+    <div class="tech-card__art">
       <img src="${escapeHtml(item.image)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
     </div>
   `;
 }
 
-function renderDescription(item) {
-  const description = item.description
-    ? escapeHtml(item.description)
-    : `Unlocks the ${escapeHtml(item.name)} blueprint.`;
-  return `<p class="tech-description">${description}</p>`;
+function renderDescription(item, kidMode) {
+  const descriptions = computeTechDescriptions(item);
+  const text = kidMode ? descriptions.kid : descriptions.grown;
+  return `<p class="tech-card__description">${escapeHtml(text)}</p>`;
 }
 
-function renderItemCard(item) {
+function renderItemCard(item, kidMode) {
   if (!item || !item.name) return '';
-  const techId = item.id || item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const slug = typeof item.id === 'string' && item.id.trim()
+    ? item.id.trim()
+    : item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const techKey = slug || item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const unlocked = typeof window !== 'undefined' && typeof window.isTechUnlocked === 'function'
+    ? window.isTechUnlocked(item.name)
+    : false;
+  const classes = ['tech-card'];
+  if (unlocked) classes.push('tech-card--unlocked');
+  const costLabel = formatTechCost(item, { kid: kidMode, short: true });
+  const showCost = costLabel && costLabel !== 'Cost unknown';
+  const statusText = formatTechStatusText(unlocked, kidMode);
+  const costMarkup = showCost ? `<span class="tech-card__cost">${escapeHtml(costLabel)}</span>` : '';
+  const ariaRole = kidMode ? 'Tech card' : 'Technology card';
   return `
-    <article class="tech-card" id="tech-${escapeHtml(techId)}">
+    <article class="${classes.join(' ')}" id="tech-${escapeHtml(techKey)}" data-tech-key="${escapeHtml(techKey)}" data-tech-name="${escapeHtml(item.name)}" data-tech-branch="${escapeHtml(item.branch || '')}" tabindex="0" role="group" aria-roledescription="${escapeHtml(ariaRole)}">
       ${renderImage(item)}
-      <div class="tech-body">
-        <h5 class="tech-name">${escapeHtml(item.name)}</h5>
+      <div class="tech-card__info">
+        <div class="tech-card__meta">
+          <h5 class="tech-card__name">${escapeHtml(item.name)}</h5>
+          ${costMarkup}
+        </div>
         ${renderBadges(item)}
-        ${formatCost(item)}
-        ${renderDescription(item)}
-        ${renderMaterials(item)}
+        ${renderDescription(item, kidMode)}
+        ${renderMaterialsSection(item, { kidMode })}
+        <div class="tech-card__footer">
+          <span class="tech-card__status${unlocked ? ' tech-card__status--unlocked' : ''}" data-tech-status="${escapeHtml(techKey)}">${escapeHtml(statusText)}</span>
+          <button type="button" class="unlock-btn${unlocked ? ' unlocked' : ''}" data-tech-key="${escapeHtml(techKey)}" data-tech-name="${escapeHtml(item.name)}" aria-pressed="${unlocked ? 'true' : 'false'}">${escapeHtml(unlocked ? 'Unlocked' : 'Unlock')}</button>
+        </div>
       </div>
     </article>
   `;
 }
 
-function renderColumn(title, items) {
+function renderColumn(title, items, kidMode) {
   const safeTitle = escapeHtml(title);
   if (!items.length) {
     return `
@@ -232,14 +325,14 @@ function renderColumn(title, items) {
   return `
     <div class="tech-column">
       <h4>${safeTitle}</h4>
-      <div class="tech-grid">
-        ${items.map(renderItemCard).join('')}
+      <div class="tech-card-grid tech-grid">
+        ${items.map(item => renderItemCard(item, kidMode)).join('')}
       </div>
     </div>
   `;
 }
 
-function renderLevel(level) {
+function renderLevel(level, kidMode) {
   const standard = level.items.filter(item => !item?.isAncient);
   const ancient = level.items.filter(item => item?.isAncient);
   return `
@@ -249,8 +342,8 @@ function renderLevel(level) {
         <h3 id="tech-tier-${level.level}">${escapeHtml(level.level)}</h3>
       </header>
       <div class="tech-tier__columns">
-        ${renderColumn('Technology', standard)}
-        ${renderColumn('Ancient Technology', ancient)}
+        ${renderColumn('Technology', standard, kidMode)}
+        ${renderColumn('Ancient Technology', ancient, kidMode)}
       </div>
     </section>
   `;
@@ -258,6 +351,7 @@ function renderLevel(level) {
 
 export function renderTech(node) {
   if (!node) return;
+  const kidMode = isKidMode();
   if (!techLevels.length) {
     node.innerHTML = '<p class="tech-empty">Technology data is unavailable.</p>';
     return;
@@ -265,7 +359,7 @@ export function renderTech(node) {
   node.innerHTML = `
     <h2>Technology Tree</h2>
     <div class="tech-tiers">
-      ${techLevels.map(renderLevel).join('')}
+      ${techLevels.map(level => renderLevel(level, kidMode)).join('')}
     </div>
   `;
   const links = node.querySelectorAll('a[data-link]');
@@ -287,6 +381,63 @@ export function renderTech(node) {
       }
       if (payload.type === 'item' && typeof window.openItemDetail === 'function') {
         window.openItemDetail(payload.id || payload.slug || payload.name);
+      }
+    });
+  });
+  const buttons = node.querySelectorAll('.unlock-btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', event => {
+      event.stopPropagation();
+      const techKey = button.getAttribute('data-tech-key');
+      const techName = button.getAttribute('data-tech-name') || '';
+      const current = typeof window !== 'undefined' && typeof window.isTechUnlocked === 'function'
+        ? window.isTechUnlocked(techName)
+        : button.classList.contains('unlocked');
+      let desired = !current;
+      if (typeof window !== 'undefined' && typeof window.setTechUnlocked === 'function') {
+        const result = window.setTechUnlocked(techName, desired, { techKey });
+        if (typeof result === 'boolean') {
+          desired = result;
+        }
+      }
+      button.classList.toggle('unlocked', desired);
+      button.textContent = desired ? 'Unlocked' : 'Unlock';
+      button.setAttribute('aria-pressed', desired ? 'true' : 'false');
+      const card = button.closest('.tech-card');
+      if (card) {
+        card.classList.toggle('tech-card--unlocked', desired);
+        const status = card.querySelector('[data-tech-status]');
+        if (status) {
+          status.textContent = formatTechStatusText(desired, kidMode);
+          status.classList.toggle('tech-card__status--unlocked', desired);
+        }
+      }
+    });
+  });
+  const cards = node.querySelectorAll('.tech-card[data-tech-key]');
+  cards.forEach(card => {
+    card.addEventListener('click', event => {
+      const origin = event.target;
+      if (typeof Element !== 'undefined' && origin instanceof Element) {
+        if (origin.closest('a') || origin.closest('button')) return;
+      }
+      const techKey = card.getAttribute('data-tech-key');
+      if (techKey && typeof window !== 'undefined' && typeof window.showTechDetail === 'function') {
+        window.showTechDetail(techKey);
+      }
+    });
+    card.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ' && event.key !== 'Spacebar') {
+        return;
+      }
+      const origin = event.target;
+      if (typeof Element !== 'undefined' && origin instanceof Element && (origin.closest('a') || origin.closest('button'))) {
+        return;
+      }
+      event.preventDefault();
+      const techKey = card.getAttribute('data-tech-key');
+      if (techKey && typeof window !== 'undefined' && typeof window.showTechDetail === 'function') {
+        window.showTechDetail(techKey);
       }
     });
   });
