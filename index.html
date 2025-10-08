@@ -1218,6 +1218,7 @@
       padding: clamp(20px, 2.8vw, 30px);
       display: grid;
       gap: 18px;
+      justify-items: start;
       box-shadow: 0 16px 36px rgba(8, 16, 32, 0.45);
     }
 
@@ -1246,18 +1247,7 @@
     }
 
     .home-focus-meter {
-      width: 100%;
-      height: 12px;
-      border-radius: 999px;
-      background: rgba(119, 141, 169, 0.18);
-      overflow: hidden;
-    }
-
-    .home-focus-meter .fill {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(90deg, var(--success), var(--accent));
-      transition: width 0.6s ease;
+      justify-self: center;
     }
 
     .home-focus-actions {
@@ -3880,27 +3870,15 @@
 
     .progress-stage-card__meter {
       display: grid;
-      gap: 6px;
+      gap: 10px;
+      justify-items: center;
     }
 
     .progress-stage-card__meter .label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
-    }
-
-    .progress-stage-meter {
-      width: 100%;
-      height: 12px;
-      border-radius: 999px;
-      background: rgba(119, 141, 169, 0.18);
-      overflow: hidden;
-    }
-
-    .progress-stage-meter .fill {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(90deg, var(--success), var(--accent));
-      transition: width 0.6s ease;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
 
     .progress-stage-card__actions {
@@ -5389,10 +5367,29 @@
               <p id="progressStageSubtitle">We’ll surface your current milestone as soon as the guide loads.</p>
             </div>
             <div class="progress-stage-card__meter">
-              <span class="label" id="progressStageLabel">Adaptive completion</span>
-              <div class="progress-stage-meter" id="progressStageMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div class="fill" id="progressStageFill"></div>
+              <div class="capture-meter capture-meter--inline capture-meter--loading progress-stage-meter" id="progressStageMeter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="capture-meter__ring">
+                  <div class="capture-meter__progress"></div>
+                  <div class="capture-meter__ticks"></div>
+                  <div class="capture-meter__label" aria-hidden="true">
+                    <div class="capture-meter__label-track">
+                      <span class="capture-meter__label-tether"></span>
+                      <span class="capture-meter__label-anchor"></span>
+                      <div class="capture-meter__label-body">
+                        <span class="capture-meter__label-shell">
+                          <span class="capture-meter__label-value">0%</span>
+                          <span class="capture-meter__label-caption">Capture Rate</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="capture-meter__core">
+                    <span class="capture-meter__percent" id="progressStagePercent">0%</span>
+                    <span class="capture-meter__status" id="progressStageStatus">Syncing…</span>
+                  </div>
+                </div>
               </div>
+              <span class="label" id="progressStageLabel">Adaptive completion</span>
             </div>
             <div class="progress-stage-card__actions">
               <button type="button" class="btn" id="progressStageResume" disabled>Resume next step</button>
@@ -12813,6 +12810,52 @@
       if (!home) return;
       home.innerHTML = '';
 
+      function createCaptureMeterLabel(text = 'Capture Rate') {
+        const label = document.createElement('div');
+        label.className = 'capture-meter__label';
+        label.setAttribute('aria-hidden', 'true');
+        const track = document.createElement('div');
+        track.className = 'capture-meter__label-track';
+        const tether = document.createElement('span');
+        tether.className = 'capture-meter__label-tether';
+        const anchor = document.createElement('span');
+        anchor.className = 'capture-meter__label-anchor';
+        const body = document.createElement('div');
+        body.className = 'capture-meter__label-body';
+        const shell = document.createElement('span');
+        shell.className = 'capture-meter__label-shell';
+        const valueNode = document.createElement('span');
+        valueNode.className = 'capture-meter__label-value';
+        valueNode.textContent = '0%';
+        const captionNode = document.createElement('span');
+        captionNode.className = 'capture-meter__label-caption';
+        captionNode.textContent = text;
+        shell.appendChild(valueNode);
+        shell.appendChild(captionNode);
+        body.appendChild(shell);
+        track.appendChild(tether);
+        track.appendChild(anchor);
+        track.appendChild(body);
+        label.appendChild(track);
+        return label;
+      }
+
+      function syncCaptureMeterDecor(meter, progressPercent) {
+        if (!meter) return;
+        const safePercent = Number.isFinite(progressPercent) ? Math.max(0, Math.min(progressPercent, 100)) : 0;
+        const progressAngle = safePercent * 3.6;
+        meter.style.setProperty('--progress-deg', progressAngle + 'deg');
+        const progressMidAngle = progressAngle > 0 ? Math.min(progressAngle + 24, 360) : progressAngle;
+        meter.style.setProperty('--progress-mid-deg', progressMidAngle + 'deg');
+        const labelAngle = progressAngle - 90;
+        meter.style.setProperty('--label-angle-deg', labelAngle + 'deg');
+        meter.style.setProperty('--label-counter-angle-deg', (-labelAngle) + 'deg');
+        const labelValue = meter.querySelector('.capture-meter__label-value');
+        if (labelValue) {
+          labelValue.textContent = `${Math.round(safePercent)}%`;
+        }
+      }
+
       function createModeCard(mode) {
         const card = document.createElement('article');
         card.className = 'mode-card';
@@ -13118,16 +13161,37 @@
         ? 'As soon as the adaptive guide loads we will highlight the next big milestone.'
         : 'Once the adaptive data is ready, you’ll see the upcoming milestone and context here.';
       const focusMeter = document.createElement('div');
-      focusMeter.className = 'home-focus-meter';
+      focusMeter.className = 'capture-meter capture-meter--inline capture-meter--loading home-focus-meter';
       focusMeter.id = 'homeHeroFocusMeter';
       focusMeter.setAttribute('role', 'progressbar');
       focusMeter.setAttribute('aria-valuemin', '0');
       focusMeter.setAttribute('aria-valuemax', '100');
       focusMeter.setAttribute('aria-valuenow', '0');
-      const focusFill = document.createElement('div');
-      focusFill.className = 'fill';
-      focusFill.id = 'homeHeroFocusFill';
-      focusMeter.appendChild(focusFill);
+      const focusRing = document.createElement('div');
+      focusRing.className = 'capture-meter__ring';
+      const focusProgress = document.createElement('div');
+      focusProgress.className = 'capture-meter__progress';
+      const focusTicks = document.createElement('div');
+      focusTicks.className = 'capture-meter__ticks';
+      const focusLabel = createCaptureMeterLabel('Capture Rate');
+      const focusCore = document.createElement('div');
+      focusCore.className = 'capture-meter__core';
+      const focusPercent = document.createElement('span');
+      focusPercent.className = 'capture-meter__percent';
+      focusPercent.id = 'homeHeroFocusPercent';
+      focusPercent.textContent = '0%';
+      const focusStatus = document.createElement('span');
+      focusStatus.className = 'capture-meter__status';
+      focusStatus.id = 'homeHeroFocusStatus';
+      focusStatus.textContent = kidMode ? 'Syncing…' : 'Syncing…';
+      focusCore.appendChild(focusPercent);
+      focusCore.appendChild(focusStatus);
+      focusRing.appendChild(focusProgress);
+      focusRing.appendChild(focusTicks);
+      focusRing.appendChild(focusLabel);
+      focusRing.appendChild(focusCore);
+      focusMeter.appendChild(focusRing);
+      syncCaptureMeterDecor(focusMeter, 0);
       const focusActions = document.createElement('div');
       focusActions.className = 'home-focus-actions';
       const resumeBtn = document.createElement('button');
@@ -17574,9 +17638,31 @@
       if(!routeGuideData){
         node.innerHTML = `
           <section class="card route-loading" data-route-loading>
-            <div class="route-loading__spinner" aria-hidden="true"></div>
-            <p class="route-loading__label">Loading adaptive routes…</p>
-            <p class="route-loading__hint">Palmate is syncing the latest guide catalog.</p>
+            <div class="capture-meter capture-meter--compact capture-meter--loading route-loading__meter" aria-hidden="true">
+              <div class="capture-meter__ring">
+                <div class="capture-meter__progress"></div>
+                <div class="capture-meter__ticks"></div>
+                <div class="capture-meter__label" aria-hidden="true">
+                  <div class="capture-meter__label-track">
+                    <span class="capture-meter__label-tether"></span>
+                    <span class="capture-meter__label-anchor"></span>
+                    <div class="capture-meter__label-body">
+                      <span class="capture-meter__label-shell">
+                        <span class="capture-meter__label-value">0%</span>
+                        <span class="capture-meter__label-caption">Capture Rate</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="capture-meter__core">
+                  <span class="capture-meter__status">Syncing…</span>
+                </div>
+              </div>
+            </div>
+            <div class="route-loading__copy" role="status" aria-live="polite">
+              <p class="route-loading__label">Syncing adaptive routes</p>
+              <p class="route-loading__hint">Palmate is calibrating the capture gauge for tonight’s progression plan.</p>
+            </div>
           </section>
         `;
       }
@@ -23414,13 +23500,21 @@
             : 'We’ll surface the next required step as soon as the adaptive guide finishes loading.';
         }
       }
+      const progressPercent = Number.isFinite(guideSummary.percent) ? Math.max(0, Math.min(guideSummary.percent, 100)) : 0;
       const focusMeter = document.getElementById('homeHeroFocusMeter');
       if (focusMeter) {
-        focusMeter.setAttribute('aria-valuenow', guideSummary.percent);
+        focusMeter.setAttribute('aria-valuenow', progressPercent);
+        syncCaptureMeterDecor(focusMeter, progressPercent);
+        focusMeter.classList.toggle('capture-meter--loading', !guideDataReady);
+        focusMeter.classList.toggle('capture-meter--ready', !!guideDataReady);
       }
-      const focusFill = document.getElementById('homeHeroFocusFill');
-      if (focusFill) {
-        focusFill.style.width = guideSummary.percent + '%';
+      const focusPercent = document.getElementById('homeHeroFocusPercent');
+      if (focusPercent) {
+        focusPercent.textContent = `${Math.round(progressPercent)}%`;
+      }
+      const focusStatus = document.getElementById('homeHeroFocusStatus');
+      if (focusStatus) {
+        focusStatus.textContent = guideDataReady ? (kidMode ? 'Capture ready' : 'Capture ready') : (kidMode ? 'Syncing…' : 'Syncing…');
       }
       const homeHeroResume = document.getElementById('homeHeroResume');
       if (homeHeroResume) {
@@ -23456,11 +23550,18 @@
       }
       const progressStageMeter = document.getElementById('progressStageMeter');
       if (progressStageMeter) {
-        progressStageMeter.setAttribute('aria-valuenow', guideSummary.percent);
+        progressStageMeter.setAttribute('aria-valuenow', progressPercent);
+        syncCaptureMeterDecor(progressStageMeter, progressPercent);
+        progressStageMeter.classList.toggle('capture-meter--loading', !guideDataReady);
+        progressStageMeter.classList.toggle('capture-meter--ready', !!guideDataReady);
       }
-      const progressStageFill = document.getElementById('progressStageFill');
-      if (progressStageFill) {
-        progressStageFill.style.width = guideSummary.percent + '%';
+      const progressStagePercent = document.getElementById('progressStagePercent');
+      if (progressStagePercent) {
+        progressStagePercent.textContent = `${Math.round(progressPercent)}%`;
+      }
+      const progressStageStatus = document.getElementById('progressStageStatus');
+      if (progressStageStatus) {
+        progressStageStatus.textContent = guideDataReady ? (kidMode ? 'Stage locked' : 'Stage locked') : (kidMode ? 'Syncing…' : 'Syncing…');
       }
       const progressStageResume = document.getElementById('progressStageResume');
       if (progressStageResume) {
