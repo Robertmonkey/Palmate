@@ -14223,8 +14223,8 @@
         return routeGuideData;
       } catch (err) {
         console.error('Failed to load adaptive guide', err);
-        routeGuideData = createEmptyGuideData();
-        return routeGuideData;
+        routeGuideData = null;
+        throw err;
       }
     }
 
