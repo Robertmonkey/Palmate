@@ -107,6 +107,13 @@
       "Nail": 2
     }
   },
+  "arrow": {
+    "materials": {
+      "Stone": 1,
+      "Wood": 1
+    },
+    "note": "Crafting yields 3 arrows per batch."
+  },
   "barricade-set": {
     "description": "Decorative furniture set. Place to keep somewhere off limits.",
     "materials": {
@@ -185,6 +192,18 @@
       "Paldium Fragment": 2
     }
   },
+  "cloth": {
+    "description": "Woven fabric crafted from Wool at a primitive workbench.",
+    "materials": {
+      "Wool": 2
+    }
+  },
+  "cloth-outfit": {
+    "description": "Lightweight starter gear sewn from simple cloth.",
+    "materials": {
+      "Cloth": 2
+    }
+  },
   "coal-mine": {
     "description": "Facility for producing large quantities of Coal.",
     "materials": {
@@ -199,6 +218,15 @@
       "Wood": 20,
       "Ingot": 15,
       "Flame Organ": 3
+    }
+  },
+  "common-shield": {
+    "description": "Basic wooden shield that improves survivability for early expeditions.",
+    "materials": {
+      "Paldium Fragment": 10,
+      "Wood": 20,
+      "Stone": 20,
+      "Fiber": 10
     }
   },
   "cooler": {
@@ -340,6 +368,24 @@
       "Fiber": 20
     }
   },
+  "fire-arrow": {
+    "description": "Arrow bundle tipped with a Flame Organ to ignite targets.",
+    "materials": {
+      "Flame Organ": 1,
+      "Stone": 3,
+      "Wood": 3
+    },
+    "note": "Crafting produces 5 Fire Arrows."
+  },
+  "fire-bow": {
+    "description": "Bow modified with Flame Organs to shoot burning arrows.",
+    "materials": {
+      "Wood": 40,
+      "Stone": 8,
+      "Fiber": 20,
+      "Flame Organ": 2
+    }
+  },
   "fireplace-set": {
     "description": "Brick fireplace set to provide illumination. Must be lit with fire.",
     "materials": {
@@ -390,11 +436,34 @@
       "Fiber": 10
     }
   },
+  "foxparks-s-harness": {
+    "description": "Harness that lets Foxparks serve as a fiery glider mount.",
+    "materials": {
+      "Leather": 3,
+      "Flame Organ": 5,
+      "Paldium Fragment": 5
+    }
+  },
   "glass-structure-set": {
     "description": "Set for building a base using glass. Allows building of glass foundations, walls, ceilings, stairs and other things necessary for shelters.",
     "materials": {
       "Stone": 1,
       "Paldium Fragment": 2
+    }
+  },
+  "global-palbox": {
+    "description": "Global Palbox terminal that lets you manage teams from any base.",
+    "materials": {
+      "Paldium Fragment": 3,
+      "Wood": 5,
+      "Stone": 15
+    }
+  },
+  "hand-held-torch": {
+    "description": "Simple handheld torch for lighting caves and night excursions.",
+    "materials": {
+      "Wood": 2,
+      "Stone": 2
     }
   },
   "hanging-trap": {
@@ -681,6 +750,21 @@
       "Stone": 2
     }
   },
+  "normal-parachute": {
+    "description": "Basic parachute for safe descents and gliding.",
+    "materials": {
+      "Wood": 10,
+      "Cloth": 2
+    }
+  },
+  "old-bow": {
+    "description": "Early-game bow strung from wood and fiber.",
+    "materials": {
+      "Wood": 30,
+      "Stone": 5,
+      "Fiber": 15
+    }
+  },
   "ore-mining-site": {
     "description": "Facility for producing Ore. Mining Ore is hard work that requires physical endurance. Leave it to Pals skilled at mining.",
     "materials": {
@@ -702,6 +786,13 @@
     "materials": {
       "Wood": 20,
       "Ingot": 10
+    }
+  },
+  "pal-dressing-facility": {
+    "description": "Facility that lets you change a Pal's outfit.",
+    "materials": {
+      "Stone": 10,
+      "Paldium Fragment": 10
     }
   },
   "pal-essence-condenser": {
@@ -733,6 +824,14 @@
     "materials": {
       "Ingot": 10,
       "Paldium Fragment": 50
+    }
+  },
+  "pal-sphere": {
+    "description": "Standard Pal capture sphere crafted from early resources.",
+    "materials": {
+      "Paldium Fragment": 1,
+      "Wood": 3,
+      "Stone": 3
     }
   },
   "palbox": {
@@ -829,10 +928,25 @@
       "Stone": 10
     }
   },
+  "repair-kit": {
+    "description": "Field repair kit for restoring weapon durability.",
+    "materials": {
+      "Fiber": 5,
+      "Stone": 5
+    }
+  },
   "road-sign-set": {
     "description": "Decorative furniture set. No roads mean no traffic control.",
     "materials": {
       "Ingot": 5
+    }
+  },
+  "rushoar-saddle": {
+    "description": "Saddle that allows you to ride Rushoar and charge through obstacles.",
+    "materials": {
+      "Leather": 3,
+      "Stone": 10,
+      "Paldium Fragment": 5
     }
   },
   "sand-bag": {
@@ -905,11 +1019,25 @@
       "Paldium Fragment": 10
     }
   },
+  "stone-axe": {
+    "description": "Basic axe for chopping down trees.",
+    "materials": {
+      "Stone": 5,
+      "Wood": 5
+    }
+  },
   "stone-gate": {
     "description": "Stone gate large enough for big Pals to pass through.",
     "materials": {
       "Stone": 10,
       "Cement": 1
+    }
+  },
+  "stone-pickaxe": {
+    "description": "Basic pickaxe for mining stone and ore.",
+    "materials": {
+      "Stone": 5,
+      "Wood": 5
     }
   },
   "stone-pit": {
@@ -918,6 +1046,13 @@
       "Wood": 50,
       "Stone": 20,
       "Paldium Fragment": 10
+    }
+  },
+  "stone-spear": {
+    "description": "Sturdy spear tipped with sharpened stone.",
+    "materials": {
+      "Wood": 18,
+      "Stone": 6
     }
   },
   "stone-structure-set": {
@@ -1074,6 +1209,12 @@
       "Stone": 50,
       "Pal Fluids": 15,
       "High Quality Pal Oil": 15
+    }
+  },
+  "wooden-club": {
+    "description": "Simple club carved from wood for close combat.",
+    "materials": {
+      "Wood": 5
     }
   },
   "wooden-chest": {

@@ -18169,9 +18169,13 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 0,
-          "description": "Basic axe for chopping trees.",
+          "description": "Basic axe for chopping down trees.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Axe.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Axe.png",
+          "materials": {
+            "Stone": 5,
+            "Wood": 5
+          }
         },
         {
           "id": "stone-pickaxe",
@@ -18180,9 +18184,13 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 0,
-          "description": "Basic pickaxe for gathering ore.",
+          "description": "Basic pickaxe for mining stone and ore.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Pickaxe.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Pickaxe.png",
+          "materials": {
+            "Stone": 5,
+            "Wood": 5
+          }
         },
         {
           "id": "hand-held-torch",
@@ -18191,9 +18199,13 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 0,
-          "description": "Unlocks the recipe for Hand-held Torch.",
+          "description": "Simple handheld torch for lighting caves and night excursions.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hand-held_Torch.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hand-held_Torch.png",
+          "materials": {
+            "Wood": 2,
+            "Stone": 2
+          }
         },
         {
           "id": "wooden-club",
@@ -18202,9 +18214,12 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 0,
-          "description": "Unlocks the recipe for Wooden Club.",
+          "description": "Simple club carved from wood for close combat.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Club.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Club.png",
+          "materials": {
+            "Wood": 5
+          }
         },
         {
           "id": "pal-dressing-facility",
@@ -18213,9 +18228,13 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 0,
-          "description": "Unlocks the recipe for Pal Dressing Facility.",
+          "description": "Facility that lets you change a Pal's outfit.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Dressing_Facility.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Dressing_Facility.png",
+          "materials": {
+            "Stone": 10,
+            "Paldium Fragment": 10
+          }
         },
         {
           "id": "global-palbox",
@@ -18224,9 +18243,14 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 0,
-          "description": "Unlocks the recipe for Global Palbox.",
+          "description": "Global Palbox terminal that lets you manage teams from any base.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Global_Palbox.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Global_Palbox.png",
+          "materials": {
+            "Paldium Fragment": 3,
+            "Wood": 5,
+            "Stone": 15
+          }
         }
       ]
     },
@@ -18256,9 +18280,14 @@
           "group": "Item",
           "category": "Equipment",
           "techPoints": 1,
-          "description": "Craft Pal Sphere with materials and capture high-level pals.",
+          "description": "Standard Pal capture sphere crafted from early resources.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png",
+          "materials": {
+            "Paldium Fragment": 1,
+            "Wood": 3,
+            "Stone": 3
+          }
         },
         {
           "id": "campfire",
@@ -18330,9 +18359,14 @@
           "group": "Item",
           "category": "Weapon",
           "techPoints": 1,
-          "description": "Starter bow crafted from stone and wood.",
+          "description": "Early-game bow strung from wood and fiber.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Old_Bow.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Old_Bow.png",
+          "materials": {
+            "Wood": 30,
+            "Stone": 5,
+            "Fiber": 15
+          }
         },
         {
           "id": "arrow",
@@ -18343,7 +18377,12 @@
           "techPoints": 1,
           "description": "Basic arrows crafted for the Old Bow.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Arrow_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Arrow_icon.png",
+          "materials": {
+            "Stone": 1,
+            "Wood": 1
+          },
+          "note": "Crafting yields 3 arrows per batch."
         },
         {
           "id": "shoddy-bed",
@@ -18383,9 +18422,13 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Repair Kit.",
+          "description": "Field repair kit for restoring weapon durability.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Repair_Kit.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Repair_Kit.png",
+          "materials": {
+            "Fiber": 5,
+            "Stone": 5
+          }
         },
         {
           "id": "cloth",
@@ -18394,9 +18437,12 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Cloth.",
+          "description": "Woven fabric crafted from Wool at a primitive workbench.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png",
+          "materials": {
+            "Wool": 2
+          }
         }
       ]
     },
@@ -18410,9 +18456,15 @@
           "group": "Item",
           "category": "Armor",
           "techPoints": 2,
-          "description": "Early defensive shield for blocking attacks.",
+          "description": "Basic wooden shield that improves survivability for early expeditions.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Common_Shield_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Common_Shield_icon.png",
+          "materials": {
+            "Paldium Fragment": 10,
+            "Wood": 20,
+            "Stone": 20,
+            "Fiber": 10
+          }
         },
         {
           "id": "stone-spear",
@@ -18421,9 +18473,13 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Stone Spear.",
+          "description": "Sturdy spear tipped with sharpened stone.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Spear.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Spear.png",
+          "materials": {
+            "Wood": 18,
+            "Stone": 6
+          }
         },
         {
           "id": "cloth-outfit",
@@ -18432,9 +18488,12 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Cloth Outfit.",
+          "description": "Lightweight starter gear sewn from simple cloth.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_Outfit_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_Outfit_icon.png",
+          "materials": {
+            "Cloth": 2
+          }
         },
         {
           "id": "feed-box",
@@ -18524,9 +18583,13 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 2,
-          "description": "Basic parachute that softens falls and helps kids explore.",
+          "description": "Basic parachute for safe descents and gliding.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Normal_Parachute_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Normal_Parachute_icon.png",
+          "materials": {
+            "Wood": 10,
+            "Cloth": 2
+          }
         },
         {
           "id": "fire-bow",
@@ -18535,9 +18598,15 @@
           "group": "Item",
           "category": "Weapon",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Fire Bow.",
+          "description": "Bow modified with Flame Organs to shoot burning arrows.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Bow.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Bow.png",
+          "materials": {
+            "Wood": 40,
+            "Stone": 8,
+            "Fiber": 20,
+            "Flame Organ": 2
+          }
         },
         {
           "id": "fire-arrow",
@@ -18546,9 +18615,15 @@
           "group": "Item",
           "category": "Base",
           "techPoints": 1,
-          "description": "Ignited arrows that deal fire damage on impact.",
+          "description": "Arrow bundle tipped with a Flame Organ to ignite targets.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Arrow_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Arrow_icon.png",
+          "materials": {
+            "Flame Organ": 1,
+            "Stone": 3,
+            "Wood": 3
+          },
+          "note": "Crafting produces 5 Fire Arrows."
         },
         {
           "id": "wooden-living-room-furniture-set",
@@ -18638,9 +18713,14 @@
           "group": "Item",
           "category": "Pal Gear",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Rushoar Saddle.",
+          "description": "Saddle that allows you to ride Rushoar and charge through obstacles.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rushoar_menu.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rushoar_menu.png",
+          "materials": {
+            "Leather": 3,
+            "Stone": 10,
+            "Paldium Fragment": 5
+          }
         },
         {
           "id": "foxparks-s-harness",
@@ -18649,9 +18729,14 @@
           "group": "Item",
           "category": "Pal Gear",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Foxparks's Harness.",
+          "description": "Harness that lets Foxparks serve as a fiery glider mount.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Foxparks_menu.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Foxparks_menu.png",
+          "materials": {
+            "Leather": 3,
+            "Flame Organ": 5,
+            "Paldium Fragment": 5
+          }
         },
         {
           "id": "wooden-tavern-cabinet-furniture-set",
@@ -24610,7 +24695,7 @@
           "group": "Item",
           "category": "Decoration",
           "techPoints": 3,
-          "description": "Elegant Moonflower banners that add luminous festival décor to late-game bases.",
+          "description": "Elegant Moonflower banners that add luminous festival d\u00e9cor to late-game bases.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Moonflower_Flag_Set.png"
         }
@@ -24627,7 +24712,7 @@
         "Ground"
       ],
       "hp": 30000,
-      "description": "The tutorial tower. Bring Ground‑type pals to exploit Grizzbolt’s weakness. Recommended pals include Rushoar and Fuddler. Dash in, dodge Grizzbolt’s electric attacks, and keep your distance.",
+      "description": "The tutorial tower. Bring Ground\u2011type pals to exploit Grizzbolt\u2019s weakness. Recommended pals include Rushoar and Fuddler. Dash in, dodge Grizzbolt\u2019s electric attacks, and keep your distance.",
       "location": "Windswept Hills (112, -434)",
       "tips": "Stock up on Pal Spheres, some basic healing items, and wear basic armor.",
       "steps": [
@@ -24650,7 +24735,7 @@
         "Fire"
       ],
       "hp": 69000,
-      "description": "Located in the icy north. Bring Fire pals such as Foxparks or Blazehowl to burn through Lyleen’s grass defenses. Wear cold resistance gear to survive the journey.",
+      "description": "Located in the icy north. Bring Fire pals such as Foxparks or Blazehowl to burn through Lyleen\u2019s grass defenses. Wear cold resistance gear to survive the journey.",
       "location": "Free Pal Alliance territory (185, 28)",
       "tips": "Craft some Mega Spheres before heading out and keep a fire source ready to warm up.",
       "climate": "Cold",
@@ -24723,7 +24808,7 @@
         "Dragon"
       ],
       "hp": 200000,
-      "description": "Atop a snowy mountain. Shadowbeak’s dark type is weak against Dragon pals such as Orserk and Quivern. Pack cold resistance gear and powerful healing items.",
+      "description": "Atop a snowy mountain. Shadowbeak\u2019s dark type is weak against Dragon pals such as Orserk and Quivern. Pack cold resistance gear and powerful healing items.",
       "location": "Snowy mountain (approx)",
       "tips": "Prepare Ultra Spheres and craft gear like the Quivern Saddle to reach the tower quickly.",
       "climate": "Cold",
@@ -24835,7 +24920,7 @@
       "element": "Dragon",
       "ct": 30,
       "power": 100,
-      "description": "Fires an energy bullet imbued with dragon power. The bullet shatters on impact, causing a long‑range explosion."
+      "description": "Fires an energy bullet imbued with dragon power. The bullet shatters on impact, causing a long\u2011range explosion."
     },
     "Blizzard Spike": {
       "element": "Ice",
@@ -24859,7 +24944,7 @@
       "element": "Grass",
       "ct": 40,
       "power": 120,
-      "description": "Sprouts sharp roots around the enemy’s location, ensnaring and damaging any foes caught within."
+      "description": "Sprouts sharp roots around the enemy\u2019s location, ensnaring and damaging any foes caught within."
     },
     "Comet Strike": {
       "element": "Dragon",
@@ -24877,7 +24962,7 @@
       "element": "Water",
       "ct": 40.0,
       "power": 120,
-      "description": "Continuously creates walls of water columns at the enemy’s location, trapping and damaging foes."
+      "description": "Continuously creates walls of water columns at the enemy\u2019s location, trapping and damaging foes."
     },
     "Dark Arrow": {
       "element": "Dark",
