@@ -361,7 +361,7 @@ gba(119,141,169,0.45)}
 .route-library__match{transition:transform .2s ease,box-shadow .2s ease}
 .route-library__match:hover:not([disabled]),.route-library__match:focus-visible:not([disabled]){transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,0.35)}
 .route-loading{display:grid;gap:18px;justify-items:center;text-align:center;padding:clamp(34px,4.6vw,46px);background:linear-gradient(160deg,rgba(10,24,38,0.9),rgba(6,16,30,0.92));border:1px solid rgba(148,210,189,0.32);border-radius:28px;box-shadow:0 34px 68px rgba(4,14,28,0.6)}
-.route-loading__meter{width:min(220px,44vw)}
+.route-loading__meter{width:min(220px,44vw);display:grid;place-items:center}
 .route-loading__copy{display:grid;gap:10px}
 .route-loading__label{margin:0;font-weight:700;font-size:1.08rem;letter-spacing:.18em;text-transform:uppercase;color:#e6f6ff;text-shadow:0 0 18px rgba(90,240,255,0.4)}
 .route-loading__hint{margin:0;font-size:.95rem;color:rgba(224,235,246,0.78);max-width:34ch}
@@ -381,6 +381,8 @@ gba(119,141,169,0.45)}
 .capture-meter__label-track{position:absolute;inset:0;transform-origin:center;transform:rotate(var(--label-angle-deg));transition:transform .65s var(--motion-ease-emphasis)}
 .capture-meter__label-tether{position:absolute;top:50%;left:50%;width:4px;height:var(--label-tether-length);transform-origin:center bottom;transform:translate(-50%,calc(-1 * var(--label-anchor-offset)));background:linear-gradient(180deg,rgba(132,250,255,0.95) 0%,rgba(92,236,255,0.75) 65%,rgba(92,236,255,0) 100%);box-shadow:0 0 14px rgba(92,236,255,0.45);border-radius:999px}
 .capture-meter__label-anchor{position:absolute;top:50%;left:50%;width:18px;height:18px;transform:translate(-50%,calc(-1 * var(--label-anchor-offset)));border-radius:50%;background:radial-gradient(circle,rgba(204,255,255,0.95),rgba(60,180,255,0.2));border:2px solid rgba(118,222,255,0.85);box-shadow:0 0 16px rgba(118,222,255,0.55)}
+.capture-meter__label-anchor::before{content:"";position:absolute;inset:3px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.92),rgba(64,190,255,0.32));box-shadow:0 0 10px rgba(118,222,255,0.6)}
+.capture-meter__label-anchor::after{content:"";position:absolute;top:100%;left:50%;width:4px;height:calc(var(--ring-thickness)*1.8);border-radius:999px;background:linear-gradient(180deg,rgba(132,250,255,0.9),rgba(92,236,255,0));transform:translate(-50%,calc(var(--ring-thickness)*-0.35));box-shadow:0 0 12px rgba(118,222,255,0.45);opacity:.9}
 .capture-meter__label-body{position:absolute;top:0;left:50%;transform:translate(calc(-50% + var(--label-shell-offset)),calc(-1 * var(--label-distance)));display:flex;align-items:center;justify-content:center}
 .capture-meter__label-shell{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 26px 12px 46px;border-radius:999px;background:linear-gradient(135deg,rgba(16,42,68,0.92),rgba(8,20,38,0.72));border:1px solid rgba(118,222,255,0.65);box-shadow:0 16px 34px rgba(28,120,188,0.45);text-transform:uppercase;color:#e4fbff;text-shadow:0 0 12px rgba(118,222,255,0.65);backdrop-filter:saturate(140%) blur(6px);transform-origin:center;transform:rotate(var(--label-counter-angle-deg))}
 .capture-meter__label-shell::before{content:"";position:absolute;left:-40px;width:36px;height:26px;border:2px solid rgba(118,222,255,0.75);border-right:none;border-top-left-radius:18px;border-bottom-left-radius:18px;box-shadow:inset 0 0 8px rgba(118,222,255,0.45);background:linear-gradient(180deg,rgba(118,222,255,0.26),rgba(12,30,48,0.42))}
@@ -397,6 +399,9 @@ gba(119,141,169,0.45)}
 .capture-meter--compact .capture-meter__label-caption{font-size:.54rem}
 .capture-meter--compact .capture-meter__label-shell::before{left:-34px;width:32px;height:22px}
 .capture-meter--compact .capture-meter__label-shell::after{left:-16px;width:14px;height:14px}
+.home-focus-meter.capture-meter{--size:clamp(152px,24vw,198px);--label-distance:calc(var(--size)/2 + 48px);--label-shell-offset:12px}
+.progress-stage-meter.capture-meter{--size:clamp(160px,26vw,208px);--label-distance:calc(var(--size)/2 + 54px);--label-shell-offset:14px}
+.route-loading__meter.capture-meter{--size:128px;--label-distance:calc(var(--size)/2 + 34px);--label-shell-offset:9px}
 .capture-meter--loading .capture-meter__progress{filter:drop-shadow(0 0 32px rgba(92,236,255,0.45))}
 .capture-meter--loading .capture-meter__progress::before{animation:captureGlint 1.8s ease-in-out infinite}
 .capture-meter--loading .capture-meter__core{background:radial-gradient(circle at 50% 35%,rgba(255,255,255,0.25),rgba(8,18,34,0.82));animation:capturePulse 2.6s ease-in-out infinite}
