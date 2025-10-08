@@ -12802,6 +12802,22 @@
       switchBreedingMode(initialMode);
     }
 
+    function syncCaptureMeterDecor(meter, progressPercent) {
+      if (!meter) return;
+      const safePercent = Number.isFinite(progressPercent) ? Math.max(0, Math.min(progressPercent, 100)) : 0;
+      const progressAngle = safePercent * 3.6;
+      meter.style.setProperty('--progress-deg', progressAngle + 'deg');
+      const progressMidAngle = progressAngle > 0 ? Math.min(progressAngle + 24, 360) : progressAngle;
+      meter.style.setProperty('--progress-mid-deg', progressMidAngle + 'deg');
+      const labelAngle = progressAngle - 90;
+      meter.style.setProperty('--label-angle-deg', labelAngle + 'deg');
+      meter.style.setProperty('--label-counter-angle-deg', (-labelAngle) + 'deg');
+      const labelValue = meter.querySelector('.capture-meter__label-value');
+      if (labelValue) {
+        labelValue.textContent = `${Math.round(safePercent)}%`;
+      }
+    }
+
     // Home page builder.  Highlights adaptive guidance, quick status,
     // and provides rapid jumps into the planner or progress dashboard.
     function buildHomePage() {
@@ -12835,22 +12851,6 @@
         track.appendChild(body);
         label.appendChild(track);
         return label;
-      }
-
-      function syncCaptureMeterDecor(meter, progressPercent) {
-        if (!meter) return;
-        const safePercent = Number.isFinite(progressPercent) ? Math.max(0, Math.min(progressPercent, 100)) : 0;
-        const progressAngle = safePercent * 3.6;
-        meter.style.setProperty('--progress-deg', progressAngle + 'deg');
-        const progressMidAngle = progressAngle > 0 ? Math.min(progressAngle + 24, 360) : progressAngle;
-        meter.style.setProperty('--progress-mid-deg', progressMidAngle + 'deg');
-        const labelAngle = progressAngle - 90;
-        meter.style.setProperty('--label-angle-deg', labelAngle + 'deg');
-        meter.style.setProperty('--label-counter-angle-deg', (-labelAngle) + 'deg');
-        const labelValue = meter.querySelector('.capture-meter__label-value');
-        if (labelValue) {
-          labelValue.textContent = `${Math.round(safePercent)}%`;
-        }
       }
 
       function createModeCard(mode) {
