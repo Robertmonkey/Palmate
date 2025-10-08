@@ -1176,11 +1176,37 @@ function focusSearch(q, options){
 }
 
 // --- Storage helpers ---
+let transientRouteState = {};
+
 function loadState(){
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
-  catch(e){ return {}; }
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if(stored){
+      const parsed = JSON.parse(stored);
+      if(parsed && typeof parsed === 'object'){
+        transientRouteState = { ...parsed };
+        return { ...parsed };
+      }
+    }
+    transientRouteState = {};
+    return {};
+  } catch(e){
+    if(transientRouteState && typeof transientRouteState === 'object'){
+      return { ...transientRouteState };
+    }
+    return {};
+  }
 }
-function saveState(s){ localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); }
+function saveState(s){
+  transientRouteState = { ...s };
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+  } catch(e){
+    if(typeof console !== 'undefined' && console && typeof console.warn === 'function'){
+      console.warn('Failed to persist route progress; continuing with in-memory state.', e);
+    }
+  }
+}
 
 function loadPreferences(){
   try {
@@ -1209,7 +1235,14 @@ function techName(id){ return niceName(id); }
 export function resetRouteProgress(node){
   if(!node) return;
   if(confirm('Reset all guide progress?')){
-    localStorage.removeItem(STORAGE_KEY);
+    transientRouteState = {};
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch(e){
+      if(typeof console !== 'undefined' && console && typeof console.warn === 'function'){
+        console.warn('Failed to clear stored route progress; continuing with in-memory reset.', e);
+      }
+    }
     renderRoute(node);
   }
 }
