@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Generate a coverage report for shortage resource guides.
 
-The script inspects guides.md for resource routes, loads the guide
+The script inspects ``guides.md`` for resource routes, loads the guide
 catalog metadata, and compares the two lists. It surfaces resources
 missing full route JSON, catalog entries, or both so the agent can
-prioritise new work quickly.
+prioritise new work quickly.  Besides the human-readable text and
+Markdown formats, the CLI now supports CSV and JSON outputs so
+automation can ingest the summary without additional parsing glue.
 """
 from __future__ import annotations
 
@@ -78,6 +80,26 @@ class CatalogEntry:
     entry_id: str
     title: str
     shortage_menu: bool
+
+
+def _serialise_resource_route(route: ResourceRoute) -> dict[str, object]:
+    return {
+        "id": route.route_id,
+        "title": route.title,
+        "citations": list(route.citations),
+        "field_step_ids": list(route.field_step_ids),
+        "missing_field_step_ids": list(route.missing_field_step_ids),
+        "exempt_field_step_ids": list(route.exempt_field_step_ids),
+        "under_cited_field_step_ids": list(route.under_cited_field_step_ids),
+    }
+
+
+def _serialise_catalog_entry(entry: CatalogEntry) -> dict[str, object]:
+    return {
+        "id": entry.entry_id,
+        "title": entry.title,
+        "shortage_menu": entry.shortage_menu,
+    }
 
 
 def parse_resource_routes(markdown: str) -> List[ResourceRoute]:
@@ -543,6 +565,38 @@ def format_csv_report(
     return buffer.getvalue().rstrip("\n")
 
 
+def format_json_report(
+    missing_routes: Sequence[CatalogEntry],
+    missing_catalog: Sequence[ResourceRoute],
+    citation_warnings: Sequence[ResourceRoute],
+    location_warnings: Sequence[ResourceRoute],
+    location_exemptions: Sequence[ResourceRoute],
+    step_citation_warnings: Sequence[ResourceRoute],
+) -> str:
+    payload = {
+        "missing_routes": [
+            _serialise_catalog_entry(entry) for entry in missing_routes
+        ],
+        "missing_catalog": [
+            _serialise_resource_route(route) for route in missing_catalog
+        ],
+        "citation_warnings": [
+            _serialise_resource_route(route) for route in citation_warnings
+        ],
+        "location_warnings": [
+            _serialise_resource_route(route) for route in location_warnings
+        ],
+        "location_exemptions": [
+            _serialise_resource_route(route) for route in location_exemptions
+        ],
+        "step_citation_warnings": [
+            _serialise_resource_route(route)
+            for route in step_citation_warnings
+        ],
+    }
+    return json.dumps(payload, indent=2, sort_keys=True)
+
+
 def format_report(
     missing_routes: Iterable[CatalogEntry],
     missing_catalog: Iterable[ResourceRoute],
@@ -577,6 +631,15 @@ def format_report(
             location_exemptions_list,
             step_citation_warnings_list,
         )
+    if report_format == "json":
+        return format_json_report(
+            missing_routes_list,
+            missing_catalog_list,
+            citation_warnings_list,
+            location_warnings_list,
+            location_exemptions_list,
+            step_citation_warnings_list,
+        )
     return format_text_report(
         missing_routes_list,
         missing_catalog_list,
@@ -595,7 +658,7 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument(
         "--format",
-        choices=("text", "markdown", "csv"),
+        choices=("text", "markdown", "csv", "json"),
         default="text",
         help="Output format. Defaults to human-readable text.",
     )
