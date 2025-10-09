@@ -12165,7 +12165,7 @@
           updateBreedingSelection();
           atlasSearch.value = '';
           renderAtlasGrid();
-          renderAtlasDiagram();
+          renderAtlasDiagram({ showLoader: true });
           switchBreedingMode('breedingAtlas');
           playSound(clickSound);
         });
@@ -12244,7 +12244,7 @@
             }
             updateBreedingSelection();
             renderAtlasGrid();
-            renderAtlasDiagram();
+            renderAtlasDiagram({ showLoader: true });
             playSound(clickSound);
           });
           atlasGrid.appendChild(card);
@@ -12394,7 +12394,7 @@
                 updateBreedingSelection();
                 atlasSearch.value = '';
                 renderAtlasGrid();
-                renderAtlasDiagram();
+                renderAtlasDiagram({ showLoader: true });
                 playSound(clickSound);
               });
               parentWrap.appendChild(card);
@@ -12447,31 +12447,60 @@
         return fragment;
       }
 
-      function renderAtlasDiagram() {
-        atlasDiagram.innerHTML = '';
-        atlasEmpty.hidden = true;
-        if (!selectedAtlas) {
-          atlasEmpty.hidden = false;
-          atlasEmpty.textContent = kidMode
-            ? 'Pick a pal on the left to see their family tree.'
-            : 'Select a pal to trace every breeding route that produces it.';
-          return;
+      function renderAtlasDiagram({ showLoader = false } = {}) {
+        const atlasContainer = atlasDiagram ? atlasDiagram.closest('.breeding-atlas__diagram') : null;
+        const executeRender = () => {
+          atlasDiagram.innerHTML = '';
+          atlasEmpty.hidden = true;
+          if (!selectedAtlas) {
+            atlasEmpty.hidden = false;
+            atlasEmpty.textContent = kidMode
+              ? 'Pick a pal on the left to see their family tree.'
+              : 'Select a pal to trace every breeding route that produces it.';
+            return;
+          }
+          atlasDiagram.appendChild(createAtlasFocus(selectedAtlas));
+          const branchesWrap = document.createElement('div');
+          branchesWrap.className = 'breeding-tree__branches';
+          const branchFragment = buildAtlasBranches(selectedAtlas, 0, new Set([selectedAtlas.id]));
+          if (branchFragment) {
+            branchesWrap.appendChild(branchFragment);
+          } else {
+            const note = document.createElement('p');
+            note.className = 'breeding-branch__notice';
+            note.textContent = kidMode
+              ? 'No breeding recipes recorded yet.'
+              : 'We do not have breeding recipes for this pal yet.';
+            branchesWrap.appendChild(note);
+          }
+          atlasDiagram.appendChild(branchesWrap);
+        };
+
+        if (showLoader && atlasContainer) {
+          const selectedName = selectedAtlas ? selectedAtlas.name : null;
+          const overlay = showCaptureLoadingOverlay(atlasContainer, {
+            size: 'inline',
+            labelText: selectedName
+              ? { kid: `Tracing ${selectedName}`, grown: `Tracing ${selectedName}` }
+              : { kid: 'Tracing ancestry tree', grown: 'Tracing ancestry tree' },
+            hintText: selectedName
+              ? { kid: 'Palmate is drawing every parent branch. Hang tight!', grown: 'Palmate is drawing every parent branch. Hang tight!' }
+              : { kid: 'Palmate is warming up the breeding atlas…', grown: 'Palmate is warming up the breeding atlas…' },
+            statusText: { kid: 'Syncing…', grown: 'Syncing…' }
+          });
+          if (overlay) {
+            overlay.update(15, { status: { kid: 'Charting combos…', grown: 'Charting combos…' } });
+            window.requestAnimationFrame(() => {
+              overlay.update(55, { status: { kid: 'Mapping branches…', grown: 'Mapping branches…' } });
+              executeRender();
+              overlay.update(100, { status: { kid: 'Tree ready', grown: 'Tree ready' } });
+              overlay.complete({ finalStatus: { kid: 'Capture ready', grown: 'Capture ready' } });
+            });
+            return;
+          }
         }
-        atlasDiagram.appendChild(createAtlasFocus(selectedAtlas));
-        const branchesWrap = document.createElement('div');
-        branchesWrap.className = 'breeding-tree__branches';
-        const branchFragment = buildAtlasBranches(selectedAtlas, 0, new Set([selectedAtlas.id]));
-        if (branchFragment) {
-          branchesWrap.appendChild(branchFragment);
-        } else {
-          const note = document.createElement('p');
-          note.className = 'breeding-branch__notice';
-          note.textContent = kidMode
-            ? 'No breeding recipes recorded yet.'
-            : 'We do not have breeding recipes for this pal yet.';
-          branchesWrap.appendChild(note);
-        }
-        atlasDiagram.appendChild(branchesWrap);
+
+        executeRender();
       }
 
       function filterPals(term) {
@@ -12790,7 +12819,7 @@
         showCombos();
         updateResult();
         renderAtlasGrid();
-        renderAtlasDiagram();
+        renderAtlasDiagram({ showLoader: refreshAnalysis });
         updateBreedingSelection();
       };
 
@@ -12800,6 +12829,18 @@
 
       refreshBreedingViews({ refreshAnalysis: true });
       switchBreedingMode(initialMode);
+    }
+
+    function modeCopy(copy, fallback) {
+      if (copy == null) return fallback;
+      if (typeof copy === 'string') return copy;
+      if (typeof copy === 'object') {
+        if (kidMode) {
+          return copy.kid ?? copy.grown ?? fallback;
+        }
+        return copy.grown ?? copy.kid ?? fallback;
+      }
+      return fallback;
     }
 
     function syncCaptureMeterDecor(meter, progressPercent) {
@@ -12816,6 +12857,157 @@
       if (labelValue) {
         labelValue.textContent = `${Math.round(safePercent)}%`;
       }
+    }
+
+    function createCaptureMeter({
+      size = 'inline',
+      variant = 'loading',
+      labelText = { kid: 'Capture', grown: 'Capture' },
+      statusText = { kid: 'Syncing…', grown: 'Syncing…' },
+      percent = 0,
+      meterId,
+      percentId,
+      statusId
+    } = {}) {
+      const meter = document.createElement('div');
+      meter.className = `capture-meter capture-meter--${size}`;
+      if (variant === 'loading') {
+        meter.classList.add('capture-meter--loading');
+      } else if (variant === 'ready') {
+        meter.classList.add('capture-meter--ready');
+      }
+      meter.setAttribute('role', 'progressbar');
+      meter.setAttribute('aria-valuemin', '0');
+      meter.setAttribute('aria-valuemax', '100');
+      meter.setAttribute('aria-valuenow', String(Math.round(percent)));
+      if (meterId) meter.id = meterId;
+
+      const ring = document.createElement('div');
+      ring.className = 'capture-meter__ring';
+
+      const progress = document.createElement('div');
+      progress.className = 'capture-meter__progress';
+      const ticks = document.createElement('div');
+      ticks.className = 'capture-meter__ticks';
+
+      const label = document.createElement('div');
+      label.className = 'capture-meter__label';
+      label.setAttribute('aria-hidden', 'true');
+      const track = document.createElement('div');
+      track.className = 'capture-meter__label-track';
+      const body = document.createElement('div');
+      body.className = 'capture-meter__label-body';
+      const pointer = document.createElement('span');
+      pointer.className = 'capture-meter__label-pointer';
+      pointer.setAttribute('aria-hidden', 'true');
+      const shell = document.createElement('span');
+      shell.className = 'capture-meter__label-shell';
+      const valueNode = document.createElement('span');
+      valueNode.className = 'capture-meter__label-value';
+      valueNode.textContent = `${Math.round(percent)}%`;
+      const textNode = document.createElement('span');
+      textNode.className = 'capture-meter__label-text';
+      textNode.textContent = modeCopy(labelText, 'Capture');
+      shell.appendChild(valueNode);
+      shell.appendChild(textNode);
+      body.appendChild(pointer);
+      body.appendChild(shell);
+      track.appendChild(body);
+      label.appendChild(track);
+
+      const core = document.createElement('div');
+      core.className = 'capture-meter__core';
+      const percentNode = document.createElement('span');
+      percentNode.className = 'capture-meter__percent';
+      percentNode.textContent = `${Math.round(percent)}%`;
+      if (percentId) percentNode.id = percentId;
+      const statusNode = document.createElement('span');
+      statusNode.className = 'capture-meter__status';
+      statusNode.textContent = modeCopy(statusText, kidMode ? 'Syncing…' : 'Syncing…');
+      if (statusId) statusNode.id = statusId;
+      core.appendChild(percentNode);
+      core.appendChild(statusNode);
+
+      ring.appendChild(progress);
+      ring.appendChild(ticks);
+      ring.appendChild(label);
+      ring.appendChild(core);
+      meter.appendChild(ring);
+
+      syncCaptureMeterDecor(meter, percent);
+
+      return { meter, percentNode, statusNode, labelValue: valueNode };
+    }
+
+    function showCaptureLoadingOverlay(container, {
+      size = 'inline',
+      labelText = { kid: 'Calibrating capture gauge', grown: 'Calibrating capture gauge' },
+      hintText = { kid: 'Palmate is calibrating…', grown: 'Palmate is calibrating…' },
+      statusText = { kid: 'Syncing…', grown: 'Syncing…' }
+    } = {}) {
+      if (!container) return null;
+      container.classList.add('capture-loading-parent');
+      let overlay = container.querySelector(':scope > .capture-loading-overlay');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'capture-loading-overlay';
+        overlay.setAttribute('role', 'status');
+        overlay.setAttribute('aria-live', 'polite');
+        const { meter, percentNode, statusNode, labelValue } = createCaptureMeter({ size, variant: 'loading', labelText, statusText, percent: 0 });
+        overlay.appendChild(meter);
+        const copy = document.createElement('div');
+        copy.className = 'capture-loading-overlay__copy';
+        const label = document.createElement('p');
+        label.className = 'capture-loading-overlay__label';
+        const hint = document.createElement('p');
+        hint.className = 'capture-loading-overlay__hint';
+        copy.appendChild(label);
+        copy.appendChild(hint);
+        overlay.appendChild(copy);
+        overlay.__captureOverlay = { meter, percentNode, statusNode, labelValue, label, hint };
+        container.appendChild(overlay);
+      }
+
+      const ctx = overlay.__captureOverlay;
+      if (!ctx) return null;
+      ctx.meter.classList.add('capture-meter--loading');
+      ctx.meter.classList.remove('capture-meter--ready', 'capture-meter--vanish');
+      ctx.meter.setAttribute('aria-valuenow', '0');
+      ctx.percentNode.textContent = '0%';
+      ctx.labelValue.textContent = '0%';
+      ctx.statusNode.textContent = modeCopy(statusText, kidMode ? 'Syncing…' : 'Syncing…');
+      ctx.label.textContent = modeCopy(labelText, kidMode ? 'Calibrating capture gauge' : 'Calibrating capture gauge');
+      ctx.hint.textContent = modeCopy(hintText, kidMode ? 'Palmate is calibrating…' : 'Palmate is calibrating…');
+      syncCaptureMeterDecor(ctx.meter, 0);
+
+      overlay.hidden = false;
+      overlay.classList.add('capture-loading-overlay--active');
+      overlay.classList.remove('capture-loading-overlay--complete');
+
+      return {
+        update(percent, { status: statusOverride } = {}) {
+          const safePercent = Number.isFinite(percent) ? Math.max(0, Math.min(percent, 100)) : 0;
+          ctx.meter.setAttribute('aria-valuenow', String(Math.round(safePercent)));
+          ctx.percentNode.textContent = `${Math.round(safePercent)}%`;
+          ctx.labelValue.textContent = `${Math.round(safePercent)}%`;
+          if (statusOverride) {
+            ctx.statusNode.textContent = modeCopy(statusOverride, ctx.statusNode.textContent);
+          }
+          syncCaptureMeterDecor(ctx.meter, safePercent);
+        },
+        complete({ delay = 520, finalStatus } = {}) {
+          if (finalStatus) {
+            ctx.statusNode.textContent = modeCopy(finalStatus, ctx.statusNode.textContent);
+          }
+          ctx.meter.classList.remove('capture-meter--loading');
+          ctx.meter.classList.add('capture-meter--ready', 'capture-meter--vanish');
+          overlay.classList.add('capture-loading-overlay--complete');
+          window.setTimeout(() => {
+            overlay.classList.remove('capture-loading-overlay--active', 'capture-loading-overlay--complete');
+            overlay.hidden = true;
+          }, delay);
+        }
+      };
     }
 
     const guideLoadingState = {
@@ -12876,6 +13068,7 @@
       card.classList.toggle('route-loading--hidden', shouldHide);
       const meter = card.querySelector('.route-loading__meter');
       if (meter) {
+        meter.classList.toggle('capture-meter--vanish', shouldHide);
         meter.setAttribute('aria-valuenow', String(Math.round(guideLoadingState.progress)));
         if (guideLoadingState.progress > 0 && !guideLoadingState.complete) {
           meter.classList.remove('capture-meter--loading');
@@ -12905,6 +13098,7 @@
       if (!meterShell || !meter) return;
       const shouldHide = guideDataReady && guideLoadingState.complete && !guideLoadingState.active;
       meterShell.classList.toggle('progress-stage-card__meter--hidden', shouldHide);
+      meter.classList.toggle('capture-meter--vanish', shouldHide);
       if (shouldHide) {
         return;
       }
@@ -12937,34 +13131,6 @@
       const home = document.getElementById('homeCards');
       if (!home) return;
       home.innerHTML = '';
-
-      function createCaptureMeterLabel(text = 'Capture') {
-        const label = document.createElement('div');
-        label.className = 'capture-meter__label';
-        label.setAttribute('aria-hidden', 'true');
-        const track = document.createElement('div');
-        track.className = 'capture-meter__label-track';
-        const body = document.createElement('div');
-        body.className = 'capture-meter__label-body';
-        const pointer = document.createElement('span');
-        pointer.className = 'capture-meter__label-pointer';
-        pointer.setAttribute('aria-hidden', 'true');
-        const shell = document.createElement('span');
-        shell.className = 'capture-meter__label-shell';
-        const valueNode = document.createElement('span');
-        valueNode.className = 'capture-meter__label-value';
-        valueNode.textContent = '0%';
-        const textNode = document.createElement('span');
-        textNode.className = 'capture-meter__label-text';
-        textNode.textContent = text;
-        shell.appendChild(valueNode);
-        shell.appendChild(textNode);
-        body.appendChild(pointer);
-        body.appendChild(shell);
-        track.appendChild(body);
-        label.appendChild(track);
-        return label;
-      }
 
       function createModeCard(mode) {
         const card = document.createElement('article');
@@ -13270,38 +13436,18 @@
       focusCopy.textContent = kidMode
         ? 'As soon as the adaptive guide loads we will highlight the next big milestone.'
         : 'Once the adaptive data is ready, you’ll see the upcoming milestone and context here.';
-      const focusMeter = document.createElement('div');
-      focusMeter.className = 'capture-meter capture-meter--inline capture-meter--loading home-focus-meter';
-      focusMeter.id = 'homeHeroFocusMeter';
-      focusMeter.setAttribute('role', 'progressbar');
-      focusMeter.setAttribute('aria-valuemin', '0');
-      focusMeter.setAttribute('aria-valuemax', '100');
-      focusMeter.setAttribute('aria-valuenow', '0');
-      const focusRing = document.createElement('div');
-      focusRing.className = 'capture-meter__ring';
-      const focusProgress = document.createElement('div');
-      focusProgress.className = 'capture-meter__progress';
-      const focusTicks = document.createElement('div');
-      focusTicks.className = 'capture-meter__ticks';
-      const focusLabel = createCaptureMeterLabel('Capture');
-      const focusCore = document.createElement('div');
-      focusCore.className = 'capture-meter__core';
-      const focusPercent = document.createElement('span');
-      focusPercent.className = 'capture-meter__percent';
-      focusPercent.id = 'homeHeroFocusPercent';
-      focusPercent.textContent = '0%';
-      const focusStatus = document.createElement('span');
-      focusStatus.className = 'capture-meter__status';
-      focusStatus.id = 'homeHeroFocusStatus';
-      focusStatus.textContent = kidMode ? 'Syncing…' : 'Syncing…';
-      focusCore.appendChild(focusPercent);
-      focusCore.appendChild(focusStatus);
-      focusRing.appendChild(focusProgress);
-      focusRing.appendChild(focusTicks);
-      focusRing.appendChild(focusLabel);
-      focusRing.appendChild(focusCore);
-      focusMeter.appendChild(focusRing);
-      syncCaptureMeterDecor(focusMeter, 0);
+      const focusMeterBundle = createCaptureMeter({
+        size: 'inline',
+        variant: 'loading',
+        labelText: { kid: 'Capture', grown: 'Capture' },
+        statusText: { kid: 'Syncing…', grown: 'Syncing…' },
+        percent: 0,
+        meterId: 'homeHeroFocusMeter',
+        percentId: 'homeHeroFocusPercent',
+        statusId: 'homeHeroFocusStatus'
+      });
+      const focusMeter = focusMeterBundle.meter;
+      focusMeter.classList.add('home-focus-meter');
       const focusActions = document.createElement('div');
       focusActions.className = 'home-focus-actions';
       const resumeBtn = document.createElement('button');
@@ -17754,35 +17900,38 @@
       if(!node) return;
       if(!routeGuideData){
         resetGuideLoadingState({ kid: 'Syncing adaptive guides…', grown: 'Syncing adaptive guides…' });
-        node.innerHTML = `
-          <section class="card route-loading" data-route-loading>
-            <div class="capture-meter capture-meter--compact capture-meter--loading route-loading__meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-              <div class="capture-meter__ring">
-                <div class="capture-meter__progress"></div>
-                <div class="capture-meter__ticks"></div>
-                <div class="capture-meter__label" aria-hidden="true">
-                  <div class="capture-meter__label-track">
-                    <div class="capture-meter__label-body">
-                      <span class="capture-meter__label-pointer" aria-hidden="true"></span>
-                      <span class="capture-meter__label-shell">
-                        <span class="capture-meter__label-value">0%</span>
-                        <span class="capture-meter__label-text">Capture</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="capture-meter__core">
-                  <span class="capture-meter__percent" data-route-loading-percent>0%</span>
-                  <span class="capture-meter__status" data-route-loading-status>Syncing…</span>
-                </div>
-              </div>
-            </div>
-            <div class="route-loading__copy" role="status" aria-live="polite">
-              <p class="route-loading__label">Syncing adaptive routes</p>
-              <p class="route-loading__hint">Palmate is calibrating the capture gauge for tonight’s progression plan.</p>
-            </div>
-          </section>
-        `;
+        node.innerHTML = '';
+        const loadingSection = document.createElement('section');
+        loadingSection.className = 'card route-loading';
+        loadingSection.dataset.routeLoading = '';
+        const meterBundle = createCaptureMeter({
+          size: 'compact',
+          variant: 'loading',
+          labelText: { kid: 'Capture', grown: 'Capture' },
+          statusText: { kid: 'Syncing…', grown: 'Syncing…' },
+          percent: guideLoadingState.progress || 0
+        });
+        const meter = meterBundle.meter;
+        meter.classList.add('route-loading__meter');
+        meterBundle.percentNode.dataset.routeLoadingPercent = '';
+        meterBundle.statusNode.dataset.routeLoadingStatus = '';
+        loadingSection.appendChild(meter);
+        const copyWrap = document.createElement('div');
+        copyWrap.className = 'route-loading__copy';
+        copyWrap.setAttribute('role', 'status');
+        copyWrap.setAttribute('aria-live', 'polite');
+        const loadingLabel = document.createElement('p');
+        loadingLabel.className = 'route-loading__label';
+        loadingLabel.textContent = kidMode ? 'Syncing adaptive routes' : 'Syncing adaptive routes';
+        const loadingHint = document.createElement('p');
+        loadingHint.className = 'route-loading__hint';
+        loadingHint.textContent = kidMode
+          ? 'Palmate is calibrating the capture gauge for tonight’s progression plan.'
+          : 'Palmate is calibrating the capture gauge for tonight’s progression plan.';
+        copyWrap.appendChild(loadingLabel);
+        copyWrap.appendChild(loadingHint);
+        loadingSection.appendChild(copyWrap);
+        node.appendChild(loadingSection);
         bumpGuideLoadingProgress(10, { kid: 'Syncing adaptive guides…', grown: 'Syncing adaptive guides…' });
         renderGuideLoadingPlaceholder();
       }
@@ -23627,6 +23776,7 @@
         syncCaptureMeterDecor(focusMeter, progressPercent);
         focusMeter.classList.toggle('capture-meter--loading', !guideDataReady);
         focusMeter.classList.toggle('capture-meter--ready', !!guideDataReady);
+        focusMeter.classList.toggle('capture-meter--vanish', !!guideDataReady);
       }
       const focusPercent = document.getElementById('homeHeroFocusPercent');
       if (focusPercent) {
