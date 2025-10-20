@@ -3618,6 +3618,235 @@
     .breeding-combo .combo-arrow {
       font-size: 1.3rem;
     }
+    .trait-planner {
+      display: grid;
+      gap: 24px;
+    }
+    .trait-planner__grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .trait-planner__insights {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+    .trait-selector {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .trait-selector__search {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(224, 225, 221, 0.2);
+      background: rgba(13, 27, 42, 0.45);
+      color: var(--text);
+    }
+    .trait-selector__search::placeholder {
+      color: rgba(224, 225, 221, 0.55);
+    }
+    .trait-selector__list {
+      display: grid;
+      gap: 10px;
+    }
+    .trait-selector__option {
+      border: 1px solid rgba(119, 141, 169, 0.35);
+      border-radius: 14px;
+      padding: 10px 14px;
+      background: rgba(13, 27, 42, 0.32);
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+    .trait-selector__option:hover,
+    .trait-selector__option:focus-visible {
+      border-color: rgba(224, 225, 221, 0.55);
+      background: rgba(65, 90, 119, 0.45);
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .trait-selector__option[aria-selected="true"] {
+      border-color: rgba(224, 225, 221, 0.75);
+      background: rgba(65, 90, 119, 0.55);
+      box-shadow: 0 12px 28px rgba(4, 15, 28, 0.35);
+    }
+    .trait-selector__option-title {
+      display: block;
+      font-weight: 600;
+    }
+    .trait-selector__option-desc {
+      display: block;
+      font-size: 0.8rem;
+      color: rgba(224, 225, 221, 0.65);
+      margin-top: 2px;
+    }
+    .trait-selector__description {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(224, 225, 221, 0.78);
+    }
+    .trait-selector__summary {
+      font-size: 0.85rem;
+      color: rgba(224, 225, 221, 0.65);
+    }
+    .trait-selector__actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .trait-selector__clear {
+      border: 1px solid rgba(224, 225, 221, 0.25);
+      background: transparent;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .trait-selector__clear:hover,
+    .trait-selector__clear:focus-visible {
+      border-color: rgba(224, 225, 221, 0.5);
+      background: rgba(224, 225, 221, 0.08);
+      outline: none;
+    }
+    .trait-outcome-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .trait-outcome {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(13, 27, 42, 0.45);
+      border: 1px solid rgba(119, 141, 169, 0.3);
+    }
+    .trait-outcome__header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .trait-outcome__title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .trait-outcome__count {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(224, 225, 221, 0.6);
+    }
+    .trait-outcome__combos {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .trait-outcome__combo {
+      align-items: center;
+    }
+    .trait-outcome__combo[aria-disabled="true"] {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    .trait-guide-body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .trait-guide__summary {
+      margin: 0;
+      font-size: 0.95rem;
+      color: rgba(224, 225, 221, 0.85);
+    }
+    .trait-guide__steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .trait-guide__step {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(13, 27, 42, 0.45);
+      border: 1px solid rgba(119, 141, 169, 0.35);
+    }
+    .trait-guide__step-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      font-weight: 600;
+    }
+    .trait-guide__flow {
+      margin-top: 4px;
+    }
+    .trait-guide__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .trait-guide__button {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      background: linear-gradient(135deg, rgba(119, 141, 169, 0.5), rgba(65, 90, 119, 0.7));
+      color: var(--text);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+    .trait-guide__button:hover,
+    .trait-guide__button:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(6, 18, 35, 0.45);
+      opacity: 0.95;
+      outline: none;
+    }
+    .trait-guide__requirements {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .trait-guide__requirement {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .trait-guide__requirement i {
+      font-size: 1rem;
+    }
+    .trait-guide__note {
+      font-size: 0.85rem;
+      color: rgba(224, 225, 221, 0.65);
+      margin: 0;
+    }
+    @media (max-width: 720px) {
+      .trait-planner__insights {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .trait-planner__grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
     .breeding-workspace .pal-card .badge {
       gap: 2px;
     }
@@ -5262,6 +5491,10 @@
               <i class="fa-solid fa-people-group"></i>
               <span>Pair Lab</span>
             </button>
+            <button type="button" id="breedingTabTraits" class="breeding-tab" data-target="breedingTraits" role="tab" aria-controls="breedingTraits" aria-selected="false" aria-pressed="false">
+              <i class="fa-solid fa-dna"></i>
+              <span>Trait Relay</span>
+            </button>
             <button type="button" id="breedingTabDiscover" class="breeding-tab" data-target="breedingDiscover" role="tab" aria-controls="breedingDiscover" aria-selected="false" aria-pressed="false">
               <i class="fa-solid fa-compass"></i>
               <span>Parent Finder</span>
@@ -5328,6 +5561,63 @@
                 </header>
                 <div class="breeding-result" id="breedingResult"></div>
               </article>
+            </div>
+          </div>
+          <div id="breedingTraits" class="breeding-mode" role="tabpanel" aria-labelledby="breedingTabTraits" aria-hidden="true" tabindex="-1">
+            <div class="trait-planner">
+              <div class="trait-planner__grid">
+                <article class="breeding-panel trait-panel">
+                  <div class="breeding-panel__header">
+                    <h3>Passive focus</h3>
+                    <p class="breeding-panel__description">Search for the passive you want to ferry forward.</p>
+                  </div>
+                  <div class="trait-selector">
+                    <input type="search" id="traitSearch" class="trait-selector__search" placeholder="Search passive traits" aria-label="Search passive traits">
+                    <div id="traitSuggestionList" class="trait-selector__list" role="listbox" aria-label="Passive trait suggestions"></div>
+                    <p id="traitSelectionSummary" class="trait-selector__summary" hidden></p>
+                    <p id="traitDescription" class="trait-selector__description" hidden></p>
+                    <div class="trait-selector__actions">
+                      <button type="button" id="traitClear" class="trait-selector__clear">Clear trait</button>
+                    </div>
+                  </div>
+                </article>
+                <article class="breeding-panel trait-panel">
+                  <div class="breeding-panel__header">
+                    <h3>Trait carrier</h3>
+                    <p class="breeding-panel__description">Pick the pal currently holding the passive.</p>
+                  </div>
+                  <div class="pal-search">
+                    <input type="search" id="traitCarrierSearch" placeholder="Search pals" aria-label="Search trait carrier pals">
+                  </div>
+                  <div class="pal-grid" id="traitCarrierGrid"></div>
+                </article>
+                <article class="breeding-panel trait-panel">
+                  <div class="breeding-panel__header">
+                    <h3>Target pal</h3>
+                    <p class="breeding-panel__description">Choose who should inherit the trait.</p>
+                  </div>
+                  <div class="pal-search">
+                    <input type="search" id="traitTargetSearch" placeholder="Search pals" aria-label="Search target pals">
+                  </div>
+                  <div class="pal-grid" id="traitTargetGrid"></div>
+                </article>
+              </div>
+              <div class="trait-planner__insights">
+                <article class="breeding-result-card trait-outcomes">
+                  <header>
+                    <h3 id="traitOutcomeTitle">Trait relay outcomes</h3>
+                    <p id="traitOutcomeCopy">Select your trait carrier to reveal every egg it can produce while sharing that passive.</p>
+                  </header>
+                  <div id="traitOutcomeList" class="trait-outcome-list"></div>
+                </article>
+                <article class="breeding-result-card trait-guide">
+                  <header>
+                    <h3 id="traitGuideTitle">Trait path guide</h3>
+                    <p id="traitGuideCopy">Pick a carrier and target to map the quickest trait hand-off.</p>
+                  </header>
+                  <div id="traitGuide" class="trait-guide-body"></div>
+                </article>
+              </div>
             </div>
           </div>
           <div id="breedingDiscover" class="breeding-mode" role="tabpanel" aria-labelledby="breedingTabDiscover" aria-hidden="true" tabindex="-1">
@@ -5581,7 +5871,16 @@
     let PAL_NAME_TO_ID = {};
     let PAL_SLUG_TO_ID = {};
     // Persist breeding page selections between rebuilds (e.g. when switching modes)
-    const BREEDING_SELECTION = { parent1Id: null, parent2Id: null, babyId: null, atlasId: null, mode: 'breedingAdvisor' };
+    const BREEDING_SELECTION = {
+      parent1Id: null,
+      parent2Id: null,
+      babyId: null,
+      atlasId: null,
+      traitId: null,
+      traitCarrierId: null,
+      traitTargetId: null,
+      mode: 'breedingAdvisor'
+    };
     let currentBreedingPageController = null;
     let baseBreedingRefreshHandle = null;
     let baseBreedingRefreshUsingTimeout = false;
@@ -11539,7 +11838,8 @@
     const BREEDING_ANALYSIS_CACHE = {
       recipeMap: null,
       partnerLookup: null,
-      palsSorted: null
+      palsSorted: null,
+      parentIndex: null
     };
     function buildBreedingRecipeMap() {
       const map = {};
@@ -11560,6 +11860,35 @@
         });
       });
       return map;
+    }
+    function buildBreedingParentIndex(recipeMap) {
+      const index = new Map();
+      if (!recipeMap) return index;
+      Object.entries(recipeMap).forEach(([childIdRaw, recipes]) => {
+        const childId = Number(childIdRaw);
+        const childPal = childId != null ? PALS[childId] || null : null;
+        (Array.isArray(recipes) ? recipes : []).forEach(recipe => {
+          const parents = Array.isArray(recipe.parents) ? recipe.parents : [];
+          parents.forEach((parentId, parentIndex) => {
+            if (parentId == null) return;
+            if (!index.has(parentId)) {
+              index.set(parentId, []);
+            }
+            const otherIndex = parentIndex === 0 ? 1 : 0;
+            const otherParentId = parents[otherIndex] != null ? parents[otherIndex] : null;
+            const otherParent = recipe?.pals?.[otherIndex] || (otherParentId != null ? PALS[otherParentId] || null : null);
+            index.get(parentId).push({
+              childId,
+              child: childPal,
+              recipe,
+              parentIndex,
+              otherParentId,
+              otherParent
+            });
+          });
+        });
+      });
+      return index;
     }
     function buildPartnerSkillLookup() {
       const lookup = {};
@@ -11651,6 +11980,7 @@
     function getBreedingAnalysis({ refresh = false } = {}) {
       if (refresh || !BREEDING_ANALYSIS_CACHE.recipeMap) {
         BREEDING_ANALYSIS_CACHE.recipeMap = buildBreedingRecipeMap();
+        BREEDING_ANALYSIS_CACHE.parentIndex = null;
       }
       if (refresh || !BREEDING_ANALYSIS_CACHE.partnerLookup) {
         BREEDING_ANALYSIS_CACHE.partnerLookup = buildPartnerSkillLookup();
@@ -11658,11 +11988,15 @@
       if (refresh || !BREEDING_ANALYSIS_CACHE.palsSorted) {
         BREEDING_ANALYSIS_CACHE.palsSorted = Object.values(PALS || {}).sort((a, b) => a.name.localeCompare(b.name));
       }
+      if (refresh || !BREEDING_ANALYSIS_CACHE.parentIndex) {
+        BREEDING_ANALYSIS_CACHE.parentIndex = buildBreedingParentIndex(BREEDING_ANALYSIS_CACHE.recipeMap);
+      }
       const graph = computeBreedingGraph(BREEDING_ANALYSIS_CACHE.recipeMap);
       return {
         recipeMap: BREEDING_ANALYSIS_CACHE.recipeMap,
         partnerLookup: BREEDING_ANALYSIS_CACHE.partnerLookup,
         palsSorted: BREEDING_ANALYSIS_CACHE.palsSorted,
+        parentIndex: BREEDING_ANALYSIS_CACHE.parentIndex,
         depths: graph.depths,
         sources: graph.sources,
         reachable: graph.reachable,
@@ -11925,14 +12259,46 @@
       const atlasSearch = document.getElementById('atlasSearch');
       const atlasDiagram = document.getElementById('breedingTree');
       const atlasEmpty = document.getElementById('breedingAtlasEmpty');
+      const traitSearch = document.getElementById('traitSearch');
+      const traitSuggestionList = document.getElementById('traitSuggestionList');
+      const traitDescription = document.getElementById('traitDescription');
+      const traitSummary = document.getElementById('traitSelectionSummary');
+      const traitClear = document.getElementById('traitClear');
+      const traitCarrierGrid = document.getElementById('traitCarrierGrid');
+      const traitCarrierSearch = document.getElementById('traitCarrierSearch');
+      const traitTargetGrid = document.getElementById('traitTargetGrid');
+      const traitTargetSearch = document.getElementById('traitTargetSearch');
+      const traitOutcomeTitle = document.getElementById('traitOutcomeTitle');
+      const traitOutcomeCopy = document.getElementById('traitOutcomeCopy');
+      const traitOutcomeList = document.getElementById('traitOutcomeList');
+      const traitGuideTitle = document.getElementById('traitGuideTitle');
+      const traitGuideCopy = document.getElementById('traitGuideCopy');
+      const traitGuideBody = document.getElementById('traitGuide');
       const modeButtons = Array.from(document.querySelectorAll('.breeding-tab'));
       const modes = Array.from(document.querySelectorAll('.breeding-mode'));
-      if (!parent1Grid || !parent2Grid || !babyGrid || !result || !combosContainer || !parent1Search || !parent2Search || !babySearch || !advisorGrid || !advisorEmpty || !advisorTitle || !advisorCopy || !atlasGrid || !atlasSearch || !atlasDiagram || !atlasEmpty) {
+      if (!parent1Grid || !parent2Grid || !babyGrid || !result || !combosContainer || !parent1Search || !parent2Search || !babySearch || !advisorGrid || !advisorEmpty || !advisorTitle || !advisorCopy || !atlasGrid || !atlasSearch || !atlasDiagram || !atlasEmpty || !traitSearch || !traitSuggestionList || !traitDescription || !traitSummary || !traitClear || !traitCarrierGrid || !traitCarrierSearch || !traitTargetGrid || !traitTargetSearch || !traitOutcomeTitle || !traitOutcomeCopy || !traitOutcomeList || !traitGuideTitle || !traitGuideCopy || !traitGuideBody) {
         return;
       }
       let analysis = getBreedingAnalysis({ refresh: true });
       let palsSorted = analysis.palsSorted;
+      let parentIndex = analysis.parentIndex instanceof Map ? analysis.parentIndex : new Map();
       let formatSteps = palId => formatBreedingDepthLabel(analysis, palId, { kidMode });
+      const traitEntries = Object.keys(traitsDictionary || {}).map(name => ({
+        name,
+        description: typeof traitsDictionary[name] === 'string' ? traitsDictionary[name] : ''
+      })).sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+      const hasSavedTrait = traitEntries.some(entry => entry.name === BREEDING_SELECTION.traitId);
+      let selectedTrait = hasSavedTrait ? BREEDING_SELECTION.traitId : null;
+      let traitState = {
+        carrier: BREEDING_SELECTION.traitCarrierId && PALS[BREEDING_SELECTION.traitCarrierId]
+          ? PALS[BREEDING_SELECTION.traitCarrierId]
+          : null,
+        target: BREEDING_SELECTION.traitTargetId && PALS[BREEDING_SELECTION.traitTargetId]
+          ? PALS[BREEDING_SELECTION.traitTargetId]
+          : null
+      };
+      if (!traitState.carrier) traitState.carrier = null;
+      if (!traitState.target) traitState.target = null;
 
       let parentState = {
         parent1: BREEDING_SELECTION.parent1Id ? PALS[BREEDING_SELECTION.parent1Id] : null,
@@ -11950,6 +12316,9 @@
         BREEDING_SELECTION.parent2Id = parentState.parent2 ? parentState.parent2.id : null;
         BREEDING_SELECTION.babyId = selectedBaby ? selectedBaby.id : null;
         BREEDING_SELECTION.atlasId = selectedAtlas ? selectedAtlas.id : null;
+        BREEDING_SELECTION.traitId = selectedTrait;
+        BREEDING_SELECTION.traitCarrierId = traitState.carrier ? traitState.carrier.id : null;
+        BREEDING_SELECTION.traitTargetId = traitState.target ? traitState.target.id : null;
       }
 
       function makeEmptyMessage(text) {
@@ -11957,6 +12326,18 @@
         msg.className = 'empty-state';
         msg.textContent = text;
         return msg;
+      }
+
+      function getRecipeParentName(recipe, index, fallbackPal) {
+        if (!recipe) return fallbackPal ? fallbackPal.name : 'Unknown';
+        const names = Array.isArray(recipe.names) ? recipe.names : [];
+        if (names[index]) return names[index];
+        const pals = Array.isArray(recipe.pals) ? recipe.pals : [];
+        if (pals[index] && pals[index].name) return pals[index].name;
+        const parents = Array.isArray(recipe.parents) ? recipe.parents : [];
+        const parentId = parents[index];
+        if (parentId != null && PALS[parentId]) return PALS[parentId].name;
+        return fallbackPal ? fallbackPal.name : 'Unknown';
       }
 
       function createPalCard(pal, options = {}) {
@@ -12208,6 +12589,7 @@
         const { analysis: latestAnalysis, suggestions } = generateBreedingAdvisorSuggestions({ kidMode, refresh: refreshAnalysis });
         analysis = latestAnalysis;
         palsSorted = analysis.palsSorted;
+        parentIndex = analysis.parentIndex instanceof Map ? analysis.parentIndex : new Map();
         formatSteps = palId => formatBreedingDepthLabel(analysis, palId, { kidMode });
 
         if (!suggestions.length) {
@@ -12692,6 +13074,463 @@
         });
       }
 
+      function findTraitEntry(name) {
+        if (!name) return null;
+        return traitEntries.find(entry => entry.name === name) || null;
+      }
+
+      function updateTraitCopy() {
+        if (traitOutcomeTitle) {
+          traitOutcomeTitle.textContent = kidMode ? 'Trait relay pals' : 'Trait relay outcomes';
+        }
+        if (traitOutcomeCopy) {
+          traitOutcomeCopy.textContent = kidMode
+            ? 'Pick your pal to see every egg that can pass the passive onward.'
+            : 'Select your trait carrier to reveal every egg it can produce while sharing that passive.';
+        }
+        if (traitGuideTitle) {
+          traitGuideTitle.textContent = kidMode ? 'Trait path guide' : 'Trait path guide';
+        }
+        if (traitGuideCopy) {
+          traitGuideCopy.textContent = kidMode
+            ? 'Choose a carrier and a target to map the quickest trait path.'
+            : 'Pick a carrier and target to map the quickest trait hand-off.';
+        }
+        if (traitClear) {
+          traitClear.textContent = kidMode ? 'Clear trait' : 'Clear trait';
+        }
+      }
+
+      function renderTraitDetails() {
+        if (selectedTrait) {
+          const entry = findTraitEntry(selectedTrait);
+          traitSummary.hidden = false;
+          traitSummary.textContent = kidMode
+            ? `Selected: ${selectedTrait}`
+            : `${selectedTrait} locked in for relay planning.`;
+          if (entry && entry.description) {
+            traitDescription.hidden = false;
+            traitDescription.textContent = entry.description;
+          } else {
+            traitDescription.hidden = true;
+          }
+        } else {
+          traitSummary.hidden = true;
+          traitDescription.hidden = true;
+        }
+        if (traitClear) {
+          traitClear.hidden = !selectedTrait;
+          traitClear.disabled = !selectedTrait;
+        }
+      }
+
+      function renderTraitSuggestions() {
+        traitSuggestionList.innerHTML = '';
+        if (!traitEntries.length) {
+          traitSuggestionList.appendChild(makeEmptyMessage(kidMode ? 'Passive list loading…' : 'Passive trait data is still loading.'));
+          return;
+        }
+        const term = traitSearch.value.trim().toLowerCase();
+        const matches = traitEntries
+          .filter(entry => {
+            if (!term) return true;
+            const haystack = `${entry.name} ${entry.description}`.toLowerCase();
+            return haystack.includes(term);
+          })
+          .slice(0, 8);
+        if (!matches.length) {
+          traitSuggestionList.appendChild(makeEmptyMessage(kidMode ? 'No traits match that search.' : 'No passive traits match that search.'));
+          return;
+        }
+        matches.forEach(entry => {
+          const option = document.createElement('button');
+          option.type = 'button';
+          option.className = 'trait-selector__option';
+          option.setAttribute('role', 'option');
+          option.dataset.trait = entry.name;
+          option.setAttribute('aria-selected', selectedTrait === entry.name ? 'true' : 'false');
+          const title = document.createElement('span');
+          title.className = 'trait-selector__option-title';
+          title.textContent = entry.name;
+          option.appendChild(title);
+          if (entry.description) {
+            const desc = document.createElement('span');
+            desc.className = 'trait-selector__option-desc';
+            desc.textContent = entry.description;
+            option.appendChild(desc);
+          }
+          option.addEventListener('click', () => {
+            if (selectedTrait === entry.name) return;
+            selectedTrait = entry.name;
+            updateBreedingSelection();
+            renderTraitDetails();
+            renderTraitSuggestions();
+            renderTraitOutcomes();
+            renderTraitGuide();
+            playSound(clickSound);
+          });
+          traitSuggestionList.appendChild(option);
+        });
+      }
+
+      function renderTraitCarrierGrid() {
+        traitCarrierGrid.innerHTML = '';
+        if (!palsSorted.length) {
+          traitCarrierGrid.appendChild(makeEmptyMessage(kidMode ? 'Loading pals…' : 'Breeding data is still loading.'));
+          return;
+        }
+        let matches = filterPals(traitCarrierSearch.value);
+        if (traitState.carrier && !matches.some(p => p.id === traitState.carrier.id)) {
+          matches = [traitState.carrier, ...matches];
+        }
+        if (!matches.length) {
+          traitCarrierGrid.appendChild(makeEmptyMessage(kidMode ? 'No pals match that search.' : 'No pals match that search.'));
+          return;
+        }
+        matches.forEach(pal => {
+          const card = createPalCard(pal, {
+            compact: true,
+            selectable: true,
+            selected: traitState.carrier && traitState.carrier.id === pal.id
+          });
+          card.addEventListener('click', () => {
+            const alreadySelected = traitState.carrier && traitState.carrier.id === pal.id;
+            traitState.carrier = alreadySelected ? null : pal;
+            updateBreedingSelection();
+            renderTraitCarrierGrid();
+            renderTraitOutcomes();
+            renderTraitGuide();
+            playSound(clickSound);
+          });
+          traitCarrierGrid.appendChild(card);
+        });
+      }
+
+      function renderTraitTargetGrid() {
+        traitTargetGrid.innerHTML = '';
+        if (!palsSorted.length) {
+          traitTargetGrid.appendChild(makeEmptyMessage(kidMode ? 'Loading pals…' : 'Breeding data is still loading.'));
+          return;
+        }
+        let matches = filterPals(traitTargetSearch.value);
+        if (traitState.target && !matches.some(p => p.id === traitState.target.id)) {
+          matches = [traitState.target, ...matches];
+        }
+        if (!matches.length) {
+          traitTargetGrid.appendChild(makeEmptyMessage(kidMode ? 'No pals match that search.' : 'No pals match that search.'));
+          return;
+        }
+        matches.forEach(pal => {
+          const card = createPalCard(pal, {
+            compact: true,
+            selectable: true,
+            selected: traitState.target && traitState.target.id === pal.id
+          });
+          card.addEventListener('click', () => {
+            const alreadySelected = traitState.target && traitState.target.id === pal.id;
+            traitState.target = alreadySelected ? null : pal;
+            updateBreedingSelection();
+            renderTraitTargetGrid();
+            renderTraitGuide();
+            playSound(clickSound);
+          });
+          traitTargetGrid.appendChild(card);
+        });
+      }
+
+      function renderTraitOutcomes() {
+        traitOutcomeList.innerHTML = '';
+        const carrier = traitState.carrier;
+        if (!carrier) {
+          traitOutcomeList.appendChild(makeEmptyMessage(kidMode ? 'Pick your trait pal above to see results.' : 'Select a trait carrier to list every reachable offspring.'));
+          return;
+        }
+        const combos = parentIndex.get(carrier.id) || [];
+        const validCombos = combos.filter(entry => entry.childId != null);
+        if (!validCombos.length) {
+          traitOutcomeList.appendChild(makeEmptyMessage(kidMode ? 'No breeding data for this pal yet.' : 'We do not have recorded combos that include this carrier.'));
+          return;
+        }
+        const grouped = new Map();
+        validCombos.forEach(entry => {
+          const key = entry.childId;
+          if (!grouped.has(key)) grouped.set(key, []);
+          grouped.get(key).push(entry);
+        });
+        const sortedChildren = Array.from(grouped.keys()).sort((a, b) => {
+          const nameA = PALS[a]?.name || 'Unknown';
+          const nameB = PALS[b]?.name || 'Unknown';
+          return nameA.localeCompare(nameB, undefined, { sensitivity: 'base' });
+        });
+        sortedChildren.forEach(childId => {
+          const childPal = PALS[childId] || null;
+          const container = document.createElement('div');
+          container.className = 'trait-outcome';
+          const header = document.createElement('div');
+          header.className = 'trait-outcome__header';
+          const title = document.createElement('div');
+          title.className = 'trait-outcome__title';
+          title.appendChild(createPalChip(childPal, childPal ? childPal.name : 'Unknown', {
+            role: 'child',
+            meta: childPal ? formatSteps(childPal.id) : ''
+          }));
+          header.appendChild(title);
+          const count = document.createElement('span');
+          count.className = 'trait-outcome__count';
+          const group = grouped.get(childId) || [];
+          count.textContent = kidMode
+            ? `${group.length} combo${group.length === 1 ? '' : 's'}`
+            : `${group.length} combo${group.length === 1 ? '' : 's'}`;
+          header.appendChild(count);
+          container.appendChild(header);
+          const combosWrap = document.createElement('div');
+          combosWrap.className = 'trait-outcome__combos';
+          group.forEach(entry => {
+            const otherParent = entry.otherParent || (entry.otherParentId != null ? PALS[entry.otherParentId] : null);
+            const parentNames = [
+              getRecipeParentName(entry.recipe, 0, entry.recipe?.pals?.[0] || (entry.recipe?.parents?.[0] != null ? PALS[entry.recipe.parents[0]] : null)),
+              getRecipeParentName(entry.recipe, 1, entry.recipe?.pals?.[1] || (entry.recipe?.parents?.[1] != null ? PALS[entry.recipe.parents[1]] : null))
+            ];
+            const canActivate = entry.otherParentId != null && entry.childId != null && Array.isArray(entry.recipe?.parents) && entry.recipe.parents.every(id => id != null);
+            const row = document.createElement('div');
+            row.className = 'breeding-combo trait-outcome__combo';
+            if (canActivate) {
+              row.setAttribute('role', 'button');
+              row.tabIndex = 0;
+            } else {
+              row.classList.add('breeding-combo--disabled');
+              row.setAttribute('aria-disabled', 'true');
+            }
+            const leftPal = entry.parentIndex === 0 ? carrier : otherParent;
+            const rightPal = entry.parentIndex === 0 ? otherParent : carrier;
+            const leftName = entry.parentIndex === 0 ? parentNames[0] : parentNames[1];
+            const rightName = entry.parentIndex === 0 ? parentNames[1] : parentNames[0];
+            row.appendChild(createComboCard(leftPal, leftName));
+            const plus = document.createElement('div');
+            plus.className = 'combo-arrow';
+            plus.textContent = '+';
+            row.appendChild(plus);
+            row.appendChild(createComboCard(rightPal, rightName));
+            const arrow = document.createElement('div');
+            arrow.className = 'combo-arrow';
+            arrow.textContent = '→';
+            row.appendChild(arrow);
+            row.appendChild(createPalChip(childPal, childPal ? childPal.name : 'Unknown', {
+              role: 'child',
+              meta: childPal ? formatSteps(childPal.id) : ''
+            }));
+            const activate = () => {
+              if (!canActivate) return;
+              if (entry.parentIndex === 0) {
+                parentState.parent1 = carrier;
+                parentState.parent2 = otherParent || (entry.otherParentId != null ? PALS[entry.otherParentId] : null);
+              } else {
+                parentState.parent1 = otherParent || (entry.otherParentId != null ? PALS[entry.otherParentId] : null);
+                parentState.parent2 = carrier;
+              }
+              selectedBaby = childPal;
+              updateBreedingSelection();
+              updateParentGrids();
+              renderBabyGrid();
+              showCombos();
+              updateResult();
+              switchBreedingMode('breedingPairs');
+              playSound(clickSound);
+            };
+            if (canActivate) {
+              row.addEventListener('click', activate);
+              row.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  activate();
+                }
+              });
+            }
+            combosWrap.appendChild(row);
+          });
+          container.appendChild(combosWrap);
+          traitOutcomeList.appendChild(container);
+        });
+      }
+
+      function computeTraitPlan(sourcePal, targetPal) {
+        if (!sourcePal || !targetPal) return null;
+        if (sourcePal.id === targetPal.id) return { steps: [] };
+        const visited = new Set([sourcePal.id]);
+        const queue = [{ carrierId: sourcePal.id, steps: [] }];
+        while (queue.length) {
+          const current = queue.shift();
+          const edges = parentIndex.get(current.carrierId) || [];
+          for (const edge of edges) {
+            if (edge.childId == null || edge.otherParentId == null) continue;
+            const childPal = edge.child || PALS[edge.childId];
+            if (!childPal) continue;
+            const otherParentPal = edge.otherParent || (edge.otherParentId != null ? PALS[edge.otherParentId] : null);
+            const nextSteps = current.steps.concat([{
+              parentIndex: edge.parentIndex,
+              childPal,
+              childId: edge.childId,
+              otherParentPal,
+              otherParentId: edge.otherParentId,
+              recipe: edge.recipe
+            }]);
+            if (edge.childId === targetPal.id) {
+              return { steps: nextSteps };
+            }
+            if (!visited.has(edge.childId)) {
+              visited.add(edge.childId);
+              queue.push({ carrierId: edge.childId, steps: nextSteps });
+            }
+          }
+        }
+        return null;
+      }
+
+      function renderTraitGuide() {
+        traitGuideBody.innerHTML = '';
+        const carrier = traitState.carrier;
+        const target = traitState.target;
+        if (!carrier || !target) {
+          traitGuideBody.appendChild(makeEmptyMessage(kidMode ? 'Choose a carrier and target pal to build the plan.' : 'Select both a trait carrier and a target pal to generate a relay plan.'));
+          return;
+        }
+        if (carrier.id === target.id) {
+          const summary = document.createElement('p');
+          summary.className = 'trait-guide__summary';
+          summary.innerHTML = kidMode
+            ? `<strong>${target.name}</strong> already has the passive. No breeding needed!`
+            : `<strong>${target.name}</strong> already holds the passive—no relay required.`;
+          traitGuideBody.appendChild(summary);
+          return;
+        }
+        const plan = computeTraitPlan(carrier, target);
+        if (!plan) {
+          traitGuideBody.appendChild(makeEmptyMessage(kidMode ? 'We do not have a breeding path for this trait yet.' : 'We could not find a recorded breeding chain that keeps the passive intact.'));
+          return;
+        }
+        const stepCount = plan.steps.length;
+        const summary = document.createElement('p');
+        summary.className = 'trait-guide__summary';
+        summary.innerHTML = kidMode
+          ? `${stepCount} breeding step${stepCount === 1 ? '' : 's'} to move the passive from <strong>${carrier.name}</strong> to <strong>${target.name}</strong>.`
+          : `Plan on ${stepCount} breeding step${stepCount === 1 ? '' : 's'} to relay the passive from <strong>${carrier.name}</strong> to <strong>${target.name}</strong>.`;
+        traitGuideBody.appendChild(summary);
+        const stepsList = document.createElement('ol');
+        stepsList.className = 'trait-guide__steps';
+        plan.steps.forEach((step, index) => {
+          const listItem = document.createElement('li');
+          listItem.className = 'trait-guide__step';
+          const heading = document.createElement('div');
+          heading.className = 'trait-guide__step-header';
+          heading.textContent = kidMode
+            ? `Step ${index + 1}: Hatch ${step.childPal.name}`
+            : `Step ${index + 1}: Breed for ${step.childPal.name}`;
+          listItem.appendChild(heading);
+          const flow = document.createElement('div');
+          flow.className = 'breeding-flow trait-guide__flow';
+          const traitCarrierPal = index === 0 ? carrier : plan.steps[index - 1].childPal;
+          const otherParentPal = step.otherParentPal || (step.otherParentId != null ? PALS[step.otherParentId] : null);
+          const parentNames = [
+            getRecipeParentName(step.recipe, 0, step.recipe?.pals?.[0] || (step.recipe?.parents?.[0] != null ? PALS[step.recipe.parents[0]] : null)),
+            getRecipeParentName(step.recipe, 1, step.recipe?.pals?.[1] || (step.recipe?.parents?.[1] != null ? PALS[step.recipe.parents[1]] : null))
+          ];
+          const leftPal = step.parentIndex === 0 ? traitCarrierPal : otherParentPal;
+          const rightPal = step.parentIndex === 0 ? otherParentPal : traitCarrierPal;
+          const leftName = step.parentIndex === 0 ? parentNames[0] : parentNames[1];
+          const rightName = step.parentIndex === 0 ? parentNames[1] : parentNames[0];
+          flow.appendChild(createPalChip(leftPal, leftName, {
+            role: 'parent',
+            meta: leftPal ? formatSteps(leftPal.id) : ''
+          }));
+          const plus = document.createElement('div');
+          plus.className = 'combo-arrow';
+          plus.textContent = '+';
+          flow.appendChild(plus);
+          flow.appendChild(createPalChip(rightPal, rightName, {
+            role: 'parent',
+            meta: rightPal ? formatSteps(rightPal.id) : ''
+          }));
+          const arrow = document.createElement('div');
+          arrow.className = 'combo-arrow';
+          arrow.textContent = '→';
+          flow.appendChild(arrow);
+          flow.appendChild(createPalChip(step.childPal, step.childPal.name, {
+            role: 'child',
+            meta: formatSteps(step.childPal.id)
+          }));
+          listItem.appendChild(flow);
+          const actions = document.createElement('div');
+          actions.className = 'trait-guide__actions';
+          const queueBtn = document.createElement('button');
+          queueBtn.type = 'button';
+          queueBtn.className = 'trait-guide__button';
+          queueBtn.textContent = kidMode ? 'Queue this step' : 'Queue in Pair Lab';
+          queueBtn.addEventListener('click', () => {
+            if (step.parentIndex === 0) {
+              parentState.parent1 = traitCarrierPal;
+              parentState.parent2 = otherParentPal || (step.otherParentId != null ? PALS[step.otherParentId] : null);
+            } else {
+              parentState.parent1 = otherParentPal || (step.otherParentId != null ? PALS[step.otherParentId] : null);
+              parentState.parent2 = traitCarrierPal;
+            }
+            selectedBaby = step.childPal;
+            updateBreedingSelection();
+            updateParentGrids();
+            renderBabyGrid();
+            showCombos();
+            updateResult();
+            switchBreedingMode('breedingPairs');
+            playSound(clickSound);
+          });
+          actions.appendChild(queueBtn);
+          listItem.appendChild(actions);
+          stepsList.appendChild(listItem);
+        });
+        traitGuideBody.appendChild(stepsList);
+        const requirements = new Map();
+        plan.steps.forEach(step => {
+          if (step.otherParentId == null) return;
+          if (!requirements.has(step.otherParentId)) {
+            requirements.set(step.otherParentId, step.otherParentPal || (step.otherParentId != null ? PALS[step.otherParentId] : null));
+          }
+        });
+        if (requirements.size) {
+          const wrap = document.createElement('div');
+          wrap.className = 'trait-guide__requirements';
+          const intro = document.createElement('p');
+          intro.className = 'trait-guide__summary';
+          intro.textContent = kidMode ? 'Make sure these helper pals are ready:' : 'Prep these helper parents before you start:';
+          wrap.appendChild(intro);
+          requirements.forEach(pal => {
+            const row = document.createElement('div');
+            row.className = 'trait-guide__requirement';
+            const icon = document.createElement('i');
+            const isCaught = pal && caught[pal.id];
+            icon.className = `fa-solid ${isCaught ? 'fa-circle-check' : 'fa-circle-exclamation'}`;
+            icon.style.color = isCaught ? 'var(--success)' : 'var(--danger)';
+            row.appendChild(icon);
+            row.appendChild(createPalChip(pal, pal ? pal.name : 'Unknown', {
+              condensed: true,
+              role: 'parent',
+              meta: pal ? formatSteps(pal.id) : ''
+            }));
+            const status = document.createElement('span');
+            status.textContent = isCaught
+              ? (kidMode ? 'Ready to go' : 'Already captured')
+              : (kidMode ? 'Catch or trade for this pal' : 'Catch or trade for this parent before breeding');
+            row.appendChild(status);
+            wrap.appendChild(row);
+          });
+          traitGuideBody.appendChild(wrap);
+        }
+        const note = document.createElement('p');
+        note.className = 'trait-guide__note';
+        note.textContent = kidMode
+          ? 'Each egg only has a chance to copy the passive, so hatch a few backups at every step.'
+          : 'Passives roll on every hatch (roughly 40%/30%/20%/10% for one to four slots), so expect to incubate multiple eggs per step.';
+        traitGuideBody.appendChild(note);
+      }
+
       function findPredictedBaby() {
         if (!parentState.parent1 || !parentState.parent2) return null;
         const power1 = parentState.parent1.breeding && typeof parentState.parent1.breeding.power === 'number'
@@ -12820,6 +13659,29 @@
       parent2Search.oninput = () => renderParentGrid('parent2');
       babySearch.oninput = () => renderBabyGrid();
       atlasSearch.oninput = () => renderAtlasGrid();
+      traitSearch.addEventListener('input', () => renderTraitSuggestions());
+      traitSearch.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+          const firstOption = traitSuggestionList.querySelector('.trait-selector__option');
+          if (firstOption) {
+            event.preventDefault();
+            firstOption.click();
+          }
+        }
+      });
+      traitCarrierSearch.oninput = () => renderTraitCarrierGrid();
+      traitTargetSearch.oninput = () => renderTraitTargetGrid();
+      traitClear.addEventListener('click', () => {
+        if (!selectedTrait) return;
+        selectedTrait = null;
+        traitSearch.value = '';
+        updateBreedingSelection();
+        renderTraitDetails();
+        renderTraitSuggestions();
+        renderTraitOutcomes();
+        renderTraitGuide();
+        playSound(clickSound);
+      });
 
       const refreshBreedingViews = ({ refreshAnalysis = false } = {}) => {
         renderAdvisor({ refreshAnalysis });
@@ -12829,6 +13691,13 @@
         updateResult();
         renderAtlasGrid();
         renderAtlasDiagram({ showLoader: refreshAnalysis });
+        updateTraitCopy();
+        renderTraitDetails();
+        renderTraitSuggestions();
+        renderTraitCarrierGrid();
+        renderTraitTargetGrid();
+        renderTraitOutcomes();
+        renderTraitGuide();
         updateBreedingSelection();
       };
 
