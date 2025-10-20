@@ -5388,6 +5388,15 @@
                   </div>
                 </div>
               </div>
+              <div class="progress-stage-bar progress-stage-bar--hidden" id="progressStageBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Adaptive completion">
+                <div class="progress-stage-bar__track">
+                  <div class="progress-stage-bar__fill" id="progressStageBarFill" style="width:0%"></div>
+                </div>
+                <div class="progress-stage-bar__meta">
+                  <span class="progress-stage-bar__percent" id="progressStageBarPercent">0%</span>
+                  <span class="progress-stage-bar__status" id="progressStageBarStatus">Adaptive stage ready</span>
+                </div>
+              </div>
               <span class="label" id="progressStageLabel">Adaptive completion</span>
             </div>
             <div class="progress-stage-card__actions">
@@ -13095,33 +13104,76 @@
     function renderProgressStageLoadingMeter({ guideDataReady = false } = {}) {
       const meterShell = document.querySelector('.progress-stage-card__meter');
       const meter = document.getElementById('progressStageMeter');
-      if (!meterShell || !meter) return;
-      const shouldHide = guideDataReady && guideLoadingState.complete && !guideLoadingState.active;
-      meterShell.classList.toggle('progress-stage-card__meter--hidden', shouldHide);
-      meter.classList.toggle('capture-meter--vanish', shouldHide);
-      if (shouldHide) {
+      const progressBar = document.getElementById('progressStageBar');
+      const barFill = document.getElementById('progressStageBarFill');
+      const barPercent = document.getElementById('progressStageBarPercent');
+      const barStatus = document.getElementById('progressStageBarStatus');
+      if (!meterShell || !meter || !progressBar) return;
+
+      const loadingActive = !guideDataReady || guideLoadingState.active || !guideLoadingState.complete;
+      meterShell.classList.remove('progress-stage-card__meter--hidden');
+
+      meter.hidden = !loadingActive;
+      meter.classList.toggle('capture-meter--vanish', !loadingActive);
+      progressBar.hidden = loadingActive;
+      progressBar.classList.toggle('progress-stage-bar--hidden', loadingActive);
+
+      if (loadingActive) {
+        const loadProgress = guideLoadingState.progress;
+        meter.setAttribute('aria-valuenow', String(Math.round(loadProgress)));
+        if (loadProgress > 0 && !guideLoadingState.complete) {
+          meter.classList.remove('capture-meter--loading');
+        } else if (!guideLoadingState.complete) {
+          meter.classList.add('capture-meter--loading');
+        }
+        if (guideLoadingState.complete && guideDataReady) {
+          meter.classList.add('capture-meter--ready');
+        } else {
+          meter.classList.remove('capture-meter--ready');
+        }
+        syncCaptureMeterDecor(meter, loadProgress);
+        const percentNode = document.getElementById('progressStagePercent');
+        if (percentNode) {
+          percentNode.textContent = `${Math.round(loadProgress)}%`;
+        }
+        const statusNode = document.getElementById('progressStageStatus');
+        if (statusNode) {
+          statusNode.textContent = guideLoadingState.status || (kidMode ? 'Syncing…' : 'Syncing…');
+        }
         return;
       }
-      const loadProgress = guideLoadingState.progress;
-      meter.setAttribute('aria-valuenow', String(Math.round(loadProgress)));
-      if (loadProgress > 0 && !guideLoadingState.complete) {
-        meter.classList.remove('capture-meter--loading');
-      } else if (!guideLoadingState.complete) {
-        meter.classList.add('capture-meter--loading');
+
+      const summary = calculateGuideProgressSummary();
+      const percent = Number.isFinite(summary?.percent) ? Math.max(0, Math.min(summary.percent, 100)) : 0;
+      const roundedPercent = Math.round(percent);
+      const defaultStatus = roundedPercent >= 100
+        ? (kidMode ? 'Adaptive stage complete' : 'Adaptive stage complete')
+        : (kidMode ? 'Stage in progress' : 'Stage in progress');
+      const resolvedStatus = guideLoadingState.status && guideLoadingState.status !== (kidMode ? 'Syncing…' : 'Syncing…')
+        ? guideLoadingState.status
+        : defaultStatus;
+
+      progressBar.setAttribute('aria-valuenow', String(roundedPercent));
+      if (barFill) {
+        barFill.style.width = `${percent}%`;
       }
-      if (guideLoadingState.complete && guideDataReady) {
-        meter.classList.add('capture-meter--ready');
-      } else {
-        meter.classList.remove('capture-meter--ready');
+      if (barPercent) {
+        barPercent.textContent = `${roundedPercent}%`;
       }
-      syncCaptureMeterDecor(meter, loadProgress);
+      if (barStatus) {
+        barStatus.textContent = resolvedStatus;
+      }
+
+      meter.classList.remove('capture-meter--loading');
+      meter.classList.add('capture-meter--ready');
+      syncCaptureMeterDecor(meter, percent);
       const percentNode = document.getElementById('progressStagePercent');
       if (percentNode) {
-        percentNode.textContent = `${Math.round(loadProgress)}%`;
+        percentNode.textContent = `${roundedPercent}%`;
       }
       const statusNode = document.getElementById('progressStageStatus');
       if (statusNode) {
-        statusNode.textContent = guideLoadingState.status || (kidMode ? 'Syncing…' : 'Syncing…');
+        statusNode.textContent = resolvedStatus;
       }
     }
 
@@ -23456,6 +23508,18 @@
       const stageLabel = document.getElementById('progressStageLabel');
       if (stageLabel) {
         stageLabel.textContent = kidMode ? 'Big steps complete' : 'Required completion';
+      }
+      const stageBarStatus = document.getElementById('progressStageBarStatus');
+      if (stageBarStatus) {
+        stageBarStatus.textContent = kidMode ? 'Adaptive stage ready' : 'Adaptive stage ready';
+      }
+      const stageBar = document.getElementById('progressStageBar');
+      if (stageBar) {
+        stageBar.setAttribute('aria-valuenow', '0');
+      }
+      const stageBarPercent = document.getElementById('progressStageBarPercent');
+      if (stageBarPercent) {
+        stageBarPercent.textContent = '0%';
       }
       const queueSubtitle = document.getElementById('progressQueueSubtitle');
       if (queueSubtitle) {
