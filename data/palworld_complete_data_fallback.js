@@ -17913,6 +17913,36 @@ window.__PALMATE_EMBEDDED_DATA__ = {
     }
   },
   "items": {
+    "wood": {
+      "category": "Material"
+    },
+    "stone": {
+      "category": "Material"
+    },
+    "nail": {
+      "category": "Material"
+    },
+    "flour": {
+      "category": "Food"
+    },
+    "circuit_board": {
+      "category": "Technology"
+    },
+    "refined_ingot": {
+      "category": "Material"
+    },
+    "high_grade_medical_supplies": {
+      "category": "Consumable"
+    },
+    "ultra_sphere": {
+      "category": "Equipment"
+    },
+    "legendary_sphere": {
+      "category": "Equipment"
+    },
+    "sulfur": {
+      "category": "Material"
+    },
     "wool": {
       "category": "Misc"
     },
@@ -18124,10 +18154,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Primitive Workbench",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base",
+          "category": "Production",
           "techPoints": 0,
-          "description": "Basic crafting bench for starter tools.",
+          "description": "A Primitive Workbench for producing simple items. Requires a Pal that can work with their hands.",
           "isAncient": false,
+          "materials": {
+            "Wood": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Primitive_Workbench.png"
         },
         {
@@ -18135,66 +18168,90 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Stone Axe",
           "branch": "Technology",
           "group": "Item",
-          "category": "Tool",
+          "category": "Base",
           "techPoints": 0,
-          "description": "Basic axe for chopping trees.",
+          "description": "Basic axe for chopping down trees.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Axe.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Axe.png",
+          "materials": {
+            "Stone": 5,
+            "Wood": 5
+          }
         },
         {
           "id": "stone-pickaxe",
           "name": "Stone Pickaxe",
           "branch": "Technology",
           "group": "Item",
-          "category": "Tool",
+          "category": "Base",
           "techPoints": 0,
-          "description": "Basic pickaxe for gathering ore.",
+          "description": "Basic pickaxe for mining stone and ore.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Pickaxe.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Pickaxe.png",
+          "materials": {
+            "Stone": 5,
+            "Wood": 5
+          }
         },
         {
           "id": "hand-held-torch",
           "name": "Hand-held Torch",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 0,
-          "description": "Unlocks the recipe for Hand-held Torch.",
+          "description": "Simple handheld torch for lighting caves and night excursions.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hand-held_Torch.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hand-held_Torch.png",
+          "materials": {
+            "Wood": 2,
+            "Stone": 2
+          }
         },
         {
           "id": "wooden-club",
           "name": "Wooden Club",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 0,
-          "description": "Unlocks the recipe for Wooden Club.",
+          "description": "Simple club carved from wood for close combat.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Club.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Club.png",
+          "materials": {
+            "Wood": 5
+          }
         },
         {
           "id": "pal-dressing-facility",
           "name": "Pal Dressing Facility",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 0,
-          "description": "Unlocks the recipe for Pal Dressing Facility.",
+          "description": "Facility that lets you change a Pal's outfit.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Dressing_Facility.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Dressing_Facility.png",
+          "materials": {
+            "Stone": 10,
+            "Paldium Fragment": 10
+          }
         },
         {
           "id": "global-palbox",
           "name": "Global Palbox",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 0,
-          "description": "Unlocks the recipe for Global Palbox.",
+          "description": "Global Palbox terminal that lets you manage teams from any base.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Global_Palbox.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Global_Palbox.png",
+          "materials": {
+            "Paldium Fragment": 3,
+            "Wood": 5,
+            "Stone": 15
+          }
         }
       ]
     },
@@ -18208,8 +18265,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 1,
-          "description": "Core structure that anchors your base and stores pals.",
+          "description": "Facility for storing captured Pals. Pals inside gradually recover HP. The area around this structure will become your base.",
           "isAncient": false,
+          "materials": {
+            "Paldium Fragment": 1,
+            "Wood": 8,
+            "Stone": 3
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Palbox.png"
         },
         {
@@ -18219,24 +18281,27 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Item",
           "category": "Equipment",
           "techPoints": 1,
-          "description": "Craft Pal Sphere with materials and capture high-level pals.",
+          "description": "Standard Pal capture sphere crafted from early resources.",
           "isAncient": false,
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png",
           "materials": {
-            "Paladium Fragment": 1,
+            "Paldium Fragment": 1,
             "Wood": 3,
             "Stone": 3
-          },
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png"
+          }
         },
         {
           "id": "campfire",
           "name": "Campfire",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the Campfire structure at your base.",
+          "description": "Used to make simple food or provide meager warmth and light.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Campfire.png"
         },
         {
@@ -18244,10 +18309,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Wooden Chest",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 1,
-          "description": "Unlocks the Wooden Chest structure at your base.",
+          "description": "Used to store items. Place at a base and Pals with Transporting suitability will automatically carry items to it.",
           "isAncient": false,
+          "materials": {
+            "Wood": 15,
+            "Stone": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Chest.png"
         },
         {
@@ -18255,10 +18324,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Repair Bench",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the Repair Bench structure at your base.",
+          "description": "Repairs damaged weapons and tools.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10,
+            "Stone": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Repair_Bench.png"
         },
         {
@@ -18266,10 +18339,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Wooden Structure Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 2,
-          "description": "Unlocks the Wooden Structure Set structure at your base.",
+          "description": "Set for building a base using wood. Allows building of wooden foundations, walls, ceilings, stairs and other things necessary for building a house.",
           "isAncient": false,
+          "materials": {
+            "Wood": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Structure_Set.png"
         }
       ]
@@ -18284,30 +18360,45 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Item",
           "category": "Weapon",
           "techPoints": 1,
-          "description": "Starter bow crafted from stone and wood.",
+          "description": "Early-game bow strung from wood and fiber.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Old_Bow.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Old_Bow.png",
+          "materials": {
+            "Wood": 30,
+            "Stone": 5,
+            "Fiber": 15
+          }
         },
         {
           "id": "arrow",
           "name": "Arrow",
           "branch": "Technology",
           "group": "Item",
-          "category": "Ammo",
+          "category": "Base",
           "techPoints": 1,
           "description": "Basic arrows crafted for the Old Bow.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Arrow_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Arrow_icon.png",
+          "materials": {
+            "Stone": 1,
+            "Wood": 1
+          },
+          "note": "Crafting yields 3 arrows per batch."
         },
         {
           "id": "shoddy-bed",
           "name": "Shoddy Bed",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the Shoddy Bed structure at your base.",
+          "description": "Human bed. Sleeping restores HP. Sleep at night and time will pass until morning. Cannot sleep unless built under a roof.",
           "isAncient": false,
+          "materials": {
+            "Wood": 20,
+            "Fiber": 5,
+            "Wool": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Shoddy_Bed.png"
         },
         {
@@ -18315,10 +18406,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Straw Pal Bed",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Straw Pal Bed structure at your base.",
+          "description": "Pals at base recover SAN when sleeping in beds at night. Without a bed, Pals cannot sleep soundly, and no SAN is recovered.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10,
+            "Fiber": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Straw_Pal_Bed.png"
         },
         {
@@ -18326,22 +18421,29 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Repair Kit",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Repair Kit.",
+          "description": "Field repair kit for restoring weapon durability.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Repair_Kit.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Repair_Kit.png",
+          "materials": {
+            "Fiber": 5,
+            "Stone": 5
+          }
         },
         {
           "id": "cloth",
           "name": "Cloth",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Cloth.",
+          "description": "Woven fabric crafted from Wool at a primitive workbench.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png",
+          "materials": {
+            "Wool": 2
+          }
         }
       ]
     },
@@ -18355,31 +18457,44 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Item",
           "category": "Armor",
           "techPoints": 2,
-          "description": "Early defensive shield for blocking attacks.",
+          "description": "Basic wooden shield that improves survivability for early expeditions.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Common_Shield_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Common_Shield_icon.png",
+          "materials": {
+            "Paldium Fragment": 10,
+            "Wood": 20,
+            "Stone": 20,
+            "Fiber": 10
+          }
         },
         {
           "id": "stone-spear",
           "name": "Stone Spear",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Stone Spear.",
+          "description": "Sturdy spear tipped with sharpened stone.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Spear.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Spear.png",
+          "materials": {
+            "Wood": 18,
+            "Stone": 6
+          }
         },
         {
           "id": "cloth-outfit",
           "name": "Cloth Outfit",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Cloth Outfit.",
+          "description": "Lightweight starter gear sewn from simple cloth.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_Outfit_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_Outfit_icon.png",
+          "materials": {
+            "Cloth": 2
+          }
         },
         {
           "id": "feed-box",
@@ -18388,8 +18503,11 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 2,
-          "description": "Automatically feeds pals assigned to your base.",
+          "description": "Place food, and Pals at the base will eat from it.",
           "isAncient": false,
+          "materials": {
+            "Wood": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Feed_Box.png"
         },
         {
@@ -18399,8 +18517,12 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 1,
-          "description": "Sounds an alarm when invaders approach your base.",
+          "description": "Bell that sets the alert status for Pals on base. Change Pal behavior to either attack invading enemies or focus entirely on work whenever you like.",
           "isAncient": false,
+          "materials": {
+            "Paldium Fragment": 5,
+            "Stone": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Alarm_Bell.png"
         },
         {
@@ -18408,10 +18530,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Hanging Trap",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the Hanging Trap structure at your base.",
+          "description": "Catches Pals that pass through. Only effective on small Pals and humans.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10,
+            "Stone": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hanging_Trap.png"
         }
       ]
@@ -18424,10 +18550,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Berry Plantation",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Berry Plantation structure at your base.",
+          "description": "A farm that can grow Red Berries. Harvest time is quick, but eating them doesn't provide much sustenance. Requires a few Pals to plant seeds, water, and harvest the crops.",
           "isAncient": false,
+          "materials": {
+            "Berry Seeds": 3,
+            "Wood": 20,
+            "Stone": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Crop_Plantation.png"
         },
         {
@@ -18437,8 +18568,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 2,
-          "description": "Lets pals produce resources like Eggs and Milk while assigned.",
+          "description": "Farm for raising sheep-and fowl-like Pals. Assign a Pal with the appropriate traits to a farm to automatically produce them.",
           "isAncient": false,
+          "materials": {
+            "Wood": 50,
+            "Stone": 20,
+            "Fiber": 30
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ranch_icon.png"
         },
         {
@@ -18446,43 +18582,63 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Normal Parachute",
           "branch": "Technology",
           "group": "Item",
-          "category": "Gear",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Basic parachute that softens falls and helps kids explore.",
+          "description": "Basic parachute for safe descents and gliding.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Normal_Parachute_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Normal_Parachute_icon.png",
+          "materials": {
+            "Wood": 10,
+            "Cloth": 2
+          }
         },
         {
           "id": "fire-bow",
           "name": "Fire Bow",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Fire Bow.",
+          "description": "Bow modified with Flame Organs to shoot burning arrows.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Bow.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Bow.png",
+          "materials": {
+            "Wood": 40,
+            "Stone": 8,
+            "Fiber": 20,
+            "Flame Organ": 2
+          }
         },
         {
           "id": "fire-arrow",
           "name": "Fire Arrow",
           "branch": "Technology",
           "group": "Item",
-          "category": "Ammo",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Ignited arrows that deal fire damage on impact.",
+          "description": "Arrow bundle tipped with a Flame Organ to ignite targets.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Arrow_icon.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Arrow_icon.png",
+          "materials": {
+            "Flame Organ": 1,
+            "Stone": 3,
+            "Wood": 3
+          },
+          "note": "Crafting produces 5 Fire Arrows."
         },
         {
           "id": "wooden-living-room-furniture-set",
           "name": "Wooden Living Room Furniture Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Wooden Living Room Furniture Set structure at your base.",
+          "description": "Decorative furniture set. Place furniture in your living space and enjoy life with your Pals.",
           "isAncient": false,
+          "materials": {
+            "Wood": 20,
+            "Red Berries": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Living_Room_Furniture_Set.png"
         },
         {
@@ -18490,10 +18646,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Wooden Tavern Furniture Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Wooden Tavern Furniture Set structure at your base.",
+          "description": "Decorative furniture set. Set up a bar and enjoy life with your Pals.",
           "isAncient": false,
+          "materials": {
+            "Wood": 30,
+            "Stone": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Tavern_Furniture_Set.png"
         }
       ]
@@ -18506,10 +18666,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Gear Workbench",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the Pal Gear Workbench structure at your base.",
+          "description": "A Primitive Workbench for producing Pal tools. Make a saddle to ride Pals, or make a gun for Pals to use.",
           "isAncient": false,
+          "materials": {
+            "Paldium Fragment": 10,
+            "Wood": 30,
+            "Cloth": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Gear_Workbench.png"
         },
         {
@@ -18519,8 +18684,12 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 2,
-          "description": "Shrine that converts Lifmunk Effigies into capture bonuses.",
+          "description": "Make offerings to enhance the stats of the Player and their Pals.",
           "isAncient": false,
+          "materials": {
+            "Stone": 20,
+            "Paldium Fragment": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Statue_of_Power.png"
         },
         {
@@ -18528,10 +18697,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mounted Torch",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Mounted Torch structure at your base.",
+          "description": "Place it at a base to light the surrounding area.",
           "isAncient": false,
+          "materials": {
+            "Wood": 5,
+            "Stone": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mounted_Torch.png"
         },
         {
@@ -18539,32 +18712,46 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Rushoar Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Rushoar Saddle.",
+          "description": "Saddle that allows you to ride Rushoar and charge through obstacles.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rushoar_menu.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rushoar_menu.png",
+          "materials": {
+            "Leather": 3,
+            "Stone": 10,
+            "Paldium Fragment": 5
+          }
         },
         {
           "id": "foxparks-s-harness",
           "name": "Foxparks's Harness",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Foxparks's Harness.",
+          "description": "Harness that lets Foxparks serve as a fiery glider mount.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Foxparks_menu.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Foxparks_menu.png",
+          "materials": {
+            "Leather": 3,
+            "Flame Organ": 5,
+            "Paldium Fragment": 5
+          }
         },
         {
           "id": "wooden-tavern-cabinet-furniture-set",
           "name": "Wooden Tavern Cabinet Furniture Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Wooden Tavern Cabinet Furniture Set structure at your base.",
+          "description": "Set of wooden cabinets that look at home in a tavern. Can store items.",
           "isAncient": false,
+          "materials": {
+            "Wood": 30,
+            "Stone": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Tavern_Cabinet_Furniture_Set.png"
         },
         {
@@ -18572,10 +18759,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Houseplant Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Houseplant Set structure at your base.",
+          "description": "Decorative furniture set. Place plants around your base for a splash of color.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10,
+            "Fiber": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Houseplant_Set.png"
         }
       ]
@@ -18590,7 +18781,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 2,
-          "description": "Automated lumber station for your workers.",
+          "description": "Uses Pals with the Lumbering ability to cut down trees and generate wood",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Logging_Site.png"
         },
@@ -18601,8 +18792,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 2,
-          "description": "Assign pals here to gather stone automatically.",
+          "description": "Uses Pals with the Mining ability to mine down rock and generate Stone",
           "isAncient": false,
+          "materials": {
+            "Wood": 50,
+            "Stone": 20,
+            "Paldium Fragment": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Pit.png"
         },
         {
@@ -18610,10 +18806,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Sign",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the Sign structure at your base.",
+          "description": "Can be written on.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Signboard.png"
         },
         {
@@ -18621,7 +18820,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Bat",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Bat.",
           "isAncient": false,
@@ -18632,7 +18831,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Melpaca Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
           "description": "Unlocks the recipe for Melpaca Saddle.",
           "isAncient": false,
@@ -18643,7 +18842,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Celaray's Gloves",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Celaray's Gloves.",
           "isAncient": false,
@@ -18654,10 +18853,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Wall-Mounted Houseplant Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Wall-Mounted Houseplant Set structure at your base.",
+          "description": "Decorative furniture set. Place plants on your base's walls for a splash of color.",
           "isAncient": false,
+          "materials": {
+            "Fiber": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wall-Mounted_Houseplant_Set.png"
         },
         {
@@ -18665,10 +18867,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Egg Incubator",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Production",
           "techPoints": 1,
-          "description": "Ancient device that hatches pal eggs at your base.",
+          "description": "Used for incubating a Pal Egg. If a Pal Egg is left in it, it will automatically hatch after some time has passed.",
           "isAncient": true,
+          "materials": {
+            "Paldium Fragment": 10,
+            "Stone": 30,
+            "Cloth": 5,
+            "Ancient Civilization Parts": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Egg_Incubator.png"
         }
       ]
@@ -18683,8 +18891,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Production",
           "techPoints": 2,
-          "description": "Crushes ore and stone into refined materials.",
+          "description": "20 Stone 10 Paldium Fragment",
           "isAncient": false,
+          "materials": {
+            "Wood": 50,
+            "Stone": 20,
+            "Paldium Fragment": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Crusher.png"
         },
         {
@@ -18692,7 +18905,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Poison Bow",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Unlocks the recipe for Poison Bow.",
           "isAncient": false,
@@ -18703,7 +18916,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Poison Arrow",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Poison Arrow.",
           "isAncient": false,
@@ -18714,7 +18927,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Jolthog's Gloves",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Jolthog's Gloves.",
           "isAncient": false,
@@ -18725,7 +18938,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Daedream's Necklace",
           "branch": "Technology",
           "group": "Item",
-          "category": "Pal Gear",
+          "category": "Base",
           "techPoints": 2,
           "description": "Allows Daedream to float beside you and auto-attack.",
           "isAncient": false,
@@ -18736,10 +18949,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Antique Storage Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Antique Storage Set structure at your base.",
+          "description": "Antique storage furniture set. Can store items.",
           "isAncient": false,
+          "materials": {
+            "Wood": 40,
+            "Nail": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Storage_Set.png"
         },
         {
@@ -18747,10 +18964,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Fireplace Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Fireplace Set structure at your base.",
+          "description": "Brick fireplace set to provide illumination. Must be lit with fire.",
           "isAncient": false,
+          "materials": {
+            "Wood": 30,
+            "Stone": 15,
+            "Charcoal": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fireplace_Set.png"
         }
       ]
@@ -18763,7 +18985,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Tropical Outfit",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 3,
           "description": "Unlocks the recipe for Tropical Outfit.",
           "isAncient": false,
@@ -18774,7 +18996,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Tundra Outfit",
           "branch": "Technology",
           "group": "Item",
-          "category": "Armor",
+          "category": "Base",
           "techPoints": 3,
           "description": "Cold-resistant gear for snowy regions.",
           "isAncient": false,
@@ -18787,8 +19009,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 2,
-          "description": "Comfort spot that restores pal sanity and stamina.",
+          "description": "Facility where Pals on base can rest. Restores SAN after a long day of hard work.",
           "isAncient": false,
+          "materials": {
+            "Wood": 30,
+            "Stone": 15,
+            "Paldium Fragment": 10,
+            "Pal Fluids": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hot_Spring.png"
         },
         {
@@ -18796,10 +19024,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Sand Bag",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Gear",
           "techPoints": 2,
-          "description": "Unlocks the Sand Bag structure at your base.",
+          "description": "Pals assigned to it will watch for approaching enemies.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10,
+            "Stone": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sand_Bag.png"
         },
         {
@@ -18807,7 +19039,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Direhowl's Saddled Harness",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
           "description": "Unlocks the recipe for Direhowl's Saddled Harness.",
           "isAncient": false,
@@ -18818,7 +19050,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Killamari's Gloves",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Killamari's Gloves.",
           "isAncient": false,
@@ -18829,10 +19061,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Carpet Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Carpet Set structure at your base.",
+          "description": "Decorative furniture set. Place on a foundation in your base for that homey feel.",
           "isAncient": false,
+          "materials": {
+            "Cloth": 3,
+            "Venom Gland": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Carpet_Set.png"
         }
       ]
@@ -18858,8 +19094,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Production",
           "techPoints": 3,
-          "description": "Early furnace for smelting ore into ingots.",
+          "description": "Uses Ore to produce Ingots.",
           "isAncient": false,
+          "materials": {
+            "Wood": 20,
+            "Stone": 50,
+            "Flame Organ}}": 3
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Primitive_Furnace.png"
         },
         {
@@ -18867,7 +19108,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Feathered Hair Band",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Feathered Hair Band.",
           "isAncient": false,
@@ -18878,10 +19119,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ladder",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the Ladder structure at your base.",
+          "description": "A ladder that allows you to climb to a slightly higher place.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ladder.png"
         },
         {
@@ -18889,10 +19133,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Bear Trap (Small)",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the Bear Trap (Small) structure at your base.",
+          "description": "Immobilizes those who step on it. Only effective on small Pals or humans.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Bear_Trap%28Small%29.png"
         },
         {
@@ -18900,7 +19147,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Nail",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Nail.",
           "isAncient": false,
@@ -18911,7 +19158,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Surfent Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
           "description": "Unlocks the recipe for Surfent Saddle.",
           "isAncient": false,
@@ -18922,7 +19169,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Small Feed Bag",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 1,
           "description": "Ancient bag that auto-feeds you and your mount.",
           "isAncient": true,
@@ -18938,7 +19185,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Axe",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Metal Axe.",
           "isAncient": false,
@@ -18949,7 +19196,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Pickaxe",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Metal Pickaxe.",
           "isAncient": false,
@@ -18960,10 +19207,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "High Quality Workbench",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 3,
-          "description": "Unlocks the High Quality Workbench structure at your base.",
+          "description": "A High Quality Workbench for producing items and gear. A small workspace limits production speeds. Requires a Pal that can work with their hands.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 15,
+            "Wood": 50,
+            "Nail": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/High_Quality_Workbench.png"
         },
         {
@@ -18971,7 +19223,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Heavy Weight Module",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
           "description": "Unlocks the recipe for Heavy Weight Module.",
           "isAncient": false,
@@ -18982,10 +19234,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Wooden Gate",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Wooden Gate structure at your base.",
+          "description": "Wooden gate large enough for big Pals to pass through.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Gate.png"
         },
         {
@@ -18993,7 +19248,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Lifmunk's Submachine Gun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 1,
           "description": "Unlocks the recipe for Lifmunk's Submachine Gun.",
           "isAncient": false,
@@ -19004,7 +19259,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Jolthog Cryst's Gloves",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Jolthog Cryst's Gloves.",
           "isAncient": false,
@@ -19020,7 +19275,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pelt Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 2,
           "description": "Unlocks the recipe for Pelt Armor.",
           "isAncient": false,
@@ -19031,7 +19286,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Meat Cleaver",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Meat Cleaver.",
           "isAncient": false,
@@ -19042,10 +19297,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Medieval Medicine Workbench",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the Medieval Medicine Workbench structure at your base.",
+          "description": "A facility for making Pal medicine. It can only produce simple medicines. Leave its operation to a Pal that can make medicine.",
           "isAncient": false,
+          "materials": {
+            "Wood": 2,
+            "Nail": 5,
+            "Paldium Fragment": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Medieval_Medicine_Workbench.png"
         },
         {
@@ -19053,7 +19313,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Tanzee's Assault Rifle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 1,
           "description": "Unlocks the recipe for Tanzee's Assault Rifle.",
           "isAncient": false,
@@ -19064,7 +19324,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Eikthyrdeer Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Eikthyrdeer Saddle.",
           "isAncient": false,
@@ -19075,7 +19335,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Grintale Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
           "description": "Unlocks the recipe for Grintale Saddle.",
           "isAncient": false,
@@ -19086,10 +19346,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Antique Chair Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Antique Chair Set structure at your base.",
+          "description": "Decorative furniture set. Use with an antique desk.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Chair_Set.png"
         },
         {
@@ -19097,7 +19360,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Grappling Gun",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Weapon",
           "techPoints": 1,
           "description": "Ancient mobility tool that lets you zip across terrain.",
           "isAncient": true,
@@ -19124,7 +19387,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Spear",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Metal Spear.",
           "isAncient": false,
@@ -19135,10 +19398,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Human-Powered Generator",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 1,
-          "description": "Unlocks the Human-Powered Generator structure at your base.",
+          "description": "A facility that converts rotational motion into electrical energy. The efficiency is low, and the Pals working here will experience a decrease in SAN value, but they will gain experience points.",
           "isAncient": false,
+          "materials": {
+            "Wood": 50,
+            "Electric Organ": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Human-Powered_Generator.png"
         },
         {
@@ -19146,10 +19413,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Training Dummy",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Training Dummy structure at your base.",
+          "description": "Training dummy shaped like a Pengullet.",
           "isAncient": false,
+          "materials": {
+            "Wood": 20,
+            "Fiber": 5,
+            "Paldium Fragment": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Training_Dummy.png"
         },
         {
@@ -19159,8 +19431,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 2,
-          "description": "Keeps food fresh by providing passive cooling.",
+          "description": "Small food vault. Assign an Ice Pal to help prevent food stored inside from spoiling.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 20,
+            "Stone": 20,
+            "Ice Organ": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cooler_Box.png"
         },
         {
@@ -19168,7 +19445,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Chillet Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Chillet Saddle.",
           "isAncient": false,
@@ -19179,10 +19456,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Antique Storage Cabinet Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Antique Storage Cabinet Set structure at your base.",
+          "description": "Antique storage cabinet set. Can store items.",
           "isAncient": false,
+          "materials": {
+            "Wood": 30,
+            "Fiber": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Storage_Cabinet_Set.png"
         }
       ]
@@ -19199,12 +19480,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "techPoints": 2,
           "description": "Craft Mega Sphere with materials and capture high-level pals.",
           "isAncient": false,
-          "materials": {
-            "Paladium Fragment": 1,
-            "Ingot": 1,
-            "Wood": 5,
-            "Stone": 5
-          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mega_Sphere_icon.png"
         },
         {
@@ -19214,8 +19489,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Production",
           "techPoints": 3,
-          "description": "Workbench that crafts Mega, Giga, and Hyper Spheres.",
+          "description": "An Assembly Line for producing spheres used for capturing Pals. A small workspace keeps the production speed slow. Requires a Pal that can work with their hands.",
           "isAncient": false,
+          "materials": {
+            "Paldium Fragment": 10,
+            "Wood": 30,
+            "Nail": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sphere_Workbench.png"
         },
         {
@@ -19225,8 +19505,12 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 2,
-          "description": "Lets you watch and direct pals assigned to your base.",
+          "description": "You can command your Pals to work on various things inside a base. Try not to overwork them!",
           "isAncient": false,
+          "materials": {
+            "Wood": 30,
+            "Stone": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Monitoring_Stand.png"
         },
         {
@@ -19234,10 +19518,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Wall Torch",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Wall Torch structure at your base.",
+          "description": "Place it on a wall to light the surrounding area.",
           "isAncient": false,
+          "materials": {
+            "Wood": 5,
+            "Stone": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wall_Torch.png"
         },
         {
@@ -19245,7 +19533,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Sweepa Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
           "description": "Unlocks the recipe for Sweepa Saddle.",
           "isAncient": false,
@@ -19256,7 +19544,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Univolt Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
           "description": "Unlocks the recipe for Univolt Saddle.",
           "isAncient": false,
@@ -19267,10 +19555,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Antique Desk Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Antique Desk Set structure at your base.",
+          "description": "Decorative furniture set. Use with an antique chair.",
           "isAncient": false,
+          "materials": {
+            "Wood": 25,
+            "Fiber": 5,
+            "Stone": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Desk_Set.png"
         },
         {
@@ -19278,10 +19571,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Essence Condenser",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Combines duplicate pals to strengthen a favorite worker.",
+          "description": "A chamber for increasing a Pal's rank. Pals can surpass their physical limitations if given a concentrated extract taken from a Pal of the same type.",
           "isAncient": true,
+          "materials": {
+            "Paldium Fragment": 20,
+            "Ingot": 20,
+            "Ancient Civilization Parts": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Essence_Condenser.png"
         }
       ]
@@ -19294,7 +19592,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Beginner Fishing Set",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Decoration",
           "techPoints": 2,
           "description": "Unlocks the recipe for Beginner Fishing Set.",
           "isAncient": false,
@@ -19305,7 +19603,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Fire Arrow Crossbow",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Unlocks the recipe for Fire Arrow Crossbow.",
           "isAncient": false,
@@ -19316,10 +19614,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Expedition Station",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Pal Expedition Station structure at your base.",
+          "description": "{{Infobox Item",
           "isAncient": false,
+          "materials": {
+            "Wood": 20,
+            "Stone": 20,
+            "Paldium Fragment": 50
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Expedition_Station.png"
         },
         {
@@ -19329,8 +19632,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 2,
-          "description": "Farm plot that grows wheat for flour and Cake.",
+          "description": "A farm that can grow Wheat. It requires an average amount of time to harvest. Requires a few Pals to plant seeds, water and harvest crops.",
           "isAncient": false,
+          "materials": {
+            "Wheat Seeds": 3,
+            "Wood": 35,
+            "Stone": 35
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wheat_Plantation.png"
         },
         {
@@ -19338,10 +19646,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mill",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Production",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Processes wheat into flour for advanced cooking.",
+          "description": "Facility for milling Wheat to produce Flour. Requires Pal with the Watering trait to spin the water turbine.",
           "isAncient": false,
+          "materials": {
+            "Wood": 50,
+            "Stone": 40
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mill.png"
         },
         {
@@ -19349,10 +19661,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Viewing Cage",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Viewing Cage structure at your base.",
+          "description": "Container for observing captured Pals. Pals inside cannot participate in battle or production, but they do not become hungry.",
           "isAncient": false,
+          "materials": {
+            "Paldium Fragment": 10,
+            "Wood": 10,
+            "Stone": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Viewing_Cage.png"
         },
         {
@@ -19371,7 +19688,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Hip Lantern",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Hip Lantern.",
           "isAncient": true,
@@ -19387,7 +19704,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mega Shield",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 2,
           "description": "Unlocks the recipe for Mega Shield.",
           "isAncient": false,
@@ -19398,7 +19715,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Heat Resistant Pelt Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 3,
           "description": "Unlocks the recipe for Heat Resistant Pelt Armor.",
           "isAncient": false,
@@ -19409,10 +19726,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Chest",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the Metal Chest structure at your base.",
+          "description": "Stores items. Reinforced with metal, it is somewhat durable. The increased size allows for the storage of more things.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 15,
+            "Wood": 30
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Chest.png"
         },
         {
@@ -19420,10 +19741,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Wooden Defensive Wall",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the Wooden Defensive Wall structure at your base.",
+          "description": "Massive defensive wall to prevent enemy intrusions. Made from wood, it breaks easily.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wood_Defensive_Wall.png"
         },
         {
@@ -19431,7 +19755,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Arsox Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
           "description": "Unlocks the recipe for Arsox Saddle.",
           "isAncient": false,
@@ -19442,10 +19766,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Antique Bath Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Antique Bath Set structure at your base.",
+          "description": "Decorative furniture set. Can't actually be used to stay clean.",
           "isAncient": false,
+          "materials": {
+            "Cloth": 1,
+            "Stone": 20,
+            "Ingot": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Bath_Set.png"
         },
         {
@@ -19453,10 +19782,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Antique Mirror Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Antique Mirror Set structure at your base.",
+          "description": "Decorative furniture set. Essential for making sure you look good.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10,
+            "Stone": 10,
+            "Paldium Fragment": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Mirror_Set.png"
         },
         {
@@ -19464,7 +19798,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Lockpicking Tool v1",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the ancient blueprint for the Lockpicking Tool v1.",
           "isAncient": true,
@@ -19480,7 +19814,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Poison Arrow Crossbow",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Unlocks the recipe for Poison Arrow Crossbow.",
           "isAncient": false,
@@ -19491,10 +19825,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Cooking Pot",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Cooking",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Lets you prepare cooked meals and Cake.",
+          "description": "Can efficiently prepare more varieties of food.",
           "isAncient": false,
+          "materials": {
+            "Wood": 20,
+            "Ingot": 15,
+            "Flame Organ": 3
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cooking_Pot.png"
         },
         {
@@ -19502,10 +19841,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Heater",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Heater structure at your base.",
+          "description": "Warms the nearby area and protects against the cold.",
           "isAncient": false,
+          "materials": {
+            "Flame Organ": 5,
+            "Ingot": 20,
+            "Charcoal": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heater.png"
         },
         {
@@ -19513,10 +19857,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Tombstone",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the Tombstone structure at your base.",
+          "description": "A tombstone that can be inscribed with text. Use it for recording purposes.",
           "isAncient": false,
+          "materials": {
+            "Stone": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Tombstone.png"
         },
         {
@@ -19524,7 +19871,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pengullet's Rocket Launcher",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Unlocks the recipe for Pengullet's Rocket Launcher.",
           "isAncient": false,
@@ -19535,7 +19882,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Flopie's Necklace",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Flopie's Necklace.",
           "isAncient": false,
@@ -19546,10 +19893,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Piano Furniture Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Piano Furniture Set structure at your base.",
+          "description": "Decorative furniture set. Place in your base and dream about living a life of luxury.",
           "isAncient": false,
+          "materials": {
+            "Wood": 100,
+            "Fiber": 20,
+            "Ingot": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Piano_Furniture_Set.png"
         },
         {
@@ -19557,7 +19909,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mega Grappling Gun",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Upgraded grapple with longer range and speed.",
           "isAncient": true,
@@ -19573,7 +19925,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mega Glider",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Mega Glider.",
           "isAncient": false,
@@ -19584,7 +19936,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Cold Resistant Pelt Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 3,
           "description": "Unlocks the recipe for Cold Resistant Pelt Armor.",
           "isAncient": false,
@@ -19595,10 +19947,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Stone Structure Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 3,
-          "description": "Unlocks the Stone Structure Set structure at your base.",
+          "description": "Set for building a base using stone. Allows building of stone foundations, walls, ceilings, stairs and other things necessary for building a house.",
           "isAncient": false,
+          "materials": {
+            "Stone": 3
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Structure_Set.png"
         },
         {
@@ -19606,10 +19961,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Cooler",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Cooler structure at your base.",
+          "description": "Cools the nearby area and protects against the heat. A Pal with the Cooling Work Suitability is needed to maintain the cooling effect.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 20,
+            "Stone": 20,
+            "Ice Organ": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cooler.png"
         },
         {
@@ -19617,7 +19977,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Tocotoco's Gloves",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Tocotoco's Gloves.",
           "isAncient": false,
@@ -19628,10 +19988,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Shelf Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Metal Shelf Set structure at your base.",
+          "description": "Metal shelf set. Can store items.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 20,
+            "Nail": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Shelf_Set.png"
         },
         {
@@ -19639,10 +20003,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Bathroom Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Bathroom Set structure at your base.",
+          "description": "Decorative furniture set. Can't be used for its original purpose.",
           "isAncient": false,
+          "materials": {
+            "Wood": 5,
+            "Stone": 20,
+            "Ingot": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Bathroom_Set.png"
         },
         {
@@ -19650,7 +20019,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ring of Mercy",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Ring of Mercy.",
           "isAncient": true,
@@ -19668,8 +20037,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Base",
           "techPoints": 2,
-          "description": "Facility that hatches new pals when stocked with Cake.",
+          "description": "20 Stone 50 Fiber",
           "isAncient": false,
+          "materials": {
+            "Wood": 100,
+            "Stone": 20,
+            "Fiber": 50
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Breeding_Farm.png"
         },
         {
@@ -19677,7 +20051,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Cement",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Cement.",
           "isAncient": false,
@@ -19688,10 +20062,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Wall-Mounted Sign",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Wall-Mounted Sign structure at your base.",
+          "description": "A signboard to write on. Can be hung on walls.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wall-Mounted_Sign.png"
         },
         {
@@ -19699,7 +20076,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Dinossom Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Dinossom Saddle.",
           "isAncient": false,
@@ -19710,7 +20087,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Broncherry Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Broncherry Saddle.",
           "isAncient": false,
@@ -19721,7 +20098,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Digtoise's Headband",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Digtoise's Headband.",
           "isAncient": false,
@@ -19732,10 +20109,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Antique High Quality Furniture Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Antique High Quality Furniture Set structure at your base.",
+          "description": "Decorative furniture set. Gives an air of stately elegance to your base.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10,
+            "Cloth": 3,
+            "Ingot": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_High_Quality_Furniture_Set.png"
         },
         {
@@ -19743,7 +20125,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Average Feed Bag",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Average Feed Bag.",
           "isAncient": true,
@@ -19763,12 +20145,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "techPoints": 3,
           "description": "Craft Giga Sphere with materials and capture high-level pals.",
           "isAncient": false,
-          "materials": {
-            "Paladium Fragment": 2,
-            "Ingot": 2,
-            "Wood": 7,
-            "Stone": 7
-          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Giga_Sphere_icon.png"
         },
         {
@@ -19776,10 +20152,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Weapon Workbench",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 3,
-          "description": "Unlocks the Weapon Workbench structure at your base.",
+          "description": "An Assembly Line for producing weapons and ammunition. A small workspace prevents the production of high quality weapons. Requires Pals that can work with their hands.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 15,
+            "Wood": 50,
+            "Nail": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Weapon_Workbench.png"
         },
         {
@@ -19787,10 +20168,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Labor Research Laboratory",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Pal Labor Research Laboratory structure at your base.",
+          "description": "50 Paldium Fragment",
           "isAncient": false,
+          "materials": {
+            "Ingot": 10,
+            "Paldium Fragment": 50
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Labor_Research_Laboratory.png"
         },
         {
@@ -19798,10 +20183,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Large Toolbox",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Large Toolbox structure at your base.",
+          "description": "Place in base to improve handiwork speed. Placing more than one has no additional effect.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 40,
+            "Wood": 100,
+            "Nail": 15
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Toolbox.png"
         },
         {
@@ -19809,7 +20199,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Hangyu's Gloves",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Hangyu's Gloves.",
           "isAncient": false,
@@ -19820,7 +20210,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Elphidran Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Elphidran Saddle.",
           "isAncient": false,
@@ -19831,10 +20221,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Antique Couch Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Antique Couch Set structure at your base.",
+          "description": "Decorative furniture set. Gives the air of luxury to your base.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10,
+            "Cloth": 2,
+            "Flame Organ": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Couch_Set.png"
         },
         {
@@ -19842,7 +20237,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Dimensional Pal Storage",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Dimensional Pal Storage.",
           "isAncient": true,
@@ -19858,7 +20253,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Musket",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 3,
           "description": "Unlocks the recipe for Musket.",
           "isAncient": false,
@@ -19869,7 +20264,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Gunpowder",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Unlocks the recipe for Gunpowder.",
           "isAncient": false,
@@ -19880,7 +20275,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Coarse Ammo",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
           "description": "Unlocks the recipe for Coarse Ammo.",
           "isAncient": false,
@@ -19891,10 +20286,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Tomato Plantation",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Tomato Plantation structure at your base.",
+          "description": "A farm that can grow Tomato. They take time to harvest, but increase the variety of meals you can prepare. Requires a few Pals to plant seeds, water, and harvest the crops.",
           "isAncient": false,
+          "materials": {
+            "Tomato Seeds": 3,
+            "Wood": 70,
+            "Stone": 50,
+            "Pal Fluids": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Tomato_icon.png"
         },
         {
@@ -19902,10 +20303,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Flame Cauldron",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Flame Cauldron structure at your base.",
+          "description": "Place in base to improve fire-making speed. Placing more than one has no additional effect.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 50,
+            "Wood": 100,
+            "Flame Organ": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flame_Cauldron.png"
         },
         {
@@ -19913,7 +20319,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Vanwyrm Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Vanwyrm Saddle.",
           "isAncient": false,
@@ -19924,7 +20330,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Kingpaca Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Kingpaca Saddle.",
           "isAncient": false,
@@ -19935,10 +20341,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Antique Dresser",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the ancient blueprint for the Antique Dresser.",
+          "description": "Dresser useful for giving yourself a remake. Allows players to edit their appearence.",
           "isAncient": true,
+          "materials": {
+            "Wood": 100,
+            "Fiber": 20,
+            "Stone": 30,
+            "Ancient Civilization Parts": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Dresser.png"
         }
       ]
@@ -19951,7 +20363,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Stun Baton",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Stun Baton.",
           "isAncient": false,
@@ -19962,7 +20374,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "High Quality Bait",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Consumable",
           "techPoints": 1,
           "description": "Unlocks the recipe for High Quality Bait.",
           "isAncient": false,
@@ -19973,10 +20385,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Flea Market (Items)",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Flea Market (Items) structure at your base.",
+          "description": "Put up items for sale on multiplayer servers.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 20,
+            "Wood": 40,
+            "Cloth": 3
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flea_Market_%28Items%29.png"
         },
         {
@@ -19984,10 +20401,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Flea Market (Pals)",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Flea Market (Pals) structure at your base.",
+          "description": "Put up Pals for sale on multiplayer servers.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 20,
+            "Wood": 40,
+            "Paldium Fragment": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flea_Market_%28Pals%29.png"
         },
         {
@@ -19995,10 +20417,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Bear Trap (Large)",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Bear Trap (Large) structure at your base.",
+          "description": "Immobilizes those who step on it. Only effective on large Pals.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Bear_Trap%28Large%29.png"
         },
         {
@@ -20006,7 +20431,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Dazzi's Necklace",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Dazzi's Necklace.",
           "isAncient": false,
@@ -20017,7 +20442,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Dazemu Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Dazemu Saddle.",
           "isAncient": false,
@@ -20028,7 +20453,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Homeward Thundercloud",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 2,
           "description": "Ancient recall gadget that returns you to your base.",
           "isAncient": true,
@@ -20044,7 +20469,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 2,
           "description": "Unlocks the recipe for Metal Armor.",
           "isAncient": false,
@@ -20055,7 +20480,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Helm",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 2,
           "description": "Unlocks the recipe for Metal Helm.",
           "isAncient": false,
@@ -20066,7 +20491,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Curve Module",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 2,
           "description": "Unlocks the recipe for Curve Module.",
           "isAncient": false,
@@ -20077,10 +20502,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Water Fountain",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Water Fountain structure at your base.",
+          "description": "Place in base to improve watering speed. Placing more than one has no additional effect.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 100,
+            "Stone": 200,
+            "Pal Fluids": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Water_Fountain.png"
         },
         {
@@ -20088,7 +20518,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Maraith Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
           "description": "Unlocks the recipe for Maraith Saddle.",
           "isAncient": false,
@@ -20099,7 +20529,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Galeclaw's Gloves",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Galeclaw's Gloves.",
           "isAncient": false,
@@ -20110,7 +20540,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Killamari Primo's Gloves",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Killamari Primo's Gloves.",
           "isAncient": false,
@@ -20121,7 +20551,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Large Feed Bag",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 3,
           "description": "Expanded feed bag that keeps more snacks on hand.",
           "isAncient": true,
@@ -20137,10 +20567,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Makeshift Handgun",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Weapon",
           "techPoints": 3,
-          "description": "Unlocks the Makeshift Handgun structure at your base.",
+          "description": "A handgun created from spare parts. Relatively suited for close quarters combat, but can only fire one shot before needing to reload.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 35,
+            "High Quality Pal Oil": 10,
+            "Fiber": 30
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Makeshift_Handgun.png"
         },
         {
@@ -20148,10 +20583,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Fluffy Pal Bed",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Fluffy Pal Bed structure at your base.",
+          "description": "Pals sleep more soundly, improving the amount of Health and SAN recovered while sleeping.",
           "isAncient": false,
+          "materials": {
+            "Cloth": 10,
+            "Wood": 30,
+            "Nail": 5,
+            "Fiber": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fluffy_Pal_Bed_icon.png"
         },
         {
@@ -20159,10 +20600,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Medicine Rack",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the Medicine Rack structure at your base.",
+          "description": "A shelf for storing medicine. Sick Pals will come here to take their medicine. Be sure to keep the medicine stocked.",
           "isAncient": false,
+          "materials": {
+            "Cloth": 5,
+            "Wood": 30,
+            "Ingot": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Medicine_Rack.png"
         },
         {
@@ -20170,10 +20616,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Flower Bed",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Flower Bed structure at your base.",
+          "description": "Place in base to improve gathering speed. Placing more than one has no additional effect.",
           "isAncient": false,
+          "materials": {
+            "Wood": 50,
+            "Stone": 100,
+            "Cement": 40,
+            "Beautiful Flower": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flower_Bed.png"
         },
         {
@@ -20181,7 +20633,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Foxparks Cryst's Harness",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Foxparks Cryst's Harness.",
           "isAncient": false,
@@ -20192,7 +20644,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mossanda's Grenade Launcher",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Unlocks the recipe for Mossanda's Grenade Launcher.",
           "isAncient": false,
@@ -20203,7 +20655,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Azurobe Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Azurobe Saddle.",
           "isAncient": false,
@@ -20214,10 +20666,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ore Mining Site",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Ancient extractor that passively mines ore.",
+          "description": "Facility for producing Ore. Mining Ore is hard work that requires physical endurance. Leave it to Pals skilled at mining.",
           "isAncient": true,
+          "materials": {
+            "Stone": 50,
+            "Ingot": 25,
+            "Paldium Fragment": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ore_Mining_Site.png"
         }
       ]
@@ -20230,7 +20687,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Boost Gun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Unlocks the recipe for Boost Gun.",
           "isAncient": false,
@@ -20241,7 +20698,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Boost Gun Ammo",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 2,
           "description": "Unlocks the recipe for Boost Gun Ammo.",
           "isAncient": false,
@@ -20252,7 +20709,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Frag Grenade",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Frag Grenade.",
           "isAncient": false,
@@ -20263,7 +20720,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Heat Resistant Metal Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 2,
           "description": "Unlocks the recipe for Heat Resistant Metal Armor.",
           "isAncient": false,
@@ -20274,10 +20731,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Lettuce Plantation",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Lettuce Plantation structure at your base.",
+          "description": "A farm that can grow Lettuce. It requires a great amount of time to harvest.",
           "isAncient": false,
+          "materials": {
+            "Lettuce Seeds": 3,
+            "Wood": 100,
+            "Stone": 70,
+            "Pal Fluids": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lettuce_Plantation.png"
         },
         {
@@ -20285,10 +20748,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Silo",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Silo structure at your base.",
+          "description": "Place in base to improve planting speed. Placing more than one has no additional effect.",
           "isAncient": false,
+          "materials": {
+            "Wood": 300,
+            "Stone": 100,
+            "Fiber": 100
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Silo.png"
         },
         {
@@ -20296,7 +20764,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Surfent Terra Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
           "description": "Unlocks the recipe for Surfent Terra Saddle.",
           "isAncient": false,
@@ -20307,7 +20775,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Eikthyrdeer Terra Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Eikthyrdeer Terra Saddle.",
           "isAncient": false,
@@ -20318,7 +20786,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Lockpicking Tool v2",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Lockpicking Tool v2.",
           "isAncient": true,
@@ -20334,7 +20802,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Makeshift SMG",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 3,
           "description": "Unlocks the recipe for Makeshift SMG.",
           "isAncient": false,
@@ -20345,10 +20813,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Power Generator",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 3,
-          "description": "Unlocks the Power Generator structure at your base.",
+          "description": "A Lightning Pal-powered electric generator. Electric equipment won't run without this.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 50,
+            "Electric Organ": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Power_Generator.png"
         },
         {
@@ -20356,10 +20828,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Lamp",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 1,
-          "description": "Unlocks the Lamp structure at your base.",
+          "description": "Lights up dark areas at a base.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 10,
+            "Electric Organ": 3,
+            "Nail": 3,
+            "Wood": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lamp.png"
         },
         {
@@ -20367,10 +20845,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mounted Crossbow",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Weapon",
           "techPoints": 2,
-          "description": "Unlocks the Mounted Crossbow structure at your base.",
+          "description": "Assign a Pal with Handiwork suitability and it will protect a base using the crossbow.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 30,
+            "Wood": 30,
+            "Stone": 15,
+            "Nail": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mounted_Crossbow.png"
         },
         {
@@ -20378,7 +20862,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Fenglope Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Fenglope Saddle.",
           "isAncient": false,
@@ -20389,7 +20873,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mossanda Lux's Grenade Launcher",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Unlocks the recipe for Mossanda Lux's Grenade Launcher.",
           "isAncient": false,
@@ -20400,7 +20884,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Celaray Lux's Gloves",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the Celaray Lux's Gloves structure at your base.",
           "isAncient": false,
@@ -20411,7 +20895,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Single-Shot Sphere Launcher",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Weapon",
           "techPoints": 4,
           "description": "Unlocks the ancient blueprint for the Single-Shot Sphere Launcher.",
           "isAncient": true,
@@ -20431,12 +20915,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "techPoints": 3,
           "description": "Craft Hyper Sphere with materials and capture high-level pals.",
           "isAncient": false,
-          "materials": {
-            "Paladium Fragment": 3,
-            "Ingot": 3,
-            "Wood": 10,
-            "Cement": 2
-          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hyper_Sphere_icon.png"
         },
         {
@@ -20446,8 +20924,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Production",
           "techPoints": 3,
-          "description": "Automated station for crafting advanced spheres.",
+          "description": "An Assembly Line for producing spheres used for capturing Pals. By splitting Pals into groups, production speeds have somewhat increased. Requires Pals that can work with their hands.",
           "isAncient": false,
+          "materials": {
+            "Paldium Fragment": 30,
+            "Wood": 50,
+            "Ingot": 100,
+            "Nail": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sphere_Assembly_Line.png"
         },
         {
@@ -20455,7 +20939,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Shock Grenade",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Shock Grenade.",
           "isAncient": false,
@@ -20466,7 +20950,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Cold Resistant Metal Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 2,
           "description": "Unlocks the recipe for Cold Resistant Metal Armor.",
           "isAncient": false,
@@ -20477,10 +20961,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ceiling Lamp",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 1,
-          "description": "Unlocks the Ceiling Lamp structure at your base.",
+          "description": "Lights up dark areas below at a base.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 20,
+            "Electric Organ": 3,
+            "Nail": 3
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ceiling_Lamp.png"
         },
         {
@@ -20488,7 +20977,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Water Broncherry Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Water Broncherry Saddle.",
           "isAncient": false,
@@ -20499,7 +20988,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Rayhound Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Rayhound Saddle.",
           "isAncient": false,
@@ -20510,7 +20999,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Herbil's Harness",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Herbil's Harness.",
           "isAncient": false,
@@ -20521,7 +21010,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Small Pouch",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Small Pouch.",
           "isAncient": true,
@@ -20537,7 +21026,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Handgun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 3,
           "description": "Unlocks the recipe for Handgun.",
           "isAncient": false,
@@ -20548,7 +21037,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Handgun Ammo",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
           "description": "Unlocks the recipe for Handgun Ammo.",
           "isAncient": false,
@@ -20559,7 +21048,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Giga Shield",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 2,
           "description": "Unlocks the recipe for Giga Shield.",
           "isAncient": false,
@@ -20570,10 +21059,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Production Assembly Line",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 3,
-          "description": "Unlocks the Production Assembly Line structure at your base.",
+          "description": "A High Quality Workbench for producing items and gear. By splitting Pals into groups, production speeds have somewhat increased. Requires Pals that can work with their hands.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 100,
+            "Wood": 50,
+            "Nail": 20,
+            "Cement": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Production_Assembly_Line.png"
         },
         {
@@ -20581,10 +21076,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Stump and Axe",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Stump and Axe structure at your base.",
+          "description": "Place in base to improve logging speed. Placing more than one has no additional effect.",
           "isAncient": false,
+          "materials": {
+            "Wood": 150,
+            "Ingot": 40,
+            "Stone": 30
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stump_and_Axe.png"
         },
         {
@@ -20592,10 +21092,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Defensive Wall",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Defensive Wall structure at your base.",
+          "description": "Large defensive wall that protects from enemy invasions.",
           "isAncient": false,
+          "materials": {
+            "Stone": 10,
+            "Cement": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Defensive_Wall.png"
         },
         {
@@ -20603,7 +21107,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Water Elphidran Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Water Elphidran Saddle.",
           "isAncient": false,
@@ -20614,7 +21118,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Tarantriss Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Tarantriss Saddle.",
           "isAncient": false,
@@ -20625,7 +21129,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Anti-Gravity Belt",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Anti-Gravity Belt.",
           "isAncient": true,
@@ -20641,7 +21145,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Intermediate Fishing Rod (Cattiva)",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Intermediate Fishing Rod (Cattiva).",
           "isAncient": false,
@@ -20652,7 +21156,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Katana",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Katana.",
           "isAncient": false,
@@ -20663,7 +21167,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ice Grenade",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Ice Grenade.",
           "isAncient": false,
@@ -20674,7 +21178,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Potato Plantation",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the Potato Plantation structure at your base.",
           "isAncient": false,
@@ -20685,10 +21189,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Fine Bed",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Fine Bed structure at your base.",
+          "description": "Soft bed with improved restorative capabilities. Cannot sleep unless built under a roof.",
           "isAncient": false,
+          "materials": {
+            "Cloth": 10,
+            "Wood": 50,
+            "Nail": 10,
+            "Fiber": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fine_Bed.png"
         },
         {
@@ -20696,7 +21206,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mammorest Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Mammorest Saddle.",
           "isAncient": false,
@@ -20707,7 +21217,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Reindrix Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Reindrix Saddle.",
           "isAncient": false,
@@ -20718,7 +21228,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Azurobe Cryst Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Azurobe Cryst Saddle.",
           "isAncient": false,
@@ -20729,7 +21239,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Enhanced Hip Lantern",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Enhanced Hip Lantern.",
           "isAncient": true,
@@ -20745,7 +21255,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Makeshift Shotgun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Unlocks the recipe for Makeshift Shotgun.",
           "isAncient": false,
@@ -20756,10 +21266,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mine",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the Mine structure at your base.",
+          "description": "Automatically detonates when stepped on.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 5,
+            "Flame Organ": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mine.png"
         },
         {
@@ -20767,10 +21281,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Structure Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 4,
-          "description": "Unlocks the Metal Structure Set structure at your base.",
+          "description": "Set for building a base using metal. Allows building of metal foundations, walls, ceilings, stairs and other things necessary for building a house.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 1,
+            "Stone": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Structure_Set.png"
         },
         {
@@ -20778,10 +21296,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pickaxe and Helmet",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Armor",
           "techPoints": 2,
-          "description": "Unlocks the Pickaxe and Helmet structure at your base.",
+          "description": "Place in base to improve mining speed. Placing more than one has no additional effect.",
           "isAncient": false,
+          "materials": {
+            "Wood": 50,
+            "Stone": 50,
+            "Ingot": 50
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pickaxe_and_Helmet.png"
         },
         {
@@ -20789,7 +21312,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Kitsun Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Kitsun Saddle.",
           "isAncient": false,
@@ -20800,7 +21323,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Vanwyrm Cryst Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Vanwyrm Cryst Saddle.",
           "isAncient": false,
@@ -20811,7 +21334,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Dinossom Lux Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Dinossom Lux Saddle.",
           "isAncient": false,
@@ -20822,7 +21345,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Meowmere",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Meowmere.",
           "isAncient": true,
@@ -20838,7 +21361,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Makeshift Assault Rifle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Unlocks the recipe for Makeshift Assault Rifle.",
           "isAncient": false,
@@ -20849,7 +21372,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Incendiary Grenade",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Incendiary Grenade.",
           "isAncient": false,
@@ -20860,7 +21383,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Sniper Module",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 3,
           "description": "Unlocks the recipe for Sniper Module.",
           "isAncient": false,
@@ -20871,7 +21394,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Fishing Pond",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 3,
           "description": "Unlocks the Fishing Pond structure at your base.",
           "isAncient": false,
@@ -20882,10 +21405,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "High Quality Hot Spring",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 3,
-          "description": "Unlocks the High Quality Hot Spring structure at your base.",
+          "description": "Facility where Pals on base can rest. Now comfier and restores more SAN.",
           "isAncient": false,
+          "materials": {
+            "Stone": 100,
+            "Wood": 100,
+            "Paldium Fragment": 30,
+            "Cement": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/High_Quality_Hot_Spring.png"
         },
         {
@@ -20893,10 +21422,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Stone Gate",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Stone Gate structure at your base.",
+          "description": "Stone gate large enough for big Pals to pass through.",
           "isAncient": false,
+          "materials": {
+            "Stone": 10,
+            "Cement": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Gate.png"
         },
         {
@@ -20904,7 +21437,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pyrin Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 1,
           "description": "Unlocks the recipe for Pyrin Saddle.",
           "isAncient": false,
@@ -20915,7 +21448,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Hangyu Cryst's Glove",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Hangyu Cryst's Glove.",
           "isAncient": false,
@@ -20926,7 +21459,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Giga Grappling Gun",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Weapon",
           "techPoints": 3,
           "description": "Top-tier grapple for extreme mobility across the map.",
           "isAncient": true,
@@ -20942,7 +21475,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Compound Bow",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 3,
           "description": "Unlocks the recipe for Compound Bow.",
           "isAncient": false,
@@ -20953,7 +21486,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Reinforced Arrow",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
           "description": "Unlocks the recipe for Reinforced Arrow.",
           "isAncient": false,
@@ -20964,7 +21497,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Recovery Grenade",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 3,
           "description": "Unlocks the Pal Recovery Grenade structure at your base.",
           "isAncient": false,
@@ -20975,10 +21508,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Weapon Assembly Line",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 3,
-          "description": "Unlocks the Weapon Assembly Line structure at your base.",
+          "description": "Needs electricity but produces weapons and ammunition at a faster pace. Requires Pals with Handiwork trait.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 100,
+            "Wood": 50,
+            "Nail": 20,
+            "High Quality Pal Oil": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Weapon_Assembly_Line.png"
         },
         {
@@ -20986,7 +21525,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Carrot Plantation",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the Carrot Plantation structure at your base.",
           "isAncient": false,
@@ -20997,10 +21536,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Witch Cauldron",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Witch Cauldron structure at your base.",
+          "description": "Place in base to improve the medicine manufacturing speed. Placing more than one has no additional effect.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 50,
+            "Stone": 50,
+            "Pal Fluids": 15,
+            "High Quality Pal Oil": 15
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Witch_Cauldron.png"
         },
         {
@@ -21008,7 +21553,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Palbox Control Device",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 3,
           "description": "Unlocks the Palbox Control Device structure at your base.",
           "isAncient": false,
@@ -21019,7 +21564,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Reptyro Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Reptyro Saddle.",
           "isAncient": false,
@@ -21030,10 +21575,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Summoning Altar",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 3,
-          "description": "Unlocks the ancient blueprint for the Summoning Altar.",
+          "description": "Offer a Slab depicting a Pal to summon a powerful Pal to your base. Adequate caution and battle readiness is paramount.",
           "isAncient": true,
+          "materials": {
+            "Stone": 100,
+            "Paldium Fragment": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Summoning_Altar.png"
         }
       ]
@@ -21046,7 +21595,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Old Revolver",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 3,
           "description": "Unlocks the recipe for Old Revolver.",
           "isAncient": false,
@@ -21057,7 +21606,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Water Grenade",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Water Grenade.",
           "isAncient": false,
@@ -21068,7 +21617,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Polymer",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Polymer.",
           "isAncient": false,
@@ -21079,10 +21628,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Electric Mine",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the Electric Mine structure at your base.",
+          "description": "Electrocutes those who step on it. Electrocuted Pals are easier to capture.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 5,
+            "Electric Organ": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Mine.png"
         },
         {
@@ -21090,10 +21643,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Snowman",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Snowman structure at your base.",
+          "description": "Place in base to improve cooling speed. Placing more than one has no additional effect.",
           "isAncient": false,
+          "materials": {
+            "Ice Organ": 50,
+            "Wood": 50,
+            "Cloth": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Snowman.png"
         },
         {
@@ -21101,7 +21659,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Helzephyr Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
           "description": "Unlocks the recipe for Helzephyr Saddle.",
           "isAncient": false,
@@ -21112,7 +21670,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Blazehowl Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
           "description": "Unlocks the recipe for Blazehowl Saddle.",
           "isAncient": false,
@@ -21123,10 +21681,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Clock Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Clock Set structure at your base.",
+          "description": "Decorative furniture set. Doesn't actually tell time.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 5,
+            "Paldium Fragment": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Clock_Set.png"
         },
         {
@@ -21134,7 +21696,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ability Glasses",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 4,
           "description": "Unlocks the ancient blueprint for the Ability Glasses.",
           "isAncient": true,
@@ -21150,10 +21712,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Improved Furnace",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 4,
-          "description": "Unlocks the Improved Furnace structure at your base.",
+          "description": "Uses Ore to produce Ingots.",
           "isAncient": false,
+          "materials": {
+            "Stone": 100,
+            "Cement": 30,
+            "Flame Organ}}": 15
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Improved_Furnace.png"
         },
         {
@@ -21161,7 +21728,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Refined Metal Axe",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Refined Metal Axe.",
           "isAncient": false,
@@ -21172,7 +21739,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Refined Metal Pickaxe",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Refined Metal Pickaxe.",
           "isAncient": false,
@@ -21183,7 +21750,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Refined Metal Spear",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 3,
           "description": "Unlocks the recipe for Refined Metal Spear.",
           "isAncient": false,
@@ -21194,7 +21761,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Beakon Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Beakon Saddle.",
           "isAncient": false,
@@ -21205,7 +21772,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pyrin Noct Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Pyrin Noct Saddle.",
           "isAncient": false,
@@ -21216,7 +21783,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Polapup's Harness",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Polapup's Harness.",
           "isAncient": false,
@@ -21227,10 +21794,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Storage Container Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Storage Container Set structure at your base.",
+          "description": "Container furniture set. Can store items.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 100
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Storage_Container_Set.png"
         },
         {
@@ -21238,7 +21808,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Air Dash Boots",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Air Dash Boots.",
           "isAncient": true,
@@ -21258,12 +21828,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "techPoints": 4,
           "description": "Craft Ultra Sphere with materials and capture high-level pals.",
           "isAncient": false,
-          "materials": {
-            "Paladium Fragment": 5,
-            "Refined Ingot": 5,
-            "Carbon Fiber": 2,
-            "Cement": 3
-          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ultra_Sphere_icon.png"
         },
         {
@@ -21273,8 +21837,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Production",
           "techPoints": 5,
-          "description": "Improved line that produces Ultra Spheres efficiently.",
+          "description": "An Assembly Line for producing spheres used for capturing Pals. Through clever management, production speeds have greatly increased. Requires Pals that can work with their hands.",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 100,
+            "Circuit Board": 10,
+            "Nail": 30,
+            "Paldium Fragment": 50
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sphere_Assembly_Line_II.png"
         },
         {
@@ -21282,7 +21852,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Grass Grenade",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Grass Grenade.",
           "isAncient": false,
@@ -21293,7 +21863,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Circuit Board",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Circuit Board.",
           "isAncient": false,
@@ -21304,7 +21874,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Carbon Fiber",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Carbon Fiber.",
           "isAncient": false,
@@ -21315,7 +21885,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Whalaska Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Whalaska Saddle.",
           "isAncient": false,
@@ -21326,7 +21896,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Blazehowl Noct Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Blazehowl Noct Saddle.",
           "isAncient": false,
@@ -21337,10 +21907,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Chair and Desk Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Metal Chair and Desk Set structure at your base.",
+          "description": "Decorative furniture set. Match with metal structures and enjoy life with your Pals.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 3
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Chair_and_Desk_Set.png"
         },
         {
@@ -21348,7 +21921,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Huge Feed Bag",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 4,
           "description": "Unlocks the ancient blueprint for the Huge Feed Bag.",
           "isAncient": true,
@@ -21364,7 +21937,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Single-Shot Rifle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 3,
           "description": "Unlocks the recipe for Single-Shot Rifle.",
           "isAncient": false,
@@ -21375,7 +21948,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Rifle Ammo",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 2,
           "description": "Unlocks the recipe for Rifle Ammo.",
           "isAncient": false,
@@ -21386,7 +21959,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Surgery Table",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 3,
           "description": "Unlocks the recipe for Pal Surgery Table.",
           "isAncient": false,
@@ -21397,7 +21970,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Onion Plantation",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the Onion Plantation structure at your base.",
           "isAncient": false,
@@ -21408,7 +21981,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "High Quality Cloth",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for High Quality Cloth.",
           "isAncient": false,
@@ -21419,10 +21992,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Large Pal Bed",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Large Pal Bed structure at your base.",
+          "description": "Fluffy bed to give Pals a good rest. Pans can rest when injured or sleep at night. Even large Pals can sleep soundly on a bed like this.",
           "isAncient": false,
+          "materials": {
+            "High Quality Cloth": 10,
+            "Wood": 60,
+            "Nail": 20,
+            "Fiber": 30
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Pal_Bed.png"
         },
         {
@@ -21430,7 +22009,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Quivern Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Quivern Saddle.",
           "isAncient": false,
@@ -21441,10 +22020,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Antique Lamp Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 1,
-          "description": "Unlocks the Antique Lamp Set structure at your base.",
+          "description": "Antique lamp set to provide illumination. Requires electricity.",
           "isAncient": false,
+          "materials": {
+            "Wood": 30,
+            "Electric Organ": 3,
+            "Nail": 3
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Antique_Lamp_Set.png"
         },
         {
@@ -21452,10 +22036,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Electric Egg Incubator",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Improved incubator that speeds hatching with power.",
+          "description": "Device for incubating Pal eggs. Requires electricity, but automatically keeps the inside of the incubator at appropriate temperatures.",
           "isAncient": true,
+          "materials": {
+            "Refined Ingot": 50,
+            "Circuit Board": 15,
+            "Ancient Civilization Parts": 10,
+            "Ancient Civilization Core": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Egg_Incubator.png"
         }
       ]
@@ -21468,7 +22058,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "SMG",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 3,
           "description": "Unlocks the recipe for SMG.",
           "isAncient": false,
@@ -21479,7 +22069,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Refined Metal Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 3,
           "description": "Unlocks the recipe for Refined Metal Armor.",
           "isAncient": false,
@@ -21490,7 +22080,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Refined Metal Helm",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 3,
           "description": "Unlocks the recipe for Refined Metal Helm.",
           "isAncient": false,
@@ -21501,7 +22091,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Accumulator",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
           "description": "Unlocks the Accumulator structure at your base.",
           "isAncient": false,
@@ -21512,7 +22102,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ragnahawk Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Ragnahawk Saddle.",
           "isAncient": false,
@@ -21523,7 +22113,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Reptyro Cryst Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Reptyro Cryst Saddle.",
           "isAncient": false,
@@ -21534,10 +22124,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ironwood Table Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Ironwood Table Set structure at your base.",
+          "description": "Decorative furniture set. Match with metal structures and enjoy life with your Pals.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10,
+            "Ingot": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ironwood_Table_Set.png"
         },
         {
@@ -21545,7 +22139,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Scattered Sphere Launcher",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Weapon",
           "techPoints": 5,
           "description": "Unlocks the ancient blueprint for the Scattered Sphere Launcher.",
           "isAncient": true,
@@ -21561,7 +22155,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Meteor Launcher",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 3,
           "description": "Unlocks the recipe for Meteor Launcher.",
           "isAncient": false,
@@ -21572,7 +22166,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ground Grenade",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Ground Grenade.",
           "isAncient": false,
@@ -21583,10 +22177,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Deluxe Bait",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Consumable",
           "techPoints": 2,
-          "description": "Unlocks the Deluxe Bait structure at your base.",
+          "description": "Bait that lures in Pals. Improved to slightly enlarge the size of the bar in the fishing minigame.",
           "isAncient": false,
+          "materials": {
+            "High Quality Pal Oil": 4,
+            "Onion": 4,
+            "Carrot": 3,
+            "Flour": 4
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Deluxe_Bait.png"
         },
         {
@@ -21594,10 +22194,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Refrigerator",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Refrigerator structure at your base.",
+          "description": "Used to store items. A Pal with the Cooling Work Suitability is needed to maintain the cooling effect.",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 50,
+            "Polymer": 20,
+            "Ice Organ": 15,
+            "Circuit Board": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Refrigerator.png"
         },
         {
@@ -21605,10 +22211,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ice Mine",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the Ice Mine structure at your base.",
+          "description": "Freezes those who step on it. Frozen Pals are easier to capture.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 5,
+            "Ice Organ": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ice_Mine.png"
         },
         {
@@ -21616,7 +22226,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Blazamut Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
           "description": "Unlocks the recipe for Blazamut Saddle.",
           "isAncient": false,
@@ -21627,7 +22237,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Faleris Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Faleris Saddle.",
           "isAncient": false,
@@ -21638,10 +22248,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Outdoor Furniture Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Outdoor Furniture Set structure at your base.",
+          "description": "Decorative furniture set. Spruces up the outside of your base.",
           "isAncient": false,
+          "materials": {
+            "Wood": 20,
+            "Ingot": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Outdoor_Furniture_Set.png"
         },
         {
@@ -21649,10 +22263,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ore Mining Site II",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 3,
-          "description": "Unlocks the ancient blueprint for the Ore Mining Site II.",
+          "description": "Facility for producing large quantities of Ore. Mining Ore is hard work that requires physical endurance. Leave it to Pals skilled at mining.",
           "isAncient": true,
+          "materials": {
+            "Stone": 100,
+            "Ingot": 50,
+            "Paldium Fragment": 40
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ore_Mining_Site_II.png"
         }
       ]
@@ -21665,7 +22284,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Double-barreled Shotgun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 3,
           "description": "Unlocks the recipe for Double-barreled Shotgun.",
           "isAncient": false,
@@ -21676,7 +22295,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Shotgun Shells",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 2,
           "description": "Unlocks the recipe for Shotgun Shells.",
           "isAncient": false,
@@ -21687,7 +22306,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Slider Module",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 3,
           "description": "Unlocks the recipe for Slider Module.",
           "isAncient": false,
@@ -21698,10 +22317,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Glass Structure Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 2,
-          "description": "Unlocks the Glass Structure Set structure at your base.",
+          "description": "Set for building a base using glass. Allows building of glass foundations, walls, ceilings, stairs and other things necessary for shelters.",
           "isAncient": false,
+          "materials": {
+            "Stone": 1,
+            "Paldium Fragment": 2
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Glass_Foundation.png"
         },
         {
@@ -21709,10 +22332,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Refined Metal Chest",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 3,
-          "description": "Unlocks the Refined Metal Chest structure at your base.",
+          "description": "Stores items. Made of iron, it is extremely durable. It is useful as a large, secure storage box.",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 20,
+            "Wood": 50,
+            "Nail": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Refined_Metal_Chest.png"
         },
         {
@@ -21720,7 +22348,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pengullet Lux's Rocket Launcher",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 3,
           "description": "Unlocks the recipe for Pengullet Lux's Rocket Launcher.",
           "isAncient": false,
@@ -21731,7 +22359,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Jormuntide Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Jormuntide Saddle.",
           "isAncient": false,
@@ -21742,10 +22370,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Barrel Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Metal Barrel Set structure at your base.",
+          "description": "Decorative furniture set. Not suitable for doing keg stands.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 10,
+            "Flame Organ": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Barrel_Set.png"
         },
         {
@@ -21753,7 +22385,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Double Jump Boots",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Double Jump Boots.",
           "isAncient": true,
@@ -21769,7 +22401,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Dark Grenade",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Dark Grenade.",
           "isAncient": false,
@@ -21780,7 +22412,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Heat Resistant Refined Metal Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 4,
           "description": "Unlocks the recipe for Heat Resistant Refined Metal Armor.",
           "isAncient": false,
@@ -21791,7 +22423,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Giga Glider",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Giga Glider.",
           "isAncient": false,
@@ -21802,10 +22434,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mounted Machine Gun",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Weapon",
           "techPoints": 3,
-          "description": "Unlocks the Mounted Machine Gun structure at your base.",
+          "description": "Deploy a Pal to operate this defensive installation. Requires Rifle Ammo to use. Place ammo in the chest, and the deployed Pal will automatically load the weapon.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 30,
+            "Nail": 10,
+            "Cement": 15
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mounted_Machine_Gun.png"
         },
         {
@@ -21813,7 +22450,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Grizzbolt's Minigun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 4,
           "description": "Unlocks the recipe for Grizzbolt's Minigun.",
           "isAncient": false,
@@ -21824,10 +22461,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Leather Chair Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Leather Chair Set structure at your base.",
+          "description": "Decorative furniture set. Leather screams luxury.",
           "isAncient": false,
+          "materials": {
+            "Wood": 10,
+            "Leather": 2,
+            "Cloth": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Leather_Chair_Set.png"
         },
         {
@@ -21835,7 +22477,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Guild Chest",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Production",
           "techPoints": 4,
           "description": "Unlocks the ancient blueprint for the Guild Chest.",
           "isAncient": true,
@@ -21851,7 +22493,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Semi-Auto Rifle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 3,
           "description": "Unlocks the recipe for Semi-Auto Rifle.",
           "isAncient": false,
@@ -21862,7 +22504,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Cold Resistant Refined Metal Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 4,
           "description": "Unlocks the recipe for Cold Resistant Refined Metal Armor.",
           "isAncient": false,
@@ -21873,10 +22515,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Electric Kitchen",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 3,
-          "description": "Unlocks the Electric Kitchen structure at your base.",
+          "description": "Needed for cooking food. It requires electricity to run, but allows a large amount of meals to be prepared rapidly. Requires a Pal with Kindling to light a flame.",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 30,
+            "Circuit Board": 5,
+            "Charcoal": 20,
+            "Flame Organ": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Kitchen.png"
         },
         {
@@ -21884,10 +22532,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Alpha Wave Generator",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 3,
-          "description": "Unlocks the Alpha Wave Generator structure at your base.",
+          "description": "A device that generates alpha waves to relax Pals. It slows the rate at which the SAN value of allies at the base decreases. Placing more than two will not have any additional effect.",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 50,
+            "Circuit Board": 20,
+            "Electric Organ": 30,
+            "Paldium Fragment": 30
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Alpha_Wave_Generator.png"
         },
         {
@@ -21895,10 +22549,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Electric Heater",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 3,
-          "description": "Unlocks the Electric Heater structure at your base.",
+          "description": "Warms the nearby area and protects against the cold. Improved range and heating capabilities.",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 30,
+            "Circuit Board": 10,
+            "Ingot": 30,
+            "Flame Organ": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Heater.png"
         },
         {
@@ -21906,7 +22566,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Suzaku Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Suzaku Saddle.",
           "isAncient": false,
@@ -21917,10 +22577,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Street Lamp Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 1,
-          "description": "Unlocks the Street Lamp Set structure at your base.",
+          "description": "Street lamp set to provide illumination. Requires electricity to light.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 20,
+            "Electric Organ": 3,
+            "Nail": 3
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Street_Lamp_Set.png"
         },
         {
@@ -21928,10 +22593,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Coal Mine",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the ancient blueprint for the Coal Mine.",
+          "description": "Facility for producing large quantities of Coal.",
           "isAncient": true,
+          "materials": {
+            "Stone": 70,
+            "Coal": 100,
+            "Paldium Fragment": 30
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Coal_Mine.png"
         }
       ]
@@ -21944,7 +22614,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Dragon Grenade",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Dragon Grenade.",
           "isAncient": false,
@@ -21955,10 +22625,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Production Assembly Line II",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the Production Assembly Line II structure at your base.",
+          "description": "A High Quality Workbench for producing items and gear. Through clever management, production speeds have increased greatly. Requires Pals that can work with their hands.",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 100,
+            "Circuit Board": 10,
+            "Nail": 30
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Production_Assembly_Line_II.png"
         },
         {
@@ -21966,10 +22641,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Electric Cooler",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 3,
-          "description": "Unlocks the Electric Cooler structure at your base.",
+          "description": "Cools the nearby area and protects against the heat. Improved range and cooling capabilities.",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 30,
+            "Circuit Board": 10,
+            "Ingot": 30,
+            "Ice Organ": 10
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Cooler.png"
         },
         {
@@ -21977,10 +22658,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Iron Gate",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the Iron Gate structure at your base.",
+          "description": "Metal gate large enough for big Pals to pass through.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 10,
+            "Cement": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Iron_Gate.png"
         },
         {
@@ -21988,7 +22673,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ice Kingpaca Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Ice Kingpaca Saddle.",
           "isAncient": false,
@@ -21999,7 +22684,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Palumba Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
           "description": "Unlocks the recipe for Palumba Saddle.",
           "isAncient": false,
@@ -22010,10 +22695,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Amusement Furniture Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Amusement Furniture Set structure at your base.",
+          "description": "Decorative furniture set. Your Pals will keep on working.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 20,
+            "Fiber": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Amusement_Furniture_Set.png"
         },
         {
@@ -22021,10 +22710,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Emergency Exit Sign Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Emergency Exit Sign Set structure at your base.",
+          "description": "Decorative furniture set. Apparently a priceless artifact in more civilized times.",
           "isAncient": false,
+          "materials": {
+            "Polymer": 1,
+            "Electric Organ": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Emergency_Exit_Sign_Set.png"
         },
         {
@@ -22032,7 +22725,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Medium Pouch",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 2,
           "description": "Unlocks the ancient blueprint for the Medium Pouch.",
           "isAncient": true,
@@ -22059,7 +22752,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Hyper Shield",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 3,
           "description": "Unlocks the recipe for Hyper Shield.",
           "isAncient": false,
@@ -22070,10 +22763,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Electric Medicine Workbench",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 3,
-          "description": "Unlocks the Electric Medicine Workbench structure at your base.",
+          "description": "A facility for making Pal medicine. It requires electricity, but can produce high quality medicine. Leave its operation to a Pal that can make medicine.",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 40,
+            "Circuit Board": 10,
+            "Carbon Fiber": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Medicine_Workbench.png"
         },
         {
@@ -22081,10 +22779,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Defensive Wall",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the Metal Defensive Wall structure at your base.",
+          "description": "Massive defensive wall to prevent enemy intrusions. Made from metal, it is extremely durable.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 10,
+            "Cement": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Defensive_Wall.png"
         },
         {
@@ -22092,7 +22794,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Water Suzaku Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
           "description": "Unlocks the recipe for Water Suzaku Saddle.",
           "isAncient": false,
@@ -22103,7 +22805,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Jormuntide Ignis Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Jormuntide Ignis Saddle.",
           "isAncient": false,
@@ -22114,7 +22816,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Yakumo Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
           "description": "Unlocks the recipe for Yakumo Saddle.",
           "isAncient": false,
@@ -22125,7 +22827,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Lily's Spear",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 3,
           "description": "Unlocks the ancient blueprint for the Lily's Spear.",
           "isAncient": true,
@@ -22145,12 +22847,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "techPoints": 5,
           "description": "Craft Legendary Sphere with materials and capture high-level pals.",
           "isAncient": false,
-          "materials": {
-            "Paladium Fragment": 10,
-            "Carbon Fiber": 5,
-            "Circuit Board": 5,
-            "Polymer": 5
-          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Legendary_Sphere_icon.png"
         },
         {
@@ -22160,8 +22856,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Production",
           "techPoints": 5,
-          "description": "High-tier furnace needed for Pal Metal Ingots.",
+          "description": "Allows refinement of Pal Metal Ingot. It requires Electricity to use, but is quicker to process. Requires a Fire Pal to light a flame.",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 50,
+            "Circuit Board": 10,
+            "Polymer": 20,
+            "Carbon Fiber": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Furnace.png"
         },
         {
@@ -22169,7 +22871,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Sword",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 3,
           "description": "Unlocks the recipe for Sword.",
           "isAncient": false,
@@ -22180,7 +22882,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Metal Pickaxe",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Pal Metal Pickaxe.",
           "isAncient": false,
@@ -22191,7 +22893,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Metal Axe",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
           "description": "Unlocks the recipe for Pal Metal Axe.",
           "isAncient": false,
@@ -22202,7 +22904,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Relaxaurus's Missile Launcher",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 4,
           "description": "Unlocks the recipe for Relaxaurus's Missile Launcher.",
           "isAncient": false,
@@ -22213,7 +22915,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Wumpo Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
           "description": "Unlocks the recipe for Wumpo Saddle.",
           "isAncient": false,
@@ -22224,7 +22926,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Decal Gun Set",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Weapon",
           "techPoints": 1,
           "description": "Unlocks the ancient blueprint for the Decal Gun Set.",
           "isAncient": true,
@@ -22242,7 +22944,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Item",
           "category": "Weapon",
           "techPoints": 4,
-          "description": "Fully automatic rifle for late-game firefights.",
+          "description": "Mows down enemies with overwhelming force. It excels at rapid-fire and is well suited to taking down powerful foes.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Assault_Rifle_icon.png"
         },
@@ -22253,7 +22955,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Item",
           "category": "Ammo",
           "techPoints": 1,
-          "description": "Ammo crafted for the Assault Rifle.",
+          "description": "Ammo for Assault Rifle and other similar weapons.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Assault_Rifle_Ammo_icon.png"
         },
@@ -22262,9 +22964,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Advanced Fishing Rod (Pengullet)",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Advanced Fishing Rod (Pengullet).",
+          "description": "A fishing rod designed for catching Pals. Use it with bait near water where shadows are visible to start fishing. It boasts improved performance, making catches vastly easier.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Fishing_Rod_%28Pengullet%29_icon.png"
         },
@@ -22273,9 +22975,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Drafting Table",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Drafting Table.",
+          "description": "A facility that lets you combine multiple schematics to create more advanced ones.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Drafting_Table.png"
         },
@@ -22284,9 +22986,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Wumpo Botan Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Wumpo Botan Saddle.",
+          "description": "Saddle for safely riding Wumpo Botan.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wumpo_Botan_menu.png"
         },
@@ -22295,9 +22997,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mammorest Cryst Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Mammorest Cryst Saddle.",
+          "description": "Saddle for safely riding Mammorest Cryst.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mammorest_Cryst_menu.png"
         },
@@ -22306,9 +23008,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Chillet Ignis Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Chillet Ignis Saddle.",
+          "description": "Saddle for safely riding Chillet Ignis.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Chillet_Ignis_menu.png"
         },
@@ -22317,10 +23019,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Traffic Control Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Traffic Control Set structure at your base.",
+          "description": "Decorative furniture set. No roads mean no traffic control.",
           "isAncient": false,
+          "materials": {
+            "Polymer": 1
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Traffic_Control_Set.png"
         },
         {
@@ -22328,10 +23033,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Sulfur Mine",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the ancient blueprint for the Sulfur Mine.",
+          "description": "Facility for producing large quantities of Sulfur.",
           "isAncient": true,
+          "materials": {
+            "Stone": 70,
+            "Sulfur": 100,
+            "Paldium Fragment": 30
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sulfur_Mine.png"
         }
       ]
@@ -22344,9 +23054,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Metal Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Pal Metal Armor.",
+          "description": "Armor made from . High defense, but extremely heavy. Equipment for a hero, it exudes bravery.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Metal_Armor.png"
         },
@@ -22355,9 +23065,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Metal Helm",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Pal Metal Helm.",
+          "description": "A helm made from . Envied for its immaculate quality, it is proof of a chosen warrior.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Metal_Helm.png"
         },
@@ -22366,10 +23076,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Beta Wave Generator",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 3,
-          "description": "Unlocks the Beta Wave Generator structure at your base.",
+          "description": "A device that emits beta waves to energize Pals. It increases the work speed of Pals at the base. Placing more than one will not have any additional effect.",
           "isAncient": false,
+          "materials": {
+            "Pal Metal Ingot": 40,
+            "Circuit Board": 30,
+            "Electric Organ": 40
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Beta_Wave_Generator.png"
         },
         {
@@ -22377,10 +23092,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Large Mounted Lamp",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the Large Mounted Lamp structure at your base.",
+          "description": "Lights up large areas at a base.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 50,
+            "Circuit Board": 5,
+            "Nail": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Mounted_Lamp.png"
         },
         {
@@ -22388,9 +23108,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Relaxaurus Lux's Missile Launcher",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Relaxaurus Lux's Missile Launcher.",
+          "description": "Makes Relaxaurus Lux fire a missile launcher when ridden.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Relaxaurus_Lux_menu.png"
         },
@@ -22399,9 +23119,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Shroomer Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Shroomer Saddle.",
+          "description": "Saddle for safely riding Shroomer.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Shroomer_menu.png"
         },
@@ -22410,9 +23130,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Braloha Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Braloha Saddle.",
+          "description": "Saddle for safely riding Braloha.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Braloha_menu.png"
         },
@@ -22421,10 +23141,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Road Sign Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Road Sign Set structure at your base.",
+          "description": "Decorative furniture set. No roads mean no traffic control.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Road_Sign_Set.png"
         },
         {
@@ -22432,9 +23155,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Giant Feed Bag",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 5,
-          "description": "Unlocks the ancient blueprint for the Giant Feed Bag.",
+          "description": "An extraordinarily large sack for storing food. Unlocks 5 food slots in your inventory. Players and Pals automatically consume food when hungry.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Giant_Feed_Bag.png"
         }
@@ -22448,9 +23171,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Semi-Auto Shotgun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Semi-Auto Shotgun.",
+          "description": "A rapid-fire shotgun with immense power. Its close-range damage output is top-notch.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Semi-Auto_Shotgun_icon.png"
         },
@@ -22459,10 +23182,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Weapon Assembly Line II",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the Weapon Assembly Line II structure at your base.",
+          "description": "Needs electricity but produces weapons and ammunition at an even faster pace. Requires Pals with Handiwork trait.",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 100,
+            "Circuit Board": 10,
+            "Nail": 30
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Weapon_Assembly_Line_II.png"
         },
         {
@@ -22470,9 +23198,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Sniper Module II",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Sniper Module II.",
+          "description": "Equipping it significantly increases the sphere's range, allowing it to sharply capture Pals and enhancing capture power.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sniper_Module_%E2%85%A1_icon.png"
         },
@@ -22481,10 +23209,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Large Ceiling Lamp",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the Large Ceiling Lamp structure at your base.",
+          "description": "Lights up large areas below at a base.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 50,
+            "Circuit Board": 5,
+            "Nail": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Ceiling_Lamp.png"
         },
         {
@@ -22492,9 +23225,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Astegon Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Astegon Saddle.",
+          "description": "Saddle for safely riding Astegon.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Astegon_menu.png"
         },
@@ -22503,9 +23236,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Shadowbeak Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Shadowbeak Saddle.",
+          "description": "Saddle for safely riding Shadowbeak.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Shadowbeak_menu.png"
         },
@@ -22514,9 +23247,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Shroomer Noct Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Shroomer Noct Saddle.",
+          "description": "Saddle for safely riding Shroomer Noct.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Shroomer_Noct_menu.png"
         },
@@ -22525,9 +23258,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Large Incubator",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the ancient blueprint for the Large Incubator.",
+          "description": "Device for incubating Pal eggs. It automatically maintains a suitable temperature and can hatch multiple eggs at once.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Incubator.png"
         }
@@ -22541,9 +23274,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Heat Resistant Pal Metal Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Heat Resistant Pal Metal Armor.",
+          "description": "Improved Pal Metal Armor. Proudly boasts a high heat resistance.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heat_Resistant_Pal_Metal_Armor.png"
         },
@@ -22552,9 +23285,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Skillfruit Orchard",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 3,
-          "description": "Unlocks the Skillfruit Orchard structure at your base.",
+          "description": "A farm where Skillfruits can be cultivated. By planting the original fruit in the ground, multiple fruits of the same type can be harvested.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Skillfruit_Orchard.png"
         },
@@ -22563,9 +23296,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Gold Coin Assembly Line",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 3,
-          "description": "Unlocks the Gold Coin Assembly Line structure at your base.",
+          "description": "Automated mint that churns out Gold Coins when staffed, turning spare ore and Pal-made parts into steady income.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gold_Coin_Assembly_Line.png"
         },
@@ -22574,10 +23307,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Electric Pylon",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the Electric Pylon structure at your base.",
+          "description": "Place in a base to improve electricity generating speed. Placing more than one has no additional effect.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 100,
+            "Electric Organ": 30,
+            "Circuit Board": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Electric_Pylon.png"
         },
         {
@@ -22585,9 +23323,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Frostallion Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Frostallion Saddle.",
+          "description": "Saddle for safely riding Frostallion.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Frostallion_menu.png"
         },
@@ -22596,9 +23334,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Frostallion Noct Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Frostallion Noct Saddle.",
+          "description": "Saddle for safely riding Frostallion Noct.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Frostallion_Noct_menu.png"
         },
@@ -22607,10 +23345,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Barricade Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 1,
-          "description": "Unlocks the Barricade Set structure at your base.",
+          "description": "Decorative furniture set. Place to keep somewhere off limits.",
           "isAncient": false,
+          "materials": {
+            "Ingot": 5
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Barricade_Set.png"
         },
         {
@@ -22618,9 +23359,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Hyper Grappling Gun",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Weapon",
           "techPoints": 4,
-          "description": "Unlocks the ancient blueprint for the Hyper Grappling Gun.",
+          "description": "It fires a hook that latches on to distant targets, pulling the user's body towards the target. As a result of research, it has achieved overwhelming mobility.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grappling_Gun_icon.png"
         }
@@ -22634,9 +23375,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Rocket Launcher",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Rocket Launcher.",
+          "description": "A Rocket Launcher that can fire a powerful round from long distances.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rocket_Launcher.png"
         },
@@ -22645,9 +23386,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Rocket Ammo",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Rocket Ammo.",
+          "description": "Ammo for Rocket Launcher and other similar weapons.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rocket_Ammo_icon.png"
         },
@@ -22656,9 +23397,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Item Retrieval Machine",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the Item Retrieval Machine structure at your base.",
+          "description": "Base terminal that scans every storage box and delivers the stack you request without running around your base.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Item_Retrieval_Machine.png"
         },
@@ -22667,9 +23408,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Large-Scale Stone Oven",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the Large-Scale Stone Oven structure at your base.",
+          "description": "Needed for cooking food. By becoming larger, multiple Pals can cooperate to cook together.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large-Scale_Stone_Oven.png"
         },
@@ -22678,9 +23419,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Paladius Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Paladius Saddle.",
+          "description": "Saddle for safely riding Paladius.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Paladius_menu.png"
         },
@@ -22689,9 +23430,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Necromus Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Necromus Saddle.",
+          "description": "Saddle for safely riding Necromus.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Necromus_menu.png"
         },
@@ -22700,9 +23441,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Quivern Botan Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Quivern Botan Saddle.",
+          "description": "Saddle for safely riding Quivern Botan.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Quivern_Botan_menu.png"
         },
@@ -22711,9 +23452,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Large Power Generator",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Production",
           "techPoints": 4,
-          "description": "Unlocks the ancient blueprint for the Large Power Generator.",
+          "description": "A power generator fueled by Electric Pals. Larger and with improved power generation efficiency.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Power_Generator.png"
         }
@@ -22727,9 +23468,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Cold Resistant Pal Metal Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Cold Resistant Pal Metal Armor.",
+          "description": "Improved Pal Metal Armor. Useful for activities in cold regions.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cold_Resistant_Pal_Metal_Armor.png"
         },
@@ -22738,10 +23479,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Mounted Missile Launcher",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Weapon",
           "techPoints": 3,
-          "description": "Unlocks the Mounted Missile Launcher structure at your base.",
+          "description": "{{Infobox Item",
           "isAncient": false,
+          "materials": {
+            "Refined Ingot": 100,
+            "Circuit Board": 20,
+            "Nail": 20,
+            "Cement": 50
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Mounted_Missile_Launcher.png"
         },
         {
@@ -22749,9 +23496,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Plasteel",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Material",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Plasteel.",
+          "description": "Plasteel created by processing Crude Oil and metal. Can be produced in a Electric Furnace.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Plasteel_icon.png"
         },
@@ -22760,9 +23507,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Crude Oil Extractor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Crude Oil Extractor.",
+          "description": "Equipment required to extract from oil fields. Requires a power supply to operate.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Crude_Oil_Extractor.png"
         },
@@ -22771,10 +23518,13 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Japanese-Style Structure Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 2,
-          "description": "Unlocks the Japanese-Style Structure Set structure at your base.",
+          "description": "Set for building a base using Japanese-style architecture. Allows building of Japanese-style foundations, walls, ceilings, stairs and other things necessary for shelters.",
           "isAncient": false,
+          "materials": {
+            "Wood": 4
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Japanese-Style_Structure_Set.png"
         },
         {
@@ -22782,9 +23532,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Jetragon's Missile Launcher",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Jetragon's Missile Launcher.",
+          "description": "Makes Jetragon fire missiles when ridden.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Jetragon_menu.png"
         },
@@ -22793,9 +23543,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Xenogard Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Xenogard Saddle.",
+          "description": "Saddle for safely riding Xenogard.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Xenogard_menu.png"
         },
@@ -22804,9 +23554,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pure Quartz Mine",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the ancient blueprint for the Pure Quartz Mine.",
+          "description": "Facility for producing Pure Quartz. Mining Pure Quartz is hard work that requires physical endurance. Leave it to Pals skilled at mining.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pure_Quartz_Mine.png"
         }
@@ -22822,7 +23572,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Item",
           "category": "Equipment",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Ultimate Sphere.",
+          "description": "A sphere that captures Pals when thrown. Its performance has been improved using the latest technology.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ultimate_Sphere_icon.png"
         },
@@ -22831,9 +23581,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Plasteel Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Plasteel Armor.",
+          "description": "Armor made of . In addition to enhanced defense capabilities, its weight was also reduced. Equipment that pushes the limits of technology.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Plasteel_Armor_icon.png"
         },
@@ -22842,9 +23592,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Plasteel Helmet",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Plasteel Helmet.",
+          "description": "Helmet made of . In addition to enhanced defense capabilities, its weight was also reduced. Equipment that pushes the limits of technology.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Plasteel_Helmet_icon.png"
         },
@@ -22853,9 +23603,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Laser Rifle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Laser Rifle.",
+          "description": "A weapon that fires high-energy lasers. It has impressive firepower and is easy to handle.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Laser_Rifle.png"
         },
@@ -22864,9 +23614,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Energy Cartridge",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Energy Cartridge.",
+          "description": "Ammo used by the Laser Rifle and similar weapons.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Energy_Cartridge_icon.png"
         },
@@ -22875,9 +23625,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Cold Food Box",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Cold Food Box.",
+          "description": "A feeding box that can be kept cold. Assign an Pal to it and the food inside will be less likely to spoil.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cold_Food_Box.png"
         },
@@ -22886,9 +23636,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Dazzi Noct's Necklace",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Dazzi Noct's Necklace.",
+          "description": "Collar for Dazzi. If Dazzi is in your team, it will stay by your side and attack enemies in tandem.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Dazzi_Noct_menu.png"
         },
@@ -22897,9 +23647,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Lockpicking Tool v3",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Base",
           "techPoints": 3,
-          "description": "Unlocks the ancient blueprint for the Lockpicking Tool v3.",
+          "description": "No key? No problem! These tools will allow you to try and pry open any treasure chest that would normally require a Copper Key.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lockpicking_Tool_v3_icon.png"
         }
@@ -22913,9 +23663,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Hyper Glider",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Hyper Glider.",
+          "description": "A glider for soaring through the air. Almost fast enough to keep up with airplanes.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hyper_Glider_icon.png"
         },
@@ -22924,9 +23674,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Flamethrower",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Flamethrower.",
+          "description": "Flamethrower that fires long-range flame. Can set the enemy on fire.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flamethrower.png"
         },
@@ -22935,9 +23685,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Flamethrower Fuel",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Flamethrower Fuel.",
+          "description": "Flamethrower fuel. Ammo for the Flamethrower and similar weapons.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Flamethrower_Fuel_icon.png"
         },
@@ -22946,9 +23696,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Alluring Bait",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Consumable",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Alluring Bait.",
+          "description": "Bait that lures in Pals. Improved to enlarge the size of the bar in the fishing minigame and increase the number of items obtained from fishing.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Alluring_Bait_icon.png"
         },
@@ -22957,9 +23707,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Refrigerated Crusher",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 2,
-          "description": "Unlocks the Refrigerated Crusher structure at your base.",
+          "description": "Facility that crushes Ore and converts it into other materials. Requires a power supply and a Pal with Cooling suitability, but it's very efficient.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Refrigerated_Crusher.png"
         },
@@ -22968,9 +23718,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Helzephyr Lux Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Helzephyr Lux Saddle.",
+          "description": "Saddle for safely riding Helzephyr Lux.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Helzephyr_Lux_menu.png"
         },
@@ -22979,9 +23729,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Fenglope Lux Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Fenglope Lux Saddle.",
+          "description": "Saddle for safely riding Fenglope Lux.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fenglope_Lux_menu.png"
         },
@@ -22990,9 +23740,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Large Pouch",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 3,
-          "description": "Unlocks the ancient blueprint for the Large Pouch.",
+          "description": "A large pouch that allows you to carry additional items. Holding it increases your inventory slots.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large_Pouch_icon.png"
         }
@@ -23006,9 +23756,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Heat Resistant Plasteel Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Heat Resistant Plasteel Armor.",
+          "description": "Improved Plasteel Armor. Boasts high heat resistance.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heat_Resistant_Plasteel_Armor_icon.png"
         },
@@ -23017,9 +23767,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Grenade Launcher",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Grenade Launcher.",
+          "description": "Fires grenades that cause wide-ranging explosions. Useful when dealing with a large number of enemies.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grenade_Launcher.png"
         },
@@ -23028,9 +23778,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Grenade Ammo",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Grenade Ammo.",
+          "description": "Ammo for the Grenade Launcher and similar weapons.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Grenade_Ammo_icon.png"
         },
@@ -23039,9 +23789,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Frag Grenade Mk2",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Frag Grenade Mk2.",
+          "description": "Improved frag grenade. When thrown, it explodes and causes great deal of damage to the enemy.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Frag_Grenade_Mk2_icon.png"
         },
@@ -23050,9 +23800,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Selyne Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Selyne Saddle.",
+          "description": "Saddle for safely riding Selyne.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Selyne_menu.png"
         },
@@ -23061,9 +23811,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Nyafia's Shotgun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Nyafia's Shotgun.",
+          "description": "Pal gear that lets Nyafia unleash a short-range shotgun blast to shred clustered enemies while she fights beside you.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Nyafia_menu.png"
         },
@@ -23072,9 +23822,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Kitsun Noct Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Kitsun Noct Saddle.",
+          "description": "Saddle for safely riding Kitsun Noct.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Kitsun_Noct_menu.png"
         }
@@ -23088,9 +23838,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Cold Resistant Plasteel Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Cold Resistant Plasteel Armor.",
+          "description": "Improved Plasteel Armor. Useful for activities in cold regions.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cold_Resistant_Plasteel_Armor_icon.png"
         },
@@ -23099,9 +23849,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Gatling Gun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Gatling Gun.",
+          "description": "A Gatling gun capable of rapid fire. Mows down enemies with suppressive fire.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gatling_Gun.png"
         },
@@ -23110,9 +23860,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Gatling Gun Bullet",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Gatling Gun Bullet.",
+          "description": "High-capacity ammo belts crafted for the Gatling Gun to keep its suppressive fire roaring.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gatling_Gun_Bullet_icon.png"
         },
@@ -23121,9 +23871,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Disassembly Conveyor",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Base",
           "techPoints": 5,
-          "description": "Unlocks the Pal Disassembly Conveyor structure at your base.",
+          "description": "A dream-like facility that automatically butchers any Pal that is placed inside.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Disassembly_Conveyor.png"
         },
@@ -23132,9 +23882,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Gildane Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Gildane Saddle.",
+          "description": "Saddle for safely riding Gildane.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gildane_menu.png"
         },
@@ -23143,9 +23893,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Japanese-Style Furniture Set",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Decoration",
           "techPoints": 2,
-          "description": "Unlocks the Japanese-Style Furniture Set structure at your base.",
+          "description": "Blueprint collection for shoji walls, tatami floors, lanterns, and other Japanese furnishings to theme a base.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Japanese-Style_Furniture_Set.png"
         },
@@ -23156,7 +23906,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Item",
           "category": "Ancient Tech",
           "techPoints": 3,
-          "description": "Unlocks the ancient blueprint for the Double Air Dash Boots.",
+          "description": "Ancient mobility boots that add a second air dash so you can chain two mid-air bursts before landing.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Air_Dash_Boots_icon.png"
         }
@@ -23170,9 +23920,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ultra Shield",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Ultra Shield.",
+          "description": "A curious shield that was made using Paldium technology. It repairs itself automatically when not taking damage after some time. As a result of further experiments, ultimate quality has been achieved.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ultra_Shield_icon.png"
         },
@@ -23181,9 +23931,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Lightweight Plasteel Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Lightweight Plasteel Armor.",
+          "description": "Improved Plasteel Armor. Increases carrying capacity.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lightweight_Plasteel_Armor_icon.png"
         },
@@ -23192,9 +23942,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Guided Missile Launcher",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Guided Missile Launcher.",
+          "description": "Fires missiles that automatically track and pursue enemies. Missiles explode upon impact, causing damage over a wide area.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Guided_Missile_Launcher.png"
         },
@@ -23203,9 +23953,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Missile Ammo",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Missile Ammo.",
+          "description": "Ammo for the Guided Missile Launcher and similar weapons.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Missile_Ammo_icon.png"
         },
@@ -23214,9 +23964,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Blazamut Ryu Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Blazamut Ryu Saddle.",
+          "description": "Saddle for safely riding Blazamut Ryu.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Blazamut_Ryu_menu.png"
         },
@@ -23225,9 +23975,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Faleris Aqua Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Faleris Aqua Saddle.",
+          "description": "Saddle for safely riding Faleris Aqua.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Faleris_Aqua_menu.png"
         },
@@ -23236,9 +23986,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Homing Sphere Launcher",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the ancient blueprint for the Homing Sphere Launcher.",
+          "description": "A launcher for firing spheres. Fired spheres home in on Pals.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Sphere_Launcher.png"
         }
@@ -23254,7 +24004,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Item",
           "category": "Equipment",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Exotic Sphere.",
+          "description": "An item that captures Pals when thrown. Boasting incredible performance, it can capture Pals that fall outside regular standards.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Exotic_Sphere_icon.png"
         },
@@ -23263,9 +24013,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Advanced Sphere Assembly Line",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the Advanced Sphere Assembly Line structure at your base.",
+          "description": "An Assembly Line for producing spheres used for capturing Pals. Advanced machinery has been introduced, allowing for the production of spheres at high speed. Requires Pals that can work with their hands.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Sphere_Assembly_Line.png"
         },
@@ -23274,9 +24024,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Hexolite",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Material",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Hexolite.",
+          "description": "An alloy of Chromite, Ore, and Hexolite Quartz.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hexolite_icon.png"
         },
@@ -23285,9 +24035,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Gigantic Furnace",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the Gigantic Furnace structure at your base.",
+          "description": "Allows refinement of Hexolite. By growing in size, multiple pals can collaborate to perform smelting. Requires a Pal to light a flame.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Gigantic_Furnace.png"
         },
@@ -23296,9 +24046,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Metal Detector",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Gear",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Metal Detector.",
+          "description": "Holding it allows you to detect hidden ores nearby. It marks the metal when close to the ore, but the mark disappears if you move away.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Detector_icon.png"
         },
@@ -23307,9 +24057,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Azurmane Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Azurmane Saddle.",
+          "description": "Saddle for safely riding Azurmane.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Azurmane_menu.png"
         },
@@ -23318,9 +24068,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Smokie's Harness",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Smokie's Harness.",
+          "description": "Harness for Smokie. Activate its Partner Skill to detect the location of nearby Chromite.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Smokie_menu.png"
         }
@@ -23334,9 +24084,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Advanced Bow",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Advanced Bow.",
+          "description": "A bow reconstructed with advanced technology. Capable of firing extremely powerful Arrows.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Bow_icon.png"
         },
@@ -23345,9 +24095,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Advanced Arrow",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Advanced Arrow.",
+          "description": "An Advanced Arrow for use with an Advanced Bow.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Arrow_icon.png"
         },
@@ -23356,9 +24106,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Hexolite Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Hexolite Armor.",
+          "description": "Armor made of Hexolite. Possesses overwhelming durability and defense.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hexolite_Armor_icon.png"
         },
@@ -23367,9 +24117,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Beam Sword",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Beam Sword.",
+          "description": "Beam Sword for close-range combat. Slices through opponents, burning them with a high-output laser.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Beam_Sword_icon.png"
         },
@@ -23378,9 +24128,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Homing Module",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Homing Module.",
+          "description": "Equipping it makes the sphere home in on Pals, further increasing capture power.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Homing_Module_icon.png"
         },
@@ -23389,9 +24139,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Pal Pod",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Tool",
           "techPoints": 5,
-          "description": "Unlocks the Pal Pod structure at your base.",
+          "description": "Deployable capsule that instantly summons a reserve Pal to fight alongside you without swapping slots at the Palbox.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Pod.png"
         },
@@ -23400,9 +24150,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Starryon Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Starryon Saddle.",
+          "description": "Saddle for safely riding Starryon.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Starryon_menu.png"
         },
@@ -23411,9 +24161,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Giant Pouch",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 4,
-          "description": "Unlocks the ancient blueprint for the Giant Pouch.",
+          "description": "Massive storage pouch that expands the player's carry inventory with another row of slots.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Giant_Pouch_icon.png"
         }
@@ -23427,10 +24177,15 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Advanced Chest",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 4,
-          "description": "Unlocks the Advanced Chest structure at your base.",
+          "description": "Stores items. Quite sturdy, with plenty of storage space. It is useful as a large, secure storage box.",
           "isAncient": false,
+          "materials": {
+            "Hexolite": 20,
+            "Carbon Fiber": 50,
+            "Nail": 20
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Chest.png"
         },
         {
@@ -23438,9 +24193,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Laser Gatling Gun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Laser Gatling Gun.",
+          "description": "Fires beam-like energy blasts at high speed. Its overwhelming firepower can take down multiple enemies at once.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Laser_Gatling_Gun_icon.png"
         },
@@ -23449,9 +24204,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Laser Gatling Cartridge",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Laser Gatling Cartridge.",
+          "description": "Ammo for the Laser Gatling Gun and any similar weapon.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Laser_Gatling_Cartridge_icon.png"
         },
@@ -23460,9 +24215,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Hexolite Helmet",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Hexolite Helmet.",
+          "description": "Hexolite battle helm that completes the set with heavyweight protection for late-game firefights.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hexolite_Helmet_icon.png"
         },
@@ -23471,9 +24226,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Silvegis Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Silvegis Saddle.",
+          "description": "Saddle for safely riding Silvegis.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Silvegis_menu.png"
         },
@@ -23482,9 +24237,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Celesdir Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Celesdir Saddle.",
+          "description": "Saddle for safely riding Celesdir.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Celesdir_menu.png"
         },
@@ -23493,9 +24248,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Triple Jump Boots",
           "branch": "Ancient Technology",
           "group": "Item",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 3,
-          "description": "Unlocks the ancient blueprint for the Triple Jump Boots.",
+          "description": "Advanced mobility boots that unlock a third air dash for unmatched aerial traversal.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Jump_Boots_icon.png"
         }
@@ -23509,9 +24264,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Advanced Recovery Meds",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Consumable",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Advanced Recovery Meds.",
+          "description": "Medicine that heals wounds over time. Extremely high quality; it rapidly restores HP before your eyes.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Recovery_Meds_icon.png"
         },
@@ -23520,9 +24275,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Revival Potion",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Consumable",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Revival Potion.",
+          "description": "A potion that revives a Pal that has been injured and is unable to move.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Revival_Potion_icon.png"
         },
@@ -23531,9 +24286,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Advanced Medicine Workbench",
           "branch": "Technology",
           "group": "Structure",
-          "category": "Base Building",
+          "category": "Production",
           "techPoints": 4,
-          "description": "Unlocks the Advanced Medicine Workbench structure at your base.",
+          "description": "A facility for making medicine to cure Pals' illnesses. With advanced technology, it can also create unknown medicines. Assign the task to a Pal capable of pharmacy work.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Medicine_Workbench.png"
         },
@@ -23542,9 +24297,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Heat Resistant Hexolite Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Heat Resistant Hexolite Armor.",
+          "description": "Hexolite combat suit lined with heat shielding so you can work volcano biomes in top-tier protection.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Heat_Resistant_Hexolite_Armor_icon.png"
         },
@@ -23553,9 +24308,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Cold Resistant Hexolite Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Cold Resistant Hexolite Armor.",
+          "description": "Hexolite combat suit with heavy insulation that keeps you safe in polar storms while retaining high defense.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cold_Resistant_Hexolite_Armor_icon.png"
         },
@@ -23564,9 +24319,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Bastigor's Hammer",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Bastigor's Hammer.",
+          "description": "Pal gear that arms Bastigor with a colossal hammer swing capable of crushing armor and staggering bosses.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Bastigor_menu.png"
         }
@@ -23580,9 +24335,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Plasma Cannon",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Plasma Cannon.",
+          "description": "Fires high-output energy projectiles. Causes an energy explosion upon impact.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Plasma_Cannon_icon.png"
         },
@@ -23591,9 +24346,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Plasma Cartridge",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Plasma Cartridge.",
+          "description": "Ammo for the Plasma Cannon and any similar weapon.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Plasma_Cartridge_icon.png"
         },
@@ -23602,9 +24357,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Advanced Shield",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Advanced Shield.",
+          "description": "Strange shield made with advanced technology. It automatically repairs itself after not taking damage for a while.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Shield_icon.png"
         },
@@ -23613,9 +24368,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Lightweight Hexolite Armor",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Armor",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Lightweight Hexolite Armor.",
+          "description": "Streamlined Hexolite plating engineered for movement speed while still offering elite defense ratings.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Lightweight_Hexolite_Armor_icon.png"
         },
@@ -23624,9 +24379,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Xenolord Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Xenolord Saddle.",
+          "description": "Saddle for safely riding Xenolord.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Xenolord_menu.png"
         },
@@ -23635,9 +24390,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Large-Scale Electric Egg Incubator",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the ancient blueprint for the Large-Scale Electric Egg Incubator.",
+          "description": "Powered incubation hall that hatches up to ten Pal eggs at once so large breeding queues finish together.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Large-Scale_Electric_Egg_Incubator.png"
         }
@@ -23651,9 +24406,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Powerful Fishing Magnet",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Tool",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Powerful Fishing Magnet.",
+          "description": "Premium fishing magnet that drags treasure and rare loot out of the water faster during the fishing minigame.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Powerful_Fishing_Magnet_icon.png"
         },
@@ -23662,9 +24417,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Coralum Ingot",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Material",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Coralum Ingot.",
+          "description": "Refined Coralum alloy required for advanced Sakurajima weapons, energy tech, and late-game structures.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Coralum_Ingot_icon.png"
         },
@@ -23673,9 +24428,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Advanced Civilization Workshop",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Advanced Civilization Workshop.",
+          "description": "An Assembly Line for producing items and gear. Advanced machinery has been introduced, enabling high-speed production. Requires Pals that can work with their hands.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Civilization_Workshop.png"
         },
@@ -23684,9 +24439,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Futuristic Structure Set",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Decoration",
           "techPoints": 2,
-          "description": "Unlocks the recipe for Futuristic Structure Set.",
+          "description": "Set for building a base using futuristic architecture. Allows building of futuristic foundations, walls, ceilings, stairs and other things necessary for shelters.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Futuristic_Structure_Set.png"
         },
@@ -23695,9 +24450,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ghangler Ignis Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Ghangler Ignis Saddle.",
+          "description": "Saddle for safely riding Ghangler Ignis.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ghangler_Ignis_menu.png"
         },
@@ -23706,10 +24461,14 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Hexolite Quartz Mine",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the ancient blueprint for the Hexolite Quartz Mine.",
+          "description": "Facility for producing Hexolite Quartz|Hexolite Quartzs. Digging Hexolite Quartzs is grueling physical work. Leave it to a Pal that is good at mining.",
           "isAncient": true,
+          "materials": {
+            "Stone": 70,
+            "Hexolite Quartz": 100
+          },
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hexolite_Quartz_Mine.png"
         }
       ]
@@ -23722,9 +24481,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Energy Shotgun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Energy Shotgun.",
+          "description": "Cutting-edge shotgun that fires condensed energy blasts for brutal short-range burst damage.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Energy_Shotgun_icon.png"
         },
@@ -23733,9 +24492,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Energy Shotgun Ammo",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Energy Shotgun Ammo.",
+          "description": "Ammo for the Energy Shotgun and similar weapons.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Energy_Shotgun_Ammo_icon.png"
         },
@@ -23744,9 +24503,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Advanced Civilization Weapon Assembly Line",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Production",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Advanced Civilization Weapon Assembly Line.",
+          "description": "An Assembly Line for producing weapons and ammunition. Advanced machinery has been introduced, enabling high-speed weapon production. Requires Pals that can work with their hands.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Advanced_Civilization_Weapon_Assembly_Line.png"
         },
@@ -23755,9 +24514,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Japanese-Style Hot Spring",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Base Utility",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Japanese-Style Hot Spring.",
+          "description": "Relaxing hot spring pavilion that restores SAN and buffs recovery while fitting Japanese architecture sets.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Japanese-Style_Hot_Spring.png"
         },
@@ -23766,9 +24525,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Whalaska Ignis Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 4,
-          "description": "Unlocks the recipe for Whalaska Ignis Saddle.",
+          "description": "Lets you harness Whalaska Ignis and can be ridden. While fighting together, fishing minigames begin with the capture gauge more filled than usual. Additionally, the capture gauge increases more rapidly while the bars are overlapping.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Whalaska_Ignis_menu.png"
         },
@@ -23779,7 +24538,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "group": "Structure",
           "category": "Ancient Tech",
           "techPoints": 4,
-          "description": "Unlocks the ancient blueprint for the Triple Air Dash Boots.",
+          "description": "Ultimate mobility boots that add a third air dash so you can string long aerial routes together.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Triple_Air_Dash_Boots_icon.png"
         }
@@ -23793,9 +24552,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Megaboost Gun",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Megaboost Gun.",
+          "description": "Experimental support firearm that bathes allies in buffing energy shots to spike their attack output.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Megaboost_Gun_icon.png"
         },
@@ -23804,9 +24563,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Rayne Syndicate Flag Set",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Decoration",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Rayne Syndicate Flag Set.",
+          "description": "Decor bundle of Rayne Syndicate banners and standards for faction-themed base dressing.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rayne_Syndicate_Flag_Set.png"
         },
@@ -23815,9 +24574,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Free Pal Alliance Flag Set",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Decoration",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Free Pal Alliance Flag Set.",
+          "description": "Decor bundle of Free Pal Alliance flags to show solidarity across your settlements.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Free_Pal_Alliance_Flag_Set.png"
         },
@@ -23826,9 +24585,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Neptilius Saddle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Pal Gear",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Neptilius Saddle.",
+          "description": "Saddle for safely riding Neptilius.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Neptilius_menu.png"
         },
@@ -23837,9 +24596,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Ultra Grappling Gun",
           "branch": "Ancient Technology",
           "group": "Structure",
-          "category": "Ancient Tech",
+          "category": "Gear",
           "techPoints": 5,
-          "description": "Unlocks the ancient blueprint for the Ultra Grappling Gun.",
+          "description": "Top-tier grappling launcher with almost instant reel speed for extreme traversal and raid flanking.",
           "isAncient": true,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Ultra_Grappling_Gun_icon.png"
         }
@@ -23853,9 +24612,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Overheat Rifle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Overheat Rifle.",
+          "description": "An assault rifle capable of firing endlessly without reloading. Prolonged bursts cause overheating, leaving you exposed. Use with caution.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Overheat_Rifle_icon.png"
         },
@@ -23864,9 +24623,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Overheat Rifle Ammo",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Overheat Rifle Ammo.",
+          "description": "Ammo for the Overheat Rifle and similar weapons.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Overheat_Rifle_Ammo_icon.png"
         },
@@ -23875,9 +24634,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Brothers of the Eternal Pyre Flag Set",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Decoration",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Brothers of the Eternal Pyre Flag Set.",
+          "description": "Banner set honoring the Brothers of the Eternal Pyre, perfect for fiery faction bases.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Brothers_of_the_Eternal_Pyre_Flag_Set.png"
         },
@@ -23886,9 +24645,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "PIDF Flag Set",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Decoration",
           "techPoints": 3,
-          "description": "Unlocks the recipe for PIDF Flag Set.",
+          "description": "Decorative flag pack carrying the PIDF insignia to give bases a militant flair.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/PIDF_Flag_Set.png"
         }
@@ -23902,9 +24661,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Charge Rifle",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Weapon",
           "techPoints": 5,
-          "description": "Unlocks the recipe for Charge Rifle.",
+          "description": "A beam rifle crafted with advanced technology. Charges energy to deliver one powerful shot.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Charge_Rifle_icon.png"
         },
@@ -23913,9 +24672,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Charge Rifle Ammo",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Ammo",
           "techPoints": 1,
-          "description": "Unlocks the recipe for Charge Rifle Ammo.",
+          "description": "Ammo for the Charge Rifle and similar weapons.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Charge_Rifle_Ammo_icon.png"
         },
@@ -23924,9 +24683,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "PAL Genetic Research Unit Flag Set",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Decoration",
           "techPoints": 3,
-          "description": "Unlocks the recipe for PAL Genetic Research Unit Flag Set.",
+          "description": "Prestige flag collection from the PAL Genetic Research Unit to showcase endgame biotech mastery.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/PAL_Genetic_Research_Unit_Flag_Set.png"
         },
@@ -23935,9 +24694,9 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "name": "Moonflower Flag Set",
           "branch": "Technology",
           "group": "Item",
-          "category": "Equipment",
+          "category": "Decoration",
           "techPoints": 3,
-          "description": "Unlocks the recipe for Moonflower Flag Set.",
+          "description": "Elegant Moonflower banners that add luminous festival décor to late-game bases.",
           "isAncient": false,
           "image": "https://palworld.fandom.com/wiki/Special:FilePath/Moonflower_Flag_Set.png"
         }
@@ -24817,6 +25576,42 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "ct": 2,
       "power": 30,
       "skillFruit": "Grass Skill Fruit: Wind Cutter"
+    },
+    "Moonlight Beam": {
+      "name": "Moonlight Beam",
+      "element": "Neutral",
+      "description": "Selyne stores lunar energy then fires a crescent beam forward.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 40,
+      "power": 170,
+      "skillFruit": "Skill Fruit: Moonlight Beam"
+    },
+    "Seigetsu Blade": {
+      "name": "Seigetsu Blade",
+      "element": "Neutral",
+      "description": "Calls down crescent blades from the new moon to slash enemies.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 24,
+      "power": 110,
+      "skillFruit": "Skill Fruit: Seigetsu Blade"
+    },
+    "Star Mine": {
+      "name": "Star Mine",
+      "element": "Neutral",
+      "description": "Launches clustered dark orbs that detonate after a short delay.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
+      "power": 110,
+      "skillFruit": "Skill Fruit: Star Mine"
+    },
+    "Wholehearted Stance": {
+      "name": "Wholehearted Stance",
+      "element": "Neutral",
+      "description": "Dogen's exclusive skill. Adopts an aiki stance to counter with a full-force palm strike.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 30,
+      "power": 170,
+      "skillFruit": "Skill Fruit: Wholehearted Stance"
     }
   },
   "passiveDetails": {
@@ -25625,6 +26420,58 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "effect": "10% increase to Neutral attack damage",
       "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
       "rank": 1
+    },
+    "Ace Swimmer": {
+      "name": "Ace Swimmer",
+      "description": "Rank 3. Movement speed on water +40%.",
+      "effect": "Movement speed on water +40%.",
+      "source": "https://paldb.cc/en/Passive_Skills",
+      "rank": 3,
+      "stats": {
+        "Movement Speed (Water)": "+40%"
+      }
+    },
+    "King of the Waves": {
+      "name": "King of the Waves",
+      "description": "Rank 4. Movement speed on water +50%.",
+      "effect": "Movement speed on water +50%.",
+      "source": "https://paldb.cc/en/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Movement Speed (Water)": "+50%"
+      }
+    },
+    "Lunker": {
+      "name": "Lunker",
+      "description": "Rank 4. 20% increase to Water and Ice attack damage, Defense +20%.",
+      "effect": "20% increase to Water and Ice attack damage, Defense +20%.",
+      "source": "https://paldb.cc/en/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Water Attack Damage": "+20%",
+        "Ice Attack Damage": "+20%",
+        "Defense": "+20%"
+      }
+    },
+    "Sleek Stroke": {
+      "name": "Sleek Stroke",
+      "description": "Rank 1. Movement speed on water +30%.",
+      "effect": "Movement speed on water +30%.",
+      "source": "https://paldb.cc/en/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Movement Speed (Water)": "+30%"
+      }
+    },
+    "Remarkable Craftmanship": {
+      "name": "Remarkable Craftmanship",
+      "description": "Rank 4. Work Speed +75%",
+      "effect": "Work Speed +75%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Work Speed": "+75%"
+      }
     }
   }
-}
+};

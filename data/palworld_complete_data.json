@@ -12218,6 +12218,58 @@
       "effect": "10% increase to Neutral attack damage",
       "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
       "rank": 1
+    },
+    "Ace Swimmer": {
+      "name": "Ace Swimmer",
+      "description": "Rank 3. Movement speed on water +40%.",
+      "effect": "Movement speed on water +40%.",
+      "source": "https://paldb.cc/en/Passive_Skills",
+      "rank": 3,
+      "stats": {
+        "Movement Speed (Water)": "+40%"
+      }
+    },
+    "King of the Waves": {
+      "name": "King of the Waves",
+      "description": "Rank 4. Movement speed on water +50%.",
+      "effect": "Movement speed on water +50%.",
+      "source": "https://paldb.cc/en/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Movement Speed (Water)": "+50%"
+      }
+    },
+    "Lunker": {
+      "name": "Lunker",
+      "description": "Rank 4. 20% increase to Water and Ice attack damage, Defense +20%.",
+      "effect": "20% increase to Water and Ice attack damage, Defense +20%.",
+      "source": "https://paldb.cc/en/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Water Attack Damage": "+20%",
+        "Ice Attack Damage": "+20%",
+        "Defense": "+20%"
+      }
+    },
+    "Sleek Stroke": {
+      "name": "Sleek Stroke",
+      "description": "Rank 1. Movement speed on water +30%.",
+      "effect": "Movement speed on water +30%.",
+      "source": "https://paldb.cc/en/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Movement Speed (Water)": "+30%"
+      }
+    },
+    "Remarkable Craftmanship": {
+      "name": "Remarkable Craftmanship",
+      "description": "Rank 4. Work Speed +75%",
+      "effect": "Work Speed +75%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Work Speed": "+75%"
+      }
     }
   },
   "skillsDetails": {
@@ -12922,6 +12974,42 @@
       "ct": 2,
       "power": 30,
       "skillFruit": "Grass Skill Fruit: Wind Cutter"
+    },
+    "Moonlight Beam": {
+      "name": "Moonlight Beam",
+      "element": "Neutral",
+      "description": "Selyne stores lunar energy then fires a crescent beam forward.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 40,
+      "power": 170,
+      "skillFruit": "Skill Fruit: Moonlight Beam"
+    },
+    "Seigetsu Blade": {
+      "name": "Seigetsu Blade",
+      "element": "Neutral",
+      "description": "Calls down crescent blades from the new moon to slash enemies.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 24,
+      "power": 110,
+      "skillFruit": "Skill Fruit: Seigetsu Blade"
+    },
+    "Star Mine": {
+      "name": "Star Mine",
+      "element": "Neutral",
+      "description": "Launches clustered dark orbs that detonate after a short delay.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
+      "power": 110,
+      "skillFruit": "Skill Fruit: Star Mine"
+    },
+    "Wholehearted Stance": {
+      "name": "Wholehearted Stance",
+      "element": "Neutral",
+      "description": "Dogen's exclusive skill. Adopts an aiki stance to counter with a full-force palm strike.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 30,
+      "power": 170,
+      "skillFruit": "Skill Fruit: Wholehearted Stance"
     }
   }
 }
