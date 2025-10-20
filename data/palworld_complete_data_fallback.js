@@ -24117,289 +24117,1514 @@ window.__PALMATE_EMBEDDED_DATA__ = {
   ],
   "skillsDetails": {
     "Acid Rain": {
+      "name": "Acid Rain",
       "element": "Water",
-      "ct": 18.0,
+      "description": "Creates acidic clouds that pour down acid rain on enemies",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 18,
       "power": 80,
-      "description": "Creates acidic clouds that pour down acid rain on enemies."
+      "skillFruit": "Water Skill Fruit: Acid Rain"
     },
     "Air Blade": {
+      "name": "Air Blade",
       "element": "Neutral",
-      "ct": 20.0,
+      "description": "Sends out sharp blades of air in a fan shape.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 20,
       "power": 85,
-      "description": "Sends out sharp blades of air in a fan shape that cut through foes."
+      "skillFruit": "Skill Fruit: Air Blade"
     },
     "Air Cannon": {
+      "name": "Air Cannon",
       "element": "Neutral",
-      "ct": 2.0,
+      "description": "Quickly fires a burst of highly pressurized air.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 2,
       "power": 25,
-      "description": "Quickly fires a burst of highly pressurized air to stagger enemies."
+      "skillFruit": "Skill Fruit: Air Cannon"
     },
     "Apocalypse": {
+      "name": "Apocalypse",
       "element": "Dark",
+      "description": "Generates several dark vortexes in the surrounding area.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
       "ct": 55,
       "power": 110,
-      "description": "Generates several dark vortexes in the surrounding area to devour foes."
+      "skillFruit": "Dark Skill Fruit: Apocalypse"
     },
     "Aqua Burst": {
+      "name": "Aqua Burst",
       "element": "Water",
-      "ct": 30.0,
+      "description": "Creates a giant ball of water and hurls it at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 30,
       "power": 100,
-      "description": "Creates a giant ball of water and hurls it at the enemy, splashing nearby foes."
+      "skillFruit": "Water Skill Fruit: Aqua Burst"
     },
     "Aqua Gun": {
+      "name": "Aqua Gun",
       "element": "Water",
-      "ct": 4.0,
-      "power": 40,
-      "description": "Hurls a ball of water straight at an enemy with moderate power."
-    },
-    "Beam Slicer": {
-      "element": "Dragon",
-      "ct": 45,
-      "power": 130,
-      "description": "Mows down the frontal area with a beam imbued with dragon power; the area explodes after a moment."
-    },
-    "Blast Cannon": {
-      "element": "Dragon",
-      "ct": 30,
-      "power": 100,
-      "description": "Fires an energy bullet imbued with dragon power. The bullet shatters on impact, causing a long‑range explosion."
-    },
-    "Blizzard Spike": {
-      "element": "Ice",
-      "ct": 45,
-      "power": 130,
-      "description": "Creates a giant lump of ice and hurls it at the enemy. It explodes on impact, dealing area damage."
-    },
-    "Bog Blast": {
-      "element": "Ground",
+      "description": "Hurls a ball of water straight at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
       "ct": 4,
       "power": 40,
-      "description": "Hurls sticky mud at the enemy, slowing them and dealing minor damage."
+      "skillFruit": "Water Skill Fruit: Aqua Gun"
+    },
+    "Beam Slicer": {
+      "name": "Beam Slicer",
+      "element": "Dragon",
+      "description": "Mows down the frontal area with a beam imbued with dragon power. The area touched by the beam will also explode after a few moments.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 45,
+      "power": 130,
+      "skillFruit": "Dragon Skill Fruit: Beam Slicer"
+    },
+    "Blast Cannon": {
+      "name": "Blast Cannon",
+      "element": "Dragon",
+      "description": "Fires an energy bullet imbued with dragon power at the enemy's location. Upon impact, the bullet shatters and creates a frontal long-range explosion.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 30,
+      "power": 100,
+      "skillFruit": "Dragon Skill Fruit: Blast Cannon"
+    },
+    "Blizzard Spike": {
+      "name": "Blizzard Spike",
+      "element": "Ice",
+      "description": "Creates a giant lump of ice and hurls it at any enemy. It deals damage to those in the surrounding area upon impact.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 45,
+      "power": 130,
+      "skillFruit": "Ice Skill Fruit: Blizzard Spike"
+    },
+    "Bog Blast": {
+      "name": "Bog Blast",
+      "element": "Ground",
+      "description": "Hurls sticky mud at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 4,
+      "power": 40,
+      "skillFruit": "Earth Skill Fruit: Bog Blast"
     },
     "Bubble Blast": {
+      "name": "Bubble Blast",
       "element": "Water",
-      "ct": 13.0,
+      "description": "Fires numerous bubbles that slowly pursue an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 13,
       "power": 65,
-      "description": "Fires numerous bubbles that slowly pursue an enemy and pop to cause damage."
+      "skillFruit": "Water Skill Fruit: Bubble Blast"
     },
     "Circle Vine": {
+      "name": "Circle Vine",
       "element": "Grass",
+      "description": "Sprots sharp roots in and around the enemy's location.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
       "ct": 40,
       "power": 120,
-      "description": "Sprouts sharp roots around the enemy’s location, ensnaring and damaging any foes caught within."
+      "skillFruit": "Grass Skill Fruit: Circle Vine"
     },
     "Comet Strike": {
+      "name": "Comet Strike",
       "element": "Dragon",
+      "description": "Drops a meteorite straight down, generating a shock wave around the impact area.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
       "ct": 35,
       "power": 110,
-      "description": "Drops a meteorite straight down and generates a shockwave around the impact area."
+      "skillFruit": "Dragon Skill Fruit: Comet"
     },
     "Cryst Breath": {
+      "name": "Cryst Breath",
       "element": "Ice",
+      "description": "Enshrouds an enemy in a frigid blast of air, dealing continuous damage.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
       "ct": 22,
       "power": 90,
-      "description": "Enshrouds an enemy in a frigid blast of air, dealing continuous frost damage."
+      "skillFruit": "Ice Skill Fruit: Cryst Breath"
     },
     "Curtain Splash": {
+      "name": "Curtain Splash",
       "element": "Water",
-      "ct": 40.0,
-      "power": 120,
-      "description": "Continuously creates walls of water columns at the enemy’s location, trapping and damaging foes."
-    },
-    "Dark Arrow": {
-      "element": "Dark",
-      "ct": 10.0,
-      "power": 65,
-      "description": "Fires off dark energy that homes in on an enemy and pierces their defences."
-    },
-    "Dark Laser": {
-      "element": "Dark",
-      "ct": 55,
-      "power": 150,
-      "description": "Emits a concentrated dark beam that deals massive damage along its path."
-    },
-    "Flame Funnel": {
-      "element": "Fire",
+      "description": "Continously creates walls made from water columns at the enemy's location.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
       "ct": 40,
       "power": 120,
-      "description": "Summons a swirling column of fire that pulls in enemies and burns them."
+      "skillFruit": "Water Skill Fruit: Wall Splash"
     },
-    "Rockburst": {
-      "element": "Ground",
-      "ct": 30,
-      "power": 120,
-      "description": "Causes rocks to erupt from the ground, damaging all enemies in a wide area."
+    "Dark Arrow": {
+      "name": "Dark Arrow",
+      "element": "Dark",
+      "description": "Fires off dark energy that homes in on an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 10,
+      "power": 65,
+      "skillFruit": "Dark Skill Fruit: Dark Arrow"
     },
-    "Sand Tornado": {
-      "element": "Ground",
-      "ct": 30,
-      "power": 110,
-      "description": "Summons a swirling tornado of sand that tears through enemies."
+    "Dark Ball": {
+      "name": "Dark Ball",
+      "element": "Dark",
+      "description": "Unleases a sphere of darkness that slowly tracks down the enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 4,
+      "power": 40,
+      "skillFruit": "Breeding only"
     },
     "Dark Cannon": {
+      "name": "Dark Cannon",
       "element": "Dark",
-      "description": "Fires off a focused orb of dark energy straight ahead.",
-      "ct": 2.0,
-      "power": 50
+      "description": "Fires off dark energy that homes in on an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 2,
+      "power": 50,
+      "skillFruit": "Dark Skill Fruit: Dark Cannon"
+    },
+    "Dark Laser": {
+      "name": "Dark Laser",
+      "element": "Dark",
+      "description": "Charges dark energy before blasting enemies with a powerful beam.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
+      "power": 150,
+      "skillFruit": "Dark Skill Fruit: Dark Laser"
+    },
+    "Diamond Rain": {
+      "name": "Diamond Rain",
+      "element": "Ice",
+      "description": "Creates numerous lumps of ice that are consecutively dropped on a foe's head.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 60,
+      "power": 160,
+      "skillFruit": "Ice Skill Fruit: Diamond Rain"
+    },
+    "Draconic Breath": {
+      "name": "Draconic Breath",
+      "element": "Dragon",
+      "description": "Exhales breath imbued with draconic energy, dealing continuous damage to those in front of it.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 15,
+      "power": 70,
+      "skillFruit": "Dragon Skill Fruit: Draconic Breath"
+    },
+    "Dragon Burst": {
+      "name": "Dragon Burst",
+      "element": "Dragon",
+      "description": "Quickly discharges draconic energy, damaging those around it.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 10,
+      "power": 55,
+      "skillFruit": "Dragon Skill Fruit: Dragon Burst"
+    },
+    "Dragon Cannon": {
+      "name": "Dragon Cannon",
+      "element": "Dragon",
+      "description": "Hurls an energy ball imbued with draconic energy at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 2,
+      "power": 30,
+      "skillFruit": "Dragon Skill Fruit: Dragon Cannon"
+    },
+    "Dragon Meteor": {
+      "name": "Dragon Meteor",
+      "element": "Dragon",
+      "description": "Calls down numerous small meteorites and launches them at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
+      "power": 150,
+      "skillFruit": "Dragon Skill Fruit: Dragon Meteor"
+    },
+    "Electric Ball": {
+      "name": "Electric Ball",
+      "element": "Electric",
+      "description": "Fires an electric ball that slowly pursues an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 9,
+      "power": 50,
+      "skillFruit": "Electric Skill Fruit: Electric Ball"
+    },
+    "Fire Ball": {
+      "name": "Fire Ball",
+      "element": "Fire",
+      "description": "Creates a giant ball of flames and hurls it at an enemy.  The ball explodes over a wide area upon impact.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
+      "power": 150,
+      "skillFruit": "Fire Skill Fruit: Fire Ball"
+    },
+    "Flame Funnel": {
+      "name": "Flame Funnel",
+      "element": "Fire",
+      "description": "Creates multiple spheres of fiery energy, from which countless fireballs shoot towards the enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 40,
+      "power": 120,
+      "skillFruit": "Breeding only"
+    },
+    "Flame Wall": {
+      "name": "Flame Wall",
+      "element": "Fire",
+      "description": "Creates a wall of flames at the enemy's location. The wall of flame will remain for a while, and deal damage to the enemies it touches.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 30,
+      "power": 100,
+      "skillFruit": "Fire Skill Fruit: Flame Wall"
+    },
+    "Flare Arrow": {
+      "name": "Flare Arrow",
+      "element": "Fire",
+      "description": "Fires three flaming arrows in succession that home in on an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 10,
+      "power": 55,
+      "skillFruit": "Fire Skill Fruit: Flare Arrow"
+    },
+    "Flare Storm": {
+      "name": "Flare Storm",
+      "element": "Fire",
+      "description": "Generates two flaming tornadoes on either side before launching them at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 18,
+      "power": 80,
+      "skillFruit": "Fire Skill Fruit: Flare Storm"
+    },
+    "Grass Tornado": {
+      "name": "Grass Tornado",
+      "element": "Grass",
+      "description": "Generates two tornadoes on either side before launching them at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 18,
+      "power": 80,
+      "skillFruit": "Grass Skill Fruit: Grass Tornado"
     },
     "Holy Burst": {
+      "name": "Holy Burst",
       "element": "Neutral",
-      "description": "Detonates a radiant shockwave that harms foes in a short radius.",
-      "ct": 30.0,
-      "power": 120
+      "description": "Creates a wide explosion of light at the enemy's location and around it.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 30,
+      "power": 120,
+      "skillFruit": "Breeding only"
     },
-    "Seigetsu Blade": {
-      "element": "Neutral",
-      "description": "Calls down crescent blades from the new moon to slash enemies.",
-      "ct": 24.0,
-      "power": 110
-    },
-    "Star Mine": {
-      "element": "Neutral",
-      "description": "Launches clustered dark orbs that detonate after a short delay.",
-      "ct": 55.0,
-      "power": 110
-    },
-    "Moonlight Beam": {
-      "element": "Neutral",
-      "ct": 40.0,
-      "power": 170,
-      "description": "Selyne stores lunar energy then fires a crescent beam forward."
-    },
-    "Splash": {
+    "Hydro Jet": {
+      "name": "Hydro Jet",
       "element": "Water",
-      "ct": 22.0,
-      "power": 90,
-      "description": "Generates a column of water that travels in a straight line."
+      "description": "Hurls a high speed ball of water at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 2,
+      "power": 30,
+      "skillFruit": "Water Skill Fruit: Hydro Jet"
     },
     "Hydro Laser": {
+      "name": "Hydro Laser",
       "element": "Water",
-      "ct": 55.0,
+      "description": "Shoots pressurized water at extreme velocities, sweeping over a wide area in front of it.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
       "power": 150,
-      "description": "Shoots pressurized water at extreme velocities, sweeping over a wide area in front of it."
+      "skillFruit": "Water Skill Fruit: Hydro Laser"
     },
-    "Power Shot": {
-      "element": "Neutral",
-      "ct": 4.0,
-      "power": 35,
-      "description": "Charges energy into a focused blast."
+    "Ice Missile": {
+      "name": "Ice Missile",
+      "element": "Ice",
+      "description": "Creates ice lances in the air that fly towards enemies.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 3,
+      "power": 30,
+      "skillFruit": "Ice Skill Fruit: Ice Missile"
     },
-    "Stone Cannon": {
-      "element": "Earth",
-      "ct": 15.0,
+    "Iceberg": {
+      "name": "Iceberg",
+      "element": "Ice",
+      "description": "Summons a sharp ice lance under an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 15,
       "power": 70,
-      "description": "Digs up a boulder and hurls it at an enemy."
+      "skillFruit": "Ice Skill Fruit: Iceberg"
     },
-    "Power Bomb": {
-      "element": "Neutral",
-      "ct": 15.0,
+    "Icicle Cutter": {
+      "name": "Icicle Cutter",
+      "element": "Ice",
+      "description": "Creates a crescent blade of ice and hurls it forward.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 10,
+      "power": 55,
+      "skillFruit": "Ice Skill Fruit: Icicle Cutter"
+    },
+    "Icicle Line": {
+      "name": "Icicle Line",
+      "element": "Ice",
+      "description": "Generates a pillar of ice that moves in a straight line.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 40,
+      "power": 120,
+      "skillFruit": "Ice Skill Fruit: Icicle Line"
+    },
+    "Ignis Blast": {
+      "name": "Ignis Blast",
+      "element": "Fire",
+      "description": "Hurls a ball of fire straight at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 2,
+      "power": 30,
+      "skillFruit": "Fire Skill Fruit: Ignis Blast"
+    },
+    "Ignis Breath": {
+      "name": "Ignis Breath",
+      "element": "Fire",
+      "description": "Shoots flames at an enemy, dealing continuous damage.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 15,
       "power": 70,
-      "description": "Charges a massive amount of energy before firing a large destructive ball."
+      "skillFruit": "Fire Skill Fruit: Ignis Breath"
     },
-    "Wholehearted Stance": {
+    "Ignis Rage": {
+      "name": "Ignis Rage",
+      "element": "Fire",
+      "description": "Energizes the surrounding ground, causing it to explode after a set amount of time.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 40,
+      "power": 120,
+      "skillFruit": "Fire Skill Fruit: Ignis Rage"
+    },
+    "Implode": {
+      "name": "Implode",
       "element": "Neutral",
-      "ct": 30.0,
-      "power": 170,
-      "description": "Dogen's exclusive skill. Adopts an aiki stance. While in this stance, nullify any incoming attack, instantly close in on the enemy, and counter with a full-force palm strike."
+      "description": "Risks its life to cause a violent explosion. Becomes incapacitated afterwards.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
+      "power": 230,
+      "skillFruit": "Skill Fruit: Implode"
+    },
+    "Lightning Bolt": {
+      "name": "Lightning Bolt",
+      "element": "Electric",
+      "description": "Charges electric energy before blasting enemies with a powerful shock.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
+      "power": 150,
+      "skillFruit": "Electric Skill Fruit: Lightning Bolt"
+    },
+    "Lightning Streak": {
+      "name": "Lightning Streak",
+      "element": "Electric",
+      "description": "Generates a lightning bolt that moves forward in a line.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 16,
+      "power": 75,
+      "skillFruit": "Electric Skill Fruit: Lightning Streak"
+    },
+    "Lightning Strike": {
+      "name": "Lightning Strike",
+      "element": "Electric",
+      "description": "Acts as a lightning rod, calling down thunderbolts that electrocute the surrounding area.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 40,
+      "power": 120,
+      "skillFruit": "Electric Skill Fruit: Lightning Strike"
+    },
+    "Lock-on Laser": {
+      "name": "Lock-on Laser",
+      "element": "Electric",
+      "description": "Takes aim at an enemy before firing a super high speed laser.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 15,
+      "power": 70,
+      "skillFruit": "Electric Skill Fruit: Lock-on Laser"
+    },
+    "Megaton Implode": {
+      "name": "Megaton Implode",
+      "element": "Neutral",
+      "description": "Risks life to cause a massive explosion. Those who perish for their duty become glistening stars in the night sky.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
+      "power": 500,
+      "skillFruit": "Breeding only"
+    },
+    "Multicutter": {
+      "name": "Multicutter",
+      "element": "Grass",
+      "description": "The user fires three high-speed blades of wind in quick succession that fly straight at enemies.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 12,
+      "power": 60,
+      "skillFruit": "Grass Skill Fruit: Multicutter"
+    },
+    "Nightmare Ball": {
+      "name": "Nightmare Ball",
+      "element": "Dark",
+      "description": "Creates a giant ball of darkness and hurls it at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 30,
+      "power": 100,
+      "skillFruit": "Dark Skill Fruit: Nightmare Ball"
     },
     "Pal Blast": {
+      "name": "Pal Blast",
       "element": "Neutral",
-      "ct": 55.0,
+      "description": "Charges destructive energy before firing a high-powered beam forward across a wide area.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
       "power": 150,
-      "description": "Charges destructive energy before firing a high-powered beam forward across a wide area."
+      "skillFruit": "Skill Fruit: Pal Blast"
+    },
+    "Plasma Funnel": {
+      "name": "Plasma Funnel",
+      "element": "Electric",
+      "description": "Creates two balls of electric energy that fire numerous bolts of lightning at enemies.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 13,
+      "power": 65,
+      "skillFruit": "Electric Skill Fruit: Plasma Tornado"
+    },
+    "Poison Blast": {
+      "name": "Poison Blast",
+      "element": "Dark",
+      "description": "Hurls poison sludge at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 2,
+      "power": 30,
+      "skillFruit": "Dark Skill Fruit: Poison Blast"
+    },
+    "Poison Fog": {
+      "name": "Poison Fog",
+      "element": "Dark",
+      "description": "Generates a fog of poison in front, causing the opponent to become poisoned.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 30,
+      "power": 0,
+      "skillFruit": "Breeding only"
+    },
+    "Power Bomb": {
+      "name": "Power Bomb",
+      "element": "Neutral",
+      "description": "Charges a massive amount of energy before firing a large destructive ball.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 15,
+      "power": 70,
+      "skillFruit": "Skill Fruit: Power Bomb"
+    },
+    "Power Shot": {
+      "name": "Power Shot",
+      "element": "Neutral",
+      "description": "Charges energy into a focused blast.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 4,
+      "power": 35,
+      "skillFruit": "Skill Fruit: Power Shot"
+    },
+    "Rockburst": {
+      "name": "Rockburst",
+      "element": "Ground",
+      "description": "Causes the ground to shake before hurling a massive stone mass at its surroundings.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 35,
+      "power": 130,
+      "skillFruit": "Earth Skill Fruit: Rockburst"
+    },
+    "Rock Lance": {
+      "name": "Rock Lance",
+      "element": "Ground",
+      "description": "Generates a sharp rock spear under an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
+      "power": 150,
+      "skillFruit": "Earth Skill Fruit: Rock Lance"
+    },
+    "Sand Tornado": {
+      "name": "Sand Tornado",
+      "element": "Ground",
+      "description": "Generates two sand tornadoes on either side before launching them at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 18,
+      "power": 80,
+      "skillFruit": "Earth Skill Fruit: Sand Tornado"
+    },
+    "Sand Twister": {
+      "name": "Sand Twister",
+      "element": "Ground",
+      "description": "Creates multiple sand tornadoes. The tornadoes continuously spin in circles.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 60,
+      "power": 160,
+      "skillFruit": "Earth Skill Fruit: Sand Twister"
+    },
+    "Seed Machine Gun": {
+      "name": "Seed Machine Gun",
+      "element": "Grass",
+      "description": "Fires a volley of hard seeds at enemies in front of it.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 9,
+      "power": 50,
+      "skillFruit": "Grass Skill Fruit: Seed Machine Gun"
+    },
+    "Seed Mine": {
+      "name": "Seed Mine",
+      "element": "Grass",
+      "description": "Launches a deadly seed. If it hits an enemy, the seed explodes.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 13,
+      "power": 65,
+      "skillFruit": "Grass Skill Fruit: Seed Mine"
+    },
+    "Shadow Burst": {
+      "name": "Shadow Burst",
+      "element": "Dark",
+      "description": "Quickly discharges dark energy, damaging those around it.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 10,
+      "power": 55,
+      "skillFruit": "Dark Skill Fruit: Shadow Burst"
+    },
+    "Shockwave": {
+      "name": "Shockwave",
+      "element": "Electric",
+      "description": "Quickly discharges electricity, shacking those around it.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 4,
+      "power": 40,
+      "skillFruit": "Electric Skill Fruit: Shockwave"
+    },
+    "Solar Blast": {
+      "name": "Solar Blast",
+      "element": "Grass",
+      "description": "Charges solar energy before blasting enemies with a powerful beam.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 55,
+      "power": 150,
+      "skillFruit": "Grass Skill Fruit: Solar Blast"
+    },
+    "Spark Blast": {
+      "name": "Spark Blast",
+      "element": "Electric",
+      "description": "The user releases a lightning ball that expands outward in a forward, circular pattern.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 2,
+      "power": 30,
+      "skillFruit": "Electric Skill Fruit: Spark Blast"
+    },
+    "Spine Vine": {
+      "name": "Spine Vine",
+      "element": "Grass",
+      "description": "Generates spiny thorns that chase an enemy along the ground, piercing them from below.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 25,
+      "power": 95,
+      "skillFruit": "Grass Skill Fruit: Spine Vine"
+    },
+    "Spirit Fire": {
+      "name": "Spirit Fire",
+      "element": "Fire",
+      "description": "Shoots fireballs towards an enemy. The fireballs explode after a short distance, generating smaller fireballs that spread forward.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 7,
+      "power": 45,
+      "skillFruit": "Fire Skill Fruit: Spirit Fire"
+    },
+    "Spirit Flame": {
+      "name": "Spirit Flame",
+      "element": "Dark",
+      "description": "Fires three balls of malice that relentlessly pursue an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 16,
+      "power": 75,
+      "skillFruit": "Dark Skill Fruit: Spirit Flame"
+    },
+    "Splash": {
+      "name": "Splash",
+      "element": "Water",
+      "description": "Generates a column of water that travels in a straight line.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 22,
+      "power": 90,
+      "skillFruit": "Water Skill Fruit: Splash"
+    },
+    "Stone Blast": {
+      "name": "Stone Blast",
+      "element": "Ground",
+      "description": "Fires a barrage of stones forward.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 10,
+      "power": 55,
+      "skillFruit": "Earth Skill Fruit: Stone Blast"
+    },
+    "Stone Cannon": {
+      "name": "Stone Cannon",
+      "element": "Ground",
+      "description": "Digs up a boulder and hurls it at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 15,
+      "power": 70,
+      "skillFruit": "Earth Skill Fruit: Stone Cannon"
+    },
+    "Thunder Rain": {
+      "name": "Thunder Rain",
+      "element": "Electric",
+      "description": "Calls lightning that strikes an enemy after a set amount of time has passed.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 45,
+      "power": 135,
+      "skillFruit": "Electric Skill Fruit: Thunder Rain"
+    },
+    "Thunderstorm": {
+      "name": "Thunderstorm",
+      "element": "Electric",
+      "description": "Generates a huge tornado of lightning that moves slowly towards the enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 60,
+      "power": 160,
+      "skillFruit": "Electric Skill Fruit: Thunderstorm"
+    },
+    "Tri-Lightning": {
+      "name": "Tri-Lightning",
+      "element": "Electric",
+      "description": "Generates lightning that strikes an enemy three times from above.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 22,
+      "power": 90,
+      "skillFruit": "Electric Skill Fruit: Tri-Lightning"
+    },
+    "TriSpark": {
+      "name": "TriSpark",
+      "element": "Electric",
+      "description": "A high-speed lightning ball that flies in a straight line. Simultaneously fires slow lightning balls that track the enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 35,
+      "power": 110,
+      "skillFruit": "Electric Skill Fruit: TriSpark"
+    },
+    "Umbral Surge": {
+      "name": "Umbral Surge",
+      "element": "Dark",
+      "description": "Fires a high speed ball of dark energy that spreads forward in a radial shape.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 2,
+      "power": 40,
+      "skillFruit": "Dark Skill Fruit: Umbral Surge"
+    },
+    "Volcanic Rain": {
+      "name": "Volcanic Rain",
+      "element": "Fire",
+      "description": "Fires countless volcanic bombs into the sky. After a while, the bombs rain down around their originator.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 45,
+      "power": 130,
+      "skillFruit": "Fire Skill Fruit: Volcanic Rain"
+    },
+    "Wind Cutter": {
+      "name": "Wind Cutter",
+      "element": "Grass",
+      "description": "Fires a high speed blade of wind that flies straight at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "ct": 2,
+      "power": 30,
+      "skillFruit": "Grass Skill Fruit: Wind Cutter"
     }
   },
   "passiveDetails": {
-    "Abnormal": "10% reduction to incoming neutral damage.",
-    "Ace Swimmer": "Movement speed on water +40%.",
-    "Aggressive": "Attack +10%, defense -10%.",
-    "Artisan": "Work speed +50%.",
-    "Blood of the Dragon": "10% increase to dragon attack damage.",
-    "Botanical Barrier": "10% reduction to incoming grass damage.",
-    "Bottomless Stomach": "Hunger decreases 15% faster.",
-    "Brave": "Attack +10%.",
-    "Brittle": "Defense -20%.",
-    "Burly Body": "Defense +20%.",
-    "Capacitor": "10% increase to lightning attack damage.",
-    "Celestial Emperor": "20% increase to neutral attack damage.",
-    "Cheery": "10% reduction to incoming dark damage.",
-    "Clumsy": "Work speed -10%.",
-    "Coldblooded": "10% increase to ice attack damage.",
-    "Conceited": "Work speed +10%, defense -10%.",
-    "Coward": "Attack -10%.",
-    "Dainty Eater": "Hunger decreases 10% slower.",
-    "Demon God": "Attack +30%, defense +5%.",
-    "Destructive": "Sanity decreases 15% faster.",
-    "Diamond Body": "Defense +30%.",
-    "Diet Lover": "Hunger decreases 15% slower.",
-    "Divine Dragon": "20% increase to dragon attack damage.",
-    "Downtrodden": "Defense -10%.",
-    "Dragonkiller": "10% reduction to incoming dragon damage.",
-    "Earth Emperor": "20% increase to earth attack damage.",
-    "Earthquake Resistant": "10% reduction to incoming ground damage.",
-    "Easygoing": "Reduces active skill cooldown extension by 15%.",
-    "Eternal Engine": "Max stamina +75% while mounted.",
-    "Eternal Flame": "30% increase to fire and lightning attack damage.",
-    "Ferocious": "Attack +20%.",
-    "Fine Furs": "Sale price +3%.",
-    "Fit as a Fiddle": "Max stamina +25% while mounted.",
-    "Flame Emperor": "20% increase to fire attack damage.",
-    "Fragrant Foliage": "10% increase to grass attack damage.",
-    "Glutton": "Hunger decreases 10% faster.",
-    "Hard Skin": "Defense +10%.",
-    "Heart of the Immovable King": "Sanity decreases 20% slower.",
-    "Heated Body": "10% reduction to incoming ice damage.",
-    "Hooligan": "Attack +15%, work speed -10%.",
-    "Hydromaniac": "10% increase to water attack damage.",
-    "Ice Emperor": "20% increase to ice attack damage.",
-    "Impatient": "Reduces active skill cooldowns by 15%.",
-    "Infinite Stamina": "Max stamina +50% while mounted.",
-    "Insulated Body": "10% reduction to incoming lightning damage.",
-    "Invader": "30% increase to dark and dragon attack damage.",
-    "King of the Waves": "Movement speed on water +50%.",
-    "Legend": "Attack +20%, defense +20%, movement speed +15%.",
-    "Logging Foreman": "Increases player logging efficiency by 25%.",
-    "Lord of Lightning": "20% increase to lightning attack damage.",
-    "Lord of the Sea": "20% increase to water attack damage.",
-    "Lord of the Underworld": "20% increase to dark attack damage.",
-    "Lucky": "Work speed +15%, attack +15%.",
-    "Lunker": "20% increase to water and ice attack damage, defense +20%.",
-    "Masochist": "Defense +15%, attack -15%.",
-    "Mastery of Fasting": "Hunger decreases 30% slower.",
-    "Mercy Hit": "Will not reduce the target's health below 1.",
-    "Mine Foreman": "Increases player mining efficiency by 25%.",
-    "Motivational Leader": "Increases player work speed by 25%.",
-    "Musclehead": "Attack +30%, work speed -50%.",
-    "Nimble": "Movement speed +10%.",
-    "Noble": "Sale price +5%.",
-    "Nocturnal": "Does not sleep and continues to work even at night.",
-    "Otherworldly Cells": "Attack +10%, reduces fire and lightning damage taken by 15%.",
-    "Pacifist": "Attack -20%.",
-    "Philanthropist": "When assigned to a Breeding Farm, breeding speed is increased by 100%.",
-    "Positive Thinker": "Sanity decreases 10% slower.",
-    "Power of Gaia": "10% increase to earth attack damage.",
-    "Pyromaniac": "10% increase to fire attack damage.",
-    "Remarkable Craftmanship": "Work speed +75%.",
-    "Runner": "Movement speed +20%.",
-    "Sadist": "Attack +15%, defense -15%.",
-    "Serenity": "Reduces active skill cooldowns by 30%, attack +10%.",
-    "Serious": "Work speed +20%.",
-    "Shabby": "Sale price -10%.",
-    "Sickly": "Max stamina -25% while mounted.",
-    "Siren of the Void": "30% increase to dark and ice attack damage.",
-    "Slacker": "Work speed -30%.",
-    "Sleek Stroke": "Movement speed on water +30%.",
-    "Spirit Emperor": "20% increase to grass attack damage.",
-    "Stronghold Strategist": "Increases player defense by 10%.",
-    "Suntan Lover": "10% reduction to incoming fire damage.",
-    "Swift": "Movement speed +30%.",
-    "Unstable": "Sanity decreases 10% faster.",
-    "Vampiric": "Absorbs a portion of damage dealt to restore health; does not sleep at night and continues to work.",
-    "Vanguard": "Increases player attack by 10%.",
-    "Veil of Darkness": "10% increase to dark attack damage.",
-    "Waterproof": "10% reduction to incoming water damage.",
-    "Work Slave": "Work speed +30%, attack -30%.",
-    "Workaholic": "Sanity decreases 15% slower.",
-    "Zen Mind": "10% increase to neutral attack damage."
+    "Abnormal": {
+      "name": "Abnormal",
+      "description": "Rank 1. 10% decrease to incoming Neutral damage. Naturally found on Lovander",
+      "effect": "10% decrease to incoming Neutral damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "naturalOn": [
+        "Lovander"
+      ]
+    },
+    "Aggressive": {
+      "name": "Aggressive",
+      "description": "Rank 1. Attack +10% Defense -10%",
+      "effect": "Attack +10% Defense -10%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Attack": "+10%",
+        "Defense": "-10%"
+      }
+    },
+    "Artisan": {
+      "name": "Artisan",
+      "description": "Rank 3. Work speed +50%",
+      "effect": "Work speed +50%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "stats": {
+        "Work Speed": "+50%"
+      }
+    },
+    "Blood of the Dragon": {
+      "name": "Blood of the Dragon",
+      "description": "Rank 1. 10% increase to Dragon attack damage",
+      "effect": "10% increase to Dragon attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Botanical Barrier": {
+      "name": "Botanical Barrier",
+      "description": "Rank 1. 10% decrease to incoming Grass damage",
+      "effect": "10% decrease to incoming Grass damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Bottomless Stomach": {
+      "name": "Bottomless Stomach",
+      "description": "Rank -2. Satiety drops +15% faster",
+      "effect": "Satiety drops +15% faster",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -2,
+      "stats": {
+        "Hunger Drain": "+15%"
+      }
+    },
+    "Brave": {
+      "name": "Brave",
+      "description": "Rank 1. Attack +10%",
+      "effect": "Attack +10%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Attack": "+10%"
+      }
+    },
+    "Brittle": {
+      "name": "Brittle",
+      "description": "Rank -3. Defense -20%",
+      "effect": "Defense -20%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -3,
+      "stats": {
+        "Defense": "-20%"
+      }
+    },
+    "Burly Body": {
+      "name": "Burly Body",
+      "description": "Rank 3. Defense +20%",
+      "effect": "Defense +20%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "stats": {
+        "Defense": "+20%"
+      }
+    },
+    "Capacitor": {
+      "name": "Capacitor",
+      "description": "Rank 1. 10% increase to Electric attack damage",
+      "effect": "10% increase to Electric attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Celestial Emperor": {
+      "name": "Celestial Emperor",
+      "description": "Rank 3. 20% increase to Neutral attack damage. Naturally found on Paladius",
+      "effect": "20% increase to Neutral attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "naturalOn": [
+        "Paladius"
+      ]
+    },
+    "Cheery": {
+      "name": "Cheery",
+      "description": "Rank 1. 10% decrease to incoming Dark damage",
+      "effect": "10% decrease to incoming Dark damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Clumsy": {
+      "name": "Clumsy",
+      "description": "Rank -1. Work Speed -10%",
+      "effect": "Work Speed -10%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -1,
+      "stats": {
+        "Work Speed": "-10%"
+      }
+    },
+    "Coldblooded": {
+      "name": "Coldblooded",
+      "description": "Rank 1. 10% increase to Ice attack damage",
+      "effect": "10% increase to Ice attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Conceited": {
+      "name": "Conceited",
+      "description": "Rank 1. Work Speed +10% Defense -10%",
+      "effect": "Work Speed +10% Defense -10%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Defense": "-10%",
+        "Work Speed": "+10%"
+      }
+    },
+    "Coward": {
+      "name": "Coward",
+      "description": "Rank -1. Attack -10%. Naturally found on Cattiva",
+      "effect": "Attack -10%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -1,
+      "stats": {
+        "Attack": "-10%"
+      },
+      "naturalOn": [
+        "Cattiva"
+      ]
+    },
+    "Dainty Eater": {
+      "name": "Dainty Eater",
+      "description": "Rank 1. Satiety drops +10% slower",
+      "effect": "Satiety drops +10% slower",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Hunger Drain": "-10%"
+      }
+    },
+    "Demon God": {
+      "name": "Demon God",
+      "description": "Rank 4. Attack +30% Defense +5%",
+      "effect": "Attack +30% Defense +5%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Attack": "+30%",
+        "Defense": "+5%"
+      }
+    },
+    "Destructive": {
+      "name": "Destructive",
+      "description": "Rank -2. SAN drops +15% faster",
+      "effect": "SAN drops +15% faster",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -2,
+      "stats": {
+        "Sanity Drain": "+15%"
+      }
+    },
+    "Diamond Body": {
+      "name": "Diamond Body",
+      "description": "Rank 4. Defense +30%",
+      "effect": "Defense +30%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Defense": "+30%"
+      }
+    },
+    "Diet Lover": {
+      "name": "Diet Lover",
+      "description": "Rank 3. Satiety drops +15% slower",
+      "effect": "Satiety drops +15% slower",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "stats": {
+        "Hunger Drain": "-15%"
+      }
+    },
+    "Divine Dragon": {
+      "name": "Divine Dragon",
+      "description": "Rank 3. 20% increase to Dragon attack damage. Naturally found on Jetragon",
+      "effect": "20% increase to Dragon attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "naturalOn": [
+        "Jetragon"
+      ]
+    },
+    "Downtrodden": {
+      "name": "Downtrodden",
+      "description": "Rank -1. Defense -10%",
+      "effect": "Defense -10%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -1,
+      "stats": {
+        "Defense": "-10%"
+      }
+    },
+    "Dragonkiller": {
+      "name": "Dragonkiller",
+      "description": "Rank 1. 10% decrease to incoming Dragon damage",
+      "effect": "10% decrease to incoming Dragon damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Earth Emperor": {
+      "name": "Earth Emperor",
+      "description": "Rank 3. 20% increase to Ground attack damage. Naturally found on Anubis",
+      "effect": "20% increase to Ground attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "naturalOn": [
+        "Anubis"
+      ]
+    },
+    "Earthquake Resistant": {
+      "name": "Earthquake Resistant",
+      "description": "Rank 1. 10% decrease to incoming Ground damage",
+      "effect": "10% decrease to incoming Ground damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Easygoing": {
+      "name": "Easygoing",
+      "description": "Rank -1. Active skill cooldown extension -15%",
+      "effect": "Active skill cooldown extension -15%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -1
+    },
+    "Eternal Engine": {
+      "name": "Eternal Engine",
+      "description": "Rank 4. Max stamina +75%. This effect is only valid for rideable pals.",
+      "effect": "Max stamina +75%. This effect is only valid for rideable pals.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 4
+    },
+    "Eternal Flame": {
+      "name": "Eternal Flame",
+      "description": "Rank 3. 30% increase to Fire attack damage. 30% increase to Electric attack damage.. Naturally found on Blazamut Ryu",
+      "effect": "30% increase to Fire attack damage. 30% increase to Electric attack damage.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "naturalOn": [
+        "Blazamut Ryu"
+      ]
+    },
+    "Ferocious": {
+      "name": "Ferocious",
+      "description": "Rank 3. Attack +20%",
+      "effect": "Attack +20%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "stats": {
+        "Attack": "+20%"
+      }
+    },
+    "Fine Furs": {
+      "name": "Fine Furs",
+      "description": "Rank 1. Sale price +3%",
+      "effect": "Sale price +3%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Fit as a Fiddle": {
+      "name": "Fit as a Fiddle",
+      "description": "Rank 1. Max stamina +25%. This effect is only valid for rideable pals.",
+      "effect": "Max stamina +25%. This effect is only valid for rideable pals.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Flame Emperor": {
+      "name": "Flame Emperor",
+      "description": "Rank 3. 20% increase to Fire attack damage. Naturally found on Blazamut",
+      "effect": "20% increase to Fire attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "naturalOn": [
+        "Blazamut"
+      ]
+    },
+    "Fragrant Foliage": {
+      "name": "Fragrant Foliage",
+      "description": "Rank 1. 10% increase to Grass attack damage",
+      "effect": "10% increase to Grass attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Glutton": {
+      "name": "Glutton",
+      "description": "Rank -1. Satiety drops +10% faster. Naturally found on Relaxaurus",
+      "effect": "Satiety drops +10% faster",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -1,
+      "stats": {
+        "Hunger Drain": "+10%"
+      },
+      "naturalOn": [
+        "Relaxaurus"
+      ]
+    },
+    "Hard Skin": {
+      "name": "Hard Skin",
+      "description": "Rank 1. Defense +10%. Naturally found on Astegon",
+      "effect": "Defense +10%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Defense": "+10%"
+      },
+      "naturalOn": [
+        "Astegon"
+      ]
+    },
+    "Heart of the Immovable King": {
+      "name": "Heart of the Immovable King",
+      "description": "Rank 4. SAN drops +20% slower",
+      "effect": "SAN drops +20% slower",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Sanity Drain": "-20%"
+      }
+    },
+    "Heated Body": {
+      "name": "Heated Body",
+      "description": "Rank 1. 10% decrease to incoming Ice damage",
+      "effect": "10% decrease to incoming Ice damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Hooligan": {
+      "name": "Hooligan",
+      "description": "Rank 1. Attack +15% Work Speed -10%. Naturally found on Gorirat",
+      "effect": "Attack +15% Work Speed -10%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Attack": "+15%",
+        "Work Speed": "-10%"
+      },
+      "naturalOn": [
+        "Gorirat"
+      ]
+    },
+    "Hydromaniac": {
+      "name": "Hydromaniac",
+      "description": "Rank 1. 10% increase to Water attack damage",
+      "effect": "10% increase to Water attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Ice Emperor": {
+      "name": "Ice Emperor",
+      "description": "Rank 3. 20% increase to Ice attack damage. Naturally found on Frostallion",
+      "effect": "20% increase to Ice attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "naturalOn": [
+        "Frostallion"
+      ]
+    },
+    "Impatient": {
+      "name": "Impatient",
+      "description": "Rank 1. Active skill cooldown reduction 15%",
+      "effect": "Active skill cooldown reduction 15%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Infinite Stamina": {
+      "name": "Infinite Stamina",
+      "description": "Rank 3. Max stamina +50%. This effect is only valid for rideable pals.",
+      "effect": "Max stamina +50%. This effect is only valid for rideable pals.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3
+    },
+    "Insulated Body": {
+      "name": "Insulated Body",
+      "description": "Rank 1. 10% decrease to incoming Electric damage",
+      "effect": "10% decrease to incoming Electric damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Invader": {
+      "name": "Invader",
+      "description": "Rank 4. 30% increase to Dark attack damage. 30% increase to Dragon attack damage.. Naturally found on Xenolord",
+      "effect": "30% increase to Dark attack damage. 30% increase to Dragon attack damage.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 4,
+      "naturalOn": [
+        "Xenolord"
+      ]
+    },
+    "Legend": {
+      "name": "Legend",
+      "description": "Rank 3. Attack +20% Defense +20% Movement Speed increases 15%. Naturally found on Frostallion. This Passive Skill is guaranteed on Legendary Pals , but may be bred down to non-Legendary Pals.",
+      "effect": "Attack +20% Defense +20% Movement Speed increases 15%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "stats": {
+        "Attack": "+20%",
+        "Defense": "+20%",
+        "Movement Speed": "+15%"
+      },
+      "naturalOn": [
+        "Frostallion"
+      ],
+      "notes": "This Passive Skill is guaranteed on Legendary Pals , but may be bred down to non-Legendary Pals."
+    },
+    "Logging Foreman": {
+      "name": "Logging Foreman",
+      "description": "Rank 3. 25% increase to player Logging efficiency. This stat increase is not represented until dealing damage to source material.",
+      "effect": "25% increase to player Logging efficiency",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "notes": "This stat increase is not represented until dealing damage to source material."
+    },
+    "Lord of the Underworld": {
+      "name": "Lord of the Underworld",
+      "description": "Rank 3. 20% increase to Dark attack damage. Naturally found on Necromus",
+      "effect": "20% increase to Dark attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "naturalOn": [
+        "Necromus"
+      ]
+    },
+    "Lord of Lightning": {
+      "name": "Lord of Lightning",
+      "description": "Rank 3. 20% increase to Electric attack damage. Naturally found on Orserk",
+      "effect": "20% increase to Electric attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "naturalOn": [
+        "Orserk"
+      ]
+    },
+    "Lord of the Sea": {
+      "name": "Lord of the Sea",
+      "description": "Rank 3. 20% increase to Water attack damage. Naturally found on Jormuntide",
+      "effect": "20% increase to Water attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "naturalOn": [
+        "Jormuntide"
+      ]
+    },
+    "Lucky": {
+      "name": "Lucky",
+      "description": "Rank 3. Work Speed +15% Attack +15%. This Passive Skill is guaranteed on Lucky Pals .",
+      "effect": "Work Speed +15% Attack +15%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "stats": {
+        "Attack": "+15%",
+        "Work Speed": "+15%"
+      },
+      "notes": "This Passive Skill is guaranteed on Lucky Pals ."
+    },
+    "Masochist": {
+      "name": "Masochist",
+      "description": "Rank 1. Defense +15% Attack -15%",
+      "effect": "Defense +15% Attack -15%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Attack": "-15%",
+        "Defense": "+15%"
+      }
+    },
+    "Mastery of Fasting": {
+      "name": "Mastery of Fasting",
+      "description": "Rank 4. Satiety drops +20% slower",
+      "effect": "Satiety drops +20% slower",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Hunger Drain": "-20%"
+      }
+    },
+    "Mercy Hit": {
+      "name": "Mercy Hit",
+      "description": "Rank -1. Pacifist. Will not reduce the target's Health below 1.. Same effect is applied by Ring of Mercy",
+      "effect": "Pacifist. Will not reduce the target's Health below 1.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -1,
+      "notes": "Same effect is applied by Ring of Mercy"
+    },
+    "Mine Foreman": {
+      "name": "Mine Foreman",
+      "description": "Rank 3. 25% increase to player Mining efficiency. This stat increase is not represented until dealing damage to source material.",
+      "effect": "25% increase to player Mining efficiency",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "notes": "This stat increase is not represented until dealing damage to source material."
+    },
+    "Motivational Leader": {
+      "name": "Motivational Leader",
+      "description": "Rank 3. 25% increase to Player Work Speed. This stat increase only affects player Work Speed.",
+      "effect": "25% increase to Player Work Speed",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "notes": "This stat increase only affects player Work Speed."
+    },
+    "Musclehead": {
+      "name": "Musclehead",
+      "description": "Rank 2. Attack +30% Work Speed -50%",
+      "effect": "Attack +30% Work Speed -50%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 2,
+      "stats": {
+        "Attack": "+30%",
+        "Work Speed": "-50%"
+      }
+    },
+    "Nimble": {
+      "name": "Nimble",
+      "description": "Rank 1. 10% increase to Movement Speed. Does not apply to gliding.",
+      "effect": "10% increase to Movement Speed",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Movement Speed": "+10%"
+      },
+      "notes": "Does not apply to gliding."
+    },
+    "Noble": {
+      "name": "Noble",
+      "description": "Rank 3. Sale price +5%",
+      "effect": "Sale price +5%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3
+    },
+    "Nocturnal": {
+      "name": "Nocturnal",
+      "description": "Rank 1. Does not sleep and continues to work even at night.",
+      "effect": "Does not sleep and continues to work even at night.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Otherworldly Cells": {
+      "name": "Otherworldly Cells",
+      "description": "Rank 1. Attack +10%. Fire damage reduction 15%. Electric damage reduction 15%.. Naturally found on Xenogard",
+      "effect": "Attack +10%. Fire damage reduction 15%. Electric damage reduction 15%.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Attack": "+10%"
+      },
+      "naturalOn": [
+        "Xenogard"
+      ]
+    },
+    "Pacifist": {
+      "name": "Pacifist",
+      "description": "Rank -3. Attack -20%",
+      "effect": "Attack -20%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -3,
+      "stats": {
+        "Attack": "-20%"
+      }
+    },
+    "Philanthropist": {
+      "name": "Philanthropist",
+      "description": "Rank 3. When assigned to a Breeding Farm, breeding speed is increased by 100%.",
+      "effect": "When assigned to a Breeding Farm, breeding speed is increased by 100%.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3
+    },
+    "Positive Thinker": {
+      "name": "Positive Thinker",
+      "description": "Rank 1. SAN drops +10% slower",
+      "effect": "SAN drops +10% slower",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Sanity Drain": "-10%"
+      }
+    },
+    "Power of Gaia": {
+      "name": "Power of Gaia",
+      "description": "Rank 1. 10% increase to Ground attack damage",
+      "effect": "10% increase to Ground attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Pyromaniac": {
+      "name": "Pyromaniac",
+      "description": "Rank 1. 10% increase to Fire attack damage",
+      "effect": "10% increase to Fire attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Remarkable Craftsmanship": {
+      "name": "Remarkable Craftsmanship",
+      "description": "Rank 4. Work Speed +75%",
+      "effect": "Work Speed +75%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Work Speed": "+75%"
+      }
+    },
+    "Runner": {
+      "name": "Runner",
+      "description": "Rank 2. 20% increase to Movement Speed. Does not apply to gliding.",
+      "effect": "20% increase to Movement Speed",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 2,
+      "stats": {
+        "Movement Speed": "+20%"
+      },
+      "notes": "Does not apply to gliding."
+    },
+    "Sadist": {
+      "name": "Sadist",
+      "description": "Rank 1. Attack +15% Defense -15%. Naturally found on Splatterina",
+      "effect": "Attack +15% Defense -15%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Attack": "+15%",
+        "Defense": "-15%"
+      },
+      "naturalOn": [
+        "Splatterina"
+      ]
+    },
+    "Serenity": {
+      "name": "Serenity",
+      "description": "Rank 3. Active skill cooldown reduction 30%. Attack +10%.",
+      "effect": "Active skill cooldown reduction 30%. Attack +10%.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "stats": {
+        "Attack": "+10%"
+      }
+    },
+    "Serious": {
+      "name": "Serious",
+      "description": "Rank 1. Work Speed +20%",
+      "effect": "Work Speed +20%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Work Speed": "+20%"
+      }
+    },
+    "Shabby": {
+      "name": "Shabby",
+      "description": "Rank -1. Sale price -10%",
+      "effect": "Sale price -10%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -1
+    },
+    "Sickly": {
+      "name": "Sickly",
+      "description": "Rank -1. Max Stamina -25%. This effect is only valid for rideable pals.",
+      "effect": "Max Stamina -25%. This effect is only valid for rideable pals.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -1
+    },
+    "Siren of the Void": {
+      "name": "Siren of the Void",
+      "description": "Rank 3. 30% increase to Dark attack damage. 30% increase to Ice attack damage.. Naturally found on Bellanoir Libero",
+      "effect": "30% increase to Dark attack damage. 30% increase to Ice attack damage.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "naturalOn": [
+        "Bellanoir Libero"
+      ]
+    },
+    "Slacker": {
+      "name": "Slacker",
+      "description": "Rank -3. Work Speed -30%",
+      "effect": "Work Speed -30%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -3,
+      "stats": {
+        "Work Speed": "-30%"
+      }
+    },
+    "Spirit Emperor": {
+      "name": "Spirit Emperor",
+      "description": "Rank 3. 20% increase to Grass attack damage. Naturally found on Lyleen",
+      "effect": "20% increase to Grass attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "naturalOn": [
+        "Lyleen"
+      ]
+    },
+    "Stronghold Strategist": {
+      "name": "Stronghold Strategist",
+      "description": "Rank 3. 10% increase to player Defense",
+      "effect": "10% increase to player Defense",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3
+    },
+    "Suntan Lover": {
+      "name": "Suntan Lover",
+      "description": "Rank 1. 10% decrease to incoming Fire damage",
+      "effect": "10% decrease to incoming Fire damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Swift": {
+      "name": "Swift",
+      "description": "Rank 4. 30% increase to Movement Speed. Does not apply to gliding.",
+      "effect": "30% increase to Movement Speed",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 4,
+      "stats": {
+        "Movement Speed": "+30%"
+      },
+      "notes": "Does not apply to gliding."
+    },
+    "Unstable": {
+      "name": "Unstable",
+      "description": "Rank -1. SAN drops +10% faster",
+      "effect": "SAN drops +10% faster",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": -1,
+      "stats": {
+        "Sanity Drain": "+10%"
+      }
+    },
+    "Vampiric": {
+      "name": "Vampiric",
+      "description": "Rank 4. Absorbs a portion of the damage dealt to restore Health. Does not sleep at night and continues to work.",
+      "effect": "Absorbs a portion of the damage dealt to restore Health. Does not sleep at night and continues to work.",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 4
+    },
+    "Vanguard": {
+      "name": "Vanguard",
+      "description": "Rank 3. 10% increase to player Attack",
+      "effect": "10% increase to player Attack",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3
+    },
+    "Veil of Darkness": {
+      "name": "Veil of Darkness",
+      "description": "Rank 1. 10% increase to Dark attack damage",
+      "effect": "10% increase to Dark attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Waterproof": {
+      "name": "Waterproof",
+      "description": "Rank 1. 10% decrease to incoming Water damage",
+      "effect": "10% decrease to incoming Water damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    },
+    "Workaholic": {
+      "name": "Workaholic",
+      "description": "Rank 3. SAN drops +15% slower",
+      "effect": "SAN drops +15% slower",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 3,
+      "stats": {
+        "Sanity Drain": "-15%"
+      }
+    },
+    "Work Slave": {
+      "name": "Work Slave",
+      "description": "Rank 1. Work Speed +30% Attack -30%",
+      "effect": "Work Speed +30% Attack -30%",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1,
+      "stats": {
+        "Attack": "-30%",
+        "Work Speed": "+30%"
+      }
+    },
+    "Zen Mind": {
+      "name": "Zen Mind",
+      "description": "Rank 1. 10% increase to Neutral attack damage",
+      "effect": "10% increase to Neutral attack damage",
+      "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
+      "rank": 1
+    }
   }
-};
+}
