@@ -3651,6 +3651,16 @@
     .trait-selector__list {
       display: grid;
       gap: 10px;
+      max-height: 320px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .trait-selector__list::-webkit-scrollbar {
+      width: 8px;
+    }
+    .trait-selector__list::-webkit-scrollbar-thumb {
+      background: rgba(119, 141, 169, 0.45);
+      border-radius: 999px;
     }
     .trait-selector__option {
       border: 1px solid rgba(119, 141, 169, 0.35);
@@ -3768,6 +3778,11 @@
       margin: 0;
       font-size: 0.95rem;
       color: rgba(224, 225, 221, 0.85);
+    }
+    .trait-guide__insight {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(224, 225, 221, 0.7);
     }
     .trait-guide__steps {
       list-style: none;
@@ -6872,16 +6887,16 @@
       // players a better sense of each move’s effect.
       'acid_rain': { name:'Acid Rain', damage:'Moderate', type:'Area', description:'Creates acidic clouds that pour down rain on enemies' },
       'air_blade': { name:'Air Blade', damage:'Moderate', type:'Fan', description:'Sends out sharp blades of air in a fan shape' },
-      'apocalypse': { name:'Apocalypse', damage:'High', type:'Area', description:'Generates several dark vortexes in the surrounding area' },
+      'apocalypse': { name:'Apocalypse', damage:'High', type:'Area', description:'Breeding-only dark art that summons several vortexes around the user, crushing nearby foes.' },
       'aqua_burst': { name:'Aqua Burst', damage:'High', type:'Projectile', description:'Creates a giant ball of water and hurls it at an enemy' },
       'aqua_gun': { name:'Aqua Gun', damage:'Low', type:'Projectile', description:'Hurls a ball of water straight at an enemy' },
-      'beam_slicer': { name:'Beam Slicer', damage:'Very High', type:'Beam', description:'Mows down the frontal area with a dragon beam; the impacted area explodes shortly after' },
-      'blast_cannon': { name:'Blast Cannon', damage:'High', type:'Projectile', description:'Fires an energy bullet imbued with dragon power that explodes on impact' },
+      'beam_slicer': { name:'Beam Slicer', damage:'Very High', type:'Beam', description:'Breeding-only dragon beam that mows down anything ahead before detonating a heartbeat later.' },
+      'blast_cannon': { name:'Blast Cannon', damage:'High', type:'Projectile', description:'Breeding-only draconic shot that erupts on impact, shredding clustered targets.' },
       'blizzard_spike': { name:'Blizzard Spike', damage:'Very High', type:'Projectile', description:'Creates a giant lump of ice and hurls it; damages those in the surrounding area upon impact' },
       'bog_blast': { name:'Bog Blast', damage:'Low', type:'Projectile', description:'Hurls sticky mud at an enemy' },
       'bubble_blast': { name:'Bubble Blast', damage:'Moderate', type:'Homing', description:'Fires numerous bubbles that slowly pursue an enemy' },
-      'circle_vine': { name:'Circle Vine', damage:'High', type:'Area', description:'Sprouts sharp roots in and around the enemy’s location' },
-      'comet_strike': { name:'Comet Strike', damage:'High', type:'Area', description:'Drops a meteorite straight down, generating a shock wave around the impact area' },
+      'circle_vine': { name:'Circle Vine', damage:'High', type:'Area', description:'Breeding-only grass technique that erupts thorny roots around the target.' },
+      'comet_strike': { name:'Comet Strike', damage:'High', type:'Area', description:'Breeding-only meteor crash that slams down from above and blasts the impact zone.' },
       'cryst_breath': { name:'Cryst Breath', damage:'High', type:'Cone', description:'Enshrouds an enemy in a frigid blast of air, dealing continuous damage' },
       'dark_arrow': { name:'Dark Arrow', damage:'Moderate', type:'Homing', description:'Fires off dark energy that homes in on an enemy' },
       'dark_ball': { name:'Dark Ball', damage:'Low', type:'Homing', description:'Unleashes a sphere of darkness that slowly tracks down the enemy' },
@@ -13080,21 +13095,34 @@
       }
 
       function updateTraitCopy() {
+        const hasTrait = !!selectedTrait;
         if (traitOutcomeTitle) {
-          traitOutcomeTitle.textContent = kidMode ? 'Trait relay pals' : 'Trait relay outcomes';
+          traitOutcomeTitle.textContent = hasTrait
+            ? (kidMode ? `Relay pals for ${selectedTrait}` : `${selectedTrait} relay outcomes`)
+            : (kidMode ? 'Trait relay pals' : 'Trait relay outcomes');
         }
         if (traitOutcomeCopy) {
-          traitOutcomeCopy.textContent = kidMode
-            ? 'Pick your pal to see every egg that can pass the passive onward.'
-            : 'Select your trait carrier to reveal every egg it can produce while sharing that passive.';
+          traitOutcomeCopy.textContent = hasTrait
+            ? (kidMode
+              ? `Every combo below keeps ${selectedTrait} ready to pass on.`
+              : `Each pairing listed will hatch with ${selectedTrait} still in the pool.`)
+            : (kidMode
+              ? 'Pick your pal to see every egg that can pass the passive onward.'
+              : 'Select your trait carrier to reveal every egg it can produce while sharing that passive.');
         }
         if (traitGuideTitle) {
-          traitGuideTitle.textContent = kidMode ? 'Trait path guide' : 'Trait path guide';
+          traitGuideTitle.textContent = hasTrait
+            ? (kidMode ? `${selectedTrait} path guide` : `${selectedTrait} trait path`)
+            : (kidMode ? 'Trait path guide' : 'Trait path guide');
         }
         if (traitGuideCopy) {
-          traitGuideCopy.textContent = kidMode
-            ? 'Choose a carrier and a target to map the quickest trait path.'
-            : 'Pick a carrier and target to map the quickest trait hand-off.';
+          traitGuideCopy.textContent = hasTrait
+            ? (kidMode
+              ? 'Choose a carrier and target pal to move this passive quickly.'
+              : 'Pick a carrier and target to map the quickest hand-off for this passive.')
+            : (kidMode
+              ? 'Choose a carrier and a target to map the quickest trait path.'
+              : 'Pick a carrier and target to map the quickest trait hand-off.');
         }
         if (traitClear) {
           traitClear.textContent = kidMode ? 'Clear trait' : 'Clear trait';
@@ -13137,7 +13165,14 @@
             const haystack = `${entry.name} ${entry.description}`.toLowerCase();
             return haystack.includes(term);
           })
-          .slice(0, 8);
+          .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+        if (!term && selectedTrait) {
+          matches.sort((a, b) => {
+            if (a.name === selectedTrait) return -1;
+            if (b.name === selectedTrait) return 1;
+            return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' });
+          });
+        }
         if (!matches.length) {
           traitSuggestionList.appendChild(makeEmptyMessage(kidMode ? 'No traits match that search.' : 'No passive traits match that search.'));
           return;
@@ -13163,6 +13198,7 @@
             if (selectedTrait === entry.name) return;
             selectedTrait = entry.name;
             updateBreedingSelection();
+            updateTraitCopy();
             renderTraitDetails();
             renderTraitSuggestions();
             renderTraitOutcomes();
@@ -13355,17 +13391,73 @@
 
       function computeTraitPlan(sourcePal, targetPal) {
         if (!sourcePal || !targetPal) return null;
-        if (sourcePal.id === targetPal.id) return { steps: [] };
-        const visited = new Set([sourcePal.id]);
-        const queue = [{ carrierId: sourcePal.id, steps: [] }];
+        const analysisDepths = analysis && analysis.depths instanceof Map ? analysis.depths : new Map();
+        const analysisCaught = analysis && analysis.caughtIds instanceof Set ? analysis.caughtIds : new Set();
+        if (sourcePal.id === targetPal.id) {
+          return { steps: [], helperStats: { totalCost: 0, helperMap: new Map() }, cost: 0 };
+        }
+        const bestCost = new Map([[sourcePal.id, 0]]);
+        const queue = [{ carrierId: sourcePal.id, steps: [], cost: 0, helperStats: { totalCost: 0, helperMap: new Map() } }];
+        const evaluateHelper = (edge, helperStats) => {
+          const helperId = edge.otherParentId;
+          if (helperId == null) {
+            return { penalty: 4, detail: null };
+          }
+          const helperPal = edge.otherParent || (helperId != null ? PALS[helperId] : null);
+          const reused = helperStats && helperStats.helperMap && helperStats.helperMap.has(helperId);
+          const depth = analysisDepths.get(helperId);
+          const caughtHelper = analysisCaught.has(helperId);
+          let penalty;
+          if (caughtHelper) {
+            penalty = 0.25;
+          } else if (depth != null) {
+            penalty = 0.75 + Math.max(depth, 0);
+          } else {
+            penalty = 3.5;
+          }
+          if (reused) penalty *= 0.5;
+          const detail = {
+            id: helperId,
+            pal: helperPal,
+            depth,
+            caught: caughtHelper,
+            reused,
+            cost: penalty
+          };
+          return { penalty, detail };
+        };
         while (queue.length) {
-          const current = queue.shift();
+          let lowestIndex = 0;
+          for (let i = 1; i < queue.length; i += 1) {
+            if (queue[i].cost < queue[lowestIndex].cost) lowestIndex = i;
+          }
+          const current = queue.splice(lowestIndex, 1)[0];
+          if (current.carrierId === targetPal.id) {
+            return { steps: current.steps, helperStats: current.helperStats, cost: current.cost };
+          }
           const edges = parentIndex.get(current.carrierId) || [];
-          for (const edge of edges) {
-            if (edge.childId == null || edge.otherParentId == null) continue;
+          edges.forEach(edge => {
+            if (edge.childId == null || edge.otherParentId == null) return;
             const childPal = edge.child || PALS[edge.childId];
-            if (!childPal) continue;
+            if (!childPal) return;
             const otherParentPal = edge.otherParent || (edge.otherParentId != null ? PALS[edge.otherParentId] : null);
+            const helperInfo = evaluateHelper(edge, current.helperStats);
+            const childDepth = analysisDepths.get(edge.childId);
+            const childPenalty = childDepth != null ? Math.max(childDepth, 0) * 0.1 : 0;
+            const stepCost = 1 + helperInfo.penalty + childPenalty;
+            const nextCost = current.cost + stepCost;
+            const previousBest = bestCost.get(edge.childId);
+            if (previousBest != null && previousBest <= nextCost) {
+              return;
+            }
+            const helperMap = new Map(current.helperStats.helperMap);
+            if (helperInfo.detail && helperInfo.detail.id != null) {
+              helperMap.set(helperInfo.detail.id, helperInfo.detail);
+            }
+            const nextHelperStats = {
+              totalCost: current.helperStats.totalCost + (helperInfo.detail ? helperInfo.detail.cost : 0),
+              helperMap
+            };
             const nextSteps = current.steps.concat([{
               parentIndex: edge.parentIndex,
               childPal,
@@ -13374,14 +13466,9 @@
               otherParentId: edge.otherParentId,
               recipe: edge.recipe
             }]);
-            if (edge.childId === targetPal.id) {
-              return { steps: nextSteps };
-            }
-            if (!visited.has(edge.childId)) {
-              visited.add(edge.childId);
-              queue.push({ carrierId: edge.childId, steps: nextSteps });
-            }
-          }
+            bestCost.set(edge.childId, nextCost);
+            queue.push({ carrierId: edge.childId, steps: nextSteps, cost: nextCost, helperStats: nextHelperStats });
+          });
         }
         return null;
       }
@@ -13415,6 +13502,55 @@
           ? `${stepCount} breeding step${stepCount === 1 ? '' : 's'} to move the passive from <strong>${carrier.name}</strong> to <strong>${target.name}</strong>.`
           : `Plan on ${stepCount} breeding step${stepCount === 1 ? '' : 's'} to relay the passive from <strong>${carrier.name}</strong> to <strong>${target.name}</strong>.`;
         traitGuideBody.appendChild(summary);
+        const helperDetails = plan.helperStats && plan.helperStats.helperMap instanceof Map
+          ? Array.from(plan.helperStats.helperMap.values())
+          : [];
+        const countNeedingBreeding = helperDetails.filter(detail => !detail?.caught && detail?.depth != null && detail.depth > 0).length;
+        const countNeedingCatch = helperDetails.filter(detail => !detail?.caught && (detail?.depth == null || detail.depth === 0)).length;
+        const prepMessages = (() => {
+          if (!helperDetails.length) {
+            return {
+              kid: 'Helpers already in camp—start breeding!',
+              grown: 'No additional helpers required before breeding begins.'
+            };
+          }
+          if (!countNeedingBreeding && !countNeedingCatch) {
+            return {
+              kid: 'Every helper is already in your camp.',
+              grown: 'All helper parents are already caught—queue the plan when ready.'
+            };
+          }
+          const kidParts = [];
+          const grownParts = [];
+          if (countNeedingBreeding) {
+            kidParts.push(`${countNeedingBreeding} to breed`);
+            grownParts.push(`${countNeedingBreeding} helper${countNeedingBreeding === 1 ? '' : 's'} to breed first`);
+          }
+          if (countNeedingCatch) {
+            kidParts.push(`${countNeedingCatch} to catch`);
+            grownParts.push(`${countNeedingCatch} wild catch${countNeedingCatch === 1 ? '' : 'es'} to secure`);
+          }
+          return {
+            kid: `Helpers to prep: ${kidParts.join(' and ')}.`,
+            grown: `Helper prep: ${grownParts.join(' and ')}.`
+          };
+        })();
+        const difficultyScore = plan.helperStats ? plan.helperStats.totalCost : helperDetails.length;
+        const difficultyLabel = (() => {
+          if (difficultyScore <= 3) {
+            return kidMode ? 'Easy plan' : 'Low difficulty';
+          }
+          if (difficultyScore <= 6) {
+            return kidMode ? 'Medium plan' : 'Moderate difficulty';
+          }
+          return kidMode ? 'Advanced plan' : 'Complex relay';
+        })();
+        const difficulty = document.createElement('p');
+        difficulty.className = 'trait-guide__insight';
+        difficulty.innerHTML = kidMode
+          ? `<strong>${difficultyLabel}.</strong> ${prepMessages.kid}`
+          : `<strong>${difficultyLabel}.</strong> ${prepMessages.grown}`;
+        traitGuideBody.appendChild(difficulty);
         const stepsList = document.createElement('ol');
         stepsList.className = 'trait-guide__steps';
         plan.steps.forEach((step, index) => {
@@ -13491,7 +13627,13 @@
         plan.steps.forEach(step => {
           if (step.otherParentId == null) return;
           if (!requirements.has(step.otherParentId)) {
-            requirements.set(step.otherParentId, step.otherParentPal || (step.otherParentId != null ? PALS[step.otherParentId] : null));
+            const helperDetail = plan.helperStats && plan.helperStats.helperMap instanceof Map
+              ? plan.helperStats.helperMap.get(step.otherParentId)
+              : null;
+            requirements.set(step.otherParentId, {
+              pal: step.otherParentPal || (step.otherParentId != null ? PALS[step.otherParentId] : null),
+              detail: helperDetail
+            });
           }
         });
         if (requirements.size) {
@@ -13501,11 +13643,31 @@
           intro.className = 'trait-guide__summary';
           intro.textContent = kidMode ? 'Make sure these helper pals are ready:' : 'Prep these helper parents before you start:';
           wrap.appendChild(intro);
-          requirements.forEach(pal => {
+          const analysisCaught = analysis && analysis.caughtIds instanceof Set ? analysis.caughtIds : new Set();
+          const analysisDepths = analysis && analysis.depths instanceof Map ? analysis.depths : new Map();
+          const formatHelperStatus = (helperPal, helperDetail) => {
+            const helperId = helperPal?.id ?? helperDetail?.id ?? null;
+            const isCaught = helperDetail ? helperDetail.caught : (helperId != null && analysisCaught.has(helperId));
+            if (isCaught) {
+              return kidMode ? 'Ready to go' : 'Already captured';
+            }
+            const depth = helperDetail?.depth ?? (helperId != null ? analysisDepths.get(helperId) : null);
+            if (depth != null && depth > 0) {
+              const suffix = depth === 1 ? '' : 's';
+              return kidMode
+                ? `Breed this helper (${depth} step${suffix}).`
+                : `Breed this helper first (${depth} step${suffix}).`;
+            }
+            return kidMode
+              ? 'Catch or trade for this pal before you start.'
+              : 'Catch or trade for this parent before breeding.';
+          };
+          requirements.forEach(({ pal, detail }) => {
             const row = document.createElement('div');
             row.className = 'trait-guide__requirement';
             const icon = document.createElement('i');
-            const isCaught = pal && caught[pal.id];
+            const helperId = pal?.id ?? detail?.id ?? null;
+            const isCaught = detail ? detail.caught : (helperId != null ? analysisCaught.has(helperId) : false);
             icon.className = `fa-solid ${isCaught ? 'fa-circle-check' : 'fa-circle-exclamation'}`;
             icon.style.color = isCaught ? 'var(--success)' : 'var(--danger)';
             row.appendChild(icon);
@@ -13515,9 +13677,7 @@
               meta: pal ? formatSteps(pal.id) : ''
             }));
             const status = document.createElement('span');
-            status.textContent = isCaught
-              ? (kidMode ? 'Ready to go' : 'Already captured')
-              : (kidMode ? 'Catch or trade for this pal' : 'Catch or trade for this parent before breeding');
+            status.textContent = formatHelperStatus(pal, detail);
             row.appendChild(status);
             wrap.appendChild(row);
           });
@@ -13676,6 +13836,7 @@
         selectedTrait = null;
         traitSearch.value = '';
         updateBreedingSelection();
+        updateTraitCopy();
         renderTraitDetails();
         renderTraitSuggestions();
         renderTraitOutcomes();
