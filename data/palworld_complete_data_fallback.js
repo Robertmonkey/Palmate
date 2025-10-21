@@ -18550,38 +18550,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breedingCombos": [],
       "spawnAreas": []
     },
-    "190": {
-      "id": 190,
-      "key": "colossal_whale",
-      "name": "Colossal Whale",
-      "wiki": "https://palworld.wiki.gg/wiki/Colossal_Whale",
-      "image": "https://palworld.wiki.gg/images/thumb/Colossal_Whale.png/648px-Colossal_Whale.png?48239b",
-      "genus": "unknown",
-      "rarity": null,
-      "price": null,
-      "size": null,
-      "stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "stamina": null,
-        "support": null,
-        "speed": null,
-        "food": null
-      },
-      "work": {},
-      "skills": [],
-      "drops": [],
-      "breeding": {
-        "power": null,
-        "type1": null,
-        "type2": null
-      },
-      "types": [],
-      "localImage": null,
-      "breedingCombos": [],
-      "spawnAreas": []
-    },
     "191": {
       "id": 191,
       "key": "dark_mutant",
@@ -20850,38 +20818,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "types": [
         "Neutral"
       ],
-      "localImage": null,
-      "breedingCombos": [],
-      "spawnAreas": []
-    },
-    "220": {
-      "id": 220,
-      "key": "BIGFOXWOLF",
-      "name": "BigFoxWolf",
-      "wiki": "https://palworld.wiki.gg/wiki/BigFoxWolf",
-      "image": "https://palworld.wiki.gg/images/BigFoxWolf.png?ffb573",
-      "genus": "unknown",
-      "rarity": null,
-      "price": null,
-      "size": null,
-      "stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "stamina": null,
-        "support": null,
-        "speed": null,
-        "food": null
-      },
-      "work": {},
-      "skills": [],
-      "drops": [],
-      "breeding": {
-        "power": null,
-        "type1": null,
-        "type2": null
-      },
-      "types": [],
       "localImage": null,
       "breedingCombos": [],
       "spawnAreas": []
