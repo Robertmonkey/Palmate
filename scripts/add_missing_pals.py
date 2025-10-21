@@ -6,59 +6,23 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 from urllib.parse import quote
 
 import mwparserfromhell
 import requests
-from bs4 import BeautifulSoup
 
 DATA_PATH = Path('data/palworld_complete_data_final.json')
+BASE_DATA_PATH = Path('data/palworld_complete_data.json')
+ENHANCED_DATA_PATH = Path('data/palworld_complete_data_enhanced.json')
 BASE_URL = 'https://palworld.wiki.gg/wiki'
+RAW_FETCH_PREFIX = 'https://r.jina.ai/https://palworld.wiki.gg/wiki'
 
-PAL_INFOS = [
-    (141, 'Prunelia'),
-    (142, 'Nyafia'),
-    (143, 'Gildane'),
-    (144, 'Herbil'),
-    (145, 'Icelyn'),
-    (146, 'Frostplume'),
-    (147, 'Palumba'),
-    (148, 'Braloha'),
-    (149, 'Munchill'),
-    (150, 'Polapup'),
-    (151, 'Turtacle'),
-    (152, 'Turtacle Terra'),
-    (153, 'Jellroy'),
-    (154, 'Jelliette'),
-    (155, 'Gloopie'),
-    (156, 'Finsider'),
-    (157, 'Finsider Ignis'),
-    (158, 'Ghangler'),
-    (159, 'Ghangler Ignis'),
-    (160, 'Whalaska'),
-    (161, 'Whalaska Ignis'),
-    (162, 'Neptilius'),
-    (163, 'Fuack Ignis'),
-    (164, 'Pengullet Lux'),
-    (165, 'Penking Lux'),
-    (166, 'Killamari Primo'),
-    (167, 'Celaray Lux'),
-    (168, 'Dumud Gild'),
-    (169, 'Azurobe Cryst'),
-    (170, 'Croajiro Noct'),
-    (171, 'Eye of Cthulhu'),
-    (172, 'Enchanted Sword'),
-    (173, 'Illuminant Slime'),
-    (174, 'Illuminant Bat'),
-    (175, 'Rainbow Slime'),
-    (176, 'Cave Bat'),
-    (177, 'Red Slime'),
-    (178, 'Purple Slime'),
-    (179, 'Demon Eye'),
-    (180, 'Green Slime'),
-    (181, 'Blue Slime'),
-]
+LIST_PAGES: Tuple[str, ...] = (
+    'Palpedia/Regular_Pals',
+    'Palpedia/Pal_Subspecies',
+    'Palpedia/Terraria_Monsters',
+)
 
 WORK_FIELDS = {
     'handiwork': 'handiwork',
@@ -100,20 +64,33 @@ def parse_number(raw: str) -> Optional[float]:
         return None
 
 
-def fetch_pal_template(page: str) -> Tuple[str, mwparserfromhell.nodes.Template]:
-    url = f"{BASE_URL}/{quote(page)}?action=edit"
-    response = requests.get(url, timeout=30)
+def fetch_raw_page(page: str) -> str:
+    """Return the raw wikitext for a page via the jina.ai proxy."""
+
+    encoded = quote(page.replace(' ', '_'))
+    url = f"{RAW_FETCH_PREFIX}/{encoded}?action=raw"
+    response = requests.get(url, timeout=180)
     response.raise_for_status()
-    soup = BeautifulSoup(response.text, 'html.parser')
-    textarea = soup.select_one('#wpTextbox1')
-    if textarea is None:
-        raise RuntimeError(f'No editable content found for {page}')
-    code = mwparserfromhell.parse(textarea.text)
+    text = response.text
+    marker = 'Markdown Content:\n'
+    if marker in text:
+        return text.split(marker, 1)[1]
+    return text
+
+
+def fetch_pal_template(page: str) -> Tuple[str, mwparserfromhell.nodes.Template]:
+    wikitext = fetch_raw_page(page)
+    code = mwparserfromhell.parse(wikitext)
     for template in code.filter_templates():
         name = template.name.strip().lower()
         if name in {'pal', 'monster'}:
             return name, template
     raise RuntimeError(f'Pal template missing for {page}')
+
+
+def fetch_list_entries(page: str) -> List[str]:
+    wikitext = fetch_raw_page(page)
+    return re.findall(r"PalListEntry\+\|([^}|]+)", wikitext)
 
 
 def extract(template: mwparserfromhell.nodes.Template, key: str) -> str:
@@ -181,6 +158,9 @@ def parse_work(template: mwparserfromhell.nodes.Template) -> Dict[str, int]:
     work: Dict[str, int] = {}
     for source, target in WORK_FIELDS.items():
         value = extract(template, source)
+        if not value and source == 'medicine_production':
+            # Some templates still use the legacy "med_prod" parameter.
+            value = extract(template, 'med_prod')
         if value and value.isdigit():
             amount = int(value)
             if amount:
@@ -250,18 +230,92 @@ def build_entry(info_id: int, name: str, template_type: str, template: mwparserf
     return entry
 
 
+def sort_key_for_entry(name: str, template: mwparserfromhell.nodes.Template) -> Tuple[int, str, str]:
+    raw = extract(template, 'no')
+    digits = ''.join(ch for ch in raw if ch.isdigit())
+    letters = ''.join(ch for ch in raw if ch.isalpha())
+    try:
+        numeric = int(digits)
+    except ValueError:
+        numeric = 10_000  # place unknown IDs at the end in a stable order
+    return (numeric, letters.lower(), name.lower())
+
+
+def gather_missing_names(existing: Iterable[str]) -> List[str]:
+    names: set[str] = set()
+    for page in LIST_PAGES:
+        try:
+            names.update(fetch_list_entries(page))
+        except Exception as exc:  # pragma: no cover - network failure surface
+            raise RuntimeError(f'Failed to fetch pal list from {page}') from exc
+    missing = sorted(names - set(existing))
+    return missing
+
+
+def clone_section(data: dict, keys: Sequence[str]) -> dict:
+    return {key: json.loads(json.dumps(data[key])) for key in keys}
+
+
+def sync_dataset_variants(final_data: dict) -> None:
+    subset_keys: Sequence[str] = ('pals', 'items', 'tech', 'passiveDetails', 'skillsDetails')
+
+    base_payload = clone_section(final_data, subset_keys)
+    for pal in base_payload['pals'].values():
+        pal.pop('breedingCombos', None)
+        pal.pop('spawnAreas', None)
+    BASE_DATA_PATH.write_text(json.dumps(base_payload, indent=2, ensure_ascii=False))
+    print(f'Synchronised {BASE_DATA_PATH}')
+
+    enhanced_payload = clone_section(final_data, subset_keys)
+    for pal in enhanced_payload['pals'].values():
+        pal.pop('spawnAreas', None)
+    ENHANCED_DATA_PATH.write_text(json.dumps(enhanced_payload, indent=2, ensure_ascii=False))
+    print(f'Synchronised {ENHANCED_DATA_PATH}')
+
+
 def main() -> None:
     data = json.loads(DATA_PATH.read_text())
     existing = data['pals']
     skill_lookup = build_skill_lookup(existing)
 
-    for info_id, name in PAL_INFOS:
-        template_type, template = fetch_pal_template(name.replace(' ', '_'))
-        entry = build_entry(info_id, name, template_type, template, skill_lookup)
-        existing[str(info_id)] = entry
-        print(f'Updated {name} (#{info_id})')
+    current_names = {pal['name'] for pal in existing.values()}
+    to_add = gather_missing_names(current_names)
 
-    DATA_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+    max_id = max(int(key) for key in existing.keys())
+    fetched_templates: List[Tuple[str, str, mwparserfromhell.nodes.Template]] = []
+    failures: List[str] = []
+
+    for name in to_add:
+        try:
+            template_type, template = fetch_pal_template(name)
+        except Exception as exc:  # pragma: no cover - network failure surface
+            print(f'Failed to fetch data for {name}: {exc}')
+            failures.append(name)
+            continue
+        fetched_templates.append((name, template_type, template))
+
+    fetched_templates.sort(key=lambda item: sort_key_for_entry(item[0], item[2]))
+
+    changed = False
+    for name, template_type, template in fetched_templates:
+        max_id += 1
+        entry = build_entry(max_id, name, template_type, template, skill_lookup)
+        existing[str(max_id)] = entry
+        print(f'Added {name} as #{max_id}')
+        changed = True
+
+    if failures:
+        print('\nThe following pals could not be processed:')
+        for name in failures:
+            print(f'  - {name}')
+
+    if changed:
+        DATA_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+        print(f'Updated dataset written to {DATA_PATH}')
+    else:
+        print('No new pals to add!')
+
+    sync_dataset_variants(data)
 
 
 if __name__ == '__main__':
