@@ -1,0 +1,27 @@
+Feybreak Pal Breeding Pairs (Fandom scrape)
+Nitemary: Sparkit + Bellanoir; Sparkit + Bellanoir Libero; Flambelle + Blazamut Ryu; Flambelle + Bellanoir
+Starryon: Rayhound + Bellanoir; Rayhound + Bellanoir Libero; Kitsun Noct + Blazamut Ryu; Kitsun Noct + Bellanoir
+Silvegis: Mossanda + Bellanoir; Mossanda + Bellanoir Libero; Whalaska Ignis + Bellanoir; Whalaska Ignis + Bellanoir Libero
+Smokie: Chikipi + Verdash; Verdash + Teafant; Robinquill Terra + Robinquill Terra; Mau + Felbat
+Celesdir: Eikthyrdeer Terra + Gildane; Celesdir + Celesdir
+Omascul: Kelpsea + Bellanoir; Kelpsea + Bellanoir Libero; Finsider Ignis + Blazamut; Finsider Ignis + Blazamut Ryu
+Splatterina: Vixy + Bellanoir; Vixy + Bellanoir Libero; Herbil + Blazamut Ryu; Herbil + Bellanoir
+Tarantriss: Chikipi + Astegon; Astegon + Teafant; Cryolinx Terra + Cryolinx Terra; Mau + Bastigor
+Azurmane: Loupmoon Cryst + Bellanoir; Loupmoon Cryst + Bellanoir Libero; Chillet + Bellanoir; Chillet + Bellanoir Libero
+Bastigor: Frostallion + Anubis; Bastigor + Bastigor
+Prunelia: Chikipi + Blazamut; Chikipi + Blazamut Ryu; Blazamut + Blazamut Ryu; Mau + Suzaku Aqua
+Nyafia: Finsider + Bellanoir; Finsider + Bellanoir Libero; Fuack Ignis + Blazamut; Fuack Ignis + Blazamut Ryu
+Gildane: Felbat + Bellanoir; Felbat + Bellanoir Libero; Robinquill Terra + Blazamut; Robinquill Terra + Blazamut Ryu
+Feybreak Variant Breeding Pairs (Fandom scrape)
+Turtacle Terra: Turtacle + Digtoise; Turtacle Terra + Turtacle Terra
+Croajiro Noct: Croajiro + Bushi Noct; Croajiro Noct + Croajiro Noct
+Kitsun Noct: Kitsun + Nyafia; Kitsun Noct + Kitsun Noct
+Shroomer Noct: Cattiva + Bellanoir; Cattiva + Bellanoir Libero; Cremis + Blazamut; Cremis + Blazamut Ryu
+Warsect Terra: Warsect + Digtoise; Warsect Terra + Warsect Terra
+Wixen Noct: Katress + Wixen; Wixen Noct + Wixen Noct
+Bushi Noct: Bushi + Sootseer; Bushi Noct + Bushi Noct
+Caprity Noct: Caprity + Tarantriss; Caprity Noct + Caprity Noct
+Cryolinx Terra: Cryolinx + Dazemu; Cryolinx Terra + Cryolinx Terra
+Dazzi Noct: Dazzi + Omascul; Dazzi Noct + Dazzi Noct
+Gorirat Terra: Gorirat + Kikit; Gorirat Terra + Gorirat Terra
+Menasting Terra: Menasting + Knocklem; Menasting Terra + Menasting Terra

@@ -8406,6 +8406,84 @@
       ]
     },
     {
+      "id": "resource-poison-arrow",
+      "title": "Poison Arrow Ammunition Loop",
+      "source_heading": "Poison Arrow Ammunition Loop",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player unlocks Poison Bow tech but lacks Venom Glands and poison ammo reserves.",
+      "keywords": [
+        "poison arrow",
+        "venom gland",
+        "ammo",
+        "poison"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Spend a tier 8 tech point to unlock the **Poison Arrow** recipe before restocking ammo benches.",
+          "citations": [
+            "palwiki-poison-arrow†L1-L1"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "poison_arrow",
+              "slug": "poison-arrow",
+              "name": "Poison Arrow"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Farm **Venom Glands** from poisonous pals such as Helzephyr or Menasting, or buy them from wandering merchants to fuel poison ammo batches.",
+          "citations": [
+            "palwiki-venom-gland†L1-L1"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "venom_gland",
+              "slug": "venom-gland",
+              "name": "Venom Gland"
+            },
+            {
+              "type": "pal",
+              "id": "helzephyr",
+              "name": "Helzephyr"
+            },
+            {
+              "type": "pal",
+              "id": "menasting",
+              "name": "Menasting"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Craft Poison Arrows at your ammunition workbench and stockpile them in expedition chests before tackling toxin-friendly hunts.",
+          "citations": [
+            "palwiki-poison-arrow†L1-L1",
+            "palwiki-venom-gland†L1-L1"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "weapon-workbench",
+              "name": "Weapon Workbench"
+            },
+            {
+              "type": "item",
+              "id": "poison_arrow",
+              "slug": "poison-arrow",
+              "name": "Poison Arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "resource-high-quality-pal-oil",
       "title": "High Quality Pal Oil Sanctuary Circuit",
       "source_heading": "High Quality Pal Oil Sanctuary Circuit",
@@ -9033,6 +9111,68 @@
               "id": "flour",
               "slug": "flour",
               "name": "Flour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-bread",
+      "title": "Bread Expedition Pantry",
+      "source_heading": "Bread Expedition Pantry",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player has excess Flour from the mill and needs portable food stacks for expeditions.",
+      "keywords": [
+        "bread",
+        "flour",
+        "cooking",
+        "campfire"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Run the **Flour Milling Network** or mill spare wheat so sacks of Flour stay stocked for baking sessions.",
+          "citations": [
+            "palwiki-bread†L1-L1"
+          ],
+          "links": [
+            {
+              "type": "route",
+              "id": "resource-flour",
+              "name": "Flour Milling Network"
+            },
+            {
+              "type": "item",
+              "id": "flour",
+              "slug": "flour",
+              "name": "Flour"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Bake Bread in batches at a **Campfire** or **Cooking Pot** once Flour is ready, then store the loaves for stamina-friendly travel rations.",
+          "citations": [
+            "palwiki-bread†L1-L1"
+          ],
+          "links": [
+            {
+              "type": "structure",
+              "id": "campfire",
+              "name": "Campfire"
+            },
+            {
+              "type": "structure",
+              "id": "cooking-pot",
+              "name": "Cooking Pot"
+            },
+            {
+              "type": "item",
+              "id": "bread",
+              "slug": "bread",
+              "name": "Bread"
             }
           ]
         }

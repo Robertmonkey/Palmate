@@ -14419,7 +14419,24 @@
         "Dark"
       ],
       "localImage": "assets/pals/138_prunelia.png",
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Chikipi",
+          "Blazamut"
+        ],
+        [
+          "Chikipi",
+          "Blazamut Ryu"
+        ],
+        [
+          "Blazamut",
+          "Blazamut Ryu"
+        ],
+        [
+          "Mau",
+          "Suzaku Aqua"
+        ]
+      ]
     },
     "142": {
       "id": 142,
@@ -14502,7 +14519,24 @@
         "Dark"
       ],
       "localImage": "assets/pals/139_nyafia.png",
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Finsider",
+          "Bellanoir"
+        ],
+        [
+          "Finsider",
+          "Bellanoir Libero"
+        ],
+        [
+          "Fuack Ignis",
+          "Blazamut"
+        ],
+        [
+          "Fuack Ignis",
+          "Blazamut Ryu"
+        ]
+      ]
     },
     "143": {
       "id": 143,
@@ -14582,7 +14616,24 @@
         "Ground"
       ],
       "localImage": "assets/pals/140_gildane.png",
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Felbat",
+          "Bellanoir"
+        ],
+        [
+          "Felbat",
+          "Bellanoir Libero"
+        ],
+        [
+          "Robinquill Terra",
+          "Blazamut"
+        ],
+        [
+          "Robinquill Terra",
+          "Blazamut Ryu"
+        ]
+      ]
     },
     "144": {
       "id": 144,
@@ -15332,7 +15383,16 @@
         "Ground"
       ],
       "localImage": "assets/pals/148b_turtacle_terra.png",
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Turtacle",
+          "Digtoise"
+        ],
+        [
+          "Turtacle Terra",
+          "Turtacle Terra"
+        ]
+      ]
     },
     "153": {
       "id": 153,
@@ -16858,7 +16918,16 @@
         "Dark"
       ],
       "localImage": "assets/pals/114b_croajiro_noct.png",
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Croajiro",
+          "Bushi Noct"
+        ],
+        [
+          "Croajiro Noct",
+          "Croajiro Noct"
+        ]
+      ]
     },
     "171": {
       "id": 171,
@@ -17429,7 +17498,24 @@
         "Electric"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Loupmoon Cryst",
+          "Bellanoir"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Bellanoir Libero"
+        ],
+        [
+          "Chillet",
+          "Bellanoir"
+        ],
+        [
+          "Chillet",
+          "Bellanoir Libero"
+        ]
+      ]
     },
     "183": {
       "id": 183,
@@ -17518,7 +17604,16 @@
         "Ice"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Frostallion",
+          "Anubis"
+        ],
+        [
+          "Bastigor",
+          "Bastigor"
+        ]
+      ]
     },
     "184": {
       "id": 184,
@@ -17859,7 +17954,16 @@
         "Neutral"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Eikthyrdeer Terra",
+          "Gildane"
+        ],
+        [
+          "Celesdir",
+          "Celesdir"
+        ]
+      ]
     },
     "189": {
       "id": 189,
@@ -18470,7 +18574,16 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Kitsun",
+          "Nyafia"
+        ],
+        [
+          "Kitsun Noct",
+          "Kitsun Noct"
+        ]
+      ]
     },
     "199": {
       "id": 199,
@@ -18874,7 +18987,24 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Sparkit",
+          "Bellanoir"
+        ],
+        [
+          "Sparkit",
+          "Bellanoir Libero"
+        ],
+        [
+          "Flambelle",
+          "Blazamut Ryu"
+        ],
+        [
+          "Flambelle",
+          "Bellanoir"
+        ]
+      ]
     },
     "204": {
       "id": 204,
@@ -18954,7 +19084,24 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Kelpsea",
+          "Bellanoir"
+        ],
+        [
+          "Kelpsea",
+          "Bellanoir Libero"
+        ],
+        [
+          "Finsider Ignis",
+          "Blazamut"
+        ],
+        [
+          "Finsider Ignis",
+          "Blazamut Ryu"
+        ]
+      ]
     },
     "205": {
       "id": 205,
@@ -19288,7 +19435,24 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Cattiva",
+          "Bellanoir"
+        ],
+        [
+          "Cattiva",
+          "Bellanoir Libero"
+        ],
+        [
+          "Cremis",
+          "Blazamut"
+        ],
+        [
+          "Cremis",
+          "Blazamut Ryu"
+        ]
+      ]
     },
     "209": {
       "id": 209,
@@ -19368,7 +19532,24 @@
         "Dragon"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Mossanda",
+          "Bellanoir"
+        ],
+        [
+          "Mossanda",
+          "Bellanoir Libero"
+        ],
+        [
+          "Whalaska Ignis",
+          "Bellanoir"
+        ],
+        [
+          "Whalaska Ignis",
+          "Bellanoir Libero"
+        ]
+      ]
     },
     "210": {
       "id": 210,
@@ -19449,7 +19630,24 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Chikipi",
+          "Verdash"
+        ],
+        [
+          "Verdash",
+          "Teafant"
+        ],
+        [
+          "Robinquill Terra",
+          "Robinquill Terra"
+        ],
+        [
+          "Mau",
+          "Felbat"
+        ]
+      ]
     },
     "211": {
       "id": 211,
@@ -19619,7 +19817,24 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Vixy",
+          "Bellanoir"
+        ],
+        [
+          "Vixy",
+          "Bellanoir Libero"
+        ],
+        [
+          "Herbil",
+          "Blazamut Ryu"
+        ],
+        [
+          "Herbil",
+          "Bellanoir"
+        ]
+      ]
     },
     "213": {
       "id": 213,
@@ -19700,7 +19915,24 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Rayhound",
+          "Bellanoir"
+        ],
+        [
+          "Rayhound",
+          "Bellanoir Libero"
+        ],
+        [
+          "Kitsun Noct",
+          "Blazamut Ryu"
+        ],
+        [
+          "Kitsun Noct",
+          "Bellanoir"
+        ]
+      ]
     },
     "214": {
       "id": 214,
@@ -19784,7 +20016,24 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Chikipi",
+          "Astegon"
+        ],
+        [
+          "Astegon",
+          "Teafant"
+        ],
+        [
+          "Cryolinx Terra",
+          "Cryolinx Terra"
+        ],
+        [
+          "Mau",
+          "Bastigor"
+        ]
+      ]
     },
     "215": {
       "id": 215,
@@ -19823,7 +20072,16 @@
         "Ground"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Warsect",
+          "Digtoise"
+        ],
+        [
+          "Warsect Terra",
+          "Warsect Terra"
+        ]
+      ]
     },
     "216": {
       "id": 216,
@@ -19907,7 +20165,16 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Katress",
+          "Wixen"
+        ],
+        [
+          "Wixen Noct",
+          "Wixen Noct"
+        ]
+      ]
     },
     "217": {
       "id": 217,
@@ -20319,7 +20586,16 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Bushi",
+          "Sootseer"
+        ],
+        [
+          "Bushi Noct",
+          "Bushi Noct"
+        ]
+      ]
     },
     "223": {
       "id": 223,
@@ -20403,7 +20679,16 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Caprity",
+          "Tarantriss"
+        ],
+        [
+          "Caprity Noct",
+          "Caprity Noct"
+        ]
+      ]
     },
     "224": {
       "id": 224,
@@ -20492,7 +20777,16 @@
         "Ground"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Cryolinx",
+          "Dazemu"
+        ],
+        [
+          "Cryolinx Terra",
+          "Cryolinx Terra"
+        ]
+      ]
     },
     "225": {
       "id": 225,
@@ -20658,7 +20952,16 @@
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Dazzi",
+          "Omascul"
+        ],
+        [
+          "Dazzi Noct",
+          "Dazzi Noct"
+        ]
+      ]
     },
     "227": {
       "id": 227,
@@ -20772,7 +21075,16 @@
         "Ground"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Gorirat",
+          "Kikit"
+        ],
+        [
+          "Gorirat Terra",
+          "Gorirat Terra"
+        ]
+      ]
     },
     "229": {
       "id": 229,
@@ -21022,7 +21334,16 @@
         "Ground"
       ],
       "localImage": null,
-      "breedingCombos": []
+      "breedingCombos": [
+        [
+          "Menasting",
+          "Knocklem"
+        ],
+        [
+          "Menasting Terra",
+          "Menasting Terra"
+        ]
+      ]
     },
     "232": {
       "id": 232,
