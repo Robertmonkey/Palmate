@@ -17,6 +17,7 @@ BASE_DATA_PATH = Path('data/palworld_complete_data.json')
 ENHANCED_DATA_PATH = Path('data/palworld_complete_data_enhanced.json')
 BASE_URL = 'https://palworld.wiki.gg/wiki'
 RAW_FETCH_PREFIX = 'https://r.jina.ai/https://palworld.wiki.gg/wiki'
+DIRECT_FETCH_PREFIX = 'https://palworld.wiki.gg/wiki'
 
 LIST_PAGES: Tuple[str, ...] = (
     'Palpedia/Regular_Pals',
@@ -65,17 +66,31 @@ def parse_number(raw: str) -> Optional[float]:
 
 
 def fetch_raw_page(page: str) -> str:
-    """Return the raw wikitext for a page via the jina.ai proxy."""
+    """Return the raw wikitext for a page, bypassing Cloudflare hurdles when possible."""
 
     encoded = quote(page.replace(' ', '_'))
-    url = f"{RAW_FETCH_PREFIX}/{encoded}?action=raw"
-    response = requests.get(url, timeout=180)
-    response.raise_for_status()
-    text = response.text
-    marker = 'Markdown Content:\n'
-    if marker in text:
-        return text.split(marker, 1)[1]
-    return text
+    direct_url = f"{DIRECT_FETCH_PREFIX}/{encoded}?action=raw"
+    headers = {
+        'User-Agent': 'Palmate pal synchroniser',
+        'Accept': 'text/plain',
+    }
+    for url in (direct_url, f"{RAW_FETCH_PREFIX}/{encoded}?action=raw"):
+        try:
+            response = requests.get(url, timeout=120, headers=headers if url == direct_url else None)
+        except requests.RequestException:
+            continue
+        if response.status_code != 200:
+            continue
+        text = response.text
+        # jina.ai responses include metadata wrappers we need to strip away.
+        marker = 'Markdown Content:\n'
+        if marker in text:
+            text = text.split(marker, 1)[1]
+        if 'Just a moment...' in text and 'Cloudflare' in text:
+            # Cloudflare challenge page, try the next fallback.
+            continue
+        return text
+    raise RuntimeError(f'Unable to fetch raw wiki text for {page}')
 
 
 def fetch_pal_template(page: str) -> Tuple[str, mwparserfromhell.nodes.Template]:

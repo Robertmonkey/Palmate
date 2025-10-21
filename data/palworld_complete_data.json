@@ -11415,8 +11415,8 @@
         {
           "name": "poison_shower",
           "level": 30,
-          "power": null,
-          "cooldown": null
+          "power": 90,
+          "cooldown": 22
         },
         {
           "name": "spine_vine",
@@ -11500,8 +11500,8 @@
         {
           "name": "poison_shower",
           "level": 30,
-          "power": null,
-          "cooldown": null
+          "power": 90,
+          "cooldown": 22
         },
         {
           "name": "nightmare_ball",
@@ -11561,8 +11561,8 @@
         {
           "name": "bog_blast",
           "level": 7,
-          "power": null,
-          "cooldown": null
+          "power": 40,
+          "cooldown": 4
         },
         {
           "name": "stone_blast",
@@ -11579,8 +11579,8 @@
         {
           "name": "rockburst",
           "level": 30,
-          "power": null,
-          "cooldown": null
+          "power": 130,
+          "cooldown": 35
         },
         {
           "name": "crash_dash",
@@ -11738,8 +11738,8 @@
         {
           "name": "crystal_breath",
           "level": 22,
-          "power": null,
-          "cooldown": null
+          "power": 90,
+          "cooldown": 22
         },
         {
           "name": "freze_wall",
@@ -11756,8 +11756,8 @@
         {
           "name": "diamond_rain",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 60
         }
       ],
       "drops": [
@@ -11819,8 +11819,8 @@
         {
           "name": "crystal_breath",
           "level": 22,
-          "power": null,
-          "cooldown": null
+          "power": 90,
+          "cooldown": 22
         },
         {
           "name": "freze_wall",
@@ -11831,14 +11831,14 @@
         {
           "name": "icicle_bullet",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 110,
+          "cooldown": 35
         },
         {
           "name": "diamond_rain",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 60
         }
       ],
       "drops": [
@@ -11900,8 +11900,8 @@
         {
           "name": "wind_edge",
           "level": 22,
-          "power": null,
-          "cooldown": null
+          "power": 90,
+          "cooldown": 22
         },
         {
           "name": "dash_kick",
@@ -11963,8 +11963,8 @@
         {
           "name": "bog_blast",
           "level": 1,
-          "power": null,
-          "cooldown": null
+          "power": 40,
+          "cooldown": 4
         },
         {
           "name": "seed_mine",
@@ -12060,8 +12060,8 @@
         {
           "name": "crystal_breath",
           "level": 15,
-          "power": null,
-          "cooldown": null
+          "power": 90,
+          "cooldown": 22
         },
         {
           "name": "chaotic_spray",
@@ -12078,14 +12078,14 @@
         {
           "name": "torrential_blast",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 110,
+          "cooldown": 35
         },
         {
           "name": "diamond_rain",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 60
         }
       ],
       "drops": [
@@ -12160,14 +12160,14 @@
         {
           "name": "icicle_line",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 120,
+          "cooldown": 40
         },
         {
           "name": "aqua_surge",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 56
         }
       ],
       "drops": [
@@ -12236,14 +12236,14 @@
         {
           "name": "torrential_blast",
           "level": 30,
-          "power": null,
-          "cooldown": null
+          "power": 110,
+          "cooldown": 35
         },
         {
           "name": "hydro_slicer",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 130,
+          "cooldown": 45
         },
         {
           "name": "hydro_laser",
@@ -12294,8 +12294,8 @@
         {
           "name": "bog_blast",
           "level": 1,
-          "power": null,
-          "cooldown": null
+          "power": 40,
+          "cooldown": 4
         },
         {
           "name": "bubble_blast",
@@ -12318,8 +12318,8 @@
         {
           "name": "rockburst",
           "level": 30,
-          "power": null,
-          "cooldown": null
+          "power": 130,
+          "cooldown": 35
         },
         {
           "name": "rock_lance",
@@ -12384,8 +12384,8 @@
         {
           "name": "umbral_surge",
           "level": 7,
-          "power": null,
-          "cooldown": null
+          "power": 40,
+          "cooldown": 2
         },
         {
           "name": "bubble_blast",
@@ -12402,20 +12402,20 @@
         {
           "name": "poison_shower",
           "level": 30,
-          "power": null,
-          "cooldown": null
+          "power": 90,
+          "cooldown": 22
         },
         {
           "name": "hydro_slicer",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 130,
+          "cooldown": 45
         },
         {
           "name": "dark_whisp",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 45
         }
       ],
       "drops": [
@@ -12491,14 +12491,14 @@
         {
           "name": "hydro_slicer",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 130,
+          "cooldown": 45
         },
         {
           "name": "aqua_surge",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 56
         }
       ],
       "drops": [
@@ -12573,14 +12573,14 @@
         {
           "name": "torrential_blast",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 110,
+          "cooldown": 35
         },
         {
           "name": "hydro_slicer",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 130,
+          "cooldown": 45
         }
       ],
       "drops": [
@@ -12643,14 +12643,14 @@
         {
           "name": "torrential_blast",
           "level": 22,
-          "power": null,
-          "cooldown": null
+          "power": 110,
+          "cooldown": 35
         },
         {
           "name": "trigger_happy",
           "level": 30,
-          "power": null,
-          "cooldown": null
+          "power": 115,
+          "cooldown": 24
         },
         {
           "name": "curtain_splash",
@@ -12732,14 +12732,14 @@
         {
           "name": "trigger_happy",
           "level": 30,
-          "power": null,
-          "cooldown": null
+          "power": 115,
+          "cooldown": 24
         },
         {
           "name": "flame_funnel",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 120,
+          "cooldown": 40
         },
         {
           "name": "fire_ball",
@@ -12827,8 +12827,8 @@
         {
           "name": "aqua_surge",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 56
         }
       ],
       "drops": [
@@ -12892,8 +12892,8 @@
         {
           "name": "flame_wall",
           "level": 22,
-          "power": null,
-          "cooldown": null
+          "power": 100,
+          "cooldown": 30
         },
         {
           "name": "scorching_lantern_sweep",
@@ -12910,8 +12910,8 @@
         {
           "name": "aqua_surge",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 56
         }
       ],
       "drops": [
@@ -12992,8 +12992,8 @@
         {
           "name": "geyser_gush",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 180,
+          "cooldown": 60
         }
       ],
       "drops": [
@@ -13058,8 +13058,8 @@
         {
           "name": "flame_wall",
           "level": 22,
-          "power": null,
-          "cooldown": null
+          "power": 100,
+          "cooldown": 30
         },
         {
           "name": "freeze_wall",
@@ -13070,8 +13070,8 @@
         {
           "name": "volcanic_rain",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 130,
+          "cooldown": 45
         },
         {
           "name": "high_breach",
@@ -13141,8 +13141,8 @@
         {
           "name": "torrential_blast",
           "level": 22,
-          "power": null,
-          "cooldown": null
+          "power": 110,
+          "cooldown": 35
         },
         {
           "name": "curtain_splash",
@@ -13153,14 +13153,14 @@
         {
           "name": "aqua_surge",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 56
         },
         {
           "name": "geyser_gush",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 180,
+          "cooldown": 60
         },
         {
           "name": "thalassonic_laser",
@@ -13239,20 +13239,20 @@
         {
           "name": "flame_wall",
           "level": 30,
-          "power": null,
-          "cooldown": null
+          "power": 100,
+          "cooldown": 30
         },
         {
           "name": "hydro_slicer",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 130,
+          "cooldown": 45
         },
         {
           "name": "volcanic_rain",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 130,
+          "cooldown": 45
         }
       ],
       "drops": [
@@ -13330,8 +13330,8 @@
         {
           "name": "trispark",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 110,
+          "cooldown": 35
         },
         {
           "name": "lightning_strike",
@@ -13391,8 +13391,8 @@
         {
           "name": "plasma_funnel",
           "level": 7,
-          "power": null,
-          "cooldown": null
+          "power": 65,
+          "cooldown": 13
         },
         {
           "name": "bubble_blast",
@@ -13403,8 +13403,8 @@
         {
           "name": "trispark",
           "level": 22,
-          "power": null,
-          "cooldown": null
+          "power": 110,
+          "cooldown": 35
         },
         {
           "name": "thunderslide",
@@ -13415,14 +13415,14 @@
         {
           "name": "aqua_surge",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 56
         },
         {
           "name": "thunderstorm",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 60
         }
       ],
       "drops": [
@@ -13498,8 +13498,8 @@
         {
           "name": "torrential_blast",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 110,
+          "cooldown": 35
         },
         {
           "name": "hydro_laser",
@@ -13581,8 +13581,8 @@
         {
           "name": "torrential_blast",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 110,
+          "cooldown": 35
         },
         {
           "name": "lightning_bolt",
@@ -13634,8 +13634,8 @@
         {
           "name": "bog_blast",
           "level": 1,
-          "power": null,
-          "cooldown": null
+          "power": 40,
+          "cooldown": 4
         },
         {
           "name": "aqua_gun",
@@ -13658,20 +13658,20 @@
         {
           "name": "torrential_blast",
           "level": 30,
-          "power": null,
-          "cooldown": null
+          "power": 110,
+          "cooldown": 35
         },
         {
           "name": "rockburst",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 130,
+          "cooldown": 35
         },
         {
           "name": "sand_twister",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 60
         }
       ],
       "drops": [
@@ -13740,8 +13740,8 @@
         {
           "name": "crystal_breath",
           "level": 30,
-          "power": null,
-          "cooldown": null
+          "power": 90,
+          "cooldown": 22
         },
         {
           "name": "charge_cannon",
@@ -13752,8 +13752,8 @@
         {
           "name": "diamond_rain",
           "level": 50,
-          "power": null,
-          "cooldown": null
+          "power": 160,
+          "cooldown": 60
         }
       ],
       "drops": [
@@ -13831,8 +13831,8 @@
         {
           "name": "hydro_slicer",
           "level": 40,
-          "power": null,
-          "cooldown": null
+          "power": 130,
+          "cooldown": 45
         },
         {
           "name": "dark_laser",
@@ -14335,6 +14335,4016 @@
         "Water"
       ],
       "localImage": "assets/pals/-1_blue_slim.png"
+    },
+    "182": {
+      "id": 182,
+      "key": "136",
+      "name": "Azurmane",
+      "wiki": "https://palworld.wiki.gg/wiki/Azurmane",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Azurmane.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6680.0,
+      "size": null,
+      "stats": {
+        "hp": 130.0,
+        "attack": 120.0,
+        "defense": 110.0,
+        "stamina": 220.0,
+        "support": 100.0,
+        "speed": 900.0,
+        "food": 6.0
+      },
+      "work": {
+        "gathering": 1,
+        "generating_electricity": 4
+      },
+      "skills": [
+        {
+          "name": "spark_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "shockwave",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "lightning_streak",
+          "level": 15,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "trispark",
+          "level": 22,
+          "power": 110,
+          "cooldown": 35
+        },
+        {
+          "name": "all_range_thunder",
+          "level": 30,
+          "power": 125,
+          "cooldown": 40
+        },
+        {
+          "name": "thunder_rail",
+          "level": 40,
+          "power": 200,
+          "cooldown": 60
+        },
+        {
+          "name": "bolt_blink",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "electric_organ"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Electric",
+        "type2": null
+      },
+      "types": [
+        "Electric"
+      ],
+      "localImage": null
+    },
+    "183": {
+      "id": 183,
+      "key": "137",
+      "name": "Bastigor",
+      "wiki": "https://palworld.wiki.gg/wiki/Bastigor",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Bastigor.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 9020.0,
+      "size": null,
+      "stats": {
+        "hp": 140.0,
+        "attack": 130.0,
+        "defense": 120.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 700.0,
+        "food": 6.0
+      },
+      "work": {
+        "lumbering": 3,
+        "mining": 3,
+        "cooling": 4
+      },
+      "skills": [
+        {
+          "name": "stone_cannon",
+          "level": 1,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "iceberg",
+          "level": 7,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "crystal_breath",
+          "level": 15,
+          "power": 90,
+          "cooldown": 22
+        },
+        {
+          "name": "frost_talon",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "rockburst",
+          "level": 30,
+          "power": 130,
+          "cooldown": 35
+        },
+        {
+          "name": "stone_beat",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "diamond_rain",
+          "level": 50,
+          "power": 160,
+          "cooldown": 60
+        },
+        {
+          "name": "glacial_impact",
+          "level": 55,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "leather",
+        "ice_organ"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Ice",
+        "type2": null
+      },
+      "types": [
+        "Ice"
+      ],
+      "localImage": null
+    },
+    "184": {
+      "id": 184,
+      "key": "112",
+      "name": "Bellanoir",
+      "wiki": "https://palworld.wiki.gg/wiki/Bellanoir",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Bellanoir.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 10030.0,
+      "size": null,
+      "stats": {
+        "hp": 120.0,
+        "attack": 150.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 4.0
+      },
+      "work": {
+        "handiwork": 2,
+        "medicine_production": 4,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "dark_cannon",
+          "level": 1,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "umbral_surge",
+          "level": 7,
+          "power": 40,
+          "cooldown": 2
+        },
+        {
+          "name": "dark_arrow",
+          "level": 15,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 22,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "apocalypse",
+          "level": 40,
+          "power": 110,
+          "cooldown": 55
+        },
+        {
+          "name": "nightmare_ray",
+          "level": 50,
+          "power": 140,
+          "cooldown": 50
+        }
+      ],
+      "drops": [
+        "multiclimate_undershirt_1",
+        "training_manual_xl",
+        "ancient_civilization_core",
+        "ancient_civilization_parts",
+        "ruby"
+      ],
+      "breeding": {
+        "power": 1.0,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "185": {
+      "id": 185,
+      "key": "112B",
+      "name": "Bellanoir Libero",
+      "wiki": "https://palworld.wiki.gg/wiki/Bellanoir_Libero",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Bellanoir%20Libero.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 10030.0,
+      "size": null,
+      "stats": {
+        "hp": 120.0,
+        "attack": 150.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 4.0
+      },
+      "work": {
+        "handiwork": 2,
+        "medicine_production": 4,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "dark_cannon",
+          "level": 1,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "umbral_surge",
+          "level": 7,
+          "power": 40,
+          "cooldown": 2
+        },
+        {
+          "name": "dark_arrow",
+          "level": 15,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 22,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "apocalypse",
+          "level": 30,
+          "power": 110,
+          "cooldown": 55
+        },
+        {
+          "name": "flame_waltz",
+          "level": 40,
+          "power": 130,
+          "cooldown": 45
+        },
+        {
+          "name": "nightmare_bloom",
+          "level": 50,
+          "power": 160,
+          "cooldown": 50
+        }
+      ],
+      "drops": [
+        "multiclimate_undershirt_2",
+        "ancient_civilization_core",
+        "bellanoir_libero_ultra_slab",
+        "life_fruit",
+        "power_fruit"
+      ],
+      "breeding": {
+        "power": 1.0,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "186": {
+      "id": 186,
+      "key": "096B",
+      "name": "Blazamut Ryu",
+      "wiki": "https://palworld.wiki.gg/wiki/Blazamut_Ryu",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Blazamut%20Ryu.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 10520.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 130.0,
+        "defense": 125.0,
+        "stamina": 100.0,
+        "support": 50.0,
+        "speed": 700.0,
+        "food": 9.0
+      },
+      "work": {
+        "kindling": 4,
+        "mining": 4
+      },
+      "skills": [
+        {
+          "name": "dragon_burst",
+          "level": 1,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "ignis_breath",
+          "level": 7,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "flame_wall",
+          "level": 15,
+          "power": 100,
+          "cooldown": 30
+        },
+        {
+          "name": "comet_strike",
+          "level": 22,
+          "power": 110,
+          "cooldown": 35
+        },
+        {
+          "name": "beam_slicer",
+          "level": 30,
+          "power": 130,
+          "cooldown": 45
+        },
+        {
+          "name": "brawn_impact",
+          "level": 40,
+          "power": 150,
+          "cooldown": 38
+        },
+        {
+          "name": "magna_crush",
+          "level": 50,
+          "power": 160,
+          "cooldown": 42
+        }
+      ],
+      "drops": [
+        "life_pendant_2",
+        "attack_pendant_2",
+        "defense_pendant_2",
+        "ancient_civilization_parts",
+        "ancient_civilization_core"
+      ],
+      "breeding": {
+        "power": 9.0,
+        "type1": "Dragon",
+        "type2": "Fire"
+      },
+      "types": [
+        "Dragon",
+        "Fire"
+      ],
+      "localImage": null
+    },
+    "187": {
+      "id": 187,
+      "key": "BOLTMANE",
+      "name": "Boltmane",
+      "wiki": "https://palworld.wiki.gg/wiki/Boltmane",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Boltmane.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 4200.0,
+      "size": null,
+      "stats": {
+        "hp": 100.0,
+        "attack": 110.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 800.0,
+        "food": 5.0
+      },
+      "work": {
+        "kindling": 2
+      },
+      "skills": [],
+      "drops": [
+        "flame_organ"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Electric",
+        "type2": null
+      },
+      "types": [
+        "Electric"
+      ],
+      "localImage": null
+    },
+    "188": {
+      "id": 188,
+      "key": "132",
+      "name": "Celesdir",
+      "wiki": "https://palworld.wiki.gg/wiki/Celesdir",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Celesdir.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 3080.0,
+      "size": null,
+      "stats": {
+        "hp": 120.0,
+        "attack": 110.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 800.0,
+        "food": 6.0
+      },
+      "work": {
+        "lumbering": 4,
+        "gathering": 1
+      },
+      "skills": [
+        {
+          "name": "power_shot",
+          "level": 1,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "power_bomb",
+          "level": 7,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "air_blade",
+          "level": 15,
+          "power": 85,
+          "cooldown": 20.0
+        },
+        {
+          "name": "comet_strike",
+          "level": 22,
+          "power": 110,
+          "cooldown": 35
+        },
+        {
+          "name": "holy_burst",
+          "level": 30,
+          "power": 120,
+          "cooldown": 30.0
+        },
+        {
+          "name": "pal_blast",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "holy_nova",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "leather",
+        "horn",
+        "hexolite_quartz"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": null
+    },
+    "189": {
+      "id": 189,
+      "key": "055B",
+      "name": "Chillet Ignis",
+      "wiki": "https://palworld.wiki.gg/wiki/Chillet_Ignis",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Chillet%20Ignis.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 4450.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 85.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 3.0
+      },
+      "work": {
+        "kindling": 2,
+        "gathering": 1
+      },
+      "skills": [
+        {
+          "name": "ignis_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "dragon_burst",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "flare_arrow",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "ignis_breath",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "rocket_slam",
+          "level": 30,
+          "power": 50,
+          "cooldown": 6
+        },
+        {
+          "name": "flame_wall",
+          "level": 40,
+          "power": 100,
+          "cooldown": 30
+        },
+        {
+          "name": "fire_ball",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "leather",
+        "flame_organ"
+      ],
+      "breeding": {
+        "power": 790.0,
+        "type1": "Fire",
+        "type2": "Dragon"
+      },
+      "types": [
+        "Fire",
+        "Dragon"
+      ],
+      "localImage": null
+    },
+    "190": {
+      "id": 190,
+      "key": "colossal_whale",
+      "name": "Colossal Whale",
+      "wiki": "https://palworld.wiki.gg/wiki/Colossal_Whale",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Colossal%20Whale.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "stamina": null,
+        "support": null,
+        "speed": null,
+        "food": null
+      },
+      "work": {},
+      "skills": [],
+      "drops": [],
+      "breeding": {
+        "power": null,
+        "type1": null,
+        "type2": null
+      },
+      "types": [],
+      "localImage": null
+    },
+    "191": {
+      "id": 191,
+      "key": "dark_mutant",
+      "name": "Dark Mutant",
+      "wiki": "https://palworld.wiki.gg/wiki/Dark_Mutant",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Dark%20Mutant.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 3960.0,
+      "size": null,
+      "stats": {
+        "hp": 100.0,
+        "attack": 100.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 8.0
+      },
+      "work": {
+        "handiwork": 3,
+        "medicine_production": 3
+      },
+      "skills": [],
+      "drops": [],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "192": {
+      "id": 192,
+      "key": "DRAGOSTROPHE",
+      "name": "Dragostrophe",
+      "wiki": "https://palworld.wiki.gg/wiki/Dragostrophe",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Dragostrophe.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8440.0,
+      "size": null,
+      "stats": {
+        "hp": 130.0,
+        "attack": 130.0,
+        "defense": 110.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 560.0,
+        "food": 8.0
+      },
+      "work": {},
+      "skills": [],
+      "drops": [
+        "bone"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": "Dragon"
+      },
+      "types": [
+        "Dark",
+        "Dragon"
+      ],
+      "localImage": null
+    },
+    "193": {
+      "id": 193,
+      "key": "105B",
+      "name": "Faleris Aqua",
+      "wiki": "https://palworld.wiki.gg/wiki/Faleris_Aqua",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Faleris%20Aqua.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 100.0,
+        "attack": 110.0,
+        "defense": 110.0,
+        "stamina": null,
+        "support": null,
+        "speed": null,
+        "food": 8.0
+      },
+      "work": {
+        "watering": 4,
+        "transporting": 3
+      },
+      "skills": [
+        {
+          "name": "hydro_jet",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "bubble_blast",
+          "level": 7,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "acid_rain",
+          "level": 15,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "splash",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "curtain_splash",
+          "level": 30,
+          "power": 120,
+          "cooldown": 40.0
+        },
+        {
+          "name": "phoenix_tide",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "hydro_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "pal_fluids"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Water",
+        "type2": null
+      },
+      "types": [
+        "Water"
+      ],
+      "localImage": null
+    },
+    "194": {
+      "id": 194,
+      "key": "093B",
+      "name": "Fenglope Lux",
+      "wiki": "https://palworld.wiki.gg/wiki/Fenglope_Lux",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Fenglope%20Lux.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 115.0,
+        "defense": 90.0,
+        "stamina": null,
+        "support": null,
+        "speed": null,
+        "food": 6.0
+      },
+      "work": {
+        "lumbering": 2,
+        "generating_electricity": 2
+      },
+      "skills": [
+        {
+          "name": "shockwave",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "lightning_streak",
+          "level": 7,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "acid_rain",
+          "level": 15,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "thunder_tempest",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "thunder_rain",
+          "level": 30,
+          "power": 135,
+          "cooldown": 45
+        },
+        {
+          "name": "lightning_bolt",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "thunderstorm",
+          "level": 50,
+          "power": 160,
+          "cooldown": 60
+        }
+      ],
+      "drops": [
+        "electric_organ",
+        "horn",
+        "leather"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Electric",
+        "type2": null
+      },
+      "types": [
+        "Electric"
+      ],
+      "localImage": null
+    },
+    "195": {
+      "id": 195,
+      "key": "005B",
+      "name": "Foxparks Cryst",
+      "wiki": "https://palworld.wiki.gg/wiki/Foxparks_Cryst",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Foxparks%20Cryst.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 65.0,
+        "attack": 80.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 2.0
+      },
+      "work": {
+        "cooling": 1
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "hydro_jet",
+          "level": 7,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "crystal_breath",
+          "level": 30,
+          "power": 90,
+          "cooldown": 22
+        },
+        {
+          "name": "icicle_bullet",
+          "level": 40,
+          "power": 110,
+          "cooldown": 35
+        },
+        {
+          "name": "blizzard_spike",
+          "level": 50,
+          "power": 130,
+          "cooldown": 45.0
+        }
+      ],
+      "drops": [
+        "leather",
+        "ice_organ"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Ice",
+        "type2": null
+      },
+      "types": [
+        "Ice"
+      ],
+      "localImage": null
+    },
+    "196": {
+      "id": 196,
+      "key": "097B",
+      "name": "Helzephyr Lux",
+      "wiki": "https://palworld.wiki.gg/wiki/Helzephyr_Lux",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Helzephyr%20Lux.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8840.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 125.0,
+        "defense": 100.0,
+        "stamina": 170.0,
+        "support": 100.0,
+        "speed": 700.0,
+        "food": 8.0
+      },
+      "work": {
+        "transporting": 3,
+        "generating_electricity": 3
+      },
+      "skills": [
+        {
+          "name": "spark_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "shockwave",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "dark_arrow",
+          "level": 15,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 22,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "trispark",
+          "level": 30,
+          "power": 110,
+          "cooldown": 35
+        },
+        {
+          "name": "thunder_rain",
+          "level": 40,
+          "power": 135,
+          "cooldown": 45
+        },
+        {
+          "name": "thunderstorm",
+          "level": 50,
+          "power": 160,
+          "cooldown": 60
+        }
+      ],
+      "drops": [
+        "electric_organ",
+        "medium_pal_soul"
+      ],
+      "breeding": {
+        "power": 180.0,
+        "type1": "Dark",
+        "type2": "Electric"
+      },
+      "types": [
+        "Dark",
+        "Electric"
+      ],
+      "localImage": null
+    },
+    "197": {
+      "id": 197,
+      "key": "089B",
+      "name": "Kingpaca Cryst",
+      "wiki": "https://palworld.wiki.gg/wiki/Kingpaca_Cryst",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Kingpaca%20Cryst.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6100.0,
+      "size": null,
+      "stats": {
+        "hp": 120.0,
+        "attack": 85.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 500.0,
+        "food": 7.0
+      },
+      "work": {
+        "gathering": 1,
+        "cooling": 3
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "kingly_slam",
+          "level": 22,
+          "power": 100,
+          "cooldown": 21.0
+        },
+        {
+          "name": "cryst_breath",
+          "level": 30,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "aqua_burst",
+          "level": 40,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "blizzard_spike",
+          "level": 50,
+          "power": 130,
+          "cooldown": 45.0
+        }
+      ],
+      "drops": [
+        "wool",
+        "ice_organ"
+      ],
+      "breeding": {
+        "power": 1410.0,
+        "type1": "Ice",
+        "type2": null
+      },
+      "types": [
+        "Ice"
+      ],
+      "localImage": null
+    },
+    "198": {
+      "id": 198,
+      "key": "061B",
+      "name": "Kitsun Noct",
+      "wiki": "https://palworld.wiki.gg/wiki/Kitsun_Noct",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Kitsun%20Noct.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 100.0,
+        "attack": 115.0,
+        "defense": 105.0,
+        "stamina": null,
+        "support": null,
+        "speed": null,
+        "food": 4.0
+      },
+      "work": {
+        "kindling": 2
+      },
+      "skills": [
+        {
+          "name": "dark_cannon",
+          "level": 1,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "spirit_fire",
+          "level": 7,
+          "power": 45,
+          "cooldown": 7.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 15,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "daring_shadowstorm",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "flame_funnel",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40
+        },
+        {
+          "name": "dark_whisp",
+          "level": 50,
+          "power": 160,
+          "cooldown": 45
+        }
+      ],
+      "drops": [
+        "dark_fragment",
+        "flame_organ",
+        "leather"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "199": {
+      "id": 199,
+      "key": "120",
+      "name": "Knocklem",
+      "wiki": "https://palworld.wiki.gg/wiki/Knocklem",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Knocklem.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 10380.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 110.0,
+        "defense": 135.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 9.0
+      },
+      "work": {
+        "gathering": 3,
+        "mining": 4,
+        "transporting": 4
+      },
+      "skills": [
+        {
+          "name": "power_shot",
+          "level": 1,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "stone_cannon",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "rockburst",
+          "level": 22,
+          "power": 130,
+          "cooldown": 35
+        },
+        {
+          "name": "rock_lance",
+          "level": 30,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "ground_cutter",
+          "level": 40,
+          "power": 145,
+          "cooldown": 35
+        },
+        {
+          "name": "sand_twister",
+          "level": 50,
+          "power": 160,
+          "cooldown": 60
+        }
+      ],
+      "drops": [
+        "ore"
+      ],
+      "breeding": {
+        "power": 265.0,
+        "type1": "Ground",
+        "type2": null
+      },
+      "types": [
+        "Ground"
+      ],
+      "localImage": null
+    },
+    "200": {
+      "id": 200,
+      "key": "046B",
+      "name": "Loupmoon Cryst",
+      "wiki": "https://palworld.wiki.gg/wiki/Loupmoon_Cryst",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Loupmoon%20Cryst.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 80.0,
+        "attack": 105.0,
+        "defense": 80.0,
+        "stamina": null,
+        "support": null,
+        "speed": null,
+        "food": 5.0
+      },
+      "work": {
+        "handiwork": 2,
+        "cooling": 3
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "snow_claw",
+          "level": 15,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "icicle_bullet",
+          "level": 30,
+          "power": 110,
+          "cooldown": 35
+        },
+        {
+          "name": "icicle_line",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40
+        },
+        {
+          "name": "blizzard_spike",
+          "level": 50,
+          "power": 130,
+          "cooldown": 45.0
+        }
+      ],
+      "drops": [
+        "bone"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Ice",
+        "type2": null
+      },
+      "types": [
+        "Ice"
+      ],
+      "localImage": null
+    },
+    "201": {
+      "id": 201,
+      "key": "115",
+      "name": "Lullu",
+      "wiki": "https://palworld.wiki.gg/wiki/Lullu",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Lullu.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 3420.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 90.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 2,
+        "planting": 2,
+        "gathering": 1,
+        "medicine_production": 2
+      },
+      "skills": [
+        {
+          "name": "wind_cutter",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "seed_machine_gun",
+          "level": 7,
+          "power": 50,
+          "cooldown": 9.0
+        },
+        {
+          "name": "multicutter",
+          "level": 15,
+          "power": 60,
+          "cooldown": 12
+        },
+        {
+          "name": "grass_tornado",
+          "level": 22,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "holy_burst",
+          "level": 30,
+          "power": 120,
+          "cooldown": 30.0
+        },
+        {
+          "name": "circle_vine",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40
+        },
+        {
+          "name": "solar_blast",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "beautiful_flower",
+        "red_berries"
+      ],
+      "breeding": {
+        "power": 905.0,
+        "type1": "Grass",
+        "type2": null
+      },
+      "types": [
+        "Grass"
+      ],
+      "localImage": null
+    },
+    "202": {
+      "id": 202,
+      "key": "124",
+      "name": "Mimog",
+      "wiki": "https://palworld.wiki.gg/wiki/Mimog",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Mimog.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6150.0,
+      "size": null,
+      "stats": {
+        "hp": 60.0,
+        "attack": 60.0,
+        "defense": 130.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 2000.0,
+        "food": 2.0
+      },
+      "work": {
+        "gathering": 1
+      },
+      "skills": [
+        {
+          "name": "power_shot",
+          "level": 1,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "dark_cannon",
+          "level": 7,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 15,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "power_bomb",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "air_blade",
+          "level": 30,
+          "power": 85,
+          "cooldown": 20.0
+        },
+        {
+          "name": "holy_burst",
+          "level": 40,
+          "power": 120,
+          "cooldown": 30.0
+        },
+        {
+          "name": "pal_blast",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "gold_coin",
+        "dog_coin",
+        "training_manual_xl"
+      ],
+      "breeding": {
+        "power": 1200.0,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": null
+    },
+    "203": {
+      "id": 203,
+      "key": "128",
+      "name": "Nitemary",
+      "wiki": "https://palworld.wiki.gg/wiki/Nitemary",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Nitemary.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 7180.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 95.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 380.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 3,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "dark_ball",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "umbral_surge",
+          "level": 7,
+          "power": 40,
+          "cooldown": 2
+        },
+        {
+          "name": "dark_cannon",
+          "level": 15,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "dark_arrow",
+          "level": 22,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 30,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 40,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "dark_whisp",
+          "level": 50,
+          "power": 160,
+          "cooldown": 45
+        }
+      ],
+      "drops": [
+        "small_pal_soul"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "204": {
+      "id": 204,
+      "key": "133",
+      "name": "Omascul",
+      "wiki": "https://palworld.wiki.gg/wiki/Omascul",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Omascul.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 5820.0,
+      "size": null,
+      "stats": {
+        "hp": 95.0,
+        "attack": 105.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 2.0
+      },
+      "work": {
+        "gathering": 1
+      },
+      "skills": [
+        {
+          "name": "dark_ball",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "umbral_surge",
+          "level": 7,
+          "power": 40,
+          "cooldown": 2
+        },
+        {
+          "name": "dark_cannon",
+          "level": 15,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "shadow_burst",
+          "level": 22,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "soul_drain",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dark_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "dark_fragment"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "205": {
+      "id": 205,
+      "key": "119",
+      "name": "Prixter",
+      "wiki": "https://palworld.wiki.gg/wiki/Prixter",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Prixter.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 3939.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 110.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 720.0,
+        "food": 4.0
+      },
+      "work": {
+        "lumbering": 3,
+        "gathering": 1,
+        "medicine_production": 1
+      },
+      "skills": [
+        {
+          "name": "poison_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "dark_cannon",
+          "level": 7,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "sand_tornado",
+          "level": 22,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "upper_smash",
+          "level": 30,
+          "power": 110,
+          "cooldown": 24
+        },
+        {
+          "name": "rock_lance",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "dark_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "venom_gland"
+      ],
+      "breeding": {
+        "power": 355.0,
+        "type1": "Dark",
+        "type2": "Ground"
+      },
+      "types": [
+        "Dark",
+        "Ground"
+      ],
+      "localImage": null
+    },
+    "206": {
+      "id": 206,
+      "key": "088B",
+      "name": "Reptyro Cryst",
+      "wiki": "https://palworld.wiki.gg/wiki/Reptyro_Cryst",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Reptyro%20Cryst.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 7380.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 105.0,
+        "defense": 130.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 390.0,
+        "food": 5.0
+      },
+      "work": {
+        "mining": 3,
+        "cooling": 3
+      },
+      "skills": [
+        {
+          "name": "ice_missile",
+          "level": 1,
+          "power": 30,
+          "cooldown": 3.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "cryst_breath",
+          "level": 22,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "frost_burst",
+          "level": 30,
+          "power": 100,
+          "cooldown": 45.0
+        },
+        {
+          "name": "blizzard_spike",
+          "level": 40,
+          "power": 130,
+          "cooldown": 45.0
+        },
+        {
+          "name": "rock_lance",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "ice_organ"
+      ],
+      "breeding": {
+        "power": 230.0,
+        "type1": "Ice",
+        "type2": "Ground"
+      },
+      "types": [
+        "Ice",
+        "Ground"
+      ],
+      "localImage": null
+    },
+    "207": {
+      "id": 207,
+      "key": "116",
+      "name": "Shroomer",
+      "wiki": "https://palworld.wiki.gg/wiki/Shroomer",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Shroomer.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 3660.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 80.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 1,
+        "planting": 2,
+        "lumbering": 2,
+        "gathering": 2
+      },
+      "skills": [
+        {
+          "name": "poison_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "seed_machine_gun",
+          "level": 7,
+          "power": 50,
+          "cooldown": 9.0
+        },
+        {
+          "name": "grass_tornado",
+          "level": 15,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "seed_mine",
+          "level": 22,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "spine_vine",
+          "level": 30,
+          "power": 95,
+          "cooldown": 25.0
+        },
+        {
+          "name": "circle_vine",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40
+        },
+        {
+          "name": "solar_blast",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "mushroom",
+        "red_berries"
+      ],
+      "breeding": {
+        "power": 720.0,
+        "type1": "Grass",
+        "type2": null
+      },
+      "types": [
+        "Grass"
+      ],
+      "localImage": null
+    },
+    "208": {
+      "id": 208,
+      "key": "116B",
+      "name": "Shroomer Noct",
+      "wiki": "https://palworld.wiki.gg/wiki/Shroomer_Noct",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Shroomer%20Noct.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 4240.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 85.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 1,
+        "planting": 2,
+        "lumbering": 2,
+        "gathering": 2
+      },
+      "skills": [
+        {
+          "name": "poison_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "shadow_burst",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "grass_tornado",
+          "level": 15,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "seed_mine",
+          "level": 22,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "circle_vine",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40
+        },
+        {
+          "name": "dark_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "venom_gland",
+        "mysterious_mushroom"
+      ],
+      "breeding": {
+        "power": 730.0,
+        "type1": "Grass",
+        "type2": "Dark"
+      },
+      "types": [
+        "Grass",
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "209": {
+      "id": 209,
+      "key": "130",
+      "name": "Silvegis",
+      "wiki": "https://palworld.wiki.gg/wiki/Silvegis",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Silvegis.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 7420.0,
+      "size": null,
+      "stats": {
+        "hp": 120.0,
+        "attack": 110.0,
+        "defense": 115.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 500.0,
+        "food": 7.0
+      },
+      "work": {
+        "lumbering": 3
+      },
+      "skills": [
+        {
+          "name": "dragon_cannon",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "icicle_cutter",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "iceberg",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "draconic_breath",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "blast_cannon",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30
+        },
+        {
+          "name": "charge_cannon",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "aegis_charge",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "chromite"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dragon",
+        "type2": null
+      },
+      "types": [
+        "Dragon"
+      ],
+      "localImage": null
+    },
+    "210": {
+      "id": 210,
+      "key": "131",
+      "name": "Smokie",
+      "wiki": "https://palworld.wiki.gg/wiki/Smokie",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Smokie.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 7820.0,
+      "size": null,
+      "stats": {
+        "hp": 85.0,
+        "attack": 90.0,
+        "defense": 85.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 3.0
+      },
+      "work": {
+        "gathering": 2
+      },
+      "skills": [
+        {
+          "name": "bog_blast",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4
+        },
+        {
+          "name": "umbral_surge",
+          "level": 7,
+          "power": 40,
+          "cooldown": 2
+        },
+        {
+          "name": "dark_cannon",
+          "level": 15,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "shadow_burst",
+          "level": 22,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "comet_strike",
+          "level": 40,
+          "power": 110,
+          "cooldown": 35
+        },
+        {
+          "name": "dark_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "bone",
+        "crude_oil"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "211": {
+      "id": 211,
+      "key": "118",
+      "name": "Sootseer",
+      "wiki": "https://palworld.wiki.gg/wiki/Sootseer",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Sootseer.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 4890.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 125.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 800.0,
+        "food": 7.0
+      },
+      "work": {
+        "handiwork": 2,
+        "kindling": 3,
+        "gathering": 1,
+        "mining": 2,
+        "farming": 1
+      },
+      "skills": [
+        {
+          "name": "ignis_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "dark_ball",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "spirit_fire",
+          "level": 15,
+          "power": 45,
+          "cooldown": 7.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 22,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "flame_funnel",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40
+        },
+        {
+          "name": "volcanic_rain",
+          "level": 50,
+          "power": 130,
+          "cooldown": 45
+        }
+      ],
+      "drops": [
+        "medium_pal_soul",
+        "bone",
+        "crude_oil"
+      ],
+      "breeding": {
+        "power": 545.0,
+        "type1": "Dark",
+        "type2": "Fire"
+      },
+      "types": [
+        "Dark",
+        "Fire"
+      ],
+      "localImage": null
+    },
+    "212": {
+      "id": 212,
+      "key": "134",
+      "name": "Splatterina",
+      "wiki": "https://palworld.wiki.gg/wiki/Splatterina",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Splatterina.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 4420.0,
+      "size": null,
+      "stats": {
+        "hp": 95.0,
+        "attack": 115.0,
+        "defense": 105.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 4,
+        "lumbering": 1,
+        "medicine_production": 3,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "dark_ball",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "umbral_surge",
+          "level": 7,
+          "power": 40,
+          "cooldown": 2
+        },
+        {
+          "name": "dark_cannon",
+          "level": 15,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "shadow_burst",
+          "level": 22,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "grudge_barrage",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "dark_whisp",
+          "level": 50,
+          "power": 160,
+          "cooldown": 45
+        }
+      ],
+      "drops": [
+        "dark_fragment"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "213": {
+      "id": 213,
+      "key": "129",
+      "name": "Starryon",
+      "wiki": "https://palworld.wiki.gg/wiki/Starryon",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Starryon.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6220.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 100.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 900.0,
+        "food": 6.0
+      },
+      "work": {
+        "gathering": 2
+      },
+      "skills": [
+        {
+          "name": "bog_blast",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4
+        },
+        {
+          "name": "dark_ball",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 15,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 22,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "ignis_rage",
+          "level": 30,
+          "power": 120,
+          "cooldown": 40.0
+        },
+        {
+          "name": "apocalypse",
+          "level": 40,
+          "power": 110,
+          "cooldown": 55
+        },
+        {
+          "name": "lethal_step",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "leather",
+        "dark_fragment"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "214": {
+      "id": 214,
+      "key": "135",
+      "name": "Tarantriss",
+      "wiki": "https://palworld.wiki.gg/wiki/Tarantriss",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Tarantriss.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 4290.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 100.0,
+        "defense": 100.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 500.0,
+        "food": 4.0
+      },
+      "work": {
+        "handiwork": 2,
+        "gathering": 2,
+        "medicine_production": 2,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "poison_fog",
+          "level": 1,
+          "power": 0,
+          "cooldown": 30.0
+        },
+        {
+          "name": "poison_blast",
+          "level": 7,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "umbral_surge",
+          "level": 15,
+          "power": 40,
+          "cooldown": 2
+        },
+        {
+          "name": "dark_arrow",
+          "level": 22,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "webstrike_impact",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "poison_shower",
+          "level": 40,
+          "power": 90,
+          "cooldown": 22
+        },
+        {
+          "name": "apocalypse",
+          "level": 50,
+          "power": 110,
+          "cooldown": 55
+        }
+      ],
+      "drops": [
+        "fiber",
+        "venom_gland"
+      ],
+      "breeding": {
+        "power": 825.0,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "215": {
+      "id": 215,
+      "key": "092B",
+      "name": "Warsect Terra",
+      "wiki": "https://palworld.wiki.gg/wiki/Warsect_Terra",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Warsect%20Terra.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 7830.0,
+      "size": null,
+      "stats": {
+        "hp": 120.0,
+        "attack": 105.0,
+        "defense": 120.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 500.0,
+        "food": 6.0
+      },
+      "work": {
+        "handiwork": 1,
+        "mining": 3,
+        "transporting": 3
+      },
+      "skills": [],
+      "drops": [
+        "coal"
+      ],
+      "breeding": {
+        "power": 350.0,
+        "type1": "Ground",
+        "type2": null
+      },
+      "types": [
+        "Ground"
+      ],
+      "localImage": null
+    },
+    "216": {
+      "id": 216,
+      "key": "076B",
+      "name": "Wixen Noct",
+      "wiki": "https://palworld.wiki.gg/wiki/Wixen_Noct",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Wixen%20Noct.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 4080.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 110.0,
+        "defense": 85.0,
+        "stamina": 100.0,
+        "support": 120.0,
+        "speed": 440.0,
+        "food": 5.0
+      },
+      "work": {
+        "handiwork": 3,
+        "kindling": 2,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "umbral_surge",
+          "level": 1,
+          "power": 40,
+          "cooldown": 2
+        },
+        {
+          "name": "dark_cannon",
+          "level": 7,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "dark_arrow",
+          "level": 15,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "flare_storm",
+          "level": 22,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 30,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "flame_wall",
+          "level": 40,
+          "power": 100,
+          "cooldown": 30
+        },
+        {
+          "name": "apocalypse",
+          "level": 50,
+          "power": 110,
+          "cooldown": 55
+        }
+      ],
+      "drops": [
+        "medium_pal_soul",
+        "high_grade_technical_manual"
+      ],
+      "breeding": {
+        "power": 1150.0,
+        "type1": "Fire",
+        "type2": "Dark"
+      },
+      "types": [
+        "Fire",
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "217": {
+      "id": 217,
+      "key": "126",
+      "name": "Xenogard",
+      "wiki": "https://palworld.wiki.gg/wiki/Xenogard",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Xenogard.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8810.0,
+      "size": null,
+      "stats": {
+        "hp": 110.0,
+        "attack": 120.0,
+        "defense": 130.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 790.0,
+        "food": 9.0
+      },
+      "work": {
+        "mining": 3
+      },
+      "skills": [
+        {
+          "name": "dragon_cannon",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "dragon_burst",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "air_blade",
+          "level": 15,
+          "power": 85,
+          "cooldown": 20.0
+        },
+        {
+          "name": "draconic_breath",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "icicle_line",
+          "level": 30,
+          "power": 120,
+          "cooldown": 40
+        },
+        {
+          "name": "comet_strike",
+          "level": 40,
+          "power": 110,
+          "cooldown": 35
+        },
+        {
+          "name": "beam_slicer",
+          "level": 50,
+          "power": 130,
+          "cooldown": 45
+        }
+      ],
+      "drops": [
+        "meteorite_fragment",
+        "high_quality_pal_oil"
+      ],
+      "breeding": {
+        "power": 435.0,
+        "type1": "Dragon",
+        "type2": null
+      },
+      "types": [
+        "Dragon"
+      ],
+      "localImage": null
+    },
+    "218": {
+      "id": 218,
+      "key": "125",
+      "name": "Xenovader",
+      "wiki": "https://palworld.wiki.gg/wiki/Xenovader",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Xenovader.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6750.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 125.0,
+        "defense": 85.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 7.0
+      },
+      "work": {
+        "lumbering": 2,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "power_shot",
+          "level": 1,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "poison_blast",
+          "level": 7,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "umbral_surge",
+          "level": 15,
+          "power": 40,
+          "cooldown": 2
+        },
+        {
+          "name": "dark_arrow",
+          "level": 22,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "nightmare_ball",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30.0
+        },
+        {
+          "name": "evil_slash",
+          "level": 40,
+          "power": 95,
+          "cooldown": 17
+        },
+        {
+          "name": "dark_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "meteorite_fragment"
+      ],
+      "breeding": {
+        "power": 465.0,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "219": {
+      "id": 219,
+      "key": "121",
+      "name": "Yakumo",
+      "wiki": "https://palworld.wiki.gg/wiki/Yakumo",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Yakumo.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 3360.0,
+      "size": null,
+      "stats": {
+        "hp": 85.0,
+        "attack": 85.0,
+        "defense": 85.0,
+        "stamina": 100.0,
+        "support": 110.0,
+        "speed": 370.0,
+        "food": 3.0
+      },
+      "work": {
+        "gathering": 2
+      },
+      "skills": [
+        {
+          "name": "sand_blast",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "power_shot",
+          "level": 7,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "power_bomb",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "air_blade",
+          "level": 30,
+          "power": 85,
+          "cooldown": 20.0
+        },
+        {
+          "name": "holy_burst",
+          "level": 40,
+          "power": 120,
+          "cooldown": 30.0
+        },
+        {
+          "name": "pal_blast",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "leather"
+      ],
+      "breeding": {
+        "power": 945.0,
+        "type1": "Neutral",
+        "type2": null
+      },
+      "types": [
+        "Neutral"
+      ],
+      "localImage": null
+    },
+    "220": {
+      "id": 220,
+      "key": "BIGFOXWOLF",
+      "name": "BigFoxWolf",
+      "wiki": "https://palworld.wiki.gg/wiki/BigFoxWolf",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/BigFoxWolf.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "stamina": null,
+        "support": null,
+        "speed": null,
+        "food": null
+      },
+      "work": {},
+      "skills": [],
+      "drops": [],
+      "breeding": {
+        "power": null,
+        "type1": null,
+        "type2": null
+      },
+      "types": [],
+      "localImage": null
+    },
+    "221": {
+      "id": 221,
+      "key": "013B",
+      "name": "Gumoss (Special)",
+      "wiki": "https://palworld.wiki.gg/wiki/Gumoss_%28Special%29",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Gumoss%20%28Special%29.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1310.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 70.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 300.0,
+        "food": 1.0
+      },
+      "work": {
+        "planting": 1
+      },
+      "skills": [
+        {
+          "name": "sand_blast",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "wind_cutter",
+          "level": 7,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "seed_machine_gun",
+          "level": 22,
+          "power": 50,
+          "cooldown": 9.0
+        },
+        {
+          "name": "seed_mine",
+          "level": 30,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "sand_tornado",
+          "level": 40,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "solar_blast",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "berry_seeds",
+        "beautiful_flower",
+        "gumoss_leaf"
+      ],
+      "breeding": {
+        "power": 1240.0,
+        "type1": "Grass",
+        "type2": "Ground"
+      },
+      "types": [
+        "Grass",
+        "Ground"
+      ],
+      "localImage": null
+    },
+    "222": {
+      "id": 222,
+      "key": "072B",
+      "name": "Bushi Noct",
+      "wiki": "https://palworld.wiki.gg/wiki/Bushi_Noct",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Bushi%20Noct.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 4520.0,
+      "size": null,
+      "stats": {
+        "hp": 80.0,
+        "attack": 130.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 600.0,
+        "food": 4.0
+      },
+      "work": {
+        "handiwork": 1,
+        "kindling": 2,
+        "lumbering": 3,
+        "gathering": 1,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "spirit_fire",
+          "level": 1,
+          "power": 45,
+          "cooldown": 7.0
+        },
+        {
+          "name": "umbral_surge",
+          "level": 7,
+          "power": 40,
+          "cooldown": 2
+        },
+        {
+          "name": "dark_cannon",
+          "level": 15,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "dark_arrow",
+          "level": 22,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "spirit_flame",
+          "level": 30,
+          "power": 75,
+          "cooldown": 16.0
+        },
+        {
+          "name": "flame_wall",
+          "level": 40,
+          "power": 100,
+          "cooldown": 30
+        },
+        {
+          "name": "apocalypse",
+          "level": 50,
+          "power": 110,
+          "cooldown": 55
+        }
+      ],
+      "drops": [
+        "flame_organ",
+        "ingot",
+        "medium_pal_soul"
+      ],
+      "breeding": {
+        "power": 650.0,
+        "type1": "Fire",
+        "type2": "Dark"
+      },
+      "types": [
+        "Fire",
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "223": {
+      "id": 223,
+      "key": "035B",
+      "name": "Caprity Noct",
+      "wiki": "https://palworld.wiki.gg/wiki/Caprity_Noct",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Caprity%20Noct.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 100.0,
+        "attack": 75.0,
+        "defense": 90.0,
+        "stamina": null,
+        "support": null,
+        "speed": null,
+        "food": 4.0
+      },
+      "work": {
+        "planting": 2,
+        "farming": 1
+      },
+      "skills": [
+        {
+          "name": "poison_fog",
+          "level": 1,
+          "power": 0,
+          "cooldown": 30.0
+        },
+        {
+          "name": "wind_cutter",
+          "level": 7,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "poison_blast",
+          "level": 15,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "multicutter",
+          "level": 22,
+          "power": 60,
+          "cooldown": 12
+        },
+        {
+          "name": "poison_shower",
+          "level": 30,
+          "power": 90,
+          "cooldown": 22
+        },
+        {
+          "name": "circle_vine",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40
+        },
+        {
+          "name": "dark_laser",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "caprity_meat",
+        "horn",
+        "red_berries",
+        "venom_gland"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "224": {
+      "id": 224,
+      "key": "083B",
+      "name": "Cryolinx Terra",
+      "wiki": "https://palworld.wiki.gg/wiki/Cryolinx_Terra",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Cryolinx%20Terra.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 100.0,
+        "attack": 105.0,
+        "defense": 110.0,
+        "stamina": null,
+        "support": null,
+        "speed": null,
+        "food": 7.0
+      },
+      "work": {
+        "handiwork": 1,
+        "lumbering": 2,
+        "mining": 3,
+        "transporting": 3
+      },
+      "skills": [
+        {
+          "name": "power_shot",
+          "level": 1,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "stone_cannon",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "sand_tornado",
+          "level": 22,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "stone_claw",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "rockburst",
+          "level": 35,
+          "power": 130,
+          "cooldown": 35
+        },
+        {
+          "name": "rock_lance",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "stone_beat",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "ore"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Ground",
+        "type2": null
+      },
+      "types": [
+        "Ground"
+      ],
+      "localImage": null
+    },
+    "225": {
+      "id": 225,
+      "key": "123",
+      "name": "Dazemu",
+      "wiki": "https://palworld.wiki.gg/wiki/Dazemu",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Dazemu.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 2610.0,
+      "size": null,
+      "stats": {
+        "hp": 95.0,
+        "attack": 90.0,
+        "defense": 80.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 900.0,
+        "food": 4.0
+      },
+      "work": {
+        "gathering": 2
+      },
+      "skills": [
+        {
+          "name": "sand_blast",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "power_shot",
+          "level": 7,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "stone_cannon",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "earth_dash",
+          "level": 30,
+          "power": 100,
+          "cooldown": 21
+        },
+        {
+          "name": "rockburst",
+          "level": 40,
+          "power": 130,
+          "cooldown": 35
+        },
+        {
+          "name": "sand_twister",
+          "level": 50,
+          "power": 160,
+          "cooldown": 60
+        }
+      ],
+      "drops": [
+        "bone"
+      ],
+      "breeding": {
+        "power": 675.0,
+        "type1": "Ground",
+        "type2": null
+      },
+      "types": [
+        "Ground"
+      ],
+      "localImage": null
+    },
+    "226": {
+      "id": 226,
+      "key": "062B",
+      "name": "Dazzi Noct",
+      "wiki": "https://palworld.wiki.gg/wiki/Dazzi_Noct",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Dazzi%20Noct.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 1810.0,
+      "size": null,
+      "stats": {
+        "hp": 70.0,
+        "attack": 80.0,
+        "defense": 75.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 400.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "medicine_production": 1,
+        "transporting": 1,
+        "generating_electricity": 1
+      },
+      "skills": [
+        {
+          "name": "air_cannon",
+          "level": 1,
+          "power": 25,
+          "cooldown": 2.0
+        },
+        {
+          "name": "shadow_burst",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "dark_arrow",
+          "level": 15,
+          "power": 65,
+          "cooldown": 10.0
+        },
+        {
+          "name": "acid_rain",
+          "level": 22,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "tri_lightning",
+          "level": 30,
+          "power": 90,
+          "cooldown": 22.0
+        },
+        {
+          "name": "apocalypse",
+          "level": 40,
+          "power": 110,
+          "cooldown": 55
+        },
+        {
+          "name": "thunder_rain",
+          "level": 50,
+          "power": 135,
+          "cooldown": 45
+        }
+      ],
+      "drops": [
+        "dark_fragment",
+        "dazzi_cloud",
+        "electric_organ"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Electric",
+        "type2": "Dark"
+      },
+      "types": [
+        "Electric",
+        "Dark"
+      ],
+      "localImage": null
+    },
+    "227": {
+      "id": 227,
+      "key": "faleris_noct",
+      "name": "Faleris Noct",
+      "wiki": "https://palworld.wiki.gg/wiki/Faleris_Noct",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Faleris%20Noct.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "stamina": null,
+        "support": null,
+        "speed": null,
+        "food": null
+      },
+      "work": {},
+      "skills": [],
+      "drops": [],
+      "breeding": {
+        "power": null,
+        "type1": null,
+        "type2": null
+      },
+      "types": [],
+      "localImage": null
+    },
+    "228": {
+      "id": 228,
+      "key": "049B",
+      "name": "Gorirat Terra",
+      "wiki": "https://palworld.wiki.gg/wiki/Gorirat_Terra",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Gorirat%20Terra.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 4020.0,
+      "size": null,
+      "stats": {
+        "hp": 90.0,
+        "attack": 100.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": 3.0
+      },
+      "work": {
+        "handiwork": 1,
+        "mining": 2,
+        "transporting": 3
+      },
+      "skills": [
+        {
+          "name": "power_shot",
+          "level": 1,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "sand_blast",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "stone_cannon",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "ground_pound",
+          "level": 30,
+          "power": 85,
+          "cooldown": 14.0
+        },
+        {
+          "name": "rockburst",
+          "level": 40,
+          "power": 130,
+          "cooldown": 35
+        },
+        {
+          "name": "rock_lance",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "ore",
+        "bone"
+      ],
+      "breeding": {
+        "power": 1030.0,
+        "type1": "Ground",
+        "type2": null
+      },
+      "types": [
+        "Ground"
+      ],
+      "localImage": null
+    },
+    "229": {
+      "id": 229,
+      "key": "075B",
+      "name": "Katress Ignis",
+      "wiki": "https://palworld.wiki.gg/wiki/Katress_Ignis",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Katress%20Ignis.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 4120.0,
+      "size": null,
+      "stats": {
+        "hp": 95.0,
+        "attack": 105.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 440.0,
+        "food": 5.0
+      },
+      "work": {
+        "handiwork": 2,
+        "kindling": 2,
+        "medicine_production": 2,
+        "transporting": 2
+      },
+      "skills": [
+        {
+          "name": "ignis_blast",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "dark_cannon",
+          "level": 7,
+          "power": 50,
+          "cooldown": 2.0
+        },
+        {
+          "name": "flare_arrow",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "flare_storm",
+          "level": 22,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "flame_wall",
+          "level": 30,
+          "power": 100,
+          "cooldown": 30
+        },
+        {
+          "name": "flame_funnel",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40
+        },
+        {
+          "name": "fire_ball",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "flame_organ",
+        "katress_hair",
+        "high_grade_technical_manual"
+      ],
+      "breeding": {
+        "power": 690.0,
+        "type1": "Dark",
+        "type2": "Fire"
+      },
+      "types": [
+        "Dark",
+        "Fire"
+      ],
+      "localImage": null
+    },
+    "230": {
+      "id": 230,
+      "key": "117",
+      "name": "Kikit",
+      "wiki": "https://palworld.wiki.gg/wiki/Kikit",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Kikit.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 2800.0,
+      "size": null,
+      "stats": {
+        "hp": 75.0,
+        "attack": 70.0,
+        "defense": 90.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 800.0,
+        "food": 2.0
+      },
+      "work": {
+        "mining": 1
+      },
+      "skills": [
+        {
+          "name": "power_shot",
+          "level": 1,
+          "power": 35,
+          "cooldown": 4.0
+        },
+        {
+          "name": "sand_blast",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 15,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "power_bomb",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "sand_tornado",
+          "level": 30,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "rockburst",
+          "level": 40,
+          "power": 130,
+          "cooldown": 35
+        },
+        {
+          "name": "rock_lance",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "leather",
+        "bone",
+        "crude_oil"
+      ],
+      "breeding": {
+        "power": 1125.0,
+        "type1": "Ground",
+        "type2": null
+      },
+      "types": [
+        "Ground"
+      ],
+      "localImage": null
+    },
+    "231": {
+      "id": 231,
+      "key": "099B",
+      "name": "Menasting Terra",
+      "wiki": "https://palworld.wiki.gg/wiki/Menasting_Terra",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Menasting%20Terra.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 8050.0,
+      "size": null,
+      "stats": {
+        "hp": 100.0,
+        "attack": 105.0,
+        "defense": 130.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 1000.0,
+        "food": 7.0
+      },
+      "work": {
+        "lumbering": 2,
+        "mining": 3
+      },
+      "skills": [
+        {
+          "name": "sand_blast",
+          "level": 1,
+          "power": 40,
+          "cooldown": 4.0
+        },
+        {
+          "name": "stone_blast",
+          "level": 7,
+          "power": 55,
+          "cooldown": 10.0
+        },
+        {
+          "name": "stone_cannon",
+          "level": 15,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "sand_tornado",
+          "level": 22,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "jumping_stinger",
+          "level": 30,
+          "power": 110,
+          "cooldown": 24
+        },
+        {
+          "name": "rock_lance",
+          "level": 40,
+          "power": 150,
+          "cooldown": 55.0
+        },
+        {
+          "name": "rockburst",
+          "level": 50,
+          "power": 130,
+          "cooldown": 35
+        }
+      ],
+      "drops": [
+        "crude_oil",
+        "flame_organ"
+      ],
+      "breeding": {
+        "power": 250.0,
+        "type1": "Ground",
+        "type2": null
+      },
+      "types": [
+        "Ground"
+      ],
+      "localImage": null
+    },
+    "232": {
+      "id": 232,
+      "key": "095B",
+      "name": "Quivern Botan",
+      "wiki": "https://palworld.wiki.gg/wiki/Quivern_Botan",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Quivern%20Botan.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 7830.0,
+      "size": null,
+      "stats": {
+        "hp": 105.0,
+        "attack": 105.0,
+        "defense": 100.0,
+        "stamina": 220.0,
+        "support": 100.0,
+        "speed": 800.0,
+        "food": 4.0
+      },
+      "work": {
+        "handiwork": 1,
+        "planting": 2,
+        "gathering": 2,
+        "mining": 2,
+        "transporting": 3
+      },
+      "skills": [
+        {
+          "name": "dragon_cannon",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "wind_cutter",
+          "level": 7,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "seed_machine_gun",
+          "level": 15,
+          "power": 50,
+          "cooldown": 9.0
+        },
+        {
+          "name": "draconic_breath",
+          "level": 22,
+          "power": 70,
+          "cooldown": 15.0
+        },
+        {
+          "name": "grass_tornado",
+          "level": 30,
+          "power": 80,
+          "cooldown": 18.0
+        },
+        {
+          "name": "comet_strike",
+          "level": 40,
+          "power": 110,
+          "cooldown": 35
+        },
+        {
+          "name": "circle_vine",
+          "level": 50,
+          "power": 120,
+          "cooldown": 40
+        }
+      ],
+      "drops": [
+        "high_quality_pal_oil",
+        "beautiful_flower",
+        "red_berries"
+      ],
+      "breeding": {
+        "power": 340.0,
+        "type1": "Dragon",
+        "type2": "Grass"
+      },
+      "types": [
+        "Dragon",
+        "Grass"
+      ],
+      "localImage": null
+    },
+    "233": {
+      "id": 233,
+      "key": "039B",
+      "name": "Ribbuny Botan",
+      "wiki": "https://palworld.wiki.gg/wiki/Ribbuny_Botan",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Ribbuny%20Botan.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": null,
+      "size": null,
+      "stats": {
+        "hp": 80.0,
+        "attack": 65.0,
+        "defense": 70.0,
+        "stamina": 100.0,
+        "support": 100.0,
+        "speed": 245.0,
+        "food": 2.0
+      },
+      "work": {
+        "handiwork": 1,
+        "planting": 1,
+        "gathering": 1,
+        "transporting": 1
+      },
+      "skills": [
+        {
+          "name": "wind_cutter",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "bog_blast",
+          "level": 7,
+          "power": 40,
+          "cooldown": 4
+        },
+        {
+          "name": "seed_machine_gun",
+          "level": 15,
+          "power": 50,
+          "cooldown": 9.0
+        },
+        {
+          "name": "seed_mine",
+          "level": 22,
+          "power": 65,
+          "cooldown": 13.0
+        },
+        {
+          "name": "wind_edge",
+          "level": 30,
+          "power": 90,
+          "cooldown": 22
+        },
+        {
+          "name": "circle_vine",
+          "level": 40,
+          "power": 120,
+          "cooldown": 40
+        },
+        {
+          "name": "solar_blast",
+          "level": 50,
+          "power": 150,
+          "cooldown": 55.0
+        }
+      ],
+      "drops": [
+        "beautiful_flower",
+        "leather",
+        "potato_seeds",
+        "ribbuny_ribbon"
+      ],
+      "breeding": {
+        "power": 1205.0,
+        "type1": "Grass",
+        "type2": null
+      },
+      "types": [
+        "Grass"
+      ],
+      "localImage": null
+    },
+    "234": {
+      "id": 234,
+      "key": "127",
+      "name": "Xenolord",
+      "wiki": "https://palworld.wiki.gg/wiki/Xenolord",
+      "image": "https://palworld.wiki.gg/wiki/Special:FilePath/Xenolord.png",
+      "genus": "unknown",
+      "rarity": null,
+      "price": 6120.0,
+      "size": null,
+      "stats": {
+        "hp": 130.0,
+        "attack": 120.0,
+        "defense": 120.0,
+        "stamina": 300.0,
+        "support": 100.0,
+        "speed": 550.0,
+        "food": null
+      },
+      "work": {
+        "gathering": 1
+      },
+      "skills": [
+        {
+          "name": "dragon_cannon",
+          "level": 1,
+          "power": 30,
+          "cooldown": 2.0
+        },
+        {
+          "name": "umbral_surge",
+          "level": 7,
+          "power": 40,
+          "cooldown": 2
+        },
+        {
+          "name": "satellite_bit",
+          "level": 15,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "beam_slash",
+          "level": 22,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "astral_ray",
+          "level": 30,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "cosmic_meteor",
+          "level": 40,
+          "power": null,
+          "cooldown": null
+        },
+        {
+          "name": "omega_laser",
+          "level": 50,
+          "power": null,
+          "cooldown": null
+        }
+      ],
+      "drops": [
+        "meteorite_fragment"
+      ],
+      "breeding": {
+        "power": null,
+        "type1": "Dark",
+        "type2": "Dragon"
+      },
+      "types": [
+        "Dark",
+        "Dragon"
+      ],
+      "localImage": null
     }
   },
   "items": {
@@ -14568,6 +18578,69 @@
     },
     "sapphire": {
       "category": "Misc"
+    },
+    "ancient_civilization_core": {
+      "category": "Material"
+    },
+    "ancient_civilization_parts": {
+      "category": "Material"
+    },
+    "attack_pendant_2": {
+      "category": "Equipment"
+    },
+    "bellanoir_libero_ultra_slab": {
+      "category": "Technology"
+    },
+    "chromite": {
+      "category": "Material"
+    },
+    "crude_oil": {
+      "category": "Material"
+    },
+    "dark_fragment": {
+      "category": "Material"
+    },
+    "dazzi_cloud": {
+      "category": "Material"
+    },
+    "defense_pendant_2": {
+      "category": "Equipment"
+    },
+    "dog_coin": {
+      "category": "Material"
+    },
+    "hexolite_quartz": {
+      "category": "Material"
+    },
+    "life_fruit": {
+      "category": "Consumable"
+    },
+    "life_pendant_2": {
+      "category": "Equipment"
+    },
+    "meteorite_fragment": {
+      "category": "Material"
+    },
+    "multiclimate_undershirt_1": {
+      "category": "Equipment"
+    },
+    "multiclimate_undershirt_2": {
+      "category": "Equipment"
+    },
+    "mysterious_mushroom": {
+      "category": "Food"
+    },
+    "potato_seeds": {
+      "category": "Material"
+    },
+    "power_fruit": {
+      "category": "Consumable"
+    },
+    "ribbuny_ribbon": {
+      "category": "Material"
+    },
+    "training_manual_xl": {
+      "category": "Consumable"
     }
   },
   "tech": [
@@ -14597,11 +18670,11 @@
           "techPoints": 0,
           "description": "Basic axe for chopping down trees.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Axe.png",
           "materials": {
             "Stone": 5,
             "Wood": 5
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Axe.png"
         },
         {
           "id": "stone-pickaxe",
@@ -14612,11 +18685,11 @@
           "techPoints": 0,
           "description": "Basic pickaxe for mining stone and ore.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Pickaxe.png",
           "materials": {
             "Stone": 5,
             "Wood": 5
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Pickaxe.png"
         },
         {
           "id": "hand-held-torch",
@@ -14627,11 +18700,11 @@
           "techPoints": 0,
           "description": "Simple handheld torch for lighting caves and night excursions.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hand-held_Torch.png",
           "materials": {
             "Wood": 2,
             "Stone": 2
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Hand-held_Torch.png"
         },
         {
           "id": "wooden-club",
@@ -14642,10 +18715,10 @@
           "techPoints": 0,
           "description": "Simple club carved from wood for close combat.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Club.png",
           "materials": {
             "Wood": 5
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Wooden_Club.png"
         },
         {
           "id": "pal-dressing-facility",
@@ -14656,11 +18729,11 @@
           "techPoints": 0,
           "description": "Facility that lets you change a Pal's outfit.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Dressing_Facility.png",
           "materials": {
             "Stone": 10,
             "Paldium Fragment": 10
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Dressing_Facility.png"
         },
         {
           "id": "global-palbox",
@@ -14671,12 +18744,12 @@
           "techPoints": 0,
           "description": "Global Palbox terminal that lets you manage teams from any base.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Global_Palbox.png",
           "materials": {
             "Paldium Fragment": 3,
             "Wood": 5,
             "Stone": 15
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Global_Palbox.png"
         }
       ]
     },
@@ -14708,12 +18781,12 @@
           "techPoints": 1,
           "description": "Standard Pal capture sphere crafted from early resources.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png",
           "materials": {
             "Paldium Fragment": 1,
             "Wood": 3,
             "Stone": 3
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Pal_Sphere_icon.png"
         },
         {
           "id": "campfire",
@@ -14787,12 +18860,12 @@
           "techPoints": 1,
           "description": "Early-game bow strung from wood and fiber.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Old_Bow.png",
           "materials": {
             "Wood": 30,
             "Stone": 5,
             "Fiber": 15
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Old_Bow.png"
         },
         {
           "id": "arrow",
@@ -14803,12 +18876,11 @@
           "techPoints": 1,
           "description": "Basic arrows crafted for the Old Bow.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Arrow_icon.png",
           "materials": {
             "Stone": 1,
             "Wood": 1
           },
-          "note": "Crafting yields 3 arrows per batch."
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Arrow_icon.png"
         },
         {
           "id": "shoddy-bed",
@@ -14850,11 +18922,11 @@
           "techPoints": 1,
           "description": "Field repair kit for restoring weapon durability.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Repair_Kit.png",
           "materials": {
             "Fiber": 5,
             "Stone": 5
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Repair_Kit.png"
         },
         {
           "id": "cloth",
@@ -14865,10 +18937,10 @@
           "techPoints": 1,
           "description": "Woven fabric crafted from Wool at a primitive workbench.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png",
           "materials": {
             "Wool": 2
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_icon.png"
         }
       ]
     },
@@ -14884,13 +18956,13 @@
           "techPoints": 2,
           "description": "Basic wooden shield that improves survivability for early expeditions.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Common_Shield_icon.png",
           "materials": {
             "Paldium Fragment": 10,
             "Wood": 20,
             "Stone": 20,
             "Fiber": 10
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Common_Shield_icon.png"
         },
         {
           "id": "stone-spear",
@@ -14901,11 +18973,11 @@
           "techPoints": 2,
           "description": "Sturdy spear tipped with sharpened stone.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Spear.png",
           "materials": {
             "Wood": 18,
             "Stone": 6
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Spear.png"
         },
         {
           "id": "cloth-outfit",
@@ -14916,10 +18988,10 @@
           "techPoints": 2,
           "description": "Lightweight starter gear sewn from simple cloth.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_Outfit_icon.png",
           "materials": {
             "Cloth": 2
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Cloth_Outfit_icon.png"
         },
         {
           "id": "feed-box",
@@ -15011,11 +19083,11 @@
           "techPoints": 2,
           "description": "Basic parachute for safe descents and gliding.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Normal_Parachute_icon.png",
           "materials": {
             "Wood": 10,
             "Cloth": 2
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Normal_Parachute_icon.png"
         },
         {
           "id": "fire-bow",
@@ -15026,13 +19098,13 @@
           "techPoints": 2,
           "description": "Bow modified with Flame Organs to shoot burning arrows.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Bow.png",
           "materials": {
             "Wood": 40,
             "Stone": 8,
             "Fiber": 20,
             "Flame Organ": 2
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Bow.png"
         },
         {
           "id": "fire-arrow",
@@ -15043,13 +19115,12 @@
           "techPoints": 1,
           "description": "Arrow bundle tipped with a Flame Organ to ignite targets.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Arrow_icon.png",
           "materials": {
             "Flame Organ": 1,
             "Stone": 3,
             "Wood": 3
           },
-          "note": "Crafting produces 5 Fire Arrows."
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Fire_Arrow_icon.png"
         },
         {
           "id": "wooden-living-room-furniture-set",
@@ -15141,12 +19212,12 @@
           "techPoints": 1,
           "description": "Saddle that allows you to ride Rushoar and charge through obstacles.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rushoar_menu.png",
           "materials": {
             "Leather": 3,
             "Stone": 10,
             "Paldium Fragment": 5
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Rushoar_menu.png"
         },
         {
           "id": "foxparks-s-harness",
@@ -15157,12 +19228,12 @@
           "techPoints": 1,
           "description": "Harness that lets Foxparks serve as a fiery glider mount.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Foxparks_menu.png",
           "materials": {
             "Leather": 3,
             "Flame Organ": 5,
             "Paldium Fragment": 5
-          }
+          },
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Foxparks_menu.png"
         },
         {
           "id": "wooden-tavern-cabinet-furniture-set",
@@ -21992,119 +26063,128 @@
     "Acid Rain": {
       "name": "Acid Rain",
       "element": "Water",
-      "description": "Creates acidic clouds that pour down acid rain on enemies",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "description": "Creates acidic clouds that pour down acid rain on enemies.",
+      "source": "https://palworld.wiki.gg/wiki/Acid_Rain",
       "ct": 18,
       "power": 80,
-      "skillFruit": "Water Skill Fruit: Acid Rain"
+      "status": "Soak",
+      "statusChance": 100.0
     },
     "Air Blade": {
       "name": "Air Blade",
       "element": "Neutral",
       "description": "Sends out sharp blades of air in a fan shape.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Air_Blade",
       "ct": 20,
-      "power": 85,
-      "skillFruit": "Skill Fruit: Air Blade"
+      "power": 85
     },
     "Air Cannon": {
       "name": "Air Cannon",
       "element": "Neutral",
       "description": "Quickly fires a burst of highly pressurized air.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Air_Cannon",
       "ct": 2,
-      "power": 25,
-      "skillFruit": "Skill Fruit: Air Cannon"
+      "power": 25
     },
     "Apocalypse": {
       "name": "Apocalypse",
       "element": "Dark",
       "description": "Generates several dark vortexes in the surrounding area.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Apocalypse",
       "ct": 55,
       "power": 110,
-      "skillFruit": "Dark Skill Fruit: Apocalypse"
+      "status": "Blind",
+      "statusChance": 100.0
     },
     "Aqua Burst": {
       "name": "Aqua Burst",
       "element": "Water",
       "description": "Creates a giant ball of water and hurls it at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Aqua_Burst",
       "ct": 30,
       "power": 100,
-      "skillFruit": "Water Skill Fruit: Aqua Burst"
+      "status": "Soak",
+      "statusChance": 100.0
     },
     "Aqua Gun": {
       "name": "Aqua Gun",
       "element": "Water",
       "description": "Hurls a ball of water straight at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Aqua_Gun",
       "ct": 4,
       "power": 40,
-      "skillFruit": "Water Skill Fruit: Aqua Gun"
+      "status": "Soak",
+      "statusChance": 50.0
     },
     "Beam Slicer": {
       "name": "Beam Slicer",
       "element": "Dragon",
       "description": "Mows down the frontal area with a beam imbued with dragon power. The area touched by the beam will also explode after a few moments.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Beam_Slicer",
       "ct": 45,
       "power": 130,
-      "skillFruit": "Dragon Skill Fruit: Beam Slicer"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Blast Cannon": {
       "name": "Blast Cannon",
       "element": "Dragon",
       "description": "Fires an energy bullet imbued with dragon power at the enemy's location. Upon impact, the bullet shatters and creates a frontal long-range explosion.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Blast_Cannon",
       "ct": 30,
       "power": 100,
-      "skillFruit": "Dragon Skill Fruit: Blast Cannon"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Blizzard Spike": {
       "name": "Blizzard Spike",
       "element": "Ice",
-      "description": "Creates a giant lump of ice and hurls it at any enemy. It deals damage to those in the surrounding area upon impact.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "description": "Creates a giant lump of ice and hurls it at an enemy. It deals damage to those in the surrounding area upon impact.",
+      "source": "https://palworld.wiki.gg/wiki/Blizzard_Spike",
       "ct": 45,
       "power": 130,
-      "skillFruit": "Ice Skill Fruit: Blizzard Spike"
+      "status": "Freeze",
+      "statusChance": 100.0
     },
     "Bog Blast": {
       "name": "Bog Blast",
       "element": "Ground",
       "description": "Hurls sticky mud at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Bog_Blast",
       "ct": 4,
       "power": 40,
-      "skillFruit": "Earth Skill Fruit: Bog Blast"
+      "status": "Muddy",
+      "statusChance": 50.0
     },
     "Bubble Blast": {
       "name": "Bubble Blast",
       "element": "Water",
       "description": "Fires numerous bubbles that slowly pursue an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Bubble_Blast",
       "ct": 13,
       "power": 65,
-      "skillFruit": "Water Skill Fruit: Bubble Blast"
+      "status": "Soak",
+      "statusChance": 100.0
     },
     "Circle Vine": {
       "name": "Circle Vine",
       "element": "Grass",
       "description": "Sprots sharp roots in and around the enemy's location.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Circle_Vine",
       "ct": 40,
       "power": 120,
-      "skillFruit": "Grass Skill Fruit: Circle Vine"
+      "status": "Ivy-Covered",
+      "statusChance": 100.0
     },
     "Comet Strike": {
       "name": "Comet Strike",
       "element": "Dragon",
       "description": "Drops a meteorite straight down, generating a shock wave around the impact area.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Comet_Strike",
       "ct": 35,
       "power": 110,
-      "skillFruit": "Dragon Skill Fruit: Comet"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Cryst Breath": {
       "name": "Cryst Breath",
@@ -22119,73 +26199,81 @@
       "name": "Curtain Splash",
       "element": "Water",
       "description": "Continously creates walls made from water columns at the enemy's location.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Curtain_Splash",
       "ct": 40,
       "power": 120,
-      "skillFruit": "Water Skill Fruit: Wall Splash"
+      "status": "Soak",
+      "statusChance": 100.0
     },
     "Dark Arrow": {
       "name": "Dark Arrow",
       "element": "Dark",
       "description": "Fires off dark energy that homes in on an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Dark_Arrow",
       "ct": 10,
       "power": 65,
-      "skillFruit": "Dark Skill Fruit: Dark Arrow"
+      "status": "Blind",
+      "statusChance": 103.0
     },
     "Dark Ball": {
       "name": "Dark Ball",
       "element": "Dark",
-      "description": "Unleases a sphere of darkness that slowly tracks down the enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "description": "Unleashes a sphere of darkness that slowly tracks down the enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Dark_Ball",
       "ct": 4,
       "power": 40,
-      "skillFruit": "Breeding only"
+      "status": "Blind",
+      "statusChance": 35.0
     },
     "Dark Cannon": {
       "name": "Dark Cannon",
       "element": "Dark",
-      "description": "Fires off dark energy that homes in on an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "description": "Hurls an energy ball imbued with dark energy at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Dark_Cannon",
       "ct": 2,
       "power": 50,
-      "skillFruit": "Dark Skill Fruit: Dark Cannon"
+      "status": "Blind",
+      "statusChance": 20.0
     },
     "Dark Laser": {
       "name": "Dark Laser",
       "element": "Dark",
       "description": "Charges dark energy before blasting enemies with a powerful beam.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Dark_Laser",
       "ct": 55,
       "power": 150,
-      "skillFruit": "Dark Skill Fruit: Dark Laser"
+      "status": "Blind",
+      "statusChance": 100.0
     },
     "Diamond Rain": {
       "name": "Diamond Rain",
       "element": "Ice",
       "description": "Creates numerous lumps of ice that are consecutively dropped on a foe's head.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Diamond_Rain",
       "ct": 60,
       "power": 160,
-      "skillFruit": "Ice Skill Fruit: Diamond Rain"
+      "status": "Freeze",
+      "statusChance": 100.0
     },
     "Draconic Breath": {
       "name": "Draconic Breath",
       "element": "Dragon",
       "description": "Exhales breath imbued with draconic energy, dealing continuous damage to those in front of it.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Draconic_Breath",
       "ct": 15,
       "power": 70,
-      "skillFruit": "Dragon Skill Fruit: Draconic Breath"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Dragon Burst": {
       "name": "Dragon Burst",
       "element": "Dragon",
       "description": "Quickly discharges draconic energy, damaging those around it.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Dragon_Burst",
       "ct": 10,
       "power": 55,
-      "skillFruit": "Dragon Skill Fruit: Dragon Burst"
+      "status": "Burn",
+      "statusChance": 50.0
     },
     "Dragon Cannon": {
       "name": "Dragon Cannon",
@@ -22200,532 +26288,1329 @@
       "name": "Dragon Meteor",
       "element": "Dragon",
       "description": "Calls down numerous small meteorites and launches them at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Dragon_Meteor",
       "ct": 55,
       "power": 150,
-      "skillFruit": "Dragon Skill Fruit: Dragon Meteor"
+      "status": "Burn",
+      "statusChance": 45.0
     },
     "Electric Ball": {
       "name": "Electric Ball",
       "element": "Electric",
       "description": "Fires an electric ball that slowly pursues an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Electric_Ball",
       "ct": 9,
       "power": 50,
-      "skillFruit": "Electric Skill Fruit: Electric Ball"
+      "status": "Electrify",
+      "statusChance": 50.0
     },
     "Fire Ball": {
       "name": "Fire Ball",
       "element": "Fire",
-      "description": "Creates a giant ball of flames and hurls it at an enemy.  The ball explodes over a wide area upon impact.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "description": "Creates a giant ball of flames and hurls it at an enemy. The ball explodes over a wide area upon impact.",
+      "source": "https://palworld.wiki.gg/wiki/Fire_Ball",
       "ct": 55,
       "power": 150,
-      "skillFruit": "Fire Skill Fruit: Fire Ball"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Flame Funnel": {
       "name": "Flame Funnel",
       "element": "Fire",
       "description": "Creates multiple spheres of fiery energy, from which countless fireballs shoot towards the enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Flame_Funnel",
       "ct": 40,
       "power": 120,
-      "skillFruit": "Breeding only"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Flame Wall": {
       "name": "Flame Wall",
       "element": "Fire",
       "description": "Creates a wall of flames at the enemy's location. The wall of flame will remain for a while, and deal damage to the enemies it touches.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Flame_Wall",
       "ct": 30,
       "power": 100,
-      "skillFruit": "Fire Skill Fruit: Flame Wall"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Flare Arrow": {
       "name": "Flare Arrow",
       "element": "Fire",
       "description": "Fires three flaming arrows in succession that home in on an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Flare_Arrow",
       "ct": 10,
       "power": 55,
-      "skillFruit": "Fire Skill Fruit: Flare Arrow"
+      "status": "Burn",
+      "statusChance": 103.0
     },
     "Flare Storm": {
       "name": "Flare Storm",
       "element": "Fire",
       "description": "Generates two flaming tornadoes on either side before launching them at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Flare_Storm",
       "ct": 18,
       "power": 80,
-      "skillFruit": "Fire Skill Fruit: Flare Storm"
+      "status": "Burn",
+      "statusChance": 65.0
     },
     "Grass Tornado": {
       "name": "Grass Tornado",
       "element": "Grass",
       "description": "Generates two tornadoes on either side before launching them at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Grass_Tornado",
       "ct": 18,
       "power": 80,
-      "skillFruit": "Grass Skill Fruit: Grass Tornado"
+      "status": "Ivy-Covered",
+      "statusChance": 65.0
     },
     "Holy Burst": {
       "name": "Holy Burst",
       "element": "Neutral",
       "description": "Creates a wide explosion of light at the enemy's location and around it.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Holy_Burst",
       "ct": 30,
-      "power": 120,
-      "skillFruit": "Breeding only"
+      "power": 120
     },
     "Hydro Jet": {
       "name": "Hydro Jet",
       "element": "Water",
       "description": "Hurls a high speed ball of water at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Hydro_Jet",
       "ct": 2,
       "power": 30,
-      "skillFruit": "Water Skill Fruit: Hydro Jet"
+      "status": "Soak",
+      "statusChance": 35.0
     },
     "Hydro Laser": {
       "name": "Hydro Laser",
       "element": "Water",
       "description": "Shoots pressurized water at extreme velocities, sweeping over a wide area in front of it.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Hydro_Laser",
       "ct": 55,
       "power": 150,
-      "skillFruit": "Water Skill Fruit: Hydro Laser"
+      "status": "Soak",
+      "statusChance": 100.0
     },
     "Ice Missile": {
       "name": "Ice Missile",
       "element": "Ice",
       "description": "Creates ice lances in the air that fly towards enemies.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Ice_Missile",
       "ct": 3,
       "power": 30,
-      "skillFruit": "Ice Skill Fruit: Ice Missile"
+      "status": "Freeze",
+      "statusChance": 103.0
     },
     "Iceberg": {
       "name": "Iceberg",
       "element": "Ice",
       "description": "Summons a sharp ice lance under an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Iceberg",
       "ct": 15,
       "power": 70,
-      "skillFruit": "Ice Skill Fruit: Iceberg"
+      "status": "Freeze",
+      "statusChance": 100.0
     },
     "Icicle Cutter": {
       "name": "Icicle Cutter",
       "element": "Ice",
       "description": "Creates a crescent blade of ice and hurls it forward.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Icicle_Cutter",
       "ct": 10,
       "power": 55,
-      "skillFruit": "Ice Skill Fruit: Icicle Cutter"
+      "status": "Freeze",
+      "statusChance": 50.0
     },
     "Icicle Line": {
       "name": "Icicle Line",
       "element": "Ice",
       "description": "Generates a pillar of ice that moves in a straight line.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Icicle_Line",
       "ct": 40,
       "power": 120,
-      "skillFruit": "Ice Skill Fruit: Icicle Line"
+      "status": "Freeze",
+      "statusChance": 100.0
     },
     "Ignis Blast": {
       "name": "Ignis Blast",
       "element": "Fire",
       "description": "Hurls a ball of fire straight at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Ignis_Blast",
       "ct": 2,
       "power": 30,
-      "skillFruit": "Fire Skill Fruit: Ignis Blast"
+      "status": "Burn",
+      "statusChance": 50.0
     },
     "Ignis Breath": {
       "name": "Ignis Breath",
       "element": "Fire",
       "description": "Shoots flames at an enemy, dealing continuous damage.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Ignis_Breath",
       "ct": 15,
       "power": 70,
-      "skillFruit": "Fire Skill Fruit: Ignis Breath"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Ignis Rage": {
       "name": "Ignis Rage",
       "element": "Fire",
       "description": "Energizes the surrounding ground, causing it to explode after a set amount of time.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Ignis_Rage",
       "ct": 40,
       "power": 120,
-      "skillFruit": "Fire Skill Fruit: Ignis Rage"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Implode": {
       "name": "Implode",
       "element": "Neutral",
       "description": "Risks its life to cause a violent explosion. Becomes incapacitated afterwards.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Implode",
       "ct": 55,
       "power": 230,
-      "skillFruit": "Skill Fruit: Implode"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Lightning Bolt": {
       "name": "Lightning Bolt",
       "element": "Electric",
       "description": "Charges electric energy before blasting enemies with a powerful shock.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Lightning_Bolt",
       "ct": 55,
       "power": 150,
-      "skillFruit": "Electric Skill Fruit: Lightning Bolt"
+      "status": "Electrify",
+      "statusChance": 100.0
     },
     "Lightning Streak": {
       "name": "Lightning Streak",
       "element": "Electric",
-      "description": "Generates a lightning bolt that moves forward in a line.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "description": "Quickly discharges electricity, shocking those around it.",
+      "source": "https://palworld.wiki.gg/wiki/Lightning_Streak",
       "ct": 16,
       "power": 75,
-      "skillFruit": "Electric Skill Fruit: Lightning Streak"
+      "status": "Electrify",
+      "statusChance": 100.0
     },
     "Lightning Strike": {
       "name": "Lightning Strike",
       "element": "Electric",
       "description": "Acts as a lightning rod, calling down thunderbolts that electrocute the surrounding area.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Lightning_Strike",
       "ct": 40,
       "power": 120,
-      "skillFruit": "Electric Skill Fruit: Lightning Strike"
+      "status": "Electrify",
+      "statusChance": 100.0
     },
     "Lock-on Laser": {
       "name": "Lock-on Laser",
       "element": "Electric",
       "description": "Takes aim at an enemy before firing a super high speed laser.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Lock-on_Laser",
       "ct": 15,
       "power": 70,
-      "skillFruit": "Electric Skill Fruit: Lock-on Laser"
+      "status": "Electrify",
+      "statusChance": 100.0
     },
     "Megaton Implode": {
       "name": "Megaton Implode",
       "element": "Neutral",
       "description": "Risks life to cause a massive explosion. Those who perish for their duty become glistening stars in the night sky.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Megaton_Implode",
       "ct": 55,
       "power": 500,
-      "skillFruit": "Breeding only"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Multicutter": {
       "name": "Multicutter",
       "element": "Grass",
       "description": "The user fires three high-speed blades of wind in quick succession that fly straight at enemies.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Multicutter",
       "ct": 12,
       "power": 60,
-      "skillFruit": "Grass Skill Fruit: Multicutter"
+      "status": "Ivy-Covered",
+      "statusChance": 35.0
     },
     "Nightmare Ball": {
       "name": "Nightmare Ball",
       "element": "Dark",
       "description": "Creates a giant ball of darkness and hurls it at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Nightmare_Ball",
       "ct": 30,
       "power": 100,
-      "skillFruit": "Dark Skill Fruit: Nightmare Ball"
+      "status": "Blind",
+      "statusChance": 65.0
     },
     "Pal Blast": {
       "name": "Pal Blast",
       "element": "Neutral",
       "description": "Charges destructive energy before firing a high-powered beam forward across a wide area.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Pal_Blast",
       "ct": 55,
-      "power": 150,
-      "skillFruit": "Skill Fruit: Pal Blast"
+      "power": 150
     },
     "Plasma Funnel": {
       "name": "Plasma Funnel",
       "element": "Electric",
       "description": "Creates two balls of electric energy that fire numerous bolts of lightning at enemies.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Plasma_Funnel",
       "ct": 13,
       "power": 65,
-      "skillFruit": "Electric Skill Fruit: Plasma Tornado"
+      "status": "Electrify",
+      "statusChance": 100.0
     },
     "Poison Blast": {
       "name": "Poison Blast",
       "element": "Dark",
       "description": "Hurls poison sludge at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Poison_Blast",
       "ct": 2,
       "power": 30,
-      "skillFruit": "Dark Skill Fruit: Poison Blast"
+      "status": "Poison",
+      "statusChance": 100.0
     },
     "Poison Fog": {
       "name": "Poison Fog",
       "element": "Dark",
       "description": "Generates a fog of poison in front, causing the opponent to become poisoned.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Poison_Fog",
       "ct": 30,
       "power": 0,
-      "skillFruit": "Breeding only"
+      "status": "Poison",
+      "statusChance": 9999.0
     },
     "Power Bomb": {
       "name": "Power Bomb",
       "element": "Neutral",
       "description": "Charges a massive amount of energy before firing a large destructive ball.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Power_Bomb",
       "ct": 15,
-      "power": 70,
-      "skillFruit": "Skill Fruit: Power Bomb"
+      "power": 70
     },
     "Power Shot": {
       "name": "Power Shot",
       "element": "Neutral",
       "description": "Charges energy into a focused blast.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Power_Shot",
       "ct": 4,
-      "power": 35,
-      "skillFruit": "Skill Fruit: Power Shot"
+      "power": 35
     },
     "Rockburst": {
       "name": "Rockburst",
       "element": "Ground",
       "description": "Causes the ground to shake before hurling a massive stone mass at its surroundings.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Rockburst",
       "ct": 35,
       "power": 130,
-      "skillFruit": "Earth Skill Fruit: Rockburst"
+      "status": "Muddy",
+      "statusChance": 100.0
     },
     "Rock Lance": {
       "name": "Rock Lance",
       "element": "Ground",
       "description": "Generates a sharp rock spear under an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Rock_Lance",
       "ct": 55,
       "power": 150,
-      "skillFruit": "Earth Skill Fruit: Rock Lance"
+      "status": "Muddy",
+      "statusChance": 100.0
     },
     "Sand Tornado": {
       "name": "Sand Tornado",
       "element": "Ground",
       "description": "Generates two sand tornadoes on either side before launching them at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Sand_Tornado",
       "ct": 18,
       "power": 80,
-      "skillFruit": "Earth Skill Fruit: Sand Tornado"
+      "status": "Muddy",
+      "statusChance": 65.0
     },
     "Sand Twister": {
       "name": "Sand Twister",
       "element": "Ground",
       "description": "Creates multiple sand tornadoes. The tornadoes continuously spin in circles.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Sand_Twister",
       "ct": 60,
       "power": 160,
-      "skillFruit": "Earth Skill Fruit: Sand Twister"
+      "status": "Muddy",
+      "statusChance": 100.0
     },
     "Seed Machine Gun": {
       "name": "Seed Machine Gun",
       "element": "Grass",
       "description": "Fires a volley of hard seeds at enemies in front of it.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Seed_Machine_Gun",
       "ct": 9,
       "power": 50,
-      "skillFruit": "Grass Skill Fruit: Seed Machine Gun"
+      "status": "Ivy-Covered",
+      "statusChance": 100.0
     },
     "Seed Mine": {
       "name": "Seed Mine",
       "element": "Grass",
       "description": "Launches a deadly seed. If it hits an enemy, the seed explodes.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Seed_Mine",
       "ct": 13,
       "power": 65,
-      "skillFruit": "Grass Skill Fruit: Seed Mine"
+      "status": "Ivy-Covered",
+      "statusChance": 100.0
     },
     "Shadow Burst": {
       "name": "Shadow Burst",
       "element": "Dark",
       "description": "Quickly discharges dark energy, damaging those around it.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Shadow_Burst",
       "ct": 10,
       "power": 55,
-      "skillFruit": "Dark Skill Fruit: Shadow Burst"
+      "status": "Blind",
+      "statusChance": 50.0
     },
     "Shockwave": {
       "name": "Shockwave",
       "element": "Electric",
       "description": "Quickly discharges electricity, shacking those around it.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Shockwave",
       "ct": 4,
       "power": 40,
-      "skillFruit": "Electric Skill Fruit: Shockwave"
+      "status": "Electrify",
+      "statusChance": 103.0
     },
     "Solar Blast": {
       "name": "Solar Blast",
       "element": "Grass",
       "description": "Charges solar energy before blasting enemies with a powerful beam.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Solar_Blast",
       "ct": 55,
       "power": 150,
-      "skillFruit": "Grass Skill Fruit: Solar Blast"
+      "status": "Ivy-Covered",
+      "statusChance": 100.0
     },
     "Spark Blast": {
       "name": "Spark Blast",
       "element": "Electric",
       "description": "The user releases a lightning ball that expands outward in a forward, circular pattern.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Spark_Blast",
       "ct": 2,
       "power": 30,
-      "skillFruit": "Electric Skill Fruit: Spark Blast"
+      "status": "Electrify",
+      "statusChance": 100.0
     },
     "Spine Vine": {
       "name": "Spine Vine",
       "element": "Grass",
       "description": "Generates spiny thorns that chase an enemy along the ground, piercing them from below.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Spine_Vine",
       "ct": 25,
       "power": 95,
-      "skillFruit": "Grass Skill Fruit: Spine Vine"
+      "status": "Ivy-Covered",
+      "statusChance": 100.0
     },
     "Spirit Fire": {
       "name": "Spirit Fire",
       "element": "Fire",
       "description": "Shoots fireballs towards an enemy. The fireballs explode after a short distance, generating smaller fireballs that spread forward.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Spirit_Fire",
       "ct": 7,
       "power": 45,
-      "skillFruit": "Fire Skill Fruit: Spirit Fire"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Spirit Flame": {
       "name": "Spirit Flame",
       "element": "Dark",
       "description": "Fires three balls of malice that relentlessly pursue an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Spirit_Flame",
       "ct": 16,
       "power": 75,
-      "skillFruit": "Dark Skill Fruit: Spirit Flame"
+      "status": "Burn",
+      "statusChance": 102.0
     },
     "Splash": {
       "name": "Splash",
       "element": "Water",
       "description": "Generates a column of water that travels in a straight line.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Splash",
       "ct": 22,
       "power": 90,
-      "skillFruit": "Water Skill Fruit: Splash"
+      "status": "Soak",
+      "statusChance": 100.0
     },
     "Stone Blast": {
       "name": "Stone Blast",
       "element": "Ground",
       "description": "Fires a barrage of stones forward.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Stone_Blast",
       "ct": 10,
       "power": 55,
-      "skillFruit": "Earth Skill Fruit: Stone Blast"
+      "status": "Muddy",
+      "statusChance": 100.0
     },
     "Stone Cannon": {
       "name": "Stone Cannon",
       "element": "Ground",
       "description": "Digs up a boulder and hurls it at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Stone_Cannon",
       "ct": 15,
       "power": 70,
-      "skillFruit": "Earth Skill Fruit: Stone Cannon"
+      "status": "Muddy",
+      "statusChance": 35.0
     },
     "Thunder Rain": {
       "name": "Thunder Rain",
       "element": "Electric",
       "description": "Calls lightning that strikes an enemy after a set amount of time has passed.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Thunder_Rain",
       "ct": 45,
       "power": 135,
-      "skillFruit": "Electric Skill Fruit: Thunder Rain"
+      "status": "Electrify",
+      "statusChance": 100.0
     },
     "Thunderstorm": {
       "name": "Thunderstorm",
       "element": "Electric",
       "description": "Generates a huge tornado of lightning that moves slowly towards the enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Thunderstorm",
       "ct": 60,
-      "power": 160,
-      "skillFruit": "Electric Skill Fruit: Thunderstorm"
+      "power": 160
     },
     "Tri-Lightning": {
       "name": "Tri-Lightning",
       "element": "Electric",
       "description": "Generates lightning that strikes an enemy three times from above.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Tri-Lightning",
       "ct": 22,
       "power": 90,
-      "skillFruit": "Electric Skill Fruit: Tri-Lightning"
+      "status": "Electrify",
+      "statusChance": 103.0
     },
     "TriSpark": {
       "name": "TriSpark",
       "element": "Electric",
       "description": "A high-speed lightning ball that flies in a straight line. Simultaneously fires slow lightning balls that track the enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/TriSpark",
       "ct": 35,
       "power": 110,
-      "skillFruit": "Electric Skill Fruit: TriSpark"
+      "status": "Electrify",
+      "statusChance": 100.0
     },
     "Umbral Surge": {
       "name": "Umbral Surge",
       "element": "Dark",
       "description": "Fires a high speed ball of dark energy that spreads forward in a radial shape.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Umbral_Surge",
       "ct": 2,
       "power": 40,
-      "skillFruit": "Dark Skill Fruit: Umbral Surge"
+      "status": "Blind",
+      "statusChance": 20.0
     },
     "Volcanic Rain": {
       "name": "Volcanic Rain",
       "element": "Fire",
       "description": "Fires countless volcanic bombs into the sky. After a while, the bombs rain down around their originator.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Volcanic_Rain",
       "ct": 45,
       "power": 130,
-      "skillFruit": "Fire Skill Fruit: Volcanic Rain"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Wind Cutter": {
       "name": "Wind Cutter",
       "element": "Grass",
       "description": "Fires a high speed blade of wind that flies straight at an enemy.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "source": "https://palworld.wiki.gg/wiki/Wind_Cutter",
       "ct": 2,
       "power": 30,
-      "skillFruit": "Grass Skill Fruit: Wind Cutter"
+      "status": "Ivy-Covered",
+      "statusChance": 35.0
     },
     "Moonlight Beam": {
       "name": "Moonlight Beam",
       "element": "Neutral",
-      "description": "Selyne stores lunar energy then fires a crescent beam forward.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "description": "Selyne's exclusive skill. Stores energy in the moon on its back, then fires a crescent-shaped beam forward.",
+      "source": "https://palworld.wiki.gg/wiki/Moonlight_Beam",
       "ct": 40,
       "power": 170,
-      "skillFruit": "Skill Fruit: Moonlight Beam"
+      "status": "Burn",
+      "statusChance": 100.0
     },
     "Seigetsu Blade": {
       "name": "Seigetsu Blade",
       "element": "Neutral",
-      "description": "Calls down crescent blades from the new moon to slash enemies.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "description": "Selyne's exclusive skill. Fires two consecutive high-speed blades imbued with the power of moonlight.",
+      "source": "https://palworld.wiki.gg/wiki/Seigetsu_Blade",
       "ct": 24,
-      "power": 110,
-      "skillFruit": "Skill Fruit: Seigetsu Blade"
+      "power": 110
     },
     "Star Mine": {
       "name": "Star Mine",
       "element": "Neutral",
-      "description": "Launches clustered dark orbs that detonate after a short delay.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "description": "Generates stars around the enemy that explode on contact. Stars also explode after some time.",
+      "source": "https://palworld.wiki.gg/wiki/Star_Mine",
       "ct": 55,
-      "power": 110,
-      "skillFruit": "Skill Fruit: Star Mine"
+      "power": 110
     },
     "Wholehearted Stance": {
       "name": "Wholehearted Stance",
       "element": "Neutral",
-      "description": "Dogen's exclusive skill. Adopts an aiki stance to counter with a full-force palm strike.",
-      "source": "https://palworld.wiki.gg/wiki/Active_Skills",
+      "description": "Dogen's exclusive skill. Adopts an aiki stance. While in stance, any attack is nullified, then instantly countered with a full-force palm strike.",
+      "source": "https://palworld.wiki.gg/wiki/Wholehearted_Stance",
       "ct": 30,
+      "power": 170
+    },
+    "Absolute Frost": {
+      "name": "Absolute Frost",
+      "element": "Ice",
+      "description": "Throws icicles in a wide area from under the enemy's feet.",
+      "source": "https://palworld.wiki.gg/wiki/Absolute_Frost",
+      "ct": 50,
+      "power": 140,
+      "status": "Freeze",
+      "statusChance": 100.0
+    },
+    "All Range Thunder": {
+      "name": "All Range Thunder",
+      "element": "Electric",
+      "description": "Generates lightning strikes that travel in a straight line in all directions.",
+      "source": "https://palworld.wiki.gg/wiki/All_Range_Thunder",
+      "ct": 40,
+      "power": 125,
+      "status": "Electrify",
+      "statusChance": 100.0
+    },
+    "Antler Uppercut": {
+      "name": "Antler Uppercut",
+      "element": "Neutral",
+      "description": "Eikthyrdeer's exclusive skill. Charges at foes and uses antlers to launch them into the air. If used while riding, the direction of the charge can be controlled.",
+      "source": "https://palworld.wiki.gg/wiki/Antler_Uppercut",
+      "ct": 5,
+      "power": 50
+    },
+    "Aqua Surge": {
+      "name": "Aqua Surge",
+      "element": "Water",
+      "description": "Generates waves that surge around the enemy from all sides. They converge and explode at the center, erupting into a column of water.",
+      "source": "https://palworld.wiki.gg/wiki/Aqua_Surge",
+      "ct": 56,
+      "power": 160
+    },
+    "Beam Comet": {
+      "name": "Beam Comet",
+      "element": "Dragon",
+      "description": "Jetragon's exclusive skill. Flies at enemies on illuminated wings while firing innumerable beams. The beams explode on impact.",
+      "source": "https://palworld.wiki.gg/wiki/Beam_Comet",
+      "ct": 50,
+      "power": 140,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Bee Quiet": {
+      "name": "Bee Quiet",
+      "element": "Grass",
+      "description": "Risks its life to cause a violent explosion, but receives the honor of falling in battle.",
+      "source": "https://palworld.wiki.gg/wiki/Bee_Quiet",
+      "ct": 55,
+      "power": 250,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Blast Punch": {
+      "name": "Blast Punch",
+      "element": "Electric",
+      "description": "Mossanda Lux's exclusive skill. Winds up its fist before pummeling an enemy with a flurry of electrically charged punches.",
+      "source": "https://palworld.wiki.gg/wiki/Blast_Punch",
+      "ct": 14,
+      "power": 85,
+      "status": "Electrify",
+      "statusChance": 100.0
+    },
+    "Blazing Horn": {
+      "name": "Blazing Horn",
+      "element": "Fire",
+      "description": "Arsox's exclusive skill. Takes aim and rushes at an enemy with a mad dash.",
+      "source": "https://palworld.wiki.gg/wiki/Blazing_Horn",
+      "ct": 9,
+      "power": 50,
+      "status": "Burn",
+      "statusChance": 50.0
+    },
+    "Botanical Smash": {
+      "name": "Botanical Smash",
+      "element": "Grass",
+      "description": "Dinossom's exclusive skill. Uses large tail to smash the ground in front of it, damaging enemies over a wide area.",
+      "source": "https://palworld.wiki.gg/wiki/Botanical_Smash",
+      "ct": 8,
+      "power": 60,
+      "status": "Ivy-Covered",
+      "statusChance": 100.0
+    },
+    "Bountiful Protection": {
+      "name": "Bountiful Protection",
+      "element": "Neutral",
+      "description": "Lyleen's exclusive skill. Uses her healing power to recover her health. Doesn't heal anyone else.",
+      "source": "https://palworld.wiki.gg/wiki/Bountiful_Protection",
+      "ct": 240,
+      "power": 0
+    },
+    "Brawn Impact": {
+      "name": "Brawn Impact",
+      "element": "Fire",
+      "description": "Blazamut's exclusive skill. Waves and pumps up its arms, the slams them together to create a large explosion in the surrounding area.",
+      "source": "https://palworld.wiki.gg/wiki/Brawn_Impact",
+      "ct": 38,
+      "power": 150,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Cat Press": {
+      "name": "Cat Press",
+      "element": "Neutral",
+      "description": "Grintale's exclusive skill. Grins menacingly before leaping into the air and smashing foes with its body.",
+      "source": "https://palworld.wiki.gg/wiki/Cat_Press",
+      "ct": 9,
+      "power": 60
+    },
+    "Chicken Rush": {
+      "name": "Chicken Rush",
+      "element": "Neutral",
+      "description": "Chikipi's special skill. Flies at enemies in its sight, attacking them with its sharp beak.",
+      "source": "https://palworld.wiki.gg/wiki/Chicken_Rush",
+      "ct": 1,
+      "power": 30
+    },
+    "Cloud Tempest": {
+      "name": "Cloud Tempest",
+      "element": "Neutral",
+      "description": "Fenglope's exclusive skill. Charges forward while manipulating the atmosphere to create a pressurized wind tunnel around itself.",
+      "source": "https://palworld.wiki.gg/wiki/Cloud_Tempest",
+      "ct": 15,
+      "power": 90
+    },
+    "Comet Barrage": {
+      "name": "Comet Barrage",
+      "element": "Dragon",
+      "description": "Drops meteorites one after another, generating shock waves around the impact areas.",
+      "source": "https://palworld.wiki.gg/wiki/Comet_Barrage",
+      "ct": 40,
+      "power": 120,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Crushing Punch": {
+      "name": "Crushing Punch",
+      "element": "Grass",
+      "description": "Mossanda's exclusive skill. Winds up its fist before striking an enemy with a devastating punch.",
+      "source": "https://palworld.wiki.gg/wiki/Crushing_Punch",
+      "ct": 18,
+      "power": 85
+    },
+    "Crystal Breath": {
+      "name": "Crystal Breath",
+      "element": "Ice",
+      "description": "Enshrouds an enemy in a frigid blast of air, dealing continuous damage.",
+      "source": "https://palworld.wiki.gg/wiki/Crystal_Breath",
+      "ct": 22,
+      "power": 90,
+      "status": "Freeze",
+      "statusChance": 100.0
+    },
+    "Crystal Wing": {
+      "name": "Crystal Wing",
+      "element": "Ice",
+      "description": "Frostallion's exclusive skill. Dashes forward while creating frigid air around its wings, using them to slash enemies.",
+      "source": "https://palworld.wiki.gg/wiki/Crystal_Wing",
+      "ct": 24,
+      "power": 110,
+      "status": "Freeze",
+      "statusChance": 100.0
+    },
+    "Daring Flames": {
+      "name": "Daring Flames",
+      "element": "Fire",
+      "description": "Kitsun's exclusive skill. Charges forward with great speed while clad in intense blue flames.",
+      "source": "https://palworld.wiki.gg/wiki/Daring_Flames",
+      "ct": 10,
+      "power": 75,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Dark Charge": {
+      "name": "Dark Charge",
+      "element": "Dark",
+      "description": "[[Pyrin Noct]]'s exclusive skill. Charges forward while clad in a veil of dark flames. Flames continue to burn in its trajectory.",
+      "source": "https://palworld.wiki.gg/wiki/Dark_Charge",
+      "ct": 14,
+      "power": 85,
+      "status": "Blind",
+      "statusChance": 50.0
+    },
+    "Dark Whisp": {
+      "name": "Dark Whisp",
+      "element": "Dark",
+      "description": "Fires a menacing ball of dark energy that pursues enemies.",
+      "source": "https://palworld.wiki.gg/wiki/Dark_Whisp",
+      "ct": 45,
+      "power": 160,
+      "status": "Blind",
+      "statusChance": 100.0
+    },
+    "Divine Disaster": {
+      "name": "Divine Disaster",
+      "element": "Dark",
+      "description": "Shadowbeak's exclusive skill. Charges forward while generating orbs of light that automatically capture enemies. The orbs automatically capture enemies, before releasing a barrage of lasers.",
+      "source": "https://palworld.wiki.gg/wiki/Divine_Disaster",
+      "ct": 45,
+      "power": 160
+    },
+    "Divine Disaster II": {
+      "name": "Divine Disaster II",
+      "element": "Dark",
+      "description": "Shadowbeak's exclusive skill. As it charges forward, emits countless blue rays that automatically locate and pursue the enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Divine_Disaster_II",
+      "ct": 45,
+      "power": 170
+    },
+    "Double Blizzard Spike": {
+      "name": "Double Blizzard Spike",
+      "element": "Ice",
+      "description": "Creates two huge ice blocks and fires them at the enemy one after another. On impact, it also shocks those close by.",
+      "source": "https://palworld.wiki.gg/wiki/Double_Blizzard_Spike",
+      "ct": 60,
+      "power": 200,
+      "status": "Freeze",
+      "statusChance": 100.0
+    },
+    "Earth Dash": {
+      "name": "Earth Dash",
+      "element": "Ground",
+      "description": "Dazemu's special skill. Accelerates all at once and rushes forward at high speed.",
+      "source": "https://palworld.wiki.gg/wiki/Earth_Dash",
+      "ct": 21,
+      "power": 100
+    },
+    "Earth Impact": {
+      "name": "Earth Impact",
+      "element": "Ground",
+      "description": "Mammorest's exclusive skill. Uses massive body to shake the earth, dealing damage over a wide area.",
+      "source": "https://palworld.wiki.gg/wiki/Earth_Impact",
+      "ct": 30,
+      "power": 100
+    },
+    "Emperor Slide": {
+      "name": "Emperor Slide",
+      "element": "Ice",
+      "description": "Penking's exclusive skill. Lies on its belly while generating frozen air all around it before sliding at enemies at high speed.",
+      "source": "https://palworld.wiki.gg/wiki/Emperor_Slide",
+      "ct": 10,
+      "power": 70,
+      "status": "Freeze",
+      "statusChance": 50.0
+    },
+    "Evil Slash": {
+      "name": "Evil Slash",
+      "element": "Dark",
+      "description": "Xenovader's exclusive skill. A flash jump followed by a left-hand slash.",
+      "source": "https://palworld.wiki.gg/wiki/Evil_Slash",
+      "ct": 17,
+      "power": 95,
+      "status": "Blind",
+      "statusChance": 30.0
+    },
+    "Fierce Fang": {
+      "name": "Fierce Fang",
+      "element": "Neutral",
+      "description": "Direhowl's special skill. Swiftly leaps at an enemy and bites into them.",
+      "source": "https://palworld.wiki.gg/wiki/Fierce_Fang",
+      "ct": 2,
+      "power": 45
+    },
+    "Flame Waltz": {
+      "name": "Flame Waltz",
+      "element": "Dark",
+      "description": "Bellanoir Libero's exclusive skill. Dances gracefully while creating an extending ring of flames. Then, it fires mysterious flames that home in on enemies.",
+      "source": "https://palworld.wiki.gg/wiki/Flame_Waltz",
+      "ct": 45,
+      "power": 130,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Fluffy Tackle": {
+      "name": "Fluffy Tackle",
+      "element": "Neutral",
+      "description": "Melpaca's exclusive skill. Charges forward while clad in an aura of sublime adorableness.",
+      "source": "https://palworld.wiki.gg/wiki/Fluffy_Tackle",
+      "ct": 4,
+      "power": 40
+    },
+    "Focus Shot": {
+      "name": "Focus Shot",
+      "element": "Grass",
+      "description": "Robinquill's exclusive skill. Takes aim while drawing its bow before loosing a powerful shot at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Focus_Shot",
+      "ct": 9,
+      "power": 65,
+      "status": "Ivy-Covered",
+      "statusChance": 100.0
+    },
+    "Forceful Charge": {
+      "name": "Forceful Charge",
+      "element": "Ground",
+      "description": "Anubis's special skill. Pursues its foe with a high speed dash while releasing energy and unleashes a powerful punch.",
+      "source": "https://palworld.wiki.gg/wiki/Forceful_Charge",
+      "ct": 28,
+      "power": 120
+    },
+    "Freezing Charge": {
+      "name": "Freezing Charge",
+      "element": "Ice",
+      "description": "Reindrix's exclusive skill. Charges at an enemy with antlers adorned in ice.",
+      "source": "https://palworld.wiki.gg/wiki/Freezing_Charge",
+      "ct": 9,
+      "power": 65,
+      "status": "Freeze",
+      "statusChance": 50.0
+    },
+    "Frost Burst": {
+      "name": "Frost Burst",
+      "element": "Ice",
+      "description": "Reptyro Cryst's exclusive skill. Raises its front legs and slams them into the ground causing frozen blasts under its enemies. It simultaneously pounds them with snow balls from above.",
+      "source": "https://palworld.wiki.gg/wiki/Frost_Burst",
+      "ct": 45,
+      "power": 100,
+      "status": "Freeze",
+      "statusChance": 100.0
+    },
+    "Gale Claw": {
+      "name": "Gale Claw",
+      "element": "Neutral",
+      "description": "Galeclaw's exclusive skill. Soars through the air with its talons outstretched forward.",
+      "source": "https://palworld.wiki.gg/wiki/Gale_Claw",
+      "ct": 8,
+      "power": 60
+    },
+    "Geyser Gush": {
+      "name": "Geyser Gush",
+      "element": "Water",
+      "description": "Erupts massive pillars of water beneath and around the enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Geyser_Gush",
+      "ct": 60,
+      "power": 180
+    },
+    "Giga Horn": {
+      "name": "Giga Horn",
+      "element": "Ground",
+      "description": "Warsect's exclusive skill. Skewers enemies with its four sturdy horns.",
+      "source": "https://palworld.wiki.gg/wiki/Giga_Horn",
+      "ct": 11,
+      "power": 75
+    },
+    "Ground Cutter": {
+      "name": "Ground Cutter",
+      "element": "Ground",
+      "description": "Knocklem's exclusive skill. Takes a big swing and throws the ring on its back. The ring flies in a circular trajectory.",
+      "source": "https://palworld.wiki.gg/wiki/Ground_Cutter",
+      "ct": 35,
+      "power": 145
+    },
+    "Ground Pound": {
+      "name": "Ground Pound",
+      "element": "Neutral",
+      "description": "Gorirat's exclusive skill. Pounds the ground twice before leaping into the air and unleashing a powerful punch.",
+      "source": "https://palworld.wiki.gg/wiki/Ground_Pound",
+      "ct": 14,
+      "power": 85
+    },
+    "Ground Smash": {
+      "name": "Ground Smash",
+      "element": "Ground",
+      "description": "Anubis's special skill. Leaps high into the air before diving to the ground with a punch. The force of the impact deals damage over a wide area.",
+      "source": "https://palworld.wiki.gg/wiki/Ground_Smash",
+      "ct": 35,
+      "power": 140,
+      "status": "Muddy",
+      "statusChance": 100.0
+    },
+    "Heavy Thunder Tank": {
+      "name": "Heavy Thunder Tank",
+      "element": "Electric",
+      "description": "Grizzbolt's exclusive skill. Attacks with a minigun pulled out from somewhere. Ends with a single, charged power shot.",
+      "source": "https://palworld.wiki.gg/wiki/Heavy_Thunder_Tank",
+      "ct": 42,
+      "power": 160,
+      "status": "Electrify",
+      "statusChance": 100.0
+    },
+    "Hellfire Claw": {
+      "name": "Hellfire Claw",
+      "element": "Fire",
+      "description": "Incineram's exclusive skill. Draws near enemies using its left claw to slash them into the air before cutting them down with its right claw.",
+      "source": "https://palworld.wiki.gg/wiki/Hellfire_Claw",
+      "ct": 10,
+      "power": 70,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Hydro Slicer": {
+      "name": "Hydro Slicer",
+      "element": "Water",
+      "description": "Mows down the frontal area with a blast of compressed water. The area struck by the blast erupts with water after a short delay.",
+      "source": "https://palworld.wiki.gg/wiki/Hydro_Slicer",
+      "ct": 45,
+      "power": 130
+    },
+    "Iaigiri": {
+      "name": "Iaigiri",
+      "element": "Fire",
+      "description": "Bushi's exclusive skill. After Holding the sword, he appears in front of the enemy in an instant and unleashes a Ultra-fast sword draw attack.",
+      "source": "https://palworld.wiki.gg/wiki/Iaigiri",
+      "ct": 9,
+      "power": 65,
+      "status": "Burn",
+      "statusChance": 50.0
+    },
+    "Icicle Bullet": {
+      "name": "Icicle Bullet",
+      "element": "Ice",
+      "description": "Generates multiple sharp ice blocks in the sky and fires them at the enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Icicle_Bullet",
+      "ct": 35,
+      "power": 110,
+      "status": "Freeze",
+      "statusChance": 100.0
+    },
+    "Ignis Slam": {
+      "name": "Ignis Slam",
+      "element": "Fire",
+      "description": "Pyrin's exclusive skill. Charges forward while clad in a veil of flames. Flames continue to burn in its wake.",
+      "source": "https://palworld.wiki.gg/wiki/Ignis_Slam",
+      "ct": 14,
+      "power": 85,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Jumping Claw": {
+      "name": "Jumping Claw",
+      "element": "Dark",
+      "description": "Loupmoon's exclusive skill. Leaps forward and attacks twice with vicious claws imbued with dark energy.",
+      "source": "https://palworld.wiki.gg/wiki/Jumping_Claw",
+      "ct": 7,
+      "power": 55,
+      "status": "Blind",
+      "statusChance": 50.0
+    },
+    "Jumping Stinger": {
+      "name": "Jumping Stinger",
+      "element": "Ground",
+      "description": "Menasting's exclusive skill. Jumps high and stabs its prey with its tail. The poison from the tail is deadly.",
+      "source": "https://palworld.wiki.gg/wiki/Jumping_Stinger",
+      "ct": 24,
+      "power": 110,
+      "status": "Poison",
+      "statusChance": 100.0
+    },
+    "Kerauno": {
+      "name": "Kerauno",
+      "element": "Electric",
+      "description": "Orserk's exclusive skill. Summons a blade of lightning while leaping into the air before throwing it at an enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Kerauno",
+      "ct": 30,
+      "power": 100,
+      "status": "Electrify",
+      "statusChance": 100.0
+    },
+    "Kingly Slam": {
+      "name": "Kingly Slam",
+      "element": "Neutral",
+      "description": "Kingpaca's exclusive skill. Leaps high into the air before smashing into an enemy with its massive body.",
+      "source": "https://palworld.wiki.gg/wiki/Kingly_Slam",
+      "ct": 21,
+      "power": 100
+    },
+    "Lethal Laser": {
+      "name": "Lethal Laser",
+      "element": "Electric",
+      "description": "After aiming at the enemy, fires multiple ultra-fast lightning lasers.",
+      "source": "https://palworld.wiki.gg/wiki/Lethal_Laser",
+      "ct": 50,
       "power": 170,
-      "skillFruit": "Skill Fruit: Wholehearted Stance"
+      "status": "Electrify",
+      "statusChance": 100.0
+    },
+    "Lightning Claw": {
+      "name": "Lightning Claw",
+      "element": "Electric",
+      "description": "Grizzbolt's special skill. After leaping at an enemy and tearing at it twice with its electrically charged claws, it attacks the ground, sending an electric shock throughout the area.",
+      "source": "https://palworld.wiki.gg/wiki/Lightning_Claw",
+      "ct": 22,
+      "power": 90,
+      "status": "Electrify",
+      "statusChance": 100.0
+    },
+    "Magna Crush": {
+      "name": "Magna Crush",
+      "element": "Dragon",
+      "description": "Blazamut's exclusive skill. After making a big jump, while moving at high speed in the air, gathers strength and unleashes a punch with full might.",
+      "source": "https://palworld.wiki.gg/wiki/Magna_Crush",
+      "ct": 42,
+      "power": 160,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Meteorain": {
+      "name": "Meteorain",
+      "element": "Dragon",
+      "description": "Drops countless meteorites, generating an array of shock waves.",
+      "source": "https://palworld.wiki.gg/wiki/Meteorain",
+      "ct": 55,
+      "power": 160,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Muscle Slam": {
+      "name": "Muscle Slam",
+      "element": "Neutral",
+      "description": "Broncherry's exclusive skill. Turns sideways before tackling enemies in front of it, sending them flying into the air.",
+      "source": "https://palworld.wiki.gg/wiki/Muscle_Slam",
+      "ct": 12,
+      "power": 80
+    },
+    "Mystic Whirlwind": {
+      "name": "Mystic Whirlwind",
+      "element": "Dragon",
+      "description": "Elphidran's exclusive skill. Generates twin whirlwinds imbued with a mysterious power that pursues enemies.",
+      "source": "https://palworld.wiki.gg/wiki/Mystic_Whirlwind",
+      "ct": 10,
+      "power": 70
+    },
+    "Nightmare Bloom": {
+      "name": "Nightmare Bloom",
+      "element": "Dark",
+      "description": "Bellanoir Libero's exclusive skill. Disappears suddenly, then reappears while firing a barrage of beams. The beams spread like a beautiful flower in bloom.",
+      "source": "https://palworld.wiki.gg/wiki/Nightmare_Bloom",
+      "ct": 50,
+      "power": 160
+    },
+    "Nightmare Ray": {
+      "name": "Nightmare Ray",
+      "element": "Dark",
+      "description": "Bellanoir's exclusive skill. Disappears suddenly, then reappears while firing a barrage of beams.",
+      "source": "https://palworld.wiki.gg/wiki/Nightmare_Ray",
+      "ct": 50,
+      "power": 140
+    },
+    "Phantom Peck": {
+      "name": "Phantom Peck",
+      "element": "Dark",
+      "description": "Cawgnito's exclusive skill. Teleports next to an enemy before attacking with its beak.",
+      "source": "https://palworld.wiki.gg/wiki/Phantom_Peck",
+      "ct": 7,
+      "power": 55,
+      "status": "Blind",
+      "statusChance": 50.0
+    },
+    "Phoenix Flare": {
+      "name": "Phoenix Flare",
+      "element": "Fire",
+      "description": "Faleris's special skill. Covers its body in a tornado of flames before charging forward.",
+      "source": "https://palworld.wiki.gg/wiki/Phoenix_Flare",
+      "ct": 28,
+      "power": 135,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Poison Shower": {
+      "name": "Poison Shower",
+      "element": "Dark",
+      "description": "Focuses energy into the body and scatters poison orbs in all directions.",
+      "source": "https://palworld.wiki.gg/wiki/Poison_Shower",
+      "ct": 22,
+      "power": 90,
+      "status": "Poison",
+      "statusChance": 500.0
+    },
+    "Polykeraunos": {
+      "name": "Polykeraunos",
+      "element": "Electric",
+      "description": "Orserk's exclusive skill. Summons numerous thunder spears and hurls them at the enemy. The first spear is imbued with the power of lightning and explodes after a few seconds.",
+      "source": "https://palworld.wiki.gg/wiki/Polykeraunos",
+      "ct": 50,
+      "power": 180,
+      "status": "Electrify",
+      "statusChance": 100.0
+    },
+    "Punch": {
+      "name": "Punch",
+      "element": "Neutral",
+      "description": "Punch with conviction; believe in the power of the fist.",
+      "source": "https://palworld.wiki.gg/wiki/Punch",
+      "ct": 1,
+      "power": 12
+    },
+    "Punch Flurry": {
+      "name": "Punch Flurry",
+      "element": "Neutral",
+      "description": "Cattiva's special skill. Pursues enemies, repeatedly punching them with both its fists.",
+      "source": "https://palworld.wiki.gg/wiki/Punch_Flurry",
+      "ct": 1,
+      "power": 40
+    },
+    "Raging Flame Wave": {
+      "name": "Raging Flame Wave",
+      "element": "Fire",
+      "description": "Faleris's exclusive skill. Generates multiple tornadoes of scorching fire and charges forward. The tornadoes converge in the center and eventually merge into a single massive tornado.",
+      "source": "https://palworld.wiki.gg/wiki/Raging_Flame_Wave",
+      "ct": 38,
+      "power": 145,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Raid Cutter": {
+      "name": "Raid Cutter",
+      "element": "Grass",
+      "description": "Shoots countless wind swords that fly straight towards the enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Raid_Cutter",
+      "ct": 35,
+      "power": 110,
+      "status": "Ivy-covered",
+      "statusChance": 35.0
+    },
+    "Reckless Charge": {
+      "name": "Reckless Charge",
+      "element": "Neutral",
+      "description": "Rushoar's special skill. Takes aim at a foe and rushes at them with a mad charge.",
+      "source": "https://palworld.wiki.gg/wiki/Reckless_Charge",
+      "ct": 2,
+      "power": 55
+    },
+    "Rocket Slam": {
+      "name": "Rocket Slam",
+      "element": "Dragon",
+      "description": "Chillet's exclusive skill. Gathers a bit of strength and it leaps forward. When landing it's always scared so it closes its eyes.",
+      "source": "https://palworld.wiki.gg/wiki/Rocket_Slam",
+      "ct": 6,
+      "power": 50
+    },
+    "Roly Poly": {
+      "name": "Roly Poly",
+      "element": "Neutral",
+      "description": "Lamball's special skill. Curls into a ball, rolling after any enemies in its way. Becomes dizzy and unable to move after the attack ends.",
+      "source": "https://palworld.wiki.gg/wiki/Roly_Poly",
+      "ct": 1,
+      "power": 35
+    },
+    "Seigetsu Flash": {
+      "name": "Seigetsu Flash",
+      "element": "Neutral",
+      "description": "Selyne's exclusive skill. Launches three high-speed swords imbued with moonlight power in succession.",
+      "source": "https://palworld.wiki.gg/wiki/Seigetsu_Flash",
+      "ct": 24,
+      "power": 110
+    },
+    "Shell Spin": {
+      "name": "Shell Spin",
+      "element": "Ground",
+      "description": "Digtoise's exclusive skill. Moves while spinning its whole body at high speeds. Drills through enemies, dealing continuous damage.",
+      "source": "https://palworld.wiki.gg/wiki/Shell_Spin",
+      "ct": 9,
+      "power": 65
+    },
+    "Spear Thrust": {
+      "name": "Spear Thrust",
+      "element": "Neutral",
+      "description": "Paladius's exclusive skill. Clads itself in holy power before charging forward with its spear. The shield in its other hand protects from attacks during the charge.",
+      "source": "https://palworld.wiki.gg/wiki/Spear_Thrust",
+      "ct": 40,
+      "power": 120
+    },
+    "Spinning Lance": {
+      "name": "Spinning Lance",
+      "element": "Grass",
+      "description": "Elizabee's exclusive skill. Channels power into its staff, and unleashes it in a whirl.",
+      "source": "https://palworld.wiki.gg/wiki/Spinning_Lance",
+      "ct": 9,
+      "power": 70,
+      "status": "Ivy-Covered",
+      "statusChance": 100.0
+    },
+    "Spinning Roundhouse": {
+      "name": "Spinning Roundhouse",
+      "element": "Ground",
+      "description": "Anubis's special skill. Performs a spin kick with its strong legs, cutting down enemies over a wide area.",
+      "source": "https://palworld.wiki.gg/wiki/Spinning_Roundhouse",
+      "ct": 21,
+      "power": 100
+    },
+    "Thunder Rail": {
+      "name": "Thunder Rail",
+      "element": "Electric",
+      "description": "Charge the power of lightning to the limit and fires multiple simultaneous electric shocks at the enemy.",
+      "source": "https://palworld.wiki.gg/wiki/Thunder_Rail",
+      "ct": 60,
+      "power": 200,
+      "status": "Electrify",
+      "statusChance": 100.0
+    },
+    "Tornado Attack": {
+      "name": "Tornado Attack",
+      "element": "Neutral",
+      "description": "Nitewing's exclusive skill. Generates a tornado before soaring towards its target.",
+      "source": "https://palworld.wiki.gg/wiki/Tornado_Attack",
+      "ct": 13,
+      "power": 65
+    },
+    "Torrential Blast": {
+      "name": "Torrential Blast",
+      "element": "Water",
+      "description": "Fires a high-pressure stream of water forward. After a short delay, the stream branches off to the left and right.",
+      "source": "https://palworld.wiki.gg/wiki/Torrential_Blast",
+      "ct": 35,
+      "power": 110
+    },
+    "Trigger Happy": {
+      "name": "Trigger Happy",
+      "element": "Water",
+      "description": "Finsider's exclusive skill. Draws twin water blasters from its mouth, firing six shots alternately left and right, then finishes by combining both blasters to unleash one powerful shot.",
+      "source": "https://palworld.wiki.gg/wiki/Trigger_Happy",
+      "ct": 24,
+      "power": 115
+    },
+    "Twin Spears": {
+      "name": "Twin Spears",
+      "element": "Dark",
+      "description": "Necromus' exclusive skill. Clads its twin spears with vicious whirlwinds and charges forward, thrusting them one after the other.",
+      "source": "https://palworld.wiki.gg/wiki/Twin_Spears",
+      "ct": 40,
+      "power": 120
+    },
+    "Upper Smash": {
+      "name": "Upper Smash",
+      "element": "Dark",
+      "description": "Prixter's exclusive skill. Closes the distance to the enemy at high speed, then attacks decisively with its pincers.",
+      "source": "https://palworld.wiki.gg/wiki/Upper_Smash",
+      "ct": 24,
+      "power": 110,
+      "status": "Poison",
+      "statusChance": 100.0
+    },
+    "Volcanic Burst": {
+      "name": "Volcanic Burst",
+      "element": "Fire",
+      "description": "Reptyro's exclusive skill. Raises its front legs before slamming them into the ground, causing volcanic eruptions under its enemies. It simultaneously bombards them with volcanic bombs from above.",
+      "source": "https://palworld.wiki.gg/wiki/Volcanic_Burst",
+      "ct": 45,
+      "power": 100,
+      "status": "Burn",
+      "statusChance": 100.0
+    },
+    "Wind Edge": {
+      "name": "Wind Edge",
+      "element": "Grass",
+      "description": "Launches sharp blades of air that fan out.",
+      "source": "https://palworld.wiki.gg/wiki/Wind_Edge",
+      "ct": 22,
+      "power": 90,
+      "status": "Ivy-covered",
+      "statusChance": 35.0
     }
   }
 }
