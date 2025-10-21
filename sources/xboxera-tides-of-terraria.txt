@@ -1,0 +1,122 @@
+Earlier today, developer Pocketpair announced that its third-person pocket monster-infused survival game ‘ Palworld ‘ has finally seen its long-awaited Terraria collaboration go live: Palworld v0.6 “Tides of Terraria” is now available across PC via Steam/Xbox PC, Xbox Series, and PlayStation 5 consoles. This update brings about Terraria-themed weapons, dungeon, enemies, materials, fishing, islands, and more! The player level cap has also been boosted to 65. Plus, PlayStation 5 users can now finally dig into their own dedicated server system.
+Have a gander below for the full patch notes on Palworld v0.6. The game is also available on Xbox Game Pass —being a Day One Game Pass launch title.
+▼Palworld Terraria Collab!
+・Terraria Dungeon
+⤷ A unique dungeon featuring enemies from Terraria has been added! Collect materials in the dungeon to create equipment from the world of Terraria!
+・Terraria Equipment
+⤷ 6 new weapons and 7 new armour pieces from Terraria have been added!
+・The terrifying “Moon Lord” raid boss has appeared!
+⤷ The Moon Lord has invaded Palworld! Work together with your friends and Pals to defeat the greatest threat the islands have faced!
+▼New Content
+・PS5 Dedicated Servers!
+・Fishing!
+⤷ Craft a fishing rod and bait to catch new Pals! To start fishing, cast your rod in water where you can see fish shadows.
+・Salvage System!
+⤷ Ride on water Pals and use the fishing rod to salvage supplies at sea! Collect new ores salvaged from the ocean floor to strengthen your weapons.
+・New Islands!
+⤷ Three new types of islands have been added to the world: Tropical Islands, Iceberg Island, and Shipwreck Island! Find new Pals that live on each of these new islands!
+・Mission System!
+⤷ You can now find and accept missions around the Palpagos Islands. Help the islanders and get rewards!
+・Zoe’s Special Mission!
+⤷ By completing missions for Zoe, you can earn her trust and recruit her as an ally!
+・Pal Trust Mechanic!
+⤷ The more time you spend with your Pal, the more trust you will gain, and stats will be increased. The weaker a Pal’s original stats are, the greater the trust adjustment will be, so even weaker Pals will be able to shine!
+・Sleep together with your Pals!
+⤷ After a hard day of farming and battling bosses, you and your Pals can take a hard-earned rest together!
+・Treasure Maps!
+⤷ Use treasure maps to find the location of the hidden treasure and obtain valuable items!
+・Enemy Bases?!
+⤷ Enemy factions now build bases just like players! They are on high alert and will defend it with their lives, but if you manage to raid them successfully, you can obtain new blueprints for buildings related to that faction.
+・Settlement Overhaul!
+⤷ We’ve made the settlements larger and feel more lived-in! There are also many mission NPCs now to meet.
+・Player level cap raised from 60 to 65!
+・New Buildings!
+⤷ Pal Surgery Table – By using various implants, you can overwrite your Pal’s passives! You can also change the gender of your Pals here!
+⤷ Fishing Pond – Relax and catch some fish in the comfort of your base.
+⤷ Hexolite Quartz Mine – Well, you knew we would add this one eventually!
+⤷ Large Incubator – Hatch multiple eggs at the same time!
+⤷ Palbox Control Device – A terminal that allows you to access your Pal Box from anywhere in the base. It makes Pal swapping during raid battles more efficient.
+・ New Building Material –  \[Clean] ⤷ Decorate your base with futuristic floors and walls with this new building set! ・New Mechanic – Turbulence ⤷ Find unusual air turbulence around the world and use it to jump high into the sky! ・New Weapons! ⤷ Charge Rifle ⤷ Energy Shotgun ⤷ Overheat Rifle ⤷ Boost Gun ⤷ Pal Recovery Grenade (These two are weapons for tamers who want to support their Pal!) ・New Item Types! ⤷ Whistles and Growth Acceleration Bell have been added! ⤷ New food recipes. ▼Arena ・A single-player challenge mode has been added! ⤷ Raise your rank by facing off against the fierce warriors of Palpagos Island! Get various rewards with the battle tickets you receive when you win! ・You can now set rules in the arena, such as banning certain pals. ・A public Pal Box has been added at the entrance to the arena that all players can use. ・An arena spectator function has been added in multiplayer! ▼Mechanic Adjustments ・Added equipment durability to the game settings. ・When a cooling Pal is assigned to the flea market, food spoilage rate is now reduced. ・Lyleen’s ability “Bountiful Protection” now recovers HP for all allies within range. ▼Balance Adjustments ・Some aggressive enemies have been made friendly. ・Pal skill cooldowns will tick down even if they are not summoned. ・The speed and stamina of Pals that can be mounted have been adjusted, and the speed of some Pals that were too slow has been improved. ・The lineup of bounty hunters has been expanded. ・With the implementation of the mission system, the rewards obtained from NPCs have been adjusted. To maintain fairness, conversation logs with all NPCs have been reset so that rewards can be received again. ・Pal Condensation is considered end-game content, so the strength of Axel, Marcus, and Victor on normal difficulty has been reduced to reduce its necessity. ・The power of some active skills, such as Pal Blast, has been increased. ・The probability of getting books that enhance Pal’s work aptitude from attribute treasure chests has been increased. ▼Pals ・New Skins!! The results of the 1st year anniversary popularity poll have been decided, and three new skins have been added to celebrate these results! (※You must own the Pal to equip the skin) ⤷ Crown Chillet ⤷ Cyber Jetragon ⤷ Desert King Anubis ・Pals can now swim! ⤷ Swimming motions and animations have been added for Pals, and their speed in the water has been adjusted. ・New Water Skills ⤷ Geyser Gush ⤷ Aqua Surge ⤷ Torrential Blast ⤷ Hydro Slicer ・New Grass Skills ⤷ Crosswind ⤷ Reflect Leaf ・New Ice Skill ⤷ Freeze Wall ・New Unique Skills ⤷ Hydro Spin ⤷ Thalasonic Laser ⤷ High Breach ⤷ Lantern Sweep ⤷ Scorching Lantern Sweep ⤷ Smoke Jet ⤷ Trigger Happy ⤷ Chaotic Spray ⤷ Konoha Flip ⤷ Deep Breath ⤷ Dash Kick ⤷ Thunderslide ・New passive skills have been added! ▼UI ・Implemented “Easy Bulk Storage” feature! Conveniently store all materials in any chest around your base with the click of one button! ・Changed specifications to automatically select materials in bulk in the Pal Condensation UI. ・You can now set and quickly select your current Pal presets from the Pal Box UI. ・All neutral enemies now have green HP gauges, and only aggressive or hostile enemies have red HP gauges. ▼Multiplayer ・Fixed a bug where the option to display servers with matching versions was not working. ▼World ・Added more patterns to random dungeons. ・Fishing spots where fish shadows appear have been placed all around the world. ・Salvage spots have been placed out at sea. ▼Achievements ・Several new achievements have been added. ▼Bug fixes ・Fixed a bug where Jetragon would jump too high when jumping. ・Many many other minor issues have been fixed. ＝＝＝ Thank you for your continued support of Palworld.
+⤷ Decorate your base with futuristic floors and walls with this new building set!
+・New Mechanic – Turbulence
+⤷ Find unusual air turbulence around the world and use it to jump high into the sky!
+・New Weapons!
+⤷ Charge Rifle
+⤷ Energy Shotgun
+⤷ Overheat Rifle
+⤷ Boost Gun
+⤷ Pal Recovery Grenade
+(These two are weapons for tamers who want to support their Pal!)
+・New Item Types!
+⤷ Whistles and Growth Acceleration Bell have been added!
+⤷ New food recipes.
+▼Arena
+・A single-player challenge mode has been added!
+⤷ Raise your rank by facing off against the fierce warriors of Palpagos Island! Get various rewards with the battle tickets you receive when you win!
+・You can now set rules in the arena, such as banning certain pals.
+・A public Pal Box has been added at the entrance to the arena that all players can use.
+・An arena spectator function has been added in multiplayer!
+▼Mechanic Adjustments
+・Added equipment durability to the game settings.
+・When a cooling Pal is assigned to the flea market, food spoilage rate is now reduced.
+・Lyleen’s ability “Bountiful Protection” now recovers HP for all allies within range.
+▼Balance Adjustments
+・Some aggressive enemies have been made friendly.
+・Pal skill cooldowns will tick down even if they are not summoned.
+・The speed and stamina of Pals that can be mounted have been adjusted, and the speed of some Pals that were too slow has been improved.
+・The lineup of bounty hunters has been expanded.
+・With the implementation of the mission system, the rewards obtained from NPCs have been adjusted. To maintain fairness, conversation logs with all NPCs have been reset so that rewards can be received again.
+・Pal Condensation is considered end-game content, so the strength of Axel, Marcus, and Victor on normal difficulty has been reduced to reduce its necessity.
+・The power of some active skills, such as Pal Blast, has been increased.
+・The probability of getting books that enhance Pal’s work aptitude from attribute treasure chests has been increased.
+▼Pals
+・New Skins!!
+The results of the 1st year anniversary popularity poll have been decided, and three new skins have been added to celebrate these results!
+(※You must own the Pal to equip the skin)
+⤷ Crown Chillet
+⤷ Cyber Jetragon
+⤷ Desert King Anubis
+・Pals can now swim!
+⤷ Swimming motions and animations have been added for Pals, and their speed in the water has been adjusted.
+・New Water Skills
+⤷ Geyser Gush
+⤷ Aqua Surge
+⤷ Torrential Blast
+⤷ Hydro Slicer
+・New Grass Skills
+⤷ Crosswind
+⤷ Reflect Leaf
+・New Ice Skill
+⤷ Freeze Wall
+・New Unique Skills
+⤷ Hydro Spin
+⤷ Thalasonic Laser
+⤷ High Breach
+⤷ Lantern Sweep
+⤷ Scorching Lantern Sweep
+⤷ Smoke Jet
+⤷ Trigger Happy
+⤷ Chaotic Spray
+⤷ Konoha Flip
+⤷ Deep Breath
+⤷ Dash Kick
+⤷ Thunderslide
+・New passive skills have been added!
+▼UI
+・Implemented “Easy Bulk Storage” feature! Conveniently store all materials in any chest around your base with the click of one button!
+・Changed specifications to automatically select materials in bulk in the Pal Condensation UI.
+・You can now set and quickly select your current Pal presets from the Pal Box UI.
+・All neutral enemies now have green HP gauges, and only aggressive or hostile enemies have red HP gauges.
+▼Multiplayer
+・Fixed a bug where the option to display servers with matching versions was not working.
+▼World
+・Added more patterns to random dungeons.
+・Fishing spots where fish shadows appear have been placed all around the world.
+・Salvage spots have been placed out at sea.
+▼Achievements
+・Several new achievements have been added.
+▼Bug fixes
+・Fixed a bug where Jetragon would jump too high when jumping.
+・Many many other minor issues have been fixed.
+＝＝＝
+Thank you for your continued support of Palworld.
