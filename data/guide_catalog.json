@@ -9596,6 +9596,112 @@
       ]
     },
     {
+      "id": "resource-chromite",
+      "title": "Chromite Prospecting Runs",
+      "source_heading": "Chromite Prospecting Runs",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Chromite for Feybreak schematics and wants a Metal Detector loop across the glowing dunes.",
+      "keywords": [
+        "chromite",
+        "metal detector",
+        "feybreak"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Equip the **Metal Detector** introduced with the Feybreak update and assign a mining Pal before travelling to the island.",
+          "citations": [
+            "gematsu-feybreak-update†L3-L11",
+            "palfandom-metal-detector†L62-L63"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "metal-detector",
+              "name": "Metal Detector"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Sweep Feybreak’s glowing sand ridges and cave mouths; dig every detector ping to extract buried Chromite caches.",
+          "citations": [
+            "gematsu-feybreak-update†L6-L7",
+            "palfandom-chromite†L58-L72"
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Cull Predator Pals, stash the Chromite back at base, and reset the loop after sleeping so nodes respawn.",
+          "citations": [
+            "gematsu-feybreak-update†L8-L9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resource-hexolite-quartz",
+      "title": "Hexolite Quartz Refinery",
+      "source_heading": "Hexolite Quartz Refinery",
+      "category": "Resources",
+      "category_group": "Resources & Crafting",
+      "shortage_menu": true,
+      "trigger": "Player needs Hexolite Quartz for late-game crafting and wants to automate Feybreak crystal production.",
+      "keywords": [
+        "hexolite",
+        "feybreak",
+        "automation"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Defeat Bjorn & Bastigor at the **Feybreak Tower** to unlock the Hexolite Quartz Mine blueprint.",
+          "citations": [
+            "gematsu-feybreak-update†L3-L7",
+            "palfandom-hexolite-quartz-mine†L73-L77"
+          ],
+          "links": [
+            {
+              "type": "boss",
+              "id": "tower-feybreak",
+              "name": "Feybreak Tower"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Mine Feybreak’s rainbow **Hexolite Quartz** veins and mark rich ridges for future automation runs.",
+          "citations": [
+            "palfandom-hexolite-quartz†L58-L72"
+          ],
+          "links": [
+            {
+              "type": "item",
+              "id": "hexolite_quartz",
+              "slug": "hexolite-quartz",
+              "name": "Hexolite Quartz"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Construct the **Hexolite Quartz Mine** at base and assign mining pals to automate crystal production.",
+          "citations": [
+            "palfandom-hexolite-quartz-mine†L63-L77"
+          ],
+          "links": [
+            {
+              "type": "station",
+              "id": "hexolite-quartz-mine",
+              "name": "Hexolite Quartz Mine"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "resource-caprity-meat",
       "title": "Caprity Meat Pasture Circuit",
       "source_heading": "Caprity Meat Pasture Circuit",
@@ -11622,6 +11728,126 @@
               "id": "campfire",
               "name": "Campfire"
             }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quest-feybreak-expedition",
+      "title": "Feybreak Expedition Tour",
+      "source_heading": "Feybreak Expedition Tour",
+      "category": "Missions",
+      "category_group": "Getting Started & Core Missions",
+      "shortage_menu": false,
+      "trigger": "Player asks how to explore the Feybreak update or mentions the missile battery camp on the new island.",
+      "keywords": [
+        "feybreak",
+        "expedition",
+        "predator pals",
+        "chromite"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Establish a Feybreak outpost by activating the local fast-travel statue and building a respawn base on the shore.",
+          "citations": [
+            "siliconera-feybreak†L1-L5"
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Push inland to disable the Feybreak Warrior missile battery so patrols stop shelling the island interior.",
+          "citations": [
+            "gematsu-feybreak-update†L3-L5"
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Hunt Predator Pals roaming Feybreak to earn rare drops and keep resource runs safe.",
+          "citations": [
+            "gematsu-feybreak-update†L8-L9"
+          ]
+        },
+        {
+          "order": 4,
+          "instruction": "Run Metal Detector sweeps across the glowing dunes to dig up buried Chromite caches for late-game crafting.",
+          "citations": [
+            "gematsu-feybreak-update†L6-L7",
+            "palfandom-chromite†L58-L72"
+          ]
+        },
+        {
+          "order": 5,
+          "instruction": "Mine Hexolite Quartz veins and prepare to automate production once the Hexolite Quartz Mine unlocks.",
+          "citations": [
+            "palfandom-hexolite-quartz†L58-L72",
+            "palfandom-hexolite-quartz-mine†L63-L77"
+          ]
+        },
+        {
+          "order": 6,
+          "instruction": "Collect the new Pouches, Double Jump Boots, and Air Dash Boots scattered around Feybreak for enhanced mobility.",
+          "citations": [
+            "gematsu-feybreak-update†L10-L12"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event-tides-of-terraria",
+      "title": "Tides of Terraria Expedition",
+      "source_heading": "Tides of Terraria Expedition",
+      "category": "Missions",
+      "category_group": "Getting Started & Core Missions",
+      "shortage_menu": false,
+      "trigger": "Player wants to experience the Tides of Terraria collaboration or asks about the Terraria dungeon.",
+      "keywords": [
+        "terraria",
+        "collaboration",
+        "dungeon",
+        "turbulence"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "instruction": "Install the v0.6 update and review the Tides of Terraria patch notes so you know where the new content appears.",
+          "citations": [
+            "xboxera-tides-of-terraria†L1-L3"
+          ]
+        },
+        {
+          "order": 2,
+          "instruction": "Clear the Terraria Dungeon to gather crossover materials and unlock the collab crafting chain.",
+          "citations": [
+            "xboxera-tides-of-terraria†L4-L15"
+          ]
+        },
+        {
+          "order": 3,
+          "instruction": "Forge the six new weapons and seven armor pieces with dungeon loot before challenging harder content.",
+          "citations": [
+            "xboxera-tides-of-terraria†L7-L49"
+          ]
+        },
+        {
+          "order": 4,
+          "instruction": "Ride turbulence and salvage sea routes to collect additional Terraria-themed ores and supplies.",
+          "citations": [
+            "xboxera-tides-of-terraria†L15-L41"
+          ]
+        },
+        {
+          "order": 5,
+          "instruction": "Push the level cap from 60 to 65 and take on arena challenges to earn extra rewards.",
+          "citations": [
+            "xboxera-tides-of-terraria†L32-L49"
+          ]
+        },
+        {
+          "order": 6,
+          "instruction": "Enable the new Easy Bulk Storage option so collab materials auto-sort into nearby chests.",
+          "citations": [
+            "xboxera-tides-of-terraria†L106-L106"
           ]
         }
       ]

@@ -24,8 +24,8 @@ system used for map references, and the supported difficulty/party modes.
 ```json
 { 
   "schema_version": 2,
-  "game_version": "v0.6.7 (build 1.079.736)",
-  "verified_at_utc": "2025-10-03T00:00:00Z",
+  "game_version": "v0.6.0 (Feybreak & Tides of Terraria)",
+  "verified_at_utc": "2025-12-27T00:00:00Z",
   "world_map_reference": "Palworld uses a two‑dimensional coordinate system where the X axis runs east–west and the Y axis runs north–south.  Coordinates may be positive or negative.  (0,0) lies near the initial spawn area on the main island.",
   "difficulty_modes": ["normal", "hardcore"],
   "party_modes": ["solo", "coop"]
@@ -1165,7 +1165,7 @@ facts (spawn locations, recipe costs, drop rates, etc.).
 
 To support intent-driven prompting, every guide described in
 `palworld_complete_guide.md` has been normalised into a machine-readable
-catalogue.  The parsed dataset contains **201** guide entries and lives at
+catalogue.  The parsed dataset contains **206** guide entries and lives at
 `data/guide_catalog.json`.  Each entry tracks its canonical title,
 category, trigger phrases, keyword set and numbered instructions (with
 citations preserved where they existed in the source material).
@@ -1174,7 +1174,7 @@ citations preserved where they existed in the source material).
 {
   "guide_catalog": {
     "path": "data/guide_catalog.json",
-    "guide_count": 202,
+    "guide_count": 206,
     "fields": [
       "id",
       "title",
@@ -22713,6 +22713,358 @@ carries you from late-game prep into the flagship legendary mount.
     {
       "route_id": "quest-main-story",
       "reason": "Wrap the Investigator campaign and review completed questions"
+    },
+    {
+      "route_id": "quest-feybreak-expedition",
+      "reason": "Tour Feybreak’s new faction, resources, and loot before closing the Investigator log"
+    }
+  ]
+}
+```
+
+### Route: Feybreak Expedition Tour
+
+Feybreak Expedition Tour charts the new island revealed during the update, clears the Feybreak Warrior missile battery camp, hunts Predator Pals, and harvests Chromite and Hexolite caches before banking the new mobility loot.【siliconera-feybreak†L1-L5】【gematsu-feybreak-update†L3-L12】【palfandom-hexolite-quartz†L58-L72】
+
+```json
+{
+  "route_id": "quest-feybreak-expedition",
+  "title": "Feybreak Expedition Tour",
+  "category": "progression",
+  "tags": [
+    "feybreak",
+    "exploration",
+    "story",
+    "resource-chain"
+  ],
+  "progression_role": "core",
+  "recommended_level": {
+    "min": 52,
+    "max": 62
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "tower-feybreak"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Establish a safe outpost on Feybreak",
+    "Disable the Feybreak Warrior missile battery camp",
+    "Cull Predator Pal patrols for rare drops",
+    "Harvest buried Chromite and surface Hexolite veins",
+    "Collect new mobility gear introduced with the update"
+  ],
+  "estimated_time_minutes": {
+    "solo": 60,
+    "coop": 45
+  },
+  "estimated_xp_gain": {
+    "min": 2400,
+    "max": 3600
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Losing control of the missile battery lets reinforcements retake the island and wastes gathered resources.",
+    "hardcore": "Hardcore wipes against Predator Pals risk end-game pals and newly harvested Chromite and Hexolite."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Stick to the shoreline and glowing dunes until you stabilise Chromite income, then push inland toward the missile battery once gear improves.【gematsu-feybreak-update†L3-L11】【palfandom-chromite†L58-L72】",
+    "overleveled": "Split duties—one player clears Predator Pals while the other digs Chromite and Hexolite so the island resets with every loop.【gematsu-feybreak-update†L6-L12】【palfandom-hexolite-quartz†L58-L72】",
+    "resource_shortages": [
+      {
+        "item_id": "chromite",
+        "solution": "Sweep the glowing sands with a Metal Detector; the Feybreak dunes hide Chromite caches that respawn each day.【gematsu-feybreak-update†L6-L7】【palfandom-chromite†L58-L72】"
+      },
+      {
+        "item_id": "hexolite_quartz",
+        "solution": "Loop the crystalline ridges and the Hexolite Quartz Mine unlock to refill late-game crafting stock.【palfandom-hexolite-quartz†L58-L72】【palfandom-hexolite-quartz-mine†L63-L77】"
+      }
+    ],
+    "time_limited": "Prioritise the missile battery clear, one Predator hunt, and a Chromite sweep so you leave with new loot even on a short session.【gematsu-feybreak-update†L3-L12】",
+    "dynamic_rules": []
+  },
+  "checkpoints": [
+    {
+      "id": "quest-feybreak-expedition:checkpoint-outpost",
+      "summary": "Feybreak outpost secured",
+      "benefits": [
+        "Fast travel unlocked",
+        "Respawn point established"
+      ],
+      "related_steps": [
+        "quest-feybreak-expedition:001"
+      ]
+    },
+    {
+      "id": "quest-feybreak-expedition:checkpoint-harvest",
+      "summary": "Chromite and Hexolite banked",
+      "benefits": [
+        "Resource caches stored",
+        "Predator patrols thinned"
+      ],
+      "related_steps": [
+        "quest-feybreak-expedition:004",
+        "quest-feybreak-expedition:005"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-chromite",
+      "resource-hexolite-quartz"
+    ],
+    "optional": [
+      "event-tides-of-terraria"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Sleep to roll the in-game day so Chromite caches and Predator patrols respawn, then rebuild your loop.【gematsu-feybreak-update†L6-L12】",
+    "hardcore": "Stage backup gear at the outpost and re-enter with coop support to reclaim lost packs before Predator Pals despawn their loot."
+  },
+  "steps": [
+    {
+      "step_id": "quest-feybreak-expedition:001",
+      "type": "travel",
+      "summary": "Establish the Feybreak outpost",
+      "detail": "Sail or glide to Feybreak Island, activate the local fast-travel statue, and build a respawn base near the shore.【siliconera-feybreak†L1-L5】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 180,
+        "max": 260
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "siliconera-feybreak†L1-L5"
+      ]
+    },
+    {
+      "step_id": "quest-feybreak-expedition:002",
+      "type": "fight",
+      "summary": "Disable the missile battery camp",
+      "detail": "Push inland to the Feybreak Warrior missile battery, defeat the garrison, and shut down the missile barrages guarding the island interior.【gematsu-feybreak-update†L3-L5】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 520,
+        "max": 780
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "gematsu-feybreak-update†L3-L5"
+      ]
+    },
+    {
+      "step_id": "quest-feybreak-expedition:003",
+      "type": "fight",
+      "summary": "Hunt Predator Pals",
+      "detail": "Stalk Predator Pals roaming the island to earn rare drops and clear patrols before they ambush your harvest teams.【gematsu-feybreak-update†L8-L9】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": [
+          "medical-supplies"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 420,
+        "max": 600
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "gematsu-feybreak-update†L8-L9"
+      ]
+    },
+    {
+      "step_id": "quest-feybreak-expedition:004",
+      "type": "gather",
+      "summary": "Dig Chromite caches",
+      "detail": "Use the Metal Detector to uncover Chromite buried beneath Feybreak’s glowing sands and stash the metal for late-game crafting.【gematsu-feybreak-update†L6-L7】【palfandom-chromite†L58-L72】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "chromite",
+          "qty": 20
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "metal-detector"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 360,
+        "max": 520
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "chromite",
+            "qty": 20
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-chromite"
+        }
+      ],
+      "citations": [
+        "gematsu-feybreak-update†L6-L7",
+        "palfandom-chromite†L58-L72"
+      ]
+    },
+    {
+      "step_id": "quest-feybreak-expedition:005",
+      "type": "gather",
+      "summary": "Mine Hexolite Quartz",
+      "detail": "Mine the rainbow Hexolite veins and mark the future automation site unlocked after the tower clear.【palfandom-hexolite-quartz†L58-L72】【palfandom-hexolite-quartz-mine†L63-L77】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "hexolite_quartz",
+          "qty": 20
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 360,
+        "max": 520
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "hexolite_quartz",
+            "qty": 20
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-hexolite-quartz"
+        }
+      ],
+      "citations": [
+        "palfandom-hexolite-quartz†L58-L72",
+        "palfandom-hexolite-quartz-mine†L63-L77"
+      ]
+    },
+    {
+      "step_id": "quest-feybreak-expedition:006",
+      "type": "quest",
+      "summary": "Collect Feybreak mobility loot",
+      "detail": "Loot the new Pouches, Double Jump Boots, and Air Dash Boots introduced with the update to expand traversal options before leaving the island.【gematsu-feybreak-update†L10-L12】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 320,
+        "max": 420
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "tech": [
+            "double-jump-boots",
+            "air-dash-boots"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "gematsu-feybreak-update†L10-L12"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "quest-chain",
+      "quest_id": "feybreak-expedition"
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1 to +2",
+    "key_unlocks": [
+      "feybreak-outpost",
+      "predator-drops"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 5,
+    "boss_targets": 0,
+    "quest_nodes": 2
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-chromite",
+      "reason": "Spin Chromite loops now that detector paths are mapped"
+    },
+    {
+      "route_id": "resource-hexolite-quartz",
+      "reason": "Automate Hexolite production after scouting the veins"
+    },
+    {
+      "route_id": "event-tides-of-terraria",
+      "reason": "Head into the Terraria collaboration once Feybreak is under control"
     }
   ]
 }
@@ -23095,6 +23447,316 @@ help players understand why a route is suggested.
       "resource_crunch": "Prioritise support routes whose outputs satisfy the most urgent resource gap."
     }
   }
+}
+```
+
+### Route: Tides of Terraria Expedition
+
+Tides of Terraria Expedition dives into the collaboration dungeon, crafts Terraria gear, rides turbulence to new islands, and pushes the new level cap while wiring in the event quality-of-life upgrades.【xboxera-tides-of-terraria†L1-L106】
+
+```json
+{
+  "route_id": "event-tides-of-terraria",
+  "title": "Tides of Terraria Expedition",
+  "category": "progression",
+  "tags": [
+    "terraria",
+    "dungeon",
+    "collaboration",
+    "event"
+  ],
+  "progression_role": "core",
+  "recommended_level": {
+    "min": 60,
+    "max": 65
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "quest-feybreak-expedition"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Unlock and clear the Terraria Dungeon",
+    "Forge the new Terraria weapons and armor set",
+    "Use turbulence and sea salvage to reach new islands",
+    "Push the player level cap to 65 and test the arena",
+    "Enable event quality-of-life upgrades like Easy Bulk Storage"
+  ],
+  "estimated_time_minutes": {
+    "solo": 75,
+    "coop": 55
+  },
+  "estimated_xp_gain": {
+    "min": 2800,
+    "max": 4200
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Wiping in the dungeon consumes potions and forces a full reset of the Terraria run.",
+    "hardcore": "Hardcore defeats in the dungeon or arena can delete top-tier pals and weapons obtained from the collab."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Grind Hexolite automation and predator hunts before entering the dungeon so you can survive the Terraria enemy waves.【xboxera-tides-of-terraria†L1-L49】",
+    "overleveled": "Split roles—one player farms dungeon bosses for gear while another salvages sea turbulence routes for new materials.【xboxera-tides-of-terraria†L15-L41】",
+    "resource_shortages": [
+      {
+        "item_id": "terraria_materials",
+        "solution": "Loop the Terraria Dungeon for drops, then salvage sea turbulence zones for the new ores that fuel collab recipes.【xboxera-tides-of-terraria†L15-L41】"
+      }
+    ],
+    "time_limited": "Run a single dungeon clear, craft a weapon, and set turbulence waypoints so you bank progress even during short sessions.【xboxera-tides-of-terraria†L4-L41】",
+    "dynamic_rules": []
+  },
+  "checkpoints": [
+    {
+      "id": "event-tides-of-terraria:checkpoint-dungeon",
+      "summary": "Terraria Dungeon cleared",
+      "benefits": [
+        "Access to Terraria materials"
+      ],
+      "related_steps": [
+        "event-tides-of-terraria:002"
+      ]
+    },
+    {
+      "id": "event-tides-of-terraria:checkpoint-gear",
+      "summary": "Terraria gear forged",
+      "benefits": [
+        "Loadout upgraded",
+        "Arena ready"
+      ],
+      "related_steps": [
+        "event-tides-of-terraria:003",
+        "event-tides-of-terraria:004"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-hexolite-quartz",
+      "resource-chromite"
+    ],
+    "optional": [
+      "quest-main-story"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Restock potions and re-enter the Terraria Dungeon; enemies respawn, letting you re-earn lost drops.【xboxera-tides-of-terraria†L4-L41】",
+    "hardcore": "Bring coop backup to kite bosses and exit early if durability or pal HP dips too low."
+  },
+  "steps": [
+    {
+      "step_id": "event-tides-of-terraria:001",
+      "type": "quest",
+      "summary": "Patch into v0.6",
+      "detail": "Update to Palworld v0.6 and review the Tides of Terraria patch notes so you know where the new content lives.【xboxera-tides-of-terraria†L1-L3】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "xboxera-tides-of-terraria†L1-L3"
+      ]
+    },
+    {
+      "step_id": "event-tides-of-terraria:002",
+      "type": "fight",
+      "summary": "Clear the Terraria Dungeon",
+      "detail": "Enter the new Terraria Dungeon, defeat the themed enemies, and collect the materials required for crossover recipes.【xboxera-tides-of-terraria†L4-L15】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": [
+          "medical-supplies"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 900,
+        "max": 1400
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "terraria_materials",
+            "qty": 12
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "xboxera-tides-of-terraria†L4-L15"
+      ]
+    },
+    {
+      "step_id": "event-tides-of-terraria:003",
+      "type": "craft",
+      "summary": "Forge Terraria gear",
+      "detail": "Craft the six new weapons and seven armor pieces with the dungeon loot to prep for higher-tier encounters.【xboxera-tides-of-terraria†L7-L49】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 420,
+        "max": 640
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "xboxera-tides-of-terraria†L7-L49"
+      ]
+    },
+    {
+      "step_id": "event-tides-of-terraria:004",
+      "type": "explore",
+      "summary": "Ride turbulence and salvage",
+      "detail": "Locate turbulence pockets, ride airborne currents to new mini islands, and fish salvage spots for collaboration ores.【xboxera-tides-of-terraria†L15-L41】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 520,
+        "max": 720
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "terraria_materials",
+            "qty": 8
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "xboxera-tides-of-terraria†L15-L41"
+      ]
+    },
+    {
+      "step_id": "event-tides-of-terraria:005",
+      "type": "quest",
+      "summary": "Reach level 65 and arena",
+      "detail": "Use the new content to climb from level 60 to 65 and challenge the arena for extra rewards and tickets.【xboxera-tides-of-terraria†L32-L49】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 680,
+        "max": 960
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "xboxera-tides-of-terraria†L32-L49"
+      ]
+    },
+    {
+      "step_id": "event-tides-of-terraria:006",
+      "type": "build",
+      "summary": "Enable Easy Bulk Storage",
+      "detail": "Toggle the new Easy Bulk Storage feature at base so collab materials auto-sort into nearby chests.【xboxera-tides-of-terraria†L106-L106】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 180,
+        "max": 260
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "stations": [
+            "easy-bulk-storage"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "xboxera-tides-of-terraria†L106-L106"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "quest-chain",
+      "quest_id": "tides-of-terraria"
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+1 to +2",
+    "key_unlocks": [
+      "terraria-dungeon",
+      "turbulence-network"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 5,
+    "boss_targets": 1,
+    "quest_nodes": 2
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-hexolite-quartz",
+      "reason": "Keep Hexolite flowing for the new collab schematics"
+    }
+  ]
 }
 ```
 
@@ -26414,6 +27076,487 @@ Broncherry Meat Caravan Loop rides the overworld Alpha Broncherry at (-222,-669)
     {
       "route_id": "resource-tomato-seeds",
       "reason": "Broncherry’s Tomato Seed drops feed plantations that support Rib Roast and salad dishes."
+    }
+  ]
+}
+```
+
+### Route: Chromite Prospecting Runs
+
+Chromite Prospecting Runs uses the Feybreak Metal Detector to ping buried ore pockets across the glowing sands and keep Predator Pal patrols clear while you ferry the metal home.【gematsu-feybreak-update†L3-L11】【palfandom-chromite†L58-L72】【palfandom-metal-detector†L62-L63】
+
+```json
+{
+  "route_id": "resource-chromite",
+  "title": "Chromite Prospecting Runs",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "chromite",
+    "feybreak",
+    "metal-detector"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 50,
+    "max": 60
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "quest-feybreak-expedition"
+    ],
+    "tech": [],
+    "items": [
+      "metal-detector"
+    ],
+    "pals": []
+  },
+  "objectives": [
+    "Calibrate the Metal Detector and plot Feybreak scanning loops",
+    "Dig Chromite caches along glowing dunes and cliff caverns",
+    "Control Predator Pal patrols and extract the haul to base"
+  ],
+  "estimated_time_minutes": {
+    "solo": 28,
+    "coop": 20
+  },
+  "estimated_xp_gain": {
+    "min": 600,
+    "max": 900
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Missing detector pings wastes buried nodes until they respawn and costs travel time.",
+    "hardcore": "Falling to Predator Pals during a dig loses the Chromite haul and risks detector gear."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Hug the Feybreak Warrior missile battery perimeter where the dunes are flatter and run short detector arcs until you can handle the interior patrols.【gematsu-feybreak-update†L3-L9】",
+    "overleveled": "Chain detector sweeps with flight mounts and have a partner kite Predator Pals so you can clear multiple Chromite caches per loop.【gematsu-feybreak-update†L3-L11】",
+    "resource_shortages": [
+      {
+        "item_id": "chromite",
+        "solution": "Equip the Metal Detector and re-run Feybreak’s glowing sands—the tool reveals buried Chromite veins when the island respawns each day.【palfandom-chromite†L58-L72】【palfandom-metal-detector†L62-L63】"
+      }
+    ],
+    "time_limited": "Set a ten-minute shoreline loop that pings for Chromite caches, digs any hits, and warps out before detector cooldowns expire.【gematsu-feybreak-update†L3-L7】",
+    "dynamic_rules": []
+  },
+  "checkpoints": [
+    {
+      "id": "resource-chromite:checkpoint-detector",
+      "summary": "Metal Detector calibrated",
+      "benefits": [
+        "Detector tuned to Chromite",
+        "Scan route plotted"
+      ],
+      "related_steps": [
+        "resource-chromite:001"
+      ]
+    },
+    {
+      "id": "resource-chromite:checkpoint-haul",
+      "summary": "Chromite haul secured",
+      "benefits": [
+        "Ore stored at base",
+        "Predator patrols thinned"
+      ],
+      "related_steps": [
+        "resource-chromite:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-hexolite-quartz"
+    ],
+    "optional": [
+      "resource-precious-dragon-stone"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Sleep at a Feybreak base to refresh detector nodes or pivot into Predator Pal hunts for bonus drops before the next sweep.【gematsu-feybreak-update†L8-L9】",
+    "hardcore": "Rearm at base, bring a lookout partner, and re-run the shoreline loop to safely rebuild your Chromite stock."
+  },
+  "steps": [
+    {
+      "step_id": "resource-chromite:001",
+      "type": "prepare",
+      "summary": "Equip the Metal Detector",
+      "detail": "Craft or equip the Metal Detector added in the Feybreak update, pack durable pickaxes, and assign a mining Pal before you depart for the island.【gematsu-feybreak-update†L3-L11】【palfandom-metal-detector†L62-L63】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "metal-detector"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "gematsu-feybreak-update†L3-L11",
+        "palfandom-metal-detector†L62-L63"
+      ]
+    },
+    {
+      "step_id": "resource-chromite:002",
+      "type": "explore",
+      "summary": "Scan glowing sands for Chromite",
+      "detail": "Sweep Feybreak’s glowing dunes and cave mouths with the detector; dig every signal to extract Chromite buried beneath the sand.【gematsu-feybreak-update†L3-L7】【palfandom-chromite†L58-L72】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "chromite",
+          "qty": 20
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "metal-detector"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 320,
+        "max": 520
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "chromite",
+            "qty": 20
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-hexolite-quartz"
+        }
+      ],
+      "citations": [
+        "gematsu-feybreak-update†L3-L7",
+        "palfandom-chromite†L58-L72"
+      ]
+    },
+    {
+      "step_id": "resource-chromite:003",
+      "type": "fight",
+      "summary": "Cull Predator Pals and evac",
+      "detail": "Eliminate Predator Pals that spawn during the dig, grab their rare drops, and fast travel home to stash the Chromite safely.【gematsu-feybreak-update†L8-L9】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "metal-detector"
+        ],
+        "pals": [],
+        "consumables": [
+          "medical-supplies"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 160,
+        "max": 200
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "chromite",
+            "qty": 40
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": [
+        "gematsu-feybreak-update†L8-L9"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "chromite",
+      "qty": 60
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "chromite-stockpile"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 0,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "resource-hexolite-quartz",
+      "reason": "Feed Chromite into Hexolite mining and automation once the ore loop is stable."
+    }
+  ]
+}
+```
+
+### Route: Hexolite Quartz Refinery
+
+Hexolite Quartz Refinery finishes the Feybreak tower challenge, mines rainbow crystals across the island, and automates production with the Hexolite Quartz Mine for late-game schematics.【gematsu-feybreak-update†L3-L7】【palfandom-hexolite-quartz†L58-L72】【palfandom-hexolite-quartz-mine†L63-L77】
+
+```json
+{
+  "route_id": "resource-hexolite-quartz",
+  "title": "Hexolite Quartz Refinery",
+  "category": "resources",
+  "tags": [
+    "resource-farm",
+    "hexolite-quartz",
+    "feybreak",
+    "automation"
+  ],
+  "progression_role": "support",
+  "recommended_level": {
+    "min": 55,
+    "max": 65
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "tower-feybreak"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Defeat Bjorn & Bastigor to unlock Hexolite automation",
+    "Mine Hexolite Quartz veins across Feybreak",
+    "Build the Hexolite Quartz Mine and assign mining pals"
+  ],
+  "estimated_time_minutes": {
+    "solo": 35,
+    "coop": 26
+  },
+  "estimated_xp_gain": {
+    "min": 720,
+    "max": 1100
+  },
+  "risk_profile": "medium",
+  "failure_penalties": {
+    "normal": "Losing a run delays Hexolite automation and wastes rare ore spawns.",
+    "hardcore": "Hardcore wipes before the mine is built cost the blueprint unlock and any mined crystals."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Bring resilient mounts and rotate Chromite loops until you can reliably clear the tower and predator patrols guarding Hexolite nodes.【gematsu-feybreak-update†L3-L11】【palfandom-hexolite-quartz†L58-L72】",
+    "overleveled": "Split the island into quadrants—one player mines while the other escorts pallets to the base mine for nonstop output.",
+    "resource_shortages": [
+      {
+        "item_id": "hexolite_quartz",
+        "solution": "Focus on Feybreak deposits and the dedicated Hexolite Quartz Mine; the material only spawns on the new island and from the automation structure.【palfandom-hexolite-quartz†L58-L72】【palfandom-hexolite-quartz-mine†L63-L77】"
+      }
+    ],
+    "time_limited": "Clear the tower, hit a pair of Hexolite nodes, and queue the mine build so automation runs while you log off.【palfandom-hexolite-quartz-mine†L63-L77】",
+    "dynamic_rules": []
+  },
+  "checkpoints": [
+    {
+      "id": "resource-hexolite-quartz:checkpoint-tower",
+      "summary": "Feybreak tower cleared",
+      "benefits": [
+        "Hexolite mine blueprint unlocked"
+      ],
+      "related_steps": [
+        "resource-hexolite-quartz:001"
+      ]
+    },
+    {
+      "id": "resource-hexolite-quartz:checkpoint-automation",
+      "summary": "Mine operational",
+      "benefits": [
+        "Continuous Hexolite production"
+      ],
+      "related_steps": [
+        "resource-hexolite-quartz:003"
+      ]
+    }
+  ],
+  "supporting_routes": {
+    "recommended": [
+      "resource-chromite"
+    ],
+    "optional": [
+      "tower-feybreak"
+    ]
+  },
+  "failure_recovery": {
+    "normal": "Re-run Chromite and Hexolite nodes after sleeping to respawn them, then rebuild the mine if needed.【palfandom-hexolite-quartz†L58-L72】",
+    "hardcore": "Rechallenge the tower immediately so you can repurchase the Hexolite Quartz Mine unlock before island nodes despawn."
+  },
+  "steps": [
+    {
+      "step_id": "resource-hexolite-quartz:001",
+      "type": "fight",
+      "summary": "Beat Bjorn & Bastigor",
+      "detail": "Clear the Feybreak Tower boss fight to gain access to the Hexolite Quartz Mine blueprint and open the island’s end-game loop.【gematsu-feybreak-update†L3-L7】【palfandom-hexolite-quartz-mine†L73-L77】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 4200,
+        "max": 5200
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "tech": [
+            "hexolite-quartz-mine"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "gematsu-feybreak-update†L3-L7",
+        "palfandom-hexolite-quartz-mine†L73-L77"
+      ]
+    },
+    {
+      "step_id": "resource-hexolite-quartz:002",
+      "type": "gather",
+      "summary": "Mine Feybreak crystals",
+      "detail": "Harvest Hexolite Quartz deposits across Feybreak; the rainbow ore only appears on the new island and from the dedicated mine.【palfandom-hexolite-quartz†L58-L72】",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "hexolite_quartz",
+          "qty": 30
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "metal-detector"
+        ],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 360,
+        "max": 560
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "hexolite_quartz",
+            "qty": 30
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [
+        {
+          "subroute_ref": "resource-chromite"
+        }
+      ],
+      "citations": [
+        "palfandom-hexolite-quartz†L58-L72"
+      ]
+    },
+    {
+      "step_id": "resource-hexolite-quartz:003",
+      "type": "build",
+      "summary": "Construct the Hexolite Quartz Mine",
+      "detail": "Back at base, spend Hexolite Quartz and stone to build the Hexolite Quartz Mine, then assign mining pals to automate rainbow crystal production.【palfandom-hexolite-quartz-mine†L63-L77】",
+      "targets": [],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 240,
+        "max": 320
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "hexolite_quartz",
+            "qty": 60
+          }
+        ],
+        "pals": [],
+        "unlocks": {
+          "stations": [
+            "hexolite-quartz-mine"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": [
+        "palfandom-hexolite-quartz-mine†L63-L77"
+      ]
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "have-item",
+      "item_id": "hexolite_quartz",
+      "qty": 80
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+0 to +1",
+    "key_unlocks": [
+      "hexolite-quartz-mine"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 3,
+    "boss_targets": 1,
+    "quest_nodes": 0
+  },
+  "next_routes": [
+    {
+      "route_id": "event-tides-of-terraria",
+      "reason": "Use Hexolite automation to craft gear before entering the Terraria collaboration dungeon."
     }
   ]
 }
