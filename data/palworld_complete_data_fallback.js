@@ -18628,7 +18628,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Water"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Faleris",
+          "Jormuntide"
+        ],
+        [
+          "Faleris Aqua",
+          "Faleris Aqua"
+        ]
+      ],
       "spawnAreas": []
     },
     "194": {
@@ -18712,7 +18721,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Electric"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Fenglope",
+          "Azurmane"
+        ],
+        [
+          "Fenglope Lux",
+          "Fenglope Lux"
+        ]
+      ],
       "spawnAreas": []
     },
     "195": {
@@ -18794,7 +18812,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ice"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Foxparks",
+          "Foxcicle"
+        ],
+        [
+          "Foxparks Cryst",
+          "Foxparks Cryst"
+        ]
+      ],
       "spawnAreas": []
     },
     "196": {
@@ -19203,7 +19230,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ice"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Loupmoon",
+          "Sweepa"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Loupmoon Cryst"
+        ]
+      ],
       "spawnAreas": []
     },
     "201": {
@@ -21803,7 +21839,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Grass"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Ribbuny",
+          "Bristla"
+        ],
+        [
+          "Ribbuny Botan",
+          "Ribbuny Botan"
+        ]
+      ],
       "spawnAreas": []
     },
     "234": {
