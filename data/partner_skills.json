@@ -1484,5 +1484,307 @@
       "Mount (Flying)"
     ],
     "description": "Can be ridden as a flying mount. Can rapidly fire a missile launcher while mounted."
+  },
+  {
+    "id": "soul-collector",
+    "number": 128,
+    "name": "Soul Collector",
+    "pals": [
+      "Nitemary"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While fighting together, Pals drop more Pal Souls when defeated."
+  },
+  {
+    "id": "night-dancer",
+    "number": 129,
+    "name": "Night Dancer",
+    "pals": [
+      "Starryon"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Increases movement speed while mounted at night."
+  },
+  {
+    "id": "aegis-shield",
+    "number": 130,
+    "name": "Aegis Shield",
+    "pals": [
+      "Silvegis"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Extends the duration of Aegis Charge's shield while mounted."
+  },
+  {
+    "id": "dig-dog-dig",
+    "number": 131,
+    "name": "Dig, Dog! Dig!",
+    "pals": [
+      "Smokie"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "When activated, detects nearby Chromite. While fighting together, yields large Chromite drops."
+  },
+  {
+    "id": "blessing-of-purification",
+    "number": 132,
+    "name": "Blessing of Purification",
+    "pals": [
+      "Celesdir"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Increases the player's auto recovery speed while mounted."
+  },
+  {
+    "id": "masquerade-dance",
+    "number": 133,
+    "name": "Masquerade Dance",
+    "pals": [
+      "Omascul"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While in team, party Pals gain additional experience points."
+  },
+  {
+    "id": "blade-of-uncontrolled-passion",
+    "number": 134,
+    "name": "Blade of Uncontrolled Passion",
+    "pals": [
+      "Splatterina"
+    ],
+    "type": "Farming",
+    "categories": [
+      "Farming"
+    ],
+    "description": "While in possession, increases the amount of items received when using the Meat Cleaver."
+  },
+  {
+    "id": "tarantriss-web",
+    "number": 135,
+    "name": "Tarantriss’ Web",
+    "pals": [
+      "Tarantriss"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Enables double jumps and grappling with spider silk to move quickly while mounted."
+  },
+  {
+    "id": "plasma-dash",
+    "number": 136,
+    "name": "Plasma Dash",
+    "pals": [
+      "Azurmane"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Allows air dashes and high-speed movement while mounted."
+  },
+  {
+    "id": "blizzard-crash",
+    "number": 137,
+    "name": "Blizzard Crash",
+    "pals": [
+      "Bastigor"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Swings an Ice-forged hammer for crushing blows while mounted."
+  },
+  {
+    "id": "prayer-for-abundant-harvest",
+    "number": 138,
+    "name": "Prayer for Abundant Harvest",
+    "pals": [
+      "Prunelia"
+    ],
+    "type": "Farming",
+    "categories": [
+      "Farming"
+    ],
+    "description": "While at a base, Prunelia's prayers bless crops and increase their harvest yield."
+  },
+  {
+    "id": "shot-nyan-mode",
+    "number": 139,
+    "name": "Shot-Nyan Mode",
+    "pals": [
+      "Nyafia"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, Nyafia fires a shotgun at nearby enemies for a limited time."
+  },
+  {
+    "id": "sandstorms-blessing",
+    "number": 140,
+    "name": "Sandstorm's Blessing",
+    "pals": [
+      "Gildane"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Applies Earth damage to the player's attacks while mounted."
+  },
+  {
+    "id": "huggy-frost",
+    "number": "005B",
+    "name": "Huggy Frost",
+    "pals": [
+      "Foxparks Cryst"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, equips the player and attacks using frigid air."
+  },
+  {
+    "id": "lady-of-dark-lightning",
+    "number": "062B",
+    "name": "Lady of Dark Lightning",
+    "pals": [
+      "Dazzi Noct"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "While in team, follows the player and chains dark lightning after their attacks."
+  },
+  {
+    "id": "electro-hunter",
+    "number": "083B",
+    "name": "Electro Hunter",
+    "pals": [
+      "Cryolinx Terra"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While fighting together, Electric Pals drop more items when defeated."
+  },
+  {
+    "id": "stormcloud",
+    "number": "093B",
+    "name": "Stormcloud",
+    "pals": [
+      "Fenglope Lux"
+    ],
+    "type": "Mount / Utility",
+    "categories": [
+      "Mount",
+      "Utility"
+    ],
+    "description": "Can be ridden with double jumps. While fighting together, Water Pals drop more items."
+  },
+  {
+    "id": "venom-picker",
+    "number": "035B",
+    "name": "Venom Picker",
+    "pals": [
+      "Caprity Noct"
+    ],
+    "type": "Farming",
+    "categories": [
+      "Farming"
+    ],
+    "description": "Sometimes drops Venom Glands when assigned to a Ranch."
+  },
+  {
+    "id": "frozen-gleam-strike",
+    "number": "046B",
+    "name": "Frozen Gleam Strike",
+    "pals": [
+      "Loupmoon Cryst"
+    ],
+    "type": "Combat",
+    "categories": [
+      "Combat"
+    ],
+    "description": "When activated, slashes a targeted foe with a powerful Snow Claw."
+  },
+  {
+    "id": "tidal-predator",
+    "number": "105B",
+    "name": "Tidal Predator",
+    "pals": [
+      "Faleris Aqua"
+    ],
+    "type": "Mount (Flying) / Utility",
+    "categories": [
+      "Mount (Flying)",
+      "Utility"
+    ],
+    "description": "Can be ridden as a flying mount. While fighting together, Fire Pals drop more items."
+  },
+  {
+    "id": "grass-weaver",
+    "number": "039B",
+    "name": "Grass Weaver",
+    "pals": [
+      "Ribbuny Botan"
+    ],
+    "type": "Utility / Base",
+    "categories": [
+      "Base",
+      "Utility"
+    ],
+    "description": "While in team, increases Grass Pal attack. At base, boosts Weapon Workbench efficiency."
+  },
+  {
+    "id": "fortified-shell",
+    "number": "092B",
+    "name": "Fortified Shell",
+    "pals": [
+      "Warsect Terra"
+    ],
+    "type": "Utility",
+    "categories": [
+      "Utility"
+    ],
+    "description": "While fighting together, raises the player's defense and reduces Fire damage taken."
+  },
+  {
+    "id": "fogged-mind",
+    "number": "061B",
+    "name": "Fogged Mind",
+    "pals": [
+      "Kitsun Noct"
+    ],
+    "type": "Mount",
+    "categories": [
+      "Mount"
+    ],
+    "description": "Can be ridden. Applies Dark damage to the player's attacks while mounted."
   }
 ]

@@ -23072,6 +23072,514 @@ Feybreak Expedition Tour charts the new island revealed during the update, clear
 
 ### Route: Investigator Main Story Wrap-Up
 
+### Route: Feybreak Predator Gate
+
+Feybreak Predator Gate walks through the alpha hunt chain introduced with the update, forcing players to down three open-world Predator Pals before the sealed dens hosting Omascul and Gildane will even open.  It maps the hunts, shows where to present the tags, and highlights the hidden cave doors overlooking the dunes so co-op groups can stage multi-boss clears without backtracking.
+
+```json
+{
+  "route_id": "feybreak-predator-gate",
+  "title": "Feybreak Predator Gate",
+  "category": "bosses",
+  "tags": [
+    "feybreak",
+    "alpha",
+    "predator",
+    "story"
+  ],
+  "progression_role": "core",
+  "recommended_level": {
+    "min": 58,
+    "max": 65
+  },
+  "modes": {
+    "normal": true,
+    "hardcore": true,
+    "solo": true,
+    "coop": true
+  },
+  "prerequisites": {
+    "routes": [
+      "quest-feybreak-expedition"
+    ],
+    "tech": [],
+    "items": [],
+    "pals": []
+  },
+  "objectives": [
+    "Track the three Feybreak Predator alphas",
+    "Collect the Predator Tags they drop",
+    "Unlock the Masquerade Ballroom and Sandstorm Vault",
+    "Defeat Omascul and Gildane to open late-game dens"
+  ],
+  "estimated_time_minutes": {
+    "solo": 50,
+    "coop": 35
+  },
+  "estimated_xp_gain": {
+    "min": 3200,
+    "max": 4200
+  },
+  "risk_profile": "high",
+  "failure_penalties": {
+    "normal": "Falling during a hunt drops the Predator Tag; you must repeat the encounter before the door will open again.",
+    "hardcore": "Hardcore defeats cost your Predator Tags and lock the dens until you rebuild the chain."
+  },
+  "adaptive_guidance": {
+    "underleveled": "Fight at night so the predators' telegraphs glow, stack Ice and Dark resist, and use basalt pillars for cover while you whittle their posture down.",
+    "overleveled": "Chain glide routes between hunts, bringing Dragon and Electric artillery so each alpha falls in under a minute and the doors never re-lock.",
+    "time_limited": "Grab a fast flyer, pocket thawing tonics, and focus on one predator loop plus a single den clear—tags persist even if you finish the second den later."
+  },
+  "steps": [
+    {
+      "step_id": "feybreak-predator-gate:001",
+      "type": "travel",
+      "summary": "Scout Nitemary's amphitheater",
+      "detail": "Warp to Feybreak Outpost, climb the basalt stairs north, then glide toward the moonlit amphitheater carved into the cliff at (530, -712). Violet spores mark the entry ledge right above the crashing surf.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "feybreak-island",
+          "coords": [
+            530,
+            -712
+          ],
+          "time": "night",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "fur-armor"
+        ],
+        "pals": [
+          "frostallion",
+          "jetragon"
+        ],
+        "consumables": [
+          "heat-tonic"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 180,
+        "max": 260
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "feybreak-predator-gate:002",
+      "type": "fight",
+      "summary": "Cull Nitemary for the first Predator Tag",
+      "detail": "Break Nitemary's guard with Fire or Dragon bursts, shield through the Dark nova, then grab the tag from the shrine before you leave the arena.",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "predator-tag",
+          "qty": 1
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "blazamut-ryu",
+          "orserk"
+        ],
+        "consumables": [
+          "attack-elixir"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 520,
+        "max": 720
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "predator-tag",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "feybreak-predator-gate:003",
+      "type": "travel",
+      "summary": "Trace Starryon's ridge patrol",
+      "detail": "Follow the western shoreline south until the basalt turns to obsidian. Look for the collapsed aethership at (472, -804); the cave entrance sits one ledge above the wreck's bow.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "feybreak-island",
+          "coords": [
+            472,
+            -804
+          ],
+          "time": "night",
+          "weather": "clear"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "shock-resist-cloak"
+        ],
+        "pals": [
+          "rayhound",
+          "paladius"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 160,
+        "max": 240
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "feybreak-predator-gate:004",
+      "type": "fight",
+      "summary": "Defeat Starryon on the windswept ridge",
+      "detail": "Ground the mount with Grapple Gun pulls, punish the comet dives with Lightning resistance, and pocket the second Predator Tag.",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "predator-tag",
+          "qty": 1
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "dragonhorde",
+          "grizzbolt"
+        ],
+        "consumables": [
+          "stamina-tonic"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 540,
+        "max": 760
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "predator-tag",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "feybreak-predator-gate:005",
+      "type": "travel",
+      "summary": "Descend to Silvergis' Chromite sinkhole",
+      "detail": "From the central dunes head toward the shimmering Chromite crater at (558, -648). Drop to the lowest terrace and slip through the narrow slot where ice plumes vent from the sand.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "feybreak-island",
+          "coords": [
+            558,
+            -648
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "heat-resistant-armor"
+        ],
+        "pals": [
+          "jormuntide",
+          "anubis"
+        ],
+        "consumables": [
+          "frost-resist-potion"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 150,
+        "max": 220
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "feybreak-predator-gate:006",
+      "type": "fight",
+      "summary": "Slay Silvergis beneath the dunes",
+      "detail": "Circle the arena to avoid Aegis charges, burst through the shield with Electric artillery, and collect the final Predator Tag from the frozen dais.",
+      "targets": [
+        {
+          "kind": "item",
+          "id": "predator-tag",
+          "qty": 1
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [],
+        "pals": [
+          "grizzbolt",
+          "rayhound"
+        ],
+        "consumables": [
+          "defense-elixir"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 560,
+        "max": 780
+      },
+      "outputs": {
+        "items": [
+          {
+            "item_id": "predator-tag",
+            "qty": 1
+          }
+        ],
+        "pals": [],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "feybreak-predator-gate:007",
+      "type": "travel",
+      "summary": "Unlock the Masquerade Ballroom",
+      "detail": "Ride east along the cliff ring until you reach the triple obelisk guarding the ballroom door at (604, -742). Slot all three Predator Tags and the staircase unseals, revealing the chandelier-lit cavern below.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "feybreak-island",
+          "coords": [
+            604,
+            -742
+          ],
+          "time": "any",
+          "weather": "any"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "flashbangs"
+        ],
+        "pals": [
+          "bellanoir",
+          "maraith"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 120,
+        "max": 180
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "boss": [
+            "omascul"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "feybreak-predator-gate:008",
+      "type": "fight",
+      "summary": "Defeat Omascul in the ballroom",
+      "detail": "Stay mobile to dodge masquerade blades, counter with Dark-resistant armor, and capture or finish Omascul to permanently open the den for breeding and drops.",
+      "targets": [
+        {
+          "kind": "boss",
+          "id": "omascul"
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "antidote"
+        ],
+        "pals": [
+          "suzaku",
+          "faleris-aqua"
+        ],
+        "consumables": [
+          "large-medkit"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 820,
+        "max": 1100
+      },
+      "outputs": {
+        "items": [],
+        "pals": [
+          "omascul"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "feybreak-predator-gate:009",
+      "type": "travel",
+      "summary": "Open the Sandstorm Vault",
+      "detail": "Swing back west to the dunes overlooking the missile battery and hug the cliff until you spot the sand-swallowed vault door at (456, -768). Use any spare Predator Tags to light the braziers and drop the shield.",
+      "targets": [],
+      "locations": [
+        {
+          "region_id": "feybreak-island",
+          "coords": [
+            456,
+            -768
+          ],
+          "time": "any",
+          "weather": "sandstorm"
+        }
+      ],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "sand-mask"
+        ],
+        "pals": [
+          "caprity-noct",
+          "warsect-terra"
+        ],
+        "consumables": []
+      },
+      "xp_award_estimate": {
+        "min": 140,
+        "max": 200
+      },
+      "outputs": {
+        "items": [],
+        "pals": [],
+        "unlocks": {
+          "boss": [
+            "gildane"
+          ]
+        }
+      },
+      "branching": [],
+      "citations": []
+    },
+    {
+      "step_id": "feybreak-predator-gate:010",
+      "type": "fight",
+      "summary": "Break Gildane's Sandstorm Vault",
+      "detail": "Dispel the sand cyclones with ranged strikes, punish ground pounds with aerial combos, and secure Gildane plus the vault schematics to finish the chain.",
+      "targets": [
+        {
+          "kind": "boss",
+          "id": "gildane"
+        }
+      ],
+      "locations": [],
+      "mode_adjustments": {},
+      "recommended_loadout": {
+        "gear": [
+          "shock-grenades"
+        ],
+        "pals": [
+          "frostallion",
+          "menasting"
+        ],
+        "consumables": [
+          "mega-medkit"
+        ]
+      },
+      "xp_award_estimate": {
+        "min": 860,
+        "max": 1180
+      },
+      "outputs": {
+        "items": [],
+        "pals": [
+          "gildane"
+        ],
+        "unlocks": {}
+      },
+      "branching": [],
+      "citations": []
+    }
+  ],
+  "completion_criteria": [
+    {
+      "type": "boss-cleared",
+      "boss_id": "omascul"
+    },
+    {
+      "type": "boss-cleared",
+      "boss_id": "gildane"
+    }
+  ],
+  "yields": {
+    "levels_estimate": "+2 to +3",
+    "key_unlocks": [
+      "masquerade-ballroom",
+      "sandstorm-vault"
+    ]
+  },
+  "metrics": {
+    "progress_segments": 4,
+    "boss_targets": 5,
+    "quest_nodes": 2
+  },
+  "next_routes": [
+    {
+      "route_id": "quest-main-story",
+      "reason": "Turn in the Investigator finale once both dens are clear"
+    },
+    {
+      "route_id": "resource-hexolite-quartz",
+      "reason": "Leverage Predator drops to fund late-game automation"
+    }
+  ]
+}
+```
+
 ```json
 {
   "route_id": "quest-main-story",

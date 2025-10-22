@@ -15036,7 +15036,17 @@
       "types": [
         "Water"
       ],
-      "localImage": null
+      "localImage": null,
+      "breedingCombos": [
+        [
+          "Faleris",
+          "Jormuntide"
+        ],
+        [
+          "Faleris Aqua",
+          "Faleris Aqua"
+        ]
+      ]
     },
     "194": {
       "id": 194,
@@ -15118,7 +15128,17 @@
       "types": [
         "Electric"
       ],
-      "localImage": null
+      "localImage": null,
+      "breedingCombos": [
+        [
+          "Fenglope",
+          "Azurmane"
+        ],
+        [
+          "Fenglope Lux",
+          "Fenglope Lux"
+        ]
+      ]
     },
     "195": {
       "id": 195,
@@ -15198,7 +15218,17 @@
       "types": [
         "Ice"
       ],
-      "localImage": null
+      "localImage": null,
+      "breedingCombos": [
+        [
+          "Foxparks",
+          "Foxcicle"
+        ],
+        [
+          "Foxparks Cryst",
+          "Foxparks Cryst"
+        ]
+      ]
     },
     "196": {
       "id": 196,
@@ -15597,7 +15627,17 @@
       "types": [
         "Ice"
       ],
-      "localImage": null
+      "localImage": null,
+      "breedingCombos": [
+        [
+          "Loupmoon",
+          "Sweepa"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Loupmoon Cryst"
+        ]
+      ]
     },
     "201": {
       "id": 201,
@@ -18133,7 +18173,17 @@
       "types": [
         "Grass"
       ],
-      "localImage": null
+      "localImage": null,
+      "breedingCombos": [
+        [
+          "Ribbuny",
+          "Bristla"
+        ],
+        [
+          "Ribbuny Botan",
+          "Ribbuny Botan"
+        ]
+      ]
     },
     "234": {
       "id": 234,
