@@ -145,20 +145,23 @@ def load_components() -> BundleComponents:
 def build_bundle(comps: BundleComponents) -> dict:
     """Assemble the final bundle dictionary from parsed components."""
 
-    if not all(
-        (
-            comps.metadata,
-            comps.xp,
-            comps.route_schema,
-            comps.routes,
-            comps.level_estimator,
-            comps.recommender,
-            comps.guide_catalog_meta,
-            comps.source_registry,
-            comps.extras,
+    required_sections = {
+        "metadata": comps.metadata,
+        "xp": comps.xp,
+        "route_schema": comps.route_schema,
+        "routes": comps.routes,
+        "level_estimator": comps.level_estimator,
+        "recommender": comps.recommender,
+        "guide_catalog": comps.guide_catalog_meta,
+        "source_registry": comps.source_registry,
+        "extras": comps.extras,
+    }
+    missing = [name for name, value in required_sections.items() if value is None]
+    if missing:
+        missing_list = ", ".join(sorted(missing))
+        raise ValueError(
+            f"guides.md is missing required JSON sections: {missing_list}"
         )
-    ):
-        raise ValueError("guides.md is missing required JSON sections")
 
     with GUIDE_CATALOG_PATH.open("r", encoding="utf-8") as handle:
         guide_catalog_data = json.load(handle)
