@@ -155,8 +155,15 @@ def apply_indexed_list_patch(
                 f"Cannot remove {entity_label} entries that do not exist: {', '.join(missing)}"
             )
         to_remove = set(removals)
-        items[:] = [item for item in items if item[id_field] not in to_remove]
-        summary.append(f"Removed {len(to_remove)} {entity_label} entries.")
+        original_len = len(items)
+        items[:] = [
+            item
+            for item in items
+            if item.get(id_field) not in to_remove
+        ]
+        removed_count = original_len - len(items)
+        if removed_count:
+            summary.append(f"Removed {removed_count} {entity_label} entries.")
         rebuild_index()
 
     if "merge" in ops:
