@@ -30928,7 +30928,7 @@
     },
     "Legend": {
       "name": "Legend",
-      "description": "Rank 3. Attack +20% Defense +20% Movement Speed increases 15%. Naturally found on Frostallion. This Passive Skill is guaranteed on Legendary Pals , but may be bred down to non-Legendary Pals.",
+      "description": "Rank 3. Attack +20% Defense +20% Movement Speed increases 15%. Naturally found on Frostallion and Frostallion Noct. This Passive Skill is guaranteed on Legendary Pals , but may be bred down to non-Legendary Pals.",
       "effect": "Attack +20% Defense +20% Movement Speed increases 15%",
       "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
       "rank": 3,
@@ -30938,7 +30938,8 @@
         "Movement Speed": "+15%"
       },
       "naturalOn": [
-        "Frostallion"
+        "Frostallion",
+        "Frostallion Noct"
       ],
       "notes": "This Passive Skill is guaranteed on Legendary Pals , but may be bred down to non-Legendary Pals."
     },
