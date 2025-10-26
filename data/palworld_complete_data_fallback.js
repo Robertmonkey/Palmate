@@ -84,8 +84,32 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/001_lamball.png",
       "breedingCombos": [
         [
-          "Lamball",
+          "Cattiva",
           "Lamball"
+        ],
+        [
+          "Chikipi",
+          "Green Slime"
+        ],
+        [
+          "Chikipi",
+          "Lifmunk"
+        ],
+        [
+          "Mau",
+          "Vixy"
+        ],
+        [
+          "Mau Cryst",
+          "Teafant"
+        ],
+        [
+          "Cremis",
+          "Mau"
+        ],
+        [
+          "Herbil",
+          "Teafant"
         ],
         [
           "Cattiva",
@@ -96,12 +120,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "Mau Cryst"
         ],
         [
-          "Vixy",
-          "Teafant"
+          "Lamball",
+          "Lamball"
         ],
         [
           "Teafant",
-          "Cremis"
+          "Vixy"
+        ],
+        [
+          "Chikipi",
+          "Herbil"
         ]
       ],
       "spawnAreas": [
@@ -191,10 +219,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/002_cattiva.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Vixy"
-        ],
-        [
           "Cattiva",
           "Cattiva"
         ],
@@ -203,12 +227,32 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "Hangyu"
         ],
         [
+          "Green Slime",
+          "Teafant"
+        ],
+        [
+          "Lamball",
+          "Vixy"
+        ],
+        [
           "Lifmunk",
           "Teafant"
         ],
         [
           "Mau",
           "Mau Cryst"
+        ],
+        [
+          "Chikipi",
+          "Hangyu Cryst"
+        ],
+        [
+          "Cremis",
+          "Lamball"
+        ],
+        [
+          "Herbil",
+          "Mau"
         ]
       ],
       "spawnAreas": [
@@ -298,11 +342,11 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breedingCombos": [
         [
           "Chikipi",
-          "Chikipi"
+          "Teafant"
         ],
         [
           "Chikipi",
-          "Teafant"
+          "Chikipi"
         ]
       ],
       "spawnAreas": [
@@ -394,24 +438,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/004_lifmunk.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Hoocrates"
+          "Green Slime",
+          "Hangyu Cryst"
+        ],
+        [
+          "Hangyu Cryst",
+          "Lifmunk"
+        ],
+        [
+          "Blue Slime",
+          "Vixy"
+        ],
+        [
+          "Cattiva",
+          "Jellroy"
+        ],
+        [
+          "Cremis",
+          "Foxparks"
+        ],
+        [
+          "Flambelle",
+          "Vixy"
+        ],
+        [
+          "Herbil",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Herbil",
+          "Sparkit"
+        ],
+        [
+          "Jelliette",
+          "Lamball"
+        ],
+        [
+          "Red Slime",
+          "Vixy"
+        ],
+        [
+          "Blue Slime",
+          "Cremis"
         ],
         [
           "Cattiva",
           "Foxparks"
-        ],
-        [
-          "Chikipi",
-          "Jolthog Cryst"
-        ],
-        [
-          "Lifmunk",
-          "Lifmunk"
-        ],
-        [
-          "Sparkit",
-          "Vixy"
         ]
       ],
       "spawnAreas": [
@@ -500,8 +572,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/005_foxparks.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Fuack"
+          "Blue Slime",
+          "Jellroy"
+        ],
+        [
+          "Bristla",
+          "Mau"
+        ],
+        [
+          "Cattiva",
+          "Cave Bat"
         ],
         [
           "Cattiva",
@@ -512,12 +592,32 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "Swee"
         ],
         [
-          "Lifmunk",
-          "Jolthog"
+          "Demon Eye",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Demon Eye",
+          "Sparkit"
+        ],
+        [
+          "Depresso",
+          "Hangyu"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Hangyu"
+        ],
+        [
+          "Flambelle",
+          "Jellroy"
         ],
         [
           "Foxparks",
           "Foxparks"
+        ],
+        [
+          "Fuack",
+          "Lamball"
         ]
       ],
       "spawnAreas": [
@@ -608,24 +708,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/006_fuack.png",
       "breedingCombos": [
         [
-          "Lamball",
+          "Bristla",
+          "Fuack"
+        ],
+        [
+          "Cattiva",
           "Woolipop"
         ],
         [
+          "Cave Bat",
+          "Pengullet Lux"
+        ],
+        [
+          "Cave Bat",
+          "Ribbuny"
+        ],
+        [
           "Chikipi",
-          "Wixen"
+          "Maraith"
         ],
         [
-          "Lifmunk",
-          "Daedream"
+          "Chikipi",
+          "Wixen Noct"
         ],
         [
-          "Foxparks",
+          "Cremis",
+          "Gloopie"
+        ],
+        [
+          "Daedream",
+          "Hangyu"
+        ],
+        [
+          "Dazzi",
+          "Mau Cryst"
+        ],
+        [
+          "Demon Eye",
           "Kelpsea"
         ],
         [
-          "Fuack",
-          "Fuack"
+          "Depresso",
+          "Kelpsea Ignis"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Kelpsea Ignis"
         ]
       ],
       "spawnAreas": [
@@ -715,24 +843,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/007_sparkit.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Pengullet"
+          "Hangyu Cryst",
+          "Jellroy"
+        ],
+        [
+          "Bristla",
+          "Chikipi"
         ],
         [
           "Cattiva",
           "Jolthog Cryst"
         ],
         [
-          "Chikipi",
-          "Bristla"
+          "Cave Bat",
+          "Mau"
         ],
         [
-          "Lifmunk",
-          "Hoocrates"
+          "Demon Eye",
+          "Green Slime"
+        ],
+        [
+          "Demon Eye",
+          "Lifmunk"
+        ],
+        [
+          "Depresso",
+          "Mau Cryst"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Mau Cryst"
         ],
         [
           "Foxparks",
           "Hangyu"
+        ],
+        [
+          "Fuack",
+          "Teafant"
+        ],
+        [
+          "Green Slime",
+          "Hoocrates"
+        ],
+        [
+          "Green Slime",
+          "Purple Slime"
         ]
       ],
       "spawnAreas": [
@@ -824,24 +980,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/008_tanzee.png",
       "breedingCombos": [
         [
-          "Lamball",
+          "Beegarde",
+          "Hangyu"
+        ],
+        [
+          "Cattiva",
           "Galeclaw"
         ],
         [
           "Cattiva",
-          "Gorirat"
+          "Gorirat Terra"
+        ],
+        [
+          "Cave Bat",
+          "Maraith"
+        ],
+        [
+          "Cave Bat",
+          "Wixen Noct"
+        ],
+        [
+          "Cawgnito",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Cawgnito",
+          "Sparkit"
         ],
         [
           "Chikipi",
-          "Robinquill Terra"
+          "Verdash"
         ],
         [
-          "Lifmunk",
-          "Beegarde"
+          "Daedream",
+          "Kelpsea"
         ],
         [
-          "Foxparks",
+          "Dazzi",
+          "Flopie"
+        ],
+        [
+          "Demon Eye",
           "Gobfin Ignis"
+        ],
+        [
+          "Depresso",
+          "Lunaris"
         ]
       ],
       "spawnAreas": [
@@ -930,24 +1114,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/009_rooby.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Broncherry Aqua"
+          "Beegarde",
+          "Gumoss"
+        ],
+        [
+          "Beegarde",
+          "Gumoss (Special)"
+        ],
+        [
+          "Blue Slime",
+          "Lullu"
+        ],
+        [
+          "Bristla",
+          "Verdash"
+        ],
+        [
+          "Broncherry",
+          "Vixy"
+        ],
+        [
+          "Broncherry Aqua",
+          "Lamball"
+        ],
+        [
+          "Caprity",
+          "Depresso"
+        ],
+        [
+          "Caprity",
+          "Eye of Cthulhu"
         ],
         [
           "Cattiva",
           "Digtoise"
         ],
         [
-          "Chikipi",
-          "Dinossom Lux"
+          "Cawgnito",
+          "Daedream"
         ],
         [
-          "Lifmunk",
-          "Reindrix"
+          "Celaray",
+          "Mau Cryst"
         ],
         [
-          "Foxparks",
-          "Mozzarina"
+          "Celaray Lux",
+          "Mau"
         ]
       ],
       "spawnAreas": [
@@ -1040,24 +1252,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/010_pengullet.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Daedream"
+          "Bristla",
+          "Jolthog"
         ],
         [
           "Cattiva",
-          "Gumoss"
+          "Daedream"
         ],
         [
-          "Lifmunk",
-          "Kelpsea Ignis"
+          "Cave Bat",
+          "Pengullet"
         ],
         [
-          "Foxparks",
+          "Chikipi",
+          "Woolipop"
+        ],
+        [
+          "Dazzi",
+          "Mau"
+        ],
+        [
+          "Demon Eye",
           "Swee"
         ],
         [
-          "Fuack",
-          "Jolthog"
+          "Depresso",
+          "Pengullet Lux"
+        ],
+        [
+          "Depresso",
+          "Ribbuny"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Pengullet Lux"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Ribbuny"
+        ],
+        [
+          "Finsider",
+          "Jellroy"
+        ],
+        [
+          "Finsider Ignis",
+          "Jellroy"
         ]
       ],
       "spawnAreas": [
@@ -1151,24 +1391,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/011_penking.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Penking"
+          "Anubis",
+          "Wumpo"
         ],
         [
-          "Mozzarina",
-          "Cryolinx"
+          "Arsox",
+          "Pyrin Noct"
         ],
         [
-          "Melpaca",
-          "Astegon"
+          "Astegon",
+          "Reindrix"
         ],
         [
-          "Eikthyrdeer",
-          "Frostallion"
+          "Azurobe",
+          "Elphidran Aqua"
         ],
         [
-          "Nitewing",
-          "Vanwyrm Cryst"
+          "Azurobe Cryst",
+          "Surfent Terra"
+        ],
+        [
+          "Beakon",
+          "Dinossom Lux"
+        ],
+        [
+          "Blazamut",
+          "Robinquill"
+        ],
+        [
+          "Blazehowl",
+          "Reptyro"
+        ],
+        [
+          "Blazehowl Noct",
+          "Pyrin"
+        ],
+        [
+          "Broncherry Aqua",
+          "Helzephyr"
+        ],
+        [
+          "Bushi",
+          "Mossanda Lux"
+        ],
+        [
+          "Bushi Noct",
+          "Ragnahawk"
         ]
       ],
       "spawnAreas": [
@@ -1256,24 +1524,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/012_jolthog.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Kelpsea Ignis"
+          "Bristla",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Bristla",
+          "Sparkit"
         ],
         [
           "Cattiva",
-          "Flopie"
+          "Kelpsea Ignis"
+        ],
+        [
+          "Cave Bat",
+          "Demon Eye"
+        ],
+        [
+          "Cave Bat",
+          "Hoocrates"
+        ],
+        [
+          "Cave Bat",
+          "Purple Slime"
         ],
         [
           "Chikipi",
-          "Gumoss"
+          "Daedream"
         ],
         [
-          "Lifmunk",
-          "Ribbuny"
+          "Demon Eye",
+          "Tocotoco"
+        ],
+        [
+          "Depresso",
+          "Pengullet"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Pengullet"
+        ],
+        [
+          "Flopie",
+          "Vixy"
         ],
         [
           "Foxparks",
-          "Tocotoco"
+          "Fuack"
         ]
       ],
       "spawnAreas": [
@@ -1363,24 +1659,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/013_gumoss.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Felbat"
+          "Beegarde",
+          "Foxparks"
+        ],
+        [
+          "Blue Slime",
+          "Turtacle Terra"
+        ],
+        [
+          "Bristla",
+          "Maraith"
+        ],
+        [
+          "Bristla",
+          "Wixen Noct"
         ],
         [
           "Cattiva",
-          "Robinquill"
+          "Felbat"
         ],
         [
-          "Chikipi",
-          "Fenglope"
+          "Cave Bat",
+          "Rushoar"
         ],
         [
-          "Lifmunk",
-          "Vaelet"
+          "Cawgnito",
+          "Demon Eye"
         ],
         [
-          "Foxparks",
-          "Cawgnito"
+          "Cawgnito",
+          "Hoocrates"
+        ],
+        [
+          "Cawgnito",
+          "Purple Slime"
+        ],
+        [
+          "Daedream",
+          "Gumoss"
+        ],
+        [
+          "Daedream",
+          "Gumoss (Special)"
+        ],
+        [
+          "Dazzi",
+          "Kelpsea"
         ]
       ],
       "spawnAreas": [
@@ -1470,10 +1794,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/014_vixy.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Lifmunk"
-        ],
-        [
           "Cattiva",
           "Mau Cryst"
         ],
@@ -1482,12 +1802,44 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "Foxparks"
         ],
         [
+          "Cremis",
+          "Herbil"
+        ],
+        [
+          "Green Slime",
+          "Lamball"
+        ],
+        [
+          "Hangyu",
+          "Mau"
+        ],
+        [
+          "Kingpaca Cryst",
+          "Teafant"
+        ],
+        [
+          "Lamball",
+          "Lifmunk"
+        ],
+        [
           "Sparkit",
           "Teafant"
         ],
         [
           "Vixy",
           "Vixy"
+        ],
+        [
+          "Hangyu Cryst",
+          "Mau"
+        ],
+        [
+          "Blue Slime",
+          "Chikipi"
+        ],
+        [
+          "Cattiva",
+          "Herbil"
         ]
       ],
       "spawnAreas": [
@@ -1575,24 +1927,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/015_hoocrates.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Ribbuny"
+          "Bristla",
+          "Cattiva"
         ],
         [
-          "Cattiva",
-          "Bristla"
+          "Cave Bat",
+          "Mau Cryst"
         ],
         [
           "Chikipi",
           "Flopie"
         ],
         [
-          "Lifmunk",
+          "Demon Eye",
+          "Demon Eye"
+        ],
+        [
+          "Demon Eye",
+          "Hoocrates"
+        ],
+        [
+          "Demon Eye",
+          "Purple Slime"
+        ],
+        [
+          "Depresso",
+          "Foxparks"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Foxparks"
+        ],
+        [
+          "Fuack",
+          "Vixy"
+        ],
+        [
+          "Fuack Ignis",
+          "Teafant"
+        ],
+        [
+          "Green Slime",
           "Pengullet"
         ],
         [
-          "Foxparks",
-          "Depresso"
+          "Hangyu",
+          "Jolthog Cryst"
         ]
       ],
       "spawnAreas": [
@@ -1681,19 +2061,19 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breedingCombos": [
         [
           "Chikipi",
+          "Lamball"
+        ],
+        [
+          "Mau",
+          "Teafant"
+        ],
+        [
+          "Chikipi",
           "Mau"
         ],
         [
           "Teafant",
           "Teafant"
-        ],
-        [
-          "Lamball",
-          "Chikipi"
-        ],
-        [
-          "Teafant",
-          "Mau"
         ]
       ],
       "spawnAreas": [
@@ -1783,24 +2163,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/017_depresso.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Killamari"
+          "Fuack",
+          "Hangyu Cryst"
+        ],
+        [
+          "Blue Slime",
+          "Pengullet"
         ],
         [
           "Cattiva",
+          "Finsider"
+        ],
+        [
+          "Cattiva",
+          "Finsider Ignis"
+        ],
+        [
+          "Cremis",
           "Swee"
         ],
         [
-          "Chikipi",
-          "Kelpsea"
+          "Flambelle",
+          "Pengullet"
         ],
         [
-          "Lifmunk",
-          "Fuack"
+          "Hangyu",
+          "Munchill"
         ],
         [
-          "Foxparks",
+          "Herbil",
+          "Pengullet Lux"
+        ],
+        [
+          "Herbil",
+          "Ribbuny"
+        ],
+        [
+          "Jelliette",
+          "Jolthog"
+        ],
+        [
+          "Jellroy",
           "Jolthog Cryst"
+        ],
+        [
+          "Pengullet",
+          "Red Slime"
         ]
       ],
       "spawnAreas": [
@@ -1889,24 +2297,48 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/018_cremis.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Mau Cryst"
-        ],
-        [
           "Cattiva",
           "Vixy"
+        ],
+        [
+          "Chikipi",
+          "Kingpaca Cryst"
         ],
         [
           "Chikipi",
           "Sparkit"
         ],
         [
+          "Cremis",
+          "Cremis"
+        ],
+        [
+          "Green Slime",
+          "Mau"
+        ],
+        [
+          "Hangyu",
+          "Teafant"
+        ],
+        [
+          "Lamball",
+          "Mau Cryst"
+        ],
+        [
           "Lifmunk",
           "Mau"
         ],
         [
-          "Teafant",
-          "Hangyu"
+          "Hangyu Cryst",
+          "Teafant"
+        ],
+        [
+          "Cattiva",
+          "Cremis"
+        ],
+        [
+          "Herbil",
+          "Lamball"
         ]
       ],
       "spawnAreas": [
@@ -1996,24 +2428,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/019_daedream.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Verdash"
+          "Beegarde",
+          "Depresso"
+        ],
+        [
+          "Beegarde",
+          "Eye of Cthulhu"
+        ],
+        [
+          "Bristla",
+          "Rushoar"
         ],
         [
           "Cattiva",
-          "Robinquill Terra"
+          "Verdash"
         ],
         [
-          "Lifmunk",
-          "Galeclaw"
+          "Cave Bat",
+          "Lunaris"
         ],
         [
-          "Foxparks",
+          "Cawgnito",
+          "Jolthog"
+        ],
+        [
+          "Chikipi",
+          "Loupmoon"
+        ],
+        [
+          "Daedream",
+          "Fuddler"
+        ],
+        [
+          "Dazzi",
+          "Gumoss"
+        ],
+        [
+          "Dazzi",
+          "Gumoss (Special)"
+        ],
+        [
+          "Demon Eye",
           "Direhowl"
         ],
         [
-          "Fuack",
-          "Rushoar"
+          "Direhowl",
+          "Hoocrates"
         ]
       ],
       "spawnAreas": [
@@ -2103,24 +2563,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/020_rushoar.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Arsox"
+          "Arsox",
+          "Lamball"
+        ],
+        [
+          "Beegarde",
+          "Woolipop"
+        ],
+        [
+          "Blue Slime",
+          "Dumud Gild"
+        ],
+        [
+          "Bristla",
+          "Lovander"
+        ],
+        [
+          "Broncherry",
+          "Foxparks"
+        ],
+        [
+          "Broncherry Aqua",
+          "Hangyu"
+        ],
+        [
+          "Caprity",
+          "Fuack"
         ],
         [
           "Cattiva",
           "Chillet"
         ],
         [
-          "Chikipi",
-          "Foxcicle"
+          "Cave Bat",
+          "Eikthyrdeer"
         ],
         [
-          "Lifmunk",
-          "Kitsun"
+          "Cawgnito",
+          "Nox"
         ],
         [
-          "Foxparks",
-          "Broncherry"
+          "Celaray",
+          "Demon Eye"
+        ],
+        [
+          "Celaray",
+          "Hoocrates"
         ]
       ],
       "spawnAreas": [
@@ -2209,24 +2697,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/021_nox.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Melpaca"
+          "Beegarde",
+          "Kelpsea Ignis"
+        ],
+        [
+          "Bristla",
+          "Robinquill"
+        ],
+        [
+          "Broncherry",
+          "Mau"
+        ],
+        [
+          "Broncherry Aqua",
+          "Chikipi"
+        ],
+        [
+          "Caprity",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Caprity",
+          "Sparkit"
         ],
         [
           "Cattiva",
-          "Eikthyrdeer Terra"
+          "Reindrix"
         ],
         [
-          "Chikipi",
-          "Broncherry"
+          "Cave Bat",
+          "Robinquill Terra"
         ],
         [
-          "Lifmunk",
-          "Caprity"
+          "Cawgnito",
+          "Kelpsea"
         ],
         [
-          "Fuack",
-          "Galeclaw"
+          "Celaray",
+          "Lamball"
+        ],
+        [
+          "Daedream",
+          "Lunaris"
+        ],
+        [
+          "Dazzi",
+          "Rushoar"
         ]
       ],
       "spawnAreas": [
@@ -2316,24 +2832,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/022_fuddler.png",
       "breedingCombos": [
         [
-          "Cattiva",
-          "Fenglope"
+          "Beegarde",
+          "Jolthog Cryst"
         ],
         [
-          "Chikipi",
-          "Lovander"
+          "Bristla",
+          "Lunaris"
         ],
         [
-          "Lifmunk",
-          "Felbat"
+          "Caprity",
+          "Chikipi"
         ],
         [
-          "Foxparks",
+          "Cave Bat",
+          "Gobfin"
+        ],
+        [
+          "Cawgnito",
+          "Pengullet"
+        ],
+        [
+          "Daedream",
+          "Mimog"
+        ],
+        [
+          "Dazzi",
+          "Fuddler"
+        ],
+        [
+          "Demon Eye",
           "Gorirat"
         ],
         [
-          "Fuack",
-          "Lunaris"
+          "Depresso",
+          "Vaelet"
+        ],
+        [
+          "Direhowl",
+          "Jolthog"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Vaelet"
+        ],
+        [
+          "Felbat",
+          "Hangyu"
         ]
       ],
       "spawnAreas": [
@@ -2422,24 +2966,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/023_killamari.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Lunaris"
+          "Beegarde",
+          "Chikipi"
+        ],
+        [
+          "Bristla",
+          "Illuminant Bat"
+        ],
+        [
+          "Bristla",
+          "Killamari Primo"
+        ],
+        [
+          "Bristla",
+          "Tanzee"
         ],
         [
           "Cattiva",
-          "Leezpunk"
+          "Lunaris"
         ],
         [
-          "Chikipi",
-          "Cawgnito"
+          "Cave Bat",
+          "Daedream"
         ],
         [
-          "Lifmunk",
-          "Maraith"
+          "Cawgnito",
+          "Teafant"
         ],
         [
-          "Foxparks",
+          "Daedream",
+          "Tocotoco"
+        ],
+        [
+          "Dazzi",
+          "Jolthog Cryst"
+        ],
+        [
+          "Demon Eye",
           "Nox"
+        ],
+        [
+          "Depresso",
+          "Woolipop"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Woolipop"
         ]
       ],
       "spawnAreas": [
@@ -2527,20 +3099,20 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/024_mau.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Teafant"
+          "Chikipi",
+          "Cremis"
         ],
         [
           "Cattiva",
           "Chikipi"
         ],
         [
-          "Mau",
-          "Mau"
+          "Lamball",
+          "Teafant"
         ],
         [
-          "Chikipi",
-          "Cremis"
+          "Mau",
+          "Mau"
         ]
       ],
       "spawnAreas": [
@@ -2629,24 +3201,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/025_celaray.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Relaxaurus Lux"
+          "Anubis",
+          "Wixen"
         ],
         [
-          "Cattiva",
-          "Relaxaurus"
+          "Arsox",
+          "Lovander"
         ],
         [
-          "Chikipi",
-          "Pyrin Noct"
+          "Azurobe",
+          "Daedream"
         ],
         [
-          "Lifmunk",
-          "Jormuntide"
+          "Azurobe Cryst",
+          "Illuminant Bat"
         ],
         [
-          "Foxparks",
-          "Warsect"
+          "Azurobe Cryst",
+          "Killamari Primo"
+        ],
+        [
+          "Azurobe Cryst",
+          "Tanzee"
+        ],
+        [
+          "Beegarde",
+          "Vanwyrm"
+        ],
+        [
+          "Blazehowl",
+          "Robinquill"
+        ],
+        [
+          "Blazehowl Noct",
+          "Direhowl"
+        ],
+        [
+          "Braloha",
+          "Jellroy"
+        ],
+        [
+          "Bristla",
+          "Sweepa"
+        ],
+        [
+          "Broncherry",
+          "Celaray"
         ]
       ],
       "spawnAreas": [
@@ -2736,24 +3336,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/026_direhowl.png",
       "breedingCombos": [
         [
-          "Cattiva",
-          "Vanwyrm"
+          "Arsox",
+          "Bristla"
         ],
         [
-          "Chikipi",
-          "Vanwyrm Cryst"
+          "Beegarde",
+          "Gorirat"
         ],
         [
-          "Fuack",
-          "Arsox"
+          "Blazehowl",
+          "Foxparks"
         ],
         [
-          "Sparkit",
-          "Blazehowl"
+          "Blazehowl Noct",
+          "Mau Cryst"
         ],
         [
-          "Tanzee",
-          "Celaray"
+          "Bristla",
+          "Chillet Ignis"
+        ],
+        [
+          "Broncherry",
+          "Illuminant Bat"
+        ],
+        [
+          "Broncherry",
+          "Killamari Primo"
+        ],
+        [
+          "Broncherry",
+          "Tanzee"
+        ],
+        [
+          "Broncherry Aqua",
+          "Kelpsea Ignis"
+        ],
+        [
+          "Bushi",
+          "Lamball"
+        ],
+        [
+          "Bushi Noct",
+          "Cattiva"
+        ],
+        [
+          "Caprity",
+          "Nox"
         ]
       ],
       "spawnAreas": [
@@ -2841,24 +3469,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/027_tocotoco.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Dazzi"
+          "Bristla",
+          "Jolthog Cryst"
         ],
         [
           "Cattiva",
           "Fuddler"
         ],
         [
+          "Cave Bat",
+          "Cave Bat"
+        ],
+        [
+          "Cave Bat",
+          "Tocotoco"
+        ],
+        [
           "Chikipi",
           "Nox"
         ],
         [
-          "Lifmunk",
-          "Tanzee"
+          "Daedream",
+          "Vixy"
         ],
         [
-          "Foxparks",
-          "Flopie"
+          "Dazzi",
+          "Lamball"
+        ],
+        [
+          "Demon Eye",
+          "Fuack Ignis"
+        ],
+        [
+          "Demon Eye",
+          "Killamari"
+        ],
+        [
+          "Depresso",
+          "Swee"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Swee"
+        ],
+        [
+          "Finsider",
+          "Jelliette"
         ]
       ],
       "spawnAreas": [
@@ -2950,24 +3606,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/028_flopie.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Gobfin"
+          "Beegarde",
+          "Mau"
+        ],
+        [
+          "Bristla",
+          "Daedream"
         ],
         [
           "Cattiva",
-          "Gobfin Ignis"
+          "Gobfin"
+        ],
+        [
+          "Cave Bat",
+          "Dazzi"
+        ],
+        [
+          "Cawgnito",
+          "Lamball"
         ],
         [
           "Chikipi",
-          "Direhowl"
+          "Vaelet"
         ],
         [
-          "Lifmunk",
-          "Rushoar"
+          "Dazzi",
+          "Tocotoco"
+        ],
+        [
+          "Demon Eye",
+          "Wixen"
+        ],
+        [
+          "Direhowl",
+          "Teafant"
+        ],
+        [
+          "Flopie",
+          "Kelpsea Ignis"
         ],
         [
           "Foxparks",
-          "Wixen"
+          "Maraith"
+        ],
+        [
+          "Foxparks",
+          "Wixen Noct"
         ]
       ],
       "spawnAreas": [
@@ -3056,24 +3740,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/029_mozzarina.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Quivern"
+          "Anubis",
+          "Illuminant Bat"
         ],
         [
-          "Cattiva",
-          "Pyrin"
+          "Anubis",
+          "Killamari Primo"
         ],
         [
-          "Chikipi",
-          "Reptyro"
+          "Anubis",
+          "Tanzee"
         ],
         [
-          "Lifmunk",
-          "Mossanda Lux"
+          "Arsox",
+          "Galeclaw"
         ],
         [
-          "Foxparks",
-          "Nitewing"
+          "Arsox",
+          "Gorirat Terra"
+        ],
+        [
+          "Azurobe",
+          "Bristla"
+        ],
+        [
+          "Azurobe Cryst",
+          "Cave Bat"
+        ],
+        [
+          "Azurobe Cryst",
+          "Tocotoco"
+        ],
+        [
+          "Beegarde",
+          "Tombat"
+        ],
+        [
+          "Blazehowl",
+          "Lunaris"
+        ],
+        [
+          "Blazehowl Noct",
+          "Maraith"
+        ],
+        [
+          "Blazehowl Noct",
+          "Wixen Noct"
         ]
       ],
       "spawnAreas": [
@@ -3165,24 +3877,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/030_bristla.png",
       "breedingCombos": [
         [
-          "Cattiva",
-          "Nox"
+          "Bristla",
+          "Pengullet Lux"
+        ],
+        [
+          "Bristla",
+          "Ribbuny"
+        ],
+        [
+          "Cave Bat",
+          "Fuack Ignis"
+        ],
+        [
+          "Cave Bat",
+          "Killamari"
         ],
         [
           "Chikipi",
-          "Leezpunk Ignis"
+          "Rushoar"
         ],
         [
-          "Lifmunk",
-          "Dazzi"
+          "Daedream",
+          "Foxparks"
         ],
         [
-          "Foxparks",
+          "Dazzi",
+          "Hangyu"
+        ],
+        [
+          "Demon Eye",
           "Gumoss"
         ],
         [
-          "Fuack",
-          "Ribbuny"
+          "Demon Eye",
+          "Gumoss (Special)"
+        ],
+        [
+          "Depresso",
+          "Illuminant Bat"
+        ],
+        [
+          "Depresso",
+          "Killamari Primo"
+        ],
+        [
+          "Depresso",
+          "Tanzee"
         ]
       ],
       "spawnAreas": [
@@ -3272,24 +4012,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/031_gobfin.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Blazehowl"
+          "Arsox",
+          "Depresso"
         ],
         [
-          "Chikipi",
-          "Univolt"
+          "Arsox",
+          "Eye of Cthulhu"
         ],
         [
-          "Lifmunk",
-          "Tombat"
+          "Beegarde",
+          "Gobfin Ignis"
         ],
         [
-          "Foxparks",
-          "Petallia"
+          "Blazehowl",
+          "Cattiva"
         ],
         [
-          "Fuack",
+          "Blazehowl Noct",
+          "Chikipi"
+        ],
+        [
+          "Blue Slime",
+          "Croajiro Noct"
+        ],
+        [
+          "Bristla",
           "Digtoise"
+        ],
+        [
+          "Broncherry",
+          "Pengullet Lux"
+        ],
+        [
+          "Broncherry",
+          "Ribbuny"
+        ],
+        [
+          "Broncherry Aqua",
+          "Fuack"
+        ],
+        [
+          "Caprity",
+          "Gumoss"
+        ],
+        [
+          "Caprity",
+          "Gumoss (Special)"
         ]
       ],
       "spawnAreas": [
@@ -3379,24 +4147,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/032_hangyu.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Jolthog"
+          "Hangyu Cryst",
+          "Kingpaca Cryst"
         ],
         [
-          "Cattiva",
-          "Depresso"
-        ],
-        [
-          "Chikipi",
-          "Tocotoco"
-        ],
-        [
-          "Lifmunk",
+          "Hangyu Cryst",
           "Sparkit"
         ],
         [
-          "Foxparks",
-          "Mau Cryst"
+          "Blue Slime",
+          "Green Slime"
+        ],
+        [
+          "Blue Slime",
+          "Lifmunk"
+        ],
+        [
+          "Chikipi",
+          "Munchill"
+        ],
+        [
+          "Cremis",
+          "Depresso"
+        ],
+        [
+          "Cremis",
+          "Eye of Cthulhu"
+        ],
+        [
+          "Demon Eye",
+          "Herbil"
+        ],
+        [
+          "Flambelle",
+          "Green Slime"
+        ],
+        [
+          "Flambelle",
+          "Lifmunk"
+        ],
+        [
+          "Green Slime",
+          "Red Slime"
+        ],
+        [
+          "Herbil",
+          "Hoocrates"
         ]
       ],
       "spawnAreas": [
@@ -3489,24 +4285,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/033_mossanda.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Warsect"
+          "Anubis",
+          "Relaxaurus"
         ],
         [
-          "Mossanda",
-          "Mossanda"
+          "Arsox",
+          "Shadowbeak"
         ],
         [
-          "Nitewing",
-          "Ice Kingpaca"
+          "Astegon",
+          "Katress"
         ],
         [
-          "Incineram",
-          "Relaxaurus Lux"
+          "Azurobe",
+          "Quivern"
         ],
         [
-          "Cinnamoth",
+          "Azurobe",
+          "Warsect Terra"
+        ],
+        [
+          "Azurobe Cryst",
           "Faleris"
+        ],
+        [
+          "Blazamut",
+          "Broncherry Aqua"
+        ],
+        [
+          "Blazehowl",
+          "Orserk"
+        ],
+        [
+          "Blazehowl Noct",
+          "Helzephyr Lux"
+        ],
+        [
+          "Bushi",
+          "Lyleen Noct"
+        ],
+        [
+          "Bushi Noct",
+          "Grizzbolt"
+        ],
+        [
+          "Chillet",
+          "Suzaku"
         ]
       ],
       "spawnAreas": [
@@ -3595,24 +4419,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/034_woolipop.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Mozzarina"
-        ],
-        [
-          "Cattiva",
-          "Eikthyrdeer"
-        ],
-        [
-          "Chikipi",
-          "Reindrix"
-        ],
-        [
-          "Lifmunk",
+          "Hangyu Cryst",
           "Loupmoon"
         ],
         [
-          "Foxparks",
-          "Fenglope"
+          "Caprity",
+          "Herbil"
+        ],
+        [
+          "Cawgnito",
+          "Finsider"
+        ],
+        [
+          "Cawgnito",
+          "Finsider Ignis"
+        ],
+        [
+          "Cremis",
+          "Eikthyrdeer"
+        ],
+        [
+          "Dumud",
+          "Mau"
+        ],
+        [
+          "Fenglope",
+          "Jellroy"
+        ],
+        [
+          "Fuddler",
+          "Rooby"
+        ],
+        [
+          "Gloopie",
+          "Nox"
+        ],
+        [
+          "Gorirat",
+          "Munchill"
+        ],
+        [
+          "Green Slime",
+          "Yakumo"
+        ],
+        [
+          "Illuminant Bat",
+          "Kikit"
         ]
       ],
       "spawnAreas": [
@@ -3702,24 +4554,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/035_caprity.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Mossanda Lux"
+          "Anubis",
+          "Flopie"
         ],
         [
-          "Chikipi",
-          "Pyrin"
+          "Arsox",
+          "Direhowl"
         ],
         [
-          "Lifmunk",
-          "Mossanda"
+          "Azurobe",
+          "Pengullet"
         ],
         [
-          "Foxparks",
-          "Wumpo"
+          "Azurobe Cryst",
+          "Jolthog"
         ],
         [
-          "Fuack",
+          "Beegarde",
+          "Petallia"
+        ],
+        [
+          "Blazehowl",
+          "Leezpunk Ignis"
+        ],
+        [
+          "Blazehowl Noct",
+          "Nox"
+        ],
+        [
+          "Blue Slime",
+          "Whalaska"
+        ],
+        [
+          "Bristla",
           "Elphidran Aqua"
+        ],
+        [
+          "Broncherry",
+          "Verdash"
+        ],
+        [
+          "Broncherry Aqua",
+          "Felbat"
+        ],
+        [
+          "Bushi",
+          "Dazzi"
         ]
       ],
       "spawnAreas": [
@@ -3808,24 +4688,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/036_melpaca.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Jormuntide"
+          "Anubis",
+          "Mimog"
         ],
         [
-          "Cattiva",
-          "Reptyro"
+          "Arsox",
+          "Fenglope"
         ],
         [
-          "Chikipi",
-          "Relaxaurus"
+          "Azurobe",
+          "Kelpsea Ignis"
         ],
         [
-          "Lifmunk",
-          "Quivern"
+          "Azurobe Cryst",
+          "Fuack Ignis"
         ],
         [
-          "Foxparks",
-          "Ragnahawk"
+          "Azurobe Cryst",
+          "Killamari"
+        ],
+        [
+          "Beegarde",
+          "Katress"
+        ],
+        [
+          "Blazehowl",
+          "Direhowl"
+        ],
+        [
+          "Blazehowl Noct",
+          "Gobfin Ignis"
+        ],
+        [
+          "Bristla",
+          "Sibelyx"
+        ],
+        [
+          "Broncherry",
+          "Mozzarina"
+        ],
+        [
+          "Broncherry Aqua",
+          "Caprity"
+        ],
+        [
+          "Bushi",
+          "Rushoar"
         ]
       ],
       "spawnAreas": [
@@ -3914,24 +4822,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/037_eikthyrdeer.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Faleris"
-        ],
-        [
-          "Cattiva",
-          "Ragnahawk"
-        ],
-        [
-          "Chikipi",
-          "Warsect"
-        ],
-        [
-          "Lifmunk",
+          "Hangyu Cryst",
           "Sweepa"
         ],
         [
-          "Foxparks",
-          "Ice Kingpaca"
+          "Azurobe",
+          "Munchill"
+        ],
+        [
+          "Beegarde",
+          "Croajiro Noct"
+        ],
+        [
+          "Blazehowl",
+          "Kikit"
+        ],
+        [
+          "Blue Slime",
+          "Mossanda"
+        ],
+        [
+          "Blue Slime",
+          "Neptilius"
+        ],
+        [
+          "Blue Slime",
+          "Whalaska Ignis"
+        ],
+        [
+          "Braloha",
+          "Chikipi"
+        ],
+        [
+          "Bushi",
+          "Gloopie"
+        ],
+        [
+          "Caprity",
+          "Lullu"
+        ],
+        [
+          "Cremis",
+          "Ragnahawk"
+        ],
+        [
+          "Croajiro",
+          "Gorirat"
         ]
       ],
       "spawnAreas": [
@@ -4018,24 +4954,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/038_nitewing.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Reptyro"
+          "Anubis",
+          "Menasting"
         ],
         [
-          "Mossanda",
-          "Sweepa"
+          "Astegon",
+          "Univolt"
         ],
         [
-          "Nitewing",
-          "Nitewing"
+          "Azurobe",
+          "Elizabee"
         ],
         [
-          "Incineram",
-          "Lyleen"
+          "Azurobe Cryst",
+          "Quivern"
+        ],
+        [
+          "Azurobe Cryst",
+          "Warsect Terra"
+        ],
+        [
+          "Blazamut",
+          "Dinossom"
+        ],
+        [
+          "Blazehowl",
+          "Frostallion"
+        ],
+        [
+          "Bushi",
+          "Helzephyr"
+        ],
+        [
+          "Bushi Noct",
+          "Helzephyr Lux"
+        ],
+        [
+          "Chillet",
+          "Suzaku Aqua"
         ],
         [
           "Cinnamoth",
-          "Quivern"
+          "Quivern Botan"
+        ],
+        [
+          "Cinnamoth",
+          "Warsect"
         ]
       ],
       "spawnAreas": [
@@ -4125,23 +5089,51 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/039_ribbuny.png",
       "breedingCombos": [
         [
-          "Lamball",
+          "Blue Slime",
+          "Ribbuny Botan"
+        ],
+        [
+          "Bristla",
+          "Fuack Ignis"
+        ],
+        [
+          "Bristla",
+          "Killamari"
+        ],
+        [
+          "Cattiva",
           "Maraith"
         ],
         [
           "Cattiva",
-          "Wixen"
+          "Wixen Noct"
+        ],
+        [
+          "Cave Bat",
+          "Kelpsea Ignis"
         ],
         [
           "Chikipi",
-          "Leezpunk"
+          "Lunaris"
         ],
         [
-          "Lifmunk",
-          "Woolipop"
+          "Cremis",
+          "Rooby"
         ],
         [
-          "Foxparks",
+          "Daedream",
+          "Depresso"
+        ],
+        [
+          "Daedream",
+          "Eye of Cthulhu"
+        ],
+        [
+          "Dazzi",
+          "Foxparks"
+        ],
+        [
+          "Demon Eye",
           "Fuddler"
         ]
       ],
@@ -4233,24 +5225,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/040_incineram.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Vanwyrm"
+          "Arsox",
+          "Ragnahawk"
         ],
         [
-          "Rushoar",
-          "Suzaku"
+          "Astegon",
+          "Robinquill"
         ],
         [
-          "Celaray",
+          "Azurobe",
+          "Blazehowl Noct"
+        ],
+        [
+          "Azurobe Cryst",
+          "Katress Ignis"
+        ],
+        [
+          "Beakon",
+          "Loupmoon"
+        ],
+        [
+          "Beegarde",
+          "Frostallion Noct"
+        ],
+        [
+          "Blazamut",
+          "Wixen"
+        ],
+        [
+          "Blazehowl",
+          "Wumpo"
+        ],
+        [
+          "Broncherry",
           "Jormuntide"
         ],
         [
-          "Direhowl",
-          "Frostallion"
+          "Broncherry Aqua",
+          "Elizabee"
         ],
         [
-          "Mozzarina",
-          "Relaxaurus Lux"
+          "Bushi",
+          "Elphidran Aqua"
+        ],
+        [
+          "Bushi Noct",
+          "Penking"
         ]
       ],
       "spawnAreas": [
@@ -4341,24 +5361,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/041_cinnamoth.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Wumpo"
+          "Arsox",
+          "Helzephyr Lux"
         ],
         [
-          "Mozzarina",
-          "Necromus"
+          "Astegon",
+          "Dinossom"
         ],
         [
-          "Mossanda",
-          "Surfent Terra"
+          "Azurobe",
+          "Kingpaca"
         ],
         [
-          "Caprity",
-          "Suzaku"
+          "Azurobe Cryst",
+          "Cinnamoth"
         ],
         [
-          "Melpaca",
-          "Jetragon"
+          "Azurobe Cryst",
+          "Penking Lux"
+        ],
+        [
+          "Beakon",
+          "Tombat"
+        ],
+        [
+          "Blazehowl",
+          "Menasting"
+        ],
+        [
+          "Blazehowl Noct",
+          "Mammorest"
+        ],
+        [
+          "Broncherry Aqua",
+          "Cryolinx"
+        ],
+        [
+          "Bushi",
+          "Elizabee"
+        ],
+        [
+          "Bushi Noct",
+          "Reptyro"
+        ],
+        [
+          "Celaray",
+          "Frostallion Noct"
         ]
       ],
       "spawnAreas": [
@@ -4448,24 +5496,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/042_arsox.png",
       "breedingCombos": [
         [
-          "Cattiva",
-          "Frostallion"
+          "Anubis",
+          "Robinquill Terra"
         ],
         [
-          "Chikipi",
-          "Paladius"
+          "Arsox",
+          "Petallia"
         ],
         [
-          "Lifmunk",
-          "Astegon"
+          "Astegon",
+          "Hangyu"
         ],
         [
-          "Fuack",
+          "Azurobe",
+          "Beegarde"
+        ],
+        [
+          "Azurobe Cryst",
+          "Gobfin"
+        ],
+        [
+          "Beakon",
+          "Pengullet"
+        ],
+        [
+          "Blazehowl",
+          "Broncherry"
+        ],
+        [
+          "Blazehowl Noct",
+          "Eikthyrdeer Terra"
+        ],
+        [
+          "Bristla",
           "Lyleen"
         ],
         [
-          "Tanzee",
-          "Elizabee"
+          "Bristla",
+          "Menasting Terra"
+        ],
+        [
+          "Broncherry Aqua",
+          "Shroomer Noct"
+        ],
+        [
+          "Bushi",
+          "Caprity"
         ]
       ],
       "spawnAreas": [
@@ -4513,24 +5589,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/043_dumud.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Reptyro"
+          "Anubis",
+          "Fuddler"
         ],
         [
-          "Cattiva",
-          "Elizabee"
+          "Arsox",
+          "Robinquill Terra"
         ],
         [
-          "Chikipi",
-          "Mammorest Cryst"
+          "Azurobe",
+          "Fuack Ignis"
         ],
         [
-          "Lifmunk",
-          "Pyrin"
+          "Azurobe",
+          "Killamari"
         ],
         [
-          "Foxparks",
-          "Mossanda Lux"
+          "Azurobe Cryst",
+          "Pengullet Lux"
+        ],
+        [
+          "Azurobe Cryst",
+          "Ribbuny"
+        ],
+        [
+          "Beegarde",
+          "Shroomer"
+        ],
+        [
+          "Blazehowl",
+          "Cawgnito"
+        ],
+        [
+          "Blazehowl Noct",
+          "Leezpunk"
+        ],
+        [
+          "Braloha",
+          "Cremis"
+        ],
+        [
+          "Bristla",
+          "Kingpaca"
+        ],
+        [
+          "Broncherry",
+          "Caprity"
         ]
       ],
       "spawnAreas": [
@@ -4620,24 +5724,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/044_cawgnito.png",
       "breedingCombos": [
         [
-          "Cattiva",
-          "Katress"
+          "Arsox",
+          "Jolthog Cryst"
         ],
         [
-          "Chikipi",
-          "Vanwyrm"
+          "Beegarde",
+          "Cawgnito"
         ],
         [
-          "Foxparks",
-          "Foxcicle"
+          "Blazehowl",
+          "Mau Cryst"
         ],
         [
-          "Fuack",
+          "Blazehowl Noct",
+          "Mau"
+        ],
+        [
+          "Blue Slime",
+          "Polapup"
+        ],
+        [
+          "Bristla",
+          "Celaray Lux"
+        ],
+        [
+          "Bristla",
           "Kitsun"
         ],
         [
-          "Sparkit",
-          "Tombat"
+          "Broncherry",
+          "Fuack Ignis"
+        ],
+        [
+          "Broncherry",
+          "Killamari"
+        ],
+        [
+          "Broncherry Aqua",
+          "Pengullet Lux"
+        ],
+        [
+          "Broncherry Aqua",
+          "Ribbuny"
+        ],
+        [
+          "Bushi Noct",
+          "Chikipi"
         ]
       ],
       "spawnAreas": [
@@ -4728,24 +5860,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/045_leezpunk.png",
       "breedingCombos": [
         [
-          "Cattiva",
-          "Petallia"
+          "Arsox",
+          "Mau Cryst"
         ],
         [
-          "Chikipi",
-          "Rayhound"
+          "Beegarde",
+          "Wixen"
         ],
         [
-          "Lifmunk",
-          "Dinossom Lux"
+          "Blue Slime",
+          "Tarantriss"
         ],
         [
-          "Foxparks",
-          "Broncherry Aqua"
-        ],
-        [
-          "Fuack",
+          "Bristla",
           "Mozzarina"
+        ],
+        [
+          "Broncherry",
+          "Jolthog"
+        ],
+        [
+          "Broncherry Aqua",
+          "Demon Eye"
+        ],
+        [
+          "Broncherry Aqua",
+          "Hoocrates"
+        ],
+        [
+          "Broncherry Aqua",
+          "Purple Slime"
+        ],
+        [
+          "Caprity",
+          "Swee"
+        ],
+        [
+          "Cave Bat",
+          "Melpaca"
+        ],
+        [
+          "Cawgnito",
+          "Maraith"
+        ],
+        [
+          "Cawgnito",
+          "Wixen Noct"
         ]
       ],
       "spawnAreas": [
@@ -4833,24 +5993,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/046_loupmoon.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Mossanda"
+          "Anubis",
+          "Fuack"
         ],
         [
-          "Cattiva",
-          "Ice Kingpaca"
+          "Arsox",
+          "Lunaris"
         ],
         [
-          "Lifmunk",
-          "Kingpaca"
+          "Azurobe",
+          "Foxparks"
         ],
         [
-          "Foxparks",
-          "Azurobe"
+          "Azurobe Cryst",
+          "Hangyu"
         ],
         [
-          "Fuack",
-          "Anubis"
+          "Beegarde",
+          "Celaray Lux"
+        ],
+        [
+          "Beegarde",
+          "Kitsun"
+        ],
+        [
+          "Blazehowl",
+          "Woolipop"
+        ],
+        [
+          "Blazehowl Noct",
+          "Daedream"
+        ],
+        [
+          "Bristla",
+          "Incineram Noct"
+        ],
+        [
+          "Broncherry",
+          "Gorirat"
+        ],
+        [
+          "Broncherry Aqua",
+          "Direhowl"
+        ],
+        [
+          "Bushi",
+          "Kelpsea"
         ]
       ],
       "spawnAreas": [
@@ -4939,24 +6127,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/047_galeclaw.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Incineram"
+          "Anubis",
+          "Mau"
         ],
         [
-          "Chikipi",
-          "Surfent"
+          "Arsox",
+          "Kelpsea"
         ],
         [
-          "Foxparks",
-          "Vanwyrm"
+          "Beegarde",
+          "Fenglope"
         ],
         [
-          "Tanzee",
-          "Dinossom Lux"
+          "Blazehowl",
+          "Cave Bat"
         ],
         [
-          "Pengullet",
-          "Blazehowl"
+          "Blazehowl",
+          "Tocotoco"
+        ],
+        [
+          "Blazehowl Noct",
+          "Depresso"
+        ],
+        [
+          "Blazehowl Noct",
+          "Eye of Cthulhu"
+        ],
+        [
+          "Bristla",
+          "Shroomer Noct"
+        ],
+        [
+          "Broncherry",
+          "Woolipop"
+        ],
+        [
+          "Broncherry Aqua",
+          "Dazzi"
+        ],
+        [
+          "Bushi",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Bushi",
+          "Sparkit"
         ]
       ],
       "spawnAreas": [
@@ -5049,24 +6265,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/048_robinquill.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Anubis"
+          "Anubis",
+          "Cattiva"
         ],
         [
-          "Cattiva",
-          "Incineram Noct"
+          "Arsox",
+          "Gumoss"
         ],
         [
-          "Chikipi",
-          "Elphidran"
+          "Arsox",
+          "Gumoss (Special)"
         ],
         [
-          "Foxparks",
-          "Bushi"
+          "Blazehowl",
+          "Bristla"
         ],
         [
-          "Fuack",
-          "Blazehowl"
+          "Blazehowl Noct",
+          "Jolthog Cryst"
+        ],
+        [
+          "Broncherry Aqua",
+          "Woolipop"
+        ],
+        [
+          "Bushi",
+          "Demon Eye"
+        ],
+        [
+          "Bushi",
+          "Hoocrates"
+        ],
+        [
+          "Bushi",
+          "Purple Slime"
+        ],
+        [
+          "Bushi Noct",
+          "Depresso"
+        ],
+        [
+          "Bushi Noct",
+          "Eye of Cthulhu"
+        ],
+        [
+          "Caprity",
+          "Gobfin Ignis"
         ]
       ],
       "spawnAreas": [
@@ -5157,24 +6401,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/049_gorirat.png",
       "breedingCombos": [
         [
-          "Cattiva",
+          "Bushi Noct",
+          "Hangyu Cryst"
+        ],
+        [
+          "Blazehowl Noct",
+          "Blue Slime"
+        ],
+        [
+          "Blazehowl Noct",
+          "Flambelle"
+        ],
+        [
+          "Blazehowl Noct",
+          "Red Slime"
+        ],
+        [
+          "Celaray",
+          "Ribbuny Botan"
+        ],
+        [
+          "Cremis",
           "Vanwyrm Cryst"
         ],
         [
-          "Chikipi",
-          "Incineram Noct"
+          "Croajiro",
+          "Flopie"
         ],
         [
-          "Foxparks",
-          "Univolt"
+          "Croajiro Noct",
+          "Pengullet Lux"
         ],
         [
-          "Fuack",
-          "Tombat"
+          "Croajiro Noct",
+          "Ribbuny"
         ],
         [
-          "Sparkit",
-          "Blazehowl Noct"
+          "Dazemu",
+          "Foxparks"
+        ],
+        [
+          "Dogen",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Dogen",
+          "Sparkit"
         ]
       ],
       "spawnAreas": [
@@ -5267,24 +6539,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/050_beegarde.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Blazehowl Noct"
+          "Arsox",
+          "Pengullet"
+        ],
+        [
+          "Beegarde",
+          "Beegarde"
+        ],
+        [
+          "Blazehowl",
+          "Green Slime"
+        ],
+        [
+          "Blazehowl",
+          "Lifmunk"
+        ],
+        [
+          "Blazehowl Noct",
+          "Lamball"
+        ],
+        [
+          "Bristla",
+          "Dinossom"
+        ],
+        [
+          "Broncherry",
+          "Flopie"
+        ],
+        [
+          "Broncherry Aqua",
+          "Swee"
+        ],
+        [
+          "Bushi",
+          "Chikipi"
+        ],
+        [
+          "Bushi Noct",
+          "Teafant"
+        ],
+        [
+          "Caprity",
+          "Dazzi"
         ],
         [
           "Cattiva",
           "Univolt"
-        ],
-        [
-          "Chikipi",
-          "Bushi"
-        ],
-        [
-          "Lifmunk",
-          "Blazehowl"
-        ],
-        [
-          "Foxparks",
-          "Rayhound"
         ]
       ],
       "spawnAreas": [
@@ -5377,24 +6677,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/051_elizabee.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Orserk"
+          "Anubis",
+          "Paladius"
         ],
         [
-          "Mossanda",
-          "Ice Reptyro"
+          "Astegon",
+          "Azurobe"
         ],
         [
-          "Nitewing",
-          "Pyrin Noct"
+          "Beakon",
+          "Mossanda"
         ],
         [
-          "Incineram",
-          "Necromus"
+          "Beakon",
+          "Neptilius"
+        ],
+        [
+          "Beakon",
+          "Whalaska Ignis"
+        ],
+        [
+          "Blazamut",
+          "Bushi"
+        ],
+        [
+          "Braloha",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Cryolinx",
+          "Penking"
         ],
         [
           "Elizabee",
-          "Elizabee"
+          "Reptyro"
+        ],
+        [
+          "Elphidran Aqua",
+          "Frostallion"
+        ],
+        [
+          "Faleris",
+          "Relaxaurus"
+        ],
+        [
+          "Frostallion Noct",
+          "Surfent Terra"
         ]
       ],
       "spawnAreas": [
@@ -5482,24 +6810,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/052_grintale.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Azurobe"
+          "Blazamut Ryu",
+          "Felbat"
         ],
         [
-          "Celaray",
-          "Astegon"
+          "Anubis",
+          "Sibelyx"
         ],
         [
-          "Mossanda",
-          "Incineram"
+          "Arsox",
+          "Ice Reptyro"
         ],
         [
-          "Caprity",
-          "Jetragon"
+          "Arsox",
+          "Reptyro Cryst"
         ],
         [
-          "Melpaca",
-          "Cryolinx"
+          "Astegon",
+          "Celaray"
+        ],
+        [
+          "Azurobe",
+          "Penking"
+        ],
+        [
+          "Azurobe Cryst",
+          "Elphidran"
+        ],
+        [
+          "Beakon",
+          "Chillet"
+        ],
+        [
+          "Blazamut",
+          "Felbat"
+        ],
+        [
+          "Blazehowl",
+          "Jormuntide"
+        ],
+        [
+          "Blazehowl Noct",
+          "Quivern"
+        ],
+        [
+          "Blazehowl Noct",
+          "Warsect Terra"
         ]
       ],
       "spawnAreas": [
@@ -5587,24 +6943,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/053_swee.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Rushoar"
+          "Blue Slime",
+          "Gloopie"
+        ],
+        [
+          "Bristla",
+          "Flopie"
         ],
         [
           "Cattiva",
           "Leezpunk Ignis"
         ],
         [
+          "Cave Bat",
+          "Kelpsea"
+        ],
+        [
           "Chikipi",
           "Gobfin Ignis"
         ],
         [
-          "Fuack",
-          "Kelpsea Ignis"
+          "Daedream",
+          "Jolthog"
         ],
         [
-          "Sparkit",
-          "Woolipop"
+          "Dazzi",
+          "Demon Eye"
+        ],
+        [
+          "Dazzi",
+          "Hoocrates"
+        ],
+        [
+          "Dazzi",
+          "Purple Slime"
+        ],
+        [
+          "Depresso",
+          "Fuddler"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Fuddler"
+        ],
+        [
+          "Flambelle",
+          "Gloopie"
         ]
       ],
       "spawnAreas": [
@@ -5692,24 +7076,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/054_sweepa.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Mammorest"
-        ],
-        [
-          "Mossanda",
-          "Mossanda Lux"
-        ],
-        [
-          "Incineram",
+          "Anubis",
           "Ice Reptyro"
         ],
         [
-          "Cinnamoth",
-          "Elizabee"
+          "Anubis",
+          "Reptyro Cryst"
         ],
         [
           "Arsox",
-          "Suzaku Aqua"
+          "Blazamut"
+        ],
+        [
+          "Astegon",
+          "Bushi Noct"
+        ],
+        [
+          "Azurobe",
+          "Mammorest"
+        ],
+        [
+          "Azurobe Cryst",
+          "Reptyro"
+        ],
+        [
+          "Beakon",
+          "Incineram Noct"
+        ],
+        [
+          "Blazamut",
+          "Chillet Ignis"
+        ],
+        [
+          "Blazehowl",
+          "Jetragon"
+        ],
+        [
+          "Blazehowl Noct",
+          "Cryolinx"
+        ],
+        [
+          "Braloha",
+          "Xenovader"
+        ],
+        [
+          "Cinnamoth",
+          "Jormuntide"
         ]
       ],
       "spawnAreas": [
@@ -5798,24 +7210,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/055_chillet.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Cryolinx"
+          "Anubis",
+          "Galeclaw"
         ],
         [
-          "Cattiva",
-          "Orserk"
+          "Anubis",
+          "Gorirat Terra"
         ],
         [
-          "Chikipi",
-          "Frostallion Noct"
+          "Arsox",
+          "Dinossom Lux"
         ],
         [
-          "Foxparks",
-          "Grizzbolt"
+          "Astegon",
+          "Vixy"
         ],
         [
-          "Fuack",
-          "Relaxaurus Lux"
+          "Azurobe",
+          "Gobfin Ignis"
+        ],
+        [
+          "Azurobe Cryst",
+          "Leezpunk"
+        ],
+        [
+          "Beakon",
+          "Depresso"
+        ],
+        [
+          "Beakon",
+          "Eye of Cthulhu"
+        ],
+        [
+          "Beegarde",
+          "Elphidran Aqua"
+        ],
+        [
+          "Blazehowl",
+          "Melpaca"
+        ],
+        [
+          "Blazehowl Noct",
+          "Caprity"
+        ],
+        [
+          "Bristla",
+          "Relaxaurus"
         ]
       ],
       "spawnAreas": [
@@ -5905,24 +7345,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/056_univolt.png",
       "breedingCombos": [
         [
-          "Fuack",
-          "Suzaku Aqua"
+          "Blazamut Ryu",
+          "Pengullet"
         ],
         [
-          "Pengullet",
-          "Blazamut"
+          "Anubis",
+          "Arsox"
         ],
         [
-          "Penking",
-          "Broncherry Aqua"
+          "Anubis",
+          "Chillet Ignis"
         ],
         [
-          "Gumoss",
-          "Frostallion"
+          "Astegon",
+          "Dazzi"
         ],
         [
-          "Daedream",
-          "Cryolinx"
+          "Azurobe",
+          "Broncherry"
+        ],
+        [
+          "Azurobe Cryst",
+          "Reindrix"
+        ],
+        [
+          "Beakon",
+          "Leezpunk Ignis"
+        ],
+        [
+          "Beegarde",
+          "Mammorest Cryst"
+        ],
+        [
+          "Blazamut",
+          "Pengullet"
+        ],
+        [
+          "Blazehowl",
+          "Bushi Noct"
+        ],
+        [
+          "Blazehowl Noct",
+          "Katress Ignis"
+        ],
+        [
+          "Broncherry Aqua",
+          "Penking"
         ]
       ],
       "spawnAreas": [
@@ -6011,24 +7479,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/057_foxcicle.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Suzaku"
+          "Anubis",
+          "Lovander"
         ],
         [
-          "Cattiva",
-          "Shadowbeak"
+          "Arsox",
+          "Shroomer"
         ],
         [
-          "Lifmunk",
-          "Jetragon"
+          "Astegon",
+          "Jolthog Cryst"
         ],
         [
-          "Foxparks",
-          "Frostallion"
+          "Azurobe",
+          "Felbat"
         ],
         [
-          "Fuack",
-          "Helzephyr"
+          "Azurobe Cryst",
+          "Galeclaw"
+        ],
+        [
+          "Azurobe Cryst",
+          "Gorirat Terra"
+        ],
+        [
+          "Beakon",
+          "Fuack Ignis"
+        ],
+        [
+          "Beakon",
+          "Killamari"
+        ],
+        [
+          "Beegarde",
+          "Ice Kingpaca"
+        ],
+        [
+          "Blazamut",
+          "Chikipi"
+        ],
+        [
+          "Blazehowl",
+          "Chillet"
+        ],
+        [
+          "Blazehowl Noct",
+          "Broncherry Aqua"
         ]
       ],
       "spawnAreas": [
@@ -6117,24 +7613,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/058_pyrin.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Grizzbolt"
+          "Blazamut Ryu",
+          "Blazehowl"
         ],
         [
-          "Mossanda",
-          "Mammorest Cryst"
+          "Anubis",
+          "Astegon"
         ],
         [
-          "Nitewing",
-          "Mammorest"
+          "Azurobe",
+          "Beakon"
         ],
         [
-          "Incineram",
-          "Cryolinx"
+          "Azurobe Cryst",
+          "Pyrin Noct"
+        ],
+        [
+          "Blazamut",
+          "Blazehowl"
+        ],
+        [
+          "Blazehowl Noct",
+          "Suzaku"
+        ],
+        [
+          "Bushi",
+          "Paladius"
+        ],
+        [
+          "Bushi Noct",
+          "Necromus"
         ],
         [
           "Cinnamoth",
           "Ice Reptyro"
+        ],
+        [
+          "Cinnamoth",
+          "Reptyro Cryst"
+        ],
+        [
+          "Cryolinx",
+          "Incineram"
+        ],
+        [
+          "Elizabee",
+          "Mossanda Lux"
         ]
       ],
       "spawnAreas": [
@@ -6226,24 +7750,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/059_reindrix.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Mammorest Cryst"
+          "Elizabee",
+          "Hangyu Cryst"
         ],
         [
-          "Cattiva",
+          "Blue Slime",
+          "Quivern"
+        ],
+        [
+          "Blue Slime",
+          "Warsect Terra"
+        ],
+        [
+          "Braloha",
+          "Hangyu"
+        ],
+        [
+          "Bristla",
+          "Xenogard"
+        ],
+        [
+          "Broncherry",
+          "Dumud"
+        ],
+        [
+          "Bushi Noct",
+          "Turtacle"
+        ],
+        [
+          "Caprity",
+          "Tarantriss"
+        ],
+        [
+          "Cawgnito",
+          "Dazemu"
+        ],
+        [
+          "Cremis",
           "Mammorest"
         ],
         [
-          "Chikipi",
-          "Menasting"
+          "Croajiro Noct",
+          "Verdash"
         ],
         [
-          "Lifmunk",
-          "Elizabee"
-        ],
-        [
-          "Foxparks",
-          "Pyrin"
+          "Daedream",
+          "Ghangler"
         ]
       ],
       "spawnAreas": [
@@ -6330,24 +7882,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/060_rayhound.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Blazamut"
+          "Anubis",
+          "Eikthyrdeer Terra"
         ],
         [
-          "Lifmunk",
-          "Suzaku"
+          "Arsox",
+          "Univolt"
         ],
         [
-          "Foxparks",
-          "Paladius"
+          "Astegon",
+          "Bristla"
         ],
         [
-          "Fuack",
-          "Astegon"
+          "Azurobe Cryst",
+          "Verdash"
         ],
         [
-          "Sparkit",
-          "Necromus"
+          "Beakon",
+          "Illuminant Bat"
+        ],
+        [
+          "Beakon",
+          "Killamari Primo"
+        ],
+        [
+          "Beakon",
+          "Tanzee"
+        ],
+        [
+          "Blazamut",
+          "Cattiva"
+        ],
+        [
+          "Blazehowl",
+          "Foxcicle"
+        ],
+        [
+          "Blazehowl Noct",
+          "Chillet"
+        ],
+        [
+          "Bushi",
+          "Celaray Lux"
+        ],
+        [
+          "Bushi",
+          "Kitsun"
         ]
       ],
       "spawnAreas": [
@@ -6436,24 +8016,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/061_kitsun.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Helzephyr"
+          "Anubis",
+          "Gobfin"
         ],
         [
-          "Cattiva",
-          "Grizzbolt"
+          "Arsox",
+          "Celaray"
         ],
         [
-          "Lifmunk",
-          "Ice Reptyro"
+          "Azurobe",
+          "Wixen"
         ],
         [
-          "Foxparks",
-          "Menasting"
+          "Azurobe Cryst",
+          "Nox"
         ],
         [
-          "Fuack",
-          "Elizabee"
+          "Beakon",
+          "Mau Cryst"
+        ],
+        [
+          "Beegarde",
+          "Incineram"
+        ],
+        [
+          "Blazehowl",
+          "Loupmoon"
+        ],
+        [
+          "Blazehowl Noct",
+          "Verdash"
+        ],
+        [
+          "Bristla",
+          "Quivern Botan"
+        ],
+        [
+          "Bristla",
+          "Warsect"
+        ],
+        [
+          "Broncherry",
+          "Chillet"
+        ],
+        [
+          "Broncherry Aqua",
+          "Dinossom"
         ]
       ],
       "spawnAreas": [
@@ -6543,24 +8151,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/062_dazzi.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Loupmoon"
+          "Beegarde",
+          "Pengullet"
+        ],
+        [
+          "Bristla",
+          "Gobfin Ignis"
+        ],
+        [
+          "Caprity",
+          "Teafant"
+        ],
+        [
+          "Cave Bat",
+          "Cawgnito"
+        ],
+        [
+          "Cawgnito",
+          "Tocotoco"
         ],
         [
           "Chikipi",
           "Eikthyrdeer"
         ],
         [
-          "Lifmunk",
-          "Verdash"
+          "Daedream",
+          "Woolipop"
         ],
         [
-          "Foxparks",
-          "Robinquill"
+          "Dazzi",
+          "Dazzi"
         ],
         [
-          "Fuack",
-          "Gobfin"
+          "Demon Eye",
+          "Galeclaw"
+        ],
+        [
+          "Demon Eye",
+          "Gorirat Terra"
+        ],
+        [
+          "Depresso",
+          "Gorirat"
+        ],
+        [
+          "Direhowl",
+          "Jolthog Cryst"
         ]
       ],
       "spawnAreas": [
@@ -6650,24 +8286,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/063_lunaris.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Tombat"
+          "Croajiro",
+          "Hangyu Cryst"
+        ],
+        [
+          "Arsox",
+          "Green Slime"
+        ],
+        [
+          "Arsox",
+          "Lifmunk"
+        ],
+        [
+          "Beegarde",
+          "Maraith"
+        ],
+        [
+          "Beegarde",
+          "Wixen Noct"
+        ],
+        [
+          "Bristla",
+          "Eikthyrdeer Terra"
+        ],
+        [
+          "Broncherry",
+          "Jolthog Cryst"
+        ],
+        [
+          "Broncherry Aqua",
+          "Depresso"
+        ],
+        [
+          "Broncherry Aqua",
+          "Eye of Cthulhu"
+        ],
+        [
+          "Caprity",
+          "Fuack Ignis"
+        ],
+        [
+          "Caprity",
+          "Killamari"
         ],
         [
           "Cattiva",
           "Foxcicle"
-        ],
-        [
-          "Lifmunk",
-          "Arsox"
-        ],
-        [
-          "Foxparks",
-          "Dinossom"
-        ],
-        [
-          "Fuack",
-          "Melpaca"
         ]
       ],
       "spawnAreas": [
@@ -6756,24 +8420,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/064_dinossom.png",
       "breedingCombos": [
         [
-          "Chikipi",
-          "Orserk"
+          "Anubis",
+          "Direhowl"
         ],
         [
-          "Lifmunk",
-          "Lyleen Noct"
+          "Arsox",
+          "Broncherry Aqua"
         ],
         [
-          "Foxparks",
-          "Pyrin Noct"
+          "Astegon",
+          "Mau"
         ],
         [
-          "Fuack",
-          "Jormuntide"
+          "Azurobe",
+          "Rushoar"
         ],
         [
-          "Sparkit",
-          "Ice Reptyro"
+          "Azurobe Cryst",
+          "Maraith"
+        ],
+        [
+          "Azurobe Cryst",
+          "Wixen Noct"
+        ],
+        [
+          "Beakon",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Beakon",
+          "Sparkit"
+        ],
+        [
+          "Beegarde",
+          "Surfent"
+        ],
+        [
+          "Blazehowl",
+          "Eikthyrdeer"
+        ],
+        [
+          "Braloha",
+          "Finsider"
+        ],
+        [
+          "Braloha",
+          "Finsider Ignis"
         ]
       ],
       "spawnAreas": [
@@ -6861,24 +8553,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/065_surfent.png",
       "breedingCombos": [
         [
-          "Celaray",
+          "Anubis",
+          "Elphidran"
+        ],
+        [
+          "Arsox",
+          "Reptyro"
+        ],
+        [
+          "Beakon",
+          "Melpaca"
+        ],
+        [
+          "Blazamut",
+          "Gobfin Ignis"
+        ],
+        [
+          "Blazehowl Noct",
+          "Ice Kingpaca"
+        ],
+        [
+          "Broncherry",
           "Lyleen"
         ],
         [
-          "Direhowl",
-          "Shadowbeak"
+          "Broncherry",
+          "Menasting Terra"
         ],
         [
-          "Mozzarina",
-          "Lyleen Noct"
+          "Broncherry Aqua",
+          "Relaxaurus Lux"
         ],
         [
-          "Gobfin",
-          "Suzaku Aqua"
+          "Bushi",
+          "Kingpaca"
+        ],
+        [
+          "Bushi Noct",
+          "Wumpo"
         ],
         [
           "Caprity",
-          "Helzephyr"
+          "Helzephyr Lux"
+        ],
+        [
+          "Cawgnito",
+          "Suzaku Aqua"
         ]
       ],
       "spawnAreas": [
@@ -6968,24 +8688,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/066_maraith.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Kitsun"
+          "Arsox",
+          "Chikipi"
+        ],
+        [
+          "Beegarde",
+          "Fuddler"
+        ],
+        [
+          "Broncherry",
+          "Green Slime"
+        ],
+        [
+          "Broncherry",
+          "Lifmunk"
+        ],
+        [
+          "Broncherry Aqua",
+          "Vixy"
+        ],
+        [
+          "Caprity",
+          "Jolthog Cryst"
         ],
         [
           "Cattiva",
-          "Broncherry Aqua"
+          "Celaray Lux"
+        ],
+        [
+          "Cattiva",
+          "Kitsun"
+        ],
+        [
+          "Cave Bat",
+          "Loupmoon"
+        ],
+        [
+          "Cawgnito",
+          "Dazzi"
+        ],
+        [
+          "Celaray",
+          "Hangyu"
         ],
         [
           "Chikipi",
-          "Chillet"
-        ],
-        [
-          "Lifmunk",
-          "Celaray"
-        ],
-        [
-          "Foxparks",
-          "Eikthyrdeer Terra"
+          "Chillet Ignis"
         ]
       ],
       "spawnAreas": [
@@ -7074,24 +8822,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/067_digtoise.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Ice Reptyro"
+          "Anubis",
+          "Leezpunk"
         ],
         [
-          "Cattiva",
-          "Pyrin Noct"
+          "Arsox",
+          "Eikthyrdeer Terra"
         ],
         [
-          "Chikipi",
-          "Grizzbolt"
+          "Azurobe",
+          "Woolipop"
         ],
         [
-          "Lifmunk",
-          "Relaxaurus Lux"
+          "Azurobe Cryst",
+          "Dazzi"
         ],
         [
-          "Foxparks",
-          "Mammorest"
+          "Beakon",
+          "Lamball"
+        ],
+        [
+          "Beegarde",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Blazehowl",
+          "Fenglope"
+        ],
+        [
+          "Blazehowl Noct",
+          "Robinquill"
+        ],
+        [
+          "Bristla",
+          "Faleris"
+        ],
+        [
+          "Broncherry",
+          "Celaray Lux"
+        ],
+        [
+          "Broncherry",
+          "Kitsun"
+        ],
+        [
+          "Broncherry Aqua",
+          "Digtoise"
         ]
       ],
       "spawnAreas": [
@@ -7182,24 +8958,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/068_tombat.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Suzaku Aqua"
+          "Blazamut Ryu",
+          "Teafant"
         ],
         [
-          "Lifmunk",
-          "Necromus"
+          "Anubis",
+          "Caprity"
         ],
         [
-          "Foxparks",
-          "Frostallion Noct"
+          "Arsox",
+          "Blazehowl"
         ],
         [
-          "Sparkit",
-          "Jetragon"
+          "Astegon",
+          "Pengullet"
         ],
         [
-          "Tanzee",
-          "Lyleen"
+          "Azurobe",
+          "Robinquill Terra"
+        ],
+        [
+          "Azurobe Cryst",
+          "Robinquill"
+        ],
+        [
+          "Beakon",
+          "Flopie"
+        ],
+        [
+          "Beegarde",
+          "Mossanda"
+        ],
+        [
+          "Beegarde",
+          "Neptilius"
+        ],
+        [
+          "Beegarde",
+          "Whalaska Ignis"
+        ],
+        [
+          "Blazamut",
+          "Teafant"
+        ],
+        [
+          "Blazehowl",
+          "Chillet Ignis"
         ]
       ],
       "spawnAreas": [
@@ -7293,24 +9097,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/069_lovander.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Sweepa"
-        ],
-        [
-          "Cattiva",
-          "Nitewing"
-        ],
-        [
-          "Chikipi",
-          "Ragnahawk"
-        ],
-        [
-          "Lifmunk",
+          "Hangyu Cryst",
           "Sibelyx"
         ],
         [
-          "Foxparks",
-          "Wumpo Botan"
+          "Azurobe Cryst",
+          "Jellroy"
+        ],
+        [
+          "Blazehowl Noct",
+          "Ribbuny Botan"
+        ],
+        [
+          "Blue Slime",
+          "Kingpaca"
+        ],
+        [
+          "Caprity",
+          "Yakumo"
+        ],
+        [
+          "Cawgnito",
+          "Croajiro"
+        ],
+        [
+          "Cinnamoth",
+          "Jelliette"
+        ],
+        [
+          "Cremis",
+          "Nitewing"
+        ],
+        [
+          "Croajiro Noct",
+          "Lunaris"
+        ],
+        [
+          "Dazemu",
+          "Mimog"
+        ],
+        [
+          "Dazzi",
+          "Dogen"
+        ],
+        [
+          "Dinossom Lux",
+          "Turtacle Terra"
         ]
       ],
       "spawnAreas": [
@@ -7401,24 +9233,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/070_flambelle.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Tocotoco"
+          "Hangyu Cryst",
+          "Jelliette"
+        ],
+        [
+          "Blue Slime",
+          "Blue Slime"
+        ],
+        [
+          "Blue Slime",
+          "Flambelle"
+        ],
+        [
+          "Blue Slime",
+          "Red Slime"
+        ],
+        [
+          "Bristla",
+          "Teafant"
         ],
         [
           "Cattiva",
           "Pengullet"
         ],
         [
+          "Cave Bat",
+          "Lamball"
+        ],
+        [
+          "Chikipi",
+          "Pengullet Lux"
+        ],
+        [
           "Chikipi",
           "Ribbuny"
         ],
         [
-          "Lifmunk",
-          "Depresso"
+          "Demon Eye",
+          "Hangyu"
         ],
         [
-          "Foxparks",
-          "Sparkit"
+          "Depresso",
+          "Green Slime"
+        ],
+        [
+          "Depresso",
+          "Lifmunk"
         ]
       ],
       "spawnAreas": [
@@ -7510,24 +9370,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/071_vanwyrm.png",
       "breedingCombos": [
         [
-          "Tanzee",
-          "Necromus"
+          "Blazamut Ryu",
+          "Pengullet Lux"
         ],
         [
-          "Penking",
-          "Chillet"
+          "Blazamut Ryu",
+          "Ribbuny"
         ],
         [
-          "Gumoss",
-          "Paladius"
+          "Anubis",
+          "Tombat"
         ],
         [
-          "Daedream",
-          "Jetragon"
+          "Arsox",
+          "Elphidran Aqua"
         ],
         [
-          "Rushoar",
-          "Helzephyr"
+          "Azurobe",
+          "Dinossom"
+        ],
+        [
+          "Azurobe Cryst",
+          "Broncherry Aqua"
+        ],
+        [
+          "Beakon",
+          "Gobfin Ignis"
+        ],
+        [
+          "Beegarde",
+          "Lyleen"
+        ],
+        [
+          "Beegarde",
+          "Menasting Terra"
+        ],
+        [
+          "Blazamut",
+          "Pengullet Lux"
+        ],
+        [
+          "Blazamut",
+          "Ribbuny"
+        ],
+        [
+          "Blazehowl Noct",
+          "Bushi Noct"
         ]
       ],
       "spawnAreas": [
@@ -7620,24 +9508,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/072_bushi.png",
       "breedingCombos": [
         [
-          "Tanzee",
-          "Suzaku Aqua"
+          "Anubis",
+          "Katress Ignis"
         ],
         [
-          "Penking",
+          "Arsox",
+          "Kingpaca"
+        ],
+        [
+          "Astegon",
+          "Lunaris"
+        ],
+        [
+          "Azurobe",
           "Foxcicle"
         ],
         [
-          "Daedream",
-          "Suzaku"
+          "Azurobe Cryst",
+          "Petallia"
         ],
         [
-          "Rushoar",
-          "Astegon"
+          "Beakon",
+          "Gorirat"
         ],
         [
-          "Nox",
-          "Frostallion Noct"
+          "Beegarde",
+          "Helzephyr"
+        ],
+        [
+          "Blazamut",
+          "Illuminant Bat"
+        ],
+        [
+          "Blazamut",
+          "Killamari Primo"
+        ],
+        [
+          "Blazamut",
+          "Tanzee"
+        ],
+        [
+          "Blazehowl",
+          "Surfent Terra"
+        ],
+        [
+          "Blazehowl Noct",
+          "Incineram"
         ]
       ],
       "spawnAreas": [
@@ -7727,24 +9643,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/073_beakon.png",
       "breedingCombos": [
         [
-          "Mossanda",
-          "Blazamut"
-        ],
-        [
-          "Sweepa",
-          "Suzaku Aqua"
-        ],
-        [
-          "Pyrin",
-          "Paladius"
+          "Astegon",
+          "Relaxaurus"
         ],
         [
           "Beakon",
-          "Beakon"
+          "Lyleen Noct"
         ],
         [
-          "Ragnahawk",
+          "Blazamut",
+          "Nitewing"
+        ],
+        [
+          "Cryolinx",
+          "Mammorest"
+        ],
+        [
+          "Elizabee",
+          "Frostallion Noct"
+        ],
+        [
+          "Faleris",
           "Shadowbeak"
+        ],
+        [
+          "Frostallion",
+          "Jormuntide"
+        ],
+        [
+          "Grizzbolt",
+          "Ice Reptyro"
+        ],
+        [
+          "Grizzbolt",
+          "Reptyro Cryst"
+        ],
+        [
+          "Helzephyr",
+          "Pyrin Noct"
+        ],
+        [
+          "Helzephyr Lux",
+          "Lyleen"
+        ],
+        [
+          "Helzephyr Lux",
+          "Menasting Terra"
         ]
       ],
       "spawnAreas": [
@@ -7833,24 +9777,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/074_ragnahawk.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Pyrin Noct"
+          "Anubis",
+          "Helzephyr Lux"
         ],
         [
-          "Mossanda",
-          "Elizabee"
+          "Azurobe",
+          "Lyleen"
         ],
         [
-          "Nitewing",
-          "Warsect"
+          "Azurobe",
+          "Menasting Terra"
         ],
         [
-          "Cinnamoth",
+          "Azurobe Cryst",
           "Relaxaurus Lux"
         ],
         [
-          "Grintale",
-          "Lyleen"
+          "Beakon",
+          "Elphidran Aqua"
+        ],
+        [
+          "Blazamut",
+          "Rayhound"
+        ],
+        [
+          "Blazehowl Noct",
+          "Paladius"
+        ],
+        [
+          "Bushi Noct",
+          "Frostallion Noct"
+        ],
+        [
+          "Cinnamoth",
+          "Menasting"
+        ],
+        [
+          "Cryolinx",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Elizabee",
+          "Nitewing"
+        ],
+        [
+          "Elphidran",
+          "Lyleen Noct"
         ]
       ],
       "spawnAreas": [
@@ -7942,24 +9914,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/075_katress.png",
       "breedingCombos": [
         [
-          "Fuack",
+          "Anubis",
+          "Dinossom"
+        ],
+        [
+          "Astegon",
+          "Gumoss"
+        ],
+        [
+          "Astegon",
+          "Gumoss (Special)"
+        ],
+        [
+          "Azurobe",
+          "Melpaca"
+        ],
+        [
+          "Azurobe Cryst",
+          "Mozzarina"
+        ],
+        [
+          "Beegarde",
+          "Reptyro"
+        ],
+        [
+          "Blazamut",
+          "Depresso"
+        ],
+        [
+          "Blazamut",
+          "Eye of Cthulhu"
+        ],
+        [
+          "Blazehowl",
+          "Univolt"
+        ],
+        [
+          "Blazehowl Noct",
+          "Shroomer"
+        ],
+        [
+          "Bristla",
           "Necromus"
         ],
         [
-          "Tanzee",
-          "Astegon"
-        ],
-        [
-          "Pengullet",
-          "Suzaku"
-        ],
-        [
-          "Penking",
-          "Reindrix"
-        ],
-        [
-          "Jolthog",
-          "Suzaku Aqua"
+          "Broncherry",
+          "Elphidran Aqua"
         ]
       ],
       "spawnAreas": [
@@ -8050,24 +10050,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/076_wixen.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Digtoise"
+          "Dumud",
+          "Hangyu Cryst"
         ],
         [
-          "Cattiva",
-          "Broncherry"
+          "Beegarde",
+          "Illuminant Bat"
         ],
         [
-          "Chikipi",
-          "Dinossom"
+          "Beegarde",
+          "Killamari Primo"
         ],
         [
-          "Lifmunk",
-          "Melpaca"
+          "Beegarde",
+          "Tanzee"
         ],
         [
-          "Foxparks",
-          "Eikthyrdeer"
+          "Bristla",
+          "Robinquill Terra"
+        ],
+        [
+          "Broncherry",
+          "Cattiva"
+        ],
+        [
+          "Broncherry Aqua",
+          "Mau"
+        ],
+        [
+          "Caprity",
+          "Demon Eye"
+        ],
+        [
+          "Caprity",
+          "Hoocrates"
+        ],
+        [
+          "Caprity",
+          "Purple Slime"
+        ],
+        [
+          "Cave Bat",
+          "Fenglope"
+        ],
+        [
+          "Cawgnito",
+          "Gumoss"
         ]
       ],
       "spawnAreas": [
@@ -8160,24 +10188,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/077_verdash.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Grintale"
+          "Anubis",
+          "Foxparks"
         ],
         [
-          "Cattiva",
-          "Penking"
+          "Arsox",
+          "Nox"
         ],
         [
-          "Chikipi",
-          "Wumpo Botan"
+          "Azurobe",
+          "Lamball"
         ],
         [
-          "Lifmunk",
-          "Surfent Terra"
+          "Azurobe Cryst",
+          "Teafant"
         ],
         [
-          "Foxparks",
-          "Incineram Noct"
+          "Beegarde",
+          "Eikthyrdeer Terra"
+        ],
+        [
+          "Blazehowl",
+          "Kelpsea"
+        ],
+        [
+          "Blazehowl Noct",
+          "Swee"
+        ],
+        [
+          "Bristla",
+          "Bushi Noct"
+        ],
+        [
+          "Broncherry",
+          "Lunaris"
+        ],
+        [
+          "Broncherry Aqua",
+          "Rushoar"
+        ],
+        [
+          "Bushi",
+          "Fuack"
+        ],
+        [
+          "Caprity",
+          "Gorirat"
         ]
       ],
       "spawnAreas": [
@@ -8270,24 +10326,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/078_vaelet.png",
       "breedingCombos": [
         [
-          "Cattiva",
-          "Bushi"
+          "Blazehowl Noct",
+          "Hangyu Cryst"
         ],
         [
-          "Lifmunk",
-          "Blazehowl Noct"
+          "Blazehowl",
+          "Jelliette"
         ],
         [
-          "Foxparks",
-          "Katress"
+          "Blue Slime",
+          "Katress Ignis"
         ],
         [
-          "Tanzee",
-          "Digtoise"
+          "Bushi",
+          "Cremis"
         ],
         [
-          "Pengullet",
-          "Tombat"
+          "Bushi Noct",
+          "Herbil"
+        ],
+        [
+          "Chillet",
+          "Finsider"
+        ],
+        [
+          "Chillet",
+          "Finsider Ignis"
+        ],
+        [
+          "Croajiro",
+          "Swee"
+        ],
+        [
+          "Croajiro Noct",
+          "Fuack"
+        ],
+        [
+          "Dazemu",
+          "Hangyu"
+        ],
+        [
+          "Dogen",
+          "Green Slime"
+        ],
+        [
+          "Dogen",
+          "Lifmunk"
         ]
       ],
       "spawnAreas": [
@@ -8378,24 +10462,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/079_sibelyx.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Ragnahawk"
+          "Bellanoir",
+          "Dumud"
         ],
         [
-          "Celaray",
-          "Suzaku Aqua"
+          "Bellanoir Libero",
+          "Dumud"
         ],
         [
-          "Mossanda",
-          "Kingpaca"
+          "Blazamut Ryu",
+          "Melpaca"
         ],
         [
-          "Melpaca",
-          "Blazamut"
+          "Anubis",
+          "Elizabee"
         ],
         [
-          "Nitewing",
-          "Wumpo Botan"
+          "Astegon",
+          "Tombat"
+        ],
+        [
+          "Azurobe Cryst",
+          "Nitewing"
+        ],
+        [
+          "Beakon",
+          "Univolt"
+        ],
+        [
+          "Blazamut",
+          "Melpaca"
+        ],
+        [
+          "Blazehowl",
+          "Helzephyr"
+        ],
+        [
+          "Blazehowl Noct",
+          "Ice Reptyro"
+        ],
+        [
+          "Blazehowl Noct",
+          "Reptyro Cryst"
+        ],
+        [
+          "Broncherry Aqua",
+          "Shadowbeak"
         ]
       ],
       "spawnAreas": [
@@ -8482,24 +10594,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/080_elphidran.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Surfent"
+          "Anubis",
+          "Azurobe"
         ],
         [
-          "Celaray",
+          "Arsox",
+          "Relaxaurus"
+        ],
+        [
+          "Astegon",
+          "Eikthyrdeer"
+        ],
+        [
+          "Azurobe Cryst",
+          "Incineram"
+        ],
+        [
+          "Beakon",
+          "Digtoise"
+        ],
+        [
+          "Blazamut",
+          "Direhowl"
+        ],
+        [
+          "Blazehowl",
+          "Pyrin"
+        ],
+        [
+          "Broncherry",
           "Lyleen Noct"
         ],
         [
-          "Caprity",
-          "Astegon"
+          "Broncherry Aqua",
+          "Ice Reptyro"
         ],
         [
-          "Melpaca",
-          "Helzephyr"
+          "Broncherry Aqua",
+          "Reptyro Cryst"
         ],
         [
-          "Nitewing",
-          "Vanwyrm"
+          "Bushi",
+          "Mossanda"
+        ],
+        [
+          "Bushi",
+          "Neptilius"
         ]
       ],
       "spawnAreas": [
@@ -8588,23 +10728,51 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/081_kelpsea.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Vaelet"
+          "Gobfin",
+          "Hangyu Cryst"
         ],
         [
-          "Cattiva",
+          "Beegarde",
+          "Herbil"
+        ],
+        [
+          "Blue Slime",
+          "Lunaris"
+        ],
+        [
+          "Bristla",
+          "Gloopie"
+        ],
+        [
+          "Cremis",
           "Direhowl"
         ],
         [
-          "Chikipi",
-          "Robinquill"
+          "Demon Eye",
+          "Kikit"
         ],
         [
-          "Lifmunk",
-          "Gobfin"
+          "Finsider",
+          "Fuddler"
         ],
         [
-          "Foxparks",
+          "Finsider Ignis",
+          "Fuddler"
+        ],
+        [
+          "Flambelle",
+          "Lunaris"
+        ],
+        [
+          "Hoocrates",
+          "Kikit"
+        ],
+        [
+          "Jelliette",
+          "Rushoar"
+        ],
+        [
+          "Jellroy",
           "Leezpunk"
         ]
       ],
@@ -8695,24 +10863,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/082_azurobe.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Wumpo Botan"
+          "Braloha",
+          "Vanwyrm"
         ],
         [
-          "Celaray",
-          "Cryolinx"
+          "Bushi",
+          "Prixter"
         ],
         [
-          "Mozzarina",
-          "Jetragon"
+          "Bushi Noct",
+          "Selyne"
         ],
         [
-          "Mossanda",
-          "Anubis"
+          "Cinnamoth",
+          "Ghangler Ignis"
         ],
         [
-          "Caprity",
-          "Necromus"
+          "Croajiro",
+          "Grizzbolt"
+        ],
+        [
+          "Croajiro Noct",
+          "Ice Reptyro"
+        ],
+        [
+          "Croajiro Noct",
+          "Reptyro Cryst"
+        ],
+        [
+          "Dazemu",
+          "Reptyro"
+        ],
+        [
+          "Dogen",
+          "Elizabee"
+        ],
+        [
+          "Dumud",
+          "Frostallion Noct"
+        ],
+        [
+          "Dumud Gild",
+          "Orserk"
+        ],
+        [
+          "Elphidran",
+          "Palumba"
         ]
       ],
       "spawnAreas": [
@@ -8802,24 +10998,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/083_cryolinx.png",
       "breedingCombos": [
         [
-          "Cryolinx",
-          "Cryolinx"
+          "Astegon",
+          "Frostallion Noct"
+        ],
+        [
+          "Beakon",
+          "Suzaku Aqua"
         ],
         [
           "Blazamut",
-          "Lyleen"
+          "Pyrin Noct"
         ],
         [
-          "Helzephyr",
-          "Necromus"
-        ],
-        [
-          "Suzaku",
-          "Lyleen Noct"
+          "Cryolinx",
+          "Frostallion"
         ],
         [
           "Grizzbolt",
+          "Suzaku"
+        ],
+        [
+          "Helzephyr",
           "Shadowbeak"
+        ],
+        [
+          "Helzephyr Lux",
+          "Necromus"
+        ],
+        [
+          "Bellanoir",
+          "Lyleen"
+        ],
+        [
+          "Bellanoir",
+          "Menasting Terra"
+        ],
+        [
+          "Bellanoir Libero",
+          "Lyleen"
+        ],
+        [
+          "Bellanoir Libero",
+          "Menasting Terra"
+        ],
+        [
+          "Blazamut Ryu",
+          "Lyleen"
         ]
       ],
       "spawnAreas": [
@@ -8907,24 +11131,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/084_blazehowl.png",
       "breedingCombos": [
         [
-          "Fuack",
-          "Jetragon"
+          "Blazamut Ryu",
+          "Blue Slime"
         ],
         [
-          "Sparkit",
-          "Blazamut"
+          "Blazamut Ryu",
+          "Flambelle"
         ],
         [
-          "Pengullet",
-          "Necromus"
+          "Blazamut Ryu",
+          "Red Slime"
         ],
         [
-          "Penking",
-          "Eikthyrdeer Terra"
+          "Beakon",
+          "Gloopie"
         ],
         [
-          "Jolthog",
-          "Suzaku"
+          "Beegarde",
+          "Selyne"
+        ],
+        [
+          "Blazamut",
+          "Blue Slime"
+        ],
+        [
+          "Blazamut",
+          "Flambelle"
+        ],
+        [
+          "Blazamut",
+          "Red Slime"
+        ],
+        [
+          "Blazehowl Noct",
+          "Polapup"
+        ],
+        [
+          "Braloha",
+          "Cawgnito"
+        ],
+        [
+          "Bushi Noct",
+          "Croajiro Noct"
+        ],
+        [
+          "Celaray",
+          "Sootseer"
         ]
       ],
       "spawnAreas": [
@@ -9015,24 +11267,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/085_relaxaurus.png",
       "breedingCombos": [
         [
-          "Mossanda",
-          "Cryolinx"
+          "Azurobe",
+          "Suzaku"
         ],
         [
-          "Nitewing",
-          "Orserk"
-        ],
-        [
-          "Cinnamoth",
+          "Azurobe Cryst",
           "Necromus"
         ],
         [
-          "Elizabee",
-          "Ice Reptyro"
+          "Beakon",
+          "Elizabee"
         ],
         [
-          "Grintale",
-          "Suzaku"
+          "Blazamut",
+          "Elphidran"
+        ],
+        [
+          "Cinnamoth",
+          "Shadowbeak"
+        ],
+        [
+          "Cryolinx",
+          "Nitewing"
+        ],
+        [
+          "Faleris",
+          "Helzephyr Lux"
+        ],
+        [
+          "Frostallion",
+          "Mossanda"
+        ],
+        [
+          "Frostallion",
+          "Neptilius"
+        ],
+        [
+          "Frostallion",
+          "Whalaska Ignis"
+        ],
+        [
+          "Frostallion Noct",
+          "Sibelyx"
+        ],
+        [
+          "Grizzbolt",
+          "Quivern"
         ]
       ],
       "spawnAreas": [
@@ -9121,24 +11401,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/086_broncherry.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Lyleen"
+          "Anubis",
+          "Maraith"
         ],
         [
-          "Cattiva",
-          "Menasting"
+          "Anubis",
+          "Wixen Noct"
         ],
         [
-          "Chikipi",
-          "Beakon"
+          "Arsox",
+          "Caprity"
         ],
         [
-          "Lifmunk",
-          "Mammorest Cryst"
+          "Azurobe",
+          "Fuddler"
         ],
         [
-          "Foxparks",
-          "Reptyro"
+          "Azurobe Cryst",
+          "Gumoss"
+        ],
+        [
+          "Azurobe Cryst",
+          "Gumoss (Special)"
+        ],
+        [
+          "Beakon",
+          "Chikipi"
+        ],
+        [
+          "Beegarde",
+          "Bushi Noct"
+        ],
+        [
+          "Blazehowl",
+          "Felbat"
+        ],
+        [
+          "Blazehowl Noct",
+          "Vaelet"
+        ],
+        [
+          "Blue Slime",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Braloha",
+          "Jelliette"
         ]
       ],
       "spawnAreas": [
@@ -9230,24 +11538,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/087_petallia.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Jetragon"
+          "Anubis",
+          "Fenglope"
         ],
         [
-          "Cattiva",
-          "Frostallion Noct"
+          "Arsox",
+          "Foxcicle"
         ],
         [
-          "Chikipi",
-          "Shadowbeak"
+          "Astegon",
+          "Foxparks"
         ],
         [
-          "Lifmunk",
-          "Cryolinx"
+          "Azurobe",
+          "Vaelet"
         ],
         [
-          "Fuack",
+          "Azurobe Cryst",
+          "Beegarde"
+        ],
+        [
+          "Beakon",
+          "Fuack"
+        ],
+        [
+          "Beegarde",
+          "Wumpo Botan"
+        ],
+        [
+          "Blazehowl",
+          "Broncherry Aqua"
+        ],
+        [
+          "Blazehowl Noct",
+          "Reindrix"
+        ],
+        [
+          "Bristla",
           "Ice Reptyro"
+        ],
+        [
+          "Bristla",
+          "Reptyro Cryst"
+        ],
+        [
+          "Broncherry",
+          "Katress Ignis"
         ]
       ],
       "spawnAreas": [
@@ -9337,24 +11673,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/088_reptyro.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Frostallion"
+          "Anubis",
+          "Necromus"
         ],
         [
-          "Mossanda",
-          "Lyleen Noct"
+          "Astegon",
+          "Cinnamoth"
         ],
         [
-          "Nitewing",
-          "Beakon"
+          "Astegon",
+          "Penking Lux"
         ],
         [
-          "Incineram",
-          "Suzaku"
+          "Azurobe",
+          "Orserk"
         ],
         [
-          "Cinnamoth",
-          "Astegon"
+          "Beakon",
+          "Nitewing"
+        ],
+        [
+          "Cryolinx",
+          "Grintale"
+        ],
+        [
+          "Elizabee",
+          "Jormuntide"
+        ],
+        [
+          "Elphidran",
+          "Frostallion Noct"
+        ],
+        [
+          "Faleris",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Frostallion",
+          "Penking"
+        ],
+        [
+          "Grizzbolt",
+          "Ice Kingpaca"
+        ],
+        [
+          "Helzephyr",
+          "Sibelyx"
         ]
       ],
       "spawnAreas": [
@@ -9442,24 +11806,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/089_kingpaca.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Nitewing"
+          "Blazamut Ryu",
+          "Caprity"
         ],
         [
-          "Celaray",
-          "Necromus"
+          "Anubis",
+          "Faleris"
         ],
         [
-          "Mozzarina",
-          "Suzaku Aqua"
+          "Arsox",
+          "Astegon"
         ],
         [
-          "Mossanda",
-          "Grintale"
+          "Astegon",
+          "Chillet Ignis"
         ],
         [
-          "Caprity",
-          "Blazamut"
+          "Azurobe",
+          "Ice Kingpaca"
+        ],
+        [
+          "Azurobe Cryst",
+          "Wumpo"
+        ],
+        [
+          "Beakon",
+          "Shroomer"
+        ],
+        [
+          "Blazamut",
+          "Caprity"
+        ],
+        [
+          "Blazehowl",
+          "Ice Reptyro"
+        ],
+        [
+          "Blazehowl",
+          "Reptyro Cryst"
+        ],
+        [
+          "Blazehowl Noct",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Braloha",
+          "Icelyn"
         ]
       ],
       "spawnAreas": [
@@ -9550,24 +11942,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/090_mammorest.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Paladius"
+          "Astegon",
+          "Ice Kingpaca"
         ],
         [
-          "Incineram",
-          "Blazamut"
-        ],
-        [
-          "Elizabee",
-          "Relaxaurus Lux"
-        ],
-        [
-          "Grintale",
+          "Azurobe",
           "Jetragon"
         ],
         [
-          "Sweepa",
-          "Helzephyr"
+          "Beakon",
+          "Faleris"
+        ],
+        [
+          "Blazamut",
+          "Incineram Noct"
+        ],
+        [
+          "Cinnamoth",
+          "Frostallion Noct"
+        ],
+        [
+          "Cryolinx",
+          "Wumpo"
+        ],
+        [
+          "Elizabee",
+          "Menasting"
+        ],
+        [
+          "Elphidran",
+          "Suzaku"
+        ],
+        [
+          "Elphidran Aqua",
+          "Shadowbeak"
+        ],
+        [
+          "Frostallion",
+          "Kingpaca"
+        ],
+        [
+          "Frostallion Noct",
+          "Penking Lux"
+        ],
+        [
+          "Grintale",
+          "Paladius"
         ]
       ],
       "spawnAreas": [
@@ -9659,24 +12079,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/091_wumpo.png",
       "breedingCombos": [
         [
-          "Celaray",
-          "Suzaku"
+          "Blazamut Ryu",
+          "Mozzarina"
         ],
         [
-          "Mozzarina",
-          "Blazamut"
+          "Anubis",
+          "Quivern"
         ],
         [
-          "Mossanda",
-          "Cinnamoth"
+          "Anubis",
+          "Warsect Terra"
         ],
         [
-          "Melpaca",
-          "Suzaku Aqua"
+          "Arsox",
+          "Cryolinx"
         ],
         [
-          "Nitewing",
-          "Azurobe"
+          "Azurobe",
+          "Nitewing"
+        ],
+        [
+          "Azurobe Cryst",
+          "Ice Kingpaca"
+        ],
+        [
+          "Beakon",
+          "Katress"
+        ],
+        [
+          "Blazamut",
+          "Mozzarina"
+        ],
+        [
+          "Blazehowl",
+          "Lyleen Noct"
+        ],
+        [
+          "Blazehowl Noct",
+          "Lyleen"
+        ],
+        [
+          "Blazehowl Noct",
+          "Menasting Terra"
+        ],
+        [
+          "Broncherry",
+          "Shadowbeak"
         ]
       ],
       "spawnAreas": [
@@ -9767,24 +12215,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/092_warsect.png",
       "breedingCombos": [
         [
-          "Mossanda",
-          "Lyleen"
+          "Bellanoir",
+          "Dazemu"
         ],
         [
-          "Nitewing",
-          "Menasting"
+          "Bellanoir Libero",
+          "Dazemu"
         ],
         [
-          "Incineram",
-          "Jetragon"
+          "Blazamut Ryu",
+          "Blazehowl Noct"
+        ],
+        [
+          "Astegon",
+          "Elphidran Aqua"
+        ],
+        [
+          "Azurobe",
+          "Helzephyr Lux"
+        ],
+        [
+          "Azurobe Cryst",
+          "Grizzbolt"
+        ],
+        [
+          "Beakon",
+          "Wumpo"
+        ],
+        [
+          "Blazamut",
+          "Blazehowl Noct"
+        ],
+        [
+          "Braloha",
+          "Selyne"
+        ],
+        [
+          "Bushi Noct",
+          "Suzaku Aqua"
         ],
         [
           "Cinnamoth",
           "Helzephyr"
         ],
         [
-          "Elizabee",
-          "Quivern"
+          "Cryolinx",
+          "Surfent Terra"
         ]
       ],
       "spawnAreas": [
@@ -9873,24 +12349,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/093_fenglope.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Cinnamoth"
+          "Grintale",
+          "Hangyu Cryst"
         ],
         [
-          "Cattiva",
-          "Azurobe"
+          "Azurobe Cryst",
+          "Cremis"
         ],
         [
-          "Chikipi",
-          "Wumpo"
-        ],
-        [
-          "Lifmunk",
+          "Blue Slime",
           "Elphidran Aqua"
         ],
         [
-          "Foxparks",
-          "Surfent"
+          "Bushi",
+          "Finsider"
+        ],
+        [
+          "Bushi",
+          "Finsider Ignis"
+        ],
+        [
+          "Cawgnito",
+          "Dumud Gild"
+        ],
+        [
+          "Celaray",
+          "Turtacle Terra"
+        ],
+        [
+          "Celaray Lux",
+          "Turtacle"
+        ],
+        [
+          "Chikipi",
+          "Xenogard"
+        ],
+        [
+          "Cinnamoth",
+          "Herbil"
+        ],
+        [
+          "Cremis",
+          "Wumpo Botan"
+        ],
+        [
+          "Croajiro",
+          "Leezpunk Ignis"
         ]
       ],
       "spawnAreas": [
@@ -9978,24 +12482,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/094_felbat.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Surfent Terra"
+          "Anubis",
+          "Mau Cryst"
         ],
         [
-          "Cattiva",
-          "Surfent"
+          "Arsox",
+          "Fuddler"
         ],
         [
-          "Chikipi",
-          "Penking"
+          "Beegarde",
+          "Lovander"
         ],
         [
-          "Lifmunk",
-          "Incineram"
+          "Blazehowl",
+          "Swee"
         ],
         [
-          "Foxparks",
-          "Vanwyrm Cryst"
+          "Blazehowl Noct",
+          "Cave Bat"
+        ],
+        [
+          "Blazehowl Noct",
+          "Tocotoco"
+        ],
+        [
+          "Blue Slime",
+          "Icelyn"
+        ],
+        [
+          "Bristla",
+          "Katress Ignis"
+        ],
+        [
+          "Broncherry",
+          "Maraith"
+        ],
+        [
+          "Broncherry",
+          "Wixen Noct"
+        ],
+        [
+          "Bushi",
+          "Jolthog"
+        ],
+        [
+          "Bushi Noct",
+          "Jolthog Cryst"
         ]
       ],
       "spawnAreas": [
@@ -10086,12 +12618,44 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/095_quivern.png",
       "breedingCombos": [
         [
-          "Mossanda",
-          "Relaxaurus Lux"
+          "Blazamut Ryu",
+          "Katress Ignis"
         ],
         [
-          "Nitewing",
-          "Relaxaurus"
+          "Anubis",
+          "Cryolinx"
+        ],
+        [
+          "Astegon",
+          "Surfent Terra"
+        ],
+        [
+          "Azurobe",
+          "Grizzbolt"
+        ],
+        [
+          "Azurobe Cryst",
+          "Beakon"
+        ],
+        [
+          "Beakon",
+          "Wumpo Botan"
+        ],
+        [
+          "Blazamut",
+          "Katress Ignis"
+        ],
+        [
+          "Blazehowl Noct",
+          "Suzaku Aqua"
+        ],
+        [
+          "Bushi",
+          "Shadowbeak"
+        ],
+        [
+          "Bushi Noct",
+          "Suzaku"
         ],
         [
           "Cinnamoth",
@@ -10100,10 +12664,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         [
           "Elizabee",
           "Faleris"
-        ],
-        [
-          "Grintale",
-          "Helzephyr"
         ]
       ],
       "spawnAreas": [
@@ -10197,6 +12757,18 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "Blazamut"
         ],
         [
+          "Bellanoir",
+          "Suzaku Aqua"
+        ],
+        [
+          "Bellanoir Libero",
+          "Suzaku Aqua"
+        ],
+        [
+          "Blazamut Ryu",
+          "Suzaku Aqua"
+        ],
+        [
           "Blazamut",
           "Suzaku Aqua"
         ]
@@ -10287,23 +12859,51 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/097_helzephyr.png",
       "breedingCombos": [
         [
-          "Elizabee",
-          "Suzaku"
+          "Astegon",
+          "Beakon"
+        ],
+        [
+          "Blazamut",
+          "Pyrin"
         ],
         [
           "Cryolinx",
+          "Pyrin Noct"
+        ],
+        [
+          "Frostallion",
           "Lyleen"
         ],
         [
-          "Relaxaurus",
-          "Frostallion Noct"
+          "Frostallion",
+          "Menasting Terra"
         ],
         [
-          "Reptyro",
+          "Frostallion Noct",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Helzephyr",
+          "Helzephyr Lux"
+        ],
+        [
+          "Ice Reptyro",
+          "Orserk"
+        ],
+        [
+          "Jetragon",
+          "Relaxaurus"
+        ],
+        [
+          "Jormuntide",
           "Shadowbeak"
         ],
         [
           "Mammorest",
+          "Necromus"
+        ],
+        [
+          "Mammorest Cryst",
           "Paladius"
         ]
       ],
@@ -10395,24 +12995,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/098_astegon.png",
       "breedingCombos": [
         [
+          "Astegon",
+          "Orserk"
+        ],
+        [
           "Beakon",
-          "Paladius"
+          "Necromus"
         ],
         [
           "Blazamut",
-          "Mammorest Cryst"
+          "Relaxaurus"
         ],
         [
-          "Astegon",
-          "Astegon"
-        ],
-        [
-          "Suzaku",
-          "Lyleen"
+          "Frostallion Noct",
+          "Helzephyr"
         ],
         [
           "Grizzbolt",
-          "Frostallion Noct"
+          "Jetragon"
+        ],
+        [
+          "Ice Reptyro",
+          "Shadowbeak"
+        ],
+        [
+          "Lyleen Noct",
+          "Paladius"
+        ],
+        [
+          "Menasting",
+          "Suzaku Aqua"
+        ],
+        [
+          "Pyrin Noct",
+          "Suzaku"
+        ],
+        [
+          "Reptyro Cryst",
+          "Shadowbeak"
+        ],
+        [
+          "Bellanoir",
+          "Mammorest Cryst"
+        ],
+        [
+          "Bellanoir Libero",
+          "Mammorest Cryst"
         ]
       ],
       "spawnAreas": [
@@ -10503,24 +13131,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/099_menasting.png",
       "breedingCombos": [
         [
-          "Mossanda",
-          "Jetragon"
+          "Astegon",
+          "Pyrin"
         ],
         [
-          "Nitewing",
-          "Frostallion Noct"
+          "Azurobe",
+          "Blazamut"
         ],
         [
-          "Cinnamoth",
+          "Azurobe Cryst",
           "Suzaku Aqua"
         ],
         [
-          "Elizabee",
-          "Helzephyr"
+          "Beakon",
+          "Mammorest Cryst"
         ],
         [
-          "Grintale",
-          "Blazamut"
+          "Cryolinx",
+          "Ragnahawk"
+        ],
+        [
+          "Elizabee",
+          "Helzephyr Lux"
+        ],
+        [
+          "Faleris",
+          "Orserk"
+        ],
+        [
+          "Frostallion",
+          "Mossanda Lux"
+        ],
+        [
+          "Frostallion Noct",
+          "Sweepa"
+        ],
+        [
+          "Grizzbolt",
+          "Jormuntide"
+        ],
+        [
+          "Helzephyr",
+          "Reptyro"
+        ],
+        [
+          "Ice Kingpaca",
+          "Necromus"
         ]
       ],
       "spawnAreas": [
@@ -10612,24 +13268,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/100_anubis.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Vanwyrm Cryst"
+          "Blazamut Ryu",
+          "Kikit"
         ],
         [
-          "Rushoar",
-          "Blazamut"
+          "Arsox",
+          "Selyne"
+        ],
+        [
+          "Azurobe Cryst",
+          "Frostplume"
+        ],
+        [
+          "Blazamut",
+          "Kikit"
+        ],
+        [
+          "Blazehowl Noct",
+          "Xenovader"
+        ],
+        [
+          "Braloha",
+          "Chillet"
         ],
         [
           "Celaray",
-          "Relaxaurus Lux"
+          "Knocklem"
         ],
         [
-          "Direhowl",
-          "Paladius"
+          "Chillet Ignis",
+          "Selyne"
         ],
         [
-          "Mozzarina",
-          "Ice Reptyro"
+          "Croajiro",
+          "Quivern Botan"
+        ],
+        [
+          "Croajiro",
+          "Warsect"
+        ],
+        [
+          "Croajiro Noct",
+          "Faleris"
+        ],
+        [
+          "Dazemu",
+          "Wumpo"
         ]
       ],
       "spawnAreas": [
@@ -10718,24 +13402,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/101_jormuntide.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Frostallion Noct"
+          "Blazamut Ryu",
+          "Icelyn"
         ],
         [
-          "Mossanda",
-          "Helzephyr"
+          "Astegon",
+          "Xenovader"
         ],
         [
-          "Nitewing",
-          "Grizzbolt"
+          "Blazamut",
+          "Icelyn"
         ],
         [
-          "Incineram",
-          "Suzaku Aqua"
+          "Braloha",
+          "Relaxaurus"
         ],
         [
-          "Cinnamoth",
-          "Cryolinx"
+          "Ghangler",
+          "Jetragon"
+        ],
+        [
+          "Helzephyr Lux",
+          "Xenogard"
+        ],
+        [
+          "Jormuntide Ignis",
+          "Mammorest"
+        ],
+        [
+          "Knocklem",
+          "Quivern"
+        ],
+        [
+          "Knocklem",
+          "Warsect Terra"
+        ],
+        [
+          "Menasting",
+          "Prixter"
+        ],
+        [
+          "Necromus",
+          "Sootseer"
+        ],
+        [
+          "Relaxaurus Lux",
+          "Selyne"
         ]
       ],
       "spawnAreas": [
@@ -10824,23 +13536,51 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breedingCombos": [
         [
           "Blazamut",
-          "Jetragon"
+          "Necromus"
         ],
         [
           "Suzaku",
-          "Suzaku"
+          "Suzaku Aqua"
         ],
         [
-          "Necromus",
-          "Suzaku Aqua"
+          "Bellanoir",
+          "Paladius"
+        ],
+        [
+          "Bellanoir Libero",
+          "Paladius"
+        ],
+        [
+          "Blazamut Ryu",
+          "Paladius"
         ],
         [
           "Blazamut",
           "Paladius"
         ],
         [
+          "Shadowbeak",
+          "Suzaku Aqua"
+        ],
+        [
+          "Bellanoir",
+          "Jetragon"
+        ],
+        [
+          "Bellanoir Libero",
+          "Jetragon"
+        ],
+        [
+          "Blazamut Ryu",
+          "Jetragon"
+        ],
+        [
           "Blazamut",
-          "Frostallion Noct"
+          "Jetragon"
+        ],
+        [
+          "Necromus",
+          "Suzaku Aqua"
         ]
       ],
       "spawnAreas": [
@@ -10932,24 +13672,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/103_grizzbolt.png",
       "breedingCombos": [
         [
-          "Elizabee",
-          "Necromus"
+          "Braloha",
+          "Shadowbeak"
+        ],
+        [
+          "Cryolinx",
+          "Knocklem"
+        ],
+        [
+          "Jormuntide Ignis",
+          "Paladius"
+        ],
+        [
+          "Selyne",
+          "Suzaku"
+        ],
+        [
+          "Blazamut Ryu",
+          "Mossanda Lux"
+        ],
+        [
+          "Astegon",
+          "Lyleen"
+        ],
+        [
+          "Astegon",
+          "Menasting Terra"
+        ],
+        [
+          "Beakon",
+          "Helzephyr Lux"
+        ],
+        [
+          "Blazamut",
+          "Mossanda Lux"
         ],
         [
           "Cryolinx",
           "Relaxaurus Lux"
         ],
         [
-          "Relaxaurus",
-          "Frostallion"
+          "Elizabee",
+          "Necromus"
         ],
         [
-          "Reptyro",
-          "Paladius"
-        ],
-        [
-          "Mammorest",
-          "Frostallion Noct"
+          "Faleris",
+          "Suzaku Aqua"
         ]
       ],
       "spawnAreas": [
@@ -11042,24 +13810,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/104_lyleen.png",
       "breedingCombos": [
         [
-          "Mossanda",
-          "Necromus"
+          "Astegon",
+          "Quivern Botan"
         ],
         [
-          "Nitewing",
-          "Paladius"
+          "Astegon",
+          "Warsect"
         ],
         [
-          "Cinnamoth",
+          "Azurobe Cryst",
           "Blazamut"
         ],
         [
-          "Sweepa",
-          "Jetragon"
+          "Beakon",
+          "Relaxaurus Lux"
         ],
         [
-          "Pyrin",
-          "Orserk"
+          "Blazamut",
+          "Wumpo Botan"
+        ],
+        [
+          "Cryolinx",
+          "Pyrin"
+        ],
+        [
+          "Faleris",
+          "Frostallion"
+        ],
+        [
+          "Frostallion Noct",
+          "Mossanda Lux"
+        ],
+        [
+          "Grizzbolt",
+          "Mammorest Cryst"
+        ],
+        [
+          "Helzephyr",
+          "Mammorest"
+        ],
+        [
+          "Helzephyr Lux",
+          "Jormuntide"
+        ],
+        [
+          "Ice Kingpaca",
+          "Suzaku"
         ]
       ],
       "spawnAreas": [
@@ -11148,24 +13944,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/105_faleris.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Beakon"
+          "Cryolinx",
+          "Icelyn"
         ],
         [
-          "Mossanda",
-          "Jormuntide"
+          "Dazemu",
+          "Shadowbeak"
         ],
         [
-          "Nitewing",
-          "Reptyro"
+          "Dogen",
+          "Necromus"
         ],
         [
-          "Incineram",
-          "Astegon"
+          "Frostplume",
+          "Paladius"
         ],
         [
-          "Cinnamoth",
-          "Lyleen"
+          "Ghangler",
+          "Lyleen Noct"
+        ],
+        [
+          "Ghangler Ignis",
+          "Ice Reptyro"
+        ],
+        [
+          "Ghangler Ignis",
+          "Reptyro Cryst"
+        ],
+        [
+          "Helzephyr",
+          "Sootseer"
+        ],
+        [
+          "Jormuntide Ignis",
+          "Nitewing"
+        ],
+        [
+          "Kingpaca",
+          "Knocklem"
+        ],
+        [
+          "Mammorest",
+          "Xenogard"
+        ],
+        [
+          "Mammorest Cryst",
+          "Whalaska"
         ]
       ],
       "spawnAreas": [
@@ -11256,24 +14080,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/106_orserk.png",
       "breedingCombos": [
         [
-          "Beakon",
-          "Shadowbeak"
+          "Blazamut Ryu",
+          "Knocklem"
         ],
         [
-          "Cryolinx",
-          "Astegon"
+          "Blazamut",
+          "Knocklem"
+        ],
+        [
+          "Blazamut Ryu",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Astegon",
+          "Cryolinx"
+        ],
+        [
+          "Beakon",
+          "Shadowbeak"
         ],
         [
           "Blazamut",
           "Relaxaurus Lux"
         ],
         [
+          "Frostallion Noct",
+          "Helzephyr Lux"
+        ],
+        [
+          "Grizzbolt",
+          "Paladius"
+        ],
+        [
           "Helzephyr",
           "Jetragon"
         ],
         [
-          "Suzaku",
-          "Ice Reptyro"
+          "Ice Reptyro",
+          "Suzaku"
+        ],
+        [
+          "Lyleen",
+          "Suzaku Aqua"
+        ],
+        [
+          "Lyleen Noct",
+          "Necromus"
         ]
       ],
       "spawnAreas": [
@@ -11363,24 +14215,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/107_shadowbeak.png",
       "breedingCombos": [
         [
-          "Suzaku",
-          "Necromus"
+          "Jetragon",
+          "Suzaku Aqua"
+        ],
+        [
+          "Necromus",
+          "Suzaku"
         ],
         [
           "Shadowbeak",
           "Shadowbeak"
         ],
         [
-          "Jetragon",
-          "Suzaku Aqua"
+          "Bellanoir",
+          "Frostallion"
+        ],
+        [
+          "Bellanoir Libero",
+          "Frostallion"
+        ],
+        [
+          "Blazamut Ryu",
+          "Frostallion"
         ],
         [
           "Blazamut",
           "Frostallion"
         ],
         [
-          "Suzaku",
-          "Paladius"
+          "Frostallion Noct",
+          "Suzaku Aqua"
+        ],
+        [
+          "Necromus",
+          "Shadowbeak"
+        ],
+        [
+          "Paladius",
+          "Suzaku"
+        ],
+        [
+          "Bellanoir",
+          "Cryolinx"
+        ],
+        [
+          "Bellanoir Libero",
+          "Cryolinx"
         ]
       ],
       "spawnAreas": [
@@ -11470,24 +14350,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/108_paladius.png",
       "breedingCombos": [
         [
+          "Blazamut",
+          "Orserk"
+        ],
+        [
+          "Frostallion",
+          "Suzaku Aqua"
+        ],
+        [
+          "Frostallion Noct",
+          "Suzaku"
+        ],
+        [
+          "Jetragon",
+          "Shadowbeak"
+        ],
+        [
+          "Necromus",
+          "Paladius"
+        ],
+        [
+          "Astegon",
+          "Bellanoir"
+        ],
+        [
+          "Astegon",
+          "Bellanoir Libero"
+        ],
+        [
+          "Astegon",
+          "Blazamut Ryu"
+        ],
+        [
+          "Astegon",
+          "Blazamut"
+        ],
+        [
           "Cryolinx",
           "Suzaku Aqua"
         ],
         [
-          "Blazamut",
-          "Astegon"
+          "Frostallion Noct",
+          "Shadowbeak"
         ],
         [
-          "Shadowbeak",
-          "Frostallion Noct"
-        ],
-        [
-          "Paladius",
-          "Paladius"
-        ],
-        [
-          "Necromus",
-          "Jetragon"
+          "Jetragon",
+          "Necromus"
         ]
       ],
       "spawnAreas": [
@@ -11576,20 +14484,36 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/109_necromus.png",
       "breedingCombos": [
         [
-          "Cryolinx",
-          "Blazamut"
+          "Blazamut Ryu",
+          "Cryolinx"
         ],
         [
-          "Suzaku",
-          "Jetragon"
+          "Blazamut",
+          "Cryolinx"
         ],
         [
-          "Shadowbeak",
-          "Paladius"
+          "Jetragon",
+          "Suzaku"
         ],
         [
           "Necromus",
           "Necromus"
+        ],
+        [
+          "Paladius",
+          "Shadowbeak"
+        ],
+        [
+          "Bellanoir",
+          "Orserk"
+        ],
+        [
+          "Bellanoir Libero",
+          "Orserk"
+        ],
+        [
+          "Blazamut Ryu",
+          "Orserk"
         ]
       ],
       "spawnAreas": [
@@ -11678,24 +14602,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/110_frostallion.png",
       "breedingCombos": [
         [
-          "Blazamut",
-          "Ice Reptyro"
-        ],
-        [
-          "Helzephyr",
-          "Suzaku"
-        ],
-        [
           "Astegon",
+          "Necromus"
+        ],
+        [
+          "Blazamut",
+          "Lyleen Noct"
+        ],
+        [
+          "Cryolinx",
           "Jetragon"
         ],
         [
-          "Orserk",
+          "Frostallion",
           "Frostallion Noct"
         ],
         [
-          "Frostallion",
-          "Frostallion"
+          "Helzephyr",
+          "Suzaku Aqua"
+        ],
+        [
+          "Orserk",
+          "Paladius"
+        ],
+        [
+          "Beakon",
+          "Bellanoir"
+        ],
+        [
+          "Beakon",
+          "Bellanoir Libero"
+        ],
+        [
+          "Beakon",
+          "Blazamut Ryu"
+        ],
+        [
+          "Astegon",
+          "Paladius"
+        ],
+        [
+          "Beakon",
+          "Blazamut"
+        ],
+        [
+          "Cryolinx",
+          "Frostallion Noct"
         ]
       ],
       "spawnAreas": [
@@ -11785,23 +14737,51 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/111_jetragon.png",
       "breedingCombos": [
         [
-          "Cryolinx",
-          "Suzaku"
-        ],
-        [
           "Astegon",
           "Suzaku Aqua"
         ],
         [
-          "Shadowbeak",
-          "Frostallion"
+          "Cryolinx",
+          "Suzaku"
         ],
         [
-          "Paladius",
-          "Frostallion Noct"
+          "Frostallion",
+          "Shadowbeak"
+        ],
+        [
+          "Frostallion Noct",
+          "Paladius"
         ],
         [
           "Jetragon",
+          "Jetragon"
+        ],
+        [
+          "Bellanoir",
+          "Helzephyr Lux"
+        ],
+        [
+          "Bellanoir Libero",
+          "Helzephyr Lux"
+        ],
+        [
+          "Blazamut Ryu",
+          "Helzephyr Lux"
+        ],
+        [
+          "Blazamut",
+          "Helzephyr Lux"
+        ],
+        [
+          "Cryolinx",
+          "Shadowbeak"
+        ],
+        [
+          "Frostallion",
+          "Necromus"
+        ],
+        [
+          "Frostallion Noct",
           "Jetragon"
         ]
       ],
@@ -11890,24 +14870,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/112_jolthog_cryst.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Tanzee"
+          "Fuack Ignis",
+          "Hangyu Cryst"
         ],
         [
-          "Cattiva",
-          "Kelpsea"
-        ],
-        [
-          "Chikipi",
-          "Fuddler"
-        ],
-        [
-          "Lifmunk",
+          "Hangyu Cryst",
           "Killamari"
         ],
         [
-          "Foxparks",
-          "Bristla"
+          "Blue Slime",
+          "Pengullet Lux"
+        ],
+        [
+          "Blue Slime",
+          "Ribbuny"
+        ],
+        [
+          "Bristla",
+          "Jellroy"
+        ],
+        [
+          "Cremis",
+          "Kelpsea"
+        ],
+        [
+          "Depresso",
+          "Munchill"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Munchill"
+        ],
+        [
+          "Finsider",
+          "Hangyu"
+        ],
+        [
+          "Finsider Ignis",
+          "Hangyu"
+        ],
+        [
+          "Flambelle",
+          "Pengullet Lux"
+        ],
+        [
+          "Flambelle",
+          "Ribbuny"
         ]
       ],
       "spawnAreas": [
@@ -11996,8 +15004,44 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/113_mau_cryst.png",
       "breedingCombos": [
         [
+          "Hangyu Cryst",
+          "Vixy"
+        ],
+        [
+          "Blue Slime",
+          "Lamball"
+        ],
+        [
+          "Cremis",
+          "Hangyu"
+        ],
+        [
+          "Flambelle",
+          "Lamball"
+        ],
+        [
+          "Green Slime",
+          "Herbil"
+        ],
+        [
+          "Herbil",
+          "Lifmunk"
+        ],
+        [
+          "Jelliette",
+          "Teafant"
+        ],
+        [
+          "Jellroy",
+          "Mau"
+        ],
+        [
           "Lamball",
-          "Sparkit"
+          "Red Slime"
+        ],
+        [
+          "Cremis",
+          "Hangyu Cryst"
         ],
         [
           "Cattiva",
@@ -12006,14 +15050,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         [
           "Chikipi",
           "Depresso"
-        ],
-        [
-          "Lifmunk",
-          "Vixy"
-        ],
-        [
-          "Foxparks",
-          "Mau"
         ]
       ],
       "spawnAreas": [
@@ -12102,24 +15138,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/114_gobfin_ignis.png",
       "breedingCombos": [
         [
-          "Cattiva",
+          "Arsox",
+          "Blue Slime"
+        ],
+        [
+          "Arsox",
+          "Flambelle"
+        ],
+        [
+          "Arsox",
+          "Red Slime"
+        ],
+        [
+          "Beegarde",
+          "Kikit"
+        ],
+        [
+          "Blue Slime",
+          "Chillet Ignis"
+        ],
+        [
+          "Broncherry",
+          "Munchill"
+        ],
+        [
+          "Cave Bat",
+          "Dumud Gild"
+        ],
+        [
+          "Chillet",
+          "Jellroy"
+        ],
+        [
+          "Chillet Ignis",
+          "Flambelle"
+        ],
+        [
+          "Chillet Ignis",
+          "Red Slime"
+        ],
+        [
+          "Cremis",
           "Rayhound"
         ],
         [
-          "Chikipi",
-          "Katress"
-        ],
-        [
-          "Foxparks",
-          "Chillet"
-        ],
-        [
-          "Fuack",
-          "Celaray"
-        ],
-        [
-          "Sparkit",
-          "Arsox"
+          "Croajiro",
+          "Foxparks"
         ]
       ],
       "spawnAreas": [
@@ -12215,20 +15279,48 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "Hangyu Cryst"
         ],
         [
-          "Hoocrates",
-          "Cremis"
+          "Blue Slime",
+          "Mau Cryst"
+        ],
+        [
+          "Cattiva",
+          "Jelliette"
+        ],
+        [
+          "Cremis",
+          "Demon Eye"
+        ],
+        [
+          "Cremis",
+          "Hoocrates"
+        ],
+        [
+          "Cremis",
+          "Purple Slime"
         ],
         [
           "Flambelle",
           "Mau Cryst"
         ],
         [
-          "Lamball",
-          "Depresso"
+          "Foxparks",
+          "Herbil"
+        ],
+        [
+          "Jellroy",
+          "Vixy"
+        ],
+        [
+          "Mau Cryst",
+          "Red Slime"
+        ],
+        [
+          "Blue Slime",
+          "Herbil"
         ],
         [
           "Cattiva",
-          "Hoocrates"
+          "Demon Eye"
         ]
       ],
       "spawnAreas": [
@@ -12320,24 +15412,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/116_mossanda_lux.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Menasting"
+          "Blazamut Ryu",
+          "Croajiro Noct"
         ],
         [
-          "Mossanda",
-          "Quivern"
+          "Blazamut",
+          "Croajiro Noct"
         ],
         [
-          "Nitewing",
-          "Pyrin"
+          "Braloha",
+          "Ice Kingpaca"
         ],
         [
-          "Incineram",
-          "Helzephyr"
+          "Dazemu",
+          "Frostallion Noct"
         ],
         [
-          "Cinnamoth",
-          "Mammorest Cryst"
+          "Elizabee",
+          "Whalaska"
+        ],
+        [
+          "Frostallion",
+          "Frostplume"
+        ],
+        [
+          "Ghangler",
+          "Lyleen"
+        ],
+        [
+          "Ghangler",
+          "Menasting Terra"
+        ],
+        [
+          "Ghangler Ignis",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Grintale",
+          "Knocklem"
+        ],
+        [
+          "Ice Reptyro",
+          "Sootseer"
+        ],
+        [
+          "Jormuntide",
+          "Xenovader"
         ]
       ],
       "spawnAreas": [
@@ -12427,24 +15547,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/117_eikthyrdeer_terra.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Elizabee"
+          "Anubis",
+          "Daedream"
         ],
         [
-          "Cattiva",
-          "Warsect"
+          "Arsox",
+          "Felbat"
         ],
         [
-          "Chikipi",
-          "Mammorest"
+          "Azurobe",
+          "Swee"
         ],
         [
-          "Lifmunk",
-          "Faleris"
+          "Azurobe Cryst",
+          "Bristla"
         ],
         [
-          "Fuack",
-          "Kingpaca"
+          "Beegarde",
+          "Shroomer Noct"
+        ],
+        [
+          "Blazehowl",
+          "Gobfin"
+        ],
+        [
+          "Blazehowl Noct",
+          "Rushoar"
+        ],
+        [
+          "Bristla",
+          "Wumpo Botan"
+        ],
+        [
+          "Broncherry",
+          "Lovander"
+        ],
+        [
+          "Bushi",
+          "Wixen"
+        ],
+        [
+          "Bushi Noct",
+          "Maraith"
+        ],
+        [
+          "Bushi Noct",
+          "Wixen Noct"
         ]
       ],
       "spawnAreas": [
@@ -12535,24 +15683,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/118_incineram_noct.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Bushi"
+          "Azurobe",
+          "Frostplume"
         ],
         [
-          "Rushoar",
-          "Suzaku Aqua"
+          "Azurobe Cryst",
+          "Dazemu"
         ],
         [
-          "Celaray",
-          "Mammorest Cryst"
+          "Blazehowl",
+          "Whalaska"
         ],
         [
-          "Direhowl",
-          "Frostallion Noct"
+          "Braloha",
+          "Dinossom"
         ],
         [
-          "Mozzarina",
-          "Lyleen"
+          "Broncherry Aqua",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Bushi Noct",
+          "Ghangler Ignis"
+        ],
+        [
+          "Chillet",
+          "Prixter"
+        ],
+        [
+          "Cinnamoth",
+          "Dogen"
+        ],
+        [
+          "Croajiro",
+          "Pyrin"
+        ],
+        [
+          "Croajiro Noct",
+          "Mossanda Lux"
+        ],
+        [
+          "Dazemu",
+          "Wumpo Botan"
+        ],
+        [
+          "Dinossom Lux",
+          "Selyne"
         ]
       ],
       "spawnAreas": [
@@ -12644,24 +15820,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/119_leezpunk_ignis.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Dinossom Lux"
+          "Digtoise",
+          "Hangyu Cryst"
         ],
         [
-          "Cattiva",
+          "Beegarde",
+          "Ribbuny Botan"
+        ],
+        [
+          "Blue Slime",
+          "Celaray"
+        ],
+        [
+          "Cawgnito",
+          "Gloopie"
+        ],
+        [
+          "Celaray",
+          "Flambelle"
+        ],
+        [
+          "Celaray",
+          "Red Slime"
+        ],
+        [
+          "Celaray Lux",
+          "Herbil"
+        ],
+        [
+          "Cremis",
           "Dinossom"
         ],
         [
-          "Chikipi",
-          "Petallia"
+          "Croajiro",
+          "Mau"
         ],
         [
-          "Lifmunk",
-          "Digtoise"
+          "Dazzi",
+          "Turtacle Terra"
         ],
         [
-          "Foxparks",
-          "Reindrix"
+          "Depresso",
+          "Dumud"
+        ],
+        [
+          "Dumud",
+          "Eye of Cthulhu"
         ]
       ],
       "spawnAreas": [
@@ -12755,24 +15959,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/120_robinquill_terra.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Elphidran Aqua"
+          "Anubis",
+          "Hangyu Cryst"
         ],
         [
-          "Cattiva",
+          "Arsox",
+          "Ribbuny Botan"
+        ],
+        [
+          "Blue Slime",
+          "Incineram"
+        ],
+        [
+          "Bristla",
+          "Dazemu"
+        ],
+        [
+          "Broncherry Aqua",
+          "Rooby"
+        ],
+        [
+          "Caprity",
+          "Turtacle Terra"
+        ],
+        [
+          "Cave Bat",
+          "Frostplume"
+        ],
+        [
+          "Celaray",
+          "Kikit"
+        ],
+        [
+          "Chillet",
+          "Gloopie"
+        ],
+        [
+          "Chillet Ignis",
+          "Ribbuny Botan"
+        ],
+        [
+          "Cremis",
           "Elphidran"
         ],
         [
-          "Chikipi",
-          "Azurobe"
-        ],
-        [
-          "Lifmunk",
-          "Anubis"
-        ],
-        [
-          "Fuack",
-          "Blazehowl Noct"
+          "Croajiro",
+          "Mimog"
         ]
       ],
       "spawnAreas": [
@@ -12863,24 +16095,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/121_pyrin_noct.png",
       "breedingCombos": [
         [
-          "Mossanda",
-          "Suzaku"
+          "Astegon",
+          "Reptyro"
         ],
         [
-          "Nitewing",
-          "Shadowbeak"
+          "Beakon",
+          "Lyleen"
+        ],
+        [
+          "Beakon",
+          "Menasting Terra"
+        ],
+        [
+          "Blazamut",
+          "Wumpo"
+        ],
+        [
+          "Cryolinx",
+          "Quivern Botan"
+        ],
+        [
+          "Cryolinx",
+          "Warsect"
         ],
         [
           "Elizabee",
-          "Astegon"
+          "Orserk"
         ],
         [
-          "Sweepa",
-          "Necromus"
+          "Faleris",
+          "Frostallion Noct"
         ],
         [
-          "Pyrin",
-          "Frostallion"
+          "Frostallion",
+          "Quivern"
+        ],
+        [
+          "Frostallion",
+          "Warsect Terra"
+        ],
+        [
+          "Grizzbolt",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Helzephyr",
+          "Relaxaurus"
         ]
       ],
       "spawnAreas": [
@@ -12970,24 +16230,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/122_dinossom_lux.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Astegon"
-        ],
-        [
-          "Chikipi",
-          "Frostallion"
-        ],
-        [
-          "Lifmunk",
+          "Hangyu Cryst",
           "Helzephyr"
         ],
         [
-          "Foxparks",
-          "Beakon"
+          "Arsox",
+          "Tarantriss"
         ],
         [
-          "Fuack",
-          "Mammorest Cryst"
+          "Beakon",
+          "Jellroy"
+        ],
+        [
+          "Beegarde",
+          "Sootseer"
+        ],
+        [
+          "Blazehowl",
+          "Lullu"
+        ],
+        [
+          "Blazehowl Noct",
+          "Yakumo"
+        ],
+        [
+          "Blue Slime",
+          "Lyleen Noct"
+        ],
+        [
+          "Braloha",
+          "Flopie"
+        ],
+        [
+          "Celaray",
+          "Polapup"
+        ],
+        [
+          "Chillet Ignis",
+          "Tarantriss"
+        ],
+        [
+          "Cinnamoth",
+          "Kikit"
+        ],
+        [
+          "Croajiro",
+          "Dinossom"
         ]
       ],
       "spawnAreas": [
@@ -13075,24 +16363,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/123_surfent_terra.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Incineram Noct"
+          "Blazamut Ryu",
+          "Gobfin"
         ],
         [
-          "Celaray",
-          "Ice Reptyro"
+          "Anubis",
+          "Elphidran Aqua"
         ],
         [
-          "Mozzarina",
-          "Helzephyr"
+          "Arsox",
+          "Jormuntide"
         ],
         [
-          "Gobfin",
-          "Blazamut"
+          "Astegon",
+          "Loupmoon"
         ],
         [
-          "Mossanda",
-          "Blazehowl Noct"
+          "Azurobe Cryst",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Beakon",
+          "Reindrix"
+        ],
+        [
+          "Beegarde",
+          "Suzaku Aqua"
+        ],
+        [
+          "Blazamut",
+          "Gobfin"
+        ],
+        [
+          "Blazehowl",
+          "Mossanda Lux"
+        ],
+        [
+          "Blazehowl Noct",
+          "Mossanda"
+        ],
+        [
+          "Blazehowl Noct",
+          "Neptilius"
+        ],
+        [
+          "Blazehowl Noct",
+          "Whalaska Ignis"
         ]
       ],
       "spawnAreas": [
@@ -13184,24 +16500,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/124_vanwyrm_cryst.png",
       "breedingCombos": [
         [
-          "Daedream",
-          "Blazamut"
+          "Blazamut Ryu",
+          "Fuddler"
         ],
         [
-          "Nox",
-          "Shadowbeak"
+          "Anubis",
+          "Vanwyrm"
         ],
         [
-          "Celaray",
+          "Arsox",
+          "Ice Kingpaca"
+        ],
+        [
+          "Astegon",
+          "Cawgnito"
+        ],
+        [
+          "Azurobe",
+          "Shroomer Noct"
+        ],
+        [
+          "Azurobe Cryst",
+          "Tombat"
+        ],
+        [
+          "Beakon",
+          "Felbat"
+        ],
+        [
+          "Blazamut",
+          "Fuddler"
+        ],
+        [
+          "Blazehowl",
+          "Penking"
+        ],
+        [
+          "Blazehowl Noct",
+          "Surfent"
+        ],
+        [
+          "Braloha",
+          "Dumud"
+        ],
+        [
+          "Broncherry",
           "Faleris"
-        ],
-        [
-          "Mozzarina",
-          "Elizabee"
-        ],
-        [
-          "Gobfin",
-          "Astegon"
         ]
       ],
       "spawnAreas": [
@@ -13290,24 +16634,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/125_elphidran_aqua.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Elphidran"
+          "Blazamut Ryu",
+          "Vaelet"
         ],
         [
-          "Celaray",
-          "Helzephyr"
+          "Anubis",
+          "Cinnamoth"
         ],
         [
-          "Mozzarina",
-          "Astegon"
+          "Anubis",
+          "Penking Lux"
         ],
         [
-          "Caprity",
-          "Cryolinx"
+          "Arsox",
+          "Relaxaurus Lux"
         ],
         [
-          "Eikthyrdeer",
-          "Orserk"
+          "Astegon",
+          "Mozzarina"
+        ],
+        [
+          "Azurobe",
+          "Surfent"
+        ],
+        [
+          "Azurobe Cryst",
+          "Incineram Noct"
+        ],
+        [
+          "Beakon",
+          "Broncherry Aqua"
+        ],
+        [
+          "Blazamut",
+          "Vaelet"
+        ],
+        [
+          "Blazehowl",
+          "Quivern"
+        ],
+        [
+          "Blazehowl",
+          "Warsect Terra"
+        ],
+        [
+          "Blazehowl Noct",
+          "Mossanda Lux"
         ]
       ],
       "spawnAreas": [
@@ -13396,24 +16768,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/126_kelpsea_ignis.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Beegarde"
-        ],
-        [
-          "Cattiva",
-          "Cawgnito"
-        ],
-        [
-          "Chikipi",
-          "Gorirat"
-        ],
-        [
-          "Lifmunk",
+          "Hangyu Cryst",
           "Lunaris"
         ],
         [
-          "Foxparks",
-          "Leezpunk Ignis"
+          "Blue Slime",
+          "Rushoar"
+        ],
+        [
+          "Cave Bat",
+          "Gloopie"
+        ],
+        [
+          "Cawgnito",
+          "Cremis"
+        ],
+        [
+          "Depresso",
+          "Rooby"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Rooby"
+        ],
+        [
+          "Finsider",
+          "Gumoss"
+        ],
+        [
+          "Finsider",
+          "Gumoss (Special)"
+        ],
+        [
+          "Finsider Ignis",
+          "Gumoss"
+        ],
+        [
+          "Finsider Ignis",
+          "Gumoss (Special)"
+        ],
+        [
+          "Flambelle",
+          "Rushoar"
+        ],
+        [
+          "Fuack",
+          "Ribbuny Botan"
         ]
       ],
       "spawnAreas": [
@@ -13503,24 +16903,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/127_blazehowl_noct.png",
       "breedingCombos": [
         [
-          "Fuack",
-          "Blazamut"
+          "Bellanoir",
+          "Munchill"
         ],
         [
-          "Tanzee",
-          "Jetragon"
+          "Bellanoir Libero",
+          "Munchill"
         ],
         [
-          "Penking",
-          "Dinossom"
+          "Blazamut Ryu",
+          "Fuack"
         ],
         [
-          "Gumoss",
-          "Frostallion Noct"
+          "Arsox",
+          "Surfent Terra"
         ],
         [
-          "Rushoar",
-          "Lyleen Noct"
+          "Astegon",
+          "Woolipop"
+        ],
+        [
+          "Azurobe",
+          "Broncherry Aqua"
+        ],
+        [
+          "Azurobe Cryst",
+          "Broncherry"
+        ],
+        [
+          "Beakon",
+          "Leezpunk"
+        ],
+        [
+          "Beegarde",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Blazamut",
+          "Fuack"
+        ],
+        [
+          "Blazehowl Noct",
+          "Blazehowl Noct"
+        ],
+        [
+          "Broncherry",
+          "Wumpo Botan"
         ]
       ],
       "spawnAreas": [
@@ -13612,24 +17040,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/128_relaxaurus_lux.png",
       "breedingCombos": [
         [
-          "Nitewing",
-          "Frostallion"
+          "Blazamut Ryu",
+          "Elphidran Aqua"
+        ],
+        [
+          "Astegon",
+          "Mossanda Lux"
+        ],
+        [
+          "Azurobe Cryst",
+          "Shadowbeak"
+        ],
+        [
+          "Beakon",
+          "Reptyro"
+        ],
+        [
+          "Blazamut",
+          "Elphidran Aqua"
         ],
         [
           "Cinnamoth",
           "Suzaku"
         ],
         [
+          "Cryolinx",
+          "Sweepa"
+        ],
+        [
           "Elizabee",
           "Lyleen Noct"
+        ],
+        [
+          "Frostallion",
+          "Nitewing"
+        ],
+        [
+          "Frostallion Noct",
+          "Ice Kingpaca"
         ],
         [
           "Grintale",
           "Suzaku Aqua"
         ],
         [
-          "Sweepa",
-          "Cryolinx"
+          "Grizzbolt",
+          "Quivern Botan"
         ]
       ],
       "spawnAreas": [
@@ -13719,24 +17175,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/129_broncherry_aqua.png",
       "breedingCombos": [
         [
-          "Lamball",
-          "Lyleen Noct"
-        ],
-        [
-          "Cattiva",
-          "Beakon"
-        ],
-        [
-          "Lifmunk",
+          "Hangyu Cryst",
           "Lyleen"
         ],
         [
-          "Foxparks",
-          "Relaxaurus"
+          "Hangyu Cryst",
+          "Menasting Terra"
         ],
         [
-          "Fuack",
-          "Quivern"
+          "Anubis",
+          "Turtacle"
+        ],
+        [
+          "Azurobe Cryst",
+          "Gloopie"
+        ],
+        [
+          "Beakon",
+          "Cremis"
+        ],
+        [
+          "Beegarde",
+          "Icelyn"
+        ],
+        [
+          "Blue Slime",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Braloha",
+          "Cave Bat"
+        ],
+        [
+          "Braloha",
+          "Tocotoco"
+        ],
+        [
+          "Bristla",
+          "Prixter"
+        ],
+        [
+          "Caprity",
+          "Polapup"
+        ],
+        [
+          "Croajiro",
+          "Reindrix"
         ]
       ],
       "spawnAreas": [
@@ -13826,24 +17310,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/130_ice_reptyro.png",
       "breedingCombos": [
         [
-          "Mossanda",
-          "Suzaku Aqua"
+          "Blazamut Ryu",
+          "Whalaska"
         ],
         [
-          "Elizabee",
-          "Cryolinx"
+          "Blazamut",
+          "Whalaska"
         ],
         [
-          "Sweepa",
-          "Suzaku"
+          "Braloha",
+          "Frostallion"
         ],
         [
-          "Pyrin",
-          "Frostallion Noct"
+          "Frostallion Noct",
+          "Prixter"
+        ],
+        [
+          "Helzephyr",
+          "Knocklem"
+        ],
+        [
+          "Jormuntide Ignis",
+          "Orserk"
+        ],
+        [
+          "Bellanoir",
+          "Palumba"
+        ],
+        [
+          "Bellanoir Libero",
+          "Palumba"
+        ],
+        [
+          "Blazamut Ryu",
+          "Sibelyx"
+        ],
+        [
+          "Astegon",
+          "Jormuntide"
         ],
         [
           "Beakon",
           "Pyrin Noct"
+        ],
+        [
+          "Blazamut",
+          "Sibelyx"
         ]
       ],
       "spawnAreas": [
@@ -13933,24 +17445,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/131_ice_kingpaca.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Pyrin"
+          "Blazamut Ryu",
+          "Celaray"
         ],
         [
-          "Celaray",
-          "Blazamut"
+          "Anubis",
+          "Jormuntide"
         ],
         [
-          "Mossanda",
-          "Sibelyx"
+          "Arsox",
+          "Jetragon"
         ],
         [
-          "Nitewing",
-          "Wumpo"
+          "Astegon",
+          "Shroomer Noct"
         ],
         [
-          "Incineram",
-          "Mammorest Cryst"
+          "Azurobe",
+          "Ragnahawk"
+        ],
+        [
+          "Beakon",
+          "Vanwyrm"
+        ],
+        [
+          "Blazamut",
+          "Celaray"
+        ],
+        [
+          "Blazehowl Noct",
+          "Lyleen Noct"
+        ],
+        [
+          "Braloha",
+          "Sootseer"
+        ],
+        [
+          "Bushi",
+          "Pyrin Noct"
+        ],
+        [
+          "Bushi Noct",
+          "Ice Reptyro"
+        ],
+        [
+          "Bushi Noct",
+          "Reptyro Cryst"
         ]
       ],
       "spawnAreas": [
@@ -14041,24 +17581,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/132_mammorest_cryst.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Shadowbeak"
+          "Beakon",
+          "Prixter"
         ],
         [
-          "Mossanda",
-          "Astegon"
+          "Braloha",
+          "Pyrin Noct"
         ],
         [
-          "Cinnamoth",
-          "Jetragon"
+          "Cryolinx",
+          "Whalaska"
         ],
         [
-          "Elizabee",
-          "Lyleen"
+          "Frostallion",
+          "Palumba"
         ],
         [
-          "Grintale",
+          "Ghangler",
+          "Suzaku"
+        ],
+        [
+          "Ghangler Ignis",
           "Necromus"
+        ],
+        [
+          "Ice Reptyro",
+          "Selyne"
+        ],
+        [
+          "Jormuntide",
+          "Knocklem"
+        ],
+        [
+          "Jormuntide Ignis",
+          "Menasting"
+        ],
+        [
+          "Orserk",
+          "Xenogard"
+        ],
+        [
+          "Reptyro Cryst",
+          "Selyne"
+        ],
+        [
+          "Sootseer",
+          "Suzaku Aqua"
         ]
       ],
       "spawnAreas": [
@@ -14150,24 +17718,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/133_wumpo_botan.png",
       "breedingCombos": [
         [
-          "Penking",
-          "Ice Kingpaca"
+          "Blazamut Ryu",
+          "Yakumo"
         ],
         [
-          "Celaray",
-          "Jetragon"
+          "Azurobe",
+          "Palumba"
         ],
         [
-          "Mozzarina",
-          "Suzaku"
+          "Blazamut",
+          "Yakumo"
         ],
         [
-          "Mossanda",
-          "Elphidran Aqua"
+          "Braloha",
+          "Vanwyrm Cryst"
         ],
         [
-          "Caprity",
-          "Suzaku Aqua"
+          "Bushi",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Cinnamoth",
+          "Xenovader"
+        ],
+        [
+          "Croajiro Noct",
+          "Helzephyr"
+        ],
+        [
+          "Cryolinx",
+          "Tarantriss"
+        ],
+        [
+          "Dazemu",
+          "Relaxaurus"
+        ],
+        [
+          "Dogen",
+          "Mammorest Cryst"
+        ],
+        [
+          "Dumud",
+          "Shadowbeak"
+        ],
+        [
+          "Dumud Gild",
+          "Frostallion Noct"
         ]
       ],
       "spawnAreas": [
@@ -14257,12 +17853,32 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/134_jormuntide_ignis.png",
       "breedingCombos": [
         [
-          "Mossanda",
-          "Grizzbolt"
+          "Blazamut Ryu",
+          "Vanwyrm Cryst"
         ],
         [
-          "Nitewing",
-          "Lyleen Noct"
+          "Anubis",
+          "Shadowbeak"
+        ],
+        [
+          "Astegon",
+          "Azurobe Cryst"
+        ],
+        [
+          "Astegon",
+          "Wumpo Botan"
+        ],
+        [
+          "Azurobe",
+          "Cryolinx"
+        ],
+        [
+          "Beakon",
+          "Sweepa"
+        ],
+        [
+          "Blazamut",
+          "Vanwyrm Cryst"
         ],
         [
           "Cinnamoth",
@@ -14273,8 +17889,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "Mammorest"
         ],
         [
-          "Grintale",
-          "Frostallion"
+          "Elphidran",
+          "Jetragon"
+        ],
+        [
+          "Elphidran Aqua",
+          "Frostallion Noct"
+        ],
+        [
+          "Faleris",
+          "Menasting"
         ]
       ],
       "spawnAreas": [
@@ -14362,6 +17986,18 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/135_suzaku_aqua.png",
       "breedingCombos": [
         [
+          "Bellanoir",
+          "Suzaku"
+        ],
+        [
+          "Bellanoir Libero",
+          "Suzaku"
+        ],
+        [
+          "Blazamut Ryu",
+          "Suzaku"
+        ],
+        [
           "Blazamut",
           "Suzaku"
         ],
@@ -14370,8 +18006,32 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "Suzaku Aqua"
         ],
         [
+          "Bellanoir",
+          "Shadowbeak"
+        ],
+        [
+          "Bellanoir Libero",
+          "Shadowbeak"
+        ],
+        [
+          "Blazamut Ryu",
+          "Shadowbeak"
+        ],
+        [
           "Blazamut",
           "Shadowbeak"
+        ],
+        [
+          "Bellanoir",
+          "Necromus"
+        ],
+        [
+          "Bellanoir Libero",
+          "Necromus"
+        ],
+        [
+          "Blazamut Ryu",
+          "Necromus"
         ]
       ],
       "spawnAreas": [
@@ -14463,24 +18123,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/136_lyleen_noct.png",
       "breedingCombos": [
         [
-          "Elizabee",
-          "Jetragon"
+          "Astegon",
+          "Knocklem"
         ],
         [
-          "Sweepa",
-          "Blazamut"
+          "Braloha",
+          "Paladius"
         ],
         [
-          "Pyrin",
+          "Frostallion Noct",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Necromus",
+          "Selyne"
+        ],
+        [
+          "Prixter",
           "Shadowbeak"
+        ],
+        [
+          "Blazamut Ryu",
+          "Sweepa"
+        ],
+        [
+          "Astegon",
+          "Relaxaurus Lux"
         ],
         [
           "Beakon",
           "Grizzbolt"
         ],
         [
+          "Blazamut",
+          "Sweepa"
+        ],
+        [
           "Cryolinx",
           "Mammorest Cryst"
+        ],
+        [
+          "Elizabee",
+          "Jetragon"
+        ],
+        [
+          "Faleris",
+          "Suzaku"
         ]
       ],
       "spawnAreas": [
@@ -14569,11 +18257,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/137_frostallion_noct.png",
       "breedingCombos": [
         [
-          "Cryolinx",
-          "Necromus"
-        ],
-        [
-          "Blazamut",
+          "Blazamut Ryu",
           "Helzephyr"
         ],
         [
@@ -14581,12 +18265,44 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "Suzaku"
         ],
         [
+          "Blazamut",
+          "Helzephyr"
+        ],
+        [
+          "Cryolinx",
+          "Necromus"
+        ],
+        [
+          "Frostallion",
+          "Paladius"
+        ],
+        [
+          "Frostallion Noct",
+          "Frostallion Noct"
+        ],
+        [
           "Orserk",
           "Shadowbeak"
         ],
         [
-          "Paladius",
-          "Frostallion"
+          "Bellanoir",
+          "Grizzbolt"
+        ],
+        [
+          "Bellanoir Libero",
+          "Grizzbolt"
+        ],
+        [
+          "Blazamut Ryu",
+          "Grizzbolt"
+        ],
+        [
+          "Astegon",
+          "Shadowbeak"
+        ],
+        [
+          "Blazamut",
+          "Grizzbolt"
         ]
       ],
       "spawnAreas": [
@@ -14677,7 +18393,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Neutral"
       ],
       "localImage": "assets/pals/138_selyne.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Univolt"
+        ],
+        [
+          "Anubis",
+          "Frostallion"
+        ],
+        [
+          "Astegon",
+          "Elphidran"
+        ],
+        [
+          "Azurobe",
+          "Helzephyr"
+        ],
+        [
+          "Azurobe Cryst",
+          "Lyleen Noct"
+        ],
+        [
+          "Beakon",
+          "Kingpaca"
+        ],
+        [
+          "Blazamut",
+          "Univolt"
+        ],
+        [
+          "Braloha",
+          "Prixter"
+        ],
+        [
+          "Bushi",
+          "Suzaku"
+        ],
+        [
+          "Cinnamoth",
+          "Grizzbolt"
+        ],
+        [
+          "Cryolinx",
+          "Surfent"
+        ],
+        [
+          "Elizabee",
+          "Pyrin"
+        ]
+      ],
       "spawnAreas": [
         "Sakurajima Meteorite Event"
       ]
@@ -14764,7 +18529,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Water"
       ],
       "localImage": "assets/pals/139_croajiro.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Anubis",
+          "Robinquill"
+        ],
+        [
+          "Arsox",
+          "Chillet"
+        ],
+        [
+          "Astegon",
+          "Mau Cryst"
+        ],
+        [
+          "Azurobe",
+          "Gobfin"
+        ],
+        [
+          "Azurobe Cryst",
+          "Lunaris"
+        ],
+        [
+          "Beakon",
+          "Jolthog"
+        ],
+        [
+          "Beegarde",
+          "Penking"
+        ],
+        [
+          "Blazehowl",
+          "Reindrix"
+        ],
+        [
+          "Blazehowl Noct",
+          "Eikthyrdeer"
+        ],
+        [
+          "Bristla",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Broncherry",
+          "Shroomer Noct"
+        ],
+        [
+          "Broncherry Aqua",
+          "Tombat"
+        ]
+      ],
       "spawnAreas": []
     },
     "140": {
@@ -14849,7 +18663,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Neutral"
       ],
       "localImage": "assets/pals/140_dogen.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Bristla"
+        ],
+        [
+          "Anubis",
+          "Foxcicle"
+        ],
+        [
+          "Arsox",
+          "Elphidran"
+        ],
+        [
+          "Astegon",
+          "Nox"
+        ],
+        [
+          "Azurobe",
+          "Celaray Lux"
+        ],
+        [
+          "Azurobe",
+          "Kitsun"
+        ],
+        [
+          "Azurobe Cryst",
+          "Digtoise"
+        ],
+        [
+          "Beakon",
+          "Lunaris"
+        ],
+        [
+          "Beegarde",
+          "Menasting"
+        ],
+        [
+          "Blazamut",
+          "Bristla"
+        ],
+        [
+          "Blazehowl",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Blazehowl Noct",
+          "Vanwyrm"
+        ]
+      ],
       "spawnAreas": [
         "Sakurajima Cherry Blossom Grove"
       ]
@@ -14939,7 +18802,648 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": "assets/pals/138_prunelia.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Chikipi",
+          "Blazamut"
+        ],
+        [
+          "Chikipi",
+          "Blazamut Ryu"
+        ],
+        [
+          "Illuminant Slime",
+          "Blazamut"
+        ],
+        [
+          "Illuminant Slime",
+          "Blazamut Ryu"
+        ],
+        [
+          "Mau",
+          "Suzaku Aqua"
+        ],
+        [
+          "Cattiva",
+          "Suzaku"
+        ],
+        [
+          "Cremis",
+          "Suzaku"
+        ],
+        [
+          "Vixy",
+          "Shadowbeak"
+        ],
+        [
+          "Herbil",
+          "Shadowbeak"
+        ],
+        [
+          "Mau Cryst",
+          "Necromus"
+        ],
+        [
+          "Lifmunk",
+          "Paladius"
+        ],
+        [
+          "Green Slime",
+          "Paladius"
+        ],
+        [
+          "Hangyu Cryst",
+          "Jetragon"
+        ],
+        [
+          "Hangyu Cryst",
+          "Neptilius"
+        ],
+        [
+          "Hangyu",
+          "Jetragon"
+        ],
+        [
+          "Hangyu",
+          "Neptilius"
+        ],
+        [
+          "Sparkit",
+          "Frostallion Noct"
+        ],
+        [
+          "Flambelle",
+          "Frostallion Noct"
+        ],
+        [
+          "Red Slime",
+          "Frostallion Noct"
+        ],
+        [
+          "Hoocrates",
+          "Frostallion"
+        ],
+        [
+          "Purple Slime",
+          "Frostallion"
+        ],
+        [
+          "Demon Eye",
+          "Frostallion"
+        ],
+        [
+          "Jelliette",
+          "Frostallion"
+        ],
+        [
+          "Depresso",
+          "Cryolinx"
+        ],
+        [
+          "Enchanted Sword",
+          "Cryolinx"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Cryolinx"
+        ],
+        [
+          "Jolthog",
+          "Orserk"
+        ],
+        [
+          "Jolthog Cryst",
+          "Astegon"
+        ],
+        [
+          "Pengullet",
+          "Cryolinx Terra"
+        ],
+        [
+          "Tocotoco",
+          "Bastigor"
+        ],
+        [
+          "Cave Bat",
+          "Bastigor"
+        ],
+        [
+          "Munchill",
+          "Bastigor"
+        ],
+        [
+          "Fuack",
+          "Helzephyr Lux"
+        ],
+        [
+          "Bristla",
+          "Helzephyr"
+        ],
+        [
+          "Rainbow Slime",
+          "Helzephyr"
+        ],
+        [
+          "Pengullet Lux",
+          "Grizzbolt"
+        ],
+        [
+          "Ribbuny",
+          "Grizzbolt"
+        ],
+        [
+          "Foxparks Cryst",
+          "Grizzbolt"
+        ],
+        [
+          "Swee",
+          "Lyleen Noct"
+        ],
+        [
+          "Finsider",
+          "Silvegis"
+        ],
+        [
+          "Finsider",
+          "Lyleen Noct"
+        ],
+        [
+          "Fuack Ignis",
+          "Beakon"
+        ],
+        [
+          "Fuack Ignis",
+          "Silvegis"
+        ],
+        [
+          "Killamari",
+          "Beakon"
+        ],
+        [
+          "Killamari",
+          "Silvegis"
+        ],
+        [
+          "Flopie",
+          "Reptyro Cryst"
+        ],
+        [
+          "Kelpsea Ignis",
+          "Pyrin Noct"
+        ],
+        [
+          "Kelpsea",
+          "Menasting Terra"
+        ],
+        [
+          "Kelpsea",
+          "Lyleen"
+        ],
+        [
+          "Kelpsea",
+          "Faleris Aqua"
+        ],
+        [
+          "Finsider Ignis",
+          "Menasting Terra"
+        ],
+        [
+          "Finsider Ignis",
+          "Lyleen"
+        ],
+        [
+          "Tanzee",
+          "Menasting"
+        ],
+        [
+          "Killamari Primo",
+          "Menasting"
+        ],
+        [
+          "Illuminant Bat",
+          "Menasting"
+        ],
+        [
+          "Smokie",
+          "Knocklem"
+        ],
+        [
+          "Smokie",
+          "Xenolord"
+        ],
+        [
+          "Smokie",
+          "Menasting"
+        ],
+        [
+          "Gumoss",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Gumoss",
+          "Knocklem"
+        ],
+        [
+          "Gumoss",
+          "Xenolord"
+        ],
+        [
+          "Daedream",
+          "Relaxaurus"
+        ],
+        [
+          "Daedream",
+          "Warsect Terra"
+        ],
+        [
+          "Fuddler",
+          "Mammorest Cryst"
+        ],
+        [
+          "Dazzi",
+          "Mammorest"
+        ],
+        [
+          "Ribbuny Botan",
+          "Mammorest"
+        ],
+        [
+          "Mimog",
+          "Jormuntide"
+        ],
+        [
+          "Gloopie",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Gloopie",
+          "Jormuntide"
+        ],
+        [
+          "Woolipop",
+          "Reptyro"
+        ],
+        [
+          "Woolipop",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Nox",
+          "Elizabee"
+        ],
+        [
+          "Wixen",
+          "Quivern"
+        ],
+        [
+          "Wixen",
+          "Selyne"
+        ],
+        [
+          "Rooby",
+          "Prixter"
+        ],
+        [
+          "Rooby",
+          "Quivern"
+        ],
+        [
+          "Maraith",
+          "Pyrin"
+        ],
+        [
+          "Maraith",
+          "Prixter"
+        ],
+        [
+          "Wixen Noct",
+          "Pyrin"
+        ],
+        [
+          "Wixen Noct",
+          "Prixter"
+        ],
+        [
+          "Leezpunk Ignis",
+          "Faleris"
+        ],
+        [
+          "Leezpunk Ignis",
+          "Starryon"
+        ],
+        [
+          "Rushoar",
+          "Ragnahawk"
+        ],
+        [
+          "Kikit",
+          "Ragnahawk"
+        ],
+        [
+          "Leezpunk",
+          "Mossanda Lux"
+        ],
+        [
+          "Dazzi Noct",
+          "Mossanda Lux"
+        ],
+        [
+          "Lunaris",
+          "Azurmane"
+        ],
+        [
+          "Turtacle",
+          "Azurmane"
+        ],
+        [
+          "Gobfin Ignis",
+          "Sweepa"
+        ],
+        [
+          "Gobfin",
+          "Nitewing"
+        ],
+        [
+          "Cawgnito",
+          "Mossanda"
+        ],
+        [
+          "Cawgnito",
+          "Whalaska Ignis"
+        ],
+        [
+          "Beegarde",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Beegarde",
+          "Xenogard"
+        ],
+        [
+          "Turtacle Terra",
+          "Whalaska"
+        ],
+        [
+          "Turtacle Terra",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Direhowl",
+          "Sibelyx"
+        ],
+        [
+          "Direhowl",
+          "Whalaska"
+        ],
+        [
+          "Vaelet",
+          "Wumpo"
+        ],
+        [
+          "Vaelet",
+          "Palumba"
+        ],
+        [
+          "Gorirat",
+          "Kingpaca"
+        ],
+        [
+          "Gorirat",
+          "Xenovader"
+        ],
+        [
+          "Galeclaw",
+          "Azurobe Cryst"
+        ],
+        [
+          "Galeclaw",
+          "Wumpo Botan"
+        ],
+        [
+          "Gorirat Terra",
+          "Azurobe Cryst"
+        ],
+        [
+          "Gorirat Terra",
+          "Wumpo Botan"
+        ],
+        [
+          "Robinquill",
+          "Penking Lux"
+        ],
+        [
+          "Robinquill",
+          "Cinnamoth"
+        ],
+        [
+          "Felbat",
+          "Azurobe"
+        ],
+        [
+          "Robinquill Terra",
+          "Grintale"
+        ],
+        [
+          "Robinquill Terra",
+          "Gildane"
+        ],
+        [
+          "Robinquill Terra",
+          "Ghangler Ignis"
+        ],
+        [
+          "Verdash",
+          "Penking"
+        ],
+        [
+          "Fenglope",
+          "Elphidran Aqua"
+        ],
+        [
+          "Fenglope",
+          "Ghangler"
+        ],
+        [
+          "Loupmoon",
+          "Surfent"
+        ],
+        [
+          "Yakumo",
+          "Surfent"
+        ],
+        [
+          "Lovander",
+          "Anubis"
+        ],
+        [
+          "Caprity",
+          "Incineram Noct"
+        ],
+        [
+          "Eikthyrdeer",
+          "Incineram"
+        ],
+        [
+          "Lullu",
+          "Icelyn"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Icelyn"
+        ],
+        [
+          "Melpaca",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Reindrix",
+          "Omascul"
+        ],
+        [
+          "Celaray",
+          "Bushi"
+        ],
+        [
+          "Broncherry",
+          "Bushi Noct"
+        ],
+        [
+          "Broncherry",
+          "Nyafia"
+        ],
+        [
+          "Caprity Noct",
+          "Frostplume"
+        ],
+        [
+          "Caprity Noct",
+          "Bushi Noct"
+        ],
+        [
+          "Dumud Gild",
+          "Frostplume"
+        ],
+        [
+          "Dumud Gild",
+          "Bushi Noct"
+        ],
+        [
+          "Digtoise",
+          "Vanwyrm"
+        ],
+        [
+          "Digtoise",
+          "Frostplume"
+        ],
+        [
+          "Broncherry Aqua",
+          "Blazehowl Noct"
+        ],
+        [
+          "Broncherry Aqua",
+          "Dogen"
+        ],
+        [
+          "Fenglope Lux",
+          "Dazemu"
+        ],
+        [
+          "Fenglope Lux",
+          "Blazehowl Noct"
+        ],
+        [
+          "Celaray Lux",
+          "Univolt"
+        ],
+        [
+          "Celaray Lux",
+          "Dazemu"
+        ],
+        [
+          "Kitsun",
+          "Univolt"
+        ],
+        [
+          "Kitsun",
+          "Dazemu"
+        ],
+        [
+          "Tarantriss",
+          "Univolt"
+        ],
+        [
+          "Dinossom",
+          "Katress Ignis"
+        ],
+        [
+          "Celesdir",
+          "Katress Ignis"
+        ],
+        [
+          "Dinossom Lux",
+          "Katress"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Nitemary"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Katress"
+        ],
+        [
+          "Chillet",
+          "Blazehowl"
+        ],
+        [
+          "Chillet",
+          "Nitemary"
+        ],
+        [
+          "Croajiro",
+          "Blazehowl"
+        ],
+        [
+          "Arsox",
+          "Shroomer"
+        ],
+        [
+          "Chillet Ignis",
+          "Shroomer"
+        ],
+        [
+          "Petallia",
+          "Shroomer Noct"
+        ],
+        [
+          "Petallia",
+          "Splatterina"
+        ],
+        [
+          "Croajiro Noct",
+          "Polapup"
+        ],
+        [
+          "Croajiro Noct",
+          "Rayhound"
+        ],
+        [
+          "Foxcicle",
+          "Tombat"
+        ],
+        [
+          "Foxcicle",
+          "Polapup"
+        ],
+        [
+          "Prunelia",
+          "Prunelia"
+        ],
+        [
+          "Prunelia",
+          "Tombat"
+        ]
+      ],
       "spawnAreas": []
     },
     "142": {
@@ -15023,7 +19527,1056 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": "assets/pals/139_nyafia.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Finsider",
+          "Bellanoir"
+        ],
+        [
+          "Finsider",
+          "Bellanoir Libero"
+        ],
+        [
+          "Fuack Ignis",
+          "Blazamut"
+        ],
+        [
+          "Fuack Ignis",
+          "Blazamut Ryu"
+        ],
+        [
+          "Fuack Ignis",
+          "Bellanoir"
+        ],
+        [
+          "Fuack Ignis",
+          "Bellanoir Libero"
+        ],
+        [
+          "Killamari",
+          "Blazamut"
+        ],
+        [
+          "Killamari",
+          "Blazamut Ryu"
+        ],
+        [
+          "Killamari",
+          "Bellanoir"
+        ],
+        [
+          "Killamari",
+          "Bellanoir Libero"
+        ],
+        [
+          "Flopie",
+          "Blazamut"
+        ],
+        [
+          "Flopie",
+          "Blazamut Ryu"
+        ],
+        [
+          "Kelpsea Ignis",
+          "Suzaku Aqua"
+        ],
+        [
+          "Kelpsea",
+          "Suzaku Aqua"
+        ],
+        [
+          "Finsider Ignis",
+          "Suzaku Aqua"
+        ],
+        [
+          "Tanzee",
+          "Suzaku"
+        ],
+        [
+          "Killamari Primo",
+          "Suzaku"
+        ],
+        [
+          "Illuminant Bat",
+          "Suzaku"
+        ],
+        [
+          "Smokie",
+          "Suzaku"
+        ],
+        [
+          "Gumoss",
+          "Shadowbeak"
+        ],
+        [
+          "Gumoss",
+          "Suzaku"
+        ],
+        [
+          "Daedream",
+          "Necromus"
+        ],
+        [
+          "Daedream",
+          "Shadowbeak"
+        ],
+        [
+          "Fuddler",
+          "Paladius"
+        ],
+        [
+          "Fuddler",
+          "Necromus"
+        ],
+        [
+          "Dazzi",
+          "Jetragon"
+        ],
+        [
+          "Dazzi",
+          "Neptilius"
+        ],
+        [
+          "Dazzi",
+          "Paladius"
+        ],
+        [
+          "Ribbuny Botan",
+          "Jetragon"
+        ],
+        [
+          "Ribbuny Botan",
+          "Neptilius"
+        ],
+        [
+          "Ribbuny Botan",
+          "Paladius"
+        ],
+        [
+          "Mimog",
+          "Frostallion Noct"
+        ],
+        [
+          "Mimog",
+          "Jetragon"
+        ],
+        [
+          "Mimog",
+          "Neptilius"
+        ],
+        [
+          "Gloopie",
+          "Frostallion Noct"
+        ],
+        [
+          "Gloopie",
+          "Jetragon"
+        ],
+        [
+          "Gloopie",
+          "Neptilius"
+        ],
+        [
+          "Woolipop",
+          "Frostallion Noct"
+        ],
+        [
+          "Nox",
+          "Frostallion"
+        ],
+        [
+          "Wixen",
+          "Orserk"
+        ],
+        [
+          "Wixen",
+          "Cryolinx"
+        ],
+        [
+          "Rooby",
+          "Orserk"
+        ],
+        [
+          "Rooby",
+          "Cryolinx"
+        ],
+        [
+          "Maraith",
+          "Astegon"
+        ],
+        [
+          "Maraith",
+          "Orserk"
+        ],
+        [
+          "Wixen Noct",
+          "Astegon"
+        ],
+        [
+          "Wixen Noct",
+          "Orserk"
+        ],
+        [
+          "Leezpunk Ignis",
+          "Cryolinx Terra"
+        ],
+        [
+          "Leezpunk Ignis",
+          "Astegon"
+        ],
+        [
+          "Rushoar",
+          "Bastigor"
+        ],
+        [
+          "Rushoar",
+          "Cryolinx Terra"
+        ],
+        [
+          "Kikit",
+          "Bastigor"
+        ],
+        [
+          "Kikit",
+          "Cryolinx Terra"
+        ],
+        [
+          "Leezpunk",
+          "Helzephyr Lux"
+        ],
+        [
+          "Leezpunk",
+          "Bastigor"
+        ],
+        [
+          "Dazzi Noct",
+          "Helzephyr Lux"
+        ],
+        [
+          "Dazzi Noct",
+          "Bastigor"
+        ],
+        [
+          "Lunaris",
+          "Helzephyr"
+        ],
+        [
+          "Lunaris",
+          "Helzephyr Lux"
+        ],
+        [
+          "Turtacle",
+          "Helzephyr"
+        ],
+        [
+          "Turtacle",
+          "Helzephyr Lux"
+        ],
+        [
+          "Gobfin Ignis",
+          "Grizzbolt"
+        ],
+        [
+          "Gobfin Ignis",
+          "Helzephyr"
+        ],
+        [
+          "Gobfin",
+          "Lyleen Noct"
+        ],
+        [
+          "Gobfin",
+          "Grizzbolt"
+        ],
+        [
+          "Cawgnito",
+          "Beakon"
+        ],
+        [
+          "Cawgnito",
+          "Silvegis"
+        ],
+        [
+          "Cawgnito",
+          "Lyleen Noct"
+        ],
+        [
+          "Beegarde",
+          "Reptyro Cryst"
+        ],
+        [
+          "Beegarde",
+          "Beakon"
+        ],
+        [
+          "Beegarde",
+          "Silvegis"
+        ],
+        [
+          "Turtacle Terra",
+          "Reptyro Cryst"
+        ],
+        [
+          "Turtacle Terra",
+          "Beakon"
+        ],
+        [
+          "Direhowl",
+          "Pyrin Noct"
+        ],
+        [
+          "Direhowl",
+          "Reptyro Cryst"
+        ],
+        [
+          "Vaelet",
+          "Menasting Terra"
+        ],
+        [
+          "Vaelet",
+          "Lyleen"
+        ],
+        [
+          "Vaelet",
+          "Faleris Aqua"
+        ],
+        [
+          "Vaelet",
+          "Pyrin Noct"
+        ],
+        [
+          "Gorirat",
+          "Menasting"
+        ],
+        [
+          "Gorirat",
+          "Menasting Terra"
+        ],
+        [
+          "Gorirat",
+          "Lyleen"
+        ],
+        [
+          "Gorirat",
+          "Faleris Aqua"
+        ],
+        [
+          "Galeclaw",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Galeclaw",
+          "Knocklem"
+        ],
+        [
+          "Galeclaw",
+          "Xenolord"
+        ],
+        [
+          "Galeclaw",
+          "Menasting"
+        ],
+        [
+          "Gorirat Terra",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Gorirat Terra",
+          "Knocklem"
+        ],
+        [
+          "Gorirat Terra",
+          "Xenolord"
+        ],
+        [
+          "Gorirat Terra",
+          "Menasting"
+        ],
+        [
+          "Robinquill",
+          "Relaxaurus"
+        ],
+        [
+          "Robinquill",
+          "Warsect Terra"
+        ],
+        [
+          "Robinquill",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Robinquill",
+          "Knocklem"
+        ],
+        [
+          "Robinquill",
+          "Xenolord"
+        ],
+        [
+          "Felbat",
+          "Mammorest Cryst"
+        ],
+        [
+          "Felbat",
+          "Relaxaurus"
+        ],
+        [
+          "Felbat",
+          "Warsect Terra"
+        ],
+        [
+          "Robinquill Terra",
+          "Mammorest"
+        ],
+        [
+          "Robinquill Terra",
+          "Mammorest Cryst"
+        ],
+        [
+          "Verdash",
+          "Jormuntide"
+        ],
+        [
+          "Verdash",
+          "Mammorest"
+        ],
+        [
+          "Fenglope",
+          "Reptyro"
+        ],
+        [
+          "Fenglope",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Fenglope",
+          "Jormuntide"
+        ],
+        [
+          "Loupmoon",
+          "Quivern"
+        ],
+        [
+          "Loupmoon",
+          "Selyne"
+        ],
+        [
+          "Loupmoon",
+          "Warsect"
+        ],
+        [
+          "Loupmoon",
+          "Quivern Botan"
+        ],
+        [
+          "Loupmoon",
+          "Braloha"
+        ],
+        [
+          "Yakumo",
+          "Prixter"
+        ],
+        [
+          "Yakumo",
+          "Quivern"
+        ],
+        [
+          "Yakumo",
+          "Selyne"
+        ],
+        [
+          "Yakumo",
+          "Warsect"
+        ],
+        [
+          "Yakumo",
+          "Quivern Botan"
+        ],
+        [
+          "Lovander",
+          "Pyrin"
+        ],
+        [
+          "Lovander",
+          "Prixter"
+        ],
+        [
+          "Lovander",
+          "Quivern"
+        ],
+        [
+          "Lovander",
+          "Selyne"
+        ],
+        [
+          "Caprity",
+          "Faleris"
+        ],
+        [
+          "Caprity",
+          "Starryon"
+        ],
+        [
+          "Caprity",
+          "Pyrin"
+        ],
+        [
+          "Caprity",
+          "Prixter"
+        ],
+        [
+          "Eikthyrdeer",
+          "Ragnahawk"
+        ],
+        [
+          "Eikthyrdeer",
+          "Faleris"
+        ],
+        [
+          "Eikthyrdeer",
+          "Starryon"
+        ],
+        [
+          "Mozzarina",
+          "Mossanda Lux"
+        ],
+        [
+          "Mozzarina",
+          "Ragnahawk"
+        ],
+        [
+          "Lullu",
+          "Mossanda Lux"
+        ],
+        [
+          "Lullu",
+          "Ragnahawk"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Azurmane"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Mossanda Lux"
+        ],
+        [
+          "Dumud",
+          "Azurmane"
+        ],
+        [
+          "Dumud",
+          "Mossanda Lux"
+        ],
+        [
+          "Melpaca",
+          "Sweepa"
+        ],
+        [
+          "Melpaca",
+          "Azurmane"
+        ],
+        [
+          "Reindrix",
+          "Nitewing"
+        ],
+        [
+          "Reindrix",
+          "Sweepa"
+        ],
+        [
+          "Celaray",
+          "Mossanda"
+        ],
+        [
+          "Celaray",
+          "Whalaska Ignis"
+        ],
+        [
+          "Celaray",
+          "Nitewing"
+        ],
+        [
+          "Broncherry",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Broncherry",
+          "Xenogard"
+        ],
+        [
+          "Broncherry",
+          "Mossanda"
+        ],
+        [
+          "Broncherry",
+          "Whalaska Ignis"
+        ],
+        [
+          "Caprity Noct",
+          "Whalaska"
+        ],
+        [
+          "Caprity Noct",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Caprity Noct",
+          "Xenogard"
+        ],
+        [
+          "Caprity Noct",
+          "Mossanda"
+        ],
+        [
+          "Caprity Noct",
+          "Whalaska Ignis"
+        ],
+        [
+          "Dumud Gild",
+          "Whalaska"
+        ],
+        [
+          "Dumud Gild",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Dumud Gild",
+          "Xenogard"
+        ],
+        [
+          "Dumud Gild",
+          "Mossanda"
+        ],
+        [
+          "Dumud Gild",
+          "Whalaska Ignis"
+        ],
+        [
+          "Digtoise",
+          "Sibelyx"
+        ],
+        [
+          "Digtoise",
+          "Whalaska"
+        ],
+        [
+          "Digtoise",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Digtoise",
+          "Xenogard"
+        ],
+        [
+          "Broncherry Aqua",
+          "Wumpo"
+        ],
+        [
+          "Broncherry Aqua",
+          "Palumba"
+        ],
+        [
+          "Broncherry Aqua",
+          "Sibelyx"
+        ],
+        [
+          "Broncherry Aqua",
+          "Whalaska"
+        ],
+        [
+          "Fenglope Lux",
+          "Xenovader"
+        ],
+        [
+          "Fenglope Lux",
+          "Wumpo"
+        ],
+        [
+          "Fenglope Lux",
+          "Palumba"
+        ],
+        [
+          "Fenglope Lux",
+          "Sibelyx"
+        ],
+        [
+          "Celaray Lux",
+          "Kingpaca"
+        ],
+        [
+          "Celaray Lux",
+          "Xenovader"
+        ],
+        [
+          "Celaray Lux",
+          "Wumpo"
+        ],
+        [
+          "Celaray Lux",
+          "Palumba"
+        ],
+        [
+          "Kitsun",
+          "Kingpaca"
+        ],
+        [
+          "Kitsun",
+          "Xenovader"
+        ],
+        [
+          "Kitsun",
+          "Wumpo"
+        ],
+        [
+          "Kitsun",
+          "Palumba"
+        ],
+        [
+          "Tarantriss",
+          "Kingpaca"
+        ],
+        [
+          "Tarantriss",
+          "Xenovader"
+        ],
+        [
+          "Tarantriss",
+          "Wumpo"
+        ],
+        [
+          "Dinossom",
+          "Azurobe Cryst"
+        ],
+        [
+          "Dinossom",
+          "Wumpo Botan"
+        ],
+        [
+          "Dinossom",
+          "Kingpaca"
+        ],
+        [
+          "Dinossom",
+          "Xenovader"
+        ],
+        [
+          "Celesdir",
+          "Azurobe Cryst"
+        ],
+        [
+          "Celesdir",
+          "Wumpo Botan"
+        ],
+        [
+          "Celesdir",
+          "Kingpaca"
+        ],
+        [
+          "Dinossom Lux",
+          "Penking Lux"
+        ],
+        [
+          "Dinossom Lux",
+          "Cinnamoth"
+        ],
+        [
+          "Dinossom Lux",
+          "Azurobe Cryst"
+        ],
+        [
+          "Dinossom Lux",
+          "Wumpo Botan"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Penking Lux"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Cinnamoth"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Azurobe Cryst"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Wumpo Botan"
+        ],
+        [
+          "Chillet",
+          "Azurobe"
+        ],
+        [
+          "Chillet",
+          "Penking Lux"
+        ],
+        [
+          "Chillet",
+          "Cinnamoth"
+        ],
+        [
+          "Croajiro",
+          "Gildane"
+        ],
+        [
+          "Croajiro",
+          "Ghangler Ignis"
+        ],
+        [
+          "Croajiro",
+          "Azurobe"
+        ],
+        [
+          "Croajiro",
+          "Penking Lux"
+        ],
+        [
+          "Croajiro",
+          "Cinnamoth"
+        ],
+        [
+          "Arsox",
+          "Grintale"
+        ],
+        [
+          "Arsox",
+          "Gildane"
+        ],
+        [
+          "Arsox",
+          "Ghangler Ignis"
+        ],
+        [
+          "Arsox",
+          "Azurobe"
+        ],
+        [
+          "Chillet Ignis",
+          "Grintale"
+        ],
+        [
+          "Chillet Ignis",
+          "Gildane"
+        ],
+        [
+          "Chillet Ignis",
+          "Ghangler Ignis"
+        ],
+        [
+          "Chillet Ignis",
+          "Azurobe"
+        ],
+        [
+          "Petallia",
+          "Penking"
+        ],
+        [
+          "Petallia",
+          "Grintale"
+        ],
+        [
+          "Petallia",
+          "Gildane"
+        ],
+        [
+          "Petallia",
+          "Ghangler Ignis"
+        ],
+        [
+          "Croajiro Noct",
+          "Elphidran Aqua"
+        ],
+        [
+          "Croajiro Noct",
+          "Ghangler"
+        ],
+        [
+          "Croajiro Noct",
+          "Penking"
+        ],
+        [
+          "Foxcicle",
+          "Elphidran"
+        ],
+        [
+          "Foxcicle",
+          "Elphidran Aqua"
+        ],
+        [
+          "Foxcicle",
+          "Ghangler"
+        ],
+        [
+          "Prunelia",
+          "Sootseer"
+        ],
+        [
+          "Prunelia",
+          "Elphidran"
+        ],
+        [
+          "Prunelia",
+          "Elphidran Aqua"
+        ],
+        [
+          "Tombat",
+          "Surfent Terra"
+        ],
+        [
+          "Tombat",
+          "Sootseer"
+        ],
+        [
+          "Tombat",
+          "Elphidran"
+        ],
+        [
+          "Polapup",
+          "Surfent Terra"
+        ],
+        [
+          "Polapup",
+          "Sootseer"
+        ],
+        [
+          "Polapup",
+          "Elphidran"
+        ],
+        [
+          "Rayhound",
+          "Surfent"
+        ],
+        [
+          "Rayhound",
+          "Surfent Terra"
+        ],
+        [
+          "Rayhound",
+          "Sootseer"
+        ],
+        [
+          "Kitsun Noct",
+          "Surfent"
+        ],
+        [
+          "Kitsun Noct",
+          "Surfent Terra"
+        ],
+        [
+          "Shroomer Noct",
+          "Anubis"
+        ],
+        [
+          "Shroomer Noct",
+          "Surfent"
+        ],
+        [
+          "Splatterina",
+          "Anubis"
+        ],
+        [
+          "Splatterina",
+          "Surfent"
+        ],
+        [
+          "Shroomer",
+          "Incineram Noct"
+        ],
+        [
+          "Shroomer",
+          "Anubis"
+        ],
+        [
+          "Blazehowl",
+          "Incineram"
+        ],
+        [
+          "Blazehowl",
+          "Incineram Noct"
+        ],
+        [
+          "Nitemary",
+          "Incineram"
+        ],
+        [
+          "Nitemary",
+          "Incineram Noct"
+        ],
+        [
+          "Katress",
+          "Incineram"
+        ],
+        [
+          "Katress Ignis",
+          "Icelyn"
+        ],
+        [
+          "Univolt",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Univolt",
+          "Icelyn"
+        ],
+        [
+          "Dazemu",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Blazehowl Noct",
+          "Omascul"
+        ],
+        [
+          "Blazehowl Noct",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Dogen",
+          "Omascul"
+        ],
+        [
+          "Dogen",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Vanwyrm",
+          "Bushi"
+        ],
+        [
+          "Vanwyrm",
+          "Omascul"
+        ],
+        [
+          "Frostplume",
+          "Nyafia"
+        ],
+        [
+          "Frostplume",
+          "Bushi"
+        ],
+        [
+          "Frostplume",
+          "Omascul"
+        ],
+        [
+          "Bushi Noct",
+          "Nyafia"
+        ],
+        [
+          "Bushi Noct",
+          "Bushi"
+        ],
+        [
+          "Nyafia",
+          "Nyafia"
+        ],
+        [
+          "Nyafia",
+          "Bushi"
+        ]
+      ],
       "spawnAreas": []
     },
     "143": {
@@ -15104,7 +20657,440 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ground"
       ],
       "localImage": "assets/pals/140_gildane.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Felbat",
+          "Bellanoir"
+        ],
+        [
+          "Felbat",
+          "Bellanoir Libero"
+        ],
+        [
+          "Robinquill Terra",
+          "Blazamut"
+        ],
+        [
+          "Robinquill Terra",
+          "Blazamut Ryu"
+        ],
+        [
+          "Fenglope",
+          "Suzaku Aqua"
+        ],
+        [
+          "Loupmoon",
+          "Shadowbeak"
+        ],
+        [
+          "Yakumo",
+          "Shadowbeak"
+        ],
+        [
+          "Lovander",
+          "Necromus"
+        ],
+        [
+          "Caprity",
+          "Paladius"
+        ],
+        [
+          "Eikthyrdeer",
+          "Jetragon"
+        ],
+        [
+          "Eikthyrdeer",
+          "Neptilius"
+        ],
+        [
+          "Mozzarina",
+          "Frostallion Noct"
+        ],
+        [
+          "Lullu",
+          "Frostallion Noct"
+        ],
+        [
+          "Melpaca",
+          "Frostallion"
+        ],
+        [
+          "Reindrix",
+          "Cryolinx"
+        ],
+        [
+          "Celaray",
+          "Orserk"
+        ],
+        [
+          "Broncherry",
+          "Astegon"
+        ],
+        [
+          "Caprity Noct",
+          "Astegon"
+        ],
+        [
+          "Dumud Gild",
+          "Astegon"
+        ],
+        [
+          "Digtoise",
+          "Cryolinx Terra"
+        ],
+        [
+          "Broncherry Aqua",
+          "Bastigor"
+        ],
+        [
+          "Fenglope Lux",
+          "Bastigor"
+        ],
+        [
+          "Celaray Lux",
+          "Helzephyr Lux"
+        ],
+        [
+          "Kitsun",
+          "Helzephyr Lux"
+        ],
+        [
+          "Tarantriss",
+          "Helzephyr Lux"
+        ],
+        [
+          "Dinossom",
+          "Helzephyr"
+        ],
+        [
+          "Celesdir",
+          "Helzephyr"
+        ],
+        [
+          "Dinossom Lux",
+          "Grizzbolt"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Grizzbolt"
+        ],
+        [
+          "Chillet",
+          "Lyleen Noct"
+        ],
+        [
+          "Croajiro",
+          "Silvegis"
+        ],
+        [
+          "Croajiro",
+          "Lyleen Noct"
+        ],
+        [
+          "Arsox",
+          "Beakon"
+        ],
+        [
+          "Arsox",
+          "Silvegis"
+        ],
+        [
+          "Chillet Ignis",
+          "Beakon"
+        ],
+        [
+          "Chillet Ignis",
+          "Silvegis"
+        ],
+        [
+          "Petallia",
+          "Reptyro Cryst"
+        ],
+        [
+          "Croajiro Noct",
+          "Faleris Aqua"
+        ],
+        [
+          "Croajiro Noct",
+          "Pyrin Noct"
+        ],
+        [
+          "Foxcicle",
+          "Menasting Terra"
+        ],
+        [
+          "Foxcicle",
+          "Lyleen"
+        ],
+        [
+          "Foxcicle",
+          "Faleris Aqua"
+        ],
+        [
+          "Prunelia",
+          "Menasting Terra"
+        ],
+        [
+          "Prunelia",
+          "Lyleen"
+        ],
+        [
+          "Tombat",
+          "Menasting"
+        ],
+        [
+          "Polapup",
+          "Knocklem"
+        ],
+        [
+          "Polapup",
+          "Xenolord"
+        ],
+        [
+          "Polapup",
+          "Menasting"
+        ],
+        [
+          "Rayhound",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Rayhound",
+          "Knocklem"
+        ],
+        [
+          "Rayhound",
+          "Xenolord"
+        ],
+        [
+          "Kitsun Noct",
+          "Warsect Terra"
+        ],
+        [
+          "Kitsun Noct",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Shroomer Noct",
+          "Relaxaurus"
+        ],
+        [
+          "Shroomer Noct",
+          "Warsect Terra"
+        ],
+        [
+          "Splatterina",
+          "Relaxaurus"
+        ],
+        [
+          "Shroomer",
+          "Mammorest Cryst"
+        ],
+        [
+          "Blazehowl",
+          "Mammorest"
+        ],
+        [
+          "Nitemary",
+          "Mammorest"
+        ],
+        [
+          "Katress",
+          "Jormuntide"
+        ],
+        [
+          "Katress Ignis",
+          "Reptyro"
+        ],
+        [
+          "Katress Ignis",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Univolt",
+          "Elizabee"
+        ],
+        [
+          "Dazemu",
+          "Braloha"
+        ],
+        [
+          "Dazemu",
+          "Elizabee"
+        ],
+        [
+          "Blazehowl Noct",
+          "Warsect"
+        ],
+        [
+          "Blazehowl Noct",
+          "Quivern Botan"
+        ],
+        [
+          "Blazehowl Noct",
+          "Braloha"
+        ],
+        [
+          "Dogen",
+          "Selyne"
+        ],
+        [
+          "Dogen",
+          "Warsect"
+        ],
+        [
+          "Dogen",
+          "Quivern Botan"
+        ],
+        [
+          "Vanwyrm",
+          "Quivern"
+        ],
+        [
+          "Vanwyrm",
+          "Selyne"
+        ],
+        [
+          "Frostplume",
+          "Prixter"
+        ],
+        [
+          "Frostplume",
+          "Quivern"
+        ],
+        [
+          "Bushi Noct",
+          "Pyrin"
+        ],
+        [
+          "Bushi Noct",
+          "Prixter"
+        ],
+        [
+          "Nyafia",
+          "Starryon"
+        ],
+        [
+          "Nyafia",
+          "Pyrin"
+        ],
+        [
+          "Bushi",
+          "Faleris"
+        ],
+        [
+          "Bushi",
+          "Starryon"
+        ],
+        [
+          "Omascul",
+          "Ragnahawk"
+        ],
+        [
+          "Vanwyrm Cryst",
+          "Mossanda Lux"
+        ],
+        [
+          "Icelyn",
+          "Azurmane"
+        ],
+        [
+          "Incineram",
+          "Nitewing"
+        ],
+        [
+          "Incineram Noct",
+          "Mossanda"
+        ],
+        [
+          "Incineram Noct",
+          "Whalaska Ignis"
+        ],
+        [
+          "Anubis",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Anubis",
+          "Xenogard"
+        ],
+        [
+          "Surfent",
+          "Sibelyx"
+        ],
+        [
+          "Surfent",
+          "Whalaska"
+        ],
+        [
+          "Surfent Terra",
+          "Wumpo"
+        ],
+        [
+          "Surfent Terra",
+          "Palumba"
+        ],
+        [
+          "Sootseer",
+          "Xenovader"
+        ],
+        [
+          "Sootseer",
+          "Wumpo"
+        ],
+        [
+          "Elphidran",
+          "Kingpaca"
+        ],
+        [
+          "Elphidran",
+          "Xenovader"
+        ],
+        [
+          "Elphidran Aqua",
+          "Azurobe Cryst"
+        ],
+        [
+          "Elphidran Aqua",
+          "Wumpo Botan"
+        ],
+        [
+          "Ghangler",
+          "Azurobe Cryst"
+        ],
+        [
+          "Ghangler",
+          "Wumpo Botan"
+        ],
+        [
+          "Penking",
+          "Penking Lux"
+        ],
+        [
+          "Penking",
+          "Cinnamoth"
+        ],
+        [
+          "Grintale",
+          "Azurobe"
+        ],
+        [
+          "Gildane",
+          "Gildane"
+        ],
+        [
+          "Ghangler Ignis",
+          "Gildane"
+        ],
+        [
+          "Gildane",
+          "Azurobe"
+        ],
+        [
+          "Ghangler Ignis",
+          "Azurobe"
+        ]
+      ],
       "spawnAreas": []
     },
     "144": {
@@ -15189,7 +21175,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Neutral"
       ],
       "localImage": "assets/pals/141_herbil.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Cattiva",
+          "Green Slime"
+        ],
+        [
+          "Cattiva",
+          "Lifmunk"
+        ],
+        [
+          "Chikipi",
+          "Demon Eye"
+        ],
+        [
+          "Chikipi",
+          "Hoocrates"
+        ],
+        [
+          "Chikipi",
+          "Purple Slime"
+        ],
+        [
+          "Foxparks",
+          "Teafant"
+        ],
+        [
+          "Hangyu",
+          "Lamball"
+        ],
+        [
+          "Herbil",
+          "Herbil"
+        ],
+        [
+          "Kingpaca Cryst",
+          "Mau"
+        ],
+        [
+          "Mau",
+          "Sparkit"
+        ],
+        [
+          "Mau Cryst",
+          "Vixy"
+        ],
+        [
+          "Hangyu Cryst",
+          "Lamball"
+        ]
+      ],
       "spawnAreas": []
     },
     "145": {
@@ -15274,7 +21309,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ice"
       ],
       "localImage": "assets/pals/142_icelyn.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Bellanoir",
+          "Gloopie"
+        ],
+        [
+          "Bellanoir Libero",
+          "Gloopie"
+        ],
+        [
+          "Blazamut Ryu",
+          "Woolipop"
+        ],
+        [
+          "Arsox",
+          "Sweepa"
+        ],
+        [
+          "Astegon",
+          "Vaelet"
+        ],
+        [
+          "Azurobe",
+          "Katress"
+        ],
+        [
+          "Azurobe Cryst",
+          "Shroomer"
+        ],
+        [
+          "Beakon",
+          "Fenglope"
+        ],
+        [
+          "Beegarde",
+          "Cryolinx"
+        ],
+        [
+          "Blazamut",
+          "Woolipop"
+        ],
+        [
+          "Blazehowl",
+          "Cinnamoth"
+        ],
+        [
+          "Blazehowl",
+          "Penking Lux"
+        ]
+      ],
       "spawnAreas": []
     },
     "146": {
@@ -15356,7 +21440,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ice"
       ],
       "localImage": "assets/pals/143_frostplume.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Swee"
+        ],
+        [
+          "Anubis",
+          "Rayhound"
+        ],
+        [
+          "Arsox",
+          "Penking"
+        ],
+        [
+          "Astegon",
+          "Wixen"
+        ],
+        [
+          "Azurobe",
+          "Dinossom Lux"
+        ],
+        [
+          "Azurobe Cryst",
+          "Celaray Lux"
+        ],
+        [
+          "Azurobe Cryst",
+          "Kitsun"
+        ],
+        [
+          "Beakon",
+          "Gobfin"
+        ],
+        [
+          "Beegarde",
+          "Pyrin Noct"
+        ],
+        [
+          "Blazamut",
+          "Swee"
+        ],
+        [
+          "Blazehowl Noct",
+          "Bushi"
+        ],
+        [
+          "Broncherry",
+          "Sibelyx"
+        ]
+      ],
       "spawnAreas": []
     },
     "147": {
@@ -15439,7 +21572,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Grass"
       ],
       "localImage": "assets/pals/144_palumba.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Bellanoir",
+          "Lullu"
+        ],
+        [
+          "Bellanoir Libero",
+          "Lullu"
+        ],
+        [
+          "Blazamut Ryu",
+          "Eikthyrdeer Terra"
+        ],
+        [
+          "Anubis",
+          "Quivern Botan"
+        ],
+        [
+          "Anubis",
+          "Warsect"
+        ],
+        [
+          "Arsox",
+          "Frostallion"
+        ],
+        [
+          "Astegon",
+          "Foxcicle"
+        ],
+        [
+          "Azurobe",
+          "Sweepa"
+        ],
+        [
+          "Azurobe Cryst",
+          "Mossanda"
+        ],
+        [
+          "Azurobe Cryst",
+          "Neptilius"
+        ],
+        [
+          "Azurobe Cryst",
+          "Whalaska Ignis"
+        ],
+        [
+          "Beakon",
+          "Katress Ignis"
+        ]
+      ],
       "spawnAreas": []
     },
     "148": {
@@ -15526,7 +21708,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ground"
       ],
       "localImage": "assets/pals/145_braloha.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Bellanoir",
+          "Dogen"
+        ],
+        [
+          "Bellanoir Libero",
+          "Dogen"
+        ],
+        [
+          "Blazamut Ryu",
+          "Vanwyrm"
+        ],
+        [
+          "Anubis",
+          "Frostallion Noct"
+        ],
+        [
+          "Astegon",
+          "Penking"
+        ],
+        [
+          "Azurobe Cryst",
+          "Helzephyr"
+        ],
+        [
+          "Beakon",
+          "Sibelyx"
+        ],
+        [
+          "Blazamut",
+          "Vanwyrm"
+        ],
+        [
+          "Braloha",
+          "Braloha"
+        ],
+        [
+          "Bushi",
+          "Suzaku Aqua"
+        ],
+        [
+          "Cinnamoth",
+          "Helzephyr Lux"
+        ],
+        [
+          "Cryolinx",
+          "Elphidran"
+        ]
+      ],
       "spawnAreas": []
     },
     "149": {
@@ -15611,7 +21842,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Water"
       ],
       "localImage": "assets/pals/146_munchill.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Bristla",
+          "Pengullet"
+        ],
+        [
+          "Cattiva",
+          "Dazzi"
+        ],
+        [
+          "Cave Bat",
+          "Fuack"
+        ],
+        [
+          "Daedream",
+          "Mau Cryst"
+        ],
+        [
+          "Demon Eye",
+          "Flopie"
+        ],
+        [
+          "Depresso",
+          "Fuack Ignis"
+        ],
+        [
+          "Depresso",
+          "Killamari"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Fuack Ignis"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Killamari"
+        ],
+        [
+          "Flopie",
+          "Hoocrates"
+        ],
+        [
+          "Flopie",
+          "Purple Slime"
+        ],
+        [
+          "Foxparks",
+          "Kelpsea Ignis"
+        ]
+      ],
       "spawnAreas": []
     },
     "150": {
@@ -15694,7 +21974,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Water"
       ],
       "localImage": "assets/pals/147_polapup.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Mau"
+        ],
+        [
+          "Anubis",
+          "Eikthyrdeer"
+        ],
+        [
+          "Arsox",
+          "Katress"
+        ],
+        [
+          "Astegon",
+          "Cave Bat"
+        ],
+        [
+          "Astegon",
+          "Tocotoco"
+        ],
+        [
+          "Azurobe",
+          "Verdash"
+        ],
+        [
+          "Azurobe Cryst",
+          "Felbat"
+        ],
+        [
+          "Beakon",
+          "Kelpsea Ignis"
+        ],
+        [
+          "Beegarde",
+          "Nitewing"
+        ],
+        [
+          "Blazamut",
+          "Mau"
+        ],
+        [
+          "Blazehowl",
+          "Petallia"
+        ],
+        [
+          "Blazehowl Noct",
+          "Dinossom"
+        ]
+      ],
       "spawnAreas": []
     },
     "151": {
@@ -15778,7 +22107,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Water"
       ],
       "localImage": "assets/pals/148_turtacle.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Arsox",
+          "Hangyu"
+        ],
+        [
+          "Beegarde",
+          "Leezpunk Ignis"
+        ],
+        [
+          "Blazehowl",
+          "Chikipi"
+        ],
+        [
+          "Bristla",
+          "Melpaca"
+        ],
+        [
+          "Broncherry",
+          "Pengullet"
+        ],
+        [
+          "Broncherry Aqua",
+          "Jolthog"
+        ],
+        [
+          "Caprity",
+          "Flopie"
+        ],
+        [
+          "Cattiva",
+          "Tombat"
+        ],
+        [
+          "Cave Bat",
+          "Celaray"
+        ],
+        [
+          "Cawgnito",
+          "Rushoar"
+        ],
+        [
+          "Celaray",
+          "Tocotoco"
+        ],
+        [
+          "Celaray Lux",
+          "Depresso"
+        ]
+      ],
       "spawnAreas": []
     },
     "152": {
@@ -15863,7 +22241,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ground"
       ],
       "localImage": "assets/pals/148b_turtacle_terra.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Arsox",
+          "Cave Bat"
+        ],
+        [
+          "Arsox",
+          "Tocotoco"
+        ],
+        [
+          "Beegarde",
+          "Direhowl"
+        ],
+        [
+          "Blazehowl",
+          "Hangyu"
+        ],
+        [
+          "Blazehowl Noct",
+          "Cattiva"
+        ],
+        [
+          "Bristla",
+          "Dinossom Lux"
+        ],
+        [
+          "Broncherry",
+          "Kelpsea Ignis"
+        ],
+        [
+          "Broncherry Aqua",
+          "Fuack Ignis"
+        ],
+        [
+          "Broncherry Aqua",
+          "Killamari"
+        ],
+        [
+          "Bushi",
+          "Teafant"
+        ],
+        [
+          "Bushi Noct",
+          "Mau"
+        ],
+        [
+          "Caprity",
+          "Mimog"
+        ]
+      ],
       "spawnAreas": []
     },
     "153": {
@@ -15949,7 +22376,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": "assets/pals/149_jellroy.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blue Slime",
+          "Jelliette"
+        ],
+        [
+          "Bristla",
+          "Lamball"
+        ],
+        [
+          "Cattiva",
+          "Fuack"
+        ],
+        [
+          "Cave Bat",
+          "Vixy"
+        ],
+        [
+          "Chikipi",
+          "Fuack Ignis"
+        ],
+        [
+          "Chikipi",
+          "Killamari"
+        ],
+        [
+          "Cremis",
+          "Munchill"
+        ],
+        [
+          "Demon Eye",
+          "Foxparks"
+        ],
+        [
+          "Depresso",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Depresso",
+          "Sparkit"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Sparkit"
+        ]
+      ],
       "spawnAreas": []
     },
     "154": {
@@ -16033,7 +22509,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Water"
       ],
       "localImage": "assets/pals/150_jelliette.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Bristla",
+          "Vixy"
+        ],
+        [
+          "Cattiva",
+          "Pengullet Lux"
+        ],
+        [
+          "Cattiva",
+          "Ribbuny"
+        ],
+        [
+          "Cave Bat",
+          "Green Slime"
+        ],
+        [
+          "Cave Bat",
+          "Lifmunk"
+        ],
+        [
+          "Chikipi",
+          "Kelpsea Ignis"
+        ],
+        [
+          "Demon Eye",
+          "Depresso"
+        ],
+        [
+          "Demon Eye",
+          "Eye of Cthulhu"
+        ],
+        [
+          "Depresso",
+          "Hoocrates"
+        ],
+        [
+          "Depresso",
+          "Purple Slime"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Hoocrates"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Purple Slime"
+        ]
+      ],
       "spawnAreas": []
     },
     "155": {
@@ -16118,7 +22643,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": "assets/pals/151_gloopie.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Beegarde",
+          "Bristla"
+        ],
+        [
+          "Caprity",
+          "Cattiva"
+        ],
+        [
+          "Cave Bat",
+          "Vaelet"
+        ],
+        [
+          "Cawgnito",
+          "Pengullet Lux"
+        ],
+        [
+          "Cawgnito",
+          "Ribbuny"
+        ],
+        [
+          "Chikipi",
+          "Melpaca"
+        ],
+        [
+          "Daedream",
+          "Wixen"
+        ],
+        [
+          "Dazzi",
+          "Nox"
+        ],
+        [
+          "Demon Eye",
+          "Robinquill Terra"
+        ],
+        [
+          "Depresso",
+          "Felbat"
+        ],
+        [
+          "Direhowl",
+          "Fuack"
+        ],
+        [
+          "Eikthyrdeer",
+          "Lamball"
+        ]
+      ],
       "spawnAreas": []
     },
     "156": {
@@ -16202,7 +22776,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Water"
       ],
       "localImage": "assets/pals/152_finsider.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Bristla",
+          "Kelpsea Ignis"
+        ],
+        [
+          "Cattiva",
+          "Rushoar"
+        ],
+        [
+          "Cave Bat",
+          "Illuminant Bat"
+        ],
+        [
+          "Cave Bat",
+          "Killamari Primo"
+        ],
+        [
+          "Cave Bat",
+          "Tanzee"
+        ],
+        [
+          "Chikipi",
+          "Gobfin"
+        ],
+        [
+          "Daedream",
+          "Jolthog Cryst"
+        ],
+        [
+          "Dazzi",
+          "Depresso"
+        ],
+        [
+          "Dazzi",
+          "Eye of Cthulhu"
+        ],
+        [
+          "Demon Eye",
+          "Mimog"
+        ],
+        [
+          "Finsider",
+          "Finsider"
+        ],
+        [
+          "Finsider",
+          "Finsider Ignis"
+        ]
+      ],
       "spawnAreas": []
     },
     "157": {
@@ -16372,7 +22995,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Water"
       ],
       "localImage": "assets/pals/153_ghangler.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Gorirat"
+        ],
+        [
+          "Anubis",
+          "Azurobe Cryst"
+        ],
+        [
+          "Anubis",
+          "Wumpo Botan"
+        ],
+        [
+          "Arsox",
+          "Menasting"
+        ],
+        [
+          "Astegon",
+          "Eikthyrdeer Terra"
+        ],
+        [
+          "Azurobe",
+          "Surfent Terra"
+        ],
+        [
+          "Beakon",
+          "Celaray Lux"
+        ],
+        [
+          "Beakon",
+          "Kitsun"
+        ],
+        [
+          "Blazamut",
+          "Gorirat"
+        ],
+        [
+          "Blazehowl",
+          "Quivern Botan"
+        ],
+        [
+          "Blazehowl",
+          "Warsect"
+        ],
+        [
+          "Blazehowl Noct",
+          "Ragnahawk"
+        ]
+      ],
       "spawnAreas": []
     },
     "159": {
@@ -16457,7 +23129,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Water"
       ],
       "localImage": "assets/pals/153b_ghangler_ignis.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Robinquill Terra"
+        ],
+        [
+          "Anubis",
+          "Ice Kingpaca"
+        ],
+        [
+          "Arsox",
+          "Beakon"
+        ],
+        [
+          "Astegon",
+          "Broncherry"
+        ],
+        [
+          "Azurobe",
+          "Grintale"
+        ],
+        [
+          "Azurobe Cryst",
+          "Elphidran Aqua"
+        ],
+        [
+          "Beakon",
+          "Chillet Ignis"
+        ],
+        [
+          "Blazamut",
+          "Robinquill Terra"
+        ],
+        [
+          "Blazehowl",
+          "Mammorest"
+        ],
+        [
+          "Blazehowl Noct",
+          "Quivern Botan"
+        ],
+        [
+          "Blazehowl Noct",
+          "Warsect"
+        ],
+        [
+          "Braloha",
+          "Dazemu"
+        ]
+      ],
       "spawnAreas": []
     },
     "160": {
@@ -16543,7 +23264,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Water"
       ],
       "localImage": "assets/pals/154_whalaska.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Reindrix"
+        ],
+        [
+          "Anubis",
+          "Reptyro"
+        ],
+        [
+          "Arsox",
+          "Frostallion Noct"
+        ],
+        [
+          "Astegon",
+          "Rayhound"
+        ],
+        [
+          "Azurobe",
+          "Mossanda Lux"
+        ],
+        [
+          "Azurobe Cryst",
+          "Sweepa"
+        ],
+        [
+          "Beakon",
+          "Blazehowl Noct"
+        ],
+        [
+          "Blazamut",
+          "Reindrix"
+        ],
+        [
+          "Blazehowl",
+          "Helzephyr Lux"
+        ],
+        [
+          "Broncherry",
+          "Suzaku Aqua"
+        ],
+        [
+          "Broncherry Aqua",
+          "Suzaku"
+        ],
+        [
+          "Bushi",
+          "Lyleen"
+        ]
+      ],
       "spawnAreas": []
     },
     "161": {
@@ -17236,7 +24006,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Water"
       ],
       "localImage": "assets/pals/43b_dumud_gild.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Anubis",
+          "Leezpunk Ignis"
+        ],
+        [
+          "Arsox",
+          "Eikthyrdeer"
+        ],
+        [
+          "Azurobe",
+          "Dazzi"
+        ],
+        [
+          "Azurobe Cryst",
+          "Daedream"
+        ],
+        [
+          "Beakon",
+          "Teafant"
+        ],
+        [
+          "Beegarde",
+          "Bushi"
+        ],
+        [
+          "Blazehowl",
+          "Robinquill Terra"
+        ],
+        [
+          "Blazehowl Noct",
+          "Gorirat"
+        ],
+        [
+          "Bristla",
+          "Mossanda Lux"
+        ],
+        [
+          "Broncherry",
+          "Digtoise"
+        ],
+        [
+          "Broncherry Aqua",
+          "Celaray"
+        ],
+        [
+          "Bushi Noct",
+          "Direhowl"
+        ]
+      ],
       "spawnAreas": []
     },
     "169": {
@@ -17407,7 +24226,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": "assets/pals/114b_croajiro_noct.png",
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Arsox",
+          "Rayhound"
+        ],
+        [
+          "Astegon",
+          "Depresso"
+        ],
+        [
+          "Astegon",
+          "Eye of Cthulhu"
+        ],
+        [
+          "Azurobe",
+          "Galeclaw"
+        ],
+        [
+          "Azurobe",
+          "Gorirat Terra"
+        ],
+        [
+          "Azurobe Cryst",
+          "Vaelet"
+        ],
+        [
+          "Beakon",
+          "Pengullet Lux"
+        ],
+        [
+          "Beakon",
+          "Ribbuny"
+        ],
+        [
+          "Beegarde",
+          "Wumpo"
+        ],
+        [
+          "Blazehowl",
+          "Dinossom"
+        ],
+        [
+          "Blazehowl Noct",
+          "Broncherry"
+        ],
+        [
+          "Braloha",
+          "Gloopie"
+        ]
+      ],
       "spawnAreas": []
     },
     "171": {
@@ -17452,7 +24320,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": 1380.0,
         "type1": "Dark",
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Dark"
@@ -17497,7 +24366,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": null,
         "type1": "Neutral",
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Neutral"
@@ -17542,7 +24412,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": null,
         "type1": "Neutral",
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Neutral"
@@ -17587,7 +24458,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": 1250.0,
         "type1": "Neutral",
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Neutral"
@@ -17632,7 +24504,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": null,
         "type1": "Neutral",
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Neutral"
@@ -17677,7 +24550,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": 1340.0,
         "type1": "Neutral",
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Neutral"
@@ -17722,7 +24596,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": 1405.0,
         "type1": "Fire",
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Fire"
@@ -17767,7 +24642,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": 1390.0,
         "type1": "Dark",
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Dark"
@@ -17812,7 +24688,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": 1390.0,
         "type1": "Dark",
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Dark"
@@ -17857,7 +24734,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": 1430.0,
         "type1": "Grass",
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Grass"
@@ -17902,7 +24780,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": 1405.0,
         "type1": "Water",
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Water"
@@ -17990,7 +24869,804 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Electric"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Loupmoon Cryst",
+          "Bellanoir"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Bellanoir Libero"
+        ],
+        [
+          "Chillet",
+          "Bellanoir"
+        ],
+        [
+          "Chillet",
+          "Bellanoir Libero"
+        ],
+        [
+          "Croajiro",
+          "Blazamut"
+        ],
+        [
+          "Croajiro",
+          "Blazamut Ryu"
+        ],
+        [
+          "Croajiro",
+          "Bellanoir"
+        ],
+        [
+          "Croajiro",
+          "Bellanoir Libero"
+        ],
+        [
+          "Arsox",
+          "Blazamut"
+        ],
+        [
+          "Arsox",
+          "Blazamut Ryu"
+        ],
+        [
+          "Arsox",
+          "Bellanoir"
+        ],
+        [
+          "Arsox",
+          "Bellanoir Libero"
+        ],
+        [
+          "Chillet Ignis",
+          "Blazamut"
+        ],
+        [
+          "Chillet Ignis",
+          "Blazamut Ryu"
+        ],
+        [
+          "Chillet Ignis",
+          "Bellanoir"
+        ],
+        [
+          "Chillet Ignis",
+          "Bellanoir Libero"
+        ],
+        [
+          "Petallia",
+          "Blazamut"
+        ],
+        [
+          "Petallia",
+          "Blazamut Ryu"
+        ],
+        [
+          "Petallia",
+          "Bellanoir"
+        ],
+        [
+          "Petallia",
+          "Bellanoir Libero"
+        ],
+        [
+          "Croajiro Noct",
+          "Suzaku Aqua"
+        ],
+        [
+          "Foxcicle",
+          "Suzaku Aqua"
+        ],
+        [
+          "Prunelia",
+          "Suzaku"
+        ],
+        [
+          "Prunelia",
+          "Suzaku Aqua"
+        ],
+        [
+          "Tombat",
+          "Suzaku"
+        ],
+        [
+          "Polapup",
+          "Shadowbeak"
+        ],
+        [
+          "Polapup",
+          "Suzaku"
+        ],
+        [
+          "Rayhound",
+          "Shadowbeak"
+        ],
+        [
+          "Rayhound",
+          "Suzaku"
+        ],
+        [
+          "Kitsun Noct",
+          "Necromus"
+        ],
+        [
+          "Kitsun Noct",
+          "Shadowbeak"
+        ],
+        [
+          "Kitsun Noct",
+          "Suzaku"
+        ],
+        [
+          "Shroomer Noct",
+          "Necromus"
+        ],
+        [
+          "Shroomer Noct",
+          "Shadowbeak"
+        ],
+        [
+          "Splatterina",
+          "Paladius"
+        ],
+        [
+          "Splatterina",
+          "Necromus"
+        ],
+        [
+          "Splatterina",
+          "Shadowbeak"
+        ],
+        [
+          "Shroomer",
+          "Paladius"
+        ],
+        [
+          "Shroomer",
+          "Necromus"
+        ],
+        [
+          "Blazehowl",
+          "Jetragon"
+        ],
+        [
+          "Blazehowl",
+          "Neptilius"
+        ],
+        [
+          "Blazehowl",
+          "Paladius"
+        ],
+        [
+          "Nitemary",
+          "Frostallion Noct"
+        ],
+        [
+          "Nitemary",
+          "Jetragon"
+        ],
+        [
+          "Nitemary",
+          "Neptilius"
+        ],
+        [
+          "Nitemary",
+          "Paladius"
+        ],
+        [
+          "Katress",
+          "Frostallion Noct"
+        ],
+        [
+          "Katress",
+          "Jetragon"
+        ],
+        [
+          "Katress",
+          "Neptilius"
+        ],
+        [
+          "Katress Ignis",
+          "Frostallion Noct"
+        ],
+        [
+          "Univolt",
+          "Frostallion"
+        ],
+        [
+          "Dazemu",
+          "Frostallion"
+        ],
+        [
+          "Blazehowl Noct",
+          "Cryolinx"
+        ],
+        [
+          "Blazehowl Noct",
+          "Frostallion"
+        ],
+        [
+          "Dogen",
+          "Orserk"
+        ],
+        [
+          "Dogen",
+          "Cryolinx"
+        ],
+        [
+          "Dogen",
+          "Frostallion"
+        ],
+        [
+          "Vanwyrm",
+          "Orserk"
+        ],
+        [
+          "Vanwyrm",
+          "Cryolinx"
+        ],
+        [
+          "Frostplume",
+          "Astegon"
+        ],
+        [
+          "Frostplume",
+          "Orserk"
+        ],
+        [
+          "Frostplume",
+          "Cryolinx"
+        ],
+        [
+          "Bushi Noct",
+          "Astegon"
+        ],
+        [
+          "Bushi Noct",
+          "Orserk"
+        ],
+        [
+          "Nyafia",
+          "Cryolinx Terra"
+        ],
+        [
+          "Nyafia",
+          "Astegon"
+        ],
+        [
+          "Nyafia",
+          "Orserk"
+        ],
+        [
+          "Bushi",
+          "Cryolinx Terra"
+        ],
+        [
+          "Bushi",
+          "Astegon"
+        ],
+        [
+          "Omascul",
+          "Bastigor"
+        ],
+        [
+          "Omascul",
+          "Cryolinx Terra"
+        ],
+        [
+          "Vanwyrm Cryst",
+          "Helzephyr Lux"
+        ],
+        [
+          "Vanwyrm Cryst",
+          "Bastigor"
+        ],
+        [
+          "Icelyn",
+          "Grizzbolt"
+        ],
+        [
+          "Icelyn",
+          "Helzephyr"
+        ],
+        [
+          "Icelyn",
+          "Helzephyr Lux"
+        ],
+        [
+          "Incineram",
+          "Silvegis"
+        ],
+        [
+          "Incineram",
+          "Lyleen Noct"
+        ],
+        [
+          "Incineram",
+          "Grizzbolt"
+        ],
+        [
+          "Incineram Noct",
+          "Beakon"
+        ],
+        [
+          "Incineram Noct",
+          "Silvegis"
+        ],
+        [
+          "Incineram Noct",
+          "Lyleen Noct"
+        ],
+        [
+          "Anubis",
+          "Reptyro Cryst"
+        ],
+        [
+          "Anubis",
+          "Beakon"
+        ],
+        [
+          "Anubis",
+          "Silvegis"
+        ],
+        [
+          "Surfent",
+          "Faleris Aqua"
+        ],
+        [
+          "Surfent",
+          "Pyrin Noct"
+        ],
+        [
+          "Surfent",
+          "Reptyro Cryst"
+        ],
+        [
+          "Surfent Terra",
+          "Menasting Terra"
+        ],
+        [
+          "Surfent Terra",
+          "Lyleen"
+        ],
+        [
+          "Surfent Terra",
+          "Faleris Aqua"
+        ],
+        [
+          "Surfent Terra",
+          "Pyrin Noct"
+        ],
+        [
+          "Sootseer",
+          "Menasting"
+        ],
+        [
+          "Sootseer",
+          "Menasting Terra"
+        ],
+        [
+          "Sootseer",
+          "Lyleen"
+        ],
+        [
+          "Sootseer",
+          "Faleris Aqua"
+        ],
+        [
+          "Sootseer",
+          "Pyrin Noct"
+        ],
+        [
+          "Elphidran",
+          "Knocklem"
+        ],
+        [
+          "Elphidran",
+          "Xenolord"
+        ],
+        [
+          "Elphidran",
+          "Menasting"
+        ],
+        [
+          "Elphidran",
+          "Menasting Terra"
+        ],
+        [
+          "Elphidran",
+          "Lyleen"
+        ],
+        [
+          "Elphidran",
+          "Faleris Aqua"
+        ],
+        [
+          "Elphidran Aqua",
+          "Warsect Terra"
+        ],
+        [
+          "Elphidran Aqua",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Elphidran Aqua",
+          "Knocklem"
+        ],
+        [
+          "Elphidran Aqua",
+          "Xenolord"
+        ],
+        [
+          "Elphidran Aqua",
+          "Menasting"
+        ],
+        [
+          "Ghangler",
+          "Relaxaurus"
+        ],
+        [
+          "Ghangler",
+          "Warsect Terra"
+        ],
+        [
+          "Ghangler",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Ghangler",
+          "Knocklem"
+        ],
+        [
+          "Ghangler",
+          "Xenolord"
+        ],
+        [
+          "Ghangler",
+          "Menasting"
+        ],
+        [
+          "Penking",
+          "Relaxaurus"
+        ],
+        [
+          "Penking",
+          "Warsect Terra"
+        ],
+        [
+          "Penking",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Penking",
+          "Knocklem"
+        ],
+        [
+          "Penking",
+          "Xenolord"
+        ],
+        [
+          "Grintale",
+          "Mammorest Cryst"
+        ],
+        [
+          "Grintale",
+          "Relaxaurus"
+        ],
+        [
+          "Grintale",
+          "Warsect Terra"
+        ],
+        [
+          "Gildane",
+          "Mammorest"
+        ],
+        [
+          "Gildane",
+          "Mammorest Cryst"
+        ],
+        [
+          "Gildane",
+          "Relaxaurus"
+        ],
+        [
+          "Ghangler Ignis",
+          "Mammorest"
+        ],
+        [
+          "Ghangler Ignis",
+          "Mammorest Cryst"
+        ],
+        [
+          "Ghangler Ignis",
+          "Relaxaurus"
+        ],
+        [
+          "Azurobe",
+          "Mammorest"
+        ],
+        [
+          "Azurobe",
+          "Mammorest Cryst"
+        ],
+        [
+          "Penking Lux",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Penking Lux",
+          "Jormuntide"
+        ],
+        [
+          "Penking Lux",
+          "Mammorest"
+        ],
+        [
+          "Cinnamoth",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Cinnamoth",
+          "Jormuntide"
+        ],
+        [
+          "Cinnamoth",
+          "Mammorest"
+        ],
+        [
+          "Azurobe Cryst",
+          "Reptyro"
+        ],
+        [
+          "Azurobe Cryst",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Azurobe Cryst",
+          "Jormuntide"
+        ],
+        [
+          "Wumpo Botan",
+          "Reptyro"
+        ],
+        [
+          "Wumpo Botan",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Wumpo Botan",
+          "Jormuntide"
+        ],
+        [
+          "Kingpaca",
+          "Braloha"
+        ],
+        [
+          "Kingpaca",
+          "Elizabee"
+        ],
+        [
+          "Kingpaca",
+          "Reptyro"
+        ],
+        [
+          "Kingpaca",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Xenovader",
+          "Warsect"
+        ],
+        [
+          "Xenovader",
+          "Quivern Botan"
+        ],
+        [
+          "Xenovader",
+          "Braloha"
+        ],
+        [
+          "Xenovader",
+          "Elizabee"
+        ],
+        [
+          "Xenovader",
+          "Reptyro"
+        ],
+        [
+          "Wumpo",
+          "Selyne"
+        ],
+        [
+          "Wumpo",
+          "Warsect"
+        ],
+        [
+          "Wumpo",
+          "Quivern Botan"
+        ],
+        [
+          "Wumpo",
+          "Braloha"
+        ],
+        [
+          "Wumpo",
+          "Elizabee"
+        ],
+        [
+          "Palumba",
+          "Quivern"
+        ],
+        [
+          "Palumba",
+          "Selyne"
+        ],
+        [
+          "Palumba",
+          "Warsect"
+        ],
+        [
+          "Palumba",
+          "Quivern Botan"
+        ],
+        [
+          "Palumba",
+          "Braloha"
+        ],
+        [
+          "Palumba",
+          "Elizabee"
+        ],
+        [
+          "Sibelyx",
+          "Prixter"
+        ],
+        [
+          "Sibelyx",
+          "Quivern"
+        ],
+        [
+          "Sibelyx",
+          "Selyne"
+        ],
+        [
+          "Sibelyx",
+          "Warsect"
+        ],
+        [
+          "Sibelyx",
+          "Quivern Botan"
+        ],
+        [
+          "Sibelyx",
+          "Braloha"
+        ],
+        [
+          "Whalaska",
+          "Pyrin"
+        ],
+        [
+          "Whalaska",
+          "Prixter"
+        ],
+        [
+          "Whalaska",
+          "Quivern"
+        ],
+        [
+          "Whalaska",
+          "Selyne"
+        ],
+        [
+          "Whalaska",
+          "Warsect"
+        ],
+        [
+          "Whalaska",
+          "Quivern Botan"
+        ],
+        [
+          "Kingpaca Cryst",
+          "Starryon"
+        ],
+        [
+          "Kingpaca Cryst",
+          "Pyrin"
+        ],
+        [
+          "Kingpaca Cryst",
+          "Prixter"
+        ],
+        [
+          "Kingpaca Cryst",
+          "Quivern"
+        ],
+        [
+          "Kingpaca Cryst",
+          "Selyne"
+        ],
+        [
+          "Xenogard",
+          "Faleris"
+        ],
+        [
+          "Xenogard",
+          "Starryon"
+        ],
+        [
+          "Xenogard",
+          "Pyrin"
+        ],
+        [
+          "Xenogard",
+          "Prixter"
+        ],
+        [
+          "Xenogard",
+          "Quivern"
+        ],
+        [
+          "Mossanda",
+          "Faleris"
+        ],
+        [
+          "Mossanda",
+          "Starryon"
+        ],
+        [
+          "Mossanda",
+          "Pyrin"
+        ],
+        [
+          "Mossanda",
+          "Prixter"
+        ],
+        [
+          "Whalaska Ignis",
+          "Faleris"
+        ],
+        [
+          "Whalaska Ignis",
+          "Starryon"
+        ],
+        [
+          "Whalaska Ignis",
+          "Pyrin"
+        ],
+        [
+          "Whalaska Ignis",
+          "Prixter"
+        ],
+        [
+          "Nitewing",
+          "Ragnahawk"
+        ],
+        [
+          "Nitewing",
+          "Faleris"
+        ],
+        [
+          "Nitewing",
+          "Starryon"
+        ],
+        [
+          "Sweepa",
+          "Mossanda Lux"
+        ],
+        [
+          "Sweepa",
+          "Ragnahawk"
+        ],
+        [
+          "Azurmane",
+          "Azurmane"
+        ],
+        [
+          "Azurmane",
+          "Mossanda Lux"
+        ]
+      ],
       "spawnAreas": []
     },
     "183": {
@@ -18080,7 +25756,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ice"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Frostallion",
+          "Anubis"
+        ],
+        [
+          "Bastigor",
+          "Bastigor"
+        ]
+      ],
       "spawnAreas": []
     },
     "184": {
@@ -18167,7 +25852,36 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Bellanoir",
+          "Bellanoir"
+        ],
+        [
+          "Bellanoir",
+          "Bellanoir Libero"
+        ],
+        [
+          "Bellanoir Libero",
+          "Bellanoir Libero"
+        ],
+        [
+          "Bellanoir",
+          "Blazamut Ryu"
+        ],
+        [
+          "Bellanoir Libero",
+          "Blazamut Ryu"
+        ],
+        [
+          "Bellanoir",
+          "Blazamut"
+        ],
+        [
+          "Bellanoir Libero",
+          "Blazamut"
+        ]
+      ],
       "spawnAreas": []
     },
     "185": {
@@ -18341,7 +26055,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Fire"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Blazamut Ryu"
+        ],
+        [
+          "Blazamut",
+          "Blazamut Ryu"
+        ]
+      ],
       "spawnAreas": []
     },
     "188": {
@@ -18425,7 +26148,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Neutral"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Eikthyrdeer Terra",
+          "Gildane"
+        ],
+        [
+          "Celesdir",
+          "Celesdir"
+        ]
+      ],
       "spawnAreas": []
     },
     "189": {
@@ -18539,7 +26271,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": null,
         "type1": "Dark",
-        "type2": "Dragon"
+        "type2": "Dragon",
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Dark",
@@ -18905,7 +26638,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Electric"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Knocklem",
+          "Necromus"
+        ],
+        [
+          "Bellanoir",
+          "Braloha"
+        ],
+        [
+          "Bellanoir Libero",
+          "Braloha"
+        ],
+        [
+          "Blazamut Ryu",
+          "Elizabee"
+        ],
+        [
+          "Astegon",
+          "Helzephyr"
+        ],
+        [
+          "Beakon",
+          "Frostallion"
+        ],
+        [
+          "Blazamut",
+          "Elizabee"
+        ],
+        [
+          "Cryolinx",
+          "Lyleen Noct"
+        ],
+        [
+          "Frostallion Noct",
+          "Pyrin Noct"
+        ],
+        [
+          "Grizzbolt",
+          "Orserk"
+        ],
+        [
+          "Jetragon",
+          "Lyleen"
+        ],
+        [
+          "Jetragon",
+          "Menasting Terra"
+        ]
+      ],
       "spawnAreas": []
     },
     "197": {
@@ -19071,7 +26853,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Kitsun",
+          "Nyafia"
+        ],
+        [
+          "Kitsun Noct",
+          "Kitsun Noct"
+        ]
+      ],
       "spawnAreas": []
     },
     "199": {
@@ -19154,7 +26945,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ground"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Bellanoir",
+          "Ghangler"
+        ],
+        [
+          "Bellanoir Libero",
+          "Ghangler"
+        ],
+        [
+          "Blazamut Ryu",
+          "Penking"
+        ],
+        [
+          "Astegon",
+          "Ragnahawk"
+        ],
+        [
+          "Azurobe",
+          "Suzaku Aqua"
+        ],
+        [
+          "Azurobe Cryst",
+          "Suzaku"
+        ],
+        [
+          "Beakon",
+          "Jormuntide"
+        ],
+        [
+          "Blazamut",
+          "Penking"
+        ],
+        [
+          "Elizabee",
+          "Grizzbolt"
+        ],
+        [
+          "Frostallion",
+          "Sweepa"
+        ],
+        [
+          "Frostallion Noct",
+          "Mossanda"
+        ],
+        [
+          "Frostallion Noct",
+          "Neptilius"
+        ]
+      ],
       "spawnAreas": []
     },
     "200": {
@@ -19324,7 +27164,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Grass"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Anubis",
+          "Gumoss"
+        ],
+        [
+          "Anubis",
+          "Gumoss (Special)"
+        ],
+        [
+          "Arsox",
+          "Robinquill"
+        ],
+        [
+          "Azurobe",
+          "Pengullet Lux"
+        ],
+        [
+          "Azurobe",
+          "Ribbuny"
+        ],
+        [
+          "Azurobe Cryst",
+          "Fuack"
+        ],
+        [
+          "Beegarde",
+          "Rayhound"
+        ],
+        [
+          "Blazehowl",
+          "Gobfin Ignis"
+        ],
+        [
+          "Blazehowl Noct",
+          "Leezpunk Ignis"
+        ],
+        [
+          "Bristla",
+          "Cinnamoth"
+        ],
+        [
+          "Bristla",
+          "Penking Lux"
+        ],
+        [
+          "Broncherry",
+          "Loupmoon"
+        ]
+      ],
       "spawnAreas": []
     },
     "202": {
@@ -19407,7 +27296,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Neutral"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Beegarde",
+          "Fuack"
+        ],
+        [
+          "Bristla",
+          "Cawgnito"
+        ],
+        [
+          "Caprity",
+          "Lamball"
+        ],
+        [
+          "Cattiva",
+          "Lovander"
+        ],
+        [
+          "Cave Bat",
+          "Direhowl"
+        ],
+        [
+          "Chikipi",
+          "Eikthyrdeer Terra"
+        ],
+        [
+          "Cremis",
+          "Yakumo"
+        ],
+        [
+          "Dazzi",
+          "Woolipop"
+        ],
+        [
+          "Demon Eye",
+          "Felbat"
+        ],
+        [
+          "Depresso",
+          "Robinquill"
+        ],
+        [
+          "Direhowl",
+          "Tocotoco"
+        ],
+        [
+          "Eikthyrdeer",
+          "Mau"
+        ]
+      ],
       "spawnAreas": []
     },
     "203": {
@@ -19489,7 +27427,600 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Sparkit",
+          "Bellanoir"
+        ],
+        [
+          "Sparkit",
+          "Bellanoir Libero"
+        ],
+        [
+          "Flambelle",
+          "Blazamut Ryu"
+        ],
+        [
+          "Flambelle",
+          "Bellanoir"
+        ],
+        [
+          "Flambelle",
+          "Bellanoir Libero"
+        ],
+        [
+          "Red Slime",
+          "Blazamut Ryu"
+        ],
+        [
+          "Red Slime",
+          "Bellanoir"
+        ],
+        [
+          "Red Slime",
+          "Bellanoir Libero"
+        ],
+        [
+          "Foxparks",
+          "Blazamut"
+        ],
+        [
+          "Foxparks",
+          "Blazamut Ryu"
+        ],
+        [
+          "Jellroy",
+          "Blazamut"
+        ],
+        [
+          "Depresso",
+          "Suzaku Aqua"
+        ],
+        [
+          "Enchanted Sword",
+          "Suzaku Aqua"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Suzaku Aqua"
+        ],
+        [
+          "Jolthog Cryst",
+          "Suzaku"
+        ],
+        [
+          "Pengullet",
+          "Shadowbeak"
+        ],
+        [
+          "Tocotoco",
+          "Necromus"
+        ],
+        [
+          "Cave Bat",
+          "Necromus"
+        ],
+        [
+          "Munchill",
+          "Necromus"
+        ],
+        [
+          "Fuack",
+          "Paladius"
+        ],
+        [
+          "Bristla",
+          "Jetragon"
+        ],
+        [
+          "Bristla",
+          "Neptilius"
+        ],
+        [
+          "Rainbow Slime",
+          "Jetragon"
+        ],
+        [
+          "Rainbow Slime",
+          "Neptilius"
+        ],
+        [
+          "Pengullet Lux",
+          "Frostallion Noct"
+        ],
+        [
+          "Ribbuny",
+          "Frostallion Noct"
+        ],
+        [
+          "Foxparks Cryst",
+          "Frostallion Noct"
+        ],
+        [
+          "Fuack Ignis",
+          "Frostallion"
+        ],
+        [
+          "Killamari",
+          "Frostallion"
+        ],
+        [
+          "Flopie",
+          "Cryolinx"
+        ],
+        [
+          "Kelpsea Ignis",
+          "Orserk"
+        ],
+        [
+          "Kelpsea",
+          "Astegon"
+        ],
+        [
+          "Finsider Ignis",
+          "Astegon"
+        ],
+        [
+          "Tanzee",
+          "Cryolinx Terra"
+        ],
+        [
+          "Killamari Primo",
+          "Cryolinx Terra"
+        ],
+        [
+          "Illuminant Bat",
+          "Cryolinx Terra"
+        ],
+        [
+          "Smokie",
+          "Cryolinx Terra"
+        ],
+        [
+          "Gumoss",
+          "Bastigor"
+        ],
+        [
+          "Daedream",
+          "Helzephyr Lux"
+        ],
+        [
+          "Fuddler",
+          "Helzephyr"
+        ],
+        [
+          "Dazzi",
+          "Grizzbolt"
+        ],
+        [
+          "Ribbuny Botan",
+          "Grizzbolt"
+        ],
+        [
+          "Mimog",
+          "Lyleen Noct"
+        ],
+        [
+          "Gloopie",
+          "Silvegis"
+        ],
+        [
+          "Gloopie",
+          "Lyleen Noct"
+        ],
+        [
+          "Woolipop",
+          "Beakon"
+        ],
+        [
+          "Woolipop",
+          "Silvegis"
+        ],
+        [
+          "Nox",
+          "Reptyro Cryst"
+        ],
+        [
+          "Wixen",
+          "Menasting Terra"
+        ],
+        [
+          "Wixen",
+          "Lyleen"
+        ],
+        [
+          "Wixen",
+          "Faleris Aqua"
+        ],
+        [
+          "Rooby",
+          "Menasting Terra"
+        ],
+        [
+          "Rooby",
+          "Lyleen"
+        ],
+        [
+          "Maraith",
+          "Menasting"
+        ],
+        [
+          "Wixen Noct",
+          "Menasting"
+        ],
+        [
+          "Leezpunk Ignis",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Leezpunk Ignis",
+          "Knocklem"
+        ],
+        [
+          "Leezpunk Ignis",
+          "Xenolord"
+        ],
+        [
+          "Rushoar",
+          "Relaxaurus"
+        ],
+        [
+          "Rushoar",
+          "Warsect Terra"
+        ],
+        [
+          "Kikit",
+          "Relaxaurus"
+        ],
+        [
+          "Leezpunk",
+          "Mammorest Cryst"
+        ],
+        [
+          "Dazzi Noct",
+          "Mammorest Cryst"
+        ],
+        [
+          "Lunaris",
+          "Mammorest"
+        ],
+        [
+          "Turtacle",
+          "Mammorest"
+        ],
+        [
+          "Gobfin Ignis",
+          "Jormuntide"
+        ],
+        [
+          "Gobfin",
+          "Reptyro"
+        ],
+        [
+          "Gobfin",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Cawgnito",
+          "Elizabee"
+        ],
+        [
+          "Beegarde",
+          "Warsect"
+        ],
+        [
+          "Beegarde",
+          "Quivern Botan"
+        ],
+        [
+          "Beegarde",
+          "Braloha"
+        ],
+        [
+          "Turtacle Terra",
+          "Selyne"
+        ],
+        [
+          "Turtacle Terra",
+          "Warsect"
+        ],
+        [
+          "Turtacle Terra",
+          "Quivern Botan"
+        ],
+        [
+          "Direhowl",
+          "Quivern"
+        ],
+        [
+          "Direhowl",
+          "Selyne"
+        ],
+        [
+          "Vaelet",
+          "Pyrin"
+        ],
+        [
+          "Vaelet",
+          "Prixter"
+        ],
+        [
+          "Gorirat",
+          "Faleris"
+        ],
+        [
+          "Gorirat",
+          "Starryon"
+        ],
+        [
+          "Galeclaw",
+          "Ragnahawk"
+        ],
+        [
+          "Gorirat Terra",
+          "Ragnahawk"
+        ],
+        [
+          "Robinquill",
+          "Mossanda Lux"
+        ],
+        [
+          "Felbat",
+          "Azurmane"
+        ],
+        [
+          "Robinquill Terra",
+          "Sweepa"
+        ],
+        [
+          "Verdash",
+          "Nitewing"
+        ],
+        [
+          "Fenglope",
+          "Mossanda"
+        ],
+        [
+          "Fenglope",
+          "Whalaska Ignis"
+        ],
+        [
+          "Loupmoon",
+          "Wumpo"
+        ],
+        [
+          "Loupmoon",
+          "Palumba"
+        ],
+        [
+          "Yakumo",
+          "Xenovader"
+        ],
+        [
+          "Yakumo",
+          "Wumpo"
+        ],
+        [
+          "Lovander",
+          "Kingpaca"
+        ],
+        [
+          "Lovander",
+          "Xenovader"
+        ],
+        [
+          "Caprity",
+          "Azurobe Cryst"
+        ],
+        [
+          "Caprity",
+          "Wumpo Botan"
+        ],
+        [
+          "Eikthyrdeer",
+          "Penking Lux"
+        ],
+        [
+          "Eikthyrdeer",
+          "Cinnamoth"
+        ],
+        [
+          "Mozzarina",
+          "Azurobe"
+        ],
+        [
+          "Lullu",
+          "Gildane"
+        ],
+        [
+          "Lullu",
+          "Ghangler Ignis"
+        ],
+        [
+          "Lullu",
+          "Azurobe"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Grintale"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Ghangler Ignis"
+        ],
+        [
+          "Dumud",
+          "Grintale"
+        ],
+        [
+          "Melpaca",
+          "Penking"
+        ],
+        [
+          "Reindrix",
+          "Elphidran Aqua"
+        ],
+        [
+          "Reindrix",
+          "Ghangler"
+        ],
+        [
+          "Celaray",
+          "Elphidran"
+        ],
+        [
+          "Broncherry",
+          "Surfent Terra"
+        ],
+        [
+          "Broncherry",
+          "Sootseer"
+        ],
+        [
+          "Caprity Noct",
+          "Surfent Terra"
+        ],
+        [
+          "Dumud Gild",
+          "Surfent Terra"
+        ],
+        [
+          "Digtoise",
+          "Surfent"
+        ],
+        [
+          "Broncherry Aqua",
+          "Anubis"
+        ],
+        [
+          "Fenglope Lux",
+          "Anubis"
+        ],
+        [
+          "Celaray Lux",
+          "Incineram Noct"
+        ],
+        [
+          "Kitsun",
+          "Incineram Noct"
+        ],
+        [
+          "Tarantriss",
+          "Incineram Noct"
+        ],
+        [
+          "Dinossom",
+          "Incineram"
+        ],
+        [
+          "Celesdir",
+          "Incineram"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Icelyn"
+        ],
+        [
+          "Chillet",
+          "Icelyn"
+        ],
+        [
+          "Arsox",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Chillet Ignis",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Petallia",
+          "Omascul"
+        ],
+        [
+          "Croajiro Noct",
+          "Nyafia"
+        ],
+        [
+          "Croajiro Noct",
+          "Bushi"
+        ],
+        [
+          "Foxcicle",
+          "Bushi Noct"
+        ],
+        [
+          "Foxcicle",
+          "Nyafia"
+        ],
+        [
+          "Prunelia",
+          "Frostplume"
+        ],
+        [
+          "Prunelia",
+          "Bushi Noct"
+        ],
+        [
+          "Tombat",
+          "Vanwyrm"
+        ],
+        [
+          "Tombat",
+          "Frostplume"
+        ],
+        [
+          "Polapup",
+          "Dogen"
+        ],
+        [
+          "Polapup",
+          "Vanwyrm"
+        ],
+        [
+          "Rayhound",
+          "Blazehowl Noct"
+        ],
+        [
+          "Rayhound",
+          "Dogen"
+        ],
+        [
+          "Kitsun Noct",
+          "Dazemu"
+        ],
+        [
+          "Kitsun Noct",
+          "Blazehowl Noct"
+        ],
+        [
+          "Shroomer Noct",
+          "Univolt"
+        ],
+        [
+          "Shroomer Noct",
+          "Dazemu"
+        ],
+        [
+          "Splatterina",
+          "Univolt"
+        ],
+        [
+          "Shroomer",
+          "Katress Ignis"
+        ],
+        [
+          "Blazehowl",
+          "Katress"
+        ],
+        [
+          "Nitemary",
+          "Nitemary"
+        ],
+        [
+          "Nitemary",
+          "Katress"
+        ]
+      ],
       "spawnAreas": []
     },
     "204": {
@@ -19570,7 +28101,1700 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Kelpsea",
+          "Bellanoir"
+        ],
+        [
+          "Kelpsea",
+          "Bellanoir Libero"
+        ],
+        [
+          "Finsider Ignis",
+          "Blazamut"
+        ],
+        [
+          "Finsider Ignis",
+          "Blazamut Ryu"
+        ],
+        [
+          "Finsider Ignis",
+          "Bellanoir"
+        ],
+        [
+          "Finsider Ignis",
+          "Bellanoir Libero"
+        ],
+        [
+          "Tanzee",
+          "Blazamut"
+        ],
+        [
+          "Tanzee",
+          "Blazamut Ryu"
+        ],
+        [
+          "Tanzee",
+          "Bellanoir"
+        ],
+        [
+          "Tanzee",
+          "Bellanoir Libero"
+        ],
+        [
+          "Killamari Primo",
+          "Blazamut"
+        ],
+        [
+          "Killamari Primo",
+          "Blazamut Ryu"
+        ],
+        [
+          "Killamari Primo",
+          "Bellanoir"
+        ],
+        [
+          "Killamari Primo",
+          "Bellanoir Libero"
+        ],
+        [
+          "Illuminant Bat",
+          "Blazamut"
+        ],
+        [
+          "Illuminant Bat",
+          "Blazamut Ryu"
+        ],
+        [
+          "Illuminant Bat",
+          "Bellanoir"
+        ],
+        [
+          "Illuminant Bat",
+          "Bellanoir Libero"
+        ],
+        [
+          "Smokie",
+          "Blazamut"
+        ],
+        [
+          "Smokie",
+          "Blazamut Ryu"
+        ],
+        [
+          "Smokie",
+          "Bellanoir"
+        ],
+        [
+          "Smokie",
+          "Bellanoir Libero"
+        ],
+        [
+          "Gumoss",
+          "Blazamut"
+        ],
+        [
+          "Gumoss",
+          "Blazamut Ryu"
+        ],
+        [
+          "Gumoss",
+          "Bellanoir"
+        ],
+        [
+          "Gumoss",
+          "Bellanoir Libero"
+        ],
+        [
+          "Daedream",
+          "Suzaku Aqua"
+        ],
+        [
+          "Daedream",
+          "Blazamut"
+        ],
+        [
+          "Daedream",
+          "Blazamut Ryu"
+        ],
+        [
+          "Fuddler",
+          "Suzaku Aqua"
+        ],
+        [
+          "Dazzi",
+          "Suzaku"
+        ],
+        [
+          "Dazzi",
+          "Suzaku Aqua"
+        ],
+        [
+          "Ribbuny Botan",
+          "Shadowbeak"
+        ],
+        [
+          "Ribbuny Botan",
+          "Suzaku"
+        ],
+        [
+          "Ribbuny Botan",
+          "Suzaku Aqua"
+        ],
+        [
+          "Mimog",
+          "Shadowbeak"
+        ],
+        [
+          "Mimog",
+          "Suzaku"
+        ],
+        [
+          "Gloopie",
+          "Necromus"
+        ],
+        [
+          "Gloopie",
+          "Shadowbeak"
+        ],
+        [
+          "Gloopie",
+          "Suzaku"
+        ],
+        [
+          "Woolipop",
+          "Necromus"
+        ],
+        [
+          "Woolipop",
+          "Shadowbeak"
+        ],
+        [
+          "Woolipop",
+          "Suzaku"
+        ],
+        [
+          "Nox",
+          "Paladius"
+        ],
+        [
+          "Nox",
+          "Necromus"
+        ],
+        [
+          "Nox",
+          "Shadowbeak"
+        ],
+        [
+          "Wixen",
+          "Frostallion Noct"
+        ],
+        [
+          "Wixen",
+          "Jetragon"
+        ],
+        [
+          "Wixen",
+          "Neptilius"
+        ],
+        [
+          "Wixen",
+          "Paladius"
+        ],
+        [
+          "Rooby",
+          "Frostallion Noct"
+        ],
+        [
+          "Rooby",
+          "Jetragon"
+        ],
+        [
+          "Rooby",
+          "Neptilius"
+        ],
+        [
+          "Rooby",
+          "Paladius"
+        ],
+        [
+          "Maraith",
+          "Frostallion Noct"
+        ],
+        [
+          "Maraith",
+          "Jetragon"
+        ],
+        [
+          "Maraith",
+          "Neptilius"
+        ],
+        [
+          "Wixen Noct",
+          "Frostallion Noct"
+        ],
+        [
+          "Wixen Noct",
+          "Jetragon"
+        ],
+        [
+          "Wixen Noct",
+          "Neptilius"
+        ],
+        [
+          "Leezpunk Ignis",
+          "Frostallion"
+        ],
+        [
+          "Leezpunk Ignis",
+          "Frostallion Noct"
+        ],
+        [
+          "Rushoar",
+          "Cryolinx"
+        ],
+        [
+          "Rushoar",
+          "Frostallion"
+        ],
+        [
+          "Kikit",
+          "Orserk"
+        ],
+        [
+          "Kikit",
+          "Cryolinx"
+        ],
+        [
+          "Kikit",
+          "Frostallion"
+        ],
+        [
+          "Leezpunk",
+          "Orserk"
+        ],
+        [
+          "Leezpunk",
+          "Cryolinx"
+        ],
+        [
+          "Leezpunk",
+          "Frostallion"
+        ],
+        [
+          "Dazzi Noct",
+          "Astegon"
+        ],
+        [
+          "Dazzi Noct",
+          "Orserk"
+        ],
+        [
+          "Dazzi Noct",
+          "Cryolinx"
+        ],
+        [
+          "Dazzi Noct",
+          "Frostallion"
+        ],
+        [
+          "Lunaris",
+          "Astegon"
+        ],
+        [
+          "Lunaris",
+          "Orserk"
+        ],
+        [
+          "Lunaris",
+          "Cryolinx"
+        ],
+        [
+          "Turtacle",
+          "Cryolinx Terra"
+        ],
+        [
+          "Turtacle",
+          "Astegon"
+        ],
+        [
+          "Turtacle",
+          "Orserk"
+        ],
+        [
+          "Turtacle",
+          "Cryolinx"
+        ],
+        [
+          "Gobfin Ignis",
+          "Cryolinx Terra"
+        ],
+        [
+          "Gobfin Ignis",
+          "Astegon"
+        ],
+        [
+          "Gobfin Ignis",
+          "Orserk"
+        ],
+        [
+          "Gobfin",
+          "Bastigor"
+        ],
+        [
+          "Gobfin",
+          "Cryolinx Terra"
+        ],
+        [
+          "Gobfin",
+          "Astegon"
+        ],
+        [
+          "Cawgnito",
+          "Helzephyr Lux"
+        ],
+        [
+          "Cawgnito",
+          "Bastigor"
+        ],
+        [
+          "Cawgnito",
+          "Cryolinx Terra"
+        ],
+        [
+          "Beegarde",
+          "Helzephyr"
+        ],
+        [
+          "Beegarde",
+          "Helzephyr Lux"
+        ],
+        [
+          "Beegarde",
+          "Bastigor"
+        ],
+        [
+          "Turtacle Terra",
+          "Grizzbolt"
+        ],
+        [
+          "Turtacle Terra",
+          "Helzephyr"
+        ],
+        [
+          "Turtacle Terra",
+          "Helzephyr Lux"
+        ],
+        [
+          "Turtacle Terra",
+          "Bastigor"
+        ],
+        [
+          "Direhowl",
+          "Grizzbolt"
+        ],
+        [
+          "Direhowl",
+          "Helzephyr"
+        ],
+        [
+          "Direhowl",
+          "Helzephyr Lux"
+        ],
+        [
+          "Vaelet",
+          "Silvegis"
+        ],
+        [
+          "Vaelet",
+          "Lyleen Noct"
+        ],
+        [
+          "Vaelet",
+          "Grizzbolt"
+        ],
+        [
+          "Vaelet",
+          "Helzephyr"
+        ],
+        [
+          "Gorirat",
+          "Beakon"
+        ],
+        [
+          "Gorirat",
+          "Silvegis"
+        ],
+        [
+          "Gorirat",
+          "Lyleen Noct"
+        ],
+        [
+          "Gorirat",
+          "Grizzbolt"
+        ],
+        [
+          "Galeclaw",
+          "Reptyro Cryst"
+        ],
+        [
+          "Galeclaw",
+          "Beakon"
+        ],
+        [
+          "Galeclaw",
+          "Silvegis"
+        ],
+        [
+          "Galeclaw",
+          "Lyleen Noct"
+        ],
+        [
+          "Gorirat Terra",
+          "Reptyro Cryst"
+        ],
+        [
+          "Gorirat Terra",
+          "Beakon"
+        ],
+        [
+          "Gorirat Terra",
+          "Silvegis"
+        ],
+        [
+          "Gorirat Terra",
+          "Lyleen Noct"
+        ],
+        [
+          "Robinquill",
+          "Faleris Aqua"
+        ],
+        [
+          "Robinquill",
+          "Pyrin Noct"
+        ],
+        [
+          "Robinquill",
+          "Reptyro Cryst"
+        ],
+        [
+          "Robinquill",
+          "Beakon"
+        ],
+        [
+          "Robinquill",
+          "Silvegis"
+        ],
+        [
+          "Felbat",
+          "Menasting Terra"
+        ],
+        [
+          "Felbat",
+          "Lyleen"
+        ],
+        [
+          "Felbat",
+          "Faleris Aqua"
+        ],
+        [
+          "Felbat",
+          "Pyrin Noct"
+        ],
+        [
+          "Felbat",
+          "Reptyro Cryst"
+        ],
+        [
+          "Robinquill Terra",
+          "Knocklem"
+        ],
+        [
+          "Robinquill Terra",
+          "Xenolord"
+        ],
+        [
+          "Robinquill Terra",
+          "Menasting"
+        ],
+        [
+          "Robinquill Terra",
+          "Menasting Terra"
+        ],
+        [
+          "Robinquill Terra",
+          "Lyleen"
+        ],
+        [
+          "Robinquill Terra",
+          "Faleris Aqua"
+        ],
+        [
+          "Robinquill Terra",
+          "Pyrin Noct"
+        ],
+        [
+          "Verdash",
+          "Warsect Terra"
+        ],
+        [
+          "Verdash",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Verdash",
+          "Knocklem"
+        ],
+        [
+          "Verdash",
+          "Xenolord"
+        ],
+        [
+          "Verdash",
+          "Menasting"
+        ],
+        [
+          "Verdash",
+          "Menasting Terra"
+        ],
+        [
+          "Verdash",
+          "Lyleen"
+        ],
+        [
+          "Verdash",
+          "Faleris Aqua"
+        ],
+        [
+          "Fenglope",
+          "Relaxaurus"
+        ],
+        [
+          "Fenglope",
+          "Warsect Terra"
+        ],
+        [
+          "Fenglope",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Fenglope",
+          "Knocklem"
+        ],
+        [
+          "Fenglope",
+          "Xenolord"
+        ],
+        [
+          "Fenglope",
+          "Menasting"
+        ],
+        [
+          "Loupmoon",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Loupmoon",
+          "Jormuntide"
+        ],
+        [
+          "Loupmoon",
+          "Mammorest"
+        ],
+        [
+          "Loupmoon",
+          "Mammorest Cryst"
+        ],
+        [
+          "Yakumo",
+          "Reptyro"
+        ],
+        [
+          "Yakumo",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Yakumo",
+          "Jormuntide"
+        ],
+        [
+          "Yakumo",
+          "Mammorest"
+        ],
+        [
+          "Yakumo",
+          "Mammorest Cryst"
+        ],
+        [
+          "Lovander",
+          "Reptyro"
+        ],
+        [
+          "Lovander",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Lovander",
+          "Jormuntide"
+        ],
+        [
+          "Lovander",
+          "Mammorest"
+        ],
+        [
+          "Caprity",
+          "Braloha"
+        ],
+        [
+          "Caprity",
+          "Elizabee"
+        ],
+        [
+          "Caprity",
+          "Reptyro"
+        ],
+        [
+          "Caprity",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Caprity",
+          "Jormuntide"
+        ],
+        [
+          "Eikthyrdeer",
+          "Selyne"
+        ],
+        [
+          "Eikthyrdeer",
+          "Warsect"
+        ],
+        [
+          "Eikthyrdeer",
+          "Quivern Botan"
+        ],
+        [
+          "Eikthyrdeer",
+          "Braloha"
+        ],
+        [
+          "Eikthyrdeer",
+          "Elizabee"
+        ],
+        [
+          "Eikthyrdeer",
+          "Reptyro"
+        ],
+        [
+          "Eikthyrdeer",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Mozzarina",
+          "Prixter"
+        ],
+        [
+          "Mozzarina",
+          "Quivern"
+        ],
+        [
+          "Mozzarina",
+          "Selyne"
+        ],
+        [
+          "Mozzarina",
+          "Warsect"
+        ],
+        [
+          "Mozzarina",
+          "Quivern Botan"
+        ],
+        [
+          "Mozzarina",
+          "Braloha"
+        ],
+        [
+          "Mozzarina",
+          "Elizabee"
+        ],
+        [
+          "Lullu",
+          "Pyrin"
+        ],
+        [
+          "Lullu",
+          "Prixter"
+        ],
+        [
+          "Lullu",
+          "Selyne"
+        ],
+        [
+          "Lullu",
+          "Warsect"
+        ],
+        [
+          "Lullu",
+          "Quivern Botan"
+        ],
+        [
+          "Lullu",
+          "Braloha"
+        ],
+        [
+          "Lullu",
+          "Elizabee"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Starryon"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Pyrin"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Prixter"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Quivern"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Selyne"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Warsect"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Quivern Botan"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Braloha"
+        ],
+        [
+          "Dumud",
+          "Faleris"
+        ],
+        [
+          "Dumud",
+          "Starryon"
+        ],
+        [
+          "Dumud",
+          "Pyrin"
+        ],
+        [
+          "Dumud",
+          "Prixter"
+        ],
+        [
+          "Dumud",
+          "Quivern"
+        ],
+        [
+          "Dumud",
+          "Selyne"
+        ],
+        [
+          "Dumud",
+          "Warsect"
+        ],
+        [
+          "Dumud",
+          "Quivern Botan"
+        ],
+        [
+          "Melpaca",
+          "Faleris"
+        ],
+        [
+          "Melpaca",
+          "Starryon"
+        ],
+        [
+          "Melpaca",
+          "Pyrin"
+        ],
+        [
+          "Melpaca",
+          "Prixter"
+        ],
+        [
+          "Melpaca",
+          "Quivern"
+        ],
+        [
+          "Melpaca",
+          "Selyne"
+        ],
+        [
+          "Reindrix",
+          "Ragnahawk"
+        ],
+        [
+          "Reindrix",
+          "Faleris"
+        ],
+        [
+          "Reindrix",
+          "Starryon"
+        ],
+        [
+          "Reindrix",
+          "Pyrin"
+        ],
+        [
+          "Reindrix",
+          "Prixter"
+        ],
+        [
+          "Celaray",
+          "Mossanda Lux"
+        ],
+        [
+          "Celaray",
+          "Ragnahawk"
+        ],
+        [
+          "Celaray",
+          "Faleris"
+        ],
+        [
+          "Celaray",
+          "Starryon"
+        ],
+        [
+          "Broncherry",
+          "Azurmane"
+        ],
+        [
+          "Broncherry",
+          "Mossanda Lux"
+        ],
+        [
+          "Broncherry",
+          "Ragnahawk"
+        ],
+        [
+          "Caprity Noct",
+          "Sweepa"
+        ],
+        [
+          "Caprity Noct",
+          "Azurmane"
+        ],
+        [
+          "Caprity Noct",
+          "Mossanda Lux"
+        ],
+        [
+          "Caprity Noct",
+          "Ragnahawk"
+        ],
+        [
+          "Dumud Gild",
+          "Sweepa"
+        ],
+        [
+          "Dumud Gild",
+          "Azurmane"
+        ],
+        [
+          "Dumud Gild",
+          "Mossanda Lux"
+        ],
+        [
+          "Dumud Gild",
+          "Ragnahawk"
+        ],
+        [
+          "Digtoise",
+          "Sweepa"
+        ],
+        [
+          "Digtoise",
+          "Azurmane"
+        ],
+        [
+          "Digtoise",
+          "Mossanda Lux"
+        ],
+        [
+          "Broncherry Aqua",
+          "Nitewing"
+        ],
+        [
+          "Broncherry Aqua",
+          "Sweepa"
+        ],
+        [
+          "Broncherry Aqua",
+          "Azurmane"
+        ],
+        [
+          "Fenglope Lux",
+          "Mossanda"
+        ],
+        [
+          "Fenglope Lux",
+          "Whalaska Ignis"
+        ],
+        [
+          "Fenglope Lux",
+          "Nitewing"
+        ],
+        [
+          "Fenglope Lux",
+          "Sweepa"
+        ],
+        [
+          "Fenglope Lux",
+          "Azurmane"
+        ],
+        [
+          "Celaray Lux",
+          "Xenogard"
+        ],
+        [
+          "Celaray Lux",
+          "Mossanda"
+        ],
+        [
+          "Celaray Lux",
+          "Whalaska Ignis"
+        ],
+        [
+          "Celaray Lux",
+          "Nitewing"
+        ],
+        [
+          "Celaray Lux",
+          "Sweepa"
+        ],
+        [
+          "Kitsun",
+          "Xenogard"
+        ],
+        [
+          "Kitsun",
+          "Mossanda"
+        ],
+        [
+          "Kitsun",
+          "Whalaska Ignis"
+        ],
+        [
+          "Kitsun",
+          "Nitewing"
+        ],
+        [
+          "Kitsun",
+          "Sweepa"
+        ],
+        [
+          "Tarantriss",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Tarantriss",
+          "Xenogard"
+        ],
+        [
+          "Tarantriss",
+          "Mossanda"
+        ],
+        [
+          "Tarantriss",
+          "Whalaska Ignis"
+        ],
+        [
+          "Tarantriss",
+          "Nitewing"
+        ],
+        [
+          "Tarantriss",
+          "Sweepa"
+        ],
+        [
+          "Dinossom",
+          "Whalaska"
+        ],
+        [
+          "Dinossom",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Dinossom",
+          "Xenogard"
+        ],
+        [
+          "Dinossom",
+          "Mossanda"
+        ],
+        [
+          "Dinossom",
+          "Whalaska Ignis"
+        ],
+        [
+          "Dinossom",
+          "Nitewing"
+        ],
+        [
+          "Celesdir",
+          "Sibelyx"
+        ],
+        [
+          "Celesdir",
+          "Whalaska"
+        ],
+        [
+          "Celesdir",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Celesdir",
+          "Xenogard"
+        ],
+        [
+          "Celesdir",
+          "Mossanda"
+        ],
+        [
+          "Celesdir",
+          "Whalaska Ignis"
+        ],
+        [
+          "Celesdir",
+          "Nitewing"
+        ],
+        [
+          "Dinossom Lux",
+          "Palumba"
+        ],
+        [
+          "Dinossom Lux",
+          "Sibelyx"
+        ],
+        [
+          "Dinossom Lux",
+          "Whalaska"
+        ],
+        [
+          "Dinossom Lux",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Dinossom Lux",
+          "Xenogard"
+        ],
+        [
+          "Dinossom Lux",
+          "Mossanda"
+        ],
+        [
+          "Dinossom Lux",
+          "Whalaska Ignis"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Wumpo"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Palumba"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Sibelyx"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Whalaska"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Xenogard"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Mossanda"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Whalaska Ignis"
+        ],
+        [
+          "Chillet",
+          "Xenovader"
+        ],
+        [
+          "Chillet",
+          "Wumpo"
+        ],
+        [
+          "Chillet",
+          "Palumba"
+        ],
+        [
+          "Chillet",
+          "Sibelyx"
+        ],
+        [
+          "Chillet",
+          "Whalaska"
+        ],
+        [
+          "Chillet",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Chillet",
+          "Xenogard"
+        ],
+        [
+          "Croajiro",
+          "Kingpaca"
+        ],
+        [
+          "Croajiro",
+          "Xenovader"
+        ],
+        [
+          "Croajiro",
+          "Wumpo"
+        ],
+        [
+          "Croajiro",
+          "Palumba"
+        ],
+        [
+          "Croajiro",
+          "Sibelyx"
+        ],
+        [
+          "Croajiro",
+          "Whalaska"
+        ],
+        [
+          "Croajiro",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Arsox",
+          "Kingpaca"
+        ],
+        [
+          "Arsox",
+          "Xenovader"
+        ],
+        [
+          "Arsox",
+          "Wumpo"
+        ],
+        [
+          "Arsox",
+          "Palumba"
+        ],
+        [
+          "Arsox",
+          "Sibelyx"
+        ],
+        [
+          "Arsox",
+          "Whalaska"
+        ],
+        [
+          "Chillet Ignis",
+          "Kingpaca"
+        ],
+        [
+          "Chillet Ignis",
+          "Xenovader"
+        ],
+        [
+          "Chillet Ignis",
+          "Wumpo"
+        ],
+        [
+          "Chillet Ignis",
+          "Palumba"
+        ],
+        [
+          "Chillet Ignis",
+          "Sibelyx"
+        ],
+        [
+          "Petallia",
+          "Azurobe Cryst"
+        ],
+        [
+          "Petallia",
+          "Wumpo Botan"
+        ],
+        [
+          "Petallia",
+          "Kingpaca"
+        ],
+        [
+          "Petallia",
+          "Xenovader"
+        ],
+        [
+          "Petallia",
+          "Wumpo"
+        ],
+        [
+          "Petallia",
+          "Palumba"
+        ],
+        [
+          "Croajiro Noct",
+          "Azurobe"
+        ],
+        [
+          "Croajiro Noct",
+          "Penking Lux"
+        ],
+        [
+          "Croajiro Noct",
+          "Cinnamoth"
+        ],
+        [
+          "Croajiro Noct",
+          "Azurobe Cryst"
+        ],
+        [
+          "Croajiro Noct",
+          "Wumpo Botan"
+        ],
+        [
+          "Croajiro Noct",
+          "Kingpaca"
+        ],
+        [
+          "Foxcicle",
+          "Gildane"
+        ],
+        [
+          "Foxcicle",
+          "Ghangler Ignis"
+        ],
+        [
+          "Foxcicle",
+          "Azurobe"
+        ],
+        [
+          "Foxcicle",
+          "Penking Lux"
+        ],
+        [
+          "Foxcicle",
+          "Cinnamoth"
+        ],
+        [
+          "Foxcicle",
+          "Azurobe Cryst"
+        ],
+        [
+          "Foxcicle",
+          "Wumpo Botan"
+        ],
+        [
+          "Prunelia",
+          "Grintale"
+        ],
+        [
+          "Prunelia",
+          "Gildane"
+        ],
+        [
+          "Prunelia",
+          "Ghangler Ignis"
+        ],
+        [
+          "Prunelia",
+          "Azurobe"
+        ],
+        [
+          "Prunelia",
+          "Penking Lux"
+        ],
+        [
+          "Prunelia",
+          "Cinnamoth"
+        ],
+        [
+          "Prunelia",
+          "Azurobe Cryst"
+        ],
+        [
+          "Prunelia",
+          "Wumpo Botan"
+        ],
+        [
+          "Tombat",
+          "Grintale"
+        ],
+        [
+          "Tombat",
+          "Gildane"
+        ],
+        [
+          "Tombat",
+          "Ghangler Ignis"
+        ],
+        [
+          "Tombat",
+          "Azurobe"
+        ],
+        [
+          "Tombat",
+          "Penking Lux"
+        ],
+        [
+          "Tombat",
+          "Cinnamoth"
+        ],
+        [
+          "Polapup",
+          "Penking"
+        ],
+        [
+          "Polapup",
+          "Grintale"
+        ],
+        [
+          "Polapup",
+          "Gildane"
+        ],
+        [
+          "Polapup",
+          "Ghangler Ignis"
+        ],
+        [
+          "Polapup",
+          "Azurobe"
+        ],
+        [
+          "Polapup",
+          "Penking Lux"
+        ],
+        [
+          "Polapup",
+          "Cinnamoth"
+        ],
+        [
+          "Rayhound",
+          "Ghangler"
+        ],
+        [
+          "Rayhound",
+          "Grintale"
+        ],
+        [
+          "Rayhound",
+          "Gildane"
+        ],
+        [
+          "Rayhound",
+          "Ghangler Ignis"
+        ],
+        [
+          "Rayhound",
+          "Azurobe"
+        ],
+        [
+          "Kitsun Noct",
+          "Elphidran Aqua"
+        ],
+        [
+          "Kitsun Noct",
+          "Ghangler"
+        ],
+        [
+          "Kitsun Noct",
+          "Penking"
+        ],
+        [
+          "Kitsun Noct",
+          "Grintale"
+        ],
+        [
+          "Kitsun Noct",
+          "Gildane"
+        ],
+        [
+          "Kitsun Noct",
+          "Ghangler Ignis"
+        ],
+        [
+          "Kitsun Noct",
+          "Azurobe"
+        ],
+        [
+          "Shroomer Noct",
+          "Elphidran Aqua"
+        ],
+        [
+          "Shroomer Noct",
+          "Ghangler"
+        ],
+        [
+          "Shroomer Noct",
+          "Penking"
+        ],
+        [
+          "Shroomer Noct",
+          "Grintale"
+        ],
+        [
+          "Shroomer Noct",
+          "Gildane"
+        ],
+        [
+          "Shroomer Noct",
+          "Ghangler Ignis"
+        ],
+        [
+          "Splatterina",
+          "Elphidran"
+        ],
+        [
+          "Splatterina",
+          "Elphidran Aqua"
+        ],
+        [
+          "Splatterina",
+          "Ghangler"
+        ],
+        [
+          "Splatterina",
+          "Penking"
+        ],
+        [
+          "Splatterina",
+          "Grintale"
+        ],
+        [
+          "Shroomer",
+          "Sootseer"
+        ],
+        [
+          "Shroomer",
+          "Elphidran"
+        ],
+        [
+          "Shroomer",
+          "Elphidran Aqua"
+        ],
+        [
+          "Shroomer",
+          "Ghangler"
+        ],
+        [
+          "Shroomer",
+          "Penking"
+        ],
+        [
+          "Blazehowl",
+          "Surfent Terra"
+        ],
+        [
+          "Blazehowl",
+          "Sootseer"
+        ],
+        [
+          "Blazehowl",
+          "Elphidran"
+        ],
+        [
+          "Blazehowl",
+          "Elphidran Aqua"
+        ],
+        [
+          "Blazehowl",
+          "Ghangler"
+        ],
+        [
+          "Nitemary",
+          "Surfent"
+        ],
+        [
+          "Nitemary",
+          "Surfent Terra"
+        ],
+        [
+          "Nitemary",
+          "Sootseer"
+        ],
+        [
+          "Nitemary",
+          "Elphidran"
+        ],
+        [
+          "Nitemary",
+          "Elphidran Aqua"
+        ],
+        [
+          "Katress",
+          "Surfent"
+        ],
+        [
+          "Katress",
+          "Surfent Terra"
+        ],
+        [
+          "Katress",
+          "Sootseer"
+        ],
+        [
+          "Katress",
+          "Elphidran"
+        ],
+        [
+          "Katress Ignis",
+          "Anubis"
+        ],
+        [
+          "Katress Ignis",
+          "Surfent"
+        ],
+        [
+          "Katress Ignis",
+          "Surfent Terra"
+        ],
+        [
+          "Katress Ignis",
+          "Sootseer"
+        ],
+        [
+          "Univolt",
+          "Incineram Noct"
+        ],
+        [
+          "Univolt",
+          "Anubis"
+        ],
+        [
+          "Univolt",
+          "Surfent"
+        ],
+        [
+          "Dazemu",
+          "Incineram"
+        ],
+        [
+          "Dazemu",
+          "Incineram Noct"
+        ],
+        [
+          "Dazemu",
+          "Anubis"
+        ],
+        [
+          "Dazemu",
+          "Surfent"
+        ],
+        [
+          "Blazehowl Noct",
+          "Incineram"
+        ],
+        [
+          "Blazehowl Noct",
+          "Incineram Noct"
+        ],
+        [
+          "Blazehowl Noct",
+          "Anubis"
+        ],
+        [
+          "Dogen",
+          "Incineram"
+        ],
+        [
+          "Dogen",
+          "Incineram Noct"
+        ],
+        [
+          "Dogen",
+          "Anubis"
+        ],
+        [
+          "Vanwyrm",
+          "Icelyn"
+        ],
+        [
+          "Vanwyrm",
+          "Incineram"
+        ],
+        [
+          "Vanwyrm",
+          "Incineram Noct"
+        ],
+        [
+          "Frostplume",
+          "Icelyn"
+        ],
+        [
+          "Frostplume",
+          "Incineram"
+        ],
+        [
+          "Frostplume",
+          "Incineram Noct"
+        ],
+        [
+          "Bushi Noct",
+          "Icelyn"
+        ],
+        [
+          "Bushi Noct",
+          "Incineram"
+        ],
+        [
+          "Nyafia",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Nyafia",
+          "Icelyn"
+        ],
+        [
+          "Nyafia",
+          "Incineram"
+        ],
+        [
+          "Bushi",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Bushi",
+          "Icelyn"
+        ],
+        [
+          "Omascul",
+          "Omascul"
+        ],
+        [
+          "Omascul",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Omascul",
+          "Icelyn"
+        ]
+      ],
       "spawnAreas": []
     },
     "205": {
@@ -19654,7 +29878,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ground"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Katress"
+        ],
+        [
+          "Anubis",
+          "Orserk"
+        ],
+        [
+          "Astegon",
+          "Surfent"
+        ],
+        [
+          "Azurobe",
+          "Lyleen Noct"
+        ],
+        [
+          "Azurobe Cryst",
+          "Ice Reptyro"
+        ],
+        [
+          "Azurobe Cryst",
+          "Reptyro Cryst"
+        ],
+        [
+          "Beakon",
+          "Cinnamoth"
+        ],
+        [
+          "Beakon",
+          "Penking Lux"
+        ],
+        [
+          "Blazamut",
+          "Katress"
+        ],
+        [
+          "Bushi",
+          "Necromus"
+        ],
+        [
+          "Bushi Noct",
+          "Shadowbeak"
+        ],
+        [
+          "Cryolinx",
+          "Incineram Noct"
+        ]
+      ],
       "spawnAreas": []
     },
     "206": {
@@ -19822,7 +30095,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Grass"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut",
+          "Hangyu Cryst"
+        ],
+        [
+          "Blazehowl Noct",
+          "Croajiro Noct"
+        ],
+        [
+          "Blue Slime",
+          "Suzaku Aqua"
+        ],
+        [
+          "Braloha",
+          "Gobfin Ignis"
+        ],
+        [
+          "Bushi",
+          "Croajiro"
+        ],
+        [
+          "Caprity",
+          "Ghangler Ignis"
+        ],
+        [
+          "Cawgnito",
+          "Prixter"
+        ],
+        [
+          "Celaray Lux",
+          "Icelyn"
+        ],
+        [
+          "Cinnamoth",
+          "Yakumo"
+        ],
+        [
+          "Dazemu",
+          "Foxcicle"
+        ],
+        [
+          "Dumud",
+          "Elphidran"
+        ],
+        [
+          "Dumud Gild",
+          "Incineram Noct"
+        ]
+      ],
       "spawnAreas": []
     },
     "208": {
@@ -19908,7 +30230,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Hangyu Cryst",
+          "Suzaku Aqua"
+        ],
+        [
+          "Blazamut Ryu",
+          "Herbil"
+        ],
+        [
+          "Arsox",
+          "Dogen"
+        ],
+        [
+          "Blazamut",
+          "Herbil"
+        ],
+        [
+          "Blazehowl",
+          "Polapup"
+        ],
+        [
+          "Blue Slime",
+          "Suzaku"
+        ],
+        [
+          "Braloha",
+          "Leezpunk"
+        ],
+        [
+          "Caprity",
+          "Ghangler"
+        ],
+        [
+          "Chillet",
+          "Frostplume"
+        ],
+        [
+          "Chillet Ignis",
+          "Dogen"
+        ],
+        [
+          "Croajiro",
+          "Vanwyrm"
+        ],
+        [
+          "Croajiro Noct",
+          "Katress Ignis"
+        ]
+      ],
       "spawnAreas": []
     },
     "209": {
@@ -19989,7 +30360,420 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dragon"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Mossanda",
+          "Bellanoir"
+        ],
+        [
+          "Mossanda",
+          "Bellanoir Libero"
+        ],
+        [
+          "Whalaska Ignis",
+          "Bellanoir"
+        ],
+        [
+          "Whalaska Ignis",
+          "Bellanoir Libero"
+        ],
+        [
+          "Nitewing",
+          "Blazamut"
+        ],
+        [
+          "Nitewing",
+          "Blazamut Ryu"
+        ],
+        [
+          "Nitewing",
+          "Bellanoir"
+        ],
+        [
+          "Nitewing",
+          "Bellanoir Libero"
+        ],
+        [
+          "Sweepa",
+          "Blazamut"
+        ],
+        [
+          "Sweepa",
+          "Blazamut Ryu"
+        ],
+        [
+          "Sweepa",
+          "Bellanoir"
+        ],
+        [
+          "Sweepa",
+          "Bellanoir Libero"
+        ],
+        [
+          "Azurmane",
+          "Suzaku Aqua"
+        ],
+        [
+          "Azurmane",
+          "Blazamut"
+        ],
+        [
+          "Azurmane",
+          "Blazamut Ryu"
+        ],
+        [
+          "Mossanda Lux",
+          "Suzaku Aqua"
+        ],
+        [
+          "Ragnahawk",
+          "Suzaku"
+        ],
+        [
+          "Ragnahawk",
+          "Suzaku Aqua"
+        ],
+        [
+          "Faleris",
+          "Shadowbeak"
+        ],
+        [
+          "Faleris",
+          "Suzaku"
+        ],
+        [
+          "Starryon",
+          "Shadowbeak"
+        ],
+        [
+          "Starryon",
+          "Suzaku"
+        ],
+        [
+          "Pyrin",
+          "Necromus"
+        ],
+        [
+          "Pyrin",
+          "Shadowbeak"
+        ],
+        [
+          "Pyrin",
+          "Suzaku"
+        ],
+        [
+          "Prixter",
+          "Necromus"
+        ],
+        [
+          "Prixter",
+          "Shadowbeak"
+        ],
+        [
+          "Prixter",
+          "Suzaku"
+        ],
+        [
+          "Quivern",
+          "Paladius"
+        ],
+        [
+          "Quivern",
+          "Necromus"
+        ],
+        [
+          "Quivern",
+          "Shadowbeak"
+        ],
+        [
+          "Selyne",
+          "Paladius"
+        ],
+        [
+          "Selyne",
+          "Necromus"
+        ],
+        [
+          "Selyne",
+          "Shadowbeak"
+        ],
+        [
+          "Warsect",
+          "Jetragon"
+        ],
+        [
+          "Warsect",
+          "Neptilius"
+        ],
+        [
+          "Warsect",
+          "Paladius"
+        ],
+        [
+          "Warsect",
+          "Necromus"
+        ],
+        [
+          "Quivern Botan",
+          "Jetragon"
+        ],
+        [
+          "Quivern Botan",
+          "Neptilius"
+        ],
+        [
+          "Quivern Botan",
+          "Paladius"
+        ],
+        [
+          "Quivern Botan",
+          "Necromus"
+        ],
+        [
+          "Braloha",
+          "Jetragon"
+        ],
+        [
+          "Braloha",
+          "Neptilius"
+        ],
+        [
+          "Braloha",
+          "Paladius"
+        ],
+        [
+          "Braloha",
+          "Necromus"
+        ],
+        [
+          "Elizabee",
+          "Frostallion Noct"
+        ],
+        [
+          "Elizabee",
+          "Jetragon"
+        ],
+        [
+          "Elizabee",
+          "Neptilius"
+        ],
+        [
+          "Elizabee",
+          "Paladius"
+        ],
+        [
+          "Reptyro",
+          "Frostallion Noct"
+        ],
+        [
+          "Reptyro",
+          "Jetragon"
+        ],
+        [
+          "Reptyro",
+          "Neptilius"
+        ],
+        [
+          "Jormuntide Ignis",
+          "Frostallion Noct"
+        ],
+        [
+          "Jormuntide Ignis",
+          "Jetragon"
+        ],
+        [
+          "Jormuntide Ignis",
+          "Neptilius"
+        ],
+        [
+          "Jormuntide",
+          "Frostallion"
+        ],
+        [
+          "Jormuntide",
+          "Frostallion Noct"
+        ],
+        [
+          "Mammorest",
+          "Cryolinx"
+        ],
+        [
+          "Mammorest",
+          "Frostallion"
+        ],
+        [
+          "Mammorest Cryst",
+          "Orserk"
+        ],
+        [
+          "Mammorest Cryst",
+          "Cryolinx"
+        ],
+        [
+          "Mammorest Cryst",
+          "Frostallion"
+        ],
+        [
+          "Relaxaurus",
+          "Astegon"
+        ],
+        [
+          "Relaxaurus",
+          "Orserk"
+        ],
+        [
+          "Relaxaurus",
+          "Cryolinx"
+        ],
+        [
+          "Warsect Terra",
+          "Astegon"
+        ],
+        [
+          "Warsect Terra",
+          "Orserk"
+        ],
+        [
+          "Warsect Terra",
+          "Cryolinx"
+        ],
+        [
+          "Relaxaurus Lux",
+          "Cryolinx Terra"
+        ],
+        [
+          "Relaxaurus Lux",
+          "Astegon"
+        ],
+        [
+          "Relaxaurus Lux",
+          "Orserk"
+        ],
+        [
+          "Knocklem",
+          "Cryolinx Terra"
+        ],
+        [
+          "Knocklem",
+          "Astegon"
+        ],
+        [
+          "Knocklem",
+          "Orserk"
+        ],
+        [
+          "Xenolord",
+          "Cryolinx Terra"
+        ],
+        [
+          "Xenolord",
+          "Astegon"
+        ],
+        [
+          "Xenolord",
+          "Orserk"
+        ],
+        [
+          "Menasting",
+          "Bastigor"
+        ],
+        [
+          "Menasting",
+          "Cryolinx Terra"
+        ],
+        [
+          "Menasting",
+          "Astegon"
+        ],
+        [
+          "Menasting Terra",
+          "Helzephyr Lux"
+        ],
+        [
+          "Menasting Terra",
+          "Bastigor"
+        ],
+        [
+          "Menasting Terra",
+          "Cryolinx Terra"
+        ],
+        [
+          "Lyleen",
+          "Helzephyr Lux"
+        ],
+        [
+          "Lyleen",
+          "Bastigor"
+        ],
+        [
+          "Lyleen",
+          "Cryolinx Terra"
+        ],
+        [
+          "Faleris Aqua",
+          "Helzephyr Lux"
+        ],
+        [
+          "Faleris Aqua",
+          "Bastigor"
+        ],
+        [
+          "Faleris Aqua",
+          "Cryolinx Terra"
+        ],
+        [
+          "Pyrin Noct",
+          "Helzephyr"
+        ],
+        [
+          "Pyrin Noct",
+          "Helzephyr Lux"
+        ],
+        [
+          "Pyrin Noct",
+          "Bastigor"
+        ],
+        [
+          "Reptyro Cryst",
+          "Grizzbolt"
+        ],
+        [
+          "Reptyro Cryst",
+          "Helzephyr"
+        ],
+        [
+          "Reptyro Cryst",
+          "Helzephyr Lux"
+        ],
+        [
+          "Beakon",
+          "Lyleen Noct"
+        ],
+        [
+          "Beakon",
+          "Grizzbolt"
+        ],
+        [
+          "Silvegis",
+          "Silvegis"
+        ],
+        [
+          "Silvegis",
+          "Lyleen Noct"
+        ],
+        [
+          "Silvegis",
+          "Grizzbolt"
+        ],
+        [
+          "Silvegis",
+          "Helzephyr"
+        ],
+        [
+          "Lyleen Noct",
+          "Grizzbolt"
+        ]
+      ],
       "spawnAreas": []
     },
     "210": {
@@ -20071,7 +30855,284 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Chikipi",
+          "Verdash"
+        ],
+        [
+          "Illuminant Slime",
+          "Verdash"
+        ],
+        [
+          "Teafant",
+          "Robinquill Terra"
+        ],
+        [
+          "Blue Slime",
+          "Robinquill Terra"
+        ],
+        [
+          "Mau",
+          "Felbat"
+        ],
+        [
+          "Lamball",
+          "Robinquill"
+        ],
+        [
+          "Cattiva",
+          "Galeclaw"
+        ],
+        [
+          "Cattiva",
+          "Gorirat Terra"
+        ],
+        [
+          "Cremis",
+          "Galeclaw"
+        ],
+        [
+          "Cremis",
+          "Gorirat Terra"
+        ],
+        [
+          "Vixy",
+          "Gorirat"
+        ],
+        [
+          "Herbil",
+          "Gorirat"
+        ],
+        [
+          "Mau Cryst",
+          "Vaelet"
+        ],
+        [
+          "Lifmunk",
+          "Direhowl"
+        ],
+        [
+          "Green Slime",
+          "Direhowl"
+        ],
+        [
+          "Hangyu Cryst",
+          "Beegarde"
+        ],
+        [
+          "Hangyu Cryst",
+          "Turtacle Terra"
+        ],
+        [
+          "Hangyu",
+          "Beegarde"
+        ],
+        [
+          "Hangyu",
+          "Turtacle Terra"
+        ],
+        [
+          "Sparkit",
+          "Cawgnito"
+        ],
+        [
+          "Flambelle",
+          "Cawgnito"
+        ],
+        [
+          "Red Slime",
+          "Cawgnito"
+        ],
+        [
+          "Foxparks",
+          "Gobfin"
+        ],
+        [
+          "Jellroy",
+          "Gobfin"
+        ],
+        [
+          "Hoocrates",
+          "Gobfin Ignis"
+        ],
+        [
+          "Purple Slime",
+          "Gobfin Ignis"
+        ],
+        [
+          "Demon Eye",
+          "Gobfin Ignis"
+        ],
+        [
+          "Jelliette",
+          "Turtacle"
+        ],
+        [
+          "Jelliette",
+          "Gobfin Ignis"
+        ],
+        [
+          "Depresso",
+          "Lunaris"
+        ],
+        [
+          "Depresso",
+          "Turtacle"
+        ],
+        [
+          "Enchanted Sword",
+          "Lunaris"
+        ],
+        [
+          "Enchanted Sword",
+          "Turtacle"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Lunaris"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Turtacle"
+        ],
+        [
+          "Jolthog",
+          "Leezpunk"
+        ],
+        [
+          "Jolthog",
+          "Dazzi Noct"
+        ],
+        [
+          "Jolthog Cryst",
+          "Rushoar"
+        ],
+        [
+          "Jolthog Cryst",
+          "Kikit"
+        ],
+        [
+          "Pengullet",
+          "Leezpunk Ignis"
+        ],
+        [
+          "Tocotoco",
+          "Maraith"
+        ],
+        [
+          "Tocotoco",
+          "Wixen Noct"
+        ],
+        [
+          "Cave Bat",
+          "Maraith"
+        ],
+        [
+          "Cave Bat",
+          "Wixen Noct"
+        ],
+        [
+          "Munchill",
+          "Rooby"
+        ],
+        [
+          "Munchill",
+          "Maraith"
+        ],
+        [
+          "Munchill",
+          "Wixen Noct"
+        ],
+        [
+          "Fuack",
+          "Wixen"
+        ],
+        [
+          "Fuack",
+          "Rooby"
+        ],
+        [
+          "Pengullet Lux",
+          "Nox"
+        ],
+        [
+          "Ribbuny",
+          "Nox"
+        ],
+        [
+          "Foxparks Cryst",
+          "Nox"
+        ],
+        [
+          "Swee",
+          "Woolipop"
+        ],
+        [
+          "Finsider",
+          "Gloopie"
+        ],
+        [
+          "Finsider",
+          "Woolipop"
+        ],
+        [
+          "Fuack Ignis",
+          "Mimog"
+        ],
+        [
+          "Fuack Ignis",
+          "Gloopie"
+        ],
+        [
+          "Killamari",
+          "Mimog"
+        ],
+        [
+          "Killamari",
+          "Gloopie"
+        ],
+        [
+          "Flopie",
+          "Dazzi"
+        ],
+        [
+          "Flopie",
+          "Ribbuny Botan"
+        ],
+        [
+          "Kelpsea Ignis",
+          "Fuddler"
+        ],
+        [
+          "Kelpsea",
+          "Daedream"
+        ],
+        [
+          "Finsider Ignis",
+          "Daedream"
+        ],
+        [
+          "Tanzee",
+          "Gumoss"
+        ],
+        [
+          "Killamari Primo",
+          "Gumoss"
+        ],
+        [
+          "Illuminant Bat",
+          "Gumoss"
+        ],
+        [
+          "Smokie",
+          "Smokie"
+        ],
+        [
+          "Smokie",
+          "Gumoss"
+        ]
+      ],
       "spawnAreas": []
     },
     "211": {
@@ -20159,7 +31220,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Fire"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Cawgnito"
+        ],
+        [
+          "Anubis",
+          "Penking"
+        ],
+        [
+          "Arsox",
+          "Mammorest"
+        ],
+        [
+          "Astegon",
+          "Lovander"
+        ],
+        [
+          "Azurobe",
+          "Incineram"
+        ],
+        [
+          "Beakon",
+          "Celaray"
+        ],
+        [
+          "Blazamut",
+          "Cawgnito"
+        ],
+        [
+          "Blazehowl",
+          "Ragnahawk"
+        ],
+        [
+          "Blazehowl Noct",
+          "Nitewing"
+        ],
+        [
+          "Broncherry",
+          "Ice Reptyro"
+        ],
+        [
+          "Broncherry",
+          "Reptyro Cryst"
+        ],
+        [
+          "Broncherry Aqua",
+          "Lyleen"
+        ]
+      ],
       "spawnAreas": []
     },
     "212": {
@@ -20243,7 +31353,600 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Vixy",
+          "Bellanoir"
+        ],
+        [
+          "Vixy",
+          "Bellanoir Libero"
+        ],
+        [
+          "Herbil",
+          "Blazamut Ryu"
+        ],
+        [
+          "Herbil",
+          "Bellanoir"
+        ],
+        [
+          "Herbil",
+          "Bellanoir Libero"
+        ],
+        [
+          "Mau Cryst",
+          "Blazamut"
+        ],
+        [
+          "Mau Cryst",
+          "Blazamut Ryu"
+        ],
+        [
+          "Hangyu Cryst",
+          "Suzaku Aqua"
+        ],
+        [
+          "Hangyu",
+          "Suzaku Aqua"
+        ],
+        [
+          "Foxparks",
+          "Suzaku"
+        ],
+        [
+          "Jellroy",
+          "Suzaku"
+        ],
+        [
+          "Hoocrates",
+          "Shadowbeak"
+        ],
+        [
+          "Purple Slime",
+          "Shadowbeak"
+        ],
+        [
+          "Demon Eye",
+          "Shadowbeak"
+        ],
+        [
+          "Jelliette",
+          "Shadowbeak"
+        ],
+        [
+          "Depresso",
+          "Necromus"
+        ],
+        [
+          "Enchanted Sword",
+          "Necromus"
+        ],
+        [
+          "Eye of Cthulhu",
+          "Necromus"
+        ],
+        [
+          "Jolthog",
+          "Paladius"
+        ],
+        [
+          "Jolthog Cryst",
+          "Jetragon"
+        ],
+        [
+          "Jolthog Cryst",
+          "Neptilius"
+        ],
+        [
+          "Pengullet",
+          "Frostallion Noct"
+        ],
+        [
+          "Fuack",
+          "Frostallion"
+        ],
+        [
+          "Bristla",
+          "Cryolinx"
+        ],
+        [
+          "Rainbow Slime",
+          "Cryolinx"
+        ],
+        [
+          "Pengullet Lux",
+          "Orserk"
+        ],
+        [
+          "Ribbuny",
+          "Orserk"
+        ],
+        [
+          "Foxparks Cryst",
+          "Orserk"
+        ],
+        [
+          "Swee",
+          "Astegon"
+        ],
+        [
+          "Finsider",
+          "Astegon"
+        ],
+        [
+          "Fuack Ignis",
+          "Cryolinx Terra"
+        ],
+        [
+          "Killamari",
+          "Cryolinx Terra"
+        ],
+        [
+          "Flopie",
+          "Bastigor"
+        ],
+        [
+          "Kelpsea Ignis",
+          "Helzephyr Lux"
+        ],
+        [
+          "Kelpsea",
+          "Helzephyr"
+        ],
+        [
+          "Finsider Ignis",
+          "Helzephyr"
+        ],
+        [
+          "Tanzee",
+          "Grizzbolt"
+        ],
+        [
+          "Killamari Primo",
+          "Grizzbolt"
+        ],
+        [
+          "Illuminant Bat",
+          "Grizzbolt"
+        ],
+        [
+          "Smokie",
+          "Grizzbolt"
+        ],
+        [
+          "Gumoss",
+          "Lyleen Noct"
+        ],
+        [
+          "Daedream",
+          "Beakon"
+        ],
+        [
+          "Daedream",
+          "Silvegis"
+        ],
+        [
+          "Fuddler",
+          "Reptyro Cryst"
+        ],
+        [
+          "Dazzi",
+          "Pyrin Noct"
+        ],
+        [
+          "Ribbuny Botan",
+          "Faleris Aqua"
+        ],
+        [
+          "Ribbuny Botan",
+          "Pyrin Noct"
+        ],
+        [
+          "Mimog",
+          "Menasting Terra"
+        ],
+        [
+          "Mimog",
+          "Lyleen"
+        ],
+        [
+          "Mimog",
+          "Faleris Aqua"
+        ],
+        [
+          "Gloopie",
+          "Menasting Terra"
+        ],
+        [
+          "Gloopie",
+          "Lyleen"
+        ],
+        [
+          "Woolipop",
+          "Menasting"
+        ],
+        [
+          "Nox",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Nox",
+          "Knocklem"
+        ],
+        [
+          "Nox",
+          "Xenolord"
+        ],
+        [
+          "Wixen",
+          "Mammorest Cryst"
+        ],
+        [
+          "Rooby",
+          "Mammorest Cryst"
+        ],
+        [
+          "Maraith",
+          "Mammorest"
+        ],
+        [
+          "Wixen Noct",
+          "Mammorest"
+        ],
+        [
+          "Leezpunk Ignis",
+          "Jormuntide"
+        ],
+        [
+          "Rushoar",
+          "Reptyro"
+        ],
+        [
+          "Rushoar",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Kikit",
+          "Reptyro"
+        ],
+        [
+          "Leezpunk",
+          "Elizabee"
+        ],
+        [
+          "Dazzi Noct",
+          "Braloha"
+        ],
+        [
+          "Dazzi Noct",
+          "Elizabee"
+        ],
+        [
+          "Lunaris",
+          "Warsect"
+        ],
+        [
+          "Lunaris",
+          "Quivern Botan"
+        ],
+        [
+          "Lunaris",
+          "Braloha"
+        ],
+        [
+          "Turtacle",
+          "Selyne"
+        ],
+        [
+          "Turtacle",
+          "Warsect"
+        ],
+        [
+          "Turtacle",
+          "Quivern Botan"
+        ],
+        [
+          "Gobfin Ignis",
+          "Quivern"
+        ],
+        [
+          "Gobfin Ignis",
+          "Selyne"
+        ],
+        [
+          "Gobfin",
+          "Pyrin"
+        ],
+        [
+          "Gobfin",
+          "Prixter"
+        ],
+        [
+          "Cawgnito",
+          "Faleris"
+        ],
+        [
+          "Cawgnito",
+          "Starryon"
+        ],
+        [
+          "Beegarde",
+          "Ragnahawk"
+        ],
+        [
+          "Turtacle Terra",
+          "Ragnahawk"
+        ],
+        [
+          "Direhowl",
+          "Mossanda Lux"
+        ],
+        [
+          "Vaelet",
+          "Azurmane"
+        ],
+        [
+          "Gorirat",
+          "Sweepa"
+        ],
+        [
+          "Galeclaw",
+          "Nitewing"
+        ],
+        [
+          "Gorirat Terra",
+          "Nitewing"
+        ],
+        [
+          "Robinquill",
+          "Mossanda"
+        ],
+        [
+          "Robinquill",
+          "Whalaska Ignis"
+        ],
+        [
+          "Felbat",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Felbat",
+          "Xenogard"
+        ],
+        [
+          "Robinquill Terra",
+          "Sibelyx"
+        ],
+        [
+          "Robinquill Terra",
+          "Whalaska"
+        ],
+        [
+          "Verdash",
+          "Wumpo"
+        ],
+        [
+          "Verdash",
+          "Palumba"
+        ],
+        [
+          "Fenglope",
+          "Kingpaca"
+        ],
+        [
+          "Fenglope",
+          "Xenovader"
+        ],
+        [
+          "Loupmoon",
+          "Azurobe"
+        ],
+        [
+          "Yakumo",
+          "Gildane"
+        ],
+        [
+          "Yakumo",
+          "Ghangler Ignis"
+        ],
+        [
+          "Yakumo",
+          "Azurobe"
+        ],
+        [
+          "Lovander",
+          "Grintale"
+        ],
+        [
+          "Lovander",
+          "Gildane"
+        ],
+        [
+          "Lovander",
+          "Ghangler Ignis"
+        ],
+        [
+          "Caprity",
+          "Penking"
+        ],
+        [
+          "Eikthyrdeer",
+          "Elphidran Aqua"
+        ],
+        [
+          "Eikthyrdeer",
+          "Ghangler"
+        ],
+        [
+          "Mozzarina",
+          "Elphidran"
+        ],
+        [
+          "Lullu",
+          "Sootseer"
+        ],
+        [
+          "Lullu",
+          "Elphidran"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Surfent Terra"
+        ],
+        [
+          "Eikthyrdeer Terra",
+          "Sootseer"
+        ],
+        [
+          "Dumud",
+          "Surfent Terra"
+        ],
+        [
+          "Melpaca",
+          "Surfent"
+        ],
+        [
+          "Reindrix",
+          "Anubis"
+        ],
+        [
+          "Celaray",
+          "Incineram Noct"
+        ],
+        [
+          "Broncherry",
+          "Incineram"
+        ],
+        [
+          "Caprity Noct",
+          "Incineram"
+        ],
+        [
+          "Dumud Gild",
+          "Incineram"
+        ],
+        [
+          "Broncherry Aqua",
+          "Icelyn"
+        ],
+        [
+          "Celaray Lux",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Kitsun",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Tarantriss",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Dinossom",
+          "Omascul"
+        ],
+        [
+          "Celesdir",
+          "Omascul"
+        ],
+        [
+          "Dinossom Lux",
+          "Bushi"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Nyafia"
+        ],
+        [
+          "Loupmoon Cryst",
+          "Bushi"
+        ],
+        [
+          "Chillet",
+          "Bushi Noct"
+        ],
+        [
+          "Chillet",
+          "Nyafia"
+        ],
+        [
+          "Croajiro",
+          "Frostplume"
+        ],
+        [
+          "Arsox",
+          "Vanwyrm"
+        ],
+        [
+          "Arsox",
+          "Frostplume"
+        ],
+        [
+          "Chillet Ignis",
+          "Vanwyrm"
+        ],
+        [
+          "Chillet Ignis",
+          "Frostplume"
+        ],
+        [
+          "Petallia",
+          "Blazehowl Noct"
+        ],
+        [
+          "Petallia",
+          "Dogen"
+        ],
+        [
+          "Croajiro Noct",
+          "Univolt"
+        ],
+        [
+          "Foxcicle",
+          "Katress Ignis"
+        ],
+        [
+          "Prunelia",
+          "Katress Ignis"
+        ],
+        [
+          "Tombat",
+          "Katress"
+        ],
+        [
+          "Polapup",
+          "Nitemary"
+        ],
+        [
+          "Polapup",
+          "Katress"
+        ],
+        [
+          "Rayhound",
+          "Blazehowl"
+        ],
+        [
+          "Rayhound",
+          "Nitemary"
+        ],
+        [
+          "Kitsun Noct",
+          "Blazehowl"
+        ],
+        [
+          "Shroomer Noct",
+          "Shroomer"
+        ],
+        [
+          "Splatterina",
+          "Splatterina"
+        ],
+        [
+          "Splatterina",
+          "Shroomer"
+        ]
+      ],
       "spawnAreas": []
     },
     "213": {
@@ -20325,7 +32028,588 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Rayhound",
+          "Bellanoir"
+        ],
+        [
+          "Rayhound",
+          "Bellanoir Libero"
+        ],
+        [
+          "Kitsun Noct",
+          "Blazamut Ryu"
+        ],
+        [
+          "Kitsun Noct",
+          "Bellanoir"
+        ],
+        [
+          "Kitsun Noct",
+          "Bellanoir Libero"
+        ],
+        [
+          "Shroomer Noct",
+          "Blazamut"
+        ],
+        [
+          "Shroomer Noct",
+          "Blazamut Ryu"
+        ],
+        [
+          "Shroomer Noct",
+          "Bellanoir"
+        ],
+        [
+          "Shroomer Noct",
+          "Bellanoir Libero"
+        ],
+        [
+          "Splatterina",
+          "Blazamut"
+        ],
+        [
+          "Splatterina",
+          "Blazamut Ryu"
+        ],
+        [
+          "Splatterina",
+          "Bellanoir"
+        ],
+        [
+          "Splatterina",
+          "Bellanoir Libero"
+        ],
+        [
+          "Shroomer",
+          "Blazamut"
+        ],
+        [
+          "Shroomer",
+          "Blazamut Ryu"
+        ],
+        [
+          "Blazehowl",
+          "Suzaku Aqua"
+        ],
+        [
+          "Nitemary",
+          "Suzaku Aqua"
+        ],
+        [
+          "Katress",
+          "Suzaku Aqua"
+        ],
+        [
+          "Katress Ignis",
+          "Suzaku"
+        ],
+        [
+          "Univolt",
+          "Shadowbeak"
+        ],
+        [
+          "Univolt",
+          "Suzaku"
+        ],
+        [
+          "Dazemu",
+          "Shadowbeak"
+        ],
+        [
+          "Dazemu",
+          "Suzaku"
+        ],
+        [
+          "Blazehowl Noct",
+          "Necromus"
+        ],
+        [
+          "Blazehowl Noct",
+          "Shadowbeak"
+        ],
+        [
+          "Dogen",
+          "Necromus"
+        ],
+        [
+          "Dogen",
+          "Shadowbeak"
+        ],
+        [
+          "Vanwyrm",
+          "Paladius"
+        ],
+        [
+          "Vanwyrm",
+          "Necromus"
+        ],
+        [
+          "Frostplume",
+          "Paladius"
+        ],
+        [
+          "Frostplume",
+          "Necromus"
+        ],
+        [
+          "Bushi Noct",
+          "Jetragon"
+        ],
+        [
+          "Bushi Noct",
+          "Neptilius"
+        ],
+        [
+          "Bushi Noct",
+          "Paladius"
+        ],
+        [
+          "Nyafia",
+          "Jetragon"
+        ],
+        [
+          "Nyafia",
+          "Neptilius"
+        ],
+        [
+          "Nyafia",
+          "Paladius"
+        ],
+        [
+          "Bushi",
+          "Frostallion Noct"
+        ],
+        [
+          "Bushi",
+          "Jetragon"
+        ],
+        [
+          "Bushi",
+          "Neptilius"
+        ],
+        [
+          "Omascul",
+          "Frostallion Noct"
+        ],
+        [
+          "Vanwyrm Cryst",
+          "Frostallion"
+        ],
+        [
+          "Icelyn",
+          "Cryolinx"
+        ],
+        [
+          "Icelyn",
+          "Frostallion"
+        ],
+        [
+          "Incineram",
+          "Astegon"
+        ],
+        [
+          "Incineram",
+          "Orserk"
+        ],
+        [
+          "Incineram Noct",
+          "Cryolinx Terra"
+        ],
+        [
+          "Incineram Noct",
+          "Astegon"
+        ],
+        [
+          "Anubis",
+          "Bastigor"
+        ],
+        [
+          "Anubis",
+          "Cryolinx Terra"
+        ],
+        [
+          "Surfent",
+          "Helzephyr Lux"
+        ],
+        [
+          "Surfent",
+          "Bastigor"
+        ],
+        [
+          "Surfent Terra",
+          "Helzephyr"
+        ],
+        [
+          "Surfent Terra",
+          "Helzephyr Lux"
+        ],
+        [
+          "Sootseer",
+          "Helzephyr"
+        ],
+        [
+          "Sootseer",
+          "Helzephyr Lux"
+        ],
+        [
+          "Elphidran",
+          "Grizzbolt"
+        ],
+        [
+          "Elphidran",
+          "Helzephyr"
+        ],
+        [
+          "Elphidran Aqua",
+          "Lyleen Noct"
+        ],
+        [
+          "Elphidran Aqua",
+          "Grizzbolt"
+        ],
+        [
+          "Ghangler",
+          "Silvegis"
+        ],
+        [
+          "Ghangler",
+          "Lyleen Noct"
+        ],
+        [
+          "Ghangler",
+          "Grizzbolt"
+        ],
+        [
+          "Penking",
+          "Beakon"
+        ],
+        [
+          "Penking",
+          "Silvegis"
+        ],
+        [
+          "Penking",
+          "Lyleen Noct"
+        ],
+        [
+          "Grintale",
+          "Reptyro Cryst"
+        ],
+        [
+          "Grintale",
+          "Beakon"
+        ],
+        [
+          "Grintale",
+          "Silvegis"
+        ],
+        [
+          "Gildane",
+          "Reptyro Cryst"
+        ],
+        [
+          "Gildane",
+          "Beakon"
+        ],
+        [
+          "Ghangler Ignis",
+          "Reptyro Cryst"
+        ],
+        [
+          "Ghangler Ignis",
+          "Beakon"
+        ],
+        [
+          "Azurobe",
+          "Pyrin Noct"
+        ],
+        [
+          "Azurobe",
+          "Reptyro Cryst"
+        ],
+        [
+          "Penking Lux",
+          "Menasting Terra"
+        ],
+        [
+          "Penking Lux",
+          "Lyleen"
+        ],
+        [
+          "Penking Lux",
+          "Faleris Aqua"
+        ],
+        [
+          "Penking Lux",
+          "Pyrin Noct"
+        ],
+        [
+          "Cinnamoth",
+          "Menasting Terra"
+        ],
+        [
+          "Cinnamoth",
+          "Lyleen"
+        ],
+        [
+          "Cinnamoth",
+          "Faleris Aqua"
+        ],
+        [
+          "Cinnamoth",
+          "Pyrin Noct"
+        ],
+        [
+          "Azurobe Cryst",
+          "Menasting"
+        ],
+        [
+          "Azurobe Cryst",
+          "Menasting Terra"
+        ],
+        [
+          "Azurobe Cryst",
+          "Lyleen"
+        ],
+        [
+          "Azurobe Cryst",
+          "Faleris Aqua"
+        ],
+        [
+          "Wumpo Botan",
+          "Menasting"
+        ],
+        [
+          "Wumpo Botan",
+          "Menasting Terra"
+        ],
+        [
+          "Wumpo Botan",
+          "Lyleen"
+        ],
+        [
+          "Wumpo Botan",
+          "Faleris Aqua"
+        ],
+        [
+          "Kingpaca",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Kingpaca",
+          "Knocklem"
+        ],
+        [
+          "Kingpaca",
+          "Xenolord"
+        ],
+        [
+          "Kingpaca",
+          "Menasting"
+        ],
+        [
+          "Xenovader",
+          "Warsect Terra"
+        ],
+        [
+          "Xenovader",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Xenovader",
+          "Knocklem"
+        ],
+        [
+          "Xenovader",
+          "Xenolord"
+        ],
+        [
+          "Xenovader",
+          "Menasting"
+        ],
+        [
+          "Wumpo",
+          "Relaxaurus"
+        ],
+        [
+          "Wumpo",
+          "Warsect Terra"
+        ],
+        [
+          "Wumpo",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Wumpo",
+          "Knocklem"
+        ],
+        [
+          "Wumpo",
+          "Xenolord"
+        ],
+        [
+          "Palumba",
+          "Relaxaurus"
+        ],
+        [
+          "Palumba",
+          "Warsect Terra"
+        ],
+        [
+          "Palumba",
+          "Relaxaurus Lux"
+        ],
+        [
+          "Sibelyx",
+          "Mammorest Cryst"
+        ],
+        [
+          "Sibelyx",
+          "Relaxaurus"
+        ],
+        [
+          "Sibelyx",
+          "Warsect Terra"
+        ],
+        [
+          "Whalaska",
+          "Mammorest Cryst"
+        ],
+        [
+          "Whalaska",
+          "Relaxaurus"
+        ],
+        [
+          "Kingpaca Cryst",
+          "Mammorest"
+        ],
+        [
+          "Kingpaca Cryst",
+          "Mammorest Cryst"
+        ],
+        [
+          "Xenogard",
+          "Mammorest"
+        ],
+        [
+          "Xenogard",
+          "Mammorest Cryst"
+        ],
+        [
+          "Mossanda",
+          "Jormuntide"
+        ],
+        [
+          "Mossanda",
+          "Mammorest"
+        ],
+        [
+          "Whalaska Ignis",
+          "Jormuntide"
+        ],
+        [
+          "Whalaska Ignis",
+          "Mammorest"
+        ],
+        [
+          "Nitewing",
+          "Reptyro"
+        ],
+        [
+          "Nitewing",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Nitewing",
+          "Jormuntide"
+        ],
+        [
+          "Sweepa",
+          "Elizabee"
+        ],
+        [
+          "Sweepa",
+          "Reptyro"
+        ],
+        [
+          "Sweepa",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Azurmane",
+          "Warsect"
+        ],
+        [
+          "Azurmane",
+          "Quivern Botan"
+        ],
+        [
+          "Azurmane",
+          "Braloha"
+        ],
+        [
+          "Azurmane",
+          "Elizabee"
+        ],
+        [
+          "Mossanda Lux",
+          "Quivern"
+        ],
+        [
+          "Mossanda Lux",
+          "Selyne"
+        ],
+        [
+          "Mossanda Lux",
+          "Warsect"
+        ],
+        [
+          "Mossanda Lux",
+          "Quivern Botan"
+        ],
+        [
+          "Mossanda Lux",
+          "Braloha"
+        ],
+        [
+          "Ragnahawk",
+          "Pyrin"
+        ],
+        [
+          "Ragnahawk",
+          "Prixter"
+        ],
+        [
+          "Ragnahawk",
+          "Quivern"
+        ],
+        [
+          "Ragnahawk",
+          "Selyne"
+        ],
+        [
+          "Faleris",
+          "Starryon"
+        ],
+        [
+          "Faleris",
+          "Pyrin"
+        ],
+        [
+          "Faleris",
+          "Prixter"
+        ],
+        [
+          "Starryon",
+          "Starryon"
+        ],
+        [
+          "Starryon",
+          "Pyrin"
+        ]
+      ],
       "spawnAreas": []
     },
     "214": {
@@ -20410,7 +32694,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Anubis",
+          "Cawgnito"
+        ],
+        [
+          "Arsox",
+          "Broncherry"
+        ],
+        [
+          "Astegon",
+          "Chikipi"
+        ],
+        [
+          "Azurobe",
+          "Maraith"
+        ],
+        [
+          "Azurobe",
+          "Wixen Noct"
+        ],
+        [
+          "Beakon",
+          "Green Slime"
+        ],
+        [
+          "Beakon",
+          "Lifmunk"
+        ],
+        [
+          "Beegarde",
+          "Incineram Noct"
+        ],
+        [
+          "Blazehowl",
+          "Lovander"
+        ],
+        [
+          "Blazehowl Noct",
+          "Fenglope"
+        ],
+        [
+          "Bristla",
+          "Elizabee"
+        ],
+        [
+          "Broncherry",
+          "Chillet Ignis"
+        ]
+      ],
       "spawnAreas": []
     },
     "215": {
@@ -20617,7 +32950,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dragon"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Broncherry"
+        ],
+        [
+          "Anubis",
+          "Mammorest"
+        ],
+        [
+          "Arsox",
+          "Paladius"
+        ],
+        [
+          "Astegon",
+          "Shroomer"
+        ],
+        [
+          "Azurobe",
+          "Faleris"
+        ],
+        [
+          "Azurobe Cryst",
+          "Mossanda Lux"
+        ],
+        [
+          "Beakon",
+          "Bushi Noct"
+        ],
+        [
+          "Blazamut",
+          "Broncherry"
+        ],
+        [
+          "Blazehowl Noct",
+          "Grizzbolt"
+        ],
+        [
+          "Broncherry Aqua",
+          "Suzaku Aqua"
+        ],
+        [
+          "Bushi",
+          "Ice Reptyro"
+        ],
+        [
+          "Bushi",
+          "Reptyro Cryst"
+        ]
+      ],
       "spawnAreas": []
     },
     "218": {
@@ -20699,7 +33081,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Eikthyrdeer"
+        ],
+        [
+          "Anubis",
+          "Pyrin"
+        ],
+        [
+          "Arsox",
+          "Orserk"
+        ],
+        [
+          "Astegon",
+          "Petallia"
+        ],
+        [
+          "Azurobe",
+          "Mossanda"
+        ],
+        [
+          "Azurobe",
+          "Neptilius"
+        ],
+        [
+          "Azurobe",
+          "Whalaska Ignis"
+        ],
+        [
+          "Azurobe Cryst",
+          "Sibelyx"
+        ],
+        [
+          "Beakon",
+          "Blazehowl"
+        ],
+        [
+          "Blazamut",
+          "Eikthyrdeer"
+        ],
+        [
+          "Blazehowl Noct",
+          "Menasting"
+        ],
+        [
+          "Broncherry",
+          "Necromus"
+        ]
+      ],
       "spawnAreas": []
     },
     "219": {
@@ -20780,7 +33211,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Neutral"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Hangyu Cryst",
+          "Xenovader"
+        ],
+        [
+          "Anubis",
+          "Bristla"
+        ],
+        [
+          "Arsox",
+          "Gobfin Ignis"
+        ],
+        [
+          "Azurobe",
+          "Demon Eye"
+        ],
+        [
+          "Azurobe",
+          "Hoocrates"
+        ],
+        [
+          "Azurobe",
+          "Purple Slime"
+        ],
+        [
+          "Azurobe Cryst",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Azurobe Cryst",
+          "Sparkit"
+        ],
+        [
+          "Beegarde",
+          "Dinossom"
+        ],
+        [
+          "Blazehowl",
+          "Nox"
+        ],
+        [
+          "Blazehowl Noct",
+          "Fuddler"
+        ],
+        [
+          "Broncherry",
+          "Galeclaw"
+        ]
+      ],
       "spawnAreas": []
     },
     "221": {
@@ -20857,7 +33337,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": 1240.0,
         "type1": "Grass",
-        "type2": "Ground"
+        "type2": "Ground",
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [
         "Grass",
@@ -20952,7 +33433,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Arsox",
+          "Ghangler Ignis"
+        ],
+        [
+          "Azurobe",
+          "Croajiro"
+        ],
+        [
+          "Broncherry",
+          "Xenogard"
+        ],
+        [
+          "Broncherry Aqua",
+          "Palumba"
+        ],
+        [
+          "Bushi",
+          "Frostplume"
+        ],
+        [
+          "Celaray Lux",
+          "Xenovader"
+        ],
+        [
+          "Chillet Ignis",
+          "Ghangler Ignis"
+        ],
+        [
+          "Croajiro Noct",
+          "Elphidran Aqua"
+        ],
+        [
+          "Dazemu",
+          "Vanwyrm Cryst"
+        ],
+        [
+          "Digtoise",
+          "Whalaska"
+        ],
+        [
+          "Dumud Gild",
+          "Ice Kingpaca"
+        ],
+        [
+          "Fenglope",
+          "Jormuntide Ignis"
+        ]
+      ],
       "spawnAreas": []
     },
     "223": {
@@ -21037,7 +33567,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Caprity",
+          "Tarantriss"
+        ],
+        [
+          "Caprity Noct",
+          "Caprity Noct"
+        ]
+      ],
       "spawnAreas": []
     },
     "224": {
@@ -21127,7 +33666,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ground"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Cryolinx",
+          "Dazemu"
+        ],
+        [
+          "Cryolinx Terra",
+          "Cryolinx Terra"
+        ]
+      ],
       "spawnAreas": []
     },
     "225": {
@@ -21208,7 +33756,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ground"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Blazamut Ryu",
+          "Cave Bat"
+        ],
+        [
+          "Blazamut Ryu",
+          "Tocotoco"
+        ],
+        [
+          "Anubis",
+          "Petallia"
+        ],
+        [
+          "Arsox",
+          "Surfent"
+        ],
+        [
+          "Astegon",
+          "Mimog"
+        ],
+        [
+          "Azurobe",
+          "Digtoise"
+        ],
+        [
+          "Azurobe Cryst",
+          "Celaray"
+        ],
+        [
+          "Beakon",
+          "Rushoar"
+        ],
+        [
+          "Beegarde",
+          "Relaxaurus"
+        ],
+        [
+          "Blazamut",
+          "Cave Bat"
+        ],
+        [
+          "Blazamut",
+          "Tocotoco"
+        ],
+        [
+          "Blazehowl",
+          "Bushi"
+        ]
+      ],
       "spawnAreas": []
     },
     "226": {
@@ -21295,7 +33892,16 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Dazzi",
+          "Omascul"
+        ],
+        [
+          "Dazzi Noct",
+          "Dazzi Noct"
+        ]
+      ],
       "spawnAreas": []
     },
     "227": {
@@ -21323,7 +33929,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breeding": {
         "power": null,
         "type1": null,
-        "type2": null
+        "type2": null,
+        "note": "Currently event-exclusive; no breeding combinations available."
       },
       "types": [],
       "localImage": null,
@@ -21498,7 +34105,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Fire"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Azurobe Cryst",
+          "Dumud"
+        ],
+        [
+          "Beakon",
+          "Rooby"
+        ],
+        [
+          "Blazehowl",
+          "Dogen"
+        ],
+        [
+          "Braloha",
+          "Gorirat"
+        ],
+        [
+          "Caprity",
+          "Whalaska"
+        ],
+        [
+          "Celaray",
+          "Ghangler Ignis"
+        ],
+        [
+          "Celaray Lux",
+          "Sootseer"
+        ],
+        [
+          "Croajiro",
+          "Incineram Noct"
+        ],
+        [
+          "Dazemu",
+          "Katress"
+        ],
+        [
+          "Digtoise",
+          "Ghangler"
+        ],
+        [
+          "Direhowl",
+          "Jormuntide Ignis"
+        ],
+        [
+          "Dumud",
+          "Wumpo Botan"
+        ]
+      ],
       "spawnAreas": []
     },
     "230": {
@@ -21581,7 +34237,56 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Ground"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Hangyu Cryst",
+          "Tarantriss"
+        ],
+        [
+          "Arsox",
+          "Cattiva"
+        ],
+        [
+          "Beegarde",
+          "Nox"
+        ],
+        [
+          "Bristla",
+          "Caprity"
+        ],
+        [
+          "Broncherry",
+          "Demon Eye"
+        ],
+        [
+          "Broncherry",
+          "Hoocrates"
+        ],
+        [
+          "Broncherry",
+          "Purple Slime"
+        ],
+        [
+          "Broncherry Aqua",
+          "Kingpaca Cryst"
+        ],
+        [
+          "Broncherry Aqua",
+          "Sparkit"
+        ],
+        [
+          "Cattiva",
+          "Chillet Ignis"
+        ],
+        [
+          "Cave Bat",
+          "Mozzarina"
+        ],
+        [
+          "Celaray",
+          "Depresso"
+        ]
+      ],
       "spawnAreas": []
     },
     "231": {
@@ -21841,12 +34546,52 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": null,
       "breedingCombos": [
         [
-          "Ribbuny",
-          "Bristla"
+          "Beegarde",
+          "Cave Bat"
         ],
         [
-          "Ribbuny Botan",
-          "Ribbuny Botan"
+          "Beegarde",
+          "Tocotoco"
+        ],
+        [
+          "Bristla",
+          "Gobfin"
+        ],
+        [
+          "Caprity",
+          "Mau"
+        ],
+        [
+          "Cattiva",
+          "Loupmoon"
+        ],
+        [
+          "Cawgnito",
+          "Fuack"
+        ],
+        [
+          "Chikipi",
+          "Mozzarina"
+        ],
+        [
+          "Daedream",
+          "Nox"
+        ],
+        [
+          "Dazzi",
+          "Mimog"
+        ],
+        [
+          "Demon Eye",
+          "Robinquill"
+        ],
+        [
+          "Depresso",
+          "Galeclaw"
+        ],
+        [
+          "Depresso",
+          "Gorirat Terra"
         ]
       ],
       "spawnAreas": []
@@ -21930,7 +34675,12 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dragon"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Xenolord",
+          "Xenolord"
+        ]
+      ],
       "spawnAreas": []
     }
   },
@@ -30929,7 +43679,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
     },
     "Legend": {
       "name": "Legend",
-      "description": "Rank 3. Attack +20% Defense +20% Movement Speed increases 15%. Naturally found on Frostallion. This Passive Skill is guaranteed on Legendary Pals , but may be bred down to non-Legendary Pals.",
+      "description": "Rank 3. Attack +20% Defense +20% Movement Speed increases 15%. Naturally found on Frostallion and Frostallion Noct. This Passive Skill is guaranteed on Legendary Pals , but may be bred down to non-Legendary Pals.",
       "effect": "Attack +20% Defense +20% Movement Speed increases 15%",
       "source": "https://palworld.wiki.gg/wiki/Passive_Skills",
       "rank": 3,
@@ -30939,7 +43689,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Movement Speed": "+15%"
       },
       "naturalOn": [
-        "Frostallion"
+        "Frostallion",
+        "Frostallion Noct"
       ],
       "notes": "This Passive Skill is guaranteed on Legendary Pals , but may be bred down to non-Legendary Pals."
     },
