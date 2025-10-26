@@ -342,10 +342,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breedingCombos": [
         [
           "Chikipi",
-          "Teafant"
-        ],
-        [
-          "Chikipi",
           "Chikipi"
         ]
       ],
@@ -14350,52 +14346,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/108_paladius.png",
       "breedingCombos": [
         [
-          "Blazamut",
-          "Orserk"
-        ],
-        [
-          "Frostallion",
-          "Suzaku Aqua"
-        ],
-        [
-          "Frostallion Noct",
-          "Suzaku"
-        ],
-        [
-          "Jetragon",
-          "Shadowbeak"
-        ],
-        [
-          "Necromus",
+          "Paladius",
           "Paladius"
-        ],
-        [
-          "Astegon",
-          "Bellanoir"
-        ],
-        [
-          "Astegon",
-          "Bellanoir Libero"
-        ],
-        [
-          "Astegon",
-          "Blazamut Ryu"
-        ],
-        [
-          "Astegon",
-          "Blazamut"
-        ],
-        [
-          "Cryolinx",
-          "Suzaku Aqua"
-        ],
-        [
-          "Frostallion Noct",
-          "Shadowbeak"
-        ],
-        [
-          "Jetragon",
-          "Necromus"
         ]
       ],
       "spawnAreas": [
@@ -14484,36 +14436,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/109_necromus.png",
       "breedingCombos": [
         [
-          "Blazamut Ryu",
-          "Cryolinx"
-        ],
-        [
-          "Blazamut",
-          "Cryolinx"
-        ],
-        [
-          "Jetragon",
-          "Suzaku"
-        ],
-        [
           "Necromus",
           "Necromus"
-        ],
-        [
-          "Paladius",
-          "Shadowbeak"
-        ],
-        [
-          "Bellanoir",
-          "Orserk"
-        ],
-        [
-          "Bellanoir Libero",
-          "Orserk"
-        ],
-        [
-          "Blazamut Ryu",
-          "Orserk"
         ]
       ],
       "spawnAreas": [
@@ -14602,52 +14526,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/110_frostallion.png",
       "breedingCombos": [
         [
-          "Astegon",
-          "Necromus"
-        ],
-        [
-          "Blazamut",
-          "Lyleen Noct"
-        ],
-        [
-          "Cryolinx",
-          "Jetragon"
-        ],
-        [
           "Frostallion",
-          "Frostallion Noct"
-        ],
-        [
-          "Helzephyr",
-          "Suzaku Aqua"
-        ],
-        [
-          "Orserk",
-          "Paladius"
-        ],
-        [
-          "Beakon",
-          "Bellanoir"
-        ],
-        [
-          "Beakon",
-          "Bellanoir Libero"
-        ],
-        [
-          "Beakon",
-          "Blazamut Ryu"
-        ],
-        [
-          "Astegon",
-          "Paladius"
-        ],
-        [
-          "Beakon",
-          "Blazamut"
-        ],
-        [
-          "Cryolinx",
-          "Frostallion Noct"
+          "Frostallion"
         ]
       ],
       "spawnAreas": [
@@ -14737,51 +14617,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": "assets/pals/111_jetragon.png",
       "breedingCombos": [
         [
-          "Astegon",
-          "Suzaku Aqua"
-        ],
-        [
-          "Cryolinx",
-          "Suzaku"
-        ],
-        [
-          "Frostallion",
-          "Shadowbeak"
-        ],
-        [
-          "Frostallion Noct",
-          "Paladius"
-        ],
-        [
           "Jetragon",
-          "Jetragon"
-        ],
-        [
-          "Bellanoir",
-          "Helzephyr Lux"
-        ],
-        [
-          "Bellanoir Libero",
-          "Helzephyr Lux"
-        ],
-        [
-          "Blazamut Ryu",
-          "Helzephyr Lux"
-        ],
-        [
-          "Blazamut",
-          "Helzephyr Lux"
-        ],
-        [
-          "Cryolinx",
-          "Shadowbeak"
-        ],
-        [
-          "Frostallion",
-          "Necromus"
-        ],
-        [
-          "Frostallion Noct",
           "Jetragon"
         ]
       ],
@@ -25968,7 +25804,12 @@ window.__PALMATE_EMBEDDED_DATA__ = {
         "Dark"
       ],
       "localImage": null,
-      "breedingCombos": [],
+      "breedingCombos": [
+        [
+          "Bellanoir Libero",
+          "Bellanoir Libero"
+        ]
+      ],
       "spawnAreas": []
     },
     "186": {
@@ -26058,10 +25899,6 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "breedingCombos": [
         [
           "Blazamut Ryu",
-          "Blazamut Ryu"
-        ],
-        [
-          "Blazamut",
           "Blazamut Ryu"
         ]
       ],
@@ -27298,52 +27135,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": null,
       "breedingCombos": [
         [
-          "Beegarde",
-          "Fuack"
-        ],
-        [
-          "Bristla",
-          "Cawgnito"
-        ],
-        [
-          "Caprity",
-          "Lamball"
-        ],
-        [
-          "Cattiva",
-          "Lovander"
-        ],
-        [
-          "Cave Bat",
-          "Direhowl"
-        ],
-        [
-          "Chikipi",
-          "Eikthyrdeer Terra"
-        ],
-        [
-          "Cremis",
-          "Yakumo"
-        ],
-        [
-          "Dazzi",
-          "Woolipop"
-        ],
-        [
-          "Demon Eye",
-          "Felbat"
-        ],
-        [
-          "Depresso",
-          "Robinquill"
-        ],
-        [
-          "Direhowl",
-          "Tocotoco"
-        ],
-        [
-          "Eikthyrdeer",
-          "Mau"
+          "Mimog",
+          "Mimog"
         ]
       ],
       "spawnAreas": []
@@ -32952,52 +32745,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": null,
       "breedingCombos": [
         [
-          "Blazamut Ryu",
-          "Broncherry"
-        ],
-        [
-          "Anubis",
-          "Mammorest"
-        ],
-        [
-          "Arsox",
-          "Paladius"
-        ],
-        [
-          "Astegon",
-          "Shroomer"
-        ],
-        [
-          "Azurobe",
-          "Faleris"
-        ],
-        [
-          "Azurobe Cryst",
-          "Mossanda Lux"
-        ],
-        [
-          "Beakon",
-          "Bushi Noct"
-        ],
-        [
-          "Blazamut",
-          "Broncherry"
-        ],
-        [
-          "Blazehowl Noct",
-          "Grizzbolt"
-        ],
-        [
-          "Broncherry Aqua",
-          "Suzaku Aqua"
-        ],
-        [
-          "Bushi",
-          "Ice Reptyro"
-        ],
-        [
-          "Bushi",
-          "Reptyro Cryst"
+          "Xenogard",
+          "Xenogard"
         ]
       ],
       "spawnAreas": []
@@ -33083,52 +32832,8 @@ window.__PALMATE_EMBEDDED_DATA__ = {
       "localImage": null,
       "breedingCombos": [
         [
-          "Blazamut Ryu",
-          "Eikthyrdeer"
-        ],
-        [
-          "Anubis",
-          "Pyrin"
-        ],
-        [
-          "Arsox",
-          "Orserk"
-        ],
-        [
-          "Astegon",
-          "Petallia"
-        ],
-        [
-          "Azurobe",
-          "Mossanda"
-        ],
-        [
-          "Azurobe",
-          "Neptilius"
-        ],
-        [
-          "Azurobe",
-          "Whalaska Ignis"
-        ],
-        [
-          "Azurobe Cryst",
-          "Sibelyx"
-        ],
-        [
-          "Beakon",
-          "Blazehowl"
-        ],
-        [
-          "Blazamut",
-          "Eikthyrdeer"
-        ],
-        [
-          "Blazehowl Noct",
-          "Menasting"
-        ],
-        [
-          "Broncherry",
-          "Necromus"
+          "Xenovader",
+          "Xenovader"
         ]
       ],
       "spawnAreas": []
