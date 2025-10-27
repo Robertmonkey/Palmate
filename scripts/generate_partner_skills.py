@@ -93,7 +93,11 @@ def main() -> None:
     markdown = fetch_markdown()
     records = parse_partner_skills(markdown)
     OUTPUT_PATH.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Wrote {len(records)} partner skills to {OUTPUT_PATH.relative_to(Path.cwd())}")
+    try:
+        display_path = OUTPUT_PATH.relative_to(Path.cwd())
+    except ValueError:
+        display_path = OUTPUT_PATH
+    print(f"Wrote {len(records)} partner skills to {display_path}")
 
 
 if __name__ == "__main__":

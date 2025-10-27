@@ -32,6 +32,7 @@ import json
 import re
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
+from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup, Tag
@@ -65,11 +66,12 @@ def humanise_key(key: str) -> str:
 def absolute_url(src: Optional[str]) -> Optional[str]:
     if not src:
         return None
-    if src.startswith("http://") or src.startswith("https://"):
-        return src
-    if not src.startswith("/"):
-        return src
-    return f"{BASE_URL}{src}"
+    normalized = src.strip()
+    if not normalized:
+        return None
+    if normalized.startswith(("http://", "https://")):
+        return normalized
+    return urljoin(f"{BASE_URL}/", normalized)
 
 
 ItemDetail = Dict[str, Any]
@@ -158,13 +160,14 @@ def ensure_absolute(url: Optional[str]) -> Optional[str]:
 
     if not url:
         return None
-    if url.startswith("http://") or url.startswith("https://"):
-        return url
-    if url.startswith("//"):
-        return f"https:{url}"
-    if url.startswith("/"):
-        return f"https://palworld.fandom.com{url}"
-    return url
+    normalized = url.strip()
+    if not normalized:
+        return None
+    if normalized.startswith(("http://", "https://")):
+        return normalized
+    if normalized.startswith("//"):
+        return f"https:{normalized}"
+    return urljoin("https://palworld.fandom.com/", normalized)
 
 
 def extract_paragraphs(nodes: Iterable[Tag], limit: int = 2) -> List[str]:
