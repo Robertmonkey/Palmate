@@ -35738,7 +35738,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "techPoints": 2,
           "description": "Unlocks the recipe for Metal Pickaxe.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/stone_Pickaxe.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Metal_Pickaxe.png"
         },
         {
           "id": "high-quality-workbench",
@@ -38281,7 +38281,7 @@ window.__PALMATE_EMBEDDED_DATA__ = {
           "techPoints": 2,
           "description": "Unlocks the recipe for Refined Metal Pickaxe.",
           "isAncient": false,
-          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Stone_Pickaxe.png"
+          "image": "https://palworld.fandom.com/wiki/Special:FilePath/Refined_Metal_Pickaxe.png"
         },
         {
           "id": "refined-metal-spear",
